@@ -3,7 +3,7 @@ import WhatsAppButton from './WhatsAppButton.astro';
 ---
 
 <div class='bg-white'>
-  <header class='absolute inset-x-0 top-0 z-50'>
+  <header class='fixed inset-x-0 top-0 z-50 bg-white border-b border-gray-200'>
     <nav
       aria-label='Global'
       class='mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8'>
@@ -43,26 +43,32 @@ import WhatsAppButton from './WhatsAppButton.astro';
           </svg>
         </button>
       </div>
-      <div class='hidden lg:flex lg:gap-x-12'>
+      <div class='hidden lg:flex lg:gap-x-12 lg:items-center'>
         <a
-          href='#'
+          href='#servicios'
           class='text-sm/6 font-semibold text-gray-900'
-          >Product</a
+          >Servicios</a
         >
         <a
-          href='#'
+          href='#proceso'
           class='text-sm/6 font-semibold text-gray-900'
-          >Features</a
+          >Proceso</a
         >
         <a
-          href='#'
+          href='#sobre-mi'
           class='text-sm/6 font-semibold text-gray-900'
-          >Marketplace</a
+          >Sobre mí</a
         >
         <a
-          href='#'
+          href='#contacto'
           class='text-sm/6 font-semibold text-gray-900'
-          >Company</a
+          >Contacto</a
+        >
+        <span class='text-gray-300'>|</span>
+        <a
+          href='tel:+34692051399'
+          class='text-sm/6 font-semibold text-indigo-600 hover:text-indigo-700'
+          >+34 692 051 399</a
         >
       </div>
     </nav>
@@ -113,25 +119,32 @@ import WhatsAppButton from './WhatsAppButton.astro';
               <div class='-my-6 divide-y divide-gray-500/10'>
                 <div class='space-y-2 py-6'>
                   <a
-                    href='#'
+                    href='#servicios'
                     class='-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50'
-                    >Product</a
+                    >Servicios</a
                   >
                   <a
-                    href='#'
+                    href='#proceso'
                     class='-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50'
-                    >Features</a
+                    >Proceso</a
                   >
                   <a
-                    href='#'
+                    href='#sobre-mi'
                     class='-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50'
-                    >Marketplace</a
+                    >Sobre mí</a
                   >
                   <a
-                    href='#'
+                    href='#contacto'
                     class='-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50'
-                    >Company</a
+                    >Contacto</a
                   >
+                  <div class='border-t border-gray-200 pt-4 mt-4'>
+                    <a
+                      href='tel:+34692051399'
+                      class='-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-indigo-600 hover:bg-indigo-50'
+                      >+34 692 051 399</a
+                    >
+                  </div>
                 </div>
               </div>
             </div>
