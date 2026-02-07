@@ -43,8 +43,7 @@
     </p>
     <div class='mt-8 flex flex-col gap-16 sm:gap-y-20 lg:flex-row'>
       <form
-        action='#'
-        method='POST'
+        id='contact-form'
         class='lg:flex-auto'>
         <div class='grid grid-cols-1 gap-x-6 gap-y-4'>
           <div>
@@ -103,11 +102,63 @@
         <div class='mt-6'>
           <button
             type='submit'
-            class='block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+            id='submit-btn'
+            class='block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:opacity-50 disabled:cursor-not-allowed'
             >Hablemos de tu negocio</button
           >
+        </div>
+        <div id='form-message' class='mt-4 hidden'>
+          <p class='text-sm'></p>
         </div>
       </form>
     </div>
   </div>
 </div>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const messageDiv = document.getElementById('form-message') as HTMLDivElement;
+  const messageP = messageDiv.querySelector('p') as HTMLParagraphElement;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const formData = new FormData(form);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      message: formData.get('message'),
+    };
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Enviando...';
+    messageDiv.classList.add('hidden');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        messageP.textContent = '¡Mensaje enviado correctamente! Te responderé pronto.';
+        messageP.className = 'text-sm text-green-600';
+        form.reset();
+      } else {
+        messageP.textContent = result.error || 'Error al enviar el mensaje. Inténtalo de nuevo.';
+        messageP.className = 'text-sm text-red-600';
+      }
+    } catch (error) {
+      messageP.textContent = 'Error de conexión. Por favor, inténtalo más tarde.';
+      messageP.className = 'text-sm text-red-600';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Hablemos de tu negocio';
+      messageDiv.classList.remove('hidden');
+    }
+  });
+</script>
