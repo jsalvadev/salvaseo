@@ -17,3 +17,24 @@
   /* Warm White - Background */
   --color-warm-white: #FAFAF8;
 }
+
+/* Smooth scrolling for navigation links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Disable smooth scrolling for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Scroll offset for sections to account for fixed header
+   Header height is ~73px (p-6 = 24px top + 24px bottom + content ~25px) */
+#sobre-mi,
+#servicios,
+#proceso,
+#contacto {
+  scroll-margin-top: 80px;
+}

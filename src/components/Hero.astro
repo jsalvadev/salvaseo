@@ -228,3 +228,22 @@ import WhatsAppButton from './WhatsAppButton.astro';
     </div>
   </div>
 </div>
+
+<script>
+  // Close mobile menu when clicking navigation links
+  document.addEventListener('DOMContentLoaded', () => {
+    const mobileDialog = document.getElementById('mobile-menu') as HTMLDialogElement;
+    const mobileNavLinks = document.querySelectorAll('#mobile-menu a[href^="#"]');
+
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        // Small delay to allow smooth scroll to initiate before closing
+        setTimeout(() => {
+          if (mobileDialog && mobileDialog.open) {
+            mobileDialog.close();
+          }
+        }, 100);
+      });
+    });
+  });
+</script>
