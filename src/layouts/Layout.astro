@@ -12,7 +12,7 @@ interface Props {
 const {
   title = 'Consultor SEO Local en Barcelona | SalvaSEO',
   description = 'Consultor SEO freelance en Barcelona. Ayudo a negocios locales a aparecer en Google con SEO local, Google Business Profile y estrategia personalizada.',
-  noindex = false,
+  noindex = false
 } = Astro.props
 ---
 
@@ -48,11 +48,13 @@ const {
     />
     <meta
       name='robots'
-      content={noindex ? 'noindex, nofollow' : 'index, follow, max-snippet:-1, max-image-preview:large'}
+      content={noindex ? 'noindex, nofollow' : (
+        'index, follow, max-snippet:-1, max-image-preview:large'
+      )}
     />
 
     <!-- JSON-LD Structured Data for SEO -->
-    <script type="application/ld+json">
+    <script type='application/ld+json'>
       {
         "@context": "https://schema.org",
         "@graph": [
@@ -101,9 +103,7 @@ const {
               "email": "salvadorjesus.seo@gmail.com",
               "telephone": "+34 692 051 399",
               "image": "https://salvaseo.com/about-me.png",
-              "sameAs": [
-                "https://www.instagram.com/salvadorjesus.seo/"
-              ]
+              "sameAs": ["https://www.instagram.com/salva_seo/"]
             },
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
@@ -135,9 +135,7 @@ const {
                 }
               ]
             },
-            "sameAs": [
-              "https://www.instagram.com/salvadorjesus.seo/"
-            ]
+            "sameAs": ["https://www.instagram.com/salva_seo/"]
           },
           {
             "@type": "WebSite",
@@ -171,7 +169,7 @@ const {
       }
     </script>
 
-    <script type="application/ld+json">
+    <script type='application/ld+json'>
       {
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -231,7 +229,7 @@ const {
     </script>
 
     <script>
-      import '@tailwindplus/elements';
+      import '@tailwindplus/elements'
     </script>
   </head>
   <body>
