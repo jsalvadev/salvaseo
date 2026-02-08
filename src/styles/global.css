@@ -1,1 +1,19 @@
 @import "tailwindcss";
+
+@theme {
+  /* Petrol Blue (Azul Petróleo) - Primary */
+  --color-petrol-50: #F7F9FA;
+  --color-petrol-100: #EEF3F5;
+  --color-petrol-600: #3A6D82;
+  --color-petrol-700: #2A5566;
+  --color-petrol-900: #1A3C4A;
+
+  /* Warm Amber - Accent */
+  --color-amber-100: #FDF3E7;
+  --color-amber-500: #EFA44D;
+  --color-amber-600: #E08A2E;
+  --color-amber-700: #C77722;
+
+  /* Warm White - Background */
+  --color-warm-white: #FAFAF8;
+}
