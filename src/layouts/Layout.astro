@@ -77,7 +77,7 @@ import '../styles/global.css'
               "telephone": "+34 692 051 399",
               "email": "salvadorjesus.seo@gmail.com",
               "contactType": "customer service",
-              "availableLanguage": ["Spanish", "Catalan"]
+              "availableLanguage": ["Spanish"]
             },
             "founder": {
               "@type": "Person",
@@ -223,7 +223,9 @@ import '../styles/global.css'
     </script>
   </head>
   <body>
-    <slot />
+    <main>
+      <slot />
+    </main>
     <StatsBand />
     <Footer />
   </body>
