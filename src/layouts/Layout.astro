@@ -2,6 +2,18 @@
 import Footer from '../components/Footer.astro'
 import StatsBand from '../components/StatsBand.astro'
 import '../styles/global.css'
+
+interface Props {
+  title?: string
+  description?: string
+  noindex?: boolean
+}
+
+const {
+  title = 'Consultor SEO Local en Barcelona | SalvaSEO',
+  description = 'Consultor SEO freelance en Barcelona. Ayudo a negocios locales a aparecer en Google con SEO local, Google Business Profile y estrategia personalizada.',
+  noindex = false,
+} = Astro.props
 ---
 
 <!doctype html>
@@ -25,10 +37,10 @@ import '../styles/global.css'
       name='generator'
       content={Astro.generator}
     />
-    <title>Consultor SEO Local en Barcelona | SalvaSEO</title>
+    <title>{title}</title>
     <meta
       name='description'
-      content='Consultor SEO freelance en Barcelona. Ayudo a negocios locales a aparecer en Google con SEO local, Google Business Profile y estrategia personalizada.'
+      content={description}
     />
     <link
       rel='canonical'
@@ -36,7 +48,7 @@ import '../styles/global.css'
     />
     <meta
       name='robots'
-      content='index, follow, max-snippet:-1, max-image-preview:large'
+      content={noindex ? 'noindex, nofollow' : 'index, follow, max-snippet:-1, max-image-preview:large'}
     />
 
     <!-- JSON-LD Structured Data for SEO -->
