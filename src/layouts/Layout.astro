@@ -39,6 +39,185 @@ import '../styles/global.css'
       content='index, follow, max-snippet:-1, max-image-preview:large'
     />
 
+    <!-- JSON-LD Structured Data for SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://salvaseo.com/#business",
+            "name": "SalvaSEO — Salvador Jesús",
+            "alternateName": "SalvaSEO",
+            "description": "Consultor SEO freelance en Barcelona. Ayudo a negocios locales a aparecer en Google con SEO local, Google Business Profile y estrategia personalizada.",
+            "url": "https://salvaseo.com/",
+            "telephone": "+34 692 051 399",
+            "email": "salvadorjesus.seo@gmail.com",
+            "priceRange": "€€",
+            "image": "https://salvaseo.com/logo.png",
+            "logo": "https://salvaseo.com/logo.png",
+            "areaServed": {
+              "@type": "City",
+              "name": "Barcelona",
+              "sameAs": "https://es.wikipedia.org/wiki/Barcelona"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Barcelona",
+              "addressRegion": "Cataluña",
+              "addressCountry": "ES"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 41.3874,
+              "longitude": 2.1686
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+34 692 051 399",
+              "email": "salvadorjesus.seo@gmail.com",
+              "contactType": "customer service",
+              "availableLanguage": ["Spanish", "Catalan"]
+            },
+            "founder": {
+              "@type": "Person",
+              "@id": "https://salvaseo.com/#founder",
+              "name": "Salvador Jesús",
+              "jobTitle": "Consultor SEO Local",
+              "url": "https://salvaseo.com/",
+              "worksFor": { "@id": "https://salvaseo.com/#business" },
+              "email": "salvadorjesus.seo@gmail.com",
+              "telephone": "+34 692 051 399",
+              "image": "https://salvaseo.com/about-me.png",
+              "sameAs": [
+                "https://www.instagram.com/salvadorjesus.seo/"
+              ]
+            },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Servicios de SEO Local",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Gestión de Google Business Profile",
+                    "description": "Optimización completa de tu ficha de Google para que aparezca en búsquedas locales y Google Maps. Incluye configuración, contenido y estrategia de visibilidad."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "SEO Local en tu web",
+                    "description": "Trabajo de contenido y estructura web para mejorar el posicionamiento local. Optimización para conversiones y llamadas desde búsquedas locales."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Reseñas, citaciones y autoridad local",
+                    "description": "Estrategia para aumentar la confianza y autoridad de tu negocio mediante reseñas, citaciones en directorios locales y señales de relevancia para Google."
+                  }
+                }
+              ]
+            },
+            "sameAs": [
+              "https://www.instagram.com/salvadorjesus.seo/"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://salvaseo.com/#website",
+            "url": "https://salvaseo.com/",
+            "name": "SalvaSEO — Consultor SEO Local en Barcelona",
+            "description": "Consultor SEO freelance en Barcelona especializado en SEO local para negocios",
+            "publisher": {
+              "@id": "https://salvaseo.com/#business"
+            },
+            "inLanguage": "es"
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://salvaseo.com/#webpage",
+            "url": "https://salvaseo.com/",
+            "name": "Consultor SEO Local en Barcelona | SalvaSEO",
+            "description": "Consultor SEO freelance en Barcelona. Ayudo a negocios locales a aparecer en Google con SEO local, Google Business Profile y estrategia personalizada.",
+            "isPartOf": {
+              "@id": "https://salvaseo.com/#website"
+            },
+            "about": {
+              "@id": "https://salvaseo.com/#business"
+            },
+            "datePublished": "2025-01-15",
+            "dateModified": "2025-02-08",
+            "mainEntity": { "@id": "https://salvaseo.com/#faq" },
+            "inLanguage": "es"
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "@id": "https://salvaseo.com/#faq",
+        "mainEntityOfPage": { "@id": "https://salvaseo.com/#webpage" },
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Cuánto tiempo tarda en funcionar el SEO local para un negocio en Barcelona?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Depende de dónde partes, de tu competencia y de la zona. Los primeros movimientos suelen notarse entre las 4 y 8 semanas. Los resultados que de verdad importan, los que traen llamadas y contactos, llegan entre el tercer y sexto mes. No es rápido, pero cuando se hace bien se mantiene."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuánto cuesta contratar un consultor SEO local en Barcelona?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No tengo tarifas fijas ni packs cerrados. Lo que necesita un restaurante en Gràcia no tiene nada que ver con lo que necesita una clínica en Sarrià. Por eso siempre empezamos con una consultoría gratuita: miro tu caso, te digo qué tiene sentido y te paso una propuesta clara. Sin letra pequeña, sin permanencias."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Necesito tener una web para trabajar el SEO local?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sí. Google Business Profile ayuda mucho, pero sin una web bien trabajada te quedas a medias. La web es donde tu cliente aterriza, entiende lo que haces y decide si te contacta o se va. Si no tienes web o la tuya necesita un repaso, también puedo ayudarte con eso antes de meternos con el posicionamiento."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué diferencia hay entre un consultor SEO freelance y una agencia SEO?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Que cuando trabajas conmigo, trabajas conmigo. No hay intermediarios ni departamentos. Eso me permite conocer tu negocio de cerca, responder rápido y cambiar la estrategia cuando hace falta sin pasar por varias reuniones. Para un negocio local, esa cercanía se nota."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué pasa si ya tengo ficha de Google Business Profile pero no aparezco en las búsquedas locales?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Es más común de lo que crees. Muchas fichas están incompletas, mal configuradas o sin actividad desde hace meses. Parte de lo que hago es revisar tu ficha, optimizarla y asegurarme de que Google entiende qué ofreces, dónde estás y por qué debería mostrarte cuando alguien busca lo que tú haces en Barcelona."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿El SEO local funciona para cualquier tipo de negocio en Barcelona?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Funciona especialmente bien para negocios que viven de su zona: clínicas, talleres, restaurantes, despachos, estudios... Si tus clientes te buscan cerca, el SEO local te ayuda a aparecer en Google Maps, en el pack local y en las búsquedas de tu barrio. Y si en la consultoría inicial veo que para tu caso no tiene sentido, te lo digo. Prefiero ser honesto a venderte algo que no te va a servir."
+            }
+          }
+        ]
+      }
+    </script>
+
     <script>
       import '@tailwindplus/elements';
     </script>
