@@ -197,8 +197,34 @@ import WhatsAppButton from './WhatsAppButton.astro';
         />
       </div>
     </div>
-    <div
-      class='absolute inset-x-0 bottom-0 -z-10 h-24 bg-linear-to-t from-white sm:h-32'>
+    <div class='absolute inset-x-0 bottom-0 -z-10'>
+      <svg
+        class='w-full h-24 sm:h-32'
+        viewBox='0 0 1200 120'
+        preserveAspectRatio='none'
+        xmlns='http://www.w3.org/2000/svg'>
+        <defs>
+          <linearGradient
+            id='wave-gradient'
+            x1='0%'
+            y1='0%'
+            x2='0%'
+            y2='100%'>
+            <stop
+              offset='0%'
+              style='stop-color:transparent;stop-opacity:1'
+            />
+            <stop
+              offset='100%'
+              style='stop-color:#ffffff;stop-opacity:1'
+            />
+          </linearGradient>
+        </defs>
+        <path
+          d='M0,0 C300,60 600,60 900,0 C1050,30 1125,30 1200,0 L1200,120 L0,120 Z'
+          fill='url(#wave-gradient)'
+        ></path>
+      </svg>
     </div>
   </div>
 </div>

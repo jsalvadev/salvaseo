@@ -2,7 +2,31 @@
 import WhatsAppButton from './WhatsAppButton.astro'
 ---
 
-<div class='bg-petrol-100'>
+<div class='relative isolate bg-petrol-100'>
+  <svg
+    aria-hidden='true'
+    class='absolute inset-0 -z-10 size-full'>
+    <defs>
+      <pattern
+        id='cta-dots-pattern'
+        width='32'
+        height='32'
+        patternUnits='userSpaceOnUse'>
+        <circle
+          cx='16'
+          cy='16'
+          r='1.5'
+          fill='currentColor'
+          class='text-petrol-600/20'
+        ></circle>
+      </pattern>
+    </defs>
+    <rect
+      width='100%'
+      height='100%'
+      fill='url(#cta-dots-pattern)'
+    ></rect>
+  </svg>
   <div
     class='mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:flex lg:items-center lg:justify-between lg:px-8'>
     <div>
