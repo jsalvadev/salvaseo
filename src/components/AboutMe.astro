@@ -1,3 +1,7 @@
+---
+import aboutMeImage from '../assets/about-me.webp';
+---
+
 <div id='sobre-mi' class='bg-white py-24 md:py-32'>
   <div
     class='mx-auto grid max-w-7xl grid-cols-1 gap-20 px-6 lg:px-8 xl:grid-cols-5'>
@@ -28,7 +32,9 @@
       class='divide-y divide-gray-200 xl:col-span-3'>
       <li class='flex flex-col gap-10 py-12 first:pt-0 last:pb-0 sm:flex-row'>
         <img
-          src='/about-me.png'
+          src={aboutMeImage.src}
+          width={aboutMeImage.width}
+          height={aboutMeImage.height}
           alt='Salvador Jesús'
           class='aspect-4/5 w-52 flex-none rounded-2xl object-cover outline-1 -outline-offset-1 outline-black/5'
         />
