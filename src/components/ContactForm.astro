@@ -1,4 +1,6 @@
-<div id='contacto' class='relative isolate bg-white px-6 py-12 sm:py-16 lg:px-8'>
+<div
+  id='contacto'
+  class='relative isolate bg-white px-6 py-12 sm:py-16 lg:px-8'>
   <svg
     aria-hidden='true'
     class='absolute inset-0 -z-10 size-full mask-[radial-gradient(100%_100%_at_top_right,white,transparent)] stroke-gray-200'>
@@ -33,7 +35,7 @@
     ></rect>
   </svg>
   <div class='mx-auto max-w-7xl'>
-    <div class='grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-[3fr_2fr]'>
+    <div class='grid grid-cols-1 gap-x-15 gap-y-10 lg:grid-cols-[2fr_2fr]'>
       <!-- Left Column: Form -->
       <div>
         <h2
@@ -41,92 +43,99 @@
           Cuéntame qué necesitas
         </h2>
         <p class='mt-2 text-lg/8 text-petrol-900'>
-          Explícame tu situación y qué te gustaría conseguir. <strong>Sin compromiso, sin
-          presión.</strong> Solo una conversación para ver si tiene sentido trabajar juntos.
+          Explícame tu situación y qué te gustaría conseguir. <strong
+            >Sin compromiso, sin presión.</strong
+          > Solo una conversación para ver si tiene sentido trabajar juntos.
         </p>
         <form
           id='contact-form'
           class='mt-8'>
-        <div class='grid grid-cols-1 gap-x-6 gap-y-4'>
-          <div>
-            <label
-              for='name'
-              class='block text-sm/6 font-semibold text-petrol-900'
-              >Nombre (opcional)</label
-            >
-            <div class='mt-1.5'>
-              <input
-                id='name'
-                type='text'
-                name='name'
-                autocomplete='name'
-                placeholder='Cómo te llamas'
-                class='block w-full rounded-md bg-white px-3 py-1.5 text-base text-petrol-900 outline-1 -outline-offset-1 outline-gray-300 backdrop-blur-sm placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-amber-600'
-              />
+          <div class='grid grid-cols-1 gap-x-6 gap-y-4'>
+            <div>
+              <label
+                for='name'
+                class='block text-sm/6 font-semibold text-petrol-900'
+                >Nombre (opcional)</label
+              >
+              <div class='mt-1.5'>
+                <input
+                  id='name'
+                  type='text'
+                  name='name'
+                  autocomplete='name'
+                  placeholder='Cómo te llamas'
+                  class='block w-full rounded-md bg-white px-3 py-1.5 text-base text-petrol-900 outline-1 -outline-offset-1 outline-gray-300 backdrop-blur-sm placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-amber-600'
+                />
+              </div>
+            </div>
+            <div>
+              <label
+                for='email'
+                class='block text-sm/6 font-semibold text-petrol-900'
+                >Email *</label
+              >
+              <div class='mt-1.5'>
+                <input
+                  id='email'
+                  type='email'
+                  name='email'
+                  autocomplete='email'
+                  required
+                  placeholder='tu@email.com'
+                  class='block w-full rounded-md bg-white px-3 py-1.5 text-base text-petrol-900 outline-1 -outline-offset-1 outline-gray-300 backdrop-blur-sm placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-amber-600'
+                />
+              </div>
+            </div>
+            <div>
+              <label
+                for='message'
+                class='block text-sm/6 font-semibold text-petrol-900'
+                >Mensaje *</label
+              >
+              <div class='mt-1.5'>
+                <textarea
+                  id='message'
+                  name='message'
+                  rows='4'
+                  required
+                  placeholder='Tu negocio, tu zona, qué te preocupa…'
+                  class='block w-full rounded-md bg-white px-3 py-1.5 text-base text-petrol-900 outline-1 -outline-offset-1 outline-gray-300 backdrop-blur-sm placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-amber-600'
+                ></textarea>
+              </div>
             </div>
           </div>
-          <div>
+          <div class='flex items-start gap-2 text-sm mt-4'>
+            <input
+              type='checkbox'
+              id='contact-privacy-consent'
+              name='privacyConsent'
+              required
+              class='mt-0.5'
+            />
             <label
-              for='email'
-              class='block text-sm/6 font-semibold text-petrol-900'
-              >Email *</label
-            >
-            <div class='mt-1.5'>
-              <input
-                id='email'
-                type='email'
-                name='email'
-                autocomplete='email'
-                required
-                placeholder='tu@email.com'
-                class='block w-full rounded-md bg-white px-3 py-1.5 text-base text-petrol-900 outline-1 -outline-offset-1 outline-gray-300 backdrop-blur-sm placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-amber-600'
-              />
-            </div>
+              for='contact-privacy-consent'
+              class='text-petrol-900'>
+              He leído y acepto la
+              <a
+                href='/politica-privacidad'
+                class='text-orange-600 underline'>
+                política de privacidad
+              </a>
+            </label>
           </div>
-          <div>
-            <label
-              for='message'
-              class='block text-sm/6 font-semibold text-petrol-900'
-              >Mensaje *</label
+          <div class='mt-6'>
+            <button
+              type='submit'
+              id='submit-btn'
+              class='block w-full rounded-md bg-amber-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-amber-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600 disabled:opacity-50 disabled:cursor-not-allowed'
+              >Hablemos de tu negocio</button
             >
-            <div class='mt-1.5'>
-              <textarea
-                id='message'
-                name='message'
-                rows='4'
-                required
-                placeholder='Tu negocio, tu zona, qué te preocupa…'
-                class='block w-full rounded-md bg-white px-3 py-1.5 text-base text-petrol-900 outline-1 -outline-offset-1 outline-gray-300 backdrop-blur-sm placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-amber-600'
-              ></textarea>
-            </div>
           </div>
-        </div>
-        <div class='flex items-start gap-2 text-sm mt-4'>
-          <input
-            type='checkbox'
-            id='contact-privacy-consent'
-            name='privacyConsent'
-            required
-            class='mt-0.5'
-          />
-          <label for='contact-privacy-consent' class='text-petrol-900'>
-            He leído y acepto la
-            <a href='/politica-privacidad' class='text-orange-600 underline'>
-              política de privacidad
-            </a>
-          </label>
-        </div>
-        <div class='mt-6'>
-          <button
-            type='submit'
-            id='submit-btn'
-            class='block w-full rounded-md bg-amber-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-amber-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600 disabled:opacity-50 disabled:cursor-not-allowed'
-            >Hablemos de tu negocio</button
-          >
-        </div>
-        <div id='form-message' class='mt-4 hidden'>
-          <p class='text-sm'></p>
-        </div>
+          <div
+            id='form-message'
+            class='mt-4 hidden'>
+            <p class='text-sm'></p>
+          </div>
         </form>
       </div>
 
@@ -136,7 +145,8 @@
           <!-- Response Time -->
           <div class='flex gap-x-4'>
             <div class='flex-shrink-0'>
-              <div class='flex size-10 items-center justify-center rounded-lg bg-amber-600'>
+              <div
+                class='flex size-10 items-center justify-center rounded-lg bg-amber-600'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   fill='none'
@@ -156,8 +166,9 @@
               <h3 class='text-base font-semibold text-petrol-900'>
                 Respuesta en 24h
               </h3>
-              <p class='mt-1 text-sm text-petrol-900'>
-                Leo todos los mensajes personalmente. Te contesto en menos de un día laboral.
+              <p class='mt-1 text-sm text-petrol-900 max-w-md'>
+                Leo todos los mensajes personalmente. Te contesto en menos de un
+                día laboral.
               </p>
             </div>
           </div>
@@ -165,7 +176,8 @@
           <!-- Contact Alternative -->
           <div class='flex gap-x-4'>
             <div class='flex-shrink-0'>
-              <div class='flex size-10 items-center justify-center rounded-lg bg-amber-600'>
+              <div
+                class='flex size-10 items-center justify-center rounded-lg bg-amber-600'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   fill='none'
@@ -185,7 +197,7 @@
               <h3 class='text-base font-semibold text-petrol-900'>
                 ¿Prefieres llamar?
               </h3>
-              <p class='mt-1 text-sm text-petrol-900'>
+              <p class='mt-1 text-sm text-petrol-900 max-w-md'>
                 <a
                   href='tel:+34692051399'
                   class='font-semibold text-amber-600 hover:text-amber-700'>
@@ -198,7 +210,8 @@
           <!-- Location -->
           <div class='flex gap-x-4'>
             <div class='flex-shrink-0'>
-              <div class='flex size-10 items-center justify-center rounded-lg bg-amber-600'>
+              <div
+                class='flex size-10 items-center justify-center rounded-lg bg-amber-600'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   fill='none'
@@ -223,8 +236,9 @@
               <h3 class='text-base font-semibold text-petrol-900'>
                 Barcelona y alrededores
               </h3>
-              <p class='mt-1 text-sm text-petrol-900'>
-                Trabajo principalmente con negocios locales en el área metropolitana de Barcelona.
+              <p class='mt-1 text-sm text-petrol-900 max-w-md'>
+                Trabajo principalmente con negocios locales en el área
+                metropolitana de Barcelona.
               </p>
             </div>
           </div>
@@ -235,49 +249,52 @@
 </div>
 
 <script>
-  const form = document.getElementById('contact-form') as HTMLFormElement;
-  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
-  const messageDiv = document.getElementById('form-message') as HTMLDivElement;
-  const messageP = messageDiv.querySelector('p') as HTMLParagraphElement;
+  const form = document.getElementById('contact-form') as HTMLFormElement
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement
+  const messageDiv = document.getElementById('form-message') as HTMLDivElement
+  const messageP = messageDiv.querySelector('p') as HTMLParagraphElement
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const formData = new FormData(form);
+  form.addEventListener('submit', async e => {
+    e.preventDefault()
+
+    const formData = new FormData(form)
     const data = {
       name: formData.get('name'),
       email: formData.get('email'),
-      message: formData.get('message'),
-    };
+      message: formData.get('message')
+    }
 
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Enviando...';
-    messageDiv.classList.add('hidden');
+    submitBtn.disabled = true
+    submitBtn.textContent = 'Enviando...'
+    messageDiv.classList.add('hidden')
 
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
+        body: JSON.stringify(data)
+      })
 
-      const result = await response.json();
+      const result = await response.json()
 
       if (response.ok) {
-        messageP.textContent = '¡Mensaje enviado correctamente! Te responderé pronto.';
-        messageP.className = 'text-sm text-green-600';
-        form.reset();
+        messageP.textContent =
+          '¡Mensaje enviado correctamente! Te responderé pronto.'
+        messageP.className = 'text-sm text-green-600'
+        form.reset()
       } else {
-        messageP.textContent = result.error || 'Error al enviar el mensaje. Inténtalo de nuevo.';
-        messageP.className = 'text-sm text-red-600';
+        messageP.textContent =
+          result.error || 'Error al enviar el mensaje. Inténtalo de nuevo.'
+        messageP.className = 'text-sm text-red-600'
       }
     } catch (error) {
-      messageP.textContent = 'Error de conexión. Por favor, inténtalo más tarde.';
-      messageP.className = 'text-sm text-red-600';
+      messageP.textContent =
+        'Error de conexión. Por favor, inténtalo más tarde.'
+      messageP.className = 'text-sm text-red-600'
     } finally {
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Hablemos de tu negocio';
-      messageDiv.classList.remove('hidden');
+      submitBtn.disabled = false
+      submitBtn.textContent = 'Hablemos de tu negocio'
+      messageDiv.classList.remove('hidden')
     }
-  });
+  })
 </script>
