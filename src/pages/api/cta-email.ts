@@ -1,16 +1,21 @@
 import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
+import { getSecret } from 'astro:env/server';
 
 export const prerender = false;
 
-export const POST: APIRoute = async ({ request, locals }) => {
+export const POST: APIRoute = async ({ request }) => {
   try {
-    const runtime = locals.runtime;
-    const RESEND_API_KEY = runtime?.env?.RESEND_API_KEY || import.meta.env.RESEND_API_KEY;
-    const EMAIL_TO = runtime?.env?.EMAIL_TO || import.meta.env.EMAIL_TO;
-    const EMAIL_FROM = runtime?.env?.EMAIL_FROM || import.meta.env.EMAIL_FROM;
+    const RESEND_API_KEY = getSecret('RESEND_API_KEY') || import.meta.env.RESEND_API_KEY;
+    const EMAIL_TO = getSecret('EMAIL_TO') || import.meta.env.EMAIL_TO;
+    const EMAIL_FROM = getSecret('EMAIL_FROM') || import.meta.env.EMAIL_FROM;
 
     if (!RESEND_API_KEY || !EMAIL_TO || !EMAIL_FROM) {
+      console.error('Missing environment variables:', {
+        RESEND_API_KEY: !!RESEND_API_KEY,
+        EMAIL_TO: !!EMAIL_TO,
+        EMAIL_FROM: !!EMAIL_FROM
+      });
       return new Response(
         JSON.stringify({
           error: 'Configuración de email incompleta en el servidor',
