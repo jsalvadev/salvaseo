@@ -9,7 +9,7 @@ import partytown from '@astrojs/partytown';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://salvaseo.com',
-  output: 'static',
+  output: 'server',
 
   adapter: cloudflare({
     platformProxy: {
