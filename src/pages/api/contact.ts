@@ -6,9 +6,16 @@ export const prerender = false;
 export const POST: APIRoute = async ({ request, locals }) => {
   try {
     const runtime = locals.runtime;
-    const RESEND_API_KEY = runtime?.env?.RESEND_API_KEY || import.meta.env.RESEND_API_KEY;
-    const EMAIL_TO = runtime?.env?.EMAIL_TO || import.meta.env.EMAIL_TO;
-    const EMAIL_FROM = runtime?.env?.EMAIL_FROM || import.meta.env.EMAIL_FROM;
+    const RESEND_API_KEY = runtime?.env?.RESEND_API_KEY;
+    const EMAIL_TO = runtime?.env?.EMAIL_TO;
+    const EMAIL_FROM = runtime?.env?.EMAIL_FROM;
+
+    if (!RESEND_API_KEY || !EMAIL_TO || !EMAIL_FROM) {
+      return new Response(
+        JSON.stringify({ error: 'Configuración de email incompleta' }),
+        { status: 500, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
 
     const resend = new Resend(RESEND_API_KEY);
 
