@@ -14,6 +14,7 @@
     "@tailwindplus/elements": "^1.0.22",
     "astro": "^5.17.1",
     "resend": "^6.9.1",
-    "tailwindcss": "^4.1.18"
+    "tailwindcss": "^4.1.18",
+    "vanilla-cookieconsent": "3.1.0"
   }
 }
