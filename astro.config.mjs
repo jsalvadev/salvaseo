@@ -4,6 +4,7 @@ import cloudflare from '@astrojs/cloudflare';
 import tailwindcss from '@tailwindcss/vite';
 
 import sitemap from '@astrojs/sitemap';
+import partytown from '@astrojs/partytown';
 
 // https://astro.build/config
 export default defineConfig({
@@ -23,6 +24,11 @@ export default defineConfig({
   integrations: [
     sitemap({
       filter: (page) => page === 'https://salvaseo.com/'
+    }),
+    partytown({
+      config: {
+        forward: ['dataLayer.push']
+      }
     })
   ]
 });

@@ -14,13 +14,15 @@ const {
   description = 'Consultor SEO freelance en Barcelona. Ayudo a negocios locales a aparecer en Google con SEO local, Google Business Profile y estrategia personalizada.',
   noindex = false
 } = Astro.props
+
+const isProd = import.meta.env.PROD
 ---
 
 <!doctype html>
 <html lang='es'>
   <head>
     <!-- Google Tag Manager -->
-    <script>
+    <script type={isProd ? "text/partytown" : "text/javascript"}>
       ;(function (w, d, s, l, i) {
         w[l] = w[l] || []
         w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
