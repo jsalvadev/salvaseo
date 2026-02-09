@@ -1,12 +1,17 @@
 import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
 
-const resend = new Resend(import.meta.env.RESEND_API_KEY);
-const EMAIL_TO = import.meta.env.EMAIL_TO;
-const EMAIL_FROM = import.meta.env.EMAIL_FROM;
+export const prerender = false;
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request, locals }) => {
   try {
+    const runtime = locals.runtime;
+    const RESEND_API_KEY = runtime?.env?.RESEND_API_KEY || import.meta.env.RESEND_API_KEY;
+    const EMAIL_TO = runtime?.env?.EMAIL_TO || import.meta.env.EMAIL_TO;
+    const EMAIL_FROM = runtime?.env?.EMAIL_FROM || import.meta.env.EMAIL_FROM;
+
+    const resend = new Resend(RESEND_API_KEY);
+
     const data = await request.json();
     const { email } = data;
 
