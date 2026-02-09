@@ -26,7 +26,7 @@ CookieConsent.run({
   guiOptions: {
     consentModal: {
       layout: 'box inline',
-      position: 'bottom center',
+      position: 'bottom right',
       equalWeightButtons: false,
       flipButtons: false
     }
