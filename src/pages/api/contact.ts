@@ -10,6 +10,20 @@ export const POST: APIRoute = async ({ request, locals }) => {
     const EMAIL_TO = runtime?.env?.EMAIL_TO || import.meta.env.EMAIL_TO;
     const EMAIL_FROM = runtime?.env?.EMAIL_FROM || import.meta.env.EMAIL_FROM;
 
+    if (!RESEND_API_KEY || !EMAIL_TO || !EMAIL_FROM) {
+      return new Response(
+        JSON.stringify({
+          error: 'Configuración de email incompleta en el servidor',
+          missing: {
+            RESEND_API_KEY: !RESEND_API_KEY,
+            EMAIL_TO: !EMAIL_TO,
+            EMAIL_FROM: !EMAIL_FROM
+          }
+        }),
+        { status: 500, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
     const resend = new Resend(RESEND_API_KEY);
 
     const data = await request.json();
@@ -39,7 +53,10 @@ export const POST: APIRoute = async ({ request, locals }) => {
     if (error) {
       console.error('Resend error:', error);
       return new Response(
-        JSON.stringify({ error: 'Error al enviar el email' }),
+        JSON.stringify({
+          error: 'Error al enviar el email',
+          details: error?.message || String(error)
+        }),
         { status: 500, headers: { 'Content-Type': 'application/json' } }
       );
     }
@@ -51,7 +68,10 @@ export const POST: APIRoute = async ({ request, locals }) => {
   } catch (error) {
     console.error('API error:', error);
     return new Response(
-      JSON.stringify({ error: 'Error interno del servidor' }),
+      JSON.stringify({
+        error: 'Error interno del servidor',
+        details: error instanceof Error ? error.message : String(error)
+      }),
       { status: 500, headers: { 'Content-Type': 'application/json' } }
     );
   }
