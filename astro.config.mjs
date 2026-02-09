@@ -9,7 +9,7 @@ import partytown from '@astrojs/partytown';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://salvaseo.com',
-  output: 'server',
+  output: 'static',
 
   adapter: cloudflare({
     platformProxy: {
@@ -19,26 +19,6 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()]
-  },
-
-  env: {
-    schema: {
-      RESEND_API_KEY: {
-        context: 'server',
-        access: 'secret',
-        type: 'string'
-      },
-      EMAIL_TO: {
-        context: 'server',
-        access: 'secret',
-        type: 'string'
-      },
-      EMAIL_FROM: {
-        context: 'server',
-        access: 'secret',
-        type: 'string'
-      }
-    }
   },
 
   integrations: [
