@@ -1,8 +1,7 @@
 import { ActionError, defineAction } from 'astro:actions';
 import { z } from 'astro:schema';
 import { Resend } from 'resend';
-
-const resend = new Resend(import.meta.env.RESEND_API_KEY);
+import { RESEND_API_KEY, EMAIL_TO, EMAIL_FROM } from 'astro:env/server';
 
 export const server = {
   sendContactForm: defineAction({
@@ -13,15 +12,7 @@ export const server = {
       message: z.string().min(1),
     }),
     handler: async (input) => {
-      const EMAIL_TO = import.meta.env.EMAIL_TO;
-      const EMAIL_FROM = import.meta.env.EMAIL_FROM;
-
-      if (!EMAIL_TO || !EMAIL_FROM) {
-        throw new ActionError({
-          code: 'INTERNAL_SERVER_ERROR',
-          message: 'Configuración de email incompleta',
-        });
-      }
+      const resend = new Resend(RESEND_API_KEY);
 
       const { data, error } = await resend.emails.send({
         from: EMAIL_FROM,
@@ -54,15 +45,7 @@ export const server = {
       email: z.string().email(),
     }),
     handler: async (input) => {
-      const EMAIL_TO = import.meta.env.EMAIL_TO;
-      const EMAIL_FROM = import.meta.env.EMAIL_FROM;
-
-      if (!EMAIL_TO || !EMAIL_FROM) {
-        throw new ActionError({
-          code: 'INTERNAL_SERVER_ERROR',
-          message: 'Configuración de email incompleta',
-        });
-      }
+      const resend = new Resend(RESEND_API_KEY);
 
       const { data, error } = await resend.emails.send({
         from: EMAIL_FROM,
