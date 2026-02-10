@@ -1,21 +1,27 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
-import tailwindcss from '@tailwindcss/vite';
+import { defineConfig } from "astro/config";
+import tailwindcss from "@tailwindcss/vite";
 
-import sitemap from '@astrojs/sitemap';
+import sitemap from "@astrojs/sitemap";
+import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://salvaseo.com',
-  output: 'static',
+  site: "https://salvaseo.com",
+  output: "static",
 
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
   },
 
   integrations: [
     sitemap({
-      filter: (page) => page === 'https://salvaseo.com/'
-    })
-  ]
+      filter: (page) => page === "https://salvaseo.com/",
+    }),
+    partytown({
+      config: {
+        forward: ["dataLayer.push", "gtag"],
+      },
+    }),
+  ],
 });
