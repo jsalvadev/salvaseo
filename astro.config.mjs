@@ -1,6 +1,6 @@
 // @ts-check
 import { defineConfig, envField } from 'astro/config';
-import cloudflare from '@astrojs/cloudflare';
+import node from '@astrojs/node';
 import tailwindcss from '@tailwindcss/vite';
 
 import sitemap from '@astrojs/sitemap';
@@ -11,10 +11,8 @@ export default defineConfig({
   site: 'https://salvaseo.com',
   output: 'server',
 
-  adapter: cloudflare({
-    platformProxy: {
-      enabled: true
-    }
+  adapter: node({
+    mode: 'standalone'
   }),
 
   vite: {
