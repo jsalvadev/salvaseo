@@ -118,6 +118,8 @@
 </div>
 
 <script>
+  import { actions } from 'astro:actions';
+
   const ctaForm = document.getElementById('cta-email-form') as HTMLFormElement;
   const ctaSubmitBtn = document.getElementById('cta-submit-btn') as HTMLButtonElement;
   const ctaMessageDiv = document.getElementById('cta-form-message') as HTMLDivElement;
@@ -125,40 +127,26 @@
 
   ctaForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
-    const formData = new FormData(ctaForm);
-    const data = {
-      email: formData.get('email'),
-    };
 
     ctaSubmitBtn.disabled = true;
     ctaSubmitBtn.textContent = 'Enviando...';
     ctaMessageDiv.classList.add('hidden');
 
-    try {
-      const response = await fetch('/api/cta-email', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
+    const formData = new FormData(ctaForm);
+    const { data, error } = await actions.sendCtaEmail(formData);
 
-      const result = await response.json();
-
-      if (response.ok) {
-        ctaMessageP.textContent = '¡Email enviado! Te contactaré pronto.';
-        ctaMessageP.className = 'text-sm text-green-600';
-        ctaForm.reset();
-      } else {
-        ctaMessageP.textContent = result.error || 'Error al enviar el email. Inténtalo de nuevo.';
-        ctaMessageP.className = 'text-sm text-red-600';
-      }
-    } catch (error) {
-      ctaMessageP.textContent = 'Error de conexión. Por favor, inténtalo más tarde.';
+    if (error) {
+      ctaMessageP.textContent =
+        error.message || 'Error al enviar el email. Inténtalo de nuevo.';
       ctaMessageP.className = 'text-sm text-red-600';
-    } finally {
-      ctaSubmitBtn.disabled = false;
-      ctaSubmitBtn.textContent = 'Hablamos por email';
-      ctaMessageDiv.classList.remove('hidden');
+    } else {
+      ctaMessageP.textContent = '¡Email enviado! Te contactaré pronto.';
+      ctaMessageP.className = 'text-sm text-green-600';
+      ctaForm.reset();
     }
+
+    ctaSubmitBtn.disabled = false;
+    ctaSubmitBtn.textContent = 'Hablamos por email';
+    ctaMessageDiv.classList.remove('hidden');
   });
 </script>
