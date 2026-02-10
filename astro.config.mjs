@@ -11,11 +11,7 @@ export default defineConfig({
   site: 'https://salvaseo.com',
   output: 'static',
 
-  adapter: cloudflare({
-    platformProxy: {
-      enabled: true
-    }
-  }),
+  adapter: cloudflare(),
 
   vite: {
     plugins: [tailwindcss()]
