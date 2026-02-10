@@ -118,8 +118,6 @@
 </div>
 
 <script>
-  import { actions } from 'astro:actions';
-
   const ctaForm = document.getElementById('cta-email-form') as HTMLFormElement;
   const ctaSubmitBtn = document.getElementById('cta-submit-btn') as HTMLButtonElement;
   const ctaMessageDiv = document.getElementById('cta-form-message') as HTMLDivElement;
@@ -132,17 +130,25 @@
     ctaSubmitBtn.textContent = 'Enviando...';
     ctaMessageDiv.classList.add('hidden');
 
-    const formData = new FormData(ctaForm);
-    const { data, error } = await actions.sendCtaEmail(formData);
+    try {
+      const formData = new FormData(ctaForm);
+      const response = await fetch('/api/send-cta-email', {
+        method: 'POST',
+        body: formData
+      });
 
-    if (error) {
-      ctaMessageP.textContent =
-        error.message || 'Error al enviar el email. Inténtalo de nuevo.';
-      ctaMessageP.className = 'text-sm text-red-600';
-    } else {
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Error al enviar el email');
+      }
+
       ctaMessageP.textContent = '¡Email enviado! Te contactaré pronto.';
       ctaMessageP.className = 'text-sm text-green-600';
       ctaForm.reset();
+    } catch (error) {
+      ctaMessageP.textContent = error instanceof Error ? error.message : 'Error al enviar el email. Inténtalo de nuevo.';
+      ctaMessageP.className = 'text-sm text-red-600';
     }
 
     ctaSubmitBtn.disabled = false;

@@ -249,8 +249,6 @@
 </div>
 
 <script>
-  import { actions } from 'astro:actions';
-
   const form = document.getElementById('contact-form') as HTMLFormElement;
   const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
   const messageDiv = document.getElementById('form-message') as HTMLDivElement;
@@ -263,18 +261,25 @@
     submitBtn.textContent = 'Enviando...';
     messageDiv.classList.add('hidden');
 
-    const formData = new FormData(form);
-    const { data, error } = await actions.sendContactForm(formData);
+    try {
+      const formData = new FormData(form);
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        body: formData
+      });
 
-    if (error) {
-      messageP.textContent =
-        error.message || 'Error al enviar el mensaje. Inténtalo de nuevo.';
-      messageP.className = 'text-sm text-red-600';
-    } else {
-      messageP.textContent =
-        '¡Mensaje enviado correctamente! Te responderé pronto.';
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Error al enviar el mensaje');
+      }
+
+      messageP.textContent = '¡Mensaje enviado correctamente! Te responderé pronto.';
       messageP.className = 'text-sm text-green-600';
       form.reset();
+    } catch (error) {
+      messageP.textContent = error instanceof Error ? error.message : 'Error al enviar el mensaje. Inténtalo de nuevo.';
+      messageP.className = 'text-sm text-red-600';
     }
 
     submitBtn.disabled = false;
