@@ -1,15 +1,22 @@
-import { ActionError, defineAction } from "astro:actions";
+import { ActionError, defineAction } from 'astro:actions';
+import { z } from 'astro:schema';
+import { Resend } from 'resend';
+import { RESEND_API_KEY, EMAIL_TO, EMAIL_FROM } from 'astro:env/server';
 
-import { Resend } from "resend";
-const resend = new Resend(import.meta.env.RESEND_API_KEY);
+const resend = new Resend(RESEND_API_KEY);
 
 export const server = {
   sendContactForm: defineAction({
-    accept: "form",
+    accept: 'form',
+    input: z.object({
+      name: z.string().optional(),
+      email: z.string().email(),
+      message: z.string().min(1),
+    }),
     handler: async (input) => {
       const { data, error } = await resend.emails.send({
-        from: import.meta.env.EMAIL_FROM,
-        to: import.meta.env.EMAIL_TO,
+        from: EMAIL_FROM,
+        to: EMAIL_TO,
         replyTo: input.email,
         subject: `Nuevo mensaje de contacto de ${input.name || 'Sin nombre'}`,
         html: `
@@ -17,13 +24,13 @@ export const server = {
           <p><strong>Nombre:</strong> ${input.name || 'No especificado'}</p>
           <p><strong>Email:</strong> ${input.email}</p>
           <p><strong>Mensaje:</strong></p>
-          <p>${input.message?.replace(/\n/g, '<br>') || ''}</p>
+          <p>${input.message.replace(/\n/g, '<br>')}</p>
         `,
       });
 
       if (error) {
         throw new ActionError({
-          code: "BAD_REQUEST",
+          code: 'BAD_REQUEST',
           message: error.message,
         });
       }
@@ -33,11 +40,14 @@ export const server = {
   }),
 
   sendCtaEmail: defineAction({
-    accept: "form",
+    accept: 'form',
+    input: z.object({
+      email: z.string().email(),
+    }),
     handler: async (input) => {
       const { data, error } = await resend.emails.send({
-        from: import.meta.env.EMAIL_FROM,
-        to: import.meta.env.EMAIL_TO,
+        from: EMAIL_FROM,
+        to: EMAIL_TO,
         replyTo: input.email,
         subject: 'Nuevo contacto interesado en SEO local',
         html: `
@@ -50,7 +60,7 @@ export const server = {
 
       if (error) {
         throw new ActionError({
-          code: "BAD_REQUEST",
+          code: 'BAD_REQUEST',
           message: error.message,
         });
       }
