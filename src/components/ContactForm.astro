@@ -40,12 +40,12 @@
       <div>
         <h2
           class='text-3xl font-semibold tracking-tight text-pretty text-petrol-900 sm:text-4xl'>
-          Cuéntame qué necesitas
+          Entonces hablemos
         </h2>
         <p class='mt-2 text-lg/8 text-petrol-900'>
-          Explícame tu situación y qué te gustaría conseguir. <strong
-            >Sin compromiso, sin presión.</strong
-          > Solo una conversación para ver si tiene sentido trabajar juntos.
+          Cuéntame tu situación y qué te gustaría conseguir. Solo una
+          conversación para ver si puedo ayudarte y ver si tiene sentido
+          trabajar juntos.
         </p>
         <form
           id='contact-form'
@@ -167,8 +167,7 @@
                 Respuesta en 24h
               </h3>
               <p class='mt-1 text-sm text-petrol-900 max-w-md'>
-                Leo todos los mensajes personalmente. Te contesto en menos de un
-                día laboral.
+                Leo todos los mensajes personalmente.
               </p>
             </div>
           </div>
@@ -195,7 +194,7 @@
             </div>
             <div>
               <h3 class='text-base font-semibold text-petrol-900'>
-                ¿Prefieres llamar?
+                ¿Prefieres llamar o Whatsapp?
               </h3>
               <p class='mt-1 text-sm text-petrol-900 max-w-md'>
                 <a
@@ -237,8 +236,7 @@
                 Barcelona y alrededores
               </h3>
               <p class='mt-1 text-sm text-petrol-900 max-w-md'>
-                Trabajo principalmente con negocios locales en el área
-                metropolitana de Barcelona.
+                Trabajo principalmente en el área metropolitana.
               </p>
             </div>
           </div>
@@ -249,41 +247,45 @@
 </div>
 
 <script>
-  const form = document.getElementById('contact-form') as HTMLFormElement;
-  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
-  const messageDiv = document.getElementById('form-message') as HTMLDivElement;
-  const messageP = messageDiv.querySelector('p') as HTMLParagraphElement;
+  const form = document.getElementById('contact-form') as HTMLFormElement
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement
+  const messageDiv = document.getElementById('form-message') as HTMLDivElement
+  const messageP = messageDiv.querySelector('p') as HTMLParagraphElement
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+  form.addEventListener('submit', async e => {
+    e.preventDefault()
 
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Enviando...';
-    messageDiv.classList.add('hidden');
+    submitBtn.disabled = true
+    submitBtn.textContent = 'Enviando...'
+    messageDiv.classList.add('hidden')
 
     try {
-      const formData = new FormData(form);
+      const formData = new FormData(form)
       const response = await fetch('/api/send-email', {
         method: 'POST',
         body: formData
-      });
+      })
 
-      const result = await response.json();
+      const result = await response.json()
 
       if (!response.ok) {
-        throw new Error(result.error || 'Error al enviar el mensaje');
+        throw new Error(result.error || 'Error al enviar el mensaje')
       }
 
-      messageP.textContent = '¡Mensaje enviado correctamente! Te responderé pronto.';
-      messageP.className = 'text-sm text-green-600';
-      form.reset();
+      messageP.textContent =
+        '¡Mensaje enviado correctamente! Te responderé pronto.'
+      messageP.className = 'text-sm text-green-600'
+      form.reset()
     } catch (error) {
-      messageP.textContent = error instanceof Error ? error.message : 'Error al enviar el mensaje. Inténtalo de nuevo.';
-      messageP.className = 'text-sm text-red-600';
+      messageP.textContent =
+        error instanceof Error ?
+          error.message
+        : 'Error al enviar el mensaje. Inténtalo de nuevo.'
+      messageP.className = 'text-sm text-red-600'
     }
 
-    submitBtn.disabled = false;
-    submitBtn.textContent = 'Hablemos de tu negocio';
-    messageDiv.classList.remove('hidden');
-  });
+    submitBtn.disabled = false
+    submitBtn.textContent = 'Hablemos de tu negocio'
+    messageDiv.classList.remove('hidden')
+  })
 </script>
