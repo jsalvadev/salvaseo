@@ -1,6 +1,5 @@
 ---
 import Footer from "../components/Footer.astro";
-import StatsBand from "../components/StatsBand.astro";
 import "../styles/global.css";
 
 interface Props {
@@ -228,7 +227,7 @@ const isProd = import.meta.env.PROD;
                         "name": "¿Cuánto cobra un consultor SEO en Barcelona? (Precio y tarifas 2025)",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Segun mercado, entre 50€-150€/hora o desde 500€/mes según experiencia y alcance. El modelo de trabajo puede ser por proyecto o mensual según lo que necesites. Recibirás primero un análisis de qué falla en tu caso específico, y después conocerás el coste exacto adaptado a tu situación."
+                            "text": "El precio hora de un consultor SEO en Barcelona varía según mercado: entre 50€-150€/hora o desde 500€/mes según experiencia y alcance. El modelo de trabajo puede ser por proyecto o mensual según lo que necesites. Recibirás primero un análisis de qué falla en tu caso específico, y después conocerás el coste exacto adaptado a tu situación."
                         }
                     },
                     {
@@ -309,7 +308,6 @@ const isProd = import.meta.env.PROD;
         <main>
             <slot />
         </main>
-        <StatsBand />
         <Footer />
     </body>
 </html>
