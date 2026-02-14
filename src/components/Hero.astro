@@ -1,6 +1,6 @@
 ---
-import WhatsAppButton from './WhatsAppButton.astro';
-import heroImage from '../assets/hero.webp';
+import WhatsAppButton from './WhatsAppButton.astro'
+import heroImage from '../assets/hero.webp'
 ---
 
 <div class='bg-warm-white'>
@@ -148,23 +148,37 @@ import heroImage from '../assets/hero.webp';
       <div
         class='mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-8 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8'>
         <div class='lg:col-span-2 xl:col-auto'>
-            <h1 class='text-base/7 font-semibold text-sky-500 mb-4'>Consultor SEO en Barcelona</h1>
+          <h1 class='text-base/7 font-semibold text-sky-500 mb-4'>
+            Consultor SEO en Barcelona
+          </h1>
           <p
             class='max-w-2xl text-5xl font-semibold tracking-tight text-balance text-petrol-900 sm:text-7xl'>
             Cada día pierdes clientes que no saben que existes
           </p>
         </div>
         <div class='mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1'>
-          <p class='text-lg font-medium text-pretty text-petrol-900 sm:text-xl/8'>
-            Tienes un buen negocio. Sabes hacer tu trabajo mejor que nadie. Pero cuando alguien busca en Google lo que ofreces en Barcelona, no te encuentra. ¿Te suena familiar?
+          <p
+            class='text-lg font-medium text-pretty text-petrol-900 sm:text-xl/8'>
+            Tienes un buen negocio. Sabes hacer tu trabajo mejor que nadie. Pero
+            cuando alguien busca en Google lo que ofreces en Barcelona, no te
+            encuentra. ¿Te suena familiar?
           </p>
-          <p class='mt-4 text-lg font-medium text-pretty text-petrol-900 sm:text-xl/8'>
-            Tus competidores reciben llamadas porque decidieron contratar un consultor SEO. Alguien que le explica a Google por qué deberían aparecer primero. No es magia, es trabajo de un especialista SEO.
+          <p
+            class='mt-4 text-lg font-medium text-pretty text-petrol-900 sm:text-xl/8'>
+            Tus competidores reciben llamadas porque decidieron contratar un
+            consultor SEO. Alguien que le explica a Google por qué deberían
+            aparecer primero. No es casualidad, es trabajo de un especialista
+            SEO.
           </p>
-          <p class='mt-4 text-lg font-medium text-pretty text-petrol-900 sm:text-xl/8'>
-            No necesitas una agencia que trabaja a distancia. Un buen consultor SEO cerca de mi zona es alguien que entiende Barcelona, conoce tu barrio y te posiciona sin gastar miles de euros.
+          <p
+            class='mt-4 text-lg font-medium text-pretty text-petrol-900 sm:text-xl/8'>
+            Si buscas un buen consultor SEO cerca de mi, tiene sentido trabajar
+            con alguien que conoce Barcelona, tu barrio y el mercado local, no
+            una agencia que trabaja a distancia y te posiciona por miles de
+            euros.
           </p>
-          <div class='mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-x-6'>
+          <div
+            class='mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-x-6'>
             <WhatsAppButton text='Cuéntame tu caso' />
             <a
               href='#trabajo-conmigo'
@@ -188,18 +202,22 @@ import heroImage from '../assets/hero.webp';
 <script>
   // Close mobile menu when clicking navigation links
   document.addEventListener('DOMContentLoaded', () => {
-    const mobileDialog = document.getElementById('mobile-menu') as HTMLDialogElement;
-    const mobileNavLinks = document.querySelectorAll('#mobile-menu a[href^="#"]');
+    const mobileDialog = document.getElementById(
+      'mobile-menu'
+    ) as HTMLDialogElement
+    const mobileNavLinks = document.querySelectorAll(
+      '#mobile-menu a[href^="#"]'
+    )
 
     mobileNavLinks.forEach(link => {
       link.addEventListener('click', () => {
         // Small delay to allow smooth scroll to initiate before closing
         setTimeout(() => {
           if (mobileDialog && mobileDialog.open) {
-            mobileDialog.close();
+            mobileDialog.close()
           }
-        }, 100);
-      });
-    });
-  });
+        }, 100)
+      })
+    })
+  })
 </script>
