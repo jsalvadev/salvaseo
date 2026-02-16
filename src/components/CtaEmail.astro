@@ -123,6 +123,22 @@
   const ctaMessageDiv = document.getElementById('cta-form-message') as HTMLDivElement;
   const ctaMessageP = ctaMessageDiv.querySelector('p') as HTMLParagraphElement;
 
+  const parseApiResponse = async (response: Response) => {
+    const rawBody = await response.text();
+    const contentType = response.headers.get('content-type') || '';
+    const isJsonResponse = contentType.includes('application/json');
+
+    if (!isJsonResponse) {
+      return { data: null, rawBody, isJsonResponse };
+    }
+
+    try {
+      return { data: JSON.parse(rawBody), rawBody, isJsonResponse: true };
+    } catch {
+      return { data: null, rawBody, isJsonResponse: false };
+    }
+  };
+
   ctaForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -137,10 +153,24 @@
         body: formData
       });
 
-      const result = await response.json();
+      const { data, rawBody, isJsonResponse } = await parseApiResponse(response);
 
       if (!response.ok) {
-        throw new Error(result.error || 'Error al enviar el email');
+        const errorMessage =
+          data && typeof data === 'object' && 'error' in data
+            ? String(data.error)
+            : null;
+        const looksLikeHtml = rawBody.trim().startsWith('<');
+        throw new Error(
+          errorMessage ||
+            (looksLikeHtml
+              ? 'El servicio de envío no está disponible ahora mismo.'
+              : 'Error al enviar el email')
+        );
+      }
+
+      if (!isJsonResponse) {
+        throw new Error('Respuesta inesperada del servidor. Inténtalo de nuevo.');
       }
 
       ctaMessageP.textContent = '¡Email enviado! Te contactaré pronto.';

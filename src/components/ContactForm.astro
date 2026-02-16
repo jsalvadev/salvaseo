@@ -251,6 +251,22 @@
   const messageDiv = document.getElementById('form-message') as HTMLDivElement
   const messageP = messageDiv.querySelector('p') as HTMLParagraphElement
 
+  const parseApiResponse = async (response: Response) => {
+    const rawBody = await response.text()
+    const contentType = response.headers.get('content-type') || ''
+    const isJsonResponse = contentType.includes('application/json')
+
+    if (!isJsonResponse) {
+      return { data: null, rawBody, isJsonResponse }
+    }
+
+    try {
+      return { data: JSON.parse(rawBody), rawBody, isJsonResponse: true }
+    } catch {
+      return { data: null, rawBody, isJsonResponse: false }
+    }
+  }
+
   form.addEventListener('submit', async e => {
     e.preventDefault()
 
@@ -265,10 +281,24 @@
         body: formData
       })
 
-      const result = await response.json()
+      const { data, rawBody, isJsonResponse } = await parseApiResponse(response)
 
       if (!response.ok) {
-        throw new Error(result.error || 'Error al enviar el mensaje')
+        const errorMessage =
+          data && typeof data === 'object' && 'error' in data ?
+            String(data.error)
+          : null
+        const looksLikeHtml = rawBody.trim().startsWith('<')
+        throw new Error(
+          errorMessage ||
+            (looksLikeHtml ?
+              'El servicio de envío no está disponible ahora mismo.'
+            : 'Error al enviar el mensaje')
+        )
+      }
+
+      if (!isJsonResponse) {
+        throw new Error('Respuesta inesperada del servidor. Inténtalo de nuevo.')
       }
 
       messageP.textContent =
