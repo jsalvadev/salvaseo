@@ -16,7 +16,9 @@ export default defineConfig({
 
   integrations: [
     sitemap({
-      filter: (page) => page === "https://salvaseo.com/",
+      filter: (page) =>
+        page === "https://salvaseo.com/" ||
+        page === "https://salvaseo.com/posicionamiento-web-barcelona/",
     }),
     partytown({
       config: {
