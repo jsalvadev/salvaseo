@@ -16,8 +16,16 @@ const message = 'Hola Salva, he visto tu web. Tengo un negocio en Barcelona y me
     textColor: '#FAFAF8',        // Warm white
     size: '60px',
     showTooltip: true,
-    tooltipText: 'Chatea con nosotros'
+    tooltipText: '¿Más clientes con SEO? Escríbeme'
   });
+
+  // Set Spanish aria-label for accessibility
+  setTimeout(() => {
+    const widgetButton = document.querySelector('.wa-chat-widget-button');
+    if (widgetButton) {
+      widgetButton.setAttribute('aria-label', 'Enviar mensaje por WhatsApp');
+    }
+  }, 100);
 </script>
 
 <style>
