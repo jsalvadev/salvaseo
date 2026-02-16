@@ -21,6 +21,7 @@ const {
 } = Astro.props;
 
 const isProd = import.meta.env.PROD;
+const isHomePage = canonicalUrl === "https://salvaseo.com/" && !noindex;
 ---
 
 <!doctype html>
@@ -85,6 +86,8 @@ const isProd = import.meta.env.PROD;
             content="SalvaSEO - Consultor SEO Local en Barcelona"
         />
 
+        {isHomePage && (
+            <>
         <!-- JSON-LD Structured Data for SEO -->
         <script type="application/ld+json">
             {
@@ -137,7 +140,10 @@ const isProd = import.meta.env.PROD;
                             "email": "salvadorjesus.seo@gmail.com",
                             "telephone": "+34 692 051 399",
                             "image": "https://salvaseo.com/about-me.png",
-                            "sameAs": ["https://www.instagram.com/salva_seo/"]
+                            "sameAs": [
+                                "https://www.instagram.com/salva_seo/",
+                                "https://www.tiktok.com/@consultorseobarcelona"
+                            ]
                         },
                         "hasOfferCatalog": {
                             "@type": "OfferCatalog",
@@ -169,7 +175,11 @@ const isProd = import.meta.env.PROD;
                                 }
                             ]
                         },
-                        "sameAs": ["https://www.instagram.com/salva_seo/"]
+                        "sameAs": [
+                            "https://www.instagram.com/salva_seo/",
+                            "https://www.tiktok.com/@consultorseobarcelona",
+                            "https://www.google.com/maps/place/SalvaSEO+-+Consultor+SEO+en+Barcelona/@41.3926387,2.0577883,12z/data=!4m15!1m8!3m7!1s0x47b687095c96ad7:0x4a8991093774db69!2sSalvaSEO+-+Consultor+SEO+en+Barcelona!8m2!3d41.392668!4d2.140189!10e1!16s%2Fg%2F11y_x5bbp3!3m5!1s0x47b687095c96ad7:0x4a8991093774db69!8m2!3d41.392668!4d2.140189!16s%2Fg%2F11y_x5bbp3?entry=ttu&g_ep=EgoyMDI2MDIxMS4wIKXMDSoASAFQAw%3D%3D"
+                        ]
                     },
                     {
                         "@type": "WebSite",
@@ -195,7 +205,7 @@ const isProd = import.meta.env.PROD;
                             "@id": "https://salvaseo.com/#business"
                         },
                         "datePublished": "2025-01-15",
-                        "dateModified": "2025-02-13",
+                        "dateModified": "2026-02-16",
                         "mainEntity": { "@id": "https://salvaseo.com/#faq" },
                         "inLanguage": "es"
                     }
@@ -228,7 +238,7 @@ const isProd = import.meta.env.PROD;
                     },
                     {
                         "@type": "Question",
-                        "name": "¿Cuánto cobra un consultor SEO en Barcelona? (Precio y tarifas 2025)",
+                        "name": "¿Cuánto cobra un consultor SEO en Barcelona? (Precio y tarifas 2026)",
                         "acceptedAnswer": {
                             "@type": "Answer",
                             "text": "El precio hora de un consultor SEO en Barcelona varía según mercado: entre 50€-150€/hora o desde 500€/mes según experiencia y alcance. El modelo de trabajo puede ser por proyecto, planes mensuales o servicios SEO puntuales según lo que necesites. Sin contratos de permanencia. Recibirás primero un análisis de qué falla en tu caso específico, y después conocerás el coste exacto adaptado a tu situación."
@@ -293,6 +303,8 @@ const isProd = import.meta.env.PROD;
                 ]
             }
         </script>
+            </>
+        )}
 
         <script>
             import "@tailwindplus/elements";
