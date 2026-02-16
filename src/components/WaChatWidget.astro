@@ -1,0 +1,47 @@
+---
+const phoneNumber = '34692051399';
+const message = 'Hola Salva, he visto tu web y quería comentarte mi negocio';
+---
+
+<div id="wa-chat-widget-container"></div>
+
+<script>
+  import WaChatWidget from 'wa-chat-widget';
+
+  new WaChatWidget({
+    phoneNumber: '34692051399',
+    message: 'Hola Salva, he visto tu web y quería comentarte mi negocio',
+    position: 'bottom-right',
+    backgroundColor: '#25D366',  // WhatsApp official green
+    textColor: '#FAFAF8',        // Warm white
+    size: '60px',
+    showTooltip: true,
+    tooltipText: 'Chatea con nosotros'
+  });
+</script>
+
+<style>
+  /* Safe area para móviles con notch */
+  :global(.wa-chat-widget) {
+    bottom: calc(0.75rem + env(safe-area-inset-bottom));
+    z-index: 1000;
+  }
+
+  /* Hover effects matching brand */
+  :global(.wa-chat-widget-button) {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.24);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  :global(.wa-chat-widget-button:hover) {
+    background-color: #1FAD54 !important;  /* Darker WhatsApp green */
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.3);
+  }
+
+  @media (max-width: 640px) {
+    :global(.wa-chat-widget) {
+      right: 0.75rem;
+    }
+  }
+</style>

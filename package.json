@@ -16,6 +16,7 @@
     "@tailwindplus/elements": "^1.0.22",
     "astro": "^5.17.1",
     "tailwindcss": "^4.1.18",
-    "vanilla-cookieconsent": "3.1.0"
+    "vanilla-cookieconsent": "3.1.0",
+    "wa-chat-widget": "^1.0.3"
   }
 }
