@@ -1,5 +1,6 @@
 ---
 import Footer from "../components/Footer.astro";
+import FloatingWhatsAppButton from "../components/FloatingWhatsAppButton.astro";
 import "../styles/global.css";
 
 interface Props {
@@ -325,6 +326,7 @@ const isHomePage = canonicalUrl === "https://salvaseo.com/" && !noindex;
             <slot />
         </main>
         <Footer />
+        <FloatingWhatsAppButton />
     </body>
 </html>
 
