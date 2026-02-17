@@ -186,12 +186,16 @@ import WhatsAppButton from '../components/WhatsAppButton.astro'
   <!-- Section 6 (moved before 5): ¿Agencia SEO o consultor freelance? -->
   <div class='bg-white py-24 sm:py-32'>
     <div class='mx-auto max-w-7xl px-6 lg:px-8'>
-      <div class='mx-auto max-w-3xl'>
+      <div class='mx-auto max-w-2xl lg:mx-0'>
+        <p class='text-base/7 font-semibold text-petrol-600'>Freelance vs Agencia</p>
         <h2
-          class='text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl'>
+          class='mt-2 text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl'>
           ¿Agencia SEO o consultor freelance?
         </h2>
-        <div class='mt-6 text-lg/8 text-petrol-900 space-y-6'>
+      </div>
+      <div
+        class='mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-6 text-base/7 text-petrol-700 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:gap-x-16'>
+        <div class='space-y-6'>
           <p>
             Las agencias de posicionamiento web tienen equipos grandes, muchos
             clientes y procesos estandarizados. Eso significa que <strong
@@ -205,15 +209,26 @@ import WhatsAppButton from '../components/WhatsAppButton.astro'
             >. Sin intermediarios. Sin tener que explicar lo mismo tres veces.
             Sin esperar semanas para hacer un cambio.
           </p>
+        </div>
+        <div class='space-y-6'>
           <p>
             Acepto pocos proyectos al año porque <strong
               >prefiero dedicarle tiempo real a cada cliente</strong
-            > que tener 100 proyectos abandonados. Uso las mismas herramientas
-            profesionales que las grandes agencias. Tengo la formación
-            actualizada. Pero no tengo la estructura de costes ni el modelo de
-            negocio que obliga a vender packs a todo el mundo.
+            > que tener 100 proyectos abandonados.
+          </p>
+          <p>
+            Uso las mismas herramientas profesionales que las grandes agencias.
+            Tengo la formación actualizada. Pero no tengo la estructura de costes
+            ni el modelo de negocio que obliga a vender packs a todo el mundo.
           </p>
         </div>
+      </div>
+      <div class='mt-10'>
+        <a
+          href='#contacto'
+          class='rounded-md bg-petrol-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-petrol-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-petrol-600'>
+          Solicitar análisis gratuito
+        </a>
       </div>
     </div>
   </div>
