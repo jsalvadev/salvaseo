@@ -1,12 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import Cta from '../components/Cta.astro'
 import DecorativeSeparator from '../components/DecorativeSeparator.astro'
 import Services from '../components/Services.astro'
-import TexturedSeparator from '../components/TexturedSeparator.astro'
 import Timeline from '../components/Timeline.astro'
 import WhatsAppButton from '../components/WhatsAppButton.astro'
-import heroImage from '../assets/hero.webp'
 ---
 
 <Layout
@@ -14,51 +11,55 @@ import heroImage from '../assets/hero.webp'
   description='Servicios de posicionamiento web SEO en Barcelona. Consultor SEO especializado en empresas locales. Estrategia personalizada sin contratos de permanencia.'
   canonicalUrl='https://salvaseo.com/posicionamiento-web-barcelona'
 >
-  {/* <!-- Hero Section -->
-  <div class='bg-warm-white'>
+  <!-- Hero Section -->
+  <div class='relative isolate px-6 pt-24 lg:px-8'>
+    <!-- Top gradient blob -->
     <div
-      class='relative isolate overflow-hidden bg-linear-to-b from-petrol-100/20 pt-24 pb-24'>
-      <div class='mx-auto max-w-7xl px-6 lg:px-8'>
+      aria-hidden='true'
+      class='absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80'>
+      <div
+        style='clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)'
+        class='relative left-[calc(50%-11rem)] aspect-1155/678 w-144.5 -translate-x-1/2 rotate-30 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-288.75'>
+      </div>
+    </div>
+
+    <!-- Hero content -->
+    <div class='mx-auto max-w-2xl py-32 sm:py-40 lg:py-48'>
+      <!-- Badge pill -->
+      <div class='hidden sm:mb-8 sm:flex sm:justify-center'>
         <div
-          class='mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16'>
-          <div class='lg:col-span-2 xl:col-auto'>
-            <p class='text-base/7 font-semibold text-sky-500 mb-4'>
-              Servicios de SEO Local en Barcelona
-            </p>
-            <h1
-              class='max-w-2xl text-5xl font-semibold tracking-tight text-balance text-petrol-900 sm:text-7xl'>
-              Posicionamiento Web en Barcelona
-            </h1>
-          </div>
-          <div class='mt-6 max-w-xl'>
-            <p
-              class='text-lg font-medium text-pretty text-petrol-900 sm:text-xl/8'>
-              Tu web existe, pero cuando alguien busca en Google lo que ofreces
-              en Barcelona, <strong>no te encuentra</strong>. Cada día pierdes
-              clientes que terminan llamando a tu competencia porque ellos
-              aparecen primero.
-            </p>
-            <p
-              class='mt-4 text-lg font-medium text-pretty text-petrol-900 sm:text-xl/8'>
-              El posicionamiento web no es casualidad. Es trabajo especializado.
-              Y necesitas a alguien que <strong
-                >conozca Barcelona, tu barrio y el mercado local</strong
-              >, no una agencia que trabaja a distancia con plantillas
-              genéricas.
-            </p>
-            <div
-              class='mt-10 flex flex-col sm:flex-row items-start gap-4 sm:gap-x-6'>
-              <WhatsAppButton text='Solicitar consultoría gratis' />
-            </div>
-          </div>
-          <img
-            src={heroImage.src}
-            width={heroImage.width}
-            height={heroImage.height}
-            alt='Consultor SEO trabajando en estrategia de posicionamiento web para negocios en Barcelona'
-            class='mt-10 aspect-6/5 w-full max-w-lg rounded-2xl object-cover outline-1 -outline-offset-1 outline-black/5 sm:mt-16 lg:mt-0 lg:max-w-none'
-          />
+          class='relative rounded-full px-3 py-1 text-sm/6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20'>
+          Consultor SEO especializado en negocios locales
         </div>
+      </div>
+      <!-- Centered text -->
+      <div class='text-center'>
+        <h1
+          class='text-5xl font-semibold tracking-tight text-balance text-petrol-900 sm:text-7xl'>
+          Posicionamiento Web en Barcelona
+        </h1>
+        <p class='mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8'>
+          Tu web existe, pero cuando alguien busca en Google lo que ofreces en
+          Barcelona, <strong>no te encuentra</strong>. Cada día pierdes clientes
+          que terminan llamando a tu competencia porque ellos aparecen primero.
+        </p>
+        <!-- CTAs -->
+        <div class='mt-10 flex items-center justify-center gap-x-6'>
+          <WhatsAppButton text='Solicitar consultoría gratis' />
+          <a href='/#contacto' class='text-sm/6 font-semibold text-gray-900'>
+            Saber más <span aria-hidden='true'>→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom gradient blob -->
+    <div
+      aria-hidden='true'
+      class='absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]'>
+      <div
+        style='clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)'
+        class='relative left-[calc(50%+3rem)] aspect-1155/678 w-144.5 -translate-x-1/2 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-288.75'>
       </div>
     </div>
   </div>
@@ -66,58 +67,14 @@ import heroImage from '../assets/hero.webp'
   <Services />
   <DecorativeSeparator />
   <Timeline />
-  <TexturedSeparator />
-  <Cta />
 
-  Section 1: Diseño y posicionamiento web
-  <div class='bg-white py-24 sm:py-32'>
-    <div class='mx-auto max-w-7xl px-6 lg:px-8'>
-      <div class='mx-auto max-w-3xl'>
-        <h2
-          class='text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl text-pretty'>
-          Diseño y posicionamiento web
-        </h2>
-        <div class='mt-6 text-lg/8 text-petrol-900 space-y-6'>
-          <p>
-            El posicionamiento web (también llamado SEO) es el conjunto de
-            técnicas que hacen que tu página web aparezca en Google cuando
-            alguien busca lo que ofreces. No se trata de magia ni de trucos. Se
-            trata de <strong
-              >explicarle a Google por qué tu negocio merece aparecer antes que
-              tu competencia</strong
-            >.
-          </p>
-          <p>
-            Cuando alguien en Barcelona busca "tu servicio + Barcelona" en
-            Google, o apareces tú o aparece otro. Si no estás en la primera
-            página, es como si no existieras. Y no porque tu servicio no sea
-            bueno, sino porque <strong
-              >Google no entiende qué haces, dónde lo haces, ni por qué debería
-              mostrarte</strong
-            >.
-          </p>
-          <p>
-            Barcelona es una ciudad con altísima competencia digital. Hay
-            negocios que invierten miles de euros al mes en aparecer primero.
-            Por eso necesitas una estrategia de posicionamiento web hecha por
-            alguien que <strong
-              >conoce tu zona, tu mercado y sabe competir sin quemar presupuesto
-              en publicidad</strong
-            >. El SEO bien hecho te trae clientes de forma constante, sin pagar
-            por cada clic.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  Section 2: Servicios de posicionamiento web
+  <!-- Section 2: Cómo trabajo tu posicionamiento web -->
   <div class='bg-petrol-900 py-24 sm:py-32'>
     <div class='mx-auto max-w-7xl px-6 lg:px-8'>
       <div class='mx-auto max-w-2xl lg:text-center'>
         <h2
           class='text-4xl font-semibold tracking-tight text-white sm:text-5xl'>
-          Servicios de posicionamiento web
+          Cómo trabajo tu posicionamiento web
         </h2>
         <p class='mt-6 text-lg/8 text-white'>
           No trabajo con packs cerrados ni plantillas genéricas. Cada negocio
@@ -127,56 +84,825 @@ import heroImage from '../assets/hero.webp'
       <div class='mx-auto mt-16 max-w-2xl lg:max-w-none'>
         <dl
           class='grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-2'>
+          <!-- H3: Auditoría SEO y análisis inicial -->
           <div class='relative pl-16'>
             <dt>
               <div
                 class='absolute top-0 left-0 flex size-10 items-center justify-center rounded-lg bg-sky-500'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke-width='1.5'
+                  stroke='currentColor'
+                  class='size-6 text-white'>
+                  <path
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    d='M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z'
+                  ></path>
+                </svg>
               </div>
               <h3 class='text-base/7 font-semibold text-white'>
-                Informe de posicionamiento web y auditoría SEO
+                Auditoría SEO y análisis inicial
               </h3>
             </dt>
             <dd class='mt-2 text-base/7 text-gray-300'>
-              Lo primero es entender qué está fallando.
+              Lo primero es entender qué está fallando. Analizo tu web a fondo:
+              problemas técnicos, contenido, velocidad, estructura, enlaces. Te
+              entrego un informe claro, sin tecnicismos, donde ves exactamente
+              en qué punto está tu web y qué hay que mejorar. <strong
+                >Antes de pagar un solo euro, sabes qué necesitas</strong
+              >.
             </dd>
+          </div>
+
+          <!-- H3: Estrategia SEO personalizada -->
+          <div class='relative pl-16'>
+            <dt>
+              <div
+                class='absolute top-0 left-0 flex size-10 items-center justify-center rounded-lg bg-sky-500'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke-width='1.5'
+                  stroke='currentColor'
+                  class='size-6 text-white'>
+                  <path
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    d='M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z'
+                  ></path>
+                  <path
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    d='M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z'
+                  ></path>
+                </svg>
+              </div>
+              <h3 class='text-base/7 font-semibold text-white'>
+                Estrategia SEO personalizada
+              </h3>
+            </dt>
+            <dd class='mt-2 text-base/7 text-gray-300'>
+              Una vez detectados los problemas, diseño una estrategia
+              personalizada para tu negocio. Keywords reales de tu sector,
+              contenido que necesitas, mejoras técnicas concretas. <strong
+                >Sabrás qué se va a hacer, por qué, y en qué orden</strong
+              >. No es un plan genérico que le vendo a 50 clientes iguales.
+            </dd>
+          </div>
+
+          <!-- H3: Ejecución y resultados medibles -->
+          <div class='relative pl-16'>
+            <dt>
+              <div
+                class='absolute top-0 left-0 flex size-10 items-center justify-center rounded-lg bg-sky-500'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke-width='1.5'
+                  stroke='currentColor'
+                  class='size-6 text-white'>
+                  <path
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    d='M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42'
+                  ></path>
+                </svg>
+              </div>
+              <h3 class='text-base/7 font-semibold text-white'>
+                Ejecución y resultados medibles
+              </h3>
+            </dt>
+            <dd class='mt-2 text-base/7 text-gray-300'>
+              Si tu web no está bien hecha (lenta, sin estructura, no
+              responsive), no vale de nada hacer SEO encima. <strong
+                >Trabajo también el diseño web para que sea una base sólida</strong
+              > sobre la que posicionar. Una web rápida, clara y que convierte
+              visitas en clientes.
+            </dd>
+          </div>
+
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 3: Servicios de posicionamiento web -->
+  <div class='bg-warm-white py-24 sm:py-32'>
+    <div class='mx-auto max-w-7xl px-6 lg:px-8'>
+      <div class='mx-auto max-w-2xl lg:text-center'>
+        <h2
+          class='text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl'>
+          Servicios de posicionamiento web
+        </h2>
+      </div>
+      <div class='mx-auto mt-16 max-w-3xl'>
+        <div class='text-lg/8 text-petrol-900 space-y-6'>
+          <h3 class='text-2xl font-semibold tracking-tight text-petrol-900'>
+            Posicionamiento web para empresas y pymes
+          </h3>
+          <p>
+            No necesitas ser una gran empresa para beneficiarte del
+            posicionamiento web. De hecho, <strong
+              >las pymes y negocios locales son los que más pueden ganar</strong
+            > porque compiten en una zona concreta, no contra todo internet.
+          </p>
+          <h3 class='text-2xl font-semibold tracking-tight text-petrol-900'>
+            Diseño web y posicionamiento
+          </h3>
+          <p>
+            Si tienes una clínica, un taller, un despacho, un comercio o
+            cualquier negocio que atiende a clientes de Barcelona y alrededores,
+            el SEO local es tu mejor inversión. Cuando alguien busca "tu
+            servicio cerca de mí" o "tu servicio en Barcelona", <strong
+              >o sales tú o sale tu competencia</strong
+            >.
+          </p>
+          <h3 class='text-2xl font-semibold tracking-tight text-petrol-900'>
+            Presupuesto sin compromiso
+          </h3>
+          <p>
+            Trabajo con negocios locales que necesitan más clientes, no con
+            grandes corporaciones. Por eso mi modelo es <strong
+              >pocos proyectos, máxima dedicación</strong
+            >. Conozco tu barrio, tu competencia directa, y sé cómo hacer que
+            aparezcas cuando tus clientes te buscan.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 4: ¿Cuánto cuesta el posicionamiento web? -->
+  <div class='bg-white py-24 sm:py-32'>
+    <div class='mx-auto max-w-7xl px-6 lg:px-8'>
+      <div class='mx-auto max-w-3xl'>
+        <h2
+          class='text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl'>
+          ¿Cuánto cuesta el posicionamiento web?
+        </h2>
+        <div class='mt-6 text-lg/8 text-petrol-900 space-y-6'>
+          <p>
+            Esta es la pregunta que todo el mundo hace. Y la respuesta honesta
+            es: <strong>depende de tu proyecto</strong>. Depende del estado
+            actual de tu web, de la competencia en tu sector, de tus objetivos y
+            del trabajo que necesites.
+          </p>
+          <div class='bg-sky-50 rounded-2xl px-8 py-8'>
+            <p class='font-semibold text-petrol-900'>
+              No hay packs cerrados. No te voy a vender un "plan básico" de 300€
+              que sirve para todo el mundo. Tu negocio no es igual que el del
+              vecino, y la estrategia tampoco puede serlo.
+            </p>
+          </div>
+          <p>
+            Lo que sí te garantizo es <strong
+              >transparencia total desde el primer día</strong
+            >. Recibirás un análisis inicial donde te explico qué necesita tu
+            web y cuánto costaría trabajarlo. Sin sorpresas, sin contratos de
+            permanencia, sin letras pequeñas.
+          </p>
+          <p>
+            Mi modelo de trabajo: primero analizo tu caso gratis. Luego te digo
+            qué necesitas y cuánto cuesta. Tú decides si tiene sentido para ti.
+            Y si empezamos a trabajar juntos, <strong
+              >puedes dejarlo cuando quieras</strong
+            >. Sin penalizaciones, sin compromisos forzados.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 6 (moved before 5): ¿Agencia SEO o consultor freelance? -->
+  <div class='bg-white py-24 sm:py-32'>
+    <div class='mx-auto max-w-7xl px-6 lg:px-8'>
+      <div class='mx-auto max-w-3xl'>
+        <h2
+          class='text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl'>
+          ¿Agencia SEO o consultor freelance?
+        </h2>
+        <div class='mt-6 text-lg/8 text-petrol-900 space-y-6'>
+          <p>
+            Las agencias de posicionamiento web tienen equipos grandes, muchos
+            clientes y procesos estandarizados. Eso significa que <strong
+              >tu proyecto será uno más en una lista de 50</strong
+            >. Hablarás con un gestor de cuentas que pasará tu petición a otro,
+            que la pasará a otro. Y al final, nadie conoce realmente tu negocio.
+          </p>
+          <p>
+            Cuando trabajas conmigo, trabajas <strong
+              >directamente con quien analiza, ejecuta y optimiza tu estrategia</strong
+            >. Sin intermediarios. Sin tener que explicar lo mismo tres veces.
+            Sin esperar semanas para hacer un cambio.
+          </p>
+          <p>
+            Acepto pocos proyectos al año porque <strong
+              >prefiero dedicarle tiempo real a cada cliente</strong
+            > que tener 100 proyectos abandonados. Uso las mismas herramientas
+            profesionales que las grandes agencias. Tengo la formación
+            actualizada. Pero no tengo la estructura de costes ni el modelo de
+            negocio que obliga a vender packs a todo el mundo.
+          </p>
+        </div>
+        <figure
+          class='relative mt-10 bg-sky-50 rounded-2xl px-8 py-10 sm:px-12 sm:py-12 shadow-sm'>
+          <div class='absolute -top-3 -left-3 text-sky-500/20'>
+            <svg
+              class='size-16'
+              fill='currentColor'
+              viewBox='0 0 32 32'
+              aria-hidden='true'>
+              <path
+                d='M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z'
+              ></path>
+            </svg>
+          </div>
+          <blockquote
+            class='text-center text-2xl/9 font-serif font-semibold italic text-petrol-900 text-pretty'>
+            <p>
+              "No prometo el número uno en Google. Prometo trabajo honesto, una
+              estrategia que tiene sentido para tu negocio, y dedicación real a
+              tu proyecto."
+            </p>
+          </blockquote>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 5 (moved after 6): Posicionamiento web en Barcelona y alrededores -->
+  <div class='bg-petrol-50 py-24 sm:py-32'>
+    <div class='mx-auto max-w-7xl px-6 lg:px-8'>
+      <div class='mx-auto max-w-3xl'>
+        <h2
+          class='text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl'>
+          Posicionamiento web en Barcelona y alrededores
+        </h2>
+        <div class='mt-6 text-lg/8 text-petrol-900 space-y-6'>
+          <p>
+            Trabajo con negocios de <strong
+              >Barcelona ciudad y del área metropolitana</strong
+            >: Sabadell, Badalona, Terrassa, L'Hospitalet, Sant Cugat. También
+            con negocios de otras ciudades catalanas como Lleida, Girona o
+            Tarragona.
+          </p>
+          <p>
+            El SEO local funciona cuando quien lo trabaja <strong
+              >conoce la zona</strong
+            >. No es lo mismo posicionar un negocio en el Eixample que en
+            Gràcia. No es lo mismo competir en el centro de Barcelona que en
+            Sabadell. Cada zona tiene su mercado, su competencia y su forma de
+            buscar.
+          </p>
+          <p>
+            Cuando trabajas con un consultor local, no estás trabajando con
+            alguien que mira tu ciudad en Google Maps. Estás trabajando con
+            alguien que <strong
+              >entiende tu barrio, conoce tu competencia directa y sabe cómo se
+              mueve el mercado en tu zona</strong
+            >.
+          </p>
+          <div class='space-y-4'>
+            <h3 class='text-2xl font-semibold tracking-tight text-petrol-900'>
+              Posicionamiento web en Sabadell
+            </h3>
+            <p>
+              Si tu negocio está en Sabadell, adapto la estrategia SEO al tipo
+              de competencia local y a las búsquedas reales de tus clientes en
+              la zona.
+            </p>
+            <h3 class='text-2xl font-semibold tracking-tight text-petrol-900'>
+              Posicionamiento web en Badalona
+            </h3>
+            <p>
+              Trabajo el posicionamiento web en Badalona con enfoque local para
+              que aparezcas cuando te buscan cerca, no solo en términos
+              genéricos.
+            </p>
+            <h3 class='text-2xl font-semibold tracking-tight text-petrol-900'>
+              Posicionamiento web en Terrassa
+            </h3>
+            <p>
+              En Terrassa priorizo visibilidad en búsquedas comerciales y
+              locales para atraer contactos cualificados y más oportunidades de
+              negocio.
+            </p>
+            <h3 class='text-2xl font-semibold tracking-tight text-petrol-900'>
+              Posicionamiento web en Lleida
+            </h3>
+            <p>
+              También desarrollo estrategias de posicionamiento web en Lleida,
+              ajustadas al mercado de la ciudad y a la intención de búsqueda de
+              tus potenciales clientes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 7: Preguntas frecuentes -->
+  <div class='bg-warm-white py-24 sm:py-32'>
+    <div class='mx-auto max-w-7xl px-6 lg:px-8'>
+      <div class='mx-auto max-w-4xl'>
+        <p class='text-base/7 font-semibold text-sky-500'>
+          Dudas sobre posicionamiento web
+        </p>
+        <h2
+          class='text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl'>
+          Preguntas frecuentes
+        </h2>
+        <dl class='mt-16 divide-y divide-gray-900/10'>
+          <!-- FAQ 1 -->
+          <div class='py-6 first:pt-0 last:pb-0'>
+            <dt>
+              <button
+                type='button'
+                command='--toggle'
+                commandfor='faq-pw-0'
+                class='flex w-full items-start justify-between text-left text-petrol-900'>
+                <h3 class='text-base/7 font-semibold'>
+                  ¿Cuánto tarda en dar resultados el posicionamiento web?
+                </h3>
+                <span class='ml-6 flex h-7 items-center'>
+                  <svg
+                    viewBox='0 0 24 24'
+                    fill='none'
+                    stroke='currentColor'
+                    stroke-width='1.5'
+                    data-slot='icon'
+                    aria-hidden='true'
+                    class='size-6 in-aria-expanded:hidden'>
+                    <path
+                      d='M12 6v12m6-6H6'
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                    ></path>
+                  </svg>
+                  <svg
+                    viewBox='0 0 24 24'
+                    fill='none'
+                    stroke='currentColor'
+                    stroke-width='1.5'
+                    data-slot='icon'
+                    aria-hidden='true'
+                    class='size-6 not-in-aria-expanded:hidden'>
+                    <path
+                      d='M18 12H6'
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                    ></path>
+                  </svg>
+                </span>
+              </button>
+            </dt>
+            <el-disclosure
+              id='faq-pw-0'
+              hidden
+              class='contents'>
+              <dd class='mt-2 pr-12'>
+                <p class='text-base/7 text-petrol-900'>
+                  La respuesta honesta: <strong>depende del punto de partida y del sector</strong>. Si tu web está muy abandonada o la competencia es alta, los primeros resultados visibles pueden tardar entre 3 y 6 meses. Pero desde el primer mes hay acciones concretas y verás lo que se está haciendo. El SEO no es instantáneo, pero cuando funciona, funciona de forma constante sin pagar por cada clic.
+                </p>
+              </dd>
+            </el-disclosure>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class='py-6 first:pt-0 last:pb-0'>
+            <dt>
+              <button
+                type='button'
+                command='--toggle'
+                commandfor='faq-pw-1'
+                class='flex w-full items-start justify-between text-left text-petrol-900'>
+                <h3 class='text-base/7 font-semibold'>
+                  ¿Qué diferencia hay entre SEO y SEM?
+                </h3>
+                <span class='ml-6 flex h-7 items-center'>
+                  <svg
+                    viewBox='0 0 24 24'
+                    fill='none'
+                    stroke='currentColor'
+                    stroke-width='1.5'
+                    data-slot='icon'
+                    aria-hidden='true'
+                    class='size-6 in-aria-expanded:hidden'>
+                    <path
+                      d='M12 6v12m6-6H6'
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                    ></path>
+                  </svg>
+                  <svg
+                    viewBox='0 0 24 24'
+                    fill='none'
+                    stroke='currentColor'
+                    stroke-width='1.5'
+                    data-slot='icon'
+                    aria-hidden='true'
+                    class='size-6 not-in-aria-expanded:hidden'>
+                    <path
+                      d='M18 12H6'
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                    ></path>
+                  </svg>
+                </span>
+              </button>
+            </dt>
+            <el-disclosure
+              id='faq-pw-1'
+              hidden
+              class='contents'>
+              <dd class='mt-2 pr-12'>
+                <p class='text-base/7 text-petrol-900'>
+                  <strong>SEO (posicionamiento web)</strong> es aparecer de forma orgánica en Google sin pagar por cada clic. <strong>SEM (publicidad en Google)</strong> es pagar para que tu anuncio aparezca arriba mientras pagues. El SEO tarda más pero es más rentable a largo plazo. El SEM da resultados inmediatos pero cuando dejas de pagar, desapareces. Lo ideal suele ser combinar ambos según tu momento y presupuesto.
+                </p>
+              </dd>
+            </el-disclosure>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class='py-6 first:pt-0 last:pb-0'>
+            <dt>
+              <button
+                type='button'
+                command='--toggle'
+                commandfor='faq-pw-2'
+                class='flex w-full items-start justify-between text-left text-petrol-900'>
+                <h3 class='text-base/7 font-semibold'>
+                  ¿Necesito rediseñar mi web para mejorar mi posicionamiento?
+                </h3>
+                <span class='ml-6 flex h-7 items-center'>
+                  <svg
+                    viewBox='0 0 24 24'
+                    fill='none'
+                    stroke='currentColor'
+                    stroke-width='1.5'
+                    data-slot='icon'
+                    aria-hidden='true'
+                    class='size-6 in-aria-expanded:hidden'>
+                    <path
+                      d='M12 6v12m6-6H6'
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                    ></path>
+                  </svg>
+                  <svg
+                    viewBox='0 0 24 24'
+                    fill='none'
+                    stroke='currentColor'
+                    stroke-width='1.5'
+                    data-slot='icon'
+                    aria-hidden='true'
+                    class='size-6 not-in-aria-expanded:hidden'>
+                    <path
+                      d='M18 12H6'
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                    ></path>
+                  </svg>
+                </span>
+              </button>
+            </dt>
+            <el-disclosure
+              id='faq-pw-2'
+              hidden
+              class='contents'>
+              <dd class='mt-2 pr-12'>
+                <p class='text-base/7 text-petrol-900'>
+                  <strong>No siempre</strong>. A veces basta con optimizar lo que ya tienes: mejorar textos, velocidad, estructura. Otras veces sí hace falta un rediseño porque la web es muy antigua, lenta o no funciona en móvil. Por eso el primer paso es siempre el análisis. Te diré si tu web sirve o si necesita cambios importantes.
+                </p>
+              </dd>
+            </el-disclosure>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class='py-6 first:pt-0 last:pb-0'>
+            <dt>
+              <button
+                type='button'
+                command='--toggle'
+                commandfor='faq-pw-3'
+                class='flex w-full items-start justify-between text-left text-petrol-900'>
+                <h3 class='text-base/7 font-semibold'>
+                  ¿El posicionamiento web funciona para todos los sectores?
+                </h3>
+                <span class='ml-6 flex h-7 items-center'>
+                  <svg
+                    viewBox='0 0 24 24'
+                    fill='none'
+                    stroke='currentColor'
+                    stroke-width='1.5'
+                    data-slot='icon'
+                    aria-hidden='true'
+                    class='size-6 in-aria-expanded:hidden'>
+                    <path
+                      d='M12 6v12m6-6H6'
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                    ></path>
+                  </svg>
+                  <svg
+                    viewBox='0 0 24 24'
+                    fill='none'
+                    stroke='currentColor'
+                    stroke-width='1.5'
+                    data-slot='icon'
+                    aria-hidden='true'
+                    class='size-6 not-in-aria-expanded:hidden'>
+                    <path
+                      d='M18 12H6'
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                    ></path>
+                  </svg>
+                </span>
+              </button>
+            </dt>
+            <el-disclosure
+              id='faq-pw-3'
+              hidden
+              class='contents'>
+              <dd class='mt-2 pr-12'>
+                <p class='text-base/7 text-petrol-900'>
+                  Funciona especialmente bien para <strong>negocios locales con clientes de zona</strong>: clínicas, talleres, despachos, comercios, restaurantes, servicios profesionales. Si tus clientes buscan "tu servicio cerca de mí" o "tu servicio en Barcelona", el SEO local es muy efectivo. Hay sectores muy competidos donde cuesta más, pero casi siempre hay estrategia.
+                </p>
+              </dd>
+            </el-disclosure>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class='py-6 first:pt-0 last:pb-0'>
+            <dt>
+              <button
+                type='button'
+                command='--toggle'
+                commandfor='faq-pw-4'
+                class='flex w-full items-start justify-between text-left text-petrol-900'>
+                <h3 class='text-base/7 font-semibold'>
+                  ¿Qué pasa si dejo de trabajar el SEO?
+                </h3>
+                <span class='ml-6 flex h-7 items-center'>
+                  <svg
+                    viewBox='0 0 24 24'
+                    fill='none'
+                    stroke='currentColor'
+                    stroke-width='1.5'
+                    data-slot='icon'
+                    aria-hidden='true'
+                    class='size-6 in-aria-expanded:hidden'>
+                    <path
+                      d='M12 6v12m6-6H6'
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                    ></path>
+                  </svg>
+                  <svg
+                    viewBox='0 0 24 24'
+                    fill='none'
+                    stroke='currentColor'
+                    stroke-width='1.5'
+                    data-slot='icon'
+                    aria-hidden='true'
+                    class='size-6 not-in-aria-expanded:hidden'>
+                    <path
+                      d='M18 12H6'
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                    ></path>
+                  </svg>
+                </span>
+              </button>
+            </dt>
+            <el-disclosure
+              id='faq-pw-4'
+              hidden
+              class='contents'>
+              <dd class='mt-2 pr-12'>
+                <p class='text-base/7 text-petrol-900'>
+                  El posicionamiento conseguido <strong>no desaparece de un día para otro</strong>, pero sí se va perdiendo con el tiempo si dejas de trabajarlo. Tu competencia sigue mejorando, Google cambia algoritmos, y si no mantienes tu web, otros te adelantarán. Lo bueno es que el SEO no es como la publicidad: si paras, no desapareces al instante.
+                </p>
+              </dd>
+            </el-disclosure>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div class='py-6 first:pt-0 last:pb-0'>
+            <dt>
+              <button
+                type='button'
+                command='--toggle'
+                commandfor='faq-pw-5'
+                class='flex w-full items-start justify-between text-left text-petrol-900'>
+                <h3 class='text-base/7 font-semibold'>
+                  ¿Puedo hacer el posicionamiento web yo mismo?
+                </h3>
+                <span class='ml-6 flex h-7 items-center'>
+                  <svg
+                    viewBox='0 0 24 24'
+                    fill='none'
+                    stroke='currentColor'
+                    stroke-width='1.5'
+                    data-slot='icon'
+                    aria-hidden='true'
+                    class='size-6 in-aria-expanded:hidden'>
+                    <path
+                      d='M12 6v12m6-6H6'
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                    ></path>
+                  </svg>
+                  <svg
+                    viewBox='0 0 24 24'
+                    fill='none'
+                    stroke='currentColor'
+                    stroke-width='1.5'
+                    data-slot='icon'
+                    aria-hidden='true'
+                    class='size-6 not-in-aria-expanded:hidden'>
+                    <path
+                      d='M18 12H6'
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                    ></path>
+                  </svg>
+                </span>
+              </button>
+            </dt>
+            <el-disclosure
+              id='faq-pw-5'
+              hidden
+              class='contents'>
+              <dd class='mt-2 pr-12'>
+                <p class='text-base/7 text-petrol-900'>
+                  Respuesta honesta: <strong>poder, puedes</strong>. Pero lleva tiempo, formación, herramientas profesionales de pago, y experiencia para no cometer errores que pueden penalizar tu web. Un profesional acelera el proceso, evita fallos costosos y te deja tiempo para dedicarte a tu negocio. Depende de cuánto valgas tu tiempo y cuánto te cueste no aparecer en Google cada mes.
+                </p>
+              </dd>
+            </el-disclosure>
           </div>
         </dl>
       </div>
     </div>
   </div>
 
-  Section 3: Posicionamiento web para empresas y pymes
-  Section 4: Precios de posicionamiento web
-  Section 5: Posicionamiento web profesional en Barcelona y alrededores
-  Section 6: Agencia de posicionamiento web en Barcelona
-  Section 7: Preguntas frecuentes
-  Section 8: Hablemos de tu negocio (CTA Final)
-  JSON-LD Structured Data */}
-
-  <!-- New Hero Section -->
-  <div class="bg-white">
-    <div class="relative isolate px-6 lg:px-8">
-      <div aria-hidden="true" class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
-        <div style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" class="relative left-[calc(50%-11rem)] aspect-1155/678 w-144.5 -translate-x-1/2 rotate-30 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-288.75"></div>
-      </div>
-      <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-        <div class="hidden sm:mb-8 sm:flex sm:justify-center">
-          <div class="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-            Announcing our next round of funding. <a href="#" class="font-semibold text-indigo-600"><span aria-hidden="true" class="absolute inset-0"></span>Read more <span aria-hidden="true">&rarr;</span></a>
-          </div>
-        </div>
-        <div class="text-center">
-          <h1 class="text-5xl font-semibold tracking-tight text-balance text-gray-900 sm:text-7xl">Data to enrich your online business</h1>
-          <p class="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat.</p>
-          <div class="mt-10 flex items-center justify-center gap-x-6">
-            <a href="#" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
-            <a href="#" class="text-sm/6 font-semibold text-gray-900">Learn more <span aria-hidden="true">→</span></a>
-          </div>
-        </div>
-      </div>
-      <div aria-hidden="true" class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
-        <div style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" class="relative left-[calc(50%+3rem)] aspect-1155/678 w-144.5 -translate-x-1/2 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-288.75"></div>
+  <!-- Section 8: Hablemos de tu negocio (CTA Final) -->
+  <div class='relative isolate bg-petrol-100 px-6 py-24 sm:py-32 lg:px-8'>
+    <svg
+      aria-hidden='true'
+      class='absolute inset-0 -z-10 size-full'>
+      <defs>
+        <pattern
+          id='pw-cta-dots'
+          width='32'
+          height='32'
+          patternUnits='userSpaceOnUse'>
+          <circle
+            cx='16'
+            cy='16'
+            r='1.5'
+            fill='currentColor'
+            class='text-petrol-600/20'
+          ></circle>
+        </pattern>
+      </defs>
+      <rect
+        width='100%'
+        height='100%'
+        fill='url(#pw-cta-dots)'
+      ></rect>
+    </svg>
+    <div class='mx-auto max-w-2xl text-center'>
+      <h2
+        class='text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl'>
+        Hablemos de tu negocio
+      </h2>
+      <p class='mt-6 text-lg/8 text-petrol-900'>
+        Si has llegado hasta aquí, probablemente tu negocio necesita mejor
+        posicionamiento web. <strong
+          >La primera consultoría es gratis y sin compromiso.</strong
+        > Cuéntame qué hace tu negocio, dónde está, y qué te gustaría conseguir.
+        Te respondo en menos de 24h con un análisis inicial.
+      </p>
+      <div
+        class='mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-x-6'>
+        <WhatsAppButton text='Solicitar análisis gratuito' />
+        <a
+          href='/#contacto'
+          class='text-sm/6 font-semibold text-petrol-900'>
+          O rellena el formulario
+          <span aria-hidden='true'>→</span>
+        </a>
       </div>
     </div>
   </div>
+
+  <!-- JSON-LD Structured Data -->
+  <script type='application/ld+json' set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://salvaseo.com/posicionamiento-web-barcelona#service",
+    "serviceType": "Posicionamiento Web SEO",
+    "name": "Posicionamiento Web en Barcelona",
+    "description": "Servicios profesionales de posicionamiento web y SEO local para empresas y negocios en Barcelona. Estrategia personalizada sin contratos de permanencia.",
+    "provider": {
+      "@id": "https://salvaseo.com/#business"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Barcelona",
+      "sameAs": "https://es.wikipedia.org/wiki/Barcelona"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Servicios de Posicionamiento Web",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Auditoría SEO",
+            "description": "Análisis completo de tu web para identificar problemas técnicos y oportunidades de mejora"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Estrategia SEO local",
+            "description": "Plan personalizado para mejorar tu posicionamiento en búsquedas locales de Barcelona"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Optimización web",
+            "description": "Mejoras técnicas y de contenido para aumentar la visibilidad en Google"
+          }
+        }
+      ]
+    }
+  })} />
+
+  <script type='application/ld+json' set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuánto tarda en dar resultados el posicionamiento web?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Depende del punto de partida y del sector. Si tu web está muy abandonada o la competencia es alta, los primeros resultados visibles pueden tardar entre 3 y 6 meses. Pero desde el primer mes hay acciones concretas y verás lo que se está haciendo."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué diferencia hay entre SEO y SEM?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "SEO (posicionamiento web) es aparecer de forma orgánica en Google sin pagar por cada clic. SEM (publicidad en Google) es pagar para que tu anuncio aparezca arriba mientras pagues. El SEO tarda más pero es más rentable a largo plazo."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Necesito rediseñar mi web para mejorar mi posicionamiento?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No siempre. A veces basta con optimizar lo que ya tienes: mejorar textos, velocidad, estructura. Otras veces sí hace falta un rediseño porque la web es muy antigua, lenta o no funciona en móvil."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿El posicionamiento web funciona para todos los sectores?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Funciona especialmente bien para negocios locales con clientes de zona: clínicas, talleres, despachos, comercios, restaurantes, servicios profesionales. Si tus clientes buscan tu servicio cerca de mí o en Barcelona, el SEO local es muy efectivo."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué pasa si dejo de trabajar el SEO?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El posicionamiento conseguido no desaparece de un día para otro, pero sí se va perdiendo con el tiempo si dejas de trabajarlo. Tu competencia sigue mejorando, Google cambia algoritmos, y si no mantienes tu web, otros te adelantarán."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Puedo hacer el posicionamiento web yo mismo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Poder, puedes. Pero lleva tiempo, formación, herramientas profesionales de pago, y experiencia para no cometer errores que pueden penalizar tu web. Un profesional acelera el proceso y evita fallos costosos."
+        }
+      }
+    ]
+  })} />
 </Layout>
