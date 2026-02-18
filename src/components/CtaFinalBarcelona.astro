@@ -1,0 +1,53 @@
+---
+import WhatsAppButton from './WhatsAppButton.astro'
+---
+
+<div class='relative isolate bg-petrol-100 px-6 py-24 sm:py-32 lg:px-8'>
+  <svg
+    aria-hidden='true'
+    class='absolute inset-0 -z-10 size-full'>
+    <defs>
+      <pattern
+        id='pw-cta-dots'
+        width='32'
+        height='32'
+        patternUnits='userSpaceOnUse'>
+        <circle
+          cx='16'
+          cy='16'
+          r='1.5'
+          fill='currentColor'
+          class='text-petrol-600/20'
+        ></circle>
+      </pattern>
+    </defs>
+    <rect
+      width='100%'
+      height='100%'
+      fill='url(#pw-cta-dots)'
+    ></rect>
+  </svg>
+  <div class='mx-auto max-w-2xl text-center'>
+    <h2
+      class='text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl'>
+      Hablemos de tu negocio
+    </h2>
+    <p class='mt-6 text-lg/8 text-petrol-900'>
+      Si has llegado hasta aquí, probablemente tu negocio necesita mejor
+      posicionamiento web. <strong
+        >La primera consultoría es gratis y sin compromiso.</strong
+      > Cuéntame qué hace tu negocio, dónde está, y qué te gustaría conseguir. Te
+      respondo en menos de 24h con un análisis inicial.
+    </p>
+    <div
+      class='mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-x-6'>
+      <WhatsAppButton text='Solicitar análisis gratuito' />
+      <a
+        href='/#contacto'
+        class='text-sm/6 font-semibold text-petrol-900'>
+        O rellena el formulario
+        <span aria-hidden='true'>→</span>
+      </a>
+    </div>
+  </div>
+</div>
