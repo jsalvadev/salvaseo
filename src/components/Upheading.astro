@@ -1,0 +1,23 @@
+---
+interface Props {
+  text: string
+  color?: string
+  as?: keyof HTMLElementTagNameMap
+  class?: string
+}
+
+const {
+  text,
+  color = 'var(--color-sky-500)',
+  as = 'p',
+  class: className = '',
+} = Astro.props
+
+const Tag = as
+---
+
+<Tag
+  class={`text-base/7 font-semibold ${className}`}
+  style={`color: ${color};`}>
+  {text}
+</Tag>

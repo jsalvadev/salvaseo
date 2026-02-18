@@ -1,5 +1,6 @@
 ---
 import WhatsAppButton from './WhatsAppButton.astro'
+import Upheading from './Upheading.astro'
 import heroImage from '../assets/hero.webp'
 ---
 
@@ -14,9 +15,11 @@ import heroImage from '../assets/hero.webp'
       <div
         class='mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-8 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8'>
         <div class='lg:col-span-2 xl:col-auto'>
-          <h1 class='text-base/7 font-semibold text-sky-500 mb-4'>
-            Consultor SEO en Barcelona
-          </h1>
+          <Upheading
+            as='h1'
+            text='Consultor SEO en Barcelona'
+            class='mb-4'
+          />
           <p
             class='max-w-2xl text-5xl font-semibold tracking-tight text-balance text-petrol-900 sm:text-7xl'>
             Cada día pierdes clientes que no saben que existes
