@@ -21,6 +21,10 @@
   --color-warm-white: #FAFAF8;
 }
 
+:root {
+  --navbar-height: 80px;
+}
+
 /* Smooth scrolling for navigation links */
 html {
   scroll-behavior: smooth;
@@ -39,5 +43,5 @@ html {
 #servicios,
 #proceso,
 #contacto {
-  scroll-margin-top: 80px;
+  scroll-margin-top: var(--navbar-height);
 }

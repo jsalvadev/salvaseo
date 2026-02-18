@@ -2,7 +2,8 @@
 import WhatsAppButton from './WhatsAppButton.astro'
 ---
 
-<div class='relative isolate px-6 pt-24 lg:px-8'>
+<div
+  class='relative isolate flex min-h-[calc(100svh-var(--navbar-height))] items-center px-6 pt-[var(--navbar-height)] lg:px-8'>
   <!-- Top gradient blob -->
   <div
     aria-hidden='true'
@@ -14,7 +15,7 @@ import WhatsAppButton from './WhatsAppButton.astro'
   </div>
 
   <!-- Hero content -->
-  <div class='mx-auto max-w-2xl py-32 sm:py-40 lg:py-48'>
+  <div class='mx-auto max-w-2xl py-16 sm:py-20 lg:py-24'>
     <!-- Badge pill -->
     <div class='hidden sm:mb-8 sm:flex sm:justify-center'>
       <div
