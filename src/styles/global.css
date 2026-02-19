@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  /* Petrol Blue (Azul Petróleo) - Primary */
+  /* Petrol Blue (supporting neutrals) */
   --color-petrol-50: #F7F9FA;
   --color-petrol-100: #EEF3F5;
   --color-petrol-600: #3A6D82;
   --color-petrol-700: #2A5566;
   --color-petrol-900: #1A3C4A;
 
-  /* Sky Blue - Primary */
+  /* Primary */
   --color-sky-50: #f0f9ff;
   --color-sky-100: #e0f2fe;
   --color-sky-500: #0ea5e9;
   --color-sky-600: #0284c7;
 
-  /* Orange - Accent */
+  /* Secondary */
   --color-orange-500: #f97316;
 
   /* Warm White - Background */
