@@ -1,3 +1,17 @@
+---
+import {
+  BadgeCheck,
+  BarChart3,
+  CalendarClock,
+  ChartNoAxesColumn,
+  Layers3,
+  LineChart,
+  Scale,
+  Target,
+  TrendingUp,
+} from "@lucide/astro";
+---
+
 <div
     id="proceso"
     class="relative bg-gradient-to-b from-white via-petrol-50/30 to-white py-24 sm:py-32"
@@ -39,10 +53,19 @@
                 <p class="mt-6 text-base/7 text-petrol-900">
                     Identifica los errores que te invisibilizan y conoce las oportunidades de mercado que ahora pierdes. Recibes un mapa de los problemas técnicos de tu web y un estudio de las búsquedas de tus clientes.
                 </p>
-                <ul class="mt-4 list-disc space-y-2 pl-6 text-base/7 text-petrol-900">
-                    <li>Mide tu autoridad: Compara tu situación real frente a tus competidores.</li>
-                    <li>Cuantifica tu mercado: Descubre el volumen de búsqueda real en tu zona.</li>
-                    <li>Decide con criterio: Verifica la viabilidad del proyecto antes de invertir.</li>
+                <ul class="mt-4 space-y-2 text-base/7 text-petrol-900">
+                    <li class="flex items-start gap-2">
+                        <Scale aria-hidden="true" class="mt-1 size-5 shrink-0 text-sky-600" />
+                        <span><strong>Mide tu autoridad:</strong> Compara tu situación real frente a tus competidores.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <BarChart3 aria-hidden="true" class="mt-1 size-5 shrink-0 text-sky-600" />
+                        <span><strong>Cuantifica tu mercado:</strong> Descubre el volumen de búsqueda real en tu zona.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <BadgeCheck aria-hidden="true" class="mt-1 size-5 shrink-0 text-sky-600" />
+                        <span><strong>Decide con criterio:</strong> Verifica la viabilidad del proyecto antes de invertir.</span>
+                    </li>
                 </ul>
                 <p class="mt-4 text-base/7 text-petrol-900">
                     Accede a tu auditoría gratuita y prioriza tus próximas acciones.
@@ -71,13 +94,22 @@
                 <p class="mt-6 text-base/7 text-petrol-900">
                     Sustituye la incertidumbre por una hoja de ruta técnica. Con el diagnóstico en la mano, diseccionamos las acciones necesarias para captar clientes en tu zona y sector.
                 </p>
-                <ul class="mt-4 list-disc space-y-2 pl-6 text-base/7 text-petrol-900">
-                    <li>Priorización de objetivos: Identifica qué búsquedas atacar primero para acelerar el retorno.</li>
-                    <li>Proyección de tráfico: Obtén una estimación realista del volumen de visitas según tu mercado.</li>
-                    <li>Cronograma de ejecución: Visualiza qué cambios técnicos se aplican cada mes y el plazo estimado para consolidarlos.</li>
+                <ul class="mt-4 space-y-2 text-base/7 text-petrol-900">
+                    <li class="flex items-start gap-2">
+                        <Target aria-hidden="true" class="mt-1 size-5 shrink-0 text-sky-600" />
+                        <span><strong>Priorización de objetivos:</strong> Identifica qué búsquedas atacar primero para acelerar el retorno.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <TrendingUp aria-hidden="true" class="mt-1 size-5 shrink-0 text-sky-600" />
+                        <span><strong>Proyección de tráfico:</strong> Obtén una estimación realista del volumen de visitas según tu mercado.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <CalendarClock aria-hidden="true" class="mt-1 size-5 shrink-0 text-sky-600" />
+                        <span><strong>Cronograma de ejecución:</strong> Visualiza qué cambios técnicos se aplican cada mes y el plazo estimado para consolidarlos.</span>
+                    </li>
                 </ul>
                 <p class="mt-4 text-base/7 text-petrol-900">
-                    Validación estratégica: Audita cada paso del plan antes de ejecutarlo. Si una acción no alinea con tus objetivos de negocio, se descarta.
+                    <strong>Validación estratégica:</strong> Audita cada paso del plan antes de ejecutarlo. Si una acción no alinea con tus objetivos de negocio, se descarta.
                 </p>
             </div>
             <div>
@@ -103,13 +135,22 @@
                 <p class="mt-6 text-base/7 text-petrol-900">
                     Mientras gestionas tu negocio, tu web escala posiciones y consolida su autoridad en Google. Obtén métricas de negocio, no solo de tráfico.
                 </p>
-                <ul class="mt-4 list-disc space-y-2 pl-6 text-base/7 text-petrol-900">
-                    <li>Control de conversiones: Mide cuántas visitas se transforman en llamadas reales o formularios completados.</li>
-                    <li>Evolución de posiciones: Visualiza qué términos has conquistado y cuáles son los siguientes objetivos.</li>
-                    <li>Crecimiento acumulado: Construye un activo que mantiene su valor. A diferencia de la publicidad, tu posicionamiento persiste y se refuerza mes a mes.</li>
+                <ul class="mt-4 space-y-2 text-base/7 text-petrol-900">
+                    <li class="flex items-start gap-2">
+                        <ChartNoAxesColumn aria-hidden="true" class="mt-1 size-5 shrink-0 text-sky-600" />
+                        <span><strong>Control de conversiones:</strong> Mide cuántas visitas se transforman en llamadas reales o formularios completados.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <LineChart aria-hidden="true" class="mt-1 size-5 shrink-0 text-sky-600" />
+                        <span><strong>Evolución de posiciones:</strong> Visualiza qué términos has conquistado y cuáles son los siguientes objetivos.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <Layers3 aria-hidden="true" class="mt-1 size-5 shrink-0 text-sky-600" />
+                        <span><strong>Crecimiento acumulado:</strong> Construye un activo que mantiene su valor. A diferencia de la publicidad, tu posicionamiento persiste y se refuerza mes a mes.</span>
+                    </li>
                 </ul>
                 <p class="mt-4 text-base/7 text-petrol-900">
-                    Impacto local: Capta el volumen de búsquedas de tu sector en Barcelona y convierte a los usuarios en clientes.
+                    <strong>Impacto local:</strong> Capta el volumen de búsquedas de tu sector en Barcelona y convierte a los usuarios en clientes.
                 </p>
             </div>
         </div>

@@ -12,6 +12,7 @@
     "@astrojs/partytown": "^2.1.4",
     "@astrojs/sitemap": "^3.7.0",
     "@fontsource/titan-one": "^5.2.8",
+    "@lucide/astro": "^0.575.0",
     "@tailwindcss/vite": "^4.1.18",
     "@tailwindplus/elements": "^1.0.22",
     "astro": "^5.17.1",
