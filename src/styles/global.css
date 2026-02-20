@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@source "../node_modules/flowbite";
+@plugin "flowbite/plugin";
 
 @theme {
   /* Petrol Blue (supporting neutrals) */
@@ -19,6 +21,43 @@
 
   /* Warm White - Background */
   --color-warm-white: #FAFAF8;
+
+  /* Card tokens for custom utility classes used in content blocks */
+  --color-neutral-primary-soft: var(--color-petrol-50);
+  --color-neutral-secondary-medium: var(--color-petrol-100);
+  --color-heading: var(--color-petrol-900);
+  --color-body: var(--color-petrol-700);
+  --color-fg-brand: var(--color-sky-600);
+  --color-border-default: #d5dde2;
+  --radius-base: 0.5rem;
+}
+
+@utility bg-neutral-primary-soft {
+  background-color: var(--color-neutral-primary-soft);
+}
+
+@utility bg-neutral-secondary-medium {
+  background-color: var(--color-neutral-secondary-medium);
+}
+
+@utility border-default {
+  border-color: var(--color-border-default);
+}
+
+@utility rounded-base {
+  border-radius: var(--radius-base);
+}
+
+@utility text-heading {
+  color: var(--color-heading);
+}
+
+@utility text-body {
+  color: var(--color-body);
+}
+
+@utility text-fg-brand {
+  color: var(--color-fg-brand);
 }
 
 :root {
