@@ -1,7 +1,13 @@
 ---
+import { BadgeCheck, CalendarClock, Layers3, Target } from '@lucide/astro'
 import Upheading from './Upheading.astro'
 
 interface PricingFeature {
+  title: string
+  description: string
+}
+
+interface PricingBottomItem {
   title: string
   description: string
 }
@@ -17,7 +23,7 @@ interface Props {
   quote: string
   quoteAuthor: string
   bottomHeading: string
-  bottomContent: string
+  bottomItems: PricingBottomItem[]
   ctaText: string
   ctaHref: string
 }
@@ -33,7 +39,7 @@ const {
   quote,
   quoteAuthor,
   bottomHeading,
-  bottomContent,
+  bottomItems,
   ctaText,
   ctaHref,
 } = Astro.props
@@ -63,7 +69,7 @@ const {
               fill='currentColor'
               data-slot='icon'
               aria-hidden='true'
-              class='mt-1 size-5 flex-none text-indigo-600'>
+              class='mt-1 size-5 flex-none text-sky-600'>
               <path
                 d='M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z'
                 clip-rule='evenodd'
@@ -86,8 +92,8 @@ const {
         <Fragment set:html={subtext} />
       </p>
 
-      <figure class='mt-10 border-l border-indigo-600 pl-9'>
-        <blockquote class='font-semibold text-gray-900'>
+      <figure class='mt-10 border-l border-sky-600 pl-9'>
+        <blockquote class='font-semibold text-petrol-900'>
           <p>{quote}</p>
         </blockquote>
         <figcaption class='mt-6 flex gap-x-4'>
@@ -103,7 +109,19 @@ const {
         class='text-3xl font-semibold tracking-tight text-pretty text-gray-900'>
         {bottomHeading}
       </h2>
-      <Fragment set:html={bottomContent} />
+      <ul role='list' class='mt-6 space-y-8'>
+        {bottomItems.map((item, index) => (
+          <li class='flex gap-x-3'>
+            {index === 0 && <BadgeCheck aria-hidden='true' class='mt-1 size-5 flex-none text-sky-600' />}
+            {index === 1 && <CalendarClock aria-hidden='true' class='mt-1 size-5 flex-none text-sky-600' />}
+            {index === 2 && <Layers3 aria-hidden='true' class='mt-1 size-5 flex-none text-sky-600' />}
+            {index === 3 && <Target aria-hidden='true' class='mt-1 size-5 flex-none text-sky-600' />}
+            <p>
+              <strong class='text-petrol-900'>{item.title}</strong> {item.description}
+            </p>
+          </li>
+        ))}
+      </ul>
 
       <div class='mt-10 flex'>
         <a
