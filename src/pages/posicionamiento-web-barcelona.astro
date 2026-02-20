@@ -30,109 +30,205 @@ import CtaFinalBarcelona from '../components/CtaFinalBarcelona.astro'
     type='application/ld+json'
     set:html={JSON.stringify({
       '@context': 'https://schema.org',
-      '@type': 'Service',
-      '@id': 'https://salvaseo.com/posicionamiento-web-barcelona#service',
-      serviceType: 'Posicionamiento Web SEO',
-      name: 'Posicionamiento Web en Barcelona',
-      description:
-        'Servicios profesionales de posicionamiento web y SEO local para empresas y negocios en Barcelona. Estrategia personalizada sin contratos de permanencia.',
-      provider: {
-        '@id': 'https://salvaseo.com/#business'
-      },
-      areaServed: {
-        '@type': 'City',
-        name: 'Barcelona',
-        sameAs: 'https://es.wikipedia.org/wiki/Barcelona'
-      },
-      hasOfferCatalog: {
-        '@type': 'OfferCatalog',
-        name: 'Servicios de Posicionamiento Web',
-        itemListElement: [
-          {
+      '@graph': [
+        {
+          '@type': 'WebPage',
+          '@id': 'https://salvaseo.com/posicionamiento-web-barcelona#webpage',
+          url: 'https://salvaseo.com/posicionamiento-web-barcelona',
+          name: 'Posicionamiento Web en Barcelona | SalvaSEO',
+          description:
+            'Servicios de posicionamiento web SEO en Barcelona. Consultor SEO especializado en empresas locales. Estrategia personalizada sin contratos de permanencia.',
+          isPartOf: {
+            '@id': 'https://salvaseo.com/#website'
+          },
+          about: {
+            '@id': 'https://salvaseo.com/posicionamiento-web-barcelona#service'
+          },
+          datePublished: '2025-02-01',
+          dateModified: '2026-02-20',
+          mainEntity: {
+            '@id': 'https://salvaseo.com/posicionamiento-web-barcelona#faq'
+          },
+          inLanguage: 'es',
+          breadcrumb: {
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Inicio',
+                item: 'https://salvaseo.com/'
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Posicionamiento Web en Barcelona'
+              }
+            ]
+          }
+        },
+        {
+          '@type': 'Service',
+          '@id': 'https://salvaseo.com/posicionamiento-web-barcelona#service',
+          serviceType: 'Posicionamiento Web SEO',
+          name: 'Posicionamiento Web en Barcelona',
+          description:
+            'Servicios profesionales de posicionamiento web y SEO local para empresas y negocios en Barcelona. Auditoría SEO, estrategia on page, off page y posicionamiento local. Sin contratos de permanencia.',
+          provider: {
+            '@id': 'https://salvaseo.com/#business'
+          },
+          areaServed: [
+            {
+              '@type': 'City',
+              name: 'Barcelona',
+              sameAs: 'https://es.wikipedia.org/wiki/Barcelona'
+            },
+            {
+              '@type': 'City',
+              name: 'Sabadell',
+              sameAs: 'https://es.wikipedia.org/wiki/Sabadell'
+            },
+            {
+              '@type': 'City',
+              name: 'Badalona',
+              sameAs: 'https://es.wikipedia.org/wiki/Badalona'
+            },
+            {
+              '@type': 'City',
+              name: 'Terrassa',
+              sameAs: 'https://es.wikipedia.org/wiki/Tarrasa'
+            },
+            {
+              '@type': 'City',
+              name: 'Lleida',
+              sameAs: 'https://es.wikipedia.org/wiki/L%C3%A9rida'
+            }
+          ],
+          offers: {
             '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Auditoría SEO',
-              description:
-                'Análisis completo de tu web para identificar problemas técnicos y oportunidades de mejora'
+            priceSpecification: {
+              '@type': 'UnitPriceSpecification',
+              priceCurrency: 'EUR',
+              price: '400',
+              unitText: 'mes',
+              description: 'Presupuesto desde 400 €/mes, definido tras diagnóstico gratuito'
             }
           },
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Estrategia SEO local',
-              description:
-                'Plan personalizado para mejorar tu posicionamiento en búsquedas locales de Barcelona'
-            }
+          hasOfferCatalog: {
+            '@type': 'OfferCatalog',
+            name: 'Servicios de Posicionamiento Web en Barcelona',
+            itemListElement: [
+              {
+                '@type': 'Offer',
+                itemOffered: {
+                  '@type': 'Service',
+                  name: 'Análisis inicial y auditoría SEO',
+                  description:
+                    'Auditoría técnica completa, keyword research, análisis de competencia y arquitectura web para identificar problemas y oportunidades de mejora'
+                }
+              },
+              {
+                '@type': 'Offer',
+                itemOffered: {
+                  '@type': 'Service',
+                  name: 'SEO On Page',
+                  description:
+                    'Optimización de intención de búsqueda, contenidos de negocio, interlinking estratégico, control de indexación y Core Web Vitals'
+                }
+              },
+              {
+                '@type': 'Offer',
+                itemOffered: {
+                  '@type': 'Service',
+                  name: 'SEO Off Page',
+                  description:
+                    'Link building de calidad, auditoría de backlinks, link baiting, reputación online y estrategia de autoridad de dominio'
+                }
+              },
+              {
+                '@type': 'Offer',
+                itemOffered: {
+                  '@type': 'Service',
+                  name: 'Posicionamiento web local',
+                  description:
+                    'Estrategia de SEO local para Barcelona, Sabadell, Badalona, Terrassa y Lleida. Optimización de Google Business Profile y Google Maps'
+                }
+              }
+            ]
+          }
+        },
+        {
+          '@type': 'FAQPage',
+          '@id': 'https://salvaseo.com/posicionamiento-web-barcelona#faq',
+          mainEntityOfPage: {
+            '@id': 'https://salvaseo.com/posicionamiento-web-barcelona#webpage'
           },
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Optimización web',
-              description:
-                'Mejoras técnicas y de contenido para aumentar la visibilidad en Google'
+          mainEntity: [
+            {
+              '@type': 'Question',
+              name: '¿En cuánto tiempo se obtienen resultados?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Los primeros cambios en el rastreo se detectan entre las 4 y 8 semanas. Los resultados sólidos y la estabilización de posiciones suelen consolidarse entre los 3 y 6 meses, dependiendo de la competencia de tu sector.'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: '¿Qué inversión requiere el posicionamiento web?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Para negocios locales en Barcelona, un servicio profesional con ejecución técnica real parte de los 400 €/mes. El presupuesto final se define tras el diagnóstico gratuito, ajustándolo a las necesidades específicas de tu mercado.'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: '¿El SEO es efectivo para cualquier sector?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Es rentable siempre que exista demanda activa. Si tus clientes potenciales buscan tus servicios en Google, el SEO funciona. En el análisis inicial validamos el volumen de búsqueda de tu sector antes de iniciar cualquier acción.'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: '¿Necesito invertir en diseño y posicionamiento web a la vez?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'No siempre. En la mayoría de los casos, el diseño actual se puede optimizar sin rediseñar desde cero: se mejora la estructura, la velocidad de carga y el contenido. Solo se recomienda invertir en un rediseño completo si la base técnica impide el rastreo o perjudica la conversión. Lo ideal es que diseño y posicionamiento web avancen coordinados desde el principio.'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: '¿Qué ocurre si se detiene el servicio?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'A diferencia de la publicidad (SEM), el SEO es un activo acumulado. Si dejas de invertir, no desapareces al instante, aunque la falta de mantenimiento permitirá que la competencia recupere terreno progresivamente. No hay compromisos de permanencia.'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: '¿Incluye la gestión de Google Business Profile?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Sí. Para el posicionamiento local en Barcelona, la ficha de Google es tan crítica como la web. El servicio incluye la optimización de categorías, servicios y señales de geolocalización para aparecer en los resultados de Google Maps.'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: '¿Por qué elegir un consultor frente a una agencia?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'La ventaja es la agilidad y la interlocución técnica directa. Tratas con el especialista que ejecuta los cambios en tu web, lo que elimina tiempos de espera, intermediarios y costes de estructura innecesarios.'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: '¿Se puede recuperar el tráfico perdido?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Sí, tras identificar la causa: una actualización de algoritmo, una penalización técnica o el avance de la competencia. El diagnóstico inicial localiza el origen de la caída y define el plan de recuperación.'
+              }
             }
-          }
-        ]
-      }
-    })}
-  />
-
-  <script
-    type='application/ld+json'
-    set:html={JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: '¿Cuánto tarda en dar resultados el posicionamiento web?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Depende del punto de partida y del sector. Si tu web tiene problemas técnicos graves o la competencia es alta, los primeros resultados visibles pueden tardar entre 3 y 6 meses. Pero desde el primer mes hay trabajo real: acciones concretas que puedes ver y medir.'
-          }
-        },
-        {
-          '@type': 'Question',
-          name: '¿Qué diferencia hay entre SEO y SEM?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'SEO (posicionamiento web) es aparecer en Google de forma orgánica, sin pagar por cada clic. SEM (publicidad en Google) es pagar para salir arriba mientras dure la inversión. El SEO tarda más en dar resultados, pero es más rentable a largo plazo.'
-          }
-        },
-        {
-          '@type': 'Question',
-          name: '¿Necesito invertir en diseño y posicionamiento web a la vez?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'No siempre. En la mayoría de los casos, el diseño actual se puede optimizar sin rediseñar desde cero. Solo se recomienda invertir en un rediseño completo si la base técnica impide el rastreo o perjudica la conversión. Lo ideal es que diseño y posicionamiento web avancen coordinados desde el principio.'
-          }
-        },
-        {
-          '@type': 'Question',
-          name: '¿El posicionamiento web funciona para todos los sectores?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Funciona especialmente bien para negocios locales con clientes de zona: clínicas, talleres, despachos, comercios, restaurantes, servicios profesionales. Si tus clientes buscan tu servicio en Barcelona, el SEO local es una de las inversiones con mejor retorno.'
-          }
-        },
-        {
-          '@type': 'Question',
-          name: '¿Qué pasa si dejo de trabajar el SEO?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'El posicionamiento que has conseguido no desaparece de un día para otro, pero se va erosionando. Tu competencia sigue trabajando, Google actualiza sus algoritmos y, con el tiempo, otros te adelantan.'
-          }
-        },
-        {
-          '@type': 'Question',
-          name: '¿Puedo hacer el posicionamiento web yo mismo?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Poder, puedes. Pero lleva tiempo, formación constante, herramientas profesionales de pago y experiencia para no cometer errores que pueden penalizar tu web. Un profesional acelera el proceso y evita fallos costosos.'
-          }
+          ]
         }
       ]
     })}
