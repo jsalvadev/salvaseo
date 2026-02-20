@@ -46,7 +46,7 @@ const { upheading, heading, description, primaryCtaText, secondaryCtaText, secon
         <Fragment set:html={description} />
       </p>
       <!-- CTAs -->
-      <div class='mt-10 flex items-center justify-center gap-x-6'>
+      <div class='mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-x-6'>
         <WhatsAppButton text={primaryCtaText} />
         <a
           href={secondaryCtaHref}
