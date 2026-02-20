@@ -4,69 +4,64 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is an Astro-based static site project for SalvaSEO, built with Tailwind CSS v4 and TailwindPlus Elements. The site is a single-page landing page with multiple section components.
+SalvaSEO is a static SEO consultant landing site built with Astro 5, Tailwind CSS v4, and TailwindPlus Elements. It has two pages: a home page and a Barcelona landing page.
 
 ## Development Commands
 
 ```bash
-# Install dependencies
-pnpm install
-
-# Start development server at localhost:4321
-pnpm dev
-
-# Build for production (outputs to ./dist/)
-pnpm build
-
-# Preview production build locally
-pnpm preview
-
-# Run Astro CLI commands
-pnpm astro [command]
+pnpm install       # Install dependencies
+pnpm dev           # Start dev server at localhost:4321
+pnpm build         # Build for production (outputs to ./dist/)
+pnpm preview       # Preview production build locally
 ```
 
 ## Architecture
 
-### Component-Based Structure
+### Pages and Layout
 
-The site follows a single-page layout pattern where `src/pages/index.astro` imports and renders section components in sequence:
+Two pages exist under `src/pages/`:
+- `index.astro` — Home page
+- `posicionamiento-web-barcelona.astro` — City landing page with JSON-LD structured data inline
 
-1. **Hero** - Header navigation and hero section with skewed background
-2. **AboutMe** - About section
-3. **Services** - Feature list with icons
-4. **Cta** - Call-to-action section
-5. **Timeline** - Timeline component
-6. **WorkWithMe** - Contact/work section
+Both use `src/layouts/Layout.astro`, which accepts these props:
 
-All components are rendered through the `Layout.astro` wrapper which provides:
-- HTML document structure
-- Global CSS imports (`src/styles/global.css`)
-- Meta tags and page configuration
+```ts
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+  ogImage?: string;
+  ogType?: string;
+  canonicalUrl?: string;
+}
+```
+
+`Layout.astro` handles: HTML structure, Navbar, Footer, WaChatWidget, GTM via Partytown, cookie consent, `@tailwindplus/elements` import, and JSON-LD for the home page only (guarded by `isHomePage`).
+
+### Component Pattern
+
+All page sections are self-contained `.astro` files in `src/components/`. Pages compose them in order inside `<Layout>`. The Barcelona page has its own set of `*Barcelona.astro` components to avoid coupling with home page content.
+
+The shared `Upheading.astro` component renders a colored section label above headings — use it when adding new sections.
 
 ### Styling System
 
-- **Framework**: Tailwind CSS v4 integrated via Vite plugin
-- **UI Components**: TailwindPlus Elements (`@tailwindplus/elements`) for enhanced components like `<el-dialog>` and `<el-dialog-panel>`
-- **Configuration**: Tailwind is configured in `astro.config.mjs` as a Vite plugin
-- **Global Styles**: Imported via `src/styles/global.css` which contains `@import "tailwindcss"`
+- **Tailwind v4** configured as a Vite plugin in `astro.config.mjs`
+- **Flowbite** sourced via `@source "../node_modules/flowbite"` and `@plugin "flowbite/plugin"` in `global.css`
+- **Custom tokens** defined in `global.css` under `@theme`:
+  - Colors: `petrol-*`, `sky-*`, `orange-500`, `warm-white`
+  - Semantic aliases: `--color-heading` (petrol-900), `--color-body` (petrol-700), `--color-fg-brand` (sky-600)
+- **Custom utilities** available via `@utility` (use these for consistent styling):
+  - `text-heading`, `text-body`, `text-fg-brand`
+  - `bg-neutral-primary-soft`, `bg-neutral-secondary-medium`
+  - `border-default`, `rounded-base`
+- **CSS variable**: `--navbar-height: 80px` — used for `scroll-margin-top` on anchor sections
 
-### Key Technical Details
+### Integrations
 
-- **TypeScript**: Uses Astro's strict TypeScript configuration (`astro/tsconfigs/strict`)
-- **Component Pattern**: All components are `.astro` files using Astro's component syntax
-- **Interactive Elements**: Mobile menu uses TailwindPlus Elements' dialog system with `command` and `commandfor` attributes
-- **Asset Management**: Images are referenced both locally (`src/assets/hero.jpg`) and from external sources (Unsplash)
-
-### Build Configuration
-
-- **Astro Config** (`astro.config.mjs`): Minimal configuration with Tailwind CSS integrated as a Vite plugin
-- **No Static Site Generation Config**: Uses Astro's default SSG behavior
-- **No Routing Config**: Single page application with no custom routing
-
-## Working with Components
-
-When modifying or creating components:
-- Components are self-contained `.astro` files in `src/components/`
-- Use Tailwind utility classes for styling
-- TailwindPlus Elements are available for enhanced interactive components
-- Follow the existing pattern of importing components into `src/pages/index.astro`
+- **`@astrojs/sitemap`**: Only indexes `/` and `/posicionamiento-web-barcelona/` (see filter in `astro.config.mjs`)
+- **`@astrojs/partytown`**: Proxies GTM (`dataLayer.push`, `gtag`) to a web worker — GTM script uses `type="text/partytown"`
+- **`vanilla-cookieconsent`**: Initialized via `src/scripts/cookieconsent.js`, imported in `Layout.astro`
+- **`wa-chat-widget`**: WhatsApp chat widget rendered as `<WaChatWidget />` in Layout
+- **`@lucide/astro`**: Icon library used in components
+- **`@fontsource/titan-one`**: Custom font available as a dependency
