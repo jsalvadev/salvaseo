@@ -54,6 +54,8 @@ const isHomePage = canonicalUrl === "https://salvaseo.com/" && !noindex;
         <title>{title}</title>
         <meta name="description" content={description} />
         <link rel="canonical" href={canonicalUrl} />
+        <link rel="alternate" hreflang="es-ES" href={canonicalUrl} />
+        <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
         <meta
             name="robots"
             content={noindex
