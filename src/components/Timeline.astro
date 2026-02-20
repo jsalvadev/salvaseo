@@ -10,6 +10,15 @@ import {
   Target,
   TrendingUp,
 } from "@lucide/astro";
+import Upheading from "./Upheading.astro";
+
+interface Props {
+  upheading?: string
+  heading: string
+  subtitle?: string
+}
+
+const { upheading, heading, subtitle = 'Tres fases para ejecutar, medir y escalar. Visualiza el retorno de tu inversión en Barcelona mediante informes directos y objetivos cumplidos.' } = Astro.props
 ---
 
 <div
@@ -17,15 +26,14 @@ import {
     class="relative bg-gradient-to-b from-white via-petrol-50/30 to-white py-24 sm:py-32"
 >
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        {upheading && <Upheading text={upheading} class="mb-2 text-right" />}
         <h2
-            class="mb-2 text-right text-3xl font-semibold tracking-tight text-pretty text-petrol-900 sm:text-4xl"
+            class:list={["text-right text-3xl font-semibold tracking-tight text-pretty text-petrol-900 sm:text-4xl", !upheading && "mb-2"]}
         >
-            Tu hoja de ruta hacia la primera página
+            {heading}
         </h2>
         <p class="mb-16 ml-auto max-w-[50ch] text-right text-lg text-petrol-900 text-pretty">
-            Tres fases para ejecutar, medir y escalar. Visualiza el retorno de
-            tu inversión en Barcelona mediante informes directos y objetivos
-            cumplidos.
+            {subtitle}
         </p>
         <div
             class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-12 overflow-hidden lg:mx-0 lg:max-w-none lg:grid-cols-3"

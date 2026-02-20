@@ -1,29 +1,86 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import DecorativeSeparator from '../components/DecorativeSeparator.astro'
-import ServicesBarcelona from '../components/ServicesBarcelona.astro'
-import TimelineBarcelona from '../components/TimelineBarcelona.astro'
-import HeroBarcelona from '../components/HeroBarcelona.astro'
-import PricingBarcelona from '../components/PricingBarcelona.astro'
+import Services from '../components/Services.astro'
+import Timeline from '../components/Timeline.astro'
+import HeroLanding from '../components/HeroLanding.astro'
+import Pricing from '../components/Pricing.astro'
 import FreelanceVsAgencia from '../components/FreelanceVsAgencia.astro'
-import SeoLocalBarcelona from '../components/SeoLocalBarcelona.astro'
-import FaqBarcelona from '../components/FaqBarcelona.astro'
-import CtaFinalBarcelona from '../components/CtaFinalBarcelona.astro'
+import LocalAreas from '../components/LocalAreas.astro'
+import Faq from '../components/Faq.astro'
+import { faqBarcelonaItems } from '../data/faq-barcelona'
+import Cta from '../components/Cta.astro'
 ---
 
 <Layout
   title='Posicionamiento Web en Barcelona | SalvaSEO'
   description='Servicios de posicionamiento web SEO en Barcelona. Consultor SEO especializado en empresas locales. Estrategia personalizada sin contratos de permanencia.'
   canonicalUrl='https://salvaseo.com/posicionamiento-web-barcelona'>
-  <HeroBarcelona />
-  <TimelineBarcelona />
+  <HeroLanding
+    upheading='Posicionamiento web en Barcelona'
+    heading='Deja de perder clientes frente a tu competencia'
+    description='En Barcelona, <strong>o eres el primero o eres el secreto de tu competencia</strong>. Domina las búsquedas de Google, multiplica tus contactos y pon tu web a trabajar de verdad. <strong>Deja de perder clientes</strong>: si te buscan, que te encuentren a ti primero.'
+    primaryCtaText='Analiza mi web ahora'
+    secondaryCtaText='Cómo trabajo'
+    secondaryCtaHref='#proceso'
+  />
+  <Timeline
+    upheading='Informe de posicionamiento web y auditoría SEO'
+    heading='Tu camino a la primera página empieza con un plan'
+  />
   <DecorativeSeparator />
-  <ServicesBarcelona />
-  <SeoLocalBarcelona />
+  <Services
+    upheading='Servicios de diseño y posicionamiento web en Barcelona'
+    heading='Tu web tiene que trabajar para ti'
+    subtitle='Sé la respuesta a lo que buscan en Barcelona. Localiza <strong>los fallos que te invisibilizan en Google</strong> y activa tu captación de clientes con datos reales para aumentar tu facturación.'
+  />
+  <LocalAreas
+    upheading='Estrategia de posicionamiento web local'
+    heading='Barcelona es tu territorio'
+    intro='<p class="mt-6 text-base/7 text-petrol-700">La visibilidad en el buscador cambia según la ubicación del usuario. Si tu negocio no responde a la <strong>intención de búsqueda de tu zona</strong>, el tráfico se desvía hacia la competencia.</p><p class="mt-4 text-base/7 text-petrol-700">Captura la demanda real en los mercados con mayor potencial de conversión:</p>'
+    areas={[
+      { title: 'Posicionamiento web en Sabadell', description: 'Capitaliza el volumen de búsquedas de una de las zonas con <strong>mayor actividad comercial del Vallès</strong>. Es el escenario ideal para escalar posiciones y liderar tu sector a nivel local.' },
+      { title: 'Posicionamiento web en Badalona', description: 'Reivindica tu ubicación para captar al <strong>cliente que busca proximidad</strong>. Optimizar tu visibilidad aquí evita que tu negocio se diluya entre los resultados de la capital.' },
+      { title: 'Posicionamiento web en Terrassa', description: 'Reduce la dependencia de los anuncios de pago. Una estrategia orgánica sólida te permite capturar la <strong>demanda local de forma recurrente y sin coste por clic</strong>.' },
+      { title: 'Posicionamiento web en Lleida', description: 'Toma ventaja en un entorno con <strong>baja competencia técnica</strong>. Es el mercado donde la optimización profesional logra resultados de liderazgo en el menor tiempo posible.' },
+    ]}
+  />
   <FreelanceVsAgencia />
-  <PricingBarcelona />
-  <FaqBarcelona />
-  <CtaFinalBarcelona />
+  <Pricing
+    upheading='Precios de posicionamiento web en Barcelona'
+    heading='Solo inviertes en lo que funciona'
+    intro='Un servicio profesional de posicionamiento en Barcelona requiere recursos proporcionales a tus objetivos. Los presupuestos parten de <strong>400 €/mes</strong> y se definen según tres factores: tu competencia, el estado técnico de tu web y la velocidad de crecimiento que necesites.'
+    costContext='Antes de valorar el precio, calcula el coste de oportunidad: <strong>cada día que tu competencia ocupa tu lugar en Google, tú pierdes una venta</strong>.'
+    features={[
+      { title: 'Acciones mensuales.', description: 'Plan de ejecución detallado con tareas y objetivos específicos.' },
+      { title: 'Plazos de visibilidad.', description: 'Cronograma de resultados esperados según la dificultad del sector.' },
+      { title: 'Presupuesto por fases.', description: 'Desglose del coste por etapas, sin servicios de relleno.' },
+    ]}
+    subheading='Presupuesto de posicionamiento web a medida, no por plantilla'
+    subtext='Evita los planes cerrados. Tu estrategia se diseña tras un análisis real de tu web. Solo inviertes en lo que tu negocio necesita para escalar, conociendo el destino de cada euro.'
+    quote='"Prefiero un cliente que decide con datos a uno que firma sin comprender la estrategia."'
+    quoteAuthor='<strong class="font-semibold text-gray-900">Salva</strong> – SEO Freelance'
+    bottomHeading='Posicionamiento web para empresas: lo que necesitas saber'
+    bottomContent='<p class="mt-6"><strong class="text-gray-900">La viabilidad está asegurada.</strong> El análisis inicial confirma si el SEO es rentable para ti. Si tu sector no tiene demanda o la competencia es inalcanzable, recibes un aviso previo.</p><p class="mt-8"><strong class="text-gray-900">Resultados visibles en semanas.</strong> Los primeros cambios se reflejan entre las 4 y 8 semanas. La consolidación de resultados llega entre los 3 y 6 meses.</p><p class="mt-8"><strong class="text-gray-900">Tendrás libertad total.</strong> Sin contratos de permanencia. El trabajo realizado es un activo que queda en tu propiedad si decides parar.</p><p class="mt-8"><strong class="text-gray-900">Recibirás atención directa.</strong> Como freelance, gestiono un número limitado de proyectos. Tu web recibe ejecución técnica directa, sin intermediarios</p>'
+    ctaText='Pide tu análisis gratis por WhatsApp'
+    ctaHref='https://wa.me/34692051399?text=Hola%20Salva%2C%20he%20visto%20tu%20web.%20Tengo%20un%20negocio%20en%20Barcelona%20y%20me%20gustar%C3%ADa%20saber%20si%20el%20SEO%20puede%20ayudarme%20a%20conseguir%20m%C3%A1s%20clientes.'
+  />
+  <Faq
+    upheading='Posicionamiento web profesional para empresas en Barcelona'
+    heading='Todavía te lo estás pensando'
+    idPrefix='faq-pw'
+    items={faqBarcelonaItems}
+  />
+  <Cta
+    layout='centered'
+    upheading='Posicionamiento web para pymes en Barcelona'
+    heading='El primer paso es gratis'
+    text='Accede a un estudio de mercado y una auditoría técnica de tu web <strong>sin coste (valorada en 200 €)</strong>. Verifica la rentabilidad de la inversión antes de tomar cualquier decisión.'
+    primaryCtaText='Analizar mi caso gratis'
+    secondaryCtaText='O rellena el formulario'
+    secondaryCtaHref='/#contacto'
+    patternId='pw-cta-dots'
+  />
 
   <!-- JSON-LD Structured Data -->
   <script

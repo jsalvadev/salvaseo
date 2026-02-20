@@ -1,14 +1,37 @@
 ---
+import Upheading from './Upheading.astro'
 import WhatsAppButton from './WhatsAppButton.astro'
+
+interface Props {
+  upheading?: string
+  heading: string
+  text: string
+  layout?: 'side-by-side' | 'centered'
+  primaryCtaText: string
+  secondaryCtaText?: string
+  secondaryCtaHref?: string
+  patternId?: string
+}
+
+const {
+  upheading,
+  heading,
+  text,
+  layout = 'side-by-side',
+  primaryCtaText,
+  secondaryCtaText,
+  secondaryCtaHref,
+  patternId = 'cta-dots-pattern',
+} = Astro.props
 ---
 
-<div class='relative isolate bg-petrol-100'>
+<div class:list={['relative isolate bg-petrol-100', layout === 'centered' && 'px-6 lg:px-8']}>
   <svg
     aria-hidden='true'
     class='absolute inset-0 -z-10 size-full'>
     <defs>
       <pattern
-        id='cta-dots-pattern'
+        id={patternId}
         width='32'
         height='32'
         patternUnits='userSpaceOnUse'>
@@ -24,32 +47,56 @@ import WhatsAppButton from './WhatsAppButton.astro'
     <rect
       width='100%'
       height='100%'
-      fill='url(#cta-dots-pattern)'
+      fill={`url(#${patternId})`}
     ></rect>
   </svg>
-  <div
-    class='mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:flex lg:items-center lg:justify-between lg:px-8'>
-    <div>
-      <h2
-        class='max-w-2xl text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl text-pretty'>
-        ¿Necesitas un consultor SEO en Barcelona?
-      </h2>
-      <p class='mt-6 max-w-xl text-lg text-petrol-900'>
-        Si has llegado hasta aquí y crees que tu negocio debería aparecer mejor
-        en Google, hablemos. <strong
-          >La primera consultoría es gratis y sin compromiso.</strong
-        > Solo quiero ver si tiene sentido para tu caso.
-      </p>
-    </div>
+
+  {layout === 'side-by-side' ? (
     <div
-      class='mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-x-6 lg:mt-0 lg:shrink-0'>
-      <WhatsAppButton text='Hablamos por WhatsApp' />
-      <a
-        href='mailto:salvadorjesus.seo@gmail.com'
-        class='text-sm/6 font-semibold text-petrol-900'>
-        O escríbeme por email
-        <span aria-hidden='true'>→</span>
-      </a>
+      class='mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:flex lg:items-center lg:justify-between lg:px-8'>
+      <div>
+        <h2
+          class='max-w-2xl text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl text-pretty'>
+          {heading}
+        </h2>
+        <p class='mt-6 max-w-xl text-lg text-petrol-900'>
+          <Fragment set:html={text} />
+        </p>
+      </div>
+      <div
+        class='mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-x-6 lg:mt-0 lg:shrink-0'>
+        <WhatsAppButton text={primaryCtaText} />
+        {secondaryCtaText && secondaryCtaHref && (
+          <a
+            href={secondaryCtaHref}
+            class='text-sm/6 font-semibold text-petrol-900'>
+            {secondaryCtaText}
+            <span aria-hidden='true'>→</span>
+          </a>
+        )}
+      </div>
     </div>
-  </div>
+  ) : (
+    <div class='mx-auto max-w-2xl py-24 sm:py-32 text-center'>
+      {upheading && <Upheading text={upheading} class='text-center' />}
+      <h2
+        class='mt-2 text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl'>
+        {heading}
+      </h2>
+      <p class='mt-6 text-lg/8 text-petrol-900'>
+        <Fragment set:html={text} />
+      </p>
+      <div
+        class='mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-x-6'>
+        <WhatsAppButton text={primaryCtaText} />
+        {secondaryCtaText && secondaryCtaHref && (
+          <a
+            href={secondaryCtaHref}
+            class='text-sm/6 font-semibold text-petrol-900'>
+            {secondaryCtaText} →
+          </a>
+        )}
+      </div>
+    </div>
+  )}
 </div>

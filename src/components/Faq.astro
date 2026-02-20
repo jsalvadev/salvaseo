@@ -1,614 +1,80 @@
 ---
 import Upheading from './Upheading.astro'
+import type { FaqItem } from '../data/faq-home'
+
+interface Props {
+  upheading?: string
+  heading: string
+  idPrefix?: string
+  items: FaqItem[]
+  class?: string
+}
+
+const { upheading, heading, idPrefix = 'faq', items, class: className } = Astro.props
 ---
 
-<!-- Include this script tag or install `@tailwindplus/elements` via npm: --><!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script> -->
-<div class='bg-warm-white'>
+<div class:list={['bg-warm-white', className]}>
   <div class='mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40'>
     <div class='mx-auto max-w-4xl'>
-      <Upheading as='h2' text='Todo sobre consultores SEO en Barcelona' />
+      {upheading && <Upheading as='h2' text={upheading} />}
       <p
         class='text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl'>
-        Aún tienes dudas
+        {heading}
       </p>
       <dl class='mt-16 divide-y divide-gray-900/10'>
-        <div class='py-6 first:pt-0 last:pb-0'>
-          <dt>
-            <button
-              type='button'
-              command='--toggle'
-              commandfor='faq-0'
-              class='flex w-full items-start justify-between text-left text-petrol-900'>
-              <h3 class='text-base/7 font-semibold'>
-                ¿Qué diferencia hay entre un consultor SEO freelance y una
-                agencia SEO en Barcelona?
-              </h3>
-              <span class='ml-6 flex h-7 items-center'>
-                <svg
-                  viewBox='0 0 24 24'
-                  fill='none'
-                  stroke='currentColor'
-                  stroke-width='1.5'
-                  data-slot='icon'
-                  aria-hidden='true'
-                  class='size-6 in-aria-expanded:hidden'>
-                  <path
-                    d='M12 6v12m6-6H6'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                  ></path>
-                </svg>
-                <svg
-                  viewBox='0 0 24 24'
-                  fill='none'
-                  stroke='currentColor'
-                  stroke-width='1.5'
-                  data-slot='icon'
-                  aria-hidden='true'
-                  class='size-6 not-in-aria-expanded:hidden'>
-                  <path
-                    d='M18 12H6'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                  ></path>
-                </svg>
-              </span>
-            </button>
-          </dt>
-          <el-disclosure
-            id='faq-0'
-            hidden
-            class='contents'>
-            <dd class='mt-2 pr-12'>
-              <p class='text-base/7 text-petrol-900'>
-                Con un freelance, hablarás <strong>directamente con quien trabaja tu
-                proyecto</strong>. <strong>Sin intermediarios</strong> que retrasen las conversaciones. Al
-                aceptar pocos proyectos, <strong>tu negocio recibe la atención que
-                merece</strong>. Trabajarás con alguien que conoce Barcelona, con <strong>costes
-                más ajustados</strong> y capacidad de adaptación rápida. Para negocios
-                locales, el freelance ofrece mejor servicio.
-              </p>
-            </dd>
-          </el-disclosure>
-        </div>
-        <div class='py-6 first:pt-0 last:pb-0'>
-          <dt>
-            <button
-              type='button'
-              command='--toggle'
-              commandfor='faq-1'
-              class='flex w-full items-start justify-between text-left text-petrol-900'>
-              <h3 class='text-base/7 font-semibold'>
-                ¿Qué es un consultor SEO y qué funciones tiene exactamente?
-              </h3>
-              <span class='ml-6 flex h-7 items-center'>
-                <svg
-                  viewBox='0 0 24 24'
-                  fill='none'
-                  stroke='currentColor'
-                  stroke-width='1.5'
-                  data-slot='icon'
-                  aria-hidden='true'
-                  class='size-6 in-aria-expanded:hidden'>
-                  <path
-                    d='M12 6v12m6-6H6'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                  ></path>
-                </svg>
-                <svg
-                  viewBox='0 0 24 24'
-                  fill='none'
-                  stroke='currentColor'
-                  stroke-width='1.5'
-                  data-slot='icon'
-                  aria-hidden='true'
-                  class='size-6 not-in-aria-expanded:hidden'>
-                  <path
-                    d='M18 12H6'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                  ></path>
-                </svg>
-              </span>
-            </button>
-          </dt>
-          <el-disclosure
-            id='faq-1'
-            hidden
-            class='contents'>
-            <dd class='mt-2 pr-12'>
-              <p class='text-base/7 text-petrol-900'>
-                Un consultor SEO es el profesional que analiza, optimiza y posiciona tu web en Google para que tus clientes te encuentren. Descubrirás <strong>por qué tu web no aparece en Google</strong> y obtendrás las
-                soluciones necesarias:
-              </p>
-              <ul class='mt-2 list-disc pl-6 text-base/7 text-petrol-900'>
-                <li>Auditoría SEO y SEO técnico: diseño web, velocidad y estructura de tu página web</li>
-                <li>Keyword research: investigación de palabras clave que tus clientes realmente buscan</li>
-                <li>Optimización de contenido para búsquedas reales de usuarios</li>
-                <li>Optimización de la ficha de Google Business Profile y Google Maps</li>
-                <li>Estrategia de enlaces de calidad y SEO off page para ganar autoridad</li>
-                <li>Análisis de competencia local</li>
-                <li>Experiencia de usuario, seguimiento semanal y ajustes continuos con resultados medibles</li>
-              </ul>
-              <p class='mt-2 text-base/7 text-petrol-900'>
-                Resultado: <strong>Aparecerás cuando tu cliente te busque</strong>.
-              </p>
-            </dd>
-          </el-disclosure>
-        </div>
-        <div class='py-6 first:pt-0 last:pb-0'>
-          <dt>
-            <button
-              type='button'
-              command='--toggle'
-              commandfor='faq-2'
-              class='flex w-full items-start justify-between text-left text-petrol-900'>
-              <h3 class='text-base/7 font-semibold'>
-                ¿Cuánto cobra un consultor SEO en Barcelona? (Precio y tarifas
-                2025)
-              </h3>
-              <span class='ml-6 flex h-7 items-center'>
-                <svg
-                  viewBox='0 0 24 24'
-                  fill='none'
-                  stroke='currentColor'
-                  stroke-width='1.5'
-                  data-slot='icon'
-                  aria-hidden='true'
-                  class='size-6 in-aria-expanded:hidden'>
-                  <path
-                    d='M12 6v12m6-6H6'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                  ></path>
-                </svg>
-                <svg
-                  viewBox='0 0 24 24'
-                  fill='none'
-                  stroke='currentColor'
-                  stroke-width='1.5'
-                  data-slot='icon'
-                  aria-hidden='true'
-                  class='size-6 not-in-aria-expanded:hidden'>
-                  <path
-                    d='M18 12H6'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                  ></path>
-                </svg>
-              </span>
-            </button>
-          </dt>
-          <el-disclosure
-            id='faq-2'
-            hidden
-            class='contents'>
-            <dd class='mt-2 pr-12'>
-              <p class='text-base/7 text-petrol-900'>
-                El precio hora de un consultor SEO en Barcelona varía según mercado: <strong>entre 50€-150€/hora o desde 500€/mes</strong> según experiencia y alcance.
-              </p>
-              <p class='mt-2 text-base/7 text-petrol-900'>
-                El modelo de trabajo puede ser por proyecto, planes mensuales o servicios SEO puntuales según lo
-                que necesites. Sin contratos de permanencia. Recibirás <strong>primero un análisis</strong> de qué falla en tu
-                caso específico, y después conocerás el <strong>coste exacto adaptado a
-                tu situación</strong>.
-              </p>
-            </dd>
-          </el-disclosure>
-        </div>
-        <div class='py-6 first:pt-0 last:pb-0'>
-          <dt>
-            <button
-              type='button'
-              command='--toggle'
-              commandfor='faq-3'
-              class='flex w-full items-start justify-between text-left text-petrol-900'>
-              <h3 class='text-base/7 font-semibold'>
-                ¿Cómo encontrar un buen consultor SEO en Barcelona?
-              </h3>
-              <span class='ml-6 flex h-7 items-center'>
-                <svg
-                  viewBox='0 0 24 24'
-                  fill='none'
-                  stroke='currentColor'
-                  stroke-width='1.5'
-                  data-slot='icon'
-                  aria-hidden='true'
-                  class='size-6 in-aria-expanded:hidden'>
-                  <path
-                    d='M12 6v12m6-6H6'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                  ></path>
-                </svg>
-                <svg
-                  viewBox='0 0 24 24'
-                  fill='none'
-                  stroke='currentColor'
-                  stroke-width='1.5'
-                  data-slot='icon'
-                  aria-hidden='true'
-                  class='size-6 not-in-aria-expanded:hidden'>
-                  <path
-                    d='M18 12H6'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                  ></path>
-                </svg>
-              </span>
-            </button>
-          </dt>
-          <el-disclosure
-            id='faq-3'
-            hidden
-            class='contents'>
-            <dd class='mt-2 pr-12'>
-              <p class='text-base/7 text-petrol-900'>
-                Busca un consultor SEO experto que demuestre resultados reales con casos de éxito, te explique el proceso con claridad y conozca tu mercado local. Un buen consultor SEO no promete el número uno, sino <strong>un plan realista adaptado a tu negocio</strong>.
-              </p>
-            </dd>
-          </el-disclosure>
-        </div>
-        <div class='py-6 first:pt-0 last:pb-0'>
-          <dt>
-            <button
-              type='button'
-              command='--toggle'
-              commandfor='faq-4'
-              class='flex w-full items-start justify-between text-left text-petrol-900'>
-              <h3 class='text-base/7 font-semibold'>
-                ¿Cómo sé si necesito un consultor SEO profesional?
-              </h3>
-              <span class='ml-6 flex h-7 items-center'>
-                <svg
-                  viewBox='0 0 24 24'
-                  fill='none'
-                  stroke='currentColor'
-                  stroke-width='1.5'
-                  data-slot='icon'
-                  aria-hidden='true'
-                  class='size-6 in-aria-expanded:hidden'>
-                  <path
-                    d='M12 6v12m6-6H6'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                  ></path>
-                </svg>
-                <svg
-                  viewBox='0 0 24 24'
-                  fill='none'
-                  stroke='currentColor'
-                  stroke-width='1.5'
-                  data-slot='icon'
-                  aria-hidden='true'
-                  class='size-6 not-in-aria-expanded:hidden'>
-                  <path
-                    d='M18 12H6'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                  ></path>
-                </svg>
-              </span>
-            </button>
-          </dt>
-          <el-disclosure
-             id='faq-4'
-            hidden
-            class='contents'>
-            <dd class='mt-2 pr-12'>
-              <p class='text-base/7 text-petrol-900'>
-                Si tu página web no recibe tráfico orgánico de Google, tu competencia aparece
-                antes que tú, tienes Google Business Profile pero <strong>no genera
-                llamadas</strong>, o dependías de publicidad de pago (SEM) para conseguir visitas.
-              </p>
-              <p class='mt-2 text-base/7 text-petrol-900'>
-                Si tu negocio <strong>depende de visibilidad online y estás invisible</strong>,
-                necesitas ayuda SEO. En la consultoría inicial sabrás si tu caso
-                encaja o no.
-              </p>
-            </dd>
-          </el-disclosure>
-        </div>
-        <div class='py-6 first:pt-0 last:pb-0'>
-          <dt>
-            <button
-              type='button'
-              command='--toggle'
-              commandfor='faq-5'
-              class='flex w-full items-start justify-between text-left text-petrol-900'>
-              <h3 class='text-base/7 font-semibold'>
-                ¿El SEO local funciona para cualquier tipo de negocio en
-                Barcelona?
-              </h3>
-              <span class='ml-6 flex h-7 items-center'>
-                <svg
-                  viewBox='0 0 24 24'
-                  fill='none'
-                  stroke='currentColor'
-                  stroke-width='1.5'
-                  data-slot='icon'
-                  aria-hidden='true'
-                  class='size-6 in-aria-expanded:hidden'>
-                  <path
-                    d='M12 6v12m6-6H6'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                  ></path>
-                </svg>
-                <svg
-                  viewBox='0 0 24 24'
-                  fill='none'
-                  stroke='currentColor'
-                  stroke-width='1.5'
-                  data-slot='icon'
-                  aria-hidden='true'
-                  class='size-6 not-in-aria-expanded:hidden'>
-                  <path
-                    d='M18 12H6'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                  ></path>
-                </svg>
-              </span>
-            </button>
-          </dt>
-          <el-disclosure
-            id='faq-5'
-            hidden
-            class='contents'>
-            <dd class='mt-2 pr-12'>
-              <p class='text-base/7 text-petrol-900'>
-                Funciona para negocios con clientes de zona como clínicas,
-                talleres, despachos, restaurantes, comercios. Si tus clientes
-                buscan <strong>"cerca de mí"</strong> o <strong>por barrio</strong>, el SEO local es muy efectivo.
-              </p>
-            </dd>
-          </el-disclosure>
-        </div>
-        <div class='py-6 first:pt-0 last:pb-0'>
-          <dt>
-            <button
-              type='button'
-              command='--toggle'
-              commandfor='faq-6'
-              class='flex w-full items-start justify-between text-left text-petrol-900'>
-              <h3 class='text-base/7 font-semibold'>
-                ¿Qué pasa si ya tengo ficha de Google Business Profile pero no
-                aparezco en las búsquedas locales?
-              </h3>
-              <span class='ml-6 flex h-7 items-center'>
-                <svg
-                  viewBox='0 0 24 24'
-                  fill='none'
-                  stroke='currentColor'
-                  stroke-width='1.5'
-                  data-slot='icon'
-                  aria-hidden='true'
-                  class='size-6 in-aria-expanded:hidden'>
-                  <path
-                    d='M12 6v12m6-6H6'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                  ></path>
-                </svg>
-                <svg
-                  viewBox='0 0 24 24'
-                  fill='none'
-                  stroke='currentColor'
-                  stroke-width='1.5'
-                  data-slot='icon'
-                  aria-hidden='true'
-                  class='size-6 not-in-aria-expanded:hidden'>
-                  <path
-                    d='M18 12H6'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                  ></path>
-                </svg>
-              </span>
-            </button>
-          </dt>
-          <el-disclosure
-            id='faq-6'
-            hidden
-            class='contents'>
-            <dd class='mt-2 pr-12'>
-              <p class='text-base/7 text-petrol-900'>
-                Muchas fichas están <strong>mal configuradas</strong>: categorías incorrectas,
-                sin palabras clave, fotos desactualizadas, sin reseñas.
-              </p>
-              <p class='mt-2 text-base/7 text-petrol-900'>
-                Tu ficha recibirá una revisión completa con optimización de cada
-                campo, alineada con tu web y el trabajo necesario para que
-                <strong>aparezcas en Google Maps y el mapa local</strong>. Puedes solicitar una <strong>revisión
-                gratuita</strong> de tu ficha.
-              </p>
-            </dd>
-          </el-disclosure>
-        </div>
-        <div class='py-6 first:pt-0 last:pb-0'>
-          <dt>
-            <button
-              type='button'
-              command='--toggle'
-              commandfor='faq-7'
-              class='flex w-full items-start justify-between text-left text-petrol-900'>
-              <h3 class='text-base/7 font-semibold'>
-                ¿Por qué necesito un especialista SEO para mi negocio en
-                Barcelona?
-              </h3>
-              <span class='ml-6 flex h-7 items-center'>
-                <svg
-                  viewBox='0 0 24 24'
-                  fill='none'
-                  stroke='currentColor'
-                  stroke-width='1.5'
-                  data-slot='icon'
-                  aria-hidden='true'
-                  class='size-6 in-aria-expanded:hidden'>
-                  <path
-                    d='M12 6v12m6-6H6'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                  ></path>
-                </svg>
-                <svg
-                  viewBox='0 0 24 24'
-                  fill='none'
-                  stroke='currentColor'
-                  stroke-width='1.5'
-                  data-slot='icon'
-                  aria-hidden='true'
-                  class='size-6 not-in-aria-expanded:hidden'>
-                  <path
-                    d='M18 12H6'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                  ></path>
-                </svg>
-              </span>
-            </button>
-          </dt>
-          <el-disclosure
-             id='faq-7'
-            hidden
-            class='contents'>
-            <dd class='mt-2 pr-12'>
-              <p class='text-base/7 text-petrol-900'>
-                Porque <strong>Google no te posiciona solo porque tu servicio sea bueno</strong>. El posicionamiento SEO requiere trabajo especializado.
-                Un especialista SEO convierte tu página web en un <strong>canal constante de
-                clientes que atrae tráfico orgánico de calidad</strong>. Mientras trabajas en tu negocio, tu web aparecerá
-                cuando busquen lo que ofreces en Barcelona.
-              </p>
-              <p class='mt-2 text-base/7 text-petrol-900'>
-                Si tu competencia recibe las llamadas, <strong>el SEO cambia eso</strong>.
-              </p>
-            </dd>
-          </el-disclosure>
-        </div>
-        <div class='py-6 first:pt-0 last:pb-0'>
-          <dt>
-            <button
-              type='button'
-              command='--toggle'
-              commandfor='faq-8'
-              class='flex w-full items-start justify-between text-left text-petrol-900'>
-              <h3 class='text-base/7 font-semibold'>
-                ¿Cómo encontrar un consultor SEO cerca de mi negocio en
-                Barcelona?
-              </h3>
-              <span class='ml-6 flex h-7 items-center'>
-                <svg
-                  viewBox='0 0 24 24'
-                  fill='none'
-                  stroke='currentColor'
-                  stroke-width='1.5'
-                  data-slot='icon'
-                  aria-hidden='true'
-                  class='size-6 in-aria-expanded:hidden'>
-                  <path
-                    d='M12 6v12m6-6H6'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                  ></path>
-                </svg>
-                <svg
-                  viewBox='0 0 24 24'
-                  fill='none'
-                  stroke='currentColor'
-                  stroke-width='1.5'
-                  data-slot='icon'
-                  aria-hidden='true'
-                  class='size-6 not-in-aria-expanded:hidden'>
-                  <path
-                    d='M18 12H6'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                  ></path>
-                </svg>
-              </span>
-            </button>
-          </dt>
-           <el-disclosure
-            id='faq-8'
-            hidden
-            class='contents'>
-            <dd class='mt-2 pr-12'>
-              <p class='text-base/7 text-petrol-900'>
-                Busca alguien que <strong>conozca tu zona</strong>, te explique claramente qué
-                hará y no te dé precios sin analizar.
-              </p>
-              <p class='mt-2 text-base/7 text-petrol-900'>
-                Trabajarás con alguien exclusivo de Barcelona y alrededores, que
-                <strong>puede visitar tu local</strong> y analizar la competencia de tu barrio.
-                <strong>Un consultor que no conoce tu calle no entiende tu mercado</strong>.
-              </p>
-            </dd>
-          </el-disclosure>
-        </div>
-        <div class='py-6 first:pt-0 last:pb-0'>
-          <dt>
-            <button
-              type='button'
-              command='--toggle'
-              commandfor='faq-9'
-              class='flex w-full items-start justify-between text-left text-petrol-900'>
-              <h3 class='text-base/7 font-semibold'>
-                ¿Vale la pena contratar un consultor SEO para mi negocio local?
-              </h3>
-              <span class='ml-6 flex h-7 items-center'>
-                <svg
-                  viewBox='0 0 24 24'
-                  fill='none'
-                  stroke='currentColor'
-                  stroke-width='1.5'
-                  data-slot='icon'
-                  aria-hidden='true'
-                  class='size-6 in-aria-expanded:hidden'>
-                  <path
-                    d='M12 6v12m6-6H6'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                  ></path>
-                </svg>
-                <svg
-                  viewBox='0 0 24 24'
-                  fill='none'
-                  stroke='currentColor'
-                  stroke-width='1.5'
-                  data-slot='icon'
-                  aria-hidden='true'
-                  class='size-6 not-in-aria-expanded:hidden'>
-                  <path
-                    d='M18 12H6'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                  ></path>
-                </svg>
-              </span>
-            </button>
-          </dt>
-          <el-disclosure
-            id='faq-9'
-            hidden
-            class='contents'>
-            <dd class='mt-2 pr-12'>
-              <p class='text-base/7 text-petrol-900'>
-                Si pierdes clientes que buscan lo que ofreces pero encuentran a tu competencia, necesitas <strong>mejorar tu visibilidad</strong>. Contratar un consultor SEO es la decisión que cambia eso. <strong>Sin contratos de permanencia, sin planes genéricos</strong>.
-              </p>
-              <p class='mt-2 text-base/7 text-petrol-900'>
-                Un consultor SEO te ayuda a convertir tu <strong>página web en una herramienta que capta clientes con intención de
-                compra</strong>. Los resultados tardan <strong>3-6 meses</strong>, pero luego <strong>funcionan
-                sin pagar publicidad cada mes</strong>.
-              </p>
-              <p class='mt-2 text-base/7 text-petrol-900'>
-                La pregunta es: <strong>¿cuánto pierdes cada mes por no aparecer en
-                Google?</strong>
-              </p>
-            </dd>
-          </el-disclosure>
-        </div>
+        {items.map((item, i) => (
+          <div class='py-6 first:pt-0 last:pb-0'>
+            <dt>
+              <button
+                type='button'
+                command='--toggle'
+                commandfor={`${idPrefix}-${i}`}
+                class='flex w-full items-start justify-between text-left text-petrol-900'>
+                <h3 class='text-base/7 font-semibold'>
+                  {item.question}
+                </h3>
+                <span class='ml-6 flex h-7 items-center'>
+                  <svg
+                    viewBox='0 0 24 24'
+                    fill='none'
+                    stroke='currentColor'
+                    stroke-width='1.5'
+                    data-slot='icon'
+                    aria-hidden='true'
+                    class='size-6 in-aria-expanded:hidden'>
+                    <path
+                      d='M12 6v12m6-6H6'
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                    />
+                  </svg>
+                  <svg
+                    viewBox='0 0 24 24'
+                    fill='none'
+                    stroke='currentColor'
+                    stroke-width='1.5'
+                    data-slot='icon'
+                    aria-hidden='true'
+                    class='size-6 not-in-aria-expanded:hidden'>
+                    <path
+                      d='M18 12H6'
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                    />
+                  </svg>
+                </span>
+              </button>
+            </dt>
+            <el-disclosure
+              id={`${idPrefix}-${i}`}
+              hidden
+              class='contents'>
+              <dd class='mt-2 pr-12'>
+                <Fragment set:html={item.answer} />
+              </dd>
+            </el-disclosure>
+          </div>
+        ))}
       </dl>
     </div>
   </div>

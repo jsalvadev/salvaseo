@@ -1,17 +1,13 @@
 ---
 import AboutMe from '../components/AboutMe.astro'
 import ContactForm from '../components/ContactForm.astro'
-import Cta from '../components/Cta.astro'
 import CtaEmail from '../components/CtaEmail.astro'
 import DarkBandSeparator from '../components/DarkBandSeparator.astro'
-import DecorativeSeparator from '../components/DecorativeSeparator.astro'
 import Faq from '../components/Faq.astro'
+import { faqHomeItems } from '../data/faq-home'
 import Hero from '../components/Hero.astro'
 import MapSection from '../components/MapSection.astro'
 import ServiceArea from '../components/ServiceArea.astro'
-import Services from '../components/Services.astro'
-import TexturedSeparator from '../components/TexturedSeparator.astro'
-import Timeline from '../components/Timeline.astro'
 import WorkWithMe from '../components/WorkWithMe.astro'
 import Layout from '../layouts/Layout.astro'
 
@@ -27,6 +23,10 @@ import Layout from '../layouts/Layout.astro'
   <ServiceArea />
   <ContactForm />
   <DarkBandSeparator />
-  <Faq />
+  <Faq
+    upheading='Todo sobre consultores SEO en Barcelona'
+    heading='Aún tienes dudas'
+    items={faqHomeItems}
+  />
   <MapSection />
 </Layout>
