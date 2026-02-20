@@ -93,6 +93,50 @@ Es demostrarte con datos que merece la pena.`}
       '@context': 'https://schema.org',
       '@graph': [
         {
+          '@type': 'WebSite',
+          '@id': 'https://salvaseo.com/#website',
+          url: 'https://salvaseo.com/',
+          name: 'SalvaSEO',
+          description:
+            'Consultor SEO en Barcelona especializado en posicionamiento web para empresas locales y pymes.',
+          publisher: {
+            '@id': 'https://salvaseo.com/#business'
+          },
+          inLanguage: 'es'
+        },
+        {
+          '@type': 'LocalBusiness',
+          '@id': 'https://salvaseo.com/#business',
+          name: 'SalvaSEO - Consultor SEO en Barcelona',
+          url: 'https://salvaseo.com/',
+          telephone: '+34692051399',
+          email: 'salvadorjesus.seo@gmail.com',
+          image: 'https://salvaseo.com/og-image.jpg',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Barcelona',
+            addressRegion: 'Cataluña',
+            addressCountry: 'ES'
+          },
+          geo: {
+            '@type': 'GeoCoordinates',
+            latitude: 41.392668,
+            longitude: 2.140189
+          },
+          openingHoursSpecification: {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+            opens: '09:00',
+            closes: '18:00'
+          },
+          sameAs: [
+            'https://www.instagram.com/salva_seo/',
+            'https://www.tiktok.com/@consultorseobarcelona',
+            'https://www.google.com/maps/place/SalvaSEO+-+Consultor+SEO+en+Barcelona/@41.3926387,2.0577883,12z'
+          ],
+          priceRange: 'Desde 400€/mes'
+        },
+        {
           '@type': 'WebPage',
           '@id': 'https://salvaseo.com/posicionamiento-web-barcelona#webpage',
           url: 'https://salvaseo.com/posicionamiento-web-barcelona',
@@ -108,25 +152,30 @@ Es demostrarte con datos que merece la pena.`}
           datePublished: '2025-02-01',
           dateModified: '2026-02-20',
           mainEntity: {
-            '@id': 'https://salvaseo.com/posicionamiento-web-barcelona#faq'
+            '@id': 'https://salvaseo.com/posicionamiento-web-barcelona#service'
           },
           inLanguage: 'es',
           breadcrumb: {
-            '@type': 'BreadcrumbList',
-            itemListElement: [
-              {
-                '@type': 'ListItem',
-                position: 1,
-                name: 'Inicio',
-                item: 'https://salvaseo.com/'
-              },
-              {
-                '@type': 'ListItem',
-                position: 2,
-                name: 'Posicionamiento Web en Barcelona'
-              }
-            ]
+            '@id': 'https://salvaseo.com/posicionamiento-web-barcelona#breadcrumb'
           }
+        },
+        {
+          '@type': 'BreadcrumbList',
+          '@id': 'https://salvaseo.com/posicionamiento-web-barcelona#breadcrumb',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Inicio',
+              item: 'https://salvaseo.com/'
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: 'Posicionamiento Web en Barcelona',
+              item: 'https://salvaseo.com/posicionamiento-web-barcelona'
+            }
+          ]
         },
         {
           '@type': 'Service',
@@ -185,7 +234,7 @@ Es demostrarte con datos que merece la pena.`}
                   '@type': 'Service',
                   name: 'Análisis inicial y auditoría SEO',
                   description:
-                    'Auditoría técnica completa, keyword research, análisis de competencia y arquitectura web para identificar problemas y oportunidades de mejora'
+                    'Auditoría técnica completa, keyword research, análisis de competencia y arquitectura web para identificar problemas y oportunidades de mejora.'
                 }
               },
               {
@@ -194,7 +243,7 @@ Es demostrarte con datos que merece la pena.`}
                   '@type': 'Service',
                   name: 'SEO On Page',
                   description:
-                    'Optimización de intención de búsqueda, contenidos de negocio, interlinking estratégico, control de indexación y Core Web Vitals'
+                    'Optimización de intención de búsqueda, contenidos de negocio, interlinking estratégico, control de indexación y Core Web Vitals.'
                 }
               },
               {
@@ -203,7 +252,7 @@ Es demostrarte con datos que merece la pena.`}
                   '@type': 'Service',
                   name: 'SEO Off Page',
                   description:
-                    'Link building de calidad, auditoría de backlinks, link baiting, reputación online y estrategia de autoridad de dominio'
+                    'Link building de calidad, auditoría de backlinks, link baiting, reputación online y estrategia de autoridad de dominio.'
                 }
               },
               {
@@ -212,7 +261,7 @@ Es demostrarte con datos que merece la pena.`}
                   '@type': 'Service',
                   name: 'Posicionamiento web local',
                   description:
-                    'Estrategia de SEO local para Barcelona, Sabadell, Badalona, Terrassa y Lleida. Optimización de Google Business Profile y Google Maps'
+                    'Estrategia de SEO local para Barcelona, Sabadell, Badalona, Terrassa y Lleida. Optimización de visibilidad local en Google.'
                 }
               }
             ]
@@ -221,9 +270,6 @@ Es demostrarte con datos que merece la pena.`}
         {
           '@type': 'FAQPage',
           '@id': 'https://salvaseo.com/posicionamiento-web-barcelona#faq',
-          mainEntityOfPage: {
-            '@id': 'https://salvaseo.com/posicionamiento-web-barcelona#webpage'
-          },
           mainEntity: [
             {
               '@type': 'Question',
