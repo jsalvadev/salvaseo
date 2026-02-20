@@ -313,7 +313,7 @@ const isHomePage = canonicalUrl === "https://salvaseo.com/" && !noindex;
             import "../scripts/cookieconsent.js";
         </script>
     </head>
-    <body>
+    <body class="relative isolate">
         <!-- Google Tag Manager (noscript) -->
         <noscript
             ><iframe
@@ -323,12 +323,15 @@ const isHomePage = canonicalUrl === "https://salvaseo.com/" && !noindex;
                 style="display:none;visibility:hidden"></iframe></noscript
         >
         <!-- End Google Tag Manager (noscript) -->
-        <Navbar />
-        <main>
-            <slot />
-        </main>
-        <Footer />
-        <WaChatWidget />
+        <div class="pointer-events-none absolute top-0 z-[-2] h-screen w-screen bg-white bg-[radial-gradient(100%_50%_at_50%_0%,rgba(0,163,255,0.13)_0,rgba(0,163,255,0)_50%,rgba(0,163,255,0)_100%)]"></div>
+        <div class="relative z-0">
+            <Navbar />
+            <main>
+                <slot />
+            </main>
+            <Footer />
+            <WaChatWidget />
+        </div>
     </body>
 </html>
 
