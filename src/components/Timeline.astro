@@ -26,12 +26,12 @@ const { upheading, heading, subtitle = 'Tres fases para ejecutar, medir y escala
     class="relative bg-gradient-to-b from-white via-petrol-50/30 to-white py-24 sm:py-32"
 >
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        {upheading && <Upheading text={upheading} class="mb-2 text-right" />}
-        <h2
+        {upheading && <Upheading as="h2" text={upheading} class="mb-2 text-right" />}
+        <p
             class:list={["text-right text-3xl font-semibold tracking-tight text-pretty text-petrol-900 sm:text-4xl", !upheading && "mb-2"]}
         >
             {heading}
-        </h2>
+        </p>
         <p class="mb-16 ml-auto max-w-[55ch] text-right text-lg text-petrol-900 text-pretty">
             {subtitle}
         </p>
@@ -50,7 +50,7 @@ const { upheading, heading, subtitle = 'Tres fases para ejecutar, medir y escala
                         1
                     </span>
                     <span
-                        ><h3 class="inline font-bold">Informe de posicionamiento web y auditoría SEO</h3></span
+                        ><h3 class="inline font-bold">Diagnóstico técnico y análisis de mercado</h3></span
                     >
                     <div
                         aria-hidden="true"

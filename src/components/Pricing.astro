@@ -47,11 +47,11 @@ const {
 
 <div class='bg-white px-6 py-32 lg:px-8'>
   <div class='mx-auto max-w-3xl text-base/7 text-gray-700'>
-    <Upheading text={upheading} />
-    <h2
+    <Upheading as='h2' text={upheading} />
+    <p
       class='mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl'>
       {heading}
-    </h2>
+    </p>
     <p class='mt-6 text-xl/8'>
       <Fragment set:html={intro} />
     </p>
@@ -84,10 +84,10 @@ const {
         ))}
       </ul>
 
-      <h2
+      <h3
         class='mt-16 text-3xl font-semibold tracking-tight text-pretty text-gray-900'>
         {subheading}
-      </h2>
+      </h3>
       <p class='mt-6'>
         <Fragment set:html={subtext} />
       </p>
@@ -105,10 +105,10 @@ const {
     </div>
 
     <div class='mt-16 max-w-2xl text-gray-600'>
-      <h2
+      <h3
         class='text-3xl font-semibold tracking-tight text-pretty text-gray-900'>
         {bottomHeading}
-      </h2>
+      </h3>
       <ul role='list' class='mt-6 space-y-8'>
         {bottomItems.map((item, index) => (
           <li class='flex gap-x-3'>

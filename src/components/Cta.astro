@@ -55,10 +55,11 @@ const {
     <div
       class='mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:flex lg:items-center lg:justify-between lg:px-8'>
       <div>
-        <h2
+        {upheading && <Upheading as='h2' text={upheading} />}
+        <p
           class='max-w-2xl text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl text-pretty'>
           {heading}
-        </h2>
+        </p>
         <p class='mt-6 max-w-xl text-lg text-petrol-900'>
           <Fragment set:html={text} />
         </p>
@@ -78,11 +79,11 @@ const {
     </div>
   ) : (
     <div class='mx-auto max-w-2xl py-24 sm:py-32 text-center'>
-      {upheading && <Upheading text={upheading} class='text-center' />}
-      <h2
+      {upheading && <Upheading as='h2' text={upheading} class='text-center' />}
+      <p
         class='mt-2 text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl'>
         {heading}
-      </h2>
+      </p>
       <p class='mt-6 text-lg/8 text-petrol-900'>
         <Fragment set:html={text} />
       </p>
