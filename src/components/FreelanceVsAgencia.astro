@@ -3,7 +3,11 @@ import { MapPinned, MessageCircle, PiggyBank } from "@lucide/astro";
 import Upheading from './Upheading.astro'
 ---
 
-<div class='bg-white py-24 sm:py-32'>
+<div class='relative isolate overflow-hidden bg-white py-24 sm:py-32'>
+  <div
+    aria-hidden='true'
+    class='pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_1px_1px,rgba(26,60,74,0.08)_1px,transparent_0)] [background-size:22px_22px] opacity-50'>
+  </div>
   <div class='mx-auto max-w-7xl px-6 lg:px-8'>
     <div class='mx-auto max-w-2xl lg:mx-0'>
       <Upheading as='h2' text='Consultor freelance vs agencia de posicionamiento web en Barcelona' />
