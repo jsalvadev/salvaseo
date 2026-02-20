@@ -2,51 +2,53 @@ import type { FaqItem } from './faq-home'
 
 export const faqBarcelonaItems: FaqItem[] = [
   {
-    question: '¿En cuánto tiempo se obtienen resultados?',
+    question: '¿Cuánto tarda en funcionar el posicionamiento web?',
     answer: `<p class="text-base/7 text-petrol-900">
-      Los primeros cambios en el rastreo se detectan entre las <strong>4 y 8 semanas</strong>. Los resultados sólidos y la estabilización de posiciones suelen consolidarse entre los <strong>3 y 6 meses</strong>, dependiendo de la competencia de tu sector.
+      Los primeros movimientos en el rastreo de Google se detectan entre las <strong>4 y 8 semanas</strong>: páginas que empiezan a indexarse correctamente, mejoras en la velocidad de carga y correcciones técnicas que ya están activas.
+    </p>
+    <p class="mt-2 text-base/7 text-petrol-900">
+      Los resultados visibles en posiciones y tráfico orgánico suelen consolidarse entre los <strong>3 y 6 meses</strong>, dependiendo de la competencia en tu sector y del estado inicial de tu web. No es magia: es un proceso técnico con plazos reales que se definen en el diagnóstico inicial.
     </p>`,
   },
   {
-    question: '¿Qué inversión requiere el posicionamiento web?',
+    question: '¿Posicionamiento web o publicidad en Google?',
     answer: `<p class="text-base/7 text-petrol-900">
-      Para negocios locales en Barcelona, un servicio profesional con ejecución técnica real parte de los <strong>400 €/mes</strong>. El presupuesto final se define tras el <strong>diagnóstico gratuito</strong>, ajustándolo a las necesidades específicas de tu mercado.
+      La publicidad en Google (SEM) te da visibilidad inmediata, pero <strong>desapareces en cuanto dejas de pagar</strong>. El posicionamiento web construye un activo que se mantiene y se refuerza con el tiempo.
+    </p>
+    <p class="mt-2 text-base/7 text-petrol-900">
+      Para negocios locales en Barcelona, la combinación más rentable suele ser arrancar con posicionamiento web como base y, si el sector lo requiere, complementar con campañas puntuales de pago. La diferencia clave: <strong>cada euro invertido en posicionamiento web sigue generando visitas meses después</strong>. En publicidad, cada clic tiene un coste que se repite.
     </p>`,
   },
   {
-    question: '¿El SEO es efectivo para cualquier sector?',
+    question: '¿Cómo se mide el resultado del posicionamiento web?',
     answer: `<p class="text-base/7 text-petrol-900">
-      Es rentable siempre que exista <strong>demanda activa</strong>. Si tus clientes potenciales buscan tus servicios en Google, el SEO funciona. En el análisis inicial validamos el volumen de búsqueda de tu sector antes de iniciar cualquier acción.
+      Con datos de negocio, no solo con gráficos de tráfico. En cada informe mensual verás tres cosas concretas:
+    </p>
+    <ul class="mt-2 list-disc pl-6 text-base/7 text-petrol-900">
+      <li><strong>Posiciones reales</strong> de tus palabras clave objetivo en Google.</li>
+      <li><strong>Tráfico orgánico</strong> que llega a tu web desde buscadores.</li>
+      <li><strong>Conversiones</strong>: llamadas, formularios completados o acciones que generan clientes.</li>
+    </ul>
+    <p class="mt-2 text-base/7 text-petrol-900">
+      El objetivo no es que tu web reciba más visitas. Es que reciba <strong>las visitas que se convierten en clientes</strong>.
     </p>`,
   },
   {
-    question: '¿Necesito invertir en diseño y posicionamiento web a la vez?',
+    question: '¿Necesito rediseñar mi web para mejorar el posicionamiento?',
     answer: `<p class="text-base/7 text-petrol-900">
-      No siempre. En la mayoría de los casos, el diseño actual se puede optimizar sin rediseñar desde cero: se mejora la estructura, la velocidad de carga y el contenido. Solo se recomienda invertir en un rediseño completo si la base técnica impide el rastreo o perjudica la conversión. Lo ideal es que <strong>diseño y posicionamiento web avancen coordinados</strong> desde el principio.
+      En la mayoría de los casos, <strong>no</strong>. Lo habitual es optimizar lo que ya tienes: corregir la estructura, mejorar la velocidad de carga y ajustar el contenido para que Google entienda qué ofreces y dónde lo ofreces.
+    </p>
+    <p class="mt-2 text-base/7 text-petrol-900">
+      Solo se recomienda un rediseño cuando la base técnica impide el rastreo o cuando la web no convierte visitas en contactos. Eso se detecta en el diagnóstico inicial, antes de invertir en nada.
     </p>`,
   },
   {
-    question: '¿Qué ocurre si se detiene el servicio?',
+    question: '¿Qué pasa si dejo de invertir en posicionamiento web?',
     answer: `<p class="text-base/7 text-petrol-900">
-      A diferencia de la publicidad (SEM), el SEO es un <strong>activo acumulado</strong>. Si dejas de invertir, no desapareces al instante, aunque la falta de mantenimiento permitirá que la competencia recupere terreno progresivamente. <strong>No hay compromisos de permanencia</strong>.
-    </p>`,
-  },
-  {
-    question: '¿Incluye la gestión de Google Business Profile?',
-    answer: `<p class="text-base/7 text-petrol-900">
-      Sí. Para el posicionamiento local en Barcelona, la <strong>ficha de Google</strong> es tan crítica como la web. El servicio incluye la optimización de categorías, servicios y señales de geolocalización para aparecer en los resultados de <strong>Google Maps</strong>.
-    </p>`,
-  },
-  {
-    question: '¿Por qué elegir un consultor frente a una agencia?',
-    answer: `<p class="text-base/7 text-petrol-900">
-      La ventaja es la <strong>agilidad y la interlocución técnica directa</strong>. Tratas con el especialista que ejecuta los cambios en tu web, lo que elimina tiempos de espera, intermediarios y costes de estructura innecesarios.
-    </p>`,
-  },
-  {
-    question: '¿Se puede recuperar el tráfico perdido?',
-    answer: `<p class="text-base/7 text-petrol-900">
-      Sí, tras identificar la causa: una actualización de algoritmo, una penalización técnica o el avance de la competencia. El <strong>diagnóstico inicial</strong> localiza el origen de la caída y define el plan de recuperación.
+      No desapareces de Google de un día para otro. El posicionamiento web es un <strong>activo acumulado</strong>: las mejoras técnicas, el contenido optimizado y la autoridad que has construido siguen trabajando para ti.
+    </p>
+    <p class="mt-2 text-base/7 text-petrol-900">
+      Pero sin mantenimiento, la competencia avanza y Google actualiza sus criterios. Con el tiempo, las posiciones se erosionan. Por eso no hay contratos de permanencia: <strong>sigues porque ves resultados</strong>, no porque estés atado.
     </p>`,
   },
 ]
