@@ -9,6 +9,10 @@ import LocalAreas from '../components/LocalAreas.astro'
 import Faq from '../components/Faq.astro'
 import { faqBarcelonaItems } from '../data/faq-barcelona'
 import Cta from '../components/Cta.astro'
+
+const MIN_MONTHLY_PRICE_EUR = 400
+const MIN_MONTHLY_PRICE_TEXT = `${MIN_MONTHLY_PRICE_EUR} €/mes`
+const DATE_MODIFIED = new Date().toISOString().split('T')[0]
 ---
 
 <Layout
@@ -34,7 +38,7 @@ import Cta from '../components/Cta.astro'
   />
   <LocalAreas
     upheading='Estrategia de posicionamiento web local'
-    heading='Barcelona es tu territorio'
+    heading='Cataluña es tu territorio'
     intro='<p class="mt-6 text-base/7 text-petrol-700">La visibilidad en el buscador cambia según la ubicación del usuario. Si tu negocio no responde a la <strong>intención de búsqueda de tu zona</strong>, el tráfico se desvía hacia la competencia.</p><p class="mt-4 text-base/7 text-petrol-700">Captura la demanda real en los mercados con mayor potencial de conversión:</p>'
     areas={[
       { title: 'Posicionamiento web en Sabadell', description: 'Capitaliza el volumen de búsquedas de una de las zonas con <strong>mayor actividad comercial del Vallès</strong>. Es el escenario ideal para escalar posiciones y liderar tu sector a nivel local.' },
@@ -47,7 +51,7 @@ import Cta from '../components/Cta.astro'
   <Pricing
     upheading='Precios de posicionamiento web en Barcelona'
     heading='Solo inviertes en lo que funciona'
-    intro='Un servicio profesional de posicionamiento en Barcelona requiere recursos proporcionales a tus objetivos. Los presupuestos parten de <strong>400 €/mes</strong> y se definen según tres factores: tu competencia, el estado técnico de tu web y la velocidad de crecimiento que necesites.'
+    intro={`Un servicio profesional de posicionamiento en Barcelona requiere recursos proporcionales a tus objetivos. Los presupuestos parten de <strong>${MIN_MONTHLY_PRICE_TEXT}</strong> y se definen según tres factores: tu competencia, el estado técnico de tu web y la velocidad de crecimiento que necesites.`}
     costContext='Antes de valorar el precio, calcula el coste de oportunidad: <strong>cada día que tu competencia ocupa tu lugar en Google, tú pierdes una venta</strong>.'
     features={[
       { title: 'Sabrás qué se hace cada mes.', description: 'Recibes un plan con las acciones concretas, los objetivos y el motivo de cada una.' },
@@ -58,7 +62,7 @@ import Cta from '../components/Cta.astro'
     subtext='Evita los planes cerrados. Tu estrategia se diseña tras un análisis real de tu web. Solo inviertes en lo que tu negocio necesita para escalar.'
     quote={`Mi trabajo no es convencerte de invertir.
 Es demostrarte con datos que merece la pena.`}
-    quoteAuthor=''
+    quoteAuthor='— Salvador Jesús, Consultor SEO en Barcelona'
     bottomHeading='Garantías antes de invertir en posicionamiento web'
     bottomItems={[
       { title: 'No inviertes a ciegas.', description: 'El análisis inicial confirma si el SEO es rentable para tu sector. Si no hay demanda o la competencia es inalcanzable, lo sabrás antes de gastar un euro.' },
@@ -134,7 +138,7 @@ Es demostrarte con datos que merece la pena.`}
             'https://www.tiktok.com/@consultorseobarcelona',
             'https://www.google.com/maps/place/SalvaSEO+-+Consultor+SEO+en+Barcelona/@41.3926387,2.0577883,12z'
           ],
-          priceRange: 'Desde 400€/mes'
+          priceRange: `Desde ${MIN_MONTHLY_PRICE_TEXT}`
         },
         {
           '@type': 'WebPage',
@@ -150,7 +154,7 @@ Es demostrarte con datos que merece la pena.`}
             '@id': 'https://salvaseo.com/posicionamiento-web-barcelona#service'
           },
           datePublished: '2025-02-01',
-          dateModified: '2026-02-20',
+          dateModified: DATE_MODIFIED,
           mainEntity: {
             '@id': 'https://salvaseo.com/posicionamiento-web-barcelona#service'
           },
@@ -219,9 +223,9 @@ Es demostrarte con datos que merece la pena.`}
             priceSpecification: {
               '@type': 'UnitPriceSpecification',
               priceCurrency: 'EUR',
-              price: '400',
+              price: String(MIN_MONTHLY_PRICE_EUR),
               unitText: 'mes',
-              description: 'Presupuesto desde 400 €/mes, definido tras diagnóstico gratuito'
+              description: `Presupuesto desde ${MIN_MONTHLY_PRICE_TEXT}, definido tras diagnóstico gratuito`
             }
           },
           hasOfferCatalog: {
@@ -292,7 +296,7 @@ Es demostrarte con datos que merece la pena.`}
               name: '¿Cómo se mide el resultado del posicionamiento web?',
               acceptedAnswer: {
                 '@type': 'Answer',
-                text: 'Con datos de negocio, no solo con gráficos de tráfico. En cada informe mensual verás tres cosas concretas: posiciones reales de tus palabras clave objetivo en Google, tráfico orgánico que llega a tu web desde buscadores, y conversiones (llamadas, formularios completados o acciones que generan clientes). El objetivo es que tu web reciba las visitas que se convierten en clientes.'
+                text: 'Con datos de negocio, no solo con gráficos de tráfico. En cada informe mensual verás tres cosas concretas: posiciones reales de tus palabras clave objetivo en Google, tráfico orgánico que llega a tu web desde buscadores, y conversiones (llamadas, formularios completados o acciones que generan clientes). El objetivo no es que tu web reciba más visitas. Es que reciba las visitas que se convierten en clientes.'
               }
             },
             {
