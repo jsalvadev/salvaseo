@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Faq from '../components/Faq.astro'
+import { faqSeoLocalItems } from '../data/faq-seo-local'
+---
+
+<Layout
+  title='SEO Local en Barcelona | SalvaSEO'
+  description='Servicio de SEO local en Barcelona. Optimización de Google Business Profile, posicionamiento en Google Maps y estrategia local para negocios que dependen de clientes de zona.'
+  canonicalUrl='https://salvaseo.com/seo-local-barcelona'>
+  <Faq
+    upheading='SEO local para negocios en Barcelona'
+    heading='Preguntas frecuentes sobre SEO local'
+    idPrefix='faq-sl'
+    items={faqSeoLocalItems}
+  />
+</Layout>
