@@ -18,7 +18,8 @@ export default defineConfig({
     sitemap({
       filter: (page) =>
         page === "https://salvaseo.com/" ||
-        page === "https://salvaseo.com/posicionamiento-web-barcelona/",
+        page === "https://salvaseo.com/posicionamiento-web-barcelona/" ||
+        page === "https://salvaseo.com/seo-local-barcelona/",
     }),
     partytown({
       config: {

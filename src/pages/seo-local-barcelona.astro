@@ -1,17 +1,230 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import HeroLanding from '../components/HeroLanding.astro'
+import SeoLocalExplainer from '../components/SeoLocalExplainer.astro'
+import ServiciosSeoLocal from '../components/ServiciosSeoLocal.astro'
+import Timeline from '../components/Timeline.astro'
+import SeoLocalVsAds from '../components/SeoLocalVsAds.astro'
+import TiposNegocioLocal from '../components/TiposNegocioLocal.astro'
+import Pricing from '../components/Pricing.astro'
 import Faq from '../components/Faq.astro'
 import { faqSeoLocalItems } from '../data/faq-seo-local'
+import Cta from '../components/Cta.astro'
+
+const MIN_MONTHLY_PRICE_EUR = 350
+const MIN_MONTHLY_PRICE_TEXT = `${MIN_MONTHLY_PRICE_EUR} €/mes`
+const DATE_MODIFIED = new Date().toISOString().split('T')[0]
 ---
 
 <Layout
-  title='SEO Local en Barcelona | SalvaSEO'
-  description='Servicio de SEO local en Barcelona. Optimización de Google Business Profile, posicionamiento en Google Maps y estrategia local para negocios que dependen de clientes de zona.'
+  title='SEO Local en Barcelona | Más Clientes desde Google Maps | SalvaSEO'
+  description='Servicio de SEO local en Barcelona. Posiciona tu negocio en Google Maps y el Local Pack. Auditoría gratuita, sin permanencia. Consultor SEO especializado en negocios locales.'
   canonicalUrl='https://salvaseo.com/seo-local-barcelona'>
+
+  <!-- 1. HERO -->
+  <HeroLanding
+    upheading='Servicio de SEO local en Barcelona'
+    heading='Que te encuentren los que buscan cerca de ti'
+    description='El <strong>46 % de las búsquedas en Google son locales</strong>. Si tu negocio no aparece en el mapa cuando alguien busca lo que ofreces, ese cliente va directo a tu competencia. Posiciona tu negocio en Google Maps y el Local Pack.'
+    primaryCtaText='Analiza mi ficha gratis'
+    secondaryCtaText='Descubre el proceso'
+    secondaryCtaHref='#proceso'
+  />
+
+  <!-- 2. QUÉ ES EL SEO LOCAL -->
+  <SeoLocalExplainer />
+
+  <!-- 3. SERVICIOS DE SEO LOCAL -->
+  <ServiciosSeoLocal />
+
+  <!-- 4. PROCESO / TIMELINE -->
+  <Timeline
+    upheading='Proceso de posicionamiento en Google Maps'
+    heading='De invisible en Maps a captar clientes cada semana'
+    subtitle='Cuatro fases para aparecer en el mapa, escalar posiciones y convertir búsquedas locales en llamadas reales. Cada paso tiene un plazo concreto y resultados medibles.'
+  />
+
+  <!-- 5. SEO LOCAL vs GOOGLE ADS -->
+  <SeoLocalVsAds />
+
+  <!-- 6. TIPOS DE NEGOCIO -->
+  <TiposNegocioLocal />
+
+  <!-- 7. PRECIOS -->
+  <Pricing
+    upheading='Inversión en SEO local para tu negocio'
+    heading='Solo inviertes en lo que funciona'
+    intro={`Un servicio profesional de SEO local en Barcelona parte de <strong>${MIN_MONTHLY_PRICE_TEXT}</strong>. El presupuesto final depende de tres factores: la competencia en tu zona, el estado actual de tu ficha y web, y la velocidad de crecimiento que necesites.`}
+    costContext='Antes de valorar el precio, calcula lo que pierdes: <strong>cada día que tu competencia ocupa tu lugar en Google Maps, un cliente potencial llama a otro</strong>.'
+    features={[
+      { title: 'Sabrás qué se trabaja cada mes.', description: 'Plan con acciones concretas sobre tu ficha, web, citaciones y contenido local.' },
+      { title: 'Sabrás cuándo verás movimiento.', description: 'Cronograma realista: qué esperar a las 4 semanas, a los 3 meses y a los 6.' },
+      { title: 'Sabrás en qué se va cada euro.', description: 'Presupuesto desglosado por áreas (GBP, web, contenido, enlaces). Sin servicios de relleno.' },
+    ]}
+    subheading='Presupuesto de SEO local a medida, no por plantilla'
+    subtext='Evita los paquetes cerrados. Tu estrategia se diseña tras un análisis real de tu ficha de Google, tu web y tu competencia local. Solo inviertes en lo que tu negocio necesita para dominar el mapa.'
+    quote={`No vendo visibilidad: vendo clientes que te buscan,
+te encuentran y te llaman.`}
+    quoteAuthor='— Salvador Jesús, Consultor SEO Local en Barcelona'
+    bottomHeading='Garantías antes de invertir en SEO local'
+    bottomItems={[
+      { title: 'No inviertes a ciegas.', description: 'El análisis inicial confirma si el SEO local es rentable para tu sector y zona. Si no hay demanda o la competencia es inalcanzable, lo sabrás antes de gastar un euro.' },
+      { title: 'Los primeros cambios llegan en semanas.', description: 'Entre las 4 y 8 semanas ya hay movimiento en Maps. La consolidación real viene entre los 3 y 6 meses.' },
+      { title: 'Te vas cuando quieras.', description: 'Sin contratos de permanencia. Todo el trabajo realizado — ficha, web, citaciones — queda en tu negocio. Es tuyo.' },
+      { title: 'Hablas con quien hace el trabajo.', description: 'Gestiono pocos proyectos a la vez. Tu negocio recibe ejecución técnica directa, no tareas delegadas a becarios.' },
+    ]}
+    ctaText='Pide tu análisis gratis por WhatsApp'
+    ctaHref='https://wa.me/34692051399?text=Hola%20Salva%2C%20tengo%20un%20negocio%20en%20Barcelona%20y%20quiero%20aparecer%20en%20Google%20Maps.%20%C2%BFPuedes%20analizar%20mi%20ficha%3F'
+  />
+
+  <!-- 8. FAQs -->
   <Faq
-    upheading='SEO local para negocios en Barcelona'
-    heading='Preguntas frecuentes sobre SEO local'
+    upheading='Preguntas frecuentes sobre SEO local en Barcelona'
+    heading='Todavía te lo estás pensando'
     idPrefix='faq-sl'
     items={faqSeoLocalItems}
+  />
+
+  <!-- 9. CTA FINAL -->
+  <Cta
+    layout='centered'
+    upheading='Consultor SEO local en Barcelona'
+    heading='El primer paso es gratis'
+    text='Accede a un análisis de tu ficha de Google y una auditoría de visibilidad local <strong>sin coste</strong>. Verifica si el SEO local es rentable para tu negocio antes de tomar cualquier decisión.'
+    primaryCtaText='Solicita tu análisis gratuito'
+    secondaryCtaText='O rellena el formulario'
+    secondaryCtaHref='/#contacto'
+    patternId='sl-cta-dots'
+  />
+
+  <!-- JSON-LD Structured Data -->
+  <script
+    type='application/ld+json'
+    set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'WebPage',
+          '@id': 'https://salvaseo.com/seo-local-barcelona#webpage',
+          url: 'https://salvaseo.com/seo-local-barcelona',
+          name: 'SEO Local en Barcelona | Más Clientes desde Google Maps | SalvaSEO',
+          description:
+            'Servicio de SEO local en Barcelona. Posiciona tu negocio en Google Maps y el Local Pack. Auditoría gratuita, sin permanencia. Consultor SEO especializado en negocios locales.',
+          isPartOf: {
+            '@id': 'https://salvaseo.com/#website'
+          },
+          about: {
+            '@id': 'https://salvaseo.com/seo-local-barcelona#service'
+          },
+          datePublished: '2026-02-24',
+          dateModified: DATE_MODIFIED,
+          mainEntity: {
+            '@id': 'https://salvaseo.com/seo-local-barcelona#service'
+          },
+          inLanguage: 'es',
+          breadcrumb: {
+            '@id': 'https://salvaseo.com/seo-local-barcelona#breadcrumb'
+          }
+        },
+        {
+          '@type': 'BreadcrumbList',
+          '@id': 'https://salvaseo.com/seo-local-barcelona#breadcrumb',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Inicio',
+              item: 'https://salvaseo.com/'
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: 'SEO Local en Barcelona',
+              item: 'https://salvaseo.com/seo-local-barcelona'
+            }
+          ]
+        },
+        {
+          '@type': 'Service',
+          '@id': 'https://salvaseo.com/seo-local-barcelona#service',
+          serviceType: 'SEO Local',
+          name: 'SEO Local en Barcelona',
+          description:
+            'Servicio profesional de SEO local para negocios en Barcelona. Optimización de Google Business Profile, posicionamiento en Google Maps, gestión de reseñas y estrategia de visibilidad local. Sin contratos de permanencia.',
+          provider: {
+            '@id': 'https://salvaseo.com/#business'
+          },
+          areaServed: {
+            '@type': 'City',
+            name: 'Barcelona',
+            sameAs: 'https://es.wikipedia.org/wiki/Barcelona'
+          },
+          offers: {
+            '@type': 'Offer',
+            priceSpecification: {
+              '@type': 'UnitPriceSpecification',
+              priceCurrency: 'EUR',
+              price: String(MIN_MONTHLY_PRICE_EUR),
+              unitText: 'mes',
+              description: `Presupuesto desde ${MIN_MONTHLY_PRICE_TEXT}, definido tras diagnóstico gratuito`
+            }
+          },
+          hasOfferCatalog: {
+            '@type': 'OfferCatalog',
+            name: 'Servicios de SEO Local en Barcelona',
+            itemListElement: [
+              {
+                '@type': 'Offer',
+                itemOffered: {
+                  '@type': 'Service',
+                  name: 'Auditoría SEO local',
+                  description:
+                    'Análisis completo de visibilidad local: ficha de Google Business Profile, web, citaciones NAP, posiciones en Maps y competencia directa en la zona.'
+                }
+              },
+              {
+                '@type': 'Offer',
+                itemOffered: {
+                  '@type': 'Service',
+                  name: 'Optimización de Google Business Profile',
+                  description:
+                    'Optimización completa del perfil de empresa en Google: categorías, descripción, fotos, horarios, atributos, publicaciones y productos.'
+                }
+              },
+              {
+                '@type': 'Offer',
+                itemOffered: {
+                  '@type': 'Service',
+                  name: 'Posicionamiento en Google Maps',
+                  description:
+                    'Estrategia para aparecer en el Local Pack de Google: palabras clave geolocalizadas, contenido local, citaciones NAP y link building local.'
+                }
+              },
+              {
+                '@type': 'Offer',
+                itemOffered: {
+                  '@type': 'Service',
+                  name: 'Gestión de reseñas y reputación online',
+                  description:
+                    'Estrategia de captación de reseñas, respuesta activa a opiniones y gestión de la reputación online del negocio en Google.'
+                }
+              }
+            ]
+          }
+        },
+        {
+          '@type': 'FAQPage',
+          '@id': 'https://salvaseo.com/seo-local-barcelona#faq',
+          mainEntity: faqSeoLocalItems.map(item => ({
+            '@type': 'Question',
+            name: item.question,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: item.answer.replace(/<[^>]*>/g, '')
+            }
+          }))
+        }
+      ]
+    })}
   />
 </Layout>

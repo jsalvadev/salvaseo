@@ -1,0 +1,103 @@
+---
+import { MapPin, Search, LayoutGrid } from '@lucide/astro'
+import Upheading from './Upheading.astro'
+---
+
+<div class='overflow-hidden bg-white py-24 sm:py-32'>
+  <div class='mx-auto max-w-7xl px-6 lg:px-8'>
+    <div class='mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2'>
+      <div class='lg:pr-8 lg:pt-4'>
+        <div class='lg:max-w-lg'>
+          <Upheading as='h2' text='SEO local en Barcelona' />
+          <p class='mt-2 text-4xl font-semibold tracking-tight text-pretty text-petrol-900 sm:text-5xl'>
+            Qué es el SEO local y por qué decide quién se lleva al cliente
+          </p>
+          <p class='mt-6 text-lg/8 text-petrol-700'>
+            El <strong>46 % de las búsquedas en Google tienen intención local</strong>. Cuando alguien escribe "dentista Barcelona" o "taller cerca de mí", Google muestra primero el mapa con tres resultados. Si no estás ahí, el cliente va directo a tu competencia.
+          </p>
+          <dl class='mt-10 max-w-xl space-y-8 text-base/7 text-petrol-700 lg:max-w-none'>
+            <div class='relative pl-9'>
+              <dt class='inline font-semibold text-petrol-900'>
+                <Search aria-hidden='true' class='absolute left-1 top-1 size-5 text-sky-600' />
+                SEO local vs posicionamiento web tradicional.
+              </dt>
+              <dd class='inline'>
+                El SEO tradicional posiciona tu web en resultados orgánicos generales. El SEO local te coloca en <strong>Google Maps, el Local Pack y las búsquedas geolocalizadas</strong> — donde están los usuarios que compran hoy, no mañana.
+              </dd>
+            </div>
+            <div class='relative pl-9'>
+              <dt class='inline font-semibold text-petrol-900'>
+                <LayoutGrid aria-hidden='true' class='absolute left-1 top-1 size-5 text-sky-600' />
+                El Local Pack de Google captura la mayoría de clics.
+              </dt>
+              <dd class='inline'>
+                Es el bloque con mapa y tres negocios que aparece antes de los resultados orgánicos. Aparecer en el Local Pack equivale a <strong>tener un escaparate en la calle principal de Google</strong>. Sin optimización local, ese escaparate lo ocupa otro.
+              </dd>
+            </div>
+            <div class='relative pl-9'>
+              <dt class='inline font-semibold text-petrol-900'>
+                <MapPin aria-hidden='true' class='absolute left-1 top-1 size-5 text-sky-600' />
+                Relevancia, distancia y prominencia.
+              </dt>
+              <dd class='inline'>
+                Google decide quién sale en el mapa combinando tres factores: lo relevante que es tu negocio para la búsqueda, la distancia al usuario y tu <strong>reputación online</strong> (reseñas, autoridad, actividad). Los tres se trabajan con SEO local.
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      <div class='flex items-start justify-end lg:order-last'>
+        <div class='relative w-[48rem] max-w-none rounded-xl bg-petrol-900/5 ring-1 ring-petrol-900/10 sm:w-[57rem] lg:w-full'>
+          <div class='rounded-xl bg-gradient-to-br from-petrol-50 to-sky-50 p-8 sm:p-12'>
+            <!-- Local Pack mockup -->
+            <div class='rounded-lg bg-white p-6 shadow-lg ring-1 ring-gray-200'>
+              <div class='mb-4 flex items-center gap-2'>
+                <div class='h-3 w-3 rounded-full bg-red-400'></div>
+                <div class='h-3 w-3 rounded-full bg-yellow-400'></div>
+                <div class='h-3 w-3 rounded-full bg-green-400'></div>
+                <div class='ml-4 h-6 flex-1 rounded bg-gray-100'></div>
+              </div>
+              <div class='mb-4 h-32 rounded-lg bg-gradient-to-br from-sky-100 to-sky-200 flex items-center justify-center'>
+                <MapPin class='size-10 text-sky-600/60' aria-hidden='true' />
+              </div>
+              <div class='space-y-3'>
+                <div class='flex items-center gap-3 rounded-lg bg-sky-50 p-3 ring-1 ring-sky-200'>
+                  <div class='flex size-8 items-center justify-center rounded-full bg-sky-600 text-xs font-bold text-white'>1</div>
+                  <div class='flex-1'>
+                    <div class='h-3 w-3/4 rounded bg-petrol-900/70'></div>
+                    <div class='mt-1.5 flex items-center gap-1'>
+                      <div class='flex gap-0.5'>
+                        {[1,2,3,4,5].map(() => (
+                          <svg class='size-3 text-yellow-400' fill='currentColor' viewBox='0 0 20 20'>
+                            <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z' />
+                          </svg>
+                        ))}
+                      </div>
+                      <span class='text-xs text-gray-500'>4.9 (127)</span>
+                    </div>
+                    <div class='mt-1 h-2 w-1/2 rounded bg-gray-300/60'></div>
+                  </div>
+                </div>
+                <div class='flex items-center gap-3 rounded-lg p-3'>
+                  <div class='flex size-8 items-center justify-center rounded-full bg-gray-300 text-xs font-bold text-gray-600'>2</div>
+                  <div class='flex-1'>
+                    <div class='h-3 w-2/3 rounded bg-gray-300'></div>
+                    <div class='mt-1.5 h-2 w-1/3 rounded bg-gray-200'></div>
+                  </div>
+                </div>
+                <div class='flex items-center gap-3 rounded-lg p-3'>
+                  <div class='flex size-8 items-center justify-center rounded-full bg-gray-300 text-xs font-bold text-gray-600'>3</div>
+                  <div class='flex-1'>
+                    <div class='h-3 w-3/5 rounded bg-gray-300'></div>
+                    <div class='mt-1.5 h-2 w-1/4 rounded bg-gray-200'></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class='mt-4 text-center text-sm text-petrol-600'>Así se ve el Local Pack de Google: <strong>3 negocios, un mapa, el 44 % de los clics.</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
