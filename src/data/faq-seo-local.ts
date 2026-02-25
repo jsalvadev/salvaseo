@@ -45,21 +45,12 @@ export const faqSeoLocalItems: FaqItem[] = [
     </p>`,
   },
   {
-    question: '¿Cuál es la diferencia entre SEO local y SEO tradicional?',
-    answer: `<p class="text-base/7 text-petrol-900">
-      El SEO tradicional posiciona tu web en los resultados orgánicos generales de Google, compitiendo a nivel nacional o internacional. El SEO local se centra en <strong>Google Maps, el Local Pack y las búsquedas geolocalizadas</strong>.
-    </p>
-    <p class="mt-2 text-base/7 text-petrol-900">
-      Si tu cliente te busca escribiendo tu servicio + ubicación ("dentista Barcelona", "taller Gràcia"), necesitas SEO local. Si vendes a nivel nacional, necesitas SEO tradicional. <strong>Muchos negocios escalan más cuando combinan ambos enfoques</strong>.
-    </p>`,
-  },
-  {
     question: '¿Puedo hacer SEO local yo mismo o necesito un profesional?',
     answer: `<p class="text-base/7 text-petrol-900">
       Puedes ejecutar lo básico: completar ficha de Google, subir fotos y responder reseñas. Competir en Barcelona — una ciudad con <strong>alta densidad de negocios y competencia digital</strong> — exige estrategia técnica y priorización por retorno.
     </p>
     <p class="mt-2 text-base/7 text-petrol-900">
-      Investigación de keywords, optimización de schema, gestión de citaciones NAP, link building local y análisis competitivo son tareas que <strong>marcan la diferencia entre visibilidad residual y captación recurrente en Local Pack</strong>.
+      Investigación de keywords, optimización de schema, gestión de citaciones NAP, link building local y análisis competitivo son tareas que <strong>marcan la diferencia entre aparecer de vez en cuando y recibir llamadas cada semana</strong>.
     </p>`,
   },
 ]
