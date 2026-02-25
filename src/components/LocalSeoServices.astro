@@ -1,0 +1,116 @@
+---
+import { SearchCheck, MapPin, Key, Globe, FileText, Link, Star } from '@lucide/astro'
+import Upheading from './Upheading.astro'
+
+type IconKey = 'searchCheck' | 'mapPin' | 'key' | 'globe' | 'fileText' | 'link' | 'star'
+
+interface ServiceItem {
+  icon: IconKey
+  title: string
+  description: string
+}
+
+interface Props {
+  upheading?: string
+  heading?: string
+  intro?: string
+  services?: ServiceItem[]
+}
+
+const iconByKey = {
+  searchCheck: SearchCheck,
+  mapPin: MapPin,
+  key: Key,
+  globe: Globe,
+  fileText: FileText,
+  link: Link,
+  star: Star,
+} as const
+
+const defaultServices: ServiceItem[] = [
+  {
+    icon: 'searchCheck',
+    title: 'Auditoría SEO local',
+    description:
+      'Radiografía de tu visibilidad actual: ficha de Google, web, citaciones NAP, posiciones en Maps y análisis de <strong>competencia directa en tu zona</strong>.',
+  },
+  {
+    icon: 'mapPin',
+    title: 'Optimización de Google Business Profile',
+    description:
+      'Categorías, descripción, fotos, horarios, atributos, publicaciones y productos. Los negocios con perfil completo reciben <strong>un 70 % más de visitas</strong>.',
+  },
+  {
+    icon: 'key',
+    title: 'Palabras clave geolocalizadas',
+    description:
+      'Investigación de keywords con intención local real. Las búsquedas que escribe tu cliente cuando <strong>necesita algo cerca, ahora</strong>.',
+  },
+  {
+    icon: 'globe',
+    title: 'SEO On Page con enfoque local',
+    description:
+      'Estructura de URLs geográficas, encabezados con localización, schema LocalBusiness y <strong>NAP consistente</strong> en toda tu web.',
+  },
+  {
+    icon: 'fileText',
+    title: 'Contenido geolocalizado',
+    description:
+      'Páginas de servicio por zona o barrio, blog con temática local y respuestas a <strong>preguntas frecuentes de tu área</strong>.',
+  },
+  {
+    icon: 'link',
+    title: 'Link building local y citaciones NAP',
+    description:
+      'Directorios locales de referencia, medios del área y colaboraciones con negocios de la zona. <strong>Consistencia NAP</strong> (nombre, dirección, teléfono) en todo internet.',
+  },
+  {
+    icon: 'star',
+    title: 'Gestión de reseñas y reputación online',
+    description:
+      'Estrategia para conseguir reseñas reales, respuesta activa a opiniones e impacto directo en tu <strong>ranking en Google Maps</strong>. Sin atajos que violen las políticas de Google.',
+  },
+]
+
+const {
+  upheading = 'Servicios de SEO local para negocios en Barcelona',
+  heading = 'Mi servicio de SEO local en Barcelona',
+  intro = 'Cada acción está pensada para que <strong>aparezcas en Google Maps, domines el Local Pack</strong> y conviertas búsquedas cercanas en clientes reales. Sin relleno, sin acciones genéricas.',
+  services = defaultServices,
+} = Astro.props
+---
+
+<div id='servicios-local' class='relative isolate overflow-hidden bg-white py-24 sm:py-32'>
+  <div
+    aria-hidden='true'
+    class='pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_1px_1px,rgba(26,60,74,0.08)_1px,transparent_0)] [background-size:22px_22px] opacity-50'>
+  </div>
+  <div class='mx-auto max-w-7xl px-6 lg:px-8'>
+    <div class='mx-auto max-w-2xl lg:mx-0'>
+      <Upheading as='h2' text={upheading} />
+      <p class='mt-2 text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl text-pretty'>
+        {heading}
+      </p>
+      <p class='mt-4 text-base/7 text-petrol-700 w-full max-w-[60ch]'>
+        <Fragment set:html={intro} />
+      </p>
+    </div>
+
+    <div class='mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 text-base/7 text-petrol-700 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 xl:grid-cols-4'>
+      {services.map((service) => {
+        const Icon = iconByKey[service.icon]
+        return (
+          <div class='bg-neutral-primary-soft block p-6 border border-default rounded-base shadow-xs'>
+            <Icon class='w-7 h-7 mb-3 text-sky-600' aria-hidden='true' />
+            <h3 class='mb-2 text-xl font-semibold tracking-tight text-heading'>
+              {service.title}
+            </h3>
+            <p class='text-body'>
+              <Fragment set:html={service.description} />
+            </p>
+          </div>
+        )
+      })}
+    </div>
+  </div>
+</div>

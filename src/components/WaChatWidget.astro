@@ -1,22 +1,25 @@
 ---
-const phoneNumber = '34692051399';
-const message = 'Hola Salva, he visto tu web. Tengo un negocio en Barcelona y me gustaría saber si el SEO puede ayudarme a conseguir más clientes.';
+import { siteConfig } from '../data/site'
+
+const phoneNumber = siteConfig.contact.phone.whatsapp
+const message = siteConfig.whatsapp.defaultMessage
+const tooltipText = siteConfig.whatsapp.tooltipText
 ---
 
 <div id="wa-chat-widget-container"></div>
 
-<script>
+<script define:vars={{ phoneNumber, message, tooltipText }}>
   import WaChatWidget from 'wa-chat-widget';
 
   new WaChatWidget({
-    phoneNumber: '34692051399',
-    message: 'Hola Salva, he visto tu web. Tengo un negocio en Barcelona y me gustaría saber si el SEO puede ayudarme a conseguir más clientes.',
+    phoneNumber,
+    message,
     position: 'bottom-right',
     backgroundColor: '#25D366',  // WhatsApp official green
     textColor: '#FAFAF8',        // Warm white
     size: '60px',
     showTooltip: true,
-    tooltipText: '¿Más clientes con SEO? Escríbeme'
+    tooltipText
   });
 
   // Set Spanish aria-label for accessibility

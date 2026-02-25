@@ -1,0 +1,153 @@
+---
+import { TrendingUp, Zap, Clock, Repeat, PiggyBank, ShieldCheck } from '@lucide/astro'
+import Upheading from './Upheading.astro'
+
+type IconKey = 'trendingUp' | 'zap' | 'clock' | 'repeat' | 'piggyBank' | 'shieldCheck'
+
+interface ComparisonBullet {
+  icon: IconKey
+  emphasis: string
+  text: string
+}
+
+interface ComparisonColumn {
+  title: string
+  icon: IconKey
+  accentClass: string
+  ringClass: string
+  noteClass: string
+  note: string
+  bullets: ComparisonBullet[]
+}
+
+interface Props {
+  upheading?: string
+  heading?: string
+  intro?: string
+  leftColumn?: ComparisonColumn
+  rightColumn?: ComparisonColumn
+  conclusion?: string
+}
+
+const iconByKey = {
+  trendingUp: TrendingUp,
+  zap: Zap,
+  clock: Clock,
+  repeat: Repeat,
+  piggyBank: PiggyBank,
+  shieldCheck: ShieldCheck,
+} as const
+
+const defaultLeftColumn: ComparisonColumn = {
+  title: 'SEO local',
+  icon: 'trendingUp',
+  accentClass: 'bg-sky-600',
+  ringClass: 'ring-sky-200',
+  noteClass: 'bg-sky-50',
+  note: '<strong>Ideal para:</strong> negocios que buscan estabilidad, rentabilidad a medio plazo y reducir la dependencia de la publicidad de pago.',
+  bullets: [
+    {
+      icon: 'repeat',
+      emphasis: 'Activo acumulativo.',
+      text: 'Cada mes que trabajas, tu posición se refuerza. El tráfico llega sin pagar por cada clic.',
+    },
+    {
+      icon: 'piggyBank',
+      emphasis: 'Coste decreciente por lead.',
+      text: 'A medida que subes posiciones, el coste de adquisición baja. La inversión de hoy genera clientes durante meses.',
+    },
+    {
+      icon: 'shieldCheck',
+      emphasis: 'Confianza del usuario.',
+      text: 'El 70-80 % de los usuarios ignoran los anuncios y hacen clic en resultados orgánicos. Estar en el mapa genera más credibilidad.',
+    },
+  ],
+}
+
+const defaultRightColumn: ComparisonColumn = {
+  title: 'Google Ads',
+  icon: 'zap',
+  accentClass: 'bg-gray-500',
+  ringClass: 'ring-gray-200',
+  noteClass: 'bg-gray-50',
+  note: '<strong>Ideal para:</strong> emergencias de visibilidad, promociones temporales o sectores donde necesitas resultados mientras el SEO local consolida posiciones.',
+  bullets: [
+    {
+      icon: 'clock',
+      emphasis: 'Resultados inmediatos.',
+      text: 'Apareces en la primera posición desde el día uno. Útil para campañas puntuales o lanzamientos.',
+    },
+    {
+      icon: 'piggyBank',
+      emphasis: 'Coste constante por clic.',
+      text: 'Cada visita tiene un precio fijo. Cuando cortas el presupuesto, desapareces al instante de los resultados.',
+    },
+    {
+      icon: 'shieldCheck',
+      emphasis: 'Percepción de anuncio.',
+      text: 'Los usuarios saben que es publicidad. La tasa de clic en anuncios es significativamente menor que en resultados orgánicos y Maps.',
+    },
+  ],
+}
+
+const {
+  upheading = 'Comparativa SEO local y publicidad en Google',
+  heading = 'SEO local vs Google Ads: qué le conviene más a tu negocio',
+  intro = 'Ambas estrategias captan clientes, pero <strong>funcionan de forma muy distinta</strong>. Entiende qué te aporta cada una antes de decidir dónde poner tu dinero.',
+  leftColumn = defaultLeftColumn,
+  rightColumn = defaultRightColumn,
+  conclusion = '<strong>La combinación más rentable</strong> para negocios locales en Barcelona: construir SEO local como base y complementar con Ads solo cuando el sector o la urgencia lo requieran. Cada euro invertido en posicionamiento orgánico <strong>sigue generando clientes meses después</strong>.',
+} = Astro.props
+---
+
+<div class='bg-warm-white py-24 sm:py-32'>
+  <div class='mx-auto max-w-7xl px-6 lg:px-8'>
+    <div class='mx-auto max-w-2xl lg:mx-0'>
+      <Upheading as='h2' text={upheading} />
+      <p class='mt-2 text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl text-pretty'>
+        {heading}
+      </p>
+      <p class='mt-4 text-base/7 text-petrol-700 w-full max-w-[60ch]'>
+        <Fragment set:html={intro} />
+      </p>
+    </div>
+
+    <div class='mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-2'>
+      {[leftColumn, rightColumn].map((column) => {
+        const HeaderIcon = iconByKey[column.icon]
+        return (
+          <div class:list={['rounded-2xl bg-white p-8 ring-1 shadow-sm', column.ringClass]}>
+            <div class='flex items-center gap-3 mb-6'>
+              <div class:list={['flex size-10 items-center justify-center rounded-lg', column.accentClass]}>
+                <HeaderIcon class='size-5 text-white' aria-hidden='true' />
+              </div>
+              <h3 class='text-2xl font-semibold tracking-tight text-petrol-900'>{column.title}</h3>
+            </div>
+            <ul class='space-y-6 text-base/7 text-petrol-700'>
+              {column.bullets.map((bullet) => {
+                const BulletIcon = iconByKey[bullet.icon]
+                return (
+                  <li class='flex gap-x-3'>
+                    <BulletIcon aria-hidden='true' class='mt-1 size-5 flex-none text-sky-600' />
+                    <span>
+                      <strong class='text-petrol-900'>{bullet.emphasis}</strong> {bullet.text}
+                    </span>
+                  </li>
+                )
+              })}
+            </ul>
+            <p class:list={['mt-6 rounded-lg p-4 text-sm text-petrol-700', column.noteClass]}>
+              <Fragment set:html={column.note} />
+            </p>
+          </div>
+        )
+      })}
+    </div>
+
+    <div class='mx-auto mt-12 max-w-3xl text-center'>
+      <p class='text-lg text-petrol-700'>
+        <Fragment set:html={conclusion} />
+      </p>
+    </div>
+  </div>
+</div>

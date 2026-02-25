@@ -1,0 +1,109 @@
+---
+import { UtensilsCrossed, Stethoscope, Scale, ShoppingBag, Wrench, Hotel } from '@lucide/astro'
+import Upheading from './Upheading.astro'
+
+type IconKey = 'utensilsCrossed' | 'stethoscope' | 'scale' | 'shoppingBag' | 'wrench' | 'hotel'
+
+interface BusinessType {
+  icon: IconKey
+  title: string
+  description: string
+}
+
+interface Props {
+  upheading?: string
+  heading?: string
+  intro?: string
+  businessTypes?: BusinessType[]
+}
+
+const iconByKey = {
+  utensilsCrossed: UtensilsCrossed,
+  stethoscope: Stethoscope,
+  scale: Scale,
+  shoppingBag: ShoppingBag,
+  wrench: Wrench,
+  hotel: Hotel,
+} as const
+
+const defaultBusinessTypes: BusinessType[] = [
+  {
+    icon: 'utensilsCrossed',
+    title: 'Restaurantes y hostelería',
+    description:
+      '"Restaurante italiano Eixample", "bar de tapas Gràcia", "brunch Barcelona"… Las búsquedas de hostelería son <strong>100 % locales</strong> y con intención inmediata.',
+  },
+  {
+    icon: 'stethoscope',
+    title: 'Clínicas y salud',
+    description:
+      'Dentistas, fisioterapeutas, psicólogos, veterinarios. El paciente busca <strong>cercanía y confianza</strong>: reseñas, reputación online y ficha completa marcan la diferencia.',
+  },
+  {
+    icon: 'scale',
+    title: 'Abogados y asesorías',
+    description:
+      '"Abogado laboralista Barcelona", "gestoría autónomos Barcelona". Son búsquedas con <strong>alta intención de contratación</strong> y ticket medio elevado.',
+  },
+  {
+    icon: 'shoppingBag',
+    title: 'Tiendas y comercio',
+    description:
+      'Floristería, tienda de ropa, ferretería, óptica. El cliente que busca <strong>"cerca de mí"</strong> quiere comprar hoy, no comparar durante semanas.',
+  },
+  {
+    icon: 'wrench',
+    title: 'Talleres y servicios técnicos',
+    description:
+      'Cerrajeros, electricistas, fontaneros, talleres mecánicos. Búsquedas de <strong>urgencia</strong> donde el primero en aparecer se lleva al cliente. Sin excepción.',
+  },
+  {
+    icon: 'hotel',
+    title: 'Hoteles y turismo',
+    description:
+      'Hoteles, apartamentos turísticos, tours y experiencias. Barcelona recibe millones de turistas que <strong>buscan en Google Maps</strong> antes de reservar.',
+  },
+]
+
+const {
+  upheading = 'SEO local para negocios físicos en Barcelona',
+  heading = 'Para qué tipo de negocios funciona el SEO local',
+  intro = 'Si alguien puede buscarte en Google escribiendo <strong>"[tu servicio] + Barcelona"</strong>, el SEO local es tu canal de captación más rentable.',
+  businessTypes = defaultBusinessTypes,
+} = Astro.props
+---
+
+<div class='bg-white py-24 sm:py-32'>
+  <div class='mx-auto max-w-7xl px-6 lg:px-8'>
+    <div class='mx-auto max-w-2xl text-center'>
+      <Upheading as='h2' text={upheading} class='text-center' />
+      <p class='mt-2 text-4xl font-semibold tracking-tight text-pretty text-petrol-900 sm:text-5xl'>
+        {heading}
+      </p>
+      <p class='mt-6 text-lg/8 text-petrol-700'>
+        <Fragment set:html={intro} />
+      </p>
+    </div>
+
+    <div class='mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none'>
+      <dl class='grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:max-w-none lg:grid-cols-3'>
+        {businessTypes.map((item) => {
+          const Icon = iconByKey[item.icon]
+          return (
+            <div class='relative pl-12'>
+              <dt class='text-base/7 font-semibold text-petrol-900'>
+                <div class='absolute left-0 top-0 flex size-9 items-center justify-center rounded-lg bg-sky-600'>
+                  <Icon class='size-5 text-white' aria-hidden='true' />
+                </div>
+                {item.title}
+              </dt>
+              <dd class='mt-2 text-base/7 text-petrol-700'>
+                <Fragment set:html={item.description} />
+              </dd>
+            </div>
+          )
+        })}
+      </dl>
+    </div>
+  </div>
+</div>

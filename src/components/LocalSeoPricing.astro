@@ -1,0 +1,136 @@
+---
+import Upheading from './Upheading.astro'
+import WhatsAppButton from './WhatsAppButton.astro'
+
+interface PricingFeature {
+  text: string
+  included: boolean
+}
+
+interface PricingCategory {
+  name: string
+  features: PricingFeature[]
+}
+
+interface Props {
+  upheading: string
+  heading: string
+  intro: string
+  priceText: string
+  priceUnit: string
+  priceNote: string
+  ctaText: string
+  ctaHref?: string
+  categories: PricingCategory[]
+  quote: string
+  quoteAuthor: string
+}
+
+const {
+  upheading,
+  heading,
+  intro,
+  priceText,
+  priceUnit,
+  priceNote,
+  ctaText,
+  ctaHref,
+  categories,
+  quote,
+  quoteAuthor,
+} = Astro.props
+---
+
+<div class='bg-white py-24 sm:py-32'>
+  <div class='mx-auto max-w-7xl px-6 lg:px-8'>
+    <div class='mx-auto max-w-4xl text-center'>
+      <Upheading as='h2' text={upheading} class='text-center' />
+      <p class='mt-2 text-4xl font-semibold tracking-tight text-balance text-petrol-900 sm:text-5xl'>
+        {heading}
+      </p>
+    </div>
+    <p class='mx-auto mt-6 max-w-2xl text-center text-lg font-medium text-pretty text-petrol-700 sm:text-xl/8'>
+      <Fragment set:html={intro} />
+    </p>
+
+    <!-- Single tier card -->
+    <div class='mx-auto mt-16 max-w-lg rounded-3xl bg-petrol-50/70 p-8 ring-1 ring-petrol-900/10 sm:p-10'>
+      <h3 class='text-lg/7 font-semibold text-sky-600'>
+        Servicio de SEO local
+      </h3>
+      <p class='mt-4 flex items-baseline gap-x-2'>
+        <span class='text-5xl font-semibold tracking-tight text-petrol-900'>{priceText}</span>
+        <span class='text-base font-semibold text-petrol-600'>{priceUnit}</span>
+      </p>
+      <p class='mt-2 text-sm text-petrol-600'>
+        {priceNote}
+      </p>
+      <div class='mt-8'>
+        {ctaHref ? (
+          <a
+            href={ctaHref}
+            target='_blank'
+            rel='noopener noreferrer nofollow'
+            class='block rounded-md bg-sky-500 px-3.5 py-2.5 text-center text-sm font-bold text-white shadow-sm hover:bg-sky-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500'>
+            {ctaText}
+          </a>
+        ) : (
+          <WhatsAppButton text={ctaText} class='w-full justify-center' />
+        )}
+      </div>
+    </div>
+
+    <!-- Feature comparison table -->
+    <div class='mx-auto mt-16 max-w-3xl'>
+      <table class='w-full text-left'>
+        <caption class='sr-only'>Qué incluye el servicio de SEO local</caption>
+        <tbody>
+          {categories.map((category) => (
+            <>
+              <tr>
+                <th
+                  scope='colgroup'
+                  colspan='2'
+                  class='pt-8 pb-4 text-sm/6 font-semibold text-petrol-900'>
+                  {category.name}
+                  <div class='mt-4 h-px bg-petrol-900/10'></div>
+                </th>
+              </tr>
+              {category.features.map((feature) => (
+                <tr>
+                  <th scope='row' class='py-3 text-sm/6 font-normal text-petrol-700'>
+                    {feature.text}
+                    <div class='mt-3 h-px bg-petrol-900/5'></div>
+                  </th>
+                  <td class='py-3 pl-4 text-right'>
+                    {feature.included ? (
+                      <svg viewBox='0 0 20 20' fill='currentColor' aria-hidden='true' class='inline size-5 text-sky-600'>
+                        <path d='M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z' clip-rule='evenodd' fill-rule='evenodd' />
+                      </svg>
+                    ) : (
+                      <svg viewBox='0 0 20 20' fill='currentColor' aria-hidden='true' class='inline size-5 text-gray-400'>
+                        <path d='M4 10a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H4.75A.75.75 0 0 1 4 10Z' clip-rule='evenodd' fill-rule='evenodd' />
+                      </svg>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Quote -->
+    <div class='mx-auto mt-16 max-w-2xl text-center'>
+      <figure>
+        <blockquote class='text-xl/8 italic text-petrol-900 text-pretty'>
+          <p>"{quote}"</p>
+        </blockquote>
+        <figcaption class='mt-4 text-sm text-petrol-600'>
+          <Fragment set:html={quoteAuthor} />
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</div>

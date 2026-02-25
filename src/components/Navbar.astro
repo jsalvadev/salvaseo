@@ -1,5 +1,8 @@
 ---
 import '@fontsource/titan-one'
+import { siteConfig } from '../data/site'
+
+const { brand, contact, navigation } = siteConfig
 ---
 
 <header class='fixed inset-x-0 top-0 z-50 bg-white border-b border-gray-200'>
@@ -10,15 +13,15 @@ import '@fontsource/titan-one'
       <a
         href='/'
         class='-m-1.5 p-1.5 flex items-center gap-x-2'>
-        <span class='sr-only'>SalvaSEO</span>
+        <span class='sr-only'>{brand.name}</span>
         <img
           src='/logo.png'
-          alt='SalvaSEO Logo'
+          alt={`${brand.name} Logo`}
           width='48'
           height='49'
           class='h-12 w-auto'
         />
-        <span class='brand-wordmark text-xl text-petrol-900'>SalvaSEO</span>
+        <span class='brand-wordmark text-xl text-petrol-900'>{brand.name}</span>
       </a>
     </div>
     <div class='flex lg:hidden'>
@@ -45,11 +48,13 @@ import '@fontsource/titan-one'
       </button>
     </div>
     <div class='hidden lg:flex lg:gap-x-12 lg:items-center'>
-      <a
-        href='/#sobre-mi'
-        class='text-sm/6 font-semibold text-petrol-900'
-        >Sobre mí</a
-      >
+      {navigation.primary.slice(0, 1).map((link) => (
+        <a
+          href={link.href}
+          class='text-sm/6 font-semibold text-petrol-900'
+          >{link.label}</a
+        >
+      ))}
       <div class='relative group'>
         <button
           type='button'
@@ -70,29 +75,28 @@ import '@fontsource/titan-one'
         <div
           class='hidden group-hover:block group-focus-within:block absolute left-0 z-10 mt-2 w-64 origin-top-left rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none before:content-[""] before:absolute before:inset-x-0 before:-top-2 before:h-2'>
           <div class='py-1'>
-            <a
-              href='/posicionamiento-web-barcelona'
-              class='block px-4 py-2 text-sm text-petrol-900 hover:bg-gray-50'>
-              Posicionamiento Web Barcelona
-            </a>
-            <a
-              href='/seo-local-barcelona'
-              class='block px-4 py-2 text-sm text-petrol-900 hover:bg-gray-50'>
-              SEO Local Barcelona
-            </a>
+            {navigation.services.map((service) => (
+              <a
+                href={service.href}
+                class='block px-4 py-2 text-sm text-petrol-900 hover:bg-gray-50'>
+                {service.label}
+              </a>
+            ))}
           </div>
         </div>
       </div>
-      <a
-        href='/#contacto'
-        class='text-sm/6 font-semibold text-petrol-900'
-        >Contacto</a
-      >
+      {navigation.primary.slice(1).map((link) => (
+        <a
+          href={link.href}
+          class='text-sm/6 font-semibold text-petrol-900'
+          >{link.label}</a
+        >
+      ))}
       <span class='text-gray-300'>|</span>
       <a
-        href='tel:+34692051399'
+        href={`tel:${contact.phone.e164}`}
         class='text-sm/6 font-semibold text-sky-500 hover:text-sky-600'
-        >+34 692 051 399</a
+        >{contact.phone.display}</a
       >
     </div>
   </nav>
@@ -109,16 +113,16 @@ import '@fontsource/titan-one'
             <a
               href='/'
               class='-m-1.5 p-1.5 flex items-center gap-x-2'>
-              <span class='sr-only'>SalvaSEO</span>
+              <span class='sr-only'>{brand.name}</span>
               <img
                 src='/logo.png'
-                alt='SalvaSEO Logo'
+                alt={`${brand.name} Logo`}
                 width='48'
                 height='49'
                 class='h-12 w-auto'
               />
               <span class='brand-wordmark text-xl text-petrol-900'
-                >SalvaSEO</span
+                >{brand.name}</span
               >
             </a>
             <button
@@ -146,11 +150,13 @@ import '@fontsource/titan-one'
           <div class='mt-6 flow-root'>
             <div class='-my-6 divide-y divide-gray-500/10'>
               <div class='space-y-2 py-6'>
-                <a
-                  href='/#sobre-mi'
-                  class='-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-petrol-900 hover:bg-gray-50'
-                  >Sobre mí</a
-                >
+                {navigation.primary.slice(0, 1).map((link) => (
+                  <a
+                    href={link.href}
+                    class='-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-petrol-900 hover:bg-gray-50'
+                    >{link.label}</a
+                  >
+                ))}
                 <details class='-mx-3'>
                   <summary
                     class='flex cursor-pointer list-none items-center justify-between rounded-lg px-3 py-2 text-base/7 font-semibold text-petrol-900 hover:bg-gray-50'>
@@ -168,28 +174,27 @@ import '@fontsource/titan-one'
                     </svg>
                   </summary>
                   <div class='mt-1 pl-4'>
-                    <a
-                      href='/posicionamiento-web-barcelona'
-                      class='block rounded-lg px-3 py-2 text-sm/6 font-semibold text-petrol-900 hover:bg-gray-50'
-                      >Posicionamiento Web Barcelona</a
-                    >
-                    <a
-                      href='/seo-local-barcelona'
-                      class='block rounded-lg px-3 py-2 text-sm/6 font-semibold text-petrol-900 hover:bg-gray-50'
-                      >SEO Local Barcelona</a
-                    >
+                    {navigation.services.map((service) => (
+                      <a
+                        href={service.href}
+                        class='block rounded-lg px-3 py-2 text-sm/6 font-semibold text-petrol-900 hover:bg-gray-50'
+                        >{service.label}</a
+                      >
+                    ))}
                   </div>
                 </details>
-                <a
-                  href='/#contacto'
-                  class='-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-petrol-900 hover:bg-gray-50'
-                  >Contacto</a
-                >
+                {navigation.primary.slice(1).map((link) => (
+                  <a
+                    href={link.href}
+                    class='-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-petrol-900 hover:bg-gray-50'
+                    >{link.label}</a
+                  >
+                ))}
                 <div class='border-t border-gray-200 pt-4 mt-4'>
                   <a
-                    href='tel:+34692051399'
+                    href={`tel:${contact.phone.e164}`}
                     class='-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-sky-500 hover:bg-sky-50'
-                    >+34 692 051 399</a
+                    >{contact.phone.display}</a
                   >
                 </div>
               </div>

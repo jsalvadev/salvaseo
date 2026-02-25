@@ -1,0 +1,33 @@
+---
+import Upheading from './Upheading.astro'
+import WhatsAppButton from './WhatsAppButton.astro'
+
+interface Props {
+  upheading?: string
+  heading: string
+  primaryCtaText: string
+  secondaryCtaText?: string
+  secondaryCtaHref?: string
+}
+
+const { upheading, heading, primaryCtaText, secondaryCtaText, secondaryCtaHref } = Astro.props
+---
+
+<div class='bg-white'>
+  <div class='mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8'>
+    {upheading && <Upheading as='h2' text={upheading} />}
+    <p class='max-w-2xl text-4xl font-semibold tracking-tight text-balance text-petrol-900 sm:text-5xl'>
+      {heading}
+    </p>
+    <div class='mt-10 flex items-center gap-x-6'>
+      <WhatsAppButton text={primaryCtaText} />
+      {secondaryCtaText && secondaryCtaHref && (
+        <a
+          href={secondaryCtaHref}
+          class='text-sm/6 font-semibold text-petrol-900'>
+          {secondaryCtaText} <span aria-hidden='true'>→</span>
+        </a>
+      )}
+    </div>
+  </div>
+</div>

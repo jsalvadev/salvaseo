@@ -1,6 +1,57 @@
 ---
 import { MapPin, Search, LayoutGrid } from '@lucide/astro'
 import Upheading from './Upheading.astro'
+
+type IconKey = 'mapPin' | 'search' | 'layoutGrid'
+
+interface ExplainerItem {
+  icon: IconKey
+  title: string
+  description: string
+}
+
+interface Props {
+  upheading?: string
+  heading?: string
+  intro?: string
+  items?: ExplainerItem[]
+  mockupCaption?: string
+}
+
+const iconByKey = {
+  mapPin: MapPin,
+  search: Search,
+  layoutGrid: LayoutGrid,
+} as const
+
+const defaultItems: ExplainerItem[] = [
+  {
+    icon: 'search',
+    title: 'SEO local vs posicionamiento web tradicional.',
+    description:
+      'El SEO tradicional posiciona tu web en resultados orgánicos generales. El SEO local te coloca en <strong>Google Maps, el Local Pack y las búsquedas geolocalizadas</strong> — donde están los usuarios que compran hoy, no mañana.',
+  },
+  {
+    icon: 'layoutGrid',
+    title: 'El Local Pack de Google captura la mayoría de clics.',
+    description:
+      'Es el bloque con mapa y tres negocios que aparece antes de los resultados orgánicos. Aparecer en el Local Pack equivale a <strong>tener un escaparate en la calle principal de Google</strong>. Sin optimización local, ese escaparate lo ocupa otro.',
+  },
+  {
+    icon: 'mapPin',
+    title: 'Relevancia, distancia y prominencia.',
+    description:
+      'Google decide quién sale en el mapa combinando tres factores: lo relevante que es tu negocio para la búsqueda, la distancia al usuario y tu <strong>reputación online</strong> (reseñas, autoridad, actividad). Los tres se trabajan con SEO local.',
+  },
+]
+
+const {
+  upheading = 'SEO local en Barcelona',
+  heading = 'Qué es el SEO local y por qué decide quién se lleva al cliente',
+  intro = 'El <strong>46 % de las búsquedas en Google tienen intención local</strong>. Cuando alguien escribe "dentista Barcelona" o "taller cerca de mí", Google muestra primero el mapa con tres resultados. Si no estás ahí, el cliente va directo a tu competencia.',
+  items = defaultItems,
+  mockupCaption = 'Así se ve el Local Pack de Google: <strong>3 negocios, un mapa, el 44 % de los clics.</strong>',
+} = Astro.props
 ---
 
 <div class='overflow-hidden bg-white py-24 sm:py-32'>
@@ -8,41 +59,28 @@ import Upheading from './Upheading.astro'
     <div class='mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2'>
       <div class='lg:pr-8 lg:pt-4'>
         <div class='lg:max-w-lg'>
-          <Upheading as='h2' text='SEO local en Barcelona' />
+          <Upheading as='h2' text={upheading} />
           <p class='mt-2 text-4xl font-semibold tracking-tight text-pretty text-petrol-900 sm:text-5xl'>
-            Qué es el SEO local y por qué decide quién se lleva al cliente
+            {heading}
           </p>
           <p class='mt-6 text-lg/8 text-petrol-700'>
-            El <strong>46 % de las búsquedas en Google tienen intención local</strong>. Cuando alguien escribe "dentista Barcelona" o "taller cerca de mí", Google muestra primero el mapa con tres resultados. Si no estás ahí, el cliente va directo a tu competencia.
+            <Fragment set:html={intro} />
           </p>
           <dl class='mt-10 max-w-xl space-y-8 text-base/7 text-petrol-700 lg:max-w-none'>
-            <div class='relative pl-9'>
-              <dt class='inline font-semibold text-petrol-900'>
-                <Search aria-hidden='true' class='absolute left-1 top-1 size-5 text-sky-600' />
-                SEO local vs posicionamiento web tradicional.
-              </dt>
-              <dd class='inline'>
-                El SEO tradicional posiciona tu web en resultados orgánicos generales. El SEO local te coloca en <strong>Google Maps, el Local Pack y las búsquedas geolocalizadas</strong> — donde están los usuarios que compran hoy, no mañana.
-              </dd>
-            </div>
-            <div class='relative pl-9'>
-              <dt class='inline font-semibold text-petrol-900'>
-                <LayoutGrid aria-hidden='true' class='absolute left-1 top-1 size-5 text-sky-600' />
-                El Local Pack de Google captura la mayoría de clics.
-              </dt>
-              <dd class='inline'>
-                Es el bloque con mapa y tres negocios que aparece antes de los resultados orgánicos. Aparecer en el Local Pack equivale a <strong>tener un escaparate en la calle principal de Google</strong>. Sin optimización local, ese escaparate lo ocupa otro.
-              </dd>
-            </div>
-            <div class='relative pl-9'>
-              <dt class='inline font-semibold text-petrol-900'>
-                <MapPin aria-hidden='true' class='absolute left-1 top-1 size-5 text-sky-600' />
-                Relevancia, distancia y prominencia.
-              </dt>
-              <dd class='inline'>
-                Google decide quién sale en el mapa combinando tres factores: lo relevante que es tu negocio para la búsqueda, la distancia al usuario y tu <strong>reputación online</strong> (reseñas, autoridad, actividad). Los tres se trabajan con SEO local.
-              </dd>
-            </div>
+            {items.map((item) => {
+              const Icon = iconByKey[item.icon]
+              return (
+                <div class='relative pl-9'>
+                  <dt class='inline font-semibold text-petrol-900'>
+                    <Icon aria-hidden='true' class='absolute left-1 top-1 size-5 text-sky-600' />
+                    {item.title}
+                  </dt>
+                  <dd class='inline'>
+                    <Fragment set:html={item.description} />
+                  </dd>
+                </div>
+              )
+            })}
           </dl>
         </div>
       </div>
@@ -94,7 +132,9 @@ import Upheading from './Upheading.astro'
                 </div>
               </div>
             </div>
-            <p class='mt-4 text-center text-sm text-petrol-600'>Así se ve el Local Pack de Google: <strong>3 negocios, un mapa, el 44 % de los clics.</strong></p>
+            <p class='mt-4 text-center text-sm text-petrol-600'>
+              <Fragment set:html={mockupCaption} />
+            </p>
           </div>
         </div>
       </div>

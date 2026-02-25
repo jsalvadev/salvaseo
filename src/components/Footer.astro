@@ -1,3 +1,9 @@
+---
+import { siteConfig } from '../data/site'
+
+const { brand, contact, social, navigation, footer } = siteConfig
+---
+
 <footer class='bg-petrol-900 border-t border-petrol-700'>
   <div class='mx-auto max-w-7xl px-6 py-12 lg:px-8'>
     <div class='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4'>
@@ -8,7 +14,7 @@
         </p>
         <div class='mt-4 space-y-3'>
           <a
-            href='tel:+34692051399'
+            href={`tel:${contact.phone.e164}`}
             class='group text-sm text-petrol-100 hover:text-sky-100 focus-visible:text-sky-100 focus-visible:outline-none flex w-fit items-center gap-2 underline-offset-4 hover:underline focus-visible:underline transition-all duration-200'>
             <svg
               class='h-4 w-4 transition-transform duration-200 group-hover:-translate-y-0.5 group-focus-visible:-translate-y-0.5'
@@ -22,10 +28,10 @@
                 d='M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z'
               ></path>
             </svg>
-            692 051 399
+            {contact.phone.shortDisplay}
           </a>
           <a
-            href='mailto:salvadorjesus.seo@gmail.com'
+            href={`mailto:${contact.email}`}
             class='group text-sm text-petrol-100 hover:text-sky-100 focus-visible:text-sky-100 focus-visible:outline-none flex w-fit items-center gap-2 break-all underline-offset-4 hover:underline focus-visible:underline transition-all duration-200'>
             <svg
               class='h-4 w-4 flex-shrink-0 transition-transform duration-200 group-hover:-translate-y-0.5 group-focus-visible:-translate-y-0.5'
@@ -39,7 +45,7 @@
                 d='M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
               ></path>
             </svg>
-            salvadorjesus.seo@gmail.com
+            {contact.email}
           </a>
         </div>
       </div>
@@ -50,9 +56,11 @@
           Horario
         </p>
         <div class='mt-4 space-y-2'>
-          <p class='text-sm text-petrol-100 hover:text-petrol-50 transition-colors duration-200'>
-            Lunes a Viernes: 09:00 - 18:00
-          </p>
+          {footer.schedule.map((item) => (
+            <p class='text-sm text-petrol-100 hover:text-petrol-50 transition-colors duration-200'>
+              {item}
+            </p>
+          ))}
         </div>
       </div>
 
@@ -62,12 +70,11 @@
           Áreas de Trabajo
         </p>
         <div class='mt-4 space-y-2'>
-          <p class='text-sm text-petrol-100 hover:text-petrol-50 transition-colors duration-200'>
-            Barcelona
-          </p>
-          <p class='text-sm text-petrol-100 hover:text-petrol-50 transition-colors duration-200'>
-            Área metropolitana
-          </p>
+          {footer.workAreas.map((area) => (
+            <p class='text-sm text-petrol-100 hover:text-petrol-50 transition-colors duration-200'>
+              {area}
+            </p>
+          ))}
         </div>
       </div>
 
@@ -78,7 +85,7 @@
         </p>
         <div class='mt-4 flex gap-3'>
           <a
-            href='https://www.google.com/maps/place/SalvaSEO+-+Consultor+SEO+en+Barcelona/@41.3926387,2.0577883,12z/data=!4m15!1m8!3m7!1s0x47b687095c96ad7:0x4a8991093774db69!2sSalvaSEO+-+Consultor+SEO+en+Barcelona!8m2!3d41.392668!4d2.140189!10e1!16s%2Fg%2F11y_x5bbp3!3m5!1s0x47b687095c96ad7:0x4a8991093774db69!8m2!3d41.392668!4d2.140189!16s%2Fg%2F11y_x5bbp3?entry=ttu&g_ep=EgoyMDI2MDIxMS4wIKXMDSoASAFQAw%3D%3D'
+            href={social.googleBusiness}
             target='_blank'
             rel='noopener noreferrer'
             class='text-petrol-100 hover:text-sky-100 focus-visible:text-sky-100 focus-visible:outline-none transition-all duration-200 hover:-translate-y-0.5'
@@ -103,7 +110,7 @@
             </svg>
           </a>
           <a
-            href='https://www.instagram.com/salva_seo/'
+            href={social.instagram}
             target='_blank'
             rel='noopener noreferrer'
             class='text-petrol-100 hover:text-sky-100 focus-visible:text-sky-100 focus-visible:outline-none transition-all duration-200 hover:-translate-y-0.5'
@@ -118,7 +125,7 @@
             </svg>
           </a>
           <a
-            href='https://www.tiktok.com/@consultorseobarcelona'
+            href={social.tiktok}
             target='_blank'
             rel='noopener noreferrer'
             class='text-petrol-100 hover:text-sky-100 focus-visible:text-sky-100 focus-visible:outline-none transition-all duration-200 hover:-translate-y-0.5'
@@ -139,30 +146,23 @@
     <!-- Enlaces Legales -->
     <div class='mt-8 pt-8 border-t border-petrol-700'>
       <nav class='flex flex-wrap justify-center gap-x-6 gap-y-2'>
-        <a
-          href='/aviso-legal'
-          class='text-sm text-petrol-100 hover:text-sky-100 focus-visible:text-sky-100 focus-visible:outline-none underline-offset-4 hover:underline focus-visible:underline transition-colors duration-200'>
-          Aviso Legal
-        </a>
-        <span class='text-petrol-600'>|</span>
-        <a
-          href='/politica-privacidad'
-          class='text-sm text-petrol-100 hover:text-sky-100 focus-visible:text-sky-100 focus-visible:outline-none underline-offset-4 hover:underline focus-visible:underline transition-colors duration-200'>
-          Política de Privacidad
-        </a>
-        <span class='text-petrol-600'>|</span>
-        <a
-          href='/politica-cookies'
-          class='text-sm text-petrol-100 hover:text-sky-100 focus-visible:text-sky-100 focus-visible:outline-none underline-offset-4 hover:underline focus-visible:underline transition-colors duration-200'>
-          Política de Cookies
-        </a>
+        {navigation.legal.map((link, idx) => (
+          <>
+            <a
+              href={link.href}
+              class='text-sm text-petrol-100 hover:text-sky-100 focus-visible:text-sky-100 focus-visible:outline-none underline-offset-4 hover:underline focus-visible:underline transition-colors duration-200'>
+              {link.label}
+            </a>
+            {idx < navigation.legal.length - 1 && <span class='text-petrol-600'>|</span>}
+          </>
+        ))}
       </nav>
     </div>
 
     <!-- Copyright -->
     <div class='mt-8 border-t border-petrol-700 pt-8'>
       <p class='text-xs text-petrol-100/80 text-center'>
-        &copy; {new Date().getFullYear()} SalvaSEO - Consultor SEO en Barcelona
+        &copy; {new Date().getFullYear()} {brand.fullName}
       </p>
     </div>
   </div>
