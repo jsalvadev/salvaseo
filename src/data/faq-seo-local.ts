@@ -4,19 +4,19 @@ export const faqSeoLocalItems: FaqItem[] = [
   {
     question: '¿Cuánto tarda en dar resultados el SEO local?',
     answer: `<p class="text-base/7 text-petrol-900">
-      Los primeros cambios en visibilidad y posiciones en Google Maps se notan entre <strong>1 y 3 meses</strong>: mejoras en la ficha de Google, correcciones técnicas activas y primeras señales de movimiento en el Local Pack.
+      Los primeros cambios en visibilidad y posiciones en Google Maps suelen llegar entre <strong>1 y 3 meses</strong>: optimización de ficha, correcciones técnicas y primeras mejoras en Local Pack.
     </p>
     <p class="mt-2 text-base/7 text-petrol-900">
-      La consolidación real — posiciones estables, tráfico recurrente y llamadas constantes — llega entre los <strong>4 y 6 meses</strong>, dependiendo de la competencia en tu sector y zona. No es magia: es un proceso técnico con plazos reales.
+      La consolidación real — posiciones estables, demanda recurrente y llamadas constantes — se valida entre los <strong>4 y 6 meses</strong>, según competencia de tu sector y zona. El objetivo final es captar clientes de forma predecible y rentable.
     </p>`,
   },
   {
     question: '¿Necesito una web para hacer SEO local?',
     answer: `<p class="text-base/7 text-petrol-900">
-      Google Business Profile funciona sin web, pero <strong>tener una web optimizada multiplica los resultados</strong>. La ficha de Google te da visibilidad en Maps; la web te da credibilidad, más palabras clave posicionadas y una página donde el cliente puede ver tus servicios, leer reseñas y contactarte.
+      Google Business Profile puede funcionar sin web, pero <strong>una web optimizada multiplica resultados</strong>. La ficha genera visibilidad en Maps; la web amplía credibilidad, keywords posicionadas y conversión comercial.
     </p>
     <p class="mt-2 text-base/7 text-petrol-900">
-      La combinación ficha + web es lo que realmente <strong>domina los resultados locales</strong>. Sin web, compites con una mano atada.
+      La combinación ficha + web permite <strong>dominar resultados locales</strong>, reducir dependencia de un único canal y escalar captación con mejor margen.
     </p>`,
   },
   {
@@ -32,7 +32,7 @@ export const faqSeoLocalItems: FaqItem[] = [
       <li>Competidores con mejor autoridad local y más señales de confianza.</li>
     </ul>
     <p class="mt-2 text-base/7 text-petrol-900">
-      La auditoría SEO local detecta exactamente <strong>qué falla y cómo solucionarlo</strong>.
+      La auditoría SEO local identifica con precisión <strong>qué bloquea tu visibilidad y qué acciones ejecutan recuperación de clientes</strong>.
     </p>`,
   },
   {
@@ -41,7 +41,7 @@ export const faqSeoLocalItems: FaqItem[] = [
       Sí, con una <strong>estrategia multi-ubicación</strong>. Cada sede necesita su propia ficha de Google Business Profile, su página de aterrizaje en la web y sus citaciones NAP independientes.
     </p>
     <p class="mt-2 text-base/7 text-petrol-900">
-      No se trata de duplicar contenido: se diseña una estructura que <strong>trabaja cada ubicación por separado</strong> para que Google entienda que son locales distintos con relevancia propia.
+      No se trata de duplicar contenido: se ejecuta una estructura que <strong>optimiza cada ubicación por separado</strong> para validar relevancia local y captar demanda en cada zona.
     </p>`,
   },
   {
@@ -50,16 +50,16 @@ export const faqSeoLocalItems: FaqItem[] = [
       El SEO tradicional posiciona tu web en los resultados orgánicos generales de Google, compitiendo a nivel nacional o internacional. El SEO local se centra en <strong>Google Maps, el Local Pack y las búsquedas geolocalizadas</strong>.
     </p>
     <p class="mt-2 text-base/7 text-petrol-900">
-      Si tu cliente te busca escribiendo tu servicio + una ubicación ("dentista Barcelona", "taller Gràcia"), necesitas SEO local. Si tu negocio vende online a toda España, necesitas SEO tradicional. <strong>Muchos negocios necesitan ambos</strong>.
+      Si tu cliente te busca escribiendo tu servicio + ubicación ("dentista Barcelona", "taller Gràcia"), necesitas SEO local. Si vendes a nivel nacional, necesitas SEO tradicional. <strong>Muchos negocios escalan más cuando combinan ambos enfoques</strong>.
     </p>`,
   },
   {
     question: '¿Puedo hacer SEO local yo mismo o necesito un profesional?',
     answer: `<p class="text-base/7 text-petrol-900">
-      Lo básico sí: rellenar tu ficha de Google, subir fotos y responder reseñas. Pero competir en Barcelona — una de las ciudades con <strong>mayor densidad de negocios y competencia digital de España</strong> — requiere estrategia técnica.
+      Puedes ejecutar lo básico: completar ficha de Google, subir fotos y responder reseñas. Competir en Barcelona — una ciudad con <strong>alta densidad de negocios y competencia digital</strong> — exige estrategia técnica y priorización por retorno.
     </p>
     <p class="mt-2 text-base/7 text-petrol-900">
-      Investigación de keywords, optimización de schema, gestión de citaciones NAP, link building local y análisis de competencia son tareas que <strong>marcan la diferencia entre salir en la página 3 y dominar el Local Pack</strong>.
+      Investigación de keywords, optimización de schema, gestión de citaciones NAP, link building local y análisis competitivo son tareas que <strong>marcan la diferencia entre visibilidad residual y captación recurrente en Local Pack</strong>.
     </p>`,
   },
 ]
