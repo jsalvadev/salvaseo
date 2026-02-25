@@ -13,7 +13,7 @@ const { upheading, heading, intro, items } = Astro.props
 ---
 
 <div class='bg-white'>
-  <div class='mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8'>
+  <div class='mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40'>
     {upheading && <Upheading as='h2' text={upheading} />}
     <p class='text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl'>
       {heading}
@@ -23,19 +23,17 @@ const { upheading, heading, intro, items } = Astro.props
         <Fragment set:html={intro} />
       </p>
     )}
-    <div class='mt-20'>
-      <dl class='space-y-16 sm:grid sm:grid-cols-2 sm:space-y-0 sm:gap-x-6 sm:gap-y-16 lg:gap-x-10'>
-        {items.map((item) => (
-          <div>
-            <dt class='text-base/7 font-semibold text-petrol-900'>
-              <h3>{item.question}</h3>
-            </dt>
-            <dd class='mt-2 text-base/7 text-petrol-700'>
-              <Fragment set:html={item.answer} />
-            </dd>
-          </div>
-        ))}
-      </dl>
-    </div>
+    <dl class='mt-20 divide-y divide-petrol-900/10'>
+      {items.map((item) => (
+        <div class='py-8 first:pt-0 last:pb-0 lg:grid lg:grid-cols-12 lg:gap-8'>
+          <dt class='text-base/7 font-semibold text-petrol-900 lg:col-span-5'>
+            <h3>{item.question}</h3>
+          </dt>
+          <dd class='mt-4 text-base/7 text-petrol-700 lg:col-span-7 lg:mt-0'>
+            <Fragment set:html={item.answer} />
+          </dd>
+        </div>
+      ))}
+    </dl>
   </div>
 </div>
