@@ -1,0 +1,81 @@
+---
+import Upheading from '../../Upheading.astro'
+import type { FaqItem } from '../../../data/faq-home'
+
+interface Props {
+  upheading?: string
+  heading: string
+  idPrefix?: string
+  items: FaqItem[]
+  class?: string
+}
+
+const { upheading, heading, idPrefix = 'faq', items, class: className } = Astro.props
+---
+
+<div class:list={['bg-petrol-50/70', className]}>
+  <div class='mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40'>
+    <div class='mx-auto max-w-4xl'>
+      {upheading && <Upheading as='h2' text={upheading} />}
+      <p
+        class='text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl'>
+        {heading}
+      </p>
+      <dl class='mt-16 divide-y divide-gray-900/10'>
+        {items.map((item, i) => (
+          <div class='py-6 first:pt-0 last:pb-0'>
+            <dt>
+              <button
+                type='button'
+                command='--toggle'
+                commandfor={`${idPrefix}-${i}`}
+                class='flex w-full items-start justify-between text-left text-petrol-900'>
+                <h3 class='text-base/7 font-semibold'>
+                  {item.question}
+                </h3>
+                <span class='ml-6 flex h-7 items-center'>
+                  <svg
+                    viewBox='0 0 24 24'
+                    fill='none'
+                    stroke='currentColor'
+                    stroke-width='1.5'
+                    data-slot='icon'
+                    aria-hidden='true'
+                    class='size-6 in-aria-expanded:hidden'>
+                    <path
+                      d='M12 6v12m6-6H6'
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                    />
+                  </svg>
+                  <svg
+                    viewBox='0 0 24 24'
+                    fill='none'
+                    stroke='currentColor'
+                    stroke-width='1.5'
+                    data-slot='icon'
+                    aria-hidden='true'
+                    class='size-6 not-in-aria-expanded:hidden'>
+                    <path
+                      d='M18 12H6'
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                    />
+                  </svg>
+                </span>
+              </button>
+            </dt>
+            <el-disclosure
+              id={`${idPrefix}-${i}`}
+              hidden
+              class='contents'>
+              <dd class='mt-2 pr-12'>
+                <Fragment set:html={item.answer} />
+              </dd>
+            </el-disclosure>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </div>
+</div>
