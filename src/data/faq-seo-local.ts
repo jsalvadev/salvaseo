@@ -26,7 +26,7 @@ export const faqSeoLocalItems: FaqItem[] = [
     </p>
     <ul class="mt-2 list-disc pl-6 text-base/7 text-petrol-900">
       <li>Categorías mal configuradas o incompletas.</li>
-      <li>Información NAP (nombre, dirección, teléfono) <strong>inconsistente</strong> entre tu web, ficha y directorios.</li>
+      <li>Información NAP inconsistente entre tu web, ficha y directorios.</li>
       <li>Falta de reseñas o reseñas sin responder.</li>
       <li>Perfil incompleto: sin fotos, sin horarios, sin descripción optimizada.</li>
       <li>Competidores con mejor autoridad local y más señales de confianza.</li>
@@ -47,7 +47,7 @@ export const faqSeoLocalItems: FaqItem[] = [
   {
     question: '¿Puedo hacer SEO local yo mismo o necesito un profesional?',
     answer: `<p class="text-base/7 text-petrol-900">
-      Puedes ejecutar lo básico: completar ficha de Google, subir fotos y responder reseñas. Competir en Barcelona — una ciudad con <strong>alta densidad de negocios y competencia digital</strong> — exige estrategia técnica y priorización por retorno.
+      Puedes ejecutar lo básico: completar ficha de Google, subir fotos y responder reseñas. Competir en Barcelona — una ciudad con alta densidad de negocios y competencia digital — exige <strong>estrategia técnica y priorización por retorno</strong>.
     </p>
     <p class="mt-2 text-base/7 text-petrol-900">
       Investigación de keywords, optimización de schema, gestión de citaciones NAP, link building local y análisis competitivo son tareas que <strong>marcan la diferencia entre aparecer de vez en cuando y recibir llamadas cada semana</strong>.
