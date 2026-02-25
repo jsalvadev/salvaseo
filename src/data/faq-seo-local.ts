@@ -32,7 +32,7 @@ export const faqSeoLocalItems: FaqItem[] = [
       <li>Competidores con mejor autoridad local y más señales de confianza.</li>
     </ul>
     <p class="mt-2 text-base/7 text-petrol-900">
-      La auditoría SEO local identifica con precisión <strong>qué bloquea tu visibilidad y qué acciones ejecutan recuperación de clientes</strong>.
+      La auditoría SEO local identifica con precisión <strong>qué bloquea tu visibilidad y qué acciones aceleran la recuperación de clientes</strong>.
     </p>`,
   },
   {
