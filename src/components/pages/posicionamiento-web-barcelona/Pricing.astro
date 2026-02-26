@@ -1,5 +1,4 @@
 ---
-import { BadgeCheck, CalendarClock, Layers3, Target } from '@lucide/astro'
 import Upheading from '../../Upheading.astro'
 
 interface PricingFeature {
@@ -45,23 +44,23 @@ const {
 } = Astro.props
 ---
 
-<div class='bg-gradient-to-b from-petrol-50/70 via-petrol-50/45 to-white px-6 py-32 lg:px-8'>
-  <div class='mx-auto max-w-3xl text-base/7 text-gray-700'>
+<div class='bg-white px-6 py-32 lg:px-8'>
+  <div class='mx-auto max-w-3xl text-base/7 text-petrol-700'>
     <Upheading as='h2' text={upheading} />
     <p
-      class='mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl'>
+      class='mt-2 text-4xl font-semibold tracking-tight text-pretty text-petrol-900 sm:text-5xl'>
       {heading}
     </p>
     <p class='mt-6 text-xl/8'>
       <Fragment set:html={intro} />
     </p>
 
-    <div class='mt-10 max-w-2xl text-gray-600'>
+    <div class='mt-10 max-w-2xl text-petrol-600'>
       <p>
         <Fragment set:html={costContext} />
       </p>
 
-      <ul role='list' class='mt-8 max-w-xl space-y-8 text-gray-600'>
+      <ul role='list' class='mt-8 max-w-xl space-y-8 text-petrol-600'>
         {features.map((feature) => (
           <li class='flex gap-x-3'>
             <svg
@@ -69,7 +68,7 @@ const {
               fill='currentColor'
               data-slot='icon'
               aria-hidden='true'
-              class='mt-1 size-5 flex-none text-sky-600'>
+              class='mt-1 size-5 flex-none text-maps-green'>
               <path
                 d='M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z'
                 clip-rule='evenodd'
@@ -77,7 +76,7 @@ const {
               />
             </svg>
             <span>
-              <strong class='font-semibold text-gray-900'>{feature.title}</strong>
+              <strong class='font-semibold text-petrol-900'>{feature.title}</strong>
               {' '}{feature.description}
             </span>
           </li>
@@ -85,20 +84,19 @@ const {
       </ul>
 
       <h3
-        class='mt-16 text-3xl font-semibold tracking-tight text-pretty text-gray-900'>
+        class='mt-16 text-3xl font-semibold tracking-tight text-pretty text-petrol-900'>
         {subheading}
       </h3>
       <p class='mt-6'>
         <Fragment set:html={subtext} />
       </p>
 
-      <figure class='relative mt-10 inline-block max-w-full pl-10'>
-        <span aria-hidden='true' class='absolute left-0 top-0 text-6xl/none font-serif text-sky-600'>"</span>
-        <blockquote class='inline-block max-w-full rounded-xl border border-sky-200 bg-white px-6 py-5 text-xl/8 italic text-petrol-900 text-pretty whitespace-pre-line shadow-sm'>
+      <figure class='mt-10'>
+        <blockquote class='border-l-4 border-sky-200 pl-6 text-xl/8 italic text-petrol-900 text-pretty'>
           <p>{quote}</p>
         </blockquote>
         {quoteAuthor && (
-          <figcaption class='mt-4 flex gap-x-4'>
+          <figcaption class='mt-4 pl-6'>
             <div class='text-sm/6'>
               <Fragment set:html={quoteAuthor} />
             </div>
@@ -107,18 +105,14 @@ const {
       </figure>
     </div>
 
-    <div class='mt-16 max-w-2xl text-gray-600'>
+    <div class='mt-16 max-w-2xl text-petrol-600'>
       <h3
-        class='text-3xl font-semibold tracking-tight text-pretty text-gray-900'>
+        class='text-3xl font-semibold tracking-tight text-pretty text-petrol-900'>
         {bottomHeading}
       </h3>
       <ul role='list' class='mt-6 space-y-8'>
-        {bottomItems.map((item, index) => (
-          <li class='flex gap-x-3'>
-            {index === 0 && <BadgeCheck aria-hidden='true' class='mt-1 size-5 flex-none text-sky-600' />}
-            {index === 1 && <CalendarClock aria-hidden='true' class='mt-1 size-5 flex-none text-sky-600' />}
-            {index === 2 && <Layers3 aria-hidden='true' class='mt-1 size-5 flex-none text-sky-600' />}
-            {index === 3 && <Target aria-hidden='true' class='mt-1 size-5 flex-none text-sky-600' />}
+        {bottomItems.map((item) => (
+          <li class='border-l-2 border-sky-100 pl-4 py-2'>
             <p>
               <strong class='text-petrol-900'>{item.title}</strong> {item.description}
             </p>

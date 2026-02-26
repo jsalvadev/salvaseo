@@ -1,4 +1,5 @@
 ---
+import { MapPin } from '@lucide/astro'
 import Upheading from '../../Upheading.astro'
 
 interface AreaItem {
@@ -16,42 +17,33 @@ interface Props {
 const { upheading, heading, intro, areas } = Astro.props
 ---
 
-<div class='bg-petrol-50 py-24 sm:py-32'>
+<div class='bg-white py-24 sm:py-32'>
   <div class='mx-auto max-w-7xl px-6 lg:px-8'>
-    <div
-      class='mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-5'>
-      <div class='col-span-2'>
-        <Upheading as='h2' text={upheading} />
-        <p
-          class='mt-2 text-4xl font-semibold tracking-tight text-pretty text-petrol-900 sm:text-5xl'>
-          {heading}
-        </p>
+    <div class='mx-auto max-w-2xl text-center'>
+      <Upheading as='h2' text={upheading} class='text-center' />
+      <p class='mt-2 text-4xl font-semibold tracking-tight text-pretty text-petrol-900 sm:text-5xl'>
+        {heading}
+      </p>
+      <div class='mt-6 text-lg/8 text-petrol-700'>
         <Fragment set:html={intro} />
       </div>
-      <div
-        class='col-span-3 grid grid-cols-1 gap-x-8 gap-y-10 text-base/7 text-petrol-600 sm:grid-cols-2 lg:gap-y-16'>
-        {areas.map((area) => (
-          <div class='relative pl-9'>
+    </div>
+    <div class='mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none'>
+      {areas.map((area) => (
+        <div class='flex items-start gap-4 bg-petrol-50 rounded-lg p-5 border border-petrol-100'>
+          <div class='flex size-10 shrink-0 items-center justify-center rounded-full bg-sky-50 text-sky-600'>
+            <MapPin class='size-5' aria-hidden='true' />
+          </div>
+          <div>
             <h3 class='font-semibold text-petrol-900'>
-              <svg
-                class='absolute top-1 left-0 size-5 text-petrol-500'
-                viewBox='0 0 20 20'
-                fill='currentColor'
-                aria-hidden='true'>
-                <path
-                  fill-rule='evenodd'
-                  d='M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z'
-                  clip-rule='evenodd'
-                />
-              </svg>
               {area.title}
             </h3>
-            <p class='mt-2'>
+            <p class='mt-1 text-sm/6 text-petrol-700'>
               <Fragment set:html={area.description} />
             </p>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   </div>
 </div>

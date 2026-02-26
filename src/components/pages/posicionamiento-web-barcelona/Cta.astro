@@ -1,4 +1,5 @@
 ---
+import { Search, TrendingUp, Users } from '@lucide/astro'
 import Upheading from '../../Upheading.astro'
 import WhatsAppButton from '../../WhatsAppButton.astro'
 
@@ -10,7 +11,6 @@ interface Props {
   primaryCtaText: string
   secondaryCtaText?: string
   secondaryCtaHref?: string
-  patternId?: string
 }
 
 const {
@@ -21,46 +21,34 @@ const {
   primaryCtaText,
   secondaryCtaText,
   secondaryCtaHref,
-  patternId = 'cta-dots-pattern',
 } = Astro.props
 ---
 
-<div class:list={['relative isolate bg-petrol-100', layout === 'centered' && 'px-6 lg:px-8']}>
-  <svg
-    aria-hidden='true'
-    class='absolute inset-0 -z-10 size-full'>
-    <defs>
-      <pattern
-        id={patternId}
-        width='32'
-        height='32'
-        patternUnits='userSpaceOnUse'>
-        <circle
-          cx='16'
-          cy='16'
-          r='1.5'
-          fill='currentColor'
-          class='text-petrol-600/20'
-        ></circle>
-      </pattern>
-    </defs>
-    <rect
-      width='100%'
-      height='100%'
-      fill={`url(#${patternId})`}
-    ></rect>
-  </svg>
-
+<div class:list={['bg-petrol-900', layout === 'centered' && 'px-6 lg:px-8']}>
   {layout === 'side-by-side' ? (
     <div
       class='mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:flex lg:items-center lg:justify-between lg:px-8'>
       <div>
+        <div class='mb-6 flex flex-wrap items-start gap-3'>
+          <span class='inline-flex items-center gap-2 bg-white/10 rounded-full px-3 py-1 text-sm text-petrol-100'>
+            <Search class='size-4' aria-hidden='true' />
+            Google #1
+          </span>
+          <span class='inline-flex items-center gap-2 bg-white/10 rounded-full px-3 py-1 text-sm text-petrol-100'>
+            <TrendingUp class='size-4' aria-hidden='true' />
+            Más visitas
+          </span>
+          <span class='inline-flex items-center gap-2 bg-white/10 rounded-full px-3 py-1 text-sm text-petrol-100'>
+            <Users class='size-4' aria-hidden='true' />
+            Más clientes
+          </span>
+        </div>
         {upheading && <Upheading as='h2' text={upheading} />}
         <p
-          class='max-w-2xl text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl text-pretty'>
+          class='max-w-2xl text-4xl font-semibold tracking-tight text-white sm:text-5xl text-pretty'>
           {heading}
         </p>
-        <p class='mt-6 max-w-xl text-lg text-petrol-900'>
+        <p class='mt-6 max-w-xl text-lg text-petrol-100'>
           <Fragment set:html={text} />
         </p>
       </div>
@@ -70,7 +58,7 @@ const {
         {secondaryCtaText && secondaryCtaHref && (
           <a
             href={secondaryCtaHref}
-            class='text-sm/6 font-semibold text-petrol-900'>
+            class='text-sm/6 font-semibold text-white hover:text-sky-300 transition-colors'>
             {secondaryCtaText}
             <span aria-hidden='true'>→</span>
           </a>
@@ -79,12 +67,26 @@ const {
     </div>
   ) : (
     <div class='mx-auto max-w-2xl py-24 sm:py-32 text-center'>
-      {upheading && <Upheading as='h2' text={upheading} class='text-center' />}
+      <div class='mb-8 flex flex-wrap items-center justify-center gap-3'>
+        <span class='inline-flex items-center gap-2 bg-white/10 rounded-full px-3 py-1 text-sm text-petrol-100'>
+          <Search class='size-4' aria-hidden='true' />
+          Google #1
+        </span>
+        <span class='inline-flex items-center gap-2 bg-white/10 rounded-full px-3 py-1 text-sm text-petrol-100'>
+          <TrendingUp class='size-4' aria-hidden='true' />
+          Más visitas
+        </span>
+        <span class='inline-flex items-center gap-2 bg-white/10 rounded-full px-3 py-1 text-sm text-petrol-100'>
+          <Users class='size-4' aria-hidden='true' />
+          Más clientes
+        </span>
+      </div>
+      {upheading && <Upheading as='h2' text={upheading} />}
       <p
-        class='mt-2 text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl'>
+        class='mt-2 text-4xl font-semibold tracking-tight text-white sm:text-5xl'>
         {heading}
       </p>
-      <p class='mt-6 text-lg/8 text-petrol-900'>
+      <p class='mt-6 text-lg/8 text-petrol-100'>
         <Fragment set:html={text} />
       </p>
       <div
@@ -93,7 +95,7 @@ const {
         {secondaryCtaText && secondaryCtaHref && (
           <a
             href={secondaryCtaHref}
-            class='text-sm/6 font-semibold text-petrol-900'>
+            class='text-sm/6 font-semibold text-white hover:text-sky-300 transition-colors'>
             {secondaryCtaText} →
           </a>
         )}
