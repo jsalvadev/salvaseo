@@ -10,6 +10,7 @@ import LocalSeoPricing from '../components/pages/seo-local-barcelona/Pricing.ast
 import LocalSeoFaq from '../components/pages/seo-local-barcelona/Faq.astro'
 import { faqSeoLocalItems } from '../data/faq-seo-local'
 import LocalSeoCta from '../components/pages/seo-local-barcelona/Cta.astro'
+import GoogleMapEmbed from '../components/shared/GoogleMapEmbed.astro'
 
 const MIN_MONTHLY_PRICE_EUR = 350
 const MIN_MONTHLY_PRICE_TEXT = `${MIN_MONTHLY_PRICE_EUR} €/mes`
@@ -339,7 +340,10 @@ const seoLocalBusinessTypes = [
     items={faqSeoLocalItems}
   />
 
-  <!-- 9. CTA FINAL -->
+  <!-- 9. MAPA -->
+  <GoogleMapEmbed ariaLabelledbyId='mapa-seo-local-barcelona' />
+
+  <!-- 10. CTA FINAL -->
   <LocalSeoCta
     upheading='Consultor SEO local en Barcelona'
     heading='Tu diagnóstico local gratuito — descubre cuántos clientes pierdes cada mes'
