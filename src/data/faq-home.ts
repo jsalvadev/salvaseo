@@ -7,79 +7,79 @@ export const faqHomeItems: FaqItem[] = [
   {
     question: '¿Qué diferencia hay entre un consultor SEO freelance y una agencia SEO en Barcelona?',
     answer: `<p class="text-base/7 text-petrol-900">
-      Con un freelance, hablarás <strong>directamente con quien trabaja tu proyecto</strong>. <strong>Sin intermediarios</strong> que retrasen las conversaciones. Al aceptar pocos proyectos, <strong>tu negocio recibe la atención que merece</strong>. Trabajarás con alguien que conoce Barcelona, con <strong>costes más ajustados</strong> y capacidad de adaptación rápida. Para negocios locales, el freelance ofrece mejor servicio.
+      Con un freelance, la comunicación es <strong>directa con quien ejecuta tu proyecto</strong>. Al mantener una cartera reducida, tu negocio recibe <strong>más horas de análisis y ejecución</strong>. Además, los costes operativos son más ajustados y la capacidad de adaptación, más rápida.
     </p>`,
   },
   {
     question: '¿Qué es un consultor SEO y qué funciones tiene exactamente?',
     answer: `<p class="text-base/7 text-petrol-900">
-      Un consultor SEO es el profesional que analiza, optimiza y posiciona tu web en Google para que tus clientes te encuentren. Descubrirás <strong>por qué tu web no aparece en Google</strong> y obtendrás las soluciones necesarias:
+      Un consultor SEO analiza, optimiza y posiciona tu web en Google para que tus clientes potenciales te encuentren. Tu negocio obtiene un <strong>diagnóstico de por qué no aparece en Google</strong> y las soluciones necesarias:
     </p>
     <ul class="mt-2 list-disc pl-6 text-base/7 text-petrol-900">
-      <li>Auditoría SEO y SEO técnico: diseño web, velocidad y estructura de tu página web</li>
-      <li>Keyword research: investigación de palabras clave que tus clientes realmente buscan</li>
-      <li>Optimización de contenido para búsquedas reales de usuarios</li>
-      <li>Optimización de la ficha de Google Business Profile y Google Maps</li>
-      <li>Estrategia de enlaces de calidad y SEO off page para ganar autoridad</li>
+      <li>Auditoría técnica: velocidad, estructura y rendimiento de tu web</li>
+      <li>Investigación de qué buscan tus clientes en Google y con qué frecuencia</li>
+      <li>Optimización de contenido para las búsquedas que generan negocio</li>
+      <li>Optimización de tu ficha de Google Maps para captar clientes locales</li>
+      <li>Estrategia para aumentar la reputación de tu web ante Google</li>
       <li>Análisis de competencia local</li>
-      <li>Experiencia de usuario, seguimiento semanal y ajustes continuos con resultados medibles</li>
+      <li>Seguimiento semanal y ajustes continuos con métricas de captación</li>
     </ul>
     <p class="mt-2 text-base/7 text-petrol-900">
-      Resultado: <strong>Aparecerás cuando tu cliente te busque</strong>.
+      Resultado: <strong>tu web aparece cuando un cliente potencial busca lo que ofreces</strong>.
     </p>`,
   },
   {
     question: '¿Cuánto cobra un consultor SEO en Barcelona? (Precio y tarifas 2025)',
     answer: `<p class="text-base/7 text-petrol-900">
-      El precio hora de un consultor SEO en Barcelona varía según mercado: <strong>entre 50€-150€/hora o desde 500€/mes</strong> según experiencia y alcance.
+      El precio en Barcelona varía según el mercado y la complejidad del proyecto: <strong>entre 50€-150€/hora o desde 500€/mes</strong>.
     </p>
     <p class="mt-2 text-base/7 text-petrol-900">
-      El modelo de trabajo puede ser por proyecto, planes mensuales o servicios SEO puntuales según lo que necesites. Sin contratos de permanencia. Recibirás <strong>primero un análisis</strong> de qué falla en tu caso específico, y después conocerás el <strong>coste exacto adaptado a tu situación</strong>.
+      El modelo puede ser por proyecto, planes mensuales o servicios puntuales según lo que necesites. Antes de presupuestar, tu negocio recibe <strong>un análisis inicial</strong> de la situación actual. Después, <strong>el coste exacto adaptado a tu caso</strong>.
     </p>`,
   },
   {
     question: '¿Cómo encontrar un buen consultor SEO en Barcelona?',
     answer: `<p class="text-base/7 text-petrol-900">
-      Busca un consultor SEO experto que demuestre resultados reales con casos de éxito, te explique el proceso con claridad y conozca tu mercado local. Un buen consultor SEO no promete el número uno, sino <strong>un plan realista adaptado a tu negocio</strong>.
+      Tres señales clave: que demuestre resultados reales con casos verificables, que explique el proceso con claridad antes de presupuestar, y que conozca tu mercado local. El indicador más fiable es <strong>un plan realista adaptado a tu negocio, con métricas y plazos concretos</strong>.
     </p>`,
   },
   {
     question: '¿Cómo sé si necesito un consultor SEO profesional?',
     answer: `<p class="text-base/7 text-petrol-900">
-      Si tu página web no recibe tráfico orgánico de Google, tu competencia aparece antes que tú, tienes Google Business Profile pero <strong>no genera llamadas</strong>, o dependías de publicidad de pago (SEM) para conseguir visitas.
+      Señales habituales: tu web no recibe visitas desde Google, tu competencia aparece antes que tú, tu ficha de Google Maps <strong>no genera llamadas</strong>, o tu negocio depende de publicidad de pago para conseguir visibilidad.
     </p>
     <p class="mt-2 text-base/7 text-petrol-900">
-      Si tu negocio <strong>depende de visibilidad online y estás invisible</strong>, necesitas ayuda SEO. En la consultoría inicial sabrás si tu caso encaja o no.
+      Si tu facturación <strong>depende de que te encuentren online y ahora mismo no apareces</strong>, el posicionamiento orgánico es la solución. En la consultoría inicial se valida si tu caso tiene recorrido.
     </p>`,
   },
   {
     question: '¿Por qué necesito un especialista SEO para mi negocio en Barcelona?',
     answer: `<p class="text-base/7 text-petrol-900">
-      Porque <strong>Google no te posiciona solo porque tu servicio sea bueno</strong>. El posicionamiento SEO requiere trabajo especializado. Un especialista SEO convierte tu página web en un <strong>canal constante de clientes que atrae tráfico orgánico de calidad</strong>. Mientras trabajas en tu negocio, tu web aparecerá cuando busquen lo que ofreces en Barcelona.
+      Porque <strong>Google no posiciona una web solo porque el servicio sea bueno</strong>. El posicionamiento orgánico requiere trabajo técnico especializado. El resultado: tu web se convierte en un <strong>canal constante de captación de clientes</strong>. Mientras tu equipo se centra en el negocio, tu web capta solicitudes de presupuesto y llamadas.
     </p>
     <p class="mt-2 text-base/7 text-petrol-900">
-      Si tu competencia recibe las llamadas, <strong>el SEO cambia eso</strong>.
+      Si tu competencia recibe las llamadas que podrían ser tuyas, <strong>el posicionamiento orgánico redirige esa demanda a tu negocio</strong>.
     </p>`,
   },
   {
     question: '¿Cómo encontrar un consultor SEO cerca de mi negocio en Barcelona?',
     answer: `<p class="text-base/7 text-petrol-900">
-      Busca alguien que <strong>conozca tu zona</strong>, te explique claramente qué hará y no te dé precios sin analizar.
+      Dos criterios clave: que <strong>conozca tu zona</strong> y que no presupueste antes de analizar tu caso.
     </p>
     <p class="mt-2 text-base/7 text-petrol-900">
-      Trabajarás con alguien exclusivo de Barcelona y alrededores, que <strong>puede visitar tu local</strong> y analizar la competencia de tu barrio. <strong>Un consultor que no conoce tu calle no entiende tu mercado</strong>.
+      La ventaja de trabajar con alguien del área metropolitana de Barcelona es la posibilidad de <strong>visitar tu local, analizar la competencia sobre el terreno</strong> y entender la dinámica comercial de tu barrio.
     </p>`,
   },
   {
     question: '¿Vale la pena contratar un consultor SEO para mi negocio local?',
     answer: `<p class="text-base/7 text-petrol-900">
-      Si pierdes clientes que buscan lo que ofreces pero encuentran a tu competencia, necesitas <strong>mejorar tu visibilidad</strong>. Contratar un consultor SEO es la decisión que cambia eso. <strong>Sin contratos de permanencia, sin planes genéricos</strong>.
+      Si pierdes clientes que buscan lo que ofreces pero encuentran a tu competencia, <strong>tu web necesita posicionamiento</strong>. El resultado: tu página se convierte en <strong>un canal de captación de clientes con intención de compra</strong>.
     </p>
     <p class="mt-2 text-base/7 text-petrol-900">
-      Un consultor SEO te ayuda a convertir tu <strong>página web en una herramienta que capta clientes con intención de compra</strong>. Los resultados tardan <strong>3-6 meses</strong>, pero luego <strong>funcionan sin pagar publicidad cada mes</strong>.
+      Los resultados tardan <strong>3-6 meses</strong>, pero a partir de ahí <strong>tu web genera visitas y llamadas sin depender de publicidad mensual</strong>.
     </p>
     <p class="mt-2 text-base/7 text-petrol-900">
-      La pregunta es: <strong>¿cuánto pierdes cada mes por no aparecer en Google?</strong>
+      La pregunta es: <strong>¿cuánto facturación pierde tu negocio cada mes por no aparecer en Google?</strong>
     </p>`,
   },
 ]
