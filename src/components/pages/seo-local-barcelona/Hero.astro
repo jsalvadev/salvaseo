@@ -1,4 +1,5 @@
 ---
+import { MapPin, Map, Phone } from '@lucide/astro'
 import WhatsAppButton from '../../WhatsAppButton.astro'
 import barcelonaImage from '../../../assets/barcelona.webp'
 
@@ -13,56 +14,50 @@ interface Props {
 const { heading, description, primaryCtaText, secondaryCtaText, secondaryCtaHref } = Astro.props
 ---
 
-<div class='bg-white'>
+<div class='bg-petrol-900'>
   <div class='relative isolate overflow-hidden px-6 lg:px-8'>
     <img
       src={barcelonaImage.src}
       alt=''
-      class='absolute inset-0 -z-10 size-full object-cover opacity-10'
+      class='absolute inset-0 -z-10 size-full object-cover opacity-20 [mask-image:linear-gradient(to_right,transparent_30%,black_70%)]'
       loading='eager'
       decoding='async'
     />
 
-    <div
-      aria-hidden='true'
-      class='absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80'>
-      <div
-        style='clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)'
-        class='relative left-[calc(50%-11rem)] aspect-1155/678 w-144.5 -translate-x-1/2 rotate-30 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-20 sm:left-[calc(50%-30rem)] sm:w-288.75'>
-      </div>
-    </div>
-
     <div class='mx-auto max-w-3xl py-32 sm:py-48 lg:py-56'>
       <div class='hidden sm:mb-8 sm:flex sm:justify-center'>
-        <p class='relative rounded-full px-3 py-1 text-sm/6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20'>
+        <p class='relative rounded-full bg-sky-500/10 border border-sky-400/20 px-3 py-1 text-sm/6 text-sky-300'>
           SEO Local en Barcelona
         </p>
       </div>
       <div class='text-center'>
-        <h1 class='text-5xl font-semibold tracking-tight text-balance text-gray-900 sm:text-7xl'>
+        <h1 class='text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl'>
           {heading}
         </h1>
-        <p class='mt-8 text-lg font-medium text-pretty text-gray-600 sm:text-xl/8'>
+        <p class='mt-8 text-lg font-medium text-pretty text-petrol-100 sm:text-xl/8'>
           <Fragment set:html={description} />
         </p>
         <div class='mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-x-6'>
           <WhatsAppButton text={primaryCtaText} />
           <a
             href={secondaryCtaHref}
-            class='text-sm/6 font-semibold text-gray-900'>
+            class='text-sm/6 font-semibold text-white hover:text-sky-300 transition-colors'>
             {secondaryCtaText} <span aria-hidden='true'>→</span>
           </a>
         </div>
-      </div>
-    </div>
-
-    <div
-      aria-hidden='true'
-      class='absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]'>
-      <div class='mx-auto max-w-7xl px-6 lg:px-8'>
-        <div
-          style='clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)'
-          class='relative left-[calc(50%+3rem)] aspect-1155/678 w-144.5 -translate-x-1/2 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-20 sm:left-[calc(50%+36rem)] sm:w-288.75'>
+        <div class='mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3'>
+          <span class='inline-flex items-center gap-2 text-sm text-petrol-300'>
+            <Map class='size-4' aria-hidden='true' />
+            Google Maps
+          </span>
+          <span class='inline-flex items-center gap-2 text-sm text-petrol-300'>
+            <MapPin class='size-4' aria-hidden='true' />
+            Local Pack
+          </span>
+          <span class='inline-flex items-center gap-2 text-sm text-petrol-300'>
+            <Phone class='size-4' aria-hidden='true' />
+            Llamadas
+          </span>
         </div>
       </div>
     </div>

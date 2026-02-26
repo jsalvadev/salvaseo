@@ -14,8 +14,6 @@ interface ComparisonColumn {
   title: string
   icon: IconKey
   accentClass: string
-  ringClass: string
-  noteClass: string
   note: string
   bullets: ComparisonBullet[]
 }
@@ -42,8 +40,6 @@ const defaultLeftColumn: ComparisonColumn = {
   title: 'SEO local',
   icon: 'trendingUp',
   accentClass: 'bg-sky-600',
-  ringClass: 'ring-sky-200',
-  noteClass: 'bg-sky-50',
   note: '<strong>Ideal para:</strong> negocios que buscan estabilidad, rentabilidad a medio plazo y reducir la dependencia de la publicidad de pago.',
   bullets: [
     {
@@ -68,8 +64,6 @@ const defaultRightColumn: ComparisonColumn = {
   title: 'Google Ads',
   icon: 'zap',
   accentClass: 'bg-gray-500',
-  ringClass: 'ring-gray-200',
-  noteClass: 'bg-gray-50',
   note: '<strong>Ideal para:</strong> emergencias de visibilidad, promociones temporales o sectores donde necesitas resultados mientras el SEO local consolida posiciones.',
   bullets: [
     {
@@ -100,7 +94,7 @@ const {
 } = Astro.props
 ---
 
-<div class='bg-warm-white py-24 sm:py-32'>
+<div class='bg-sandstone-soft py-24 sm:py-32'>
   <div class='mx-auto max-w-7xl px-6 lg:px-8'>
     <div class='mx-auto max-w-2xl lg:mx-0'>
       <Upheading as='h2' text={upheading} />
@@ -113,35 +107,58 @@ const {
     </div>
 
     <div class='mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-2'>
-      {[leftColumn, rightColumn].map((column) => {
-        const HeaderIcon = iconByKey[column.icon]
-        return (
-          <div class:list={['rounded-2xl bg-white p-8 ring-1 shadow-sm', column.ringClass]}>
-            <div class='flex items-center gap-3 mb-6'>
-              <div class:list={['flex size-10 items-center justify-center rounded-lg', column.accentClass]}>
-                <HeaderIcon class='size-5 text-white' aria-hidden='true' />
-              </div>
-              <h3 class='text-2xl font-semibold tracking-tight text-petrol-900'>{column.title}</h3>
-            </div>
-            <ul class='space-y-6 text-base/7 text-petrol-700'>
-              {column.bullets.map((bullet) => {
-                const BulletIcon = iconByKey[bullet.icon]
-                return (
-                  <li class='flex gap-x-3'>
-                    <BulletIcon aria-hidden='true' class='mt-1 size-5 flex-none text-sky-600' />
-                    <span>
-                      <strong class='text-petrol-900'>{bullet.emphasis}</strong> {bullet.text}
-                    </span>
-                  </li>
-                )
-              })}
-            </ul>
-            <p class:list={['mt-6 rounded-lg p-4 text-sm text-petrol-700', column.noteClass]}>
-              <Fragment set:html={column.note} />
-            </p>
+      <!-- SEO Local — recommended -->
+      <div class='relative border-2 border-sky-200 rounded-xl p-8 bg-white'>
+        <span class='absolute -top-3 left-6 bg-sky-500 text-white text-xs font-bold px-3 py-1 rounded-full'>
+          Recomendado
+        </span>
+        <div class='flex items-center gap-3 mb-6'>
+          <div class:list={['flex size-10 items-center justify-center rounded-lg', leftColumn.accentClass]}>
+            {(() => { const HeaderIcon = iconByKey[leftColumn.icon]; return <HeaderIcon class='size-5 text-white' aria-hidden='true' /> })()}
           </div>
-        )
-      })}
+          <h3 class='text-2xl font-semibold tracking-tight text-petrol-900'>{leftColumn.title}</h3>
+        </div>
+        <ul class='space-y-6 text-base/7 text-petrol-700'>
+          {leftColumn.bullets.map((bullet) => {
+            const BulletIcon = iconByKey[bullet.icon]
+            return (
+              <li class='border-l-2 border-sky-100 pl-3'>
+                <BulletIcon aria-hidden='true' class='inline size-4 mr-1 text-sky-600' />
+                <strong class='text-petrol-900'>{bullet.emphasis}</strong> {bullet.text}
+              </li>
+            )
+          })}
+        </ul>
+        <p class='mt-6 rounded-lg p-4 text-sm text-petrol-700 bg-petrol-50 border border-petrol-100'>
+          <Fragment set:html={leftColumn.note} />
+        </p>
+      </div>
+
+      <!-- Google Ads -->
+      <div class='border border-petrol-100 rounded-xl p-8 bg-white'>
+        <div class='flex items-center gap-3 mb-6'>
+          <div class:list={['flex size-10 items-center justify-center rounded-lg', rightColumn.accentClass]}>
+            {(() => { const HeaderIcon = iconByKey[rightColumn.icon]; return <HeaderIcon class='size-5 text-white' aria-hidden='true' /> })()}
+          </div>
+          <h3 class='text-2xl font-semibold tracking-tight text-petrol-900'>{rightColumn.title}</h3>
+        </div>
+        <ul class='space-y-6 text-base/7 text-petrol-700'>
+          {rightColumn.bullets.map((bullet) => {
+            const BulletIcon = iconByKey[bullet.icon]
+            return (
+              <li class='flex gap-x-3'>
+                <BulletIcon aria-hidden='true' class='mt-1 size-5 flex-none text-sky-600' />
+                <span>
+                  <strong class='text-petrol-900'>{bullet.emphasis}</strong> {bullet.text}
+                </span>
+              </li>
+            )
+          })}
+        </ul>
+        <p class='mt-6 rounded-lg p-4 text-sm text-petrol-700 bg-petrol-50 border border-petrol-100'>
+          <Fragment set:html={rightColumn.note} />
+        </p>
+      </div>
     </div>
 
     <div class='mx-auto mt-12 max-w-3xl text-center'>

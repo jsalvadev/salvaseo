@@ -134,6 +134,8 @@ const defaultPhases: TimelinePhase[] = [
   },
 ];
 
+const progressWidths = ['w-1/4', 'w-1/2', 'w-3/4', 'w-full'];
+
 const {
   upheading,
   heading,
@@ -156,62 +158,72 @@ const phaseGridColsClass =
 
 <div
     id={sectionId}
-    class="relative bg-gradient-to-b from-white via-petrol-50/30 to-white py-24 sm:py-32"
+    class="bg-white py-24 sm:py-32"
 >
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        {upheading && <Upheading as="h2" text={upheading} class="mb-2 text-center text-pretty sm:text-right" />}
+        {upheading && <Upheading as="h2" text={upheading} class="mb-2 text-center text-pretty" />}
         <p
-            class:list={["mx-auto max-w-[60ch] text-center text-3xl font-semibold tracking-tight text-pretty text-petrol-900 sm:ml-auto sm:mr-0 sm:text-right sm:text-4xl", !upheading && "mb-2"]}
+            class:list={["mx-auto max-w-[60ch] text-center text-3xl font-semibold tracking-tight text-pretty text-petrol-900 sm:text-4xl", !upheading && "mb-2"]}
         >
             {heading}
         </p>
-        <p class="mb-16 mx-auto max-w-[55ch] text-center text-lg text-petrol-900 text-pretty sm:ml-auto sm:mr-0 sm:text-right">
+        <p class="mb-16 mx-auto max-w-[55ch] text-center text-lg text-petrol-700 text-pretty">
             {subtitle}
         </p>
         <div
-            class:list={["mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-12 overflow-hidden lg:mx-0 lg:max-w-none", phaseGridColsClass]}
+            class:list={["mx-auto grid max-w-2xl grid-cols-1 gap-8 lg:mx-0 lg:max-w-none", phaseGridColsClass]}
         >
             {phases.map((phase, idx) => (
-                <div>
-                    <div class="flex items-center text-sm/6 font-semibold text-sky-500">
-                        <span
-                            aria-hidden="true"
-                            class="mr-4 inline-flex size-6 flex-none items-center justify-center rounded-full bg-sky-500 text-xs font-semibold text-white"
-                        >
+                <div class="relative bg-white border border-petrol-100 rounded-xl p-6 overflow-hidden">
+                    <!-- Watermark number -->
+                    <span
+                        aria-hidden="true"
+                        class="absolute -top-2 -right-2 text-7xl font-bold text-petrol-50 select-none pointer-events-none"
+                    >
+                        {idx + 1}
+                    </span>
+
+                    <!-- Progress bar -->
+                    <div class="h-1 bg-petrol-50 rounded-full mb-6 overflow-hidden">
+                        <div class:list={['h-full bg-gradient-to-r from-sky-400 to-sky-600 rounded-full', progressWidths[idx] || 'w-full']}></div>
+                    </div>
+
+                    <h3 class="text-lg font-bold text-petrol-900 relative">
+                        <span class="inline-flex size-6 items-center justify-center rounded-full bg-sky-500 text-xs font-semibold text-white mr-2">
                             {idx + 1}
                         </span>
-                        <span><h3 class="inline font-bold">{phase.title}</h3></span>
-                        <div
-                            aria-hidden="true"
-                            class="absolute -ml-2 h-0.5 w-screen -translate-x-full bg-gradient-to-r from-sky-500/40 to-gray-900/10 sm:-ml-4 lg:static lg:-mr-6 lg:ml-8 lg:w-auto lg:flex-auto lg:translate-x-0"
-                        >
-                        </div>
-                    </div>
-                    <p class="mt-6 text-base/7 text-petrol-900">
+                        {phase.title}
+                    </h3>
+
+                    <p class="mt-4 text-sm/6 text-petrol-700">
                         {phase.intro}
                     </p>
-                    <ul class="mt-4 space-y-2 text-base/7 text-petrol-900">
+
+                    <ul class="mt-4 space-y-2">
                         {phase.bullets.map((bullet) => {
                             const Icon = iconByKey[bullet.icon];
                             return (
-                                <li class="flex items-start gap-2">
-                                    <Icon aria-hidden="true" class="mt-1 size-5 shrink-0 text-sky-600" />
-                                    <span><strong>{bullet.emphasis}</strong> {bullet.text}</span>
+                                <li class="border-l-2 border-sky-100 pl-3 py-1 text-sm/6 text-petrol-700">
+                                    <Icon aria-hidden="true" class="inline size-4 mr-1 text-sky-600" />
+                                    <strong class="text-petrol-900">{bullet.emphasis}</strong> {bullet.text}
                                 </li>
                             );
                         })}
                     </ul>
-                    <p class="mt-4 text-base/7 text-petrol-900">
+
+                    <p class="mt-4 text-sm/6 text-petrol-700 relative">
                         {phase.outro}
                     </p>
                 </div>
             ))}
         </div>
-        <div class="mt-16 text-center">
+
+        <!-- CTA card -->
+        <div class="mt-16 bg-sandstone-soft border border-petrol-100 rounded-xl p-8 text-center">
             <p class="text-xl font-semibold text-petrol-900">
                 {ctaHeading}
             </p>
-            <p class="mx-auto mt-3 max-w-[50ch] text-base text-petrol-900">
+            <p class="mx-auto mt-3 max-w-[50ch] text-base text-petrol-700">
                 {ctaText}
             </p>
             <a

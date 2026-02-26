@@ -78,13 +78,12 @@ const {
   intro = 'Cada acción se ejecuta para que <strong>domines Google Maps y el Local Pack</strong>, aumentes contactos cualificados y conviertas búsquedas cercanas en ventas recurrentes.',
   services = defaultServices,
 } = Astro.props
+
+const primaryServices = services.slice(0, 3)
+const secondaryServices = services.slice(3)
 ---
 
-<div id='servicios-local' class='relative isolate overflow-hidden bg-white py-24 sm:py-32'>
-  <div
-    aria-hidden='true'
-    class='pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_1px_1px,rgba(26,60,74,0.08)_1px,transparent_0)] [background-size:22px_22px] opacity-50'>
-  </div>
+<div id='servicios-local' class='bg-white py-24 sm:py-32'>
   <div class='mx-auto max-w-7xl px-6 lg:px-8'>
     <div class='mx-auto max-w-2xl lg:mx-0'>
       <Upheading as='h2' text={upheading} />
@@ -96,21 +95,44 @@ const {
       </p>
     </div>
 
-    <div class='mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 text-base/7 text-petrol-700 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 xl:grid-cols-4'>
-      {services.map((service) => {
+    <!-- Local Pack card: top 3 services -->
+    <div class='mx-auto mt-16 max-w-2xl bg-white border border-petrol-100 rounded-xl overflow-hidden'>
+      <div class='flex items-center gap-2 px-6 py-3 border-b border-petrol-100 bg-petrol-50/50'>
+        <MapPin class='size-4 text-maps-green' aria-hidden='true' />
+        <span class='text-sm font-semibold text-petrol-900'>Servicios principales</span>
+      </div>
+      {primaryServices.map((service, idx) => {
         const Icon = iconByKey[service.icon]
         return (
-          <div class='bg-neutral-primary-soft block p-6 border border-default rounded-base shadow-xs'>
-            <Icon class='w-7 h-7 mb-3 text-sky-600' aria-hidden='true' />
-            <h3 class='mb-2 text-xl font-semibold tracking-tight text-heading'>
-              {service.title}
-            </h3>
-            <p class='text-body'>
-              <Fragment set:html={service.description} />
-            </p>
+          <div class:list={['flex gap-4 px-6 py-5', idx < primaryServices.length - 1 && 'border-b border-petrol-100']}>
+            <Icon class='size-6 shrink-0 mt-0.5 text-sky-600' aria-hidden='true' />
+            <div>
+              <h3 class='text-base font-semibold text-petrol-900'>{service.title}</h3>
+              <p class='mt-1 text-sm/6 text-petrol-700'>
+                <Fragment set:html={service.description} />
+              </p>
+            </div>
           </div>
         )
       })}
+    </div>
+
+    <!-- Secondary services grid -->
+    <div class='mt-12 bg-petrol-50 rounded-2xl p-8'>
+      <div class='grid grid-cols-1 gap-8 sm:grid-cols-2'>
+        {secondaryServices.map((service) => {
+          const Icon = iconByKey[service.icon]
+          return (
+            <div class='bg-white rounded-lg p-6 border border-petrol-100'>
+              <Icon class='size-10 mb-3 text-sky-600' aria-hidden='true' />
+              <h3 class='text-base font-semibold text-petrol-900'>{service.title}</h3>
+              <p class='mt-2 text-sm/6 text-petrol-700'>
+                <Fragment set:html={service.description} />
+              </p>
+            </div>
+          )
+        })}
+      </div>
     </div>
   </div>
 </div>

@@ -22,6 +22,12 @@
   /* Warm White - Background */
   --color-warm-white: #FAFAF8;
 
+  /* Sandstone — warm Barcelona accent */
+  --color-sandstone-50: #fdf8f3;
+
+  /* Maps green — Google Maps pin accent */
+  --color-maps-green: #34a853;
+
   /* Card tokens for custom utility classes used in content blocks */
   --color-neutral-primary-soft: var(--color-petrol-50);
   --color-neutral-secondary-medium: var(--color-petrol-100);
@@ -60,6 +66,14 @@
   color: var(--color-fg-brand);
 }
 
+@utility bg-sandstone-soft {
+  background-color: var(--color-sandstone-50);
+}
+
+@utility text-maps-green {
+  color: var(--color-maps-green);
+}
+
 :root {
   --navbar-height: 80px;
 }
@@ -81,6 +95,7 @@ html {
 #sobre-mi,
 #servicios,
 #proceso,
-#contacto {
+#contacto,
+#servicios-local {
   scroll-margin-top: var(--navbar-height);
 }

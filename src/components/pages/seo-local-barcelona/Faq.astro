@@ -23,13 +23,16 @@ const { upheading, heading, intro, items } = Astro.props
         <Fragment set:html={intro} />
       </p>
     )}
-    <dl class='mt-20 divide-y divide-petrol-900/10'>
-      {items.map((item) => (
-        <div class='py-8 first:pt-0 last:pb-0 lg:grid lg:grid-cols-12 lg:gap-8'>
+    <dl class='mt-20 space-y-4'>
+      {items.map((item, idx) => (
+        <div class='bg-petrol-50 rounded-lg p-5 border border-petrol-100 lg:grid lg:grid-cols-12 lg:gap-8'>
           <dt class='text-base/7 font-semibold text-petrol-900 lg:col-span-5'>
-            <h3>{item.question}</h3>
+            <h3>
+              <span class='text-sky-500 font-mono text-sm mr-2'>{idx + 1}.</span>
+              {item.question}
+            </h3>
           </dt>
-          <dd class='mt-4 text-base/7 text-petrol-700 lg:col-span-7 lg:mt-0'>
+          <dd class='mt-4 text-base/7 text-petrol-600 lg:col-span-7 lg:mt-0'>
             <Fragment set:html={item.answer} />
           </dd>
         </div>
