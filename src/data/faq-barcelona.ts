@@ -7,7 +7,7 @@ export const faqBarcelonaItems: FaqItem[] = [
       Los primeros movimientos en el rastreo de Google se detectan entre las <strong>4 y 8 semanas</strong>: páginas que empiezan a indexarse correctamente, mejoras en la velocidad de carga y correcciones técnicas que ya están activas.
     </p>
     <p class="mt-2 text-base/7 text-petrol-900">
-      Los resultados visibles en posiciones y tráfico orgánico suelen consolidarse entre los <strong>3 y 6 meses</strong>, dependiendo de la competencia en tu sector y del estado inicial de tu web. No es magia: es un proceso técnico con plazos reales que se definen en el diagnóstico inicial.
+      Los resultados visibles en posiciones y visitas desde Google suelen consolidarse entre los <strong>3 y 6 meses</strong>, dependiendo de la competencia en tu sector y del estado inicial de tu web. Es un proceso técnico con plazos reales que se definen en el diagnóstico inicial.
     </p>`,
   },
   {
@@ -26,7 +26,7 @@ export const faqBarcelonaItems: FaqItem[] = [
     </p>
     <ul class="mt-2 list-disc pl-6 text-base/7 text-petrol-900">
       <li><strong>Posiciones reales</strong> de tus palabras clave objetivo en Google.</li>
-      <li><strong>Tráfico orgánico</strong> que llega a tu web desde buscadores.</li>
+      <li><strong>Visitas desde Google</strong> que llegan a tu web sin coste por clic.</li>
       <li><strong>Conversiones</strong>: llamadas, formularios completados o acciones que generan clientes.</li>
     </ul>
     <p class="mt-2 text-base/7 text-petrol-900">
@@ -48,7 +48,7 @@ export const faqBarcelonaItems: FaqItem[] = [
       No desapareces de Google de un día para otro. El posicionamiento web es un <strong>activo acumulado</strong>: las mejoras técnicas, el contenido optimizado y la autoridad que has construido siguen trabajando para ti.
     </p>
     <p class="mt-2 text-base/7 text-petrol-900">
-      Pero sin mantenimiento, la competencia avanza y Google actualiza sus criterios. Con el tiempo, las posiciones se erosionan. Por eso no hay contratos de permanencia: <strong>sigues porque ves resultados</strong>, no porque estés atado.
+      Pero sin mantenimiento, la competencia avanza y Google actualiza sus criterios. Con el tiempo, las posiciones se erosionan. Por eso la continuidad se basa en resultados: <strong>sigues porque el retorno lo justifica</strong>.
     </p>`,
   },
 ]
