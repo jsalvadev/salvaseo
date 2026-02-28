@@ -1,5 +1,6 @@
 ---
 import Upheading from '../../Upheading.astro'
+import WhatsAppButton from '../../WhatsAppButton.astro'
 
 interface PricingFeature {
   title: string
@@ -15,6 +16,7 @@ interface Props {
   upheading: string
   heading: string
   intro: string
+  priceHighlight?: string
   costContext: string
   features: PricingFeature[]
   subheading: string
@@ -31,6 +33,7 @@ const {
   upheading,
   heading,
   intro,
+  priceHighlight,
   costContext,
   features,
   subheading,
@@ -51,6 +54,12 @@ const {
       class='mt-2 text-4xl font-semibold tracking-tight text-pretty text-petrol-900 sm:text-5xl'>
       {heading}
     </p>
+    {priceHighlight && (
+      <div class='my-8 flex items-center gap-4 rounded-xl border border-sky-100 bg-sky-50 px-6 py-5'>
+        <span class='text-3xl font-bold text-petrol-900'>{priceHighlight}</span>
+        <span class='text-sm text-petrol-600'>· Definido tras diagnóstico gratuito · Sin contratos</span>
+      </div>
+    )}
     <p class='mt-6 text-xl/8'>
       <Fragment set:html={intro} />
     </p>
@@ -103,6 +112,10 @@ const {
           </figcaption>
         )}
       </figure>
+
+      <div class='mt-8'>
+        <WhatsAppButton text={ctaText} href={ctaHref} />
+      </div>
     </div>
 
     <div class='mt-16 max-w-2xl text-petrol-600'>

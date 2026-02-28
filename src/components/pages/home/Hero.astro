@@ -4,42 +4,47 @@ import heroImage from '../../../assets/hero.webp'
 import { Search, MapPin, TrendingUp } from '@lucide/astro'
 ---
 
-<div class='bg-petrol-900'>
-  <div class='mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8'>
+<div class='relative bg-petrol-900 overflow-hidden'>
+  <!-- dot grid -->
+  <div
+    class='pointer-events-none absolute inset-0 opacity-[0.18]'
+    style='background-image: radial-gradient(circle, #7dd3fc 1px, transparent 1px); background-size: 28px 28px;'
+    aria-hidden='true'></div>
+  <div class='relative mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8'>
     <div
       class='mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-8 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8'>
       <div class='lg:col-span-2 xl:col-auto'>
         <h1
-          class='inline-flex items-center bg-sky-500/10 border border-sky-400/20 rounded-full px-3 py-1 text-sm/6 text-sky-300'>
+          class='animate-fade-in-up [animation-delay:0ms] inline-flex items-center bg-sky-500/10 border border-sky-400/20 rounded-full px-3 py-1 text-sm/6 text-sky-300'>
           Consultor SEO en Barcelona
-      </h1>
+        </h1>
         <p
-          class='mt-4 max-w-2xl text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl'>
+          class='animate-fade-in-up [animation-delay:100ms] mt-4 max-w-2xl text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl'>
           Cada día pierdes clientes que no saben que existes
-      </p>
+        </p>
       </div>
       <div class='mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1'>
         <p
-          class='text-lg font-medium text-pretty text-petrol-100 sm:text-xl/8'>
+          class='animate-fade-in-up [animation-delay:200ms] text-lg font-medium text-pretty text-petrol-100 sm:text-xl/8'>
           Tu negocio es bueno. Tu equipo domina lo que hace. Pero
           cuando alguien busca en Google lo que ofreces en Barcelona, <strong
             class='text-white'>tu web no aparece</strong
           >. Sin una estrategia de posicionamiento, es invisible para quien necesita tus servicios.
         </p>
         <p
-          class='mt-4 text-lg font-medium text-pretty text-petrol-100 sm:text-xl/8'>
+          class='animate-fade-in-up [animation-delay:280ms] mt-4 text-lg font-medium text-pretty text-petrol-100 sm:text-xl/8'>
           Mientras tanto, tu competencia recibe las llamadas. <strong class='text-white'
             >Detrás hay trabajo técnico que posiciona su web por encima de la tuya.</strong
           >
         </p>
         <p
-          class='mt-4 text-lg font-medium text-pretty text-petrol-100 sm:text-xl/8'>
+          class='animate-fade-in-up [animation-delay:340ms] mt-4 text-lg font-medium text-pretty text-petrol-100 sm:text-xl/8'>
           Un consultor SEO en Barcelona que <strong class='text-white'
             >opera en tu zona, entiende tu mercado y ejecuta la estrategia directamente</strong
           > puede revertir esa situación.
         </p>
         <div
-          class='mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-x-6'>
+          class='animate-fade-in-up [animation-delay:440ms] mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-x-6'>
           <WhatsAppButton text='Cuéntame tu caso' />
           <a
             href='#trabajo-conmigo'
@@ -47,7 +52,7 @@ import { Search, MapPin, TrendingUp } from '@lucide/astro'
             >Cómo funciona <span aria-hidden='true'>→</span></a
           >
         </div>
-        <div class='mt-8 flex flex-wrap gap-x-6 gap-y-3'>
+        <div class='animate-fade-in-up [animation-delay:560ms] mt-8 flex flex-wrap gap-x-6 gap-y-3'>
           <span class='inline-flex items-center gap-1.5 text-sm text-petrol-100'>
             <Search class='size-4' />
             Posicionamiento SEO
@@ -67,7 +72,7 @@ import { Search, MapPin, TrendingUp } from '@lucide/astro'
         width={heroImage.width}
         height={heroImage.height}
         alt='Consultor SEO trabajando en estrategia digital para negocios locales en Barcelona'
-        class='mt-10 aspect-6/5 w-full max-w-lg rounded-2xl object-cover sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-36'
+        class='animate-fade-in [animation-delay:300ms] mt-10 aspect-6/5 w-full max-w-lg rounded-2xl object-cover sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-36'
       />
     </div>
   </div>

@@ -9,9 +9,9 @@ import Upheading from '../../Upheading.astro'
   <div class='mx-auto max-w-7xl px-6 lg:px-8'>
     <div
       class='mx-auto grid max-w-2xl grid-cols-1 items-start gap-x-8 gap-y-16 sm:gap-y-24 lg:mx-0 lg:max-w-none lg:grid-cols-2'>
-      <div class='lg:pr-4'>
+      <div data-animate class='lg:pr-4'>
         <div
-          class='relative overflow-hidden rounded-xl lg:max-w-lg'>
+          class='relative overflow-hidden rounded-xl shadow-md lg:max-w-lg'>
           <img
             src={workWithMeImage.src}
             width={workWithMeImage.width}
@@ -21,7 +21,7 @@ import Upheading from '../../Upheading.astro'
           />
         </div>
       </div>
-      <div>
+      <div data-animate data-animate-delay='150'>
         <div class='text-base/7 text-petrol-900 lg:max-w-lg'>
           <Upheading
             as='h2'
@@ -49,9 +49,9 @@ import Upheading from '../../Upheading.astro'
             </p>
           </div>
           <figure
-            class='mt-10 border-l-4 border-sky-200 pl-6 py-6'>
+            class='mt-10 border-l-4 border-sky-200 pl-6 py-4 bg-sky-50/50 rounded-r-lg'>
             <blockquote
-              class='text-xl/8 italic text-petrol-900 text-pretty'>
+              class='text-xl/8 italic text-petrol-700 text-pretty'>
               <p>
                 "Tu negocio recibe más horas de análisis y ejecución que en
                 cualquier plan estándar de agencia — porque la cartera es
@@ -59,6 +59,14 @@ import Upheading from '../../Upheading.astro'
               </p>
             </blockquote>
           </figure>
+          <div class='mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4'>
+            <a
+              href='#contacto'
+              class='rounded-md bg-sky-500 px-4 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-sky-600 hover:shadow-md active:bg-sky-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 transition-all'>
+              Solicitar análisis gratuito
+            </a>
+            <span class='text-sm text-petrol-700'>Sin compromiso económico</span>
+          </div>
         </div>
       </div>
     </div>

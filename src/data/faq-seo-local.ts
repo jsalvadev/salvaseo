@@ -7,7 +7,7 @@ export const faqSeoLocalItems: FaqItem[] = [
       Los primeros cambios en visibilidad y posiciones en los resultados de búsqueda de Google Maps suelen llegar entre <strong>1 y 3 meses</strong>: optimización de la ficha de Google Business Profile, correcciones técnicas en tu sitio web y primeras mejoras en el Local Pack.
     </p>
     <p class="mt-2 text-base/7 text-petrol-900">
-      La consolidación real — posiciones estables, tráfico cualificado recurrente y llamadas constantes — se valida entre los <strong>4 y 6 meses</strong>, según la competencia de tu sector y zona en Barcelona. El objetivo final de cualquier servicio de SEO local es captar clientes potenciales de forma predecible y rentable.
+      La consolidación real (posiciones estables, tráfico cualificado recurrente y llamadas constantes) se valida entre los <strong>4 y 6 meses</strong>, según la competencia de tu sector y zona en Barcelona. El objetivo final de cualquier servicio de SEO local es captar clientes potenciales de forma predecible y rentable.
     </p>`,
   },
   {
@@ -27,7 +27,7 @@ export const faqSeoLocalItems: FaqItem[] = [
     <ul class="mt-2 list-disc pl-6 text-base/7 text-petrol-900">
       <li>Categorías mal configuradas o incompletas en tu perfil de Google Business.</li>
       <li>Información NAP inconsistente entre tu sitio web, ficha y directorios.</li>
-      <li>Falta de reseñas o reseñas sin responder — la gestión de reseñas es clave.</li>
+      <li>Falta de reseñas o reseñas sin responder; la gestión de reseñas es clave.</li>
       <li>Perfil incompleto: sin fotos, sin horarios, sin descripción optimizada con palabras clave locales.</li>
       <li>Competidores con mejor autoridad local, más presencia digital y más señales de confianza.</li>
     </ul>
@@ -68,7 +68,7 @@ export const faqSeoLocalItems: FaqItem[] = [
       En la práctica, <strong>SEO local y posicionamiento SEO local se refieren al mismo conjunto de estrategias</strong>: optimizar la visibilidad de tu negocio local en Google Maps, el Local Pack y los resultados orgánicos geolocalizados para captar clientes en tu zona.
     </p>
     <p class="mt-2 text-base/7 text-petrol-900">
-      La diferencia con el marketing digital genérico es que el SEO local se centra exclusivamente en <strong>búsquedas con intención geográfica</strong> — "cerca de mí", "[servicio] + Barcelona" — donde tus clientes potenciales están listos para contactar o comprar. Un consultor SEO local en Barcelona conoce las particularidades del mercado local y adapta cada acción para maximizar el retorno de tu inversión.
+      La diferencia con el marketing digital genérico es que el SEO local se centra exclusivamente en <strong>búsquedas con intención geográfica</strong>: "cerca de mí", "[servicio] + Barcelona", donde tus clientes potenciales están listos para contactar o comprar. Un consultor SEO local en Barcelona conoce las particularidades del mercado local y adapta cada acción para maximizar el retorno de tu inversión.
     </p>`,
   },
 ]

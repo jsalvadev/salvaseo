@@ -1,0 +1,50 @@
+---
+import { Users, BadgeCheck, CalendarClock, TrendingUp } from '@lucide/astro'
+
+type IconKey = 'users' | 'badgeCheck' | 'calendarClock' | 'trendingUp'
+
+interface BannerItem {
+  icon: IconKey
+  value: string
+  label: string
+}
+
+interface Props {
+  items?: BannerItem[]
+}
+
+const iconByKey = {
+  users: Users,
+  badgeCheck: BadgeCheck,
+  calendarClock: CalendarClock,
+  trendingUp: TrendingUp,
+} as const
+
+const defaultItems: BannerItem[] = [
+  { icon: 'users', value: '10+ negocios', label: 'ya posicionados' },
+  { icon: 'badgeCheck', value: 'Auditoría gratuita', label: 'valorada en 200 €' },
+  { icon: 'calendarClock', value: 'Sin contratos', label: 'de permanencia' },
+  { icon: 'trendingUp', value: 'Resultados en 3-6 meses', label: 'según tu sector' },
+]
+
+const { items = defaultItems } = Astro.props
+---
+
+<div class='bg-petrol-50 py-12'>
+  <div class='mx-auto max-w-7xl px-6 lg:px-8'>
+    <dl class='grid grid-cols-2 gap-6 lg:grid-cols-4'>
+      {items.map((item) => {
+        const Icon = iconByKey[item.icon]
+        return (
+          <div class='flex flex-col items-center gap-2 text-center'>
+            <div class='flex size-10 items-center justify-center rounded-full bg-sky-100 text-sky-600'>
+              <Icon class='size-5' aria-hidden='true' />
+            </div>
+            <dt class='text-base font-semibold text-petrol-900'>{item.value}</dt>
+            <dd class='text-sm text-petrol-600'>{item.label}</dd>
+          </div>
+        )
+      })}
+    </dl>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 ---
+import { Check } from '@lucide/astro'
 import Upheading from '../../Upheading.astro'
 
 interface Props {
@@ -47,57 +48,55 @@ const { upheading, heading, subtitle } = Astro.props
           </p>
           <ul
             role='list'
-            class='mt-6 space-y-4 text-base/7 text-petrol-700'>
-            <li class='border-l-2 border-sky-100 pl-4'>
-              <h4 class='text-sm font-semibold text-petrol-900'>Auditoría y viabilidad</h4>
-              <p class='mt-1 text-sm text-petrol-600'>
-                Diagnóstico de los errores que frenan tu web y validación de si
-                el posicionamiento orgánico es el motor que tu negocio necesita ahora mismo.
-              </p>
+            class='mt-6 space-y-3'>
+            <li class='flex gap-3'>
+              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
+              <span>
+                <span class='text-sm font-semibold text-petrol-900'>Auditoría y viabilidad</span>
+                <span class='text-sm text-petrol-600'> — Diagnóstico de los errores que frenan tu web y validación de si el posicionamiento orgánico es el motor que tu negocio necesita ahora mismo.</span>
+              </span>
             </li>
-            <li class='border-l-2 border-sky-100 pl-4'>
-              <h4 class='text-sm font-semibold text-petrol-900'>Estudio de demanda</h4>
-              <p class='mt-1 text-sm text-petrol-600'>
-                Mapa de las búsquedas reales de tus clientes en Google, filtradas
-                por volumen e intención de compra para priorizar las que generan facturación.
-              </p>
+            <li class='flex gap-3'>
+              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
+              <span>
+                <span class='text-sm font-semibold text-petrol-900'>Estudio de demanda</span>
+                <span class='text-sm text-petrol-600'> — Mapa de las búsquedas reales de tus clientes en Google, filtradas por volumen e intención de compra para priorizar las que generan facturación.</span>
+              </span>
             </li>
-            <li class='border-l-2 border-sky-100 pl-4'>
-              <h4 class='text-sm font-semibold text-petrol-900'>Arquitectura web</h4>
-              <p class='mt-1 text-sm text-petrol-600'>
-                Estructura de servicios optimizada para que Google te muestre
-                correctamente y tus clientes encuentren lo que buscan sin fricción.
-              </p>
+            <li class='flex gap-3'>
+              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
+              <span>
+                <span class='text-sm font-semibold text-petrol-900'>Arquitectura web</span>
+                <span class='text-sm text-petrol-600'> — Estructura de servicios optimizada para que Google te muestre correctamente y tus clientes encuentren lo que buscan sin fricción.</span>
+              </span>
             </li>
-            <li class='border-l-2 border-sky-100 pl-4'>
-              <h4 class='text-sm font-semibold text-petrol-900'>Auditoría técnica</h4>
-              <p class='mt-1 text-sm text-petrol-600'>
-                Corrección de los fallos de carga y rastreo que frenan tu
-                visibilidad. Si Google no puede recorrer tu web, tu negocio no aparece.
-              </p>
+            <li class='flex gap-3'>
+              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
+              <span>
+                <span class='text-sm font-semibold text-petrol-900'>Auditoría técnica</span>
+                <span class='text-sm text-petrol-600'> — Corrección de los fallos de carga y rastreo que frenan tu visibilidad. Si Google no puede recorrer tu web, tu negocio no aparece.</span>
+              </span>
             </li>
-            <li class='border-l-2 border-sky-100 pl-4'>
-              <h4 class='text-sm font-semibold text-petrol-900'>Estrategia de impacto</h4>
-              <p class='mt-1 text-sm text-petrol-600'>
-                Hoja de ruta con las acciones ordenadas por retorno esperado.
-                Cada paso apunta directamente a generar resultados medibles.
-              </p>
+            <li class='flex gap-3'>
+              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
+              <span>
+                <span class='text-sm font-semibold text-petrol-900'>Estrategia de impacto</span>
+                <span class='text-sm text-petrol-600'> — Hoja de ruta con las acciones ordenadas por retorno esperado. Cada paso apunta directamente a generar resultados medibles.</span>
+              </span>
             </li>
-            <li class='border-l-2 border-sky-100 pl-4'>
-              <h4 class='text-sm font-semibold text-petrol-900'>Consultoría directa</h4>
-              <p class='mt-1 text-sm text-petrol-600'>
-                Criterio técnico disponible en cada paso para resolver dudas y
-                validar decisiones con seguridad.
-              </p>
+            <li class='flex gap-3'>
+              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
+              <span>
+                <span class='text-sm font-semibold text-petrol-900'>Consultoría directa</span>
+                <span class='text-sm text-petrol-600'> — Criterio técnico disponible en cada paso para resolver dudas y validar decisiones con seguridad.</span>
+              </span>
             </li>
-            <li class='border-l-2 border-sky-100 pl-4'>
-              <h4 class='text-sm font-semibold text-petrol-900'>
-                Análisis de competencia
-              </h4>
-              <p class='mt-1 text-sm text-petrol-600'>
-                Radiografía de quién ocupa tus posiciones en Google, qué
-                estrategias aplican y cuáles son los flancos por donde adelantarles.
-              </p>
+            <li class='flex gap-3'>
+              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
+              <span>
+                <span class='text-sm font-semibold text-petrol-900'>Análisis de competencia</span>
+                <span class='text-sm text-petrol-600'> — Radiografía de quién ocupa tus posiciones en Google, qué estrategias aplican y cuáles son los flancos por donde adelantarles.</span>
+              </span>
             </li>
           </ul>
         </div>
@@ -121,54 +120,48 @@ const { upheading, heading, subtitle } = Astro.props
           </p>
           <ul
             role='list'
-            class='mt-6 space-y-4 text-base/7 text-petrol-700'>
-            <li class='border-l-2 border-sky-100 pl-4'>
-              <h4 class='text-sm font-semibold text-petrol-900'>
-                Optimización de intención
-              </h4>
-              <p class='mt-1 text-sm text-petrol-600'>
-                Títulos, metadatos y encabezados alineados para que cada URL
-                responda exactamente a lo que tu cliente quiere encontrar.
-              </p>
+            class='mt-6 space-y-3'>
+            <li class='flex gap-3'>
+              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
+              <span>
+                <span class='text-sm font-semibold text-petrol-900'>Optimización de intención</span>
+                <span class='text-sm text-petrol-600'> — Títulos, metadatos y encabezados alineados para que cada URL responda exactamente a lo que tu cliente quiere encontrar.</span>
+              </span>
             </li>
-            <li class='border-l-2 border-sky-100 pl-4'>
-              <h4 class='text-sm font-semibold text-petrol-900'>Contenidos de negocio</h4>
-              <p class='mt-1 text-sm text-petrol-600'>
-                Textos diseñados para atraer visitantes cualificados y
-                transformar la lectura en oportunidades de venta reales.
-              </p>
+            <li class='flex gap-3'>
+              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
+              <span>
+                <span class='text-sm font-semibold text-petrol-900'>Contenidos de negocio</span>
+                <span class='text-sm text-petrol-600'> — Textos diseñados para atraer visitantes cualificados y transformar la lectura en oportunidades de venta reales.</span>
+              </span>
             </li>
-            <li class='border-l-2 border-sky-100 pl-4'>
-              <h4 class='text-sm font-semibold text-petrol-900'>
-                Contenidos que resuelven
-              </h4>
-              <p class='mt-1 text-sm text-petrol-600'>
-                Páginas que responden las preguntas reales de tu audiencia.
-                Resolver la duda del visitante es el primer paso para convertirlo en cliente.
-              </p>
+            <li class='flex gap-3'>
+              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
+              <span>
+                <span class='text-sm font-semibold text-petrol-900'>Contenidos que resuelven</span>
+                <span class='text-sm text-petrol-600'> — Páginas que responden las preguntas reales de tu audiencia. Resolver la duda del visitante es el primer paso para convertirlo en cliente.</span>
+              </span>
             </li>
-            <li class='border-l-2 border-sky-100 pl-4'>
-              <h4 class='text-sm font-semibold text-petrol-900'>
-                Enlazado interno estratégico
-              </h4>
-              <p class='mt-1 text-sm text-petrol-600'>
-                Red de conexiones entre tus páginas que guía a Google por tu
-                estructura y concentra la autoridad en tus servicios más rentables.
-              </p>
+            <li class='flex gap-3'>
+              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
+              <span>
+                <span class='text-sm font-semibold text-petrol-900'>Enlazado interno estratégico</span>
+                <span class='text-sm text-petrol-600'> — Red de conexiones entre tus páginas que guía a Google por tu estructura y concentra la autoridad en tus servicios más rentables.</span>
+              </span>
             </li>
-            <li class='border-l-2 border-sky-100 pl-4'>
-              <h4 class='text-sm font-semibold text-petrol-900'>Control de visibilidad</h4>
-              <p class='mt-1 text-sm text-petrol-600'>
-                Google solo dedica recursos a las páginas que generan negocio.
-                Las páginas irrelevantes que diluyen tu relevancia se eliminan del índice.
-              </p>
+            <li class='flex gap-3'>
+              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
+              <span>
+                <span class='text-sm font-semibold text-petrol-900'>Control de visibilidad</span>
+                <span class='text-sm text-petrol-600'> — Google solo dedica recursos a las páginas que generan negocio. Las páginas irrelevantes que diluyen tu relevancia se eliminan del índice.</span>
+              </span>
             </li>
-            <li class='border-l-2 border-sky-100 pl-4'>
-              <h4 class='text-sm font-semibold text-petrol-900'>Velocidad y estabilidad de carga</h4>
-              <p class='mt-1 text-sm text-petrol-600'>
-                Una web rápida retiene al visitante y mejora su posición en Google.
-                En Barcelona nadie espera: la lentitud cuesta clientes.
-              </p>
+            <li class='flex gap-3'>
+              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
+              <span>
+                <span class='text-sm font-semibold text-petrol-900'>Velocidad y estabilidad de carga</span>
+                <span class='text-sm text-petrol-600'> — Una web rápida retiene al visitante y mejora su posición en Google. En Barcelona nadie espera: la lentitud cuesta clientes.</span>
+              </span>
             </li>
           </ul>
         </div>
@@ -194,48 +187,41 @@ const { upheading, heading, subtitle } = Astro.props
           </p>
           <ul
             role='list'
-            class='mt-6 space-y-4 text-base/7 text-petrol-700'>
-            <li class='border-l-2 border-sky-100 pl-4'>
-              <h4 class='text-sm font-semibold text-petrol-900'>
-                Enlaces de autoridad
-              </h4>
-              <p class='mt-1 text-sm text-petrol-600'>
-                Red de enlaces en sitios relevantes que transfieren fuerza
-                real a tu dominio, con prácticas seguras y sostenibles para tu
-                negocio.
-              </p>
+            class='mt-6 space-y-3'>
+            <li class='flex gap-3'>
+              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
+              <span>
+                <span class='text-sm font-semibold text-petrol-900'>Enlaces de autoridad</span>
+                <span class='text-sm text-petrol-600'> — Red de enlaces en sitios relevantes que transfieren fuerza real a tu dominio, con prácticas seguras y sostenibles para tu negocio.</span>
+              </span>
             </li>
-            <li class='border-l-2 border-sky-100 pl-4'>
-              <h4 class='text-sm font-semibold text-petrol-900'>Auditoría de enlaces entrantes</h4>
-              <p class='mt-1 text-sm text-petrol-600'>
-                Control total de quién enlaza a tu web. Los enlaces
-                tóxicos que pueden estar hundiendo tu posicionamiento se identifican y eliminan.
-              </p>
+            <li class='flex gap-3'>
+              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
+              <span>
+                <span class='text-sm font-semibold text-petrol-900'>Auditoría de enlaces entrantes</span>
+                <span class='text-sm text-petrol-600'> — Control total de quién enlaza a tu web. Los enlaces tóxicos que pueden estar hundiendo tu posicionamiento se identifican y eliminan.</span>
+              </span>
             </li>
-            <li class='border-l-2 border-sky-100 pl-4'>
-              <h4 class='text-sm font-semibold text-petrol-900'>
-                Contenidos que atraen enlaces
-              </h4>
-              <p class='mt-1 text-sm text-petrol-600'>
-                Activos de contenido tan relevantes que otras webs enlazan de forma
-                natural. Autoridad orgánica y sostenible a medio plazo.
-              </p>
+            <li class='flex gap-3'>
+              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
+              <span>
+                <span class='text-sm font-semibold text-petrol-900'>Contenidos que atraen enlaces</span>
+                <span class='text-sm text-petrol-600'> — Activos de contenido tan relevantes que otras webs enlazan de forma natural. Autoridad orgánica y sostenible a medio plazo.</span>
+              </span>
             </li>
-            <li class='border-l-2 border-sky-100 pl-4'>
-              <h4 class='text-sm font-semibold text-petrol-900'>Reputación y confianza</h4>
-              <p class='mt-1 text-sm text-petrol-600'>
-                Menciones y reseñas que refuerzan tu marca ante Google y dan
-                seguridad a tu cliente antes de comprar.
-              </p>
+            <li class='flex gap-3'>
+              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
+              <span>
+                <span class='text-sm font-semibold text-petrol-900'>Reputación y confianza</span>
+                <span class='text-sm text-petrol-600'> — Menciones y reseñas que refuerzan tu marca ante Google y dan seguridad a tu cliente antes de comprar.</span>
+              </span>
             </li>
-            <li class='border-l-2 border-sky-100 pl-4'>
-              <h4 class='text-sm font-semibold text-petrol-900'>
-                Estrategia de autoridad
-              </h4>
-              <p class='mt-1 text-sm text-petrol-600'>
-                Plan de crecimiento a medio plazo con un ritmo natural.
-                Una ventaja competitiva resistente a actualizaciones del algoritmo.
-              </p>
+            <li class='flex gap-3'>
+              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
+              <span>
+                <span class='text-sm font-semibold text-petrol-900'>Estrategia de autoridad</span>
+                <span class='text-sm text-petrol-600'> — Plan de crecimiento a medio plazo con un ritmo natural. Una ventaja competitiva resistente a actualizaciones del algoritmo.</span>
+              </span>
             </li>
           </ul>
         </div>

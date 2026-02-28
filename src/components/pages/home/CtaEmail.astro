@@ -1,11 +1,16 @@
+---
+import Upheading from '../../Upheading.astro'
+---
+
 <div class='bg-sandstone-soft py-16 sm:py-24 lg:py-32'>
   <div class='mx-auto max-w-7xl px-6 lg:px-8'>
-    <div class='bg-white border border-petrol-100 rounded-xl p-8 sm:p-12 lg:p-16'>
+    <div data-animate class='bg-white border border-petrol-100 shadow-sm rounded-xl p-8 sm:p-12 lg:p-16'>
       <div
         class='mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2'>
       <div class='max-w-xl lg:max-w-lg'>
+        <Upheading text='Primer contacto' />
         <h2
-          class='text-4xl font-semibold tracking-tight text-petrol-900 text-pretty'>
+          class='mt-2 text-4xl font-semibold tracking-tight text-petrol-900 text-pretty'>
           Empecemos por tu caso
         </h2>
         <p class='mt-4 text-lg text-petrol-900 text-pretty'>
@@ -30,7 +35,7 @@
             <button
               type='submit'
               id='cta-submit-btn'
-              class='w-full flex-none rounded-md bg-sky-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-sky-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 disabled:opacity-50 disabled:cursor-not-allowed sm:w-auto'
+              class='w-full flex-none rounded-md bg-sky-500 px-4 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-sky-600 hover:shadow-md active:bg-sky-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all sm:w-auto'
               >Analiza mi caso</button
             >
           </div>

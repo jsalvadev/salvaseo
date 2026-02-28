@@ -1,10 +1,10 @@
 <div
   id='contacto'
-  class='bg-white px-6 py-12 sm:py-16 lg:px-8'>
+  class='bg-neutral-primary-soft px-6 py-12 sm:py-16 lg:px-8'>
   <div class='mx-auto max-w-7xl'>
     <div class='grid grid-cols-1 gap-x-15 gap-y-10 lg:grid-cols-[2fr_2fr]'>
       <!-- Left Column: Form -->
-      <div>
+      <div data-animate>
         <h2
           class='text-3xl font-semibold tracking-tight text-pretty text-petrol-900 sm:text-4xl'>
           Entonces hablemos
@@ -93,7 +93,7 @@
             <button
               type='submit'
               id='submit-btn'
-              class='block w-full rounded-md bg-sky-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-sky-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 disabled:opacity-50 disabled:cursor-not-allowed'
+              class='block w-full rounded-md bg-sky-500 px-3.5 py-2.5 text-center text-sm font-bold text-white shadow-sm hover:bg-sky-600 hover:shadow-md active:bg-sky-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all'
               >Hablemos de tu negocio</button
             >
           </div>
@@ -106,7 +106,7 @@
       </div>
 
       <!-- Right Column: Trust Signals -->
-      <div class='lg:pt-20'>
+      <div data-animate data-animate-delay='150' class='lg:pt-20'>
         <div class='space-y-8'>
           <!-- Response Time -->
           <div class='flex gap-x-4'>

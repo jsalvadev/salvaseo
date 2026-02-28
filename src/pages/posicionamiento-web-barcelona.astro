@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro'
 import Services from '../components/pages/posicionamiento-web-barcelona/Services.astro'
 import Timeline from '../components/pages/posicionamiento-web-barcelona/Timeline.astro'
 import HeroLanding from '../components/pages/posicionamiento-web-barcelona/Hero.astro'
+import TrustBanner from '../components/pages/posicionamiento-web-barcelona/TrustBanner.astro'
 import Pricing from '../components/pages/posicionamiento-web-barcelona/Pricing.astro'
 import FreelancerVsAgency from '../components/pages/posicionamiento-web-barcelona/FreelancerVsAgency.astro'
 import LocalAreas from '../components/pages/posicionamiento-web-barcelona/LocalAreas.astro'
@@ -27,6 +28,7 @@ const DATE_MODIFIED = new Date().toISOString().split('T')[0]
     secondaryCtaText='Descubre el proceso'
     secondaryCtaHref='#proceso'
   />
+  <TrustBanner />
   <Timeline
     upheading='Informe de posicionamiento web y auditoría SEO'
     heading='Tu camino a la primera página empieza con un plan'
@@ -41,16 +43,17 @@ const DATE_MODIFIED = new Date().toISOString().split('T')[0]
     heading='Cataluña es tu territorio'
     intro='<p class="mt-6 text-base/7 text-petrol-700">La visibilidad en el buscador cambia según la ubicación del usuario. Si tu negocio no responde a la <strong>intención de búsqueda de tu zona</strong>, el tráfico se desvía hacia la competencia.</p><p class="mt-4 text-base/7 text-petrol-700">Captura la demanda real en los mercados con mayor potencial de conversión:</p>'
     areas={[
-      { title: 'Posicionamiento web en Sabadell', description: '<strong>170 búsquedas mensuales</strong> en esta categoría y una de las zonas con mayor actividad comercial del Vallès. Escalar posiciones aquí abre la puerta a liderar tu sector a nivel comarcal.' },
-      { title: 'Posicionamiento web en Badalona', description: '<strong>90 búsquedas mensuales</strong> locales con alta intención de compra. El cliente que busca proximidad convierte más rápido, y ganar visibilidad aquí evita que tu negocio se diluya entre los resultados de la capital.' },
-      { title: 'Posicionamiento web en Terrassa', description: '<strong>90 búsquedas mensuales</strong> con menor saturación competitiva que Barcelona ciudad. Una estrategia orgánica sólida captura esta demanda de forma recurrente y <strong>sin coste por clic</strong>.' },
-      { title: 'Posicionamiento web en Lleida', description: '<strong>70 búsquedas mensuales</strong> en un entorno con baja competencia técnica. La optimización profesional genera aquí resultados de liderazgo en plazos más cortos que en mercados saturados.' },
+      { stat: '170 búsquedas/mes', title: 'Posicionamiento web en Sabadell', description: 'Una de las zonas con mayor actividad comercial del Vallès. Escalar posiciones aquí abre la puerta a liderar tu sector a nivel comarcal.' },
+      { stat: '90 búsquedas/mes', title: 'Posicionamiento web en Badalona', description: 'Alta intención de compra local. El cliente que busca proximidad convierte más rápido, y ganar visibilidad aquí evita que tu negocio se diluya entre los resultados de la capital.' },
+      { stat: '90 búsquedas/mes', title: 'Posicionamiento web en Terrassa', description: 'Menor saturación competitiva que Barcelona ciudad. Una estrategia orgánica sólida captura esta demanda de forma recurrente y sin coste por clic.' },
+      { stat: '70 búsquedas/mes', title: 'Posicionamiento web en Lleida', description: 'Baja competencia técnica en el entorno. La optimización profesional genera aquí resultados de liderazgo en plazos más cortos que en mercados saturados.' },
     ]}
   />
   <FreelancerVsAgency />
   <Pricing
     upheading='Precios de posicionamiento web en Barcelona'
     heading='Solo inviertes en lo que funciona'
+    priceHighlight={`Desde ${MIN_MONTHLY_PRICE_TEXT}`}
     intro={`Un servicio profesional de posicionamiento en Barcelona requiere recursos proporcionales a tus objetivos. Los presupuestos parten de <strong>${MIN_MONTHLY_PRICE_TEXT}</strong> y se definen según tres factores: tu competencia, el estado técnico de tu web y la velocidad de crecimiento que necesites.`}
     costContext='Antes de valorar el precio, calcula el coste de oportunidad: <strong>cada día que tu competencia ocupa tu lugar en Google, tú pierdes una venta</strong>.'
     features={[

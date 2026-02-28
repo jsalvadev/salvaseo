@@ -1,7 +1,6 @@
 ---
 import { MapPin, Map, Phone } from '@lucide/astro'
 import WhatsAppButton from '../../WhatsAppButton.astro'
-import barcelonaImage from '../../../assets/barcelona.webp'
 
 interface Props {
   heading: string
@@ -17,7 +16,7 @@ const { heading, description, primaryCtaText, secondaryCtaText, secondaryCtaHref
 <div class='bg-petrol-900'>
   <div class='relative isolate overflow-hidden px-6 lg:px-8'>
     <img
-      src={barcelonaImage.src}
+      src='https://images.pexels.com/photos/543606/pexels-photo-543606.jpeg'
       alt=''
       class='absolute inset-0 -z-10 size-full object-cover opacity-20 [mask-image:linear-gradient(to_right,transparent_30%,black_70%)]'
       loading='eager'
