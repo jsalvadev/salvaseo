@@ -16,7 +16,7 @@ export const faqPresupuestoItems: FaqItem[] = [
   {
     question: '¿Qué pasa si necesito algo que no está en los paquetes?',
     answer: `<p class="text-base/7 text-petrol-900">
-      Cada paquete tiene un alcance definido, pero puedo adaptarlo. Si necesitas contenido adicional, una landing page nueva o un informe de competencia extra, se presupuesta como <strong>add-on independiente</strong>. Los extras más habituales están listados en la sección de servicios puntuales.
+      Cada paquete tiene un alcance definido, pero puedo adaptarlo. Si necesitas contenido adicional, una landing page nueva o cualquier acción extra, lo hablamos en la llamada de seguimiento y te presupuesto un <strong>complemento a medida</strong>. Sin sorpresas.
     </p>`,
   },
   {
@@ -38,9 +38,9 @@ export const faqPresupuestoItems: FaqItem[] = [
     </p>`,
   },
   {
-    question: '¿Qué diferencia hay entre contratar un paquete mensual y un servicio puntual?',
+    question: '¿Por qué solo ofrecéis paquetes mensuales y no servicios sueltos?',
     answer: `<p class="text-base/7 text-petrol-900">
-      El paquete mensual es una <strong>estrategia continua</strong>: cada mes se ejecutan acciones que construyen sobre las anteriores. Es la forma más efectiva de posicionar un negocio en Google. Los servicios puntuales son acciones concretas (una auditoría, una optimización de ficha, una sesión de consultoría) para quien necesita algo específico sin compromiso mensual.
+      El SEO es una <strong>estrategia continua</strong>: cada mes se ejecutan acciones que construyen sobre las anteriores. Un servicio puntual puede dar un empujón, pero sin continuidad los resultados se diluyen. Por eso trabajo con paquetes mensuales — es la forma más efectiva de posicionar tu negocio en Google y que el resultado se mantenga en el tiempo.
     </p>`,
   },
 ]
