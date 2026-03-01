@@ -48,7 +48,7 @@ const categories: ComparisonCategory[] = [
         bundle: '✓'
       },
       {
-        name: 'Mapa de visibilidad local por zonas (geo-grid)',
+        name: 'Mapa de visibilidad real por barrios y zonas',
         ficha: '✓',
         web: '—',
         bundle: '✓'
@@ -64,7 +64,7 @@ const categories: ComparisonCategory[] = [
         web: '—',
         bundle: '✓'
       },
-      { name: 'Consistencia NAP', ficha: '✓', web: '—', bundle: '✓' }
+      { name: 'Coherencia de nombre, dirección y teléfono', ficha: '✓', web: '—', bundle: '✓' }
     ]
   },
   {
@@ -101,19 +101,19 @@ const categories: ComparisonCategory[] = [
         bundle: '✓'
       },
       {
-        name: 'Optimización técnica (Core Web Vitals)',
+        name: 'Optimización técnica de velocidad y experiencia de carga',
         ficha: '—',
         web: '✓',
         bundle: '✓'
       },
       {
-        name: 'Schema markup LocalBusiness + Service',
+        name: 'Datos estructurados para destacar en resultados de Google',
         ficha: '—',
         web: '✓',
         bundle: '✓'
       },
       {
-        name: 'Optimización de contenidos con análisis TF*IDF',
+        name: 'Optimización de contenidos con análisis semántico competitivo',
         ficha: '—',
         web: '✓',
         bundle: '✓'
@@ -154,7 +154,7 @@ const categories: ComparisonCategory[] = [
         bundle: '✓'
       },
       {
-        name: 'Schema markup cruzado ficha ↔ web',
+        name: 'Datos estructurados cruzados ficha ↔ web',
         ficha: '—',
         web: '—',
         bundle: '✓'
@@ -165,13 +165,13 @@ const categories: ComparisonCategory[] = [
     name: 'Seguimiento',
     features: [
       {
-        name: 'Tracking de posiciones en Maps',
+        name: 'Seguimiento de posiciones en Maps',
         ficha: '✓',
         web: '—',
         bundle: '✓'
       },
       {
-        name: 'Tracking de posiciones orgánicas',
+        name: 'Seguimiento de posiciones orgánicas',
         ficha: '—',
         web: '✓',
         bundle: '✓'
@@ -220,12 +220,11 @@ function renderCell(value: string): string {
       />
       <p
         class='mt-2 text-4xl font-semibold tracking-tight text-balance text-petrol-900 sm:text-5xl'>
-        ¿Qué incluye cada paquete?
+        Detalle completo de cada paquete
       </p>
     </div>
     <p class='mx-auto mt-6 max-w-2xl text-center text-lg text-petrol-700'>
-      Compara las features de cada plan para elegir el que mejor se adapta a tu
-      negocio.
+      Cada acción detallada por paquete para identificar la inversión que encaja con tu negocio.
     </p>
 
     <!-- Desktop comparison table -->
