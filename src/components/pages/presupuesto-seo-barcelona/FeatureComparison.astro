@@ -3,9 +3,9 @@ import Upheading from '../../Upheading.astro'
 
 interface ComparisonFeature {
   name: string
-  basic: string
+  ficha: string
   web: string
-  dominio: string
+  bundle: string
 }
 
 interface ComparisonCategory {
@@ -17,43 +17,54 @@ const categories: ComparisonCategory[] = [
   {
     name: 'Google Business Profile',
     features: [
-      { name: 'Auditoría y optimización de GBP', basic: '✓', web: '✓', dominio: '✓' },
-      { name: 'Publicaciones mensuales en GBP', basic: '✓', web: '✓', dominio: '✓' },
-      { name: 'Gestión de reseñas', basic: '✓', web: '✓', dominio: '✓ + captación activa' },
+      { name: 'Auditoría de competencia y visibilidad local', ficha: '✓', web: '—', bundle: '✓' },
+      { name: 'Creación u optimización de GBP', ficha: '✓', web: '—', bundle: '✓' },
+      { name: 'Categorías, servicios, fotos y atributos', ficha: '✓', web: '—', bundle: '✓' },
+      { name: 'Publicaciones mensuales en GBP', ficha: '✓', web: '—', bundle: '✓' },
+      { name: 'Monitorización y respuesta a reseñas', ficha: '✓', web: '—', bundle: '✓' },
+      { name: 'Mapa de visibilidad local por zonas (geo-grid)', ficha: '✓', web: '—', bundle: '✓' },
     ],
   },
   {
     name: 'Citaciones y directorios',
     features: [
-      { name: 'Alta en directorios locales', basic: '✓', web: '✓', dominio: '✓' },
-      { name: 'Consistencia NAP', basic: '✓', web: '✓', dominio: '✓' },
+      { name: 'Alta en directorios locales', ficha: '✓', web: '—', bundle: '✓' },
+      { name: 'Consistencia NAP', ficha: '✓', web: '—', bundle: '✓' },
     ],
   },
   {
     name: 'Web y contenido',
     features: [
-      { name: 'Auditoría SEO de la web', basic: '—', web: '✓', dominio: '✓ completa' },
-      { name: 'Investigación de palabras clave', basic: '—', web: '✓', dominio: '✓ + competencia' },
-      { name: 'Optimización on-page', basic: '—', web: '✓', dominio: '✓' },
-      { name: 'Contenido nuevo al mes', basic: '—', web: '1 pieza', dominio: '2 piezas' },
-      { name: 'Schema markup local', basic: '—', web: '✓', dominio: '✓' },
-      { name: 'Optimización técnica (Core Web Vitals)', basic: '—', web: '—', dominio: '✓' },
+      { name: 'Auditoría SEO on-page de la web', ficha: '—', web: '✓', bundle: '✓' },
+      { name: 'Investigación de palabras clave transaccionales', ficha: '—', web: '✓', bundle: '✓' },
+      { name: 'Optimización de encabezados, titles y descriptions', ficha: '—', web: '✓', bundle: '✓' },
+      { name: 'Páginas de servicio optimizadas', ficha: '—', web: '✓', bundle: '✓' },
+      { name: 'Reestructuración de arquitectura web', ficha: '—', web: '✓', bundle: '✓' },
+      { name: 'Optimización técnica (Core Web Vitals)', ficha: '—', web: '✓', bundle: '✓' },
+      { name: 'Schema markup LocalBusiness + Service', ficha: '—', web: '✓', bundle: '✓' },
+      { name: 'Optimización de contenidos con análisis TF*IDF', ficha: '—', web: '✓', bundle: '✓' },
     ],
   },
   {
-    name: 'Autoridad y enlaces',
+    name: 'Exclusivo Ficha + Web',
     features: [
-      { name: 'Link building local', basic: '—', web: '—', dominio: '3-5 enlaces/mes' },
-      { name: 'Análisis de competencia', basic: '—', web: '—', dominio: '✓' },
+      { name: 'Análisis de competencia local + orgánica cruzado', ficha: '—', web: '—', bundle: '✓' },
+      { name: 'Investigación de keywords locales + transaccionales', ficha: '—', web: '—', bundle: '✓' },
+      { name: 'Enlazado interno entre páginas de servicio y ficha', ficha: '—', web: '—', bundle: '✓' },
+      { name: 'Publicaciones en GBP enlazadas a páginas de servicio', ficha: '—', web: '—', bundle: '✓' },
+      { name: 'Alineación de categorías y servicios GBP con páginas web', ficha: '—', web: '—', bundle: '✓' },
+      { name: 'Schema markup cruzado ficha ↔ web', ficha: '—', web: '—', bundle: '✓' },
     ],
   },
   {
     name: 'Seguimiento',
     features: [
-      { name: 'Informe mensual', basic: '✓', web: '✓', dominio: '✓ + análisis estratégico' },
-      { name: 'Llamada mensual de seguimiento', basic: '✓', web: '✓', dominio: '✓' },
-      { name: 'Soporte por WhatsApp', basic: '✓', web: '✓', dominio: '✓' },
-      { name: 'Compromiso recomendado', basic: '3 meses', web: '4 meses', dominio: '6 meses' },
+      { name: 'Tracking de posiciones en Maps', ficha: '✓', web: '—', bundle: '✓' },
+      { name: 'Tracking de posiciones orgánicas', ficha: '—', web: '✓', bundle: '✓' },
+      { name: 'Informe mensual de resultados', ficha: '✓', web: '✓', bundle: '✓ unificado' },
+      { name: 'Llamada mensual de seguimiento', ficha: '✓', web: '✓', bundle: '✓' },
+      { name: 'Soporte por WhatsApp', ficha: '✓', web: '✓', bundle: '✓' },
+      { name: 'Compromiso recomendado', ficha: '3 meses', web: '4 meses', bundle: '6 meses' },
     ],
   },
 ]
@@ -88,9 +99,9 @@ function renderCell(value: string): string {
         <thead class='sticky bg-petrol-50 z-10' style='top: var(--navbar-height)'>
           <tr>
             <th scope='col' class='pb-4 text-sm font-semibold text-petrol-900'></th>
-            <th scope='col' class='pb-4 text-center text-sm font-semibold text-petrol-900'>Local Básico<br /><span class='font-normal text-petrol-500'>300 €/mes</span></th>
-            <th scope='col' class='pb-4 text-center text-sm font-semibold text-sky-600 bg-sky-50/60'>Local + Web ★<br /><span class='font-normal text-petrol-500'>450 €/mes</span></th>
-            <th scope='col' class='pb-4 text-center text-sm font-semibold text-petrol-900'>Dominio Local<br /><span class='font-normal text-petrol-500'>650 €/mes</span></th>
+            <th scope='col' class='pb-4 text-center text-sm font-semibold text-petrol-900'>Solo Ficha<br /><span class='font-normal text-petrol-500'>350 €/mes</span></th>
+            <th scope='col' class='pb-4 text-center text-sm font-semibold text-petrol-900'>Solo Web<br /><span class='font-normal text-petrol-500'>550 €/mes</span></th>
+            <th scope='col' class='pb-4 text-center text-sm font-semibold text-sky-600 bg-sky-50/60'>Ficha + Web ★<br /><span class='font-normal text-petrol-500'>800 €/mes</span></th>
           </tr>
         </thead>
         <tbody>
@@ -112,13 +123,13 @@ function renderCell(value: string): string {
                     {feature.name}
                   </th>
                   <td class='py-3 text-center'>
-                    <Fragment set:html={renderCell(feature.basic)} />
-                  </td>
-                  <td class='py-3 text-center bg-sky-50/60'>
-                    <Fragment set:html={renderCell(feature.web)} />
+                    <Fragment set:html={renderCell(feature.ficha)} />
                   </td>
                   <td class='py-3 text-center'>
-                    <Fragment set:html={renderCell(feature.dominio)} />
+                    <Fragment set:html={renderCell(feature.web)} />
+                  </td>
+                  <td class='py-3 text-center bg-sky-50/60'>
+                    <Fragment set:html={renderCell(feature.bundle)} />
                   </td>
                 </tr>
               ))}
@@ -130,9 +141,9 @@ function renderCell(value: string): string {
 
     <!-- Mobile: stacked cards -->
     <div class='mx-auto mt-16 max-w-lg space-y-8 lg:hidden'>
-      {(['Local Básico — 300 €/mes', 'Local + Web ★ — 450 €/mes', 'Dominio Local — 650 €/mes'] as const).map((tierName, tierIndex) => {
-        const key = tierIndex === 0 ? 'basic' : tierIndex === 1 ? 'web' : 'dominio'
-        const isFeatured = tierIndex === 1
+      {(['Solo Ficha — 350 €/mes', 'Solo Web — 550 €/mes', 'Ficha + Web ★ — 800 €/mes'] as const).map((tierName, tierIndex) => {
+        const key = tierIndex === 0 ? 'ficha' : tierIndex === 1 ? 'web' : 'bundle'
+        const isFeatured = tierIndex === 2
         return (
           <div class:list={[
             'rounded-xl border p-6',

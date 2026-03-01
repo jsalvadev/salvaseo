@@ -12,7 +12,7 @@ import { faqSeoLocalItems } from '../data/faq-seo-local'
 import LocalSeoCta from '../components/pages/seo-local-barcelona/Cta.astro'
 import GoogleMapEmbed from '../components/shared/GoogleMapEmbed.astro'
 
-const MIN_MONTHLY_PRICE_EUR = 300
+const MIN_MONTHLY_PRICE_EUR = 350
 const MIN_MONTHLY_PRICE_TEXT = `${MIN_MONTHLY_PRICE_EUR} €/mes`
 const DATE_MODIFIED = new Date().toISOString().split('T')[0]
 const seoLocalExplainerItems = [
@@ -107,11 +107,11 @@ const seoLocalTimelinePhases = [
   {
     title: 'Autoridad local y reputación online',
     intro:
-      'Confianza construida fuera de tu ficha para que Google te posicione por encima de tu competencia de forma sostenida. La construcción de enlaces y la gestión de reseñas son clave en cualquier servicio de SEO local.',
+      'Confianza construida fuera de tu ficha para que Google te posicione por encima de tu competencia de forma sostenida. Las señales externas y la reputación online determinan quién aparece primero.',
     bullets: [
       { icon: 'layers3', emphasis: 'NAP consistente.', text: 'Nombre, dirección y teléfono alineados en directorios y menciones: la base que Google necesita para confiar en tu negocio en Barcelona.' },
       { icon: 'lineChart', emphasis: 'Más reseñas, mejor ranking.', text: 'Mayor volumen y calidad de opiniones para mejorar la conversión y la posición de tu negocio local en Maps.' },
-      { icon: 'badgeCheck', emphasis: 'Presencia digital validada.', text: 'Fuentes que Google usa para confirmar que tu negocio es real y relevante en tu zona, lo que mejora la visibilidad en los primeros resultados.' },
+      { icon: 'badgeCheck', emphasis: 'Presencia digital validada.', text: 'Directorios, medios locales y menciones que Google usa para confirmar que tu negocio es real y relevante en tu zona.' },
     ],
     outro: 'Tu posicionamiento SEO local se apoya en múltiples señales, no en un único factor fácil de perder.'
   },
@@ -122,7 +122,7 @@ const seoLocalTimelinePhases = [
     bullets: [
       { icon: 'chartNoAxesColumn', emphasis: 'Métricas que importan.', text: 'Impresiones, clics, llamadas y formularios por zona, sin gráficos de vanidad. Tráfico cualificado que se traduce en crecimiento real.' },
       { icon: 'target', emphasis: 'Prioridad por retorno.', text: 'Las acciones con mayor impacto en tu mercado local van primero, sin desviar recursos. Tu presupuesto SEO local siempre orientado a resultados.' },
-      { icon: 'trendingUp', emphasis: 'Escalado por zonas y servicios.', text: 'Las estrategias que generan clientes en una zona se replican en los servicios y áreas con mayor potencial de crecimiento.' },
+      { icon: 'trendingUp', emphasis: 'Crecimiento progresivo.', text: 'Lo que funciona en un servicio o zona se amplía. El objetivo es convertir cada mejora en más captación sostenida.' },
     ],
     outro: 'La visibilidad local se convierte en un sistema continuo de captación de clientes potenciales, no en acciones aisladas.'
   },
@@ -246,9 +246,11 @@ const seoLocalBusinessTypes = [
   <!-- 3. SERVICIOS DE SEO LOCAL -->
   <LocalSeoServices
     upheading='Servicios de SEO local en Barcelona'
-    heading='Esto es lo que hacemos para que Google Maps trabaje para tu negocio'
-    intro='Cada acción de nuestro servicio de SEO local se ejecuta para que <strong>domines Google Maps y el Local Pack</strong>, atraigas clientes potenciales con tráfico cualificado y conviertas búsquedas cercanas en ventas recurrentes para tu negocio en Barcelona.'
+    heading='Las palancas que determinan tu visibilidad en Google Maps'
+    intro='Estos son los factores que trabajamos <strong>según la situación y necesidades de tu negocio</strong>. En el diagnóstico inicial identificamos cuáles tienen mayor impacto en tu caso y se priorizan por retorno.'
     services={seoLocalServices}
+    ctaText='Descubre qué incluye cada paquete'
+    ctaHref='/presupuesto-seo-barcelona#paquetes'
   />
 
   <!-- 4. PROCESO / TIMELINE -->

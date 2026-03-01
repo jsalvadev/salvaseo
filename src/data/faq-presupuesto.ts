@@ -10,7 +10,7 @@ export const faqPresupuestoItems: FaqItem[] = [
   {
     question: '¿Hay permanencia o compromiso contractual?',
     answer: `<p class="text-base/7 text-petrol-900">
-      No hay permanencia. Cada paquete tiene un <strong>compromiso mínimo recomendado</strong> (3, 4 o 6 meses según el plan) porque el SEO necesita tiempo para consolidar resultados, pero no es una obligación contractual. Si después del periodo inicial quieres parar, puedes hacerlo sin penalización.
+      No hay permanencia. Cada paquete tiene un <strong>compromiso mínimo recomendado</strong> (3 a 6 meses según el servicio) porque el SEO necesita tiempo para consolidar resultados, pero no es una obligación contractual. Si después del periodo inicial quieres parar, puedes hacerlo sin penalización.
     </p>`,
   },
   {
@@ -26,9 +26,9 @@ export const faqPresupuestoItems: FaqItem[] = [
     </p>`,
   },
   {
-    question: '¿Puedo cambiar de paquete a mitad de camino?',
+    question: '¿Puedo cambiar de paquete o combinarlos?',
     answer: `<p class="text-base/7 text-petrol-900">
-      Sí. Los paquetes están diseñados para que la <strong>progresión sea natural</strong>: empiezas con lo básico, ves resultados, y escalas cuando tiene sentido para tu negocio. Puedes subir o bajar de paquete en cualquier momento sin penalización.
+      Sí. Puedes empezar solo con Ficha o solo con Web y <strong>añadir el otro servicio cuando lo necesites</strong>. Si decides combinarlos, se aplica automáticamente el descuento del paquete Ficha + Web. También puedes reducir el alcance en cualquier momento sin penalización.
     </p>`,
   },
   {
