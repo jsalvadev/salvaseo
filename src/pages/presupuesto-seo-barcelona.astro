@@ -15,17 +15,30 @@ const DATE_MODIFIED = new Date().toISOString().split('T')[0]
   title='Presupuesto SEO Barcelona — Precios Claros y Paquetes Mensuales | SalvaSEO'
   description='Presupuesto SEO en Barcelona: paquetes mensuales desde 350 €/mes + IVA. Ficha de Google, posicionamiento web o ambos. Sin permanencia. Diagnóstico inicial gratuito.'
   canonicalUrl='https://salvaseo.com/presupuesto-seo-barcelona'>
-
   <!-- 1. HERO -->
   <Hero />
 
   <!-- 1b. TRUST SIGNALS -->
-  <TrustBanner items={[
-    { icon: 'users', value: 'Trato directo', label: 'sin intermediarios' },
-    { icon: 'badgeCheck', value: 'Diagnóstico gratuito', label: 'sin compromiso' },
-    { icon: 'calendarClock', value: 'Sin permanencia', label: 'sales cuando quieras' },
-    { icon: 'trendingUp', value: 'Resultados en 3-6 meses', label: 'según sector y competencia' },
-  ]} />
+  <TrustBanner
+    items={[
+      { icon: 'users', value: 'Trato directo', label: 'sin intermediarios' },
+      {
+        icon: 'badgeCheck',
+        value: 'Diagnóstico gratuito',
+        label: 'sin compromiso'
+      },
+      {
+        icon: 'calendarClock',
+        value: 'Sin permanencia',
+        label: 'sales cuando quieras'
+      },
+      {
+        icon: 'trendingUp',
+        value: 'Resultados en 3-6 meses',
+        label: 'según sector y competencia'
+      }
+    ]}
+  />
 
   <!-- 2. PRICING CARDS -->
   <PricingCards />
@@ -35,8 +48,8 @@ const DATE_MODIFIED = new Date().toISOString().split('T')[0]
 
   <!-- 4. FAQ -->
   <Faq
-    upheading='Preguntas frecuentes sobre precios'
-    heading='Lo que necesitas saber antes de decidir'
+    upheading='Preguntas frecuentes sobre precios y presupuesto SEO'
+    heading=''
     idPrefix='faq-precios'
     items={faqPresupuestoItems}
     class='!bg-white'
@@ -108,7 +121,8 @@ const DATE_MODIFIED = new Date().toISOString().split('T')[0]
               {
                 '@type': 'Offer',
                 name: 'Solo Ficha',
-                description: 'Optimización de Google Business Profile: auditoría local, directorios NAP, publicaciones y gestión de reseñas.',
+                description:
+                  'Optimización de Google Business Profile: auditoría local, directorios NAP, publicaciones y gestión de reseñas.',
                 priceSpecification: {
                   '@type': 'UnitPriceSpecification',
                   priceCurrency: 'EUR',
@@ -119,7 +133,8 @@ const DATE_MODIFIED = new Date().toISOString().split('T')[0]
               {
                 '@type': 'Offer',
                 name: 'Solo Web',
-                description: 'Posicionamiento web: auditoría SEO, palabras clave transaccionales, páginas de servicio, Core Web Vitals y schema markup.',
+                description:
+                  'Posicionamiento web: auditoría SEO, palabras clave transaccionales, páginas de servicio, Core Web Vitals y schema markup.',
                 priceSpecification: {
                   '@type': 'UnitPriceSpecification',
                   priceCurrency: 'EUR',
@@ -130,7 +145,8 @@ const DATE_MODIFIED = new Date().toISOString().split('T')[0]
               {
                 '@type': 'Offer',
                 name: 'Ficha + Web',
-                description: 'Paquete completo: Google Business Profile + posicionamiento web con análisis cruzado, enlazado interno y seguimiento unificado. Descuento de 100 €/mes.',
+                description:
+                  'Paquete completo: Google Business Profile + posicionamiento web con análisis cruzado, enlazado interno y seguimiento unificado. Descuento de 100 €/mes.',
                 priceSpecification: {
                   '@type': 'UnitPriceSpecification',
                   priceCurrency: 'EUR',
