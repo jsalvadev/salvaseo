@@ -1,0 +1,163 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Hero from '../components/pages/presupuesto-seo-barcelona/Hero.astro'
+import PricingCards from '../components/pages/presupuesto-seo-barcelona/PricingCards.astro'
+import FeatureComparison from '../components/pages/presupuesto-seo-barcelona/FeatureComparison.astro'
+import ServiciosPuntuales from '../components/pages/presupuesto-seo-barcelona/ServiciosPuntuales.astro'
+import Faq from '../components/pages/posicionamiento-web-barcelona/Faq.astro'
+import TrustBanner from '../components/pages/posicionamiento-web-barcelona/TrustBanner.astro'
+import Cta from '../components/pages/presupuesto-seo-barcelona/Cta.astro'
+import { faqPresupuestoItems } from '../data/faq-presupuesto'
+
+const DATE_MODIFIED = new Date().toISOString().split('T')[0]
+---
+
+<Layout
+  title='Presupuesto SEO Barcelona — Precios Claros y Paquetes Mensuales | SalvaSEO'
+  description='Presupuesto SEO en Barcelona: paquetes mensuales desde 300 €/mes + IVA. SEO local, optimización web y estrategia completa. Sin permanencia. Diagnóstico inicial gratuito.'
+  canonicalUrl='https://salvaseo.com/presupuesto-seo-barcelona'>
+
+  <!-- 1. HERO -->
+  <Hero />
+
+  <!-- 1b. TRUST SIGNALS -->
+  <TrustBanner items={[
+    { icon: 'users', value: '10+ negocios', label: 'ya posicionados en Barcelona' },
+    { icon: 'badgeCheck', value: 'Diagnóstico gratuito', label: 'sin compromiso' },
+    { icon: 'calendarClock', value: 'Sin permanencia', label: 'sales cuando quieras' },
+    { icon: 'trendingUp', value: 'Resultados en 3-6 meses', label: 'según sector y competencia' },
+  ]} />
+
+  <!-- 2. PRICING CARDS -->
+  <PricingCards />
+
+  <!-- 3. FEATURE COMPARISON -->
+  <FeatureComparison />
+
+  <!-- 4. SERVICIOS PUNTUALES & EXTRAS -->
+  <ServiciosPuntuales />
+
+  <!-- 5. FAQ -->
+  <Faq
+    upheading='Preguntas frecuentes sobre precios'
+    heading='Lo que necesitas saber antes de decidir'
+    idPrefix='faq-precios'
+    items={faqPresupuestoItems}
+    class='!bg-white'
+  />
+
+  <!-- 6. CTA FINAL -->
+  <Cta />
+
+  <!-- JSON-LD Structured Data -->
+  <script
+    type='application/ld+json'
+    set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'WebPage',
+          '@id': 'https://salvaseo.com/presupuesto-seo-barcelona#webpage',
+          url: 'https://salvaseo.com/presupuesto-seo-barcelona',
+          name: 'Presupuesto SEO Barcelona — Precios Claros y Paquetes Mensuales | SalvaSEO',
+          description:
+            'Presupuesto SEO en Barcelona: paquetes mensuales desde 300 €/mes + IVA. SEO local, optimización web y estrategia completa. Sin permanencia. Diagnóstico inicial gratuito.',
+          isPartOf: {
+            '@id': 'https://salvaseo.com/#website'
+          },
+          datePublished: '2026-02-28',
+          dateModified: DATE_MODIFIED,
+          inLanguage: 'es',
+          breadcrumb: {
+            '@id': 'https://salvaseo.com/presupuesto-seo-barcelona#breadcrumb'
+          }
+        },
+        {
+          '@type': 'BreadcrumbList',
+          '@id': 'https://salvaseo.com/presupuesto-seo-barcelona#breadcrumb',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Inicio',
+              item: 'https://salvaseo.com/'
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: 'Presupuesto SEO Barcelona',
+              item: 'https://salvaseo.com/presupuesto-seo-barcelona'
+            }
+          ]
+        },
+        {
+          '@type': 'Service',
+          '@id': 'https://salvaseo.com/presupuesto-seo-barcelona#service',
+          serviceType: 'Consultoría SEO',
+          name: 'Presupuesto SEO en Barcelona',
+          description:
+            'Paquetes mensuales de consultoría SEO para negocios locales en Barcelona. SEO local, optimización web, link building y estrategia completa orientada a captar clientes potenciales.',
+          provider: {
+            '@id': 'https://salvaseo.com/#business'
+          },
+          areaServed: {
+            '@type': 'City',
+            name: 'Barcelona',
+            sameAs: 'https://es.wikipedia.org/wiki/Barcelona'
+          },
+          hasOfferCatalog: {
+            '@type': 'OfferCatalog',
+            name: 'Paquetes SEO Barcelona',
+            itemListElement: [
+              {
+                '@type': 'Offer',
+                name: 'Local Básico',
+                description: 'SEO local básico: Google Business Profile, directorios, publicaciones y monitorización de reseñas.',
+                priceSpecification: {
+                  '@type': 'UnitPriceSpecification',
+                  priceCurrency: 'EUR',
+                  price: '300',
+                  unitText: 'mes'
+                }
+              },
+              {
+                '@type': 'Offer',
+                name: 'Local + Web',
+                description: 'SEO local + optimización web: auditoría on-page, palabras clave, contenido mensual y schema markup.',
+                priceSpecification: {
+                  '@type': 'UnitPriceSpecification',
+                  priceCurrency: 'EUR',
+                  price: '450',
+                  unitText: 'mes'
+                }
+              },
+              {
+                '@type': 'Offer',
+                name: 'Dominio Local',
+                description: 'Estrategia SEO completa: auditoría técnica, link building, contenido, optimización técnica y análisis de competencia.',
+                priceSpecification: {
+                  '@type': 'UnitPriceSpecification',
+                  priceCurrency: 'EUR',
+                  price: '650',
+                  unitText: 'mes'
+                }
+              }
+            ]
+          }
+        },
+        {
+          '@type': 'FAQPage',
+          '@id': 'https://salvaseo.com/presupuesto-seo-barcelona#faq',
+          mainEntity: faqPresupuestoItems.map(item => ({
+            '@type': 'Question',
+            name: item.question,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: item.answer.replace(/<[^>]*>/g, '')
+            }
+          }))
+        }
+      ]
+    })}
+  />
+</Layout>

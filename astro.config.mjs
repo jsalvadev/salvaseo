@@ -19,7 +19,8 @@ export default defineConfig({
       filter: (page) =>
         page === "https://salvaseo.com/" ||
         page === "https://salvaseo.com/posicionamiento-web-barcelona/" ||
-        page === "https://salvaseo.com/seo-local-barcelona/",
+        page === "https://salvaseo.com/seo-local-barcelona/" ||
+        page === "https://salvaseo.com/presupuesto-seo-barcelona/",
     }),
     partytown({
       config: {

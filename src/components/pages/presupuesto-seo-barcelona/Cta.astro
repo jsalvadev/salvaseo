@@ -1,0 +1,40 @@
+---
+import { Euro, ShieldCheck, Clock } from '@lucide/astro'
+import WhatsAppButton from '../../WhatsAppButton.astro'
+---
+
+<div class='bg-warm-white px-6 lg:px-8'>
+  <div class='mx-auto max-w-2xl py-24 sm:py-32 text-center'>
+    <div class='mb-8 flex flex-wrap items-center justify-center gap-3'>
+      <span class='inline-flex items-center gap-2 bg-petrol-100 border border-petrol-200 rounded-full px-3 py-1 text-sm text-petrol-700'>
+        <Euro class='size-4' aria-hidden='true' />
+        Desde 300 €/mes
+      </span>
+      <span class='inline-flex items-center gap-2 bg-petrol-100 border border-petrol-200 rounded-full px-3 py-1 text-sm text-petrol-700'>
+        <ShieldCheck class='size-4' aria-hidden='true' />
+        Sin permanencia
+      </span>
+      <span class='inline-flex items-center gap-2 bg-petrol-100 border border-petrol-200 rounded-full px-3 py-1 text-sm text-petrol-700'>
+        <Clock class='size-4' aria-hidden='true' />
+        Diagnóstico gratuito
+      </span>
+    </div>
+    <p class='text-base/7 font-semibold text-sky-600'>
+      Presupuesto SEO Barcelona
+    </p>
+    <p class='mt-2 text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl'>
+      El primer paso es un diagnóstico gratuito
+    </p>
+    <p class='mt-6 text-lg/8 text-petrol-700'>
+      Analizo tu ficha de Google, tu web y tu competencia. Tú decides si tiene sentido trabajar juntos. Sin coste, sin compromiso.
+    </p>
+    <div class='mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-x-6'>
+      <WhatsAppButton text='Solicita tu diagnóstico gratuito' />
+      <a
+        href='/#contacto'
+        class='text-sm/6 font-semibold text-petrol-600 hover:text-petrol-900 transition-colors'>
+        O rellena el formulario de contacto →
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,179 @@
+---
+import Upheading from '../../Upheading.astro'
+
+interface ComparisonFeature {
+  name: string
+  basic: string
+  web: string
+  dominio: string
+}
+
+interface ComparisonCategory {
+  name: string
+  features: ComparisonFeature[]
+}
+
+const categories: ComparisonCategory[] = [
+  {
+    name: 'Google Business Profile',
+    features: [
+      { name: 'Auditoría de ficha GBP', basic: '✓', web: '✓', dominio: '✓' },
+      { name: 'Optimización completa de GBP', basic: '✓', web: '✓', dominio: '✓' },
+      { name: 'Publicaciones en GBP', basic: '2-4/mes', web: '2-4/mes', dominio: '4-6/mes' },
+      { name: 'Gestión de reseñas', basic: '✓', web: '✓', dominio: '✓ + estrategia activa' },
+    ],
+  },
+  {
+    name: 'Citaciones y directorios',
+    features: [
+      { name: 'Alta en directorios locales', basic: '10-15 (setup)', web: '10-15 + 5/mes', dominio: '10-15 + 5/mes' },
+      { name: 'Consistencia NAP', basic: '✓', web: '✓', dominio: '✓' },
+    ],
+  },
+  {
+    name: 'Web y contenido',
+    features: [
+      { name: 'Auditoría SEO de la web', basic: '—', web: '✓', dominio: '✓ completa' },
+      { name: 'Investigación de palabras clave', basic: '—', web: '✓', dominio: '✓ + competencia' },
+      { name: 'Optimización on-page', basic: '—', web: '✓', dominio: '✓' },
+      { name: 'Contenido nuevo al mes', basic: '—', web: '1 pieza', dominio: '2 piezas' },
+      { name: 'Schema markup local', basic: '—', web: '✓', dominio: '✓' },
+      { name: 'Optimización técnica', basic: '—', web: '—', dominio: '✓' },
+    ],
+  },
+  {
+    name: 'Autoridad y enlaces',
+    features: [
+      { name: 'Link building local', basic: '—', web: '—', dominio: '3-5 enlaces/mes' },
+      { name: 'Análisis de competencia', basic: 'Básico', web: 'Medio', dominio: 'Detallado' },
+    ],
+  },
+  {
+    name: 'Seguimiento',
+    features: [
+      { name: 'Informe mensual', basic: 'Básico', web: 'Detallado', dominio: 'Completo + estratégico' },
+      { name: 'Llamadas de seguimiento', basic: '1 × 30 min', web: '1 × 45 min', dominio: '2 × 30 min' },
+      { name: 'Canal de soporte', basic: 'Email', web: 'WhatsApp (24h)', dominio: 'WhatsApp prioritario (12h)' },
+      { name: 'Compromiso recomendado', basic: '3 meses', web: '4 meses', dominio: '6 meses' },
+    ],
+  },
+]
+
+const checkSvg = `<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="inline size-5 text-maps-green"><path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" /></svg>`
+
+const dashSvg = `<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="inline size-5 text-petrol-200"><path d="M4 10a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H4.75A.75.75 0 0 1 4 10Z" clip-rule="evenodd" fill-rule="evenodd" /></svg>`
+
+function renderCell(value: string): string {
+  if (value === '✓') return checkSvg
+  if (value === '—') return dashSvg
+  return `<span class="text-sm text-petrol-700">${value}</span>`
+}
+---
+
+<div class='bg-neutral-primary-soft py-24 sm:py-32'>
+  <div class='mx-auto max-w-7xl px-6 lg:px-8'>
+    <div class='mx-auto max-w-4xl text-center'>
+      <Upheading as='h2' text='Comparativa detallada' class='text-center' />
+      <p class='mt-2 text-4xl font-semibold tracking-tight text-balance text-petrol-900 sm:text-5xl'>
+        ¿Qué incluye cada paquete?
+      </p>
+    </div>
+    <p class='mx-auto mt-6 max-w-2xl text-center text-lg text-petrol-700'>
+      Compara las features de cada plan para elegir el que mejor se adapta a tu negocio.
+    </p>
+
+    <!-- Desktop comparison table -->
+    <div class='mx-auto mt-16 max-w-5xl hidden lg:block'>
+      <table class='w-full text-left'>
+        <caption class='sr-only'>Comparativa de paquetes de SEO local</caption>
+        <thead class='sticky bg-petrol-50 z-10' style='top: var(--navbar-height)'>
+          <tr>
+            <th scope='col' class='pb-4 text-sm font-semibold text-petrol-900'></th>
+            <th scope='col' class='pb-4 text-center text-sm font-semibold text-petrol-900'>Local Básico<br /><span class='font-normal text-petrol-500'>300 €/mes</span></th>
+            <th scope='col' class='pb-4 text-center text-sm font-semibold text-sky-600 bg-sky-50/60'>Local + Web ★<br /><span class='font-normal text-petrol-500'>450 €/mes</span></th>
+            <th scope='col' class='pb-4 text-center text-sm font-semibold text-petrol-900'>Dominio Local<br /><span class='font-normal text-petrol-500'>650 €/mes</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          {categories.map((category) => (
+            <>
+              <tr>
+                <th
+                  scope='colgroup'
+                  colspan='4'
+                  class='pt-8 pb-3 text-sm/6 font-semibold text-petrol-900'>
+                  <div class='bg-petrol-100 rounded-lg px-4 py-2 font-semibold text-petrol-900'>
+                    {category.name}
+                  </div>
+                </th>
+              </tr>
+              {category.features.map((feature) => (
+                <tr class='border-b border-petrol-50 hover:bg-petrol-50/30 transition-colors'>
+                  <th scope='row' class='py-3 px-4 text-sm font-normal text-petrol-700'>
+                    {feature.name}
+                  </th>
+                  <td class='py-3 text-center'>
+                    <Fragment set:html={renderCell(feature.basic)} />
+                  </td>
+                  <td class='py-3 text-center bg-sky-50/60'>
+                    <Fragment set:html={renderCell(feature.web)} />
+                  </td>
+                  <td class='py-3 text-center'>
+                    <Fragment set:html={renderCell(feature.dominio)} />
+                  </td>
+                </tr>
+              ))}
+            </>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Mobile: stacked cards -->
+    <div class='mx-auto mt-16 max-w-lg space-y-8 lg:hidden'>
+      {(['Local Básico — 300 €/mes', 'Local + Web ★ — 450 €/mes', 'Dominio Local — 650 €/mes'] as const).map((tierName, tierIndex) => {
+        const key = tierIndex === 0 ? 'basic' : tierIndex === 1 ? 'web' : 'dominio'
+        const isFeatured = tierIndex === 1
+        return (
+          <div class:list={[
+            'rounded-xl border p-6',
+            isFeatured ? 'border-sky-200 bg-sky-50/60' : 'border-petrol-100 bg-white',
+          ]}>
+            <h3 class:list={[
+              'text-lg font-semibold',
+              isFeatured ? 'text-sky-600' : 'text-petrol-900',
+            ]}>
+              {tierName}
+            </h3>
+            {categories.map((category) => (
+              <div class='mt-4'>
+                <p class='text-xs font-semibold text-petrol-500 uppercase tracking-wider'>{category.name}</p>
+                <ul class='mt-2 space-y-1'>
+                  {category.features.map((feature) => {
+                    const value = feature[key as keyof typeof feature] as string
+                    return (
+                      <li class='flex items-center justify-between text-sm py-1 border-b border-petrol-50 last:border-0'>
+                        <span class='text-petrol-700'>{feature.name}</span>
+                        <span class='ml-2 shrink-0'>
+                          <Fragment set:html={renderCell(value)} />
+                        </span>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </div>
+            ))}
+          </div>
+        )
+      })}
+    </div>
+
+    <div class='mt-12 text-center'>
+      <a
+        href='#paquetes'
+        class='inline-flex items-center gap-1 text-sm font-semibold text-sky-600 hover:text-sky-500 transition-colors'>
+        Ver paquetes y elegir el tuyo <span aria-hidden='true'>→</span>
+      </a>
+    </div>
+  </div>
+</div>

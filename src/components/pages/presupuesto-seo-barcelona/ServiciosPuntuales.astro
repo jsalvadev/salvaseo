@@ -1,0 +1,107 @@
+---
+import Upheading from '../../Upheading.astro'
+import WhatsAppButton from '../../WhatsAppButton.astro'
+
+interface PuntualService {
+  name: string
+  price: string
+  description: string
+}
+
+const services: PuntualService[] = [
+  {
+    name: 'Auditoría SEO local',
+    price: '250 €',
+    description: 'Análisis de ficha GBP, web, citaciones, posiciones en Maps y competencia. Entregable: documento con diagnóstico + plan de acción priorizado.',
+  },
+  {
+    name: 'Optimización de Google Business Profile',
+    price: '200 €',
+    description: 'Optimización one-shot de la ficha: categorías, descripción, fotos, atributos, horarios, productos/servicios y primeras publicaciones.',
+  },
+  {
+    name: 'Consultoría SEO por hora',
+    price: '45 €/hora',
+    description: 'Sesiones de asesoramiento sobre cualquier tema SEO. Mínimo 2 horas por sesión.',
+  },
+  {
+    name: 'Diseño web SEO (1 página)',
+    price: '650 €',
+    description: 'Landing page o web one-page diseñada y optimizada para SEO desde cero. Responsive y con formulario de contacto.',
+  },
+  {
+    name: 'Diseño web SEO (hasta 5 páginas)',
+    price: '1.500 €',
+    description: 'Web completa con hasta 5 páginas, optimizada para SEO, responsive, con formulario de contacto.',
+  },
+]
+
+const extras = [
+  { name: 'Contenido adicional (1 artículo/página)', price: '100 €' },
+  { name: 'Publicaciones extra en GBP (4 más/mes)', price: '60 €/mes' },
+  { name: 'Landing page nueva optimizada', price: '400 €' },
+  { name: 'Rediseño web completo', price: 'Presupuesto a medida' },
+  { name: 'Sesión de consultoría adicional (1h)', price: '45 €' },
+  { name: 'Informe de competencia extra', price: '120 €' },
+]
+---
+
+<div class='bg-sandstone-soft py-24 sm:py-32'>
+  <div class='mx-auto max-w-7xl px-6 lg:px-8'>
+    <div class='mx-auto max-w-4xl'>
+      <Upheading as='h2' text='Servicios puntuales' />
+      <p class='mt-2 text-4xl font-semibold tracking-tight text-pretty text-petrol-900 sm:text-5xl'>
+        ¿Necesitas algo concreto? Sin compromiso mensual
+      </p>
+      <p class='mt-6 text-lg text-petrol-700'>
+        Para quien necesita una acción específica sin plan mensual. También funcionan como puerta de entrada: pruebas, ves valor, y decides.
+      </p>
+    </div>
+
+    <!-- Servicios puntuales -->
+    <div class='mx-auto mt-16 max-w-4xl'>
+      <div class='overflow-hidden rounded-xl border border-petrol-100 bg-white'>
+        <table class='min-w-full divide-y divide-petrol-100'>
+          <thead>
+            <tr class='bg-petrol-50'>
+              <th scope='col' class='py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-petrol-900 sm:pl-6'>Servicio</th>
+              <th scope='col' class='px-3 py-3.5 text-left text-sm font-semibold text-petrol-900'>Precio</th>
+            </tr>
+          </thead>
+          <tbody class='divide-y divide-petrol-50'>
+            {services.map((service) => (
+              <tr class='hover:bg-petrol-50/50 transition-colors'>
+                <td class='py-4 pr-3 pl-4 sm:pl-6'>
+                  <div class='text-sm font-medium text-petrol-900'>{service.name}</div>
+                  <div class='mt-1 text-sm text-petrol-600'>{service.description}</div>
+                </td>
+                <td class='whitespace-nowrap px-3 py-4 text-sm font-semibold text-petrol-900'>{service.price}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Extras / Add-ons -->
+    <div class='mx-auto mt-16 max-w-4xl'>
+      <Upheading as='h3' text='Add-ons disponibles' />
+      <p class='mt-4 text-sm text-petrol-600'>
+        Disponibles para clientes de cualquier paquete mensual.
+      </p>
+      <div class='mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2'>
+        {extras.map((extra) => (
+          <div class='flex items-center justify-between rounded-lg border border-petrol-100 bg-white px-4 py-3'>
+            <span class='text-sm text-petrol-700'>{extra.name}</span>
+            <span class='ml-4 shrink-0 text-sm font-semibold text-sky-600'>{extra.price}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class='mx-auto mt-12 max-w-4xl text-center'>
+      <WhatsAppButton text='Consulta sin compromiso' />
+    </div>
+  </div>
+</div>

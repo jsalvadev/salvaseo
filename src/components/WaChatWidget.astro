@@ -6,29 +6,41 @@ const message = siteConfig.whatsapp.defaultMessage
 const tooltipText = siteConfig.whatsapp.tooltipText
 ---
 
-<div id="wa-chat-widget-container"></div>
+<div
+  id="wa-chat-widget-container"
+  data-phone={phoneNumber}
+  data-message={message}
+  data-tooltip={tooltipText}
+></div>
 
-<script define:vars={{ phoneNumber, message, tooltipText }}>
+<script>
   import WaChatWidget from 'wa-chat-widget';
 
-  new WaChatWidget({
-    phoneNumber,
-    message,
-    position: 'bottom-right',
-    backgroundColor: '#25D366',  // WhatsApp official green
-    textColor: '#FAFAF8',        // Warm white
-    size: '60px',
-    showTooltip: true,
-    tooltipText
-  });
+  const container = document.getElementById('wa-chat-widget-container');
+  if (container) {
+    const phoneNumber = container.dataset.phone || '';
+    const message = container.dataset.message || '';
+    const tooltipText = container.dataset.tooltip || '';
 
-  // Set Spanish aria-label for accessibility
-  setTimeout(() => {
-    const widgetButton = document.querySelector('.wa-chat-widget-button');
-    if (widgetButton) {
-      widgetButton.setAttribute('aria-label', 'Enviar mensaje por WhatsApp');
-    }
-  }, 100);
+    new WaChatWidget({
+      phoneNumber,
+      message,
+      position: 'bottom-right',
+      backgroundColor: '#25D366',
+      textColor: '#FAFAF8',
+      size: '60px',
+      showTooltip: true,
+      tooltipText
+    });
+
+    // Set Spanish aria-label for accessibility
+    setTimeout(() => {
+      const widgetButton = document.querySelector('.wa-chat-widget-button');
+      if (widgetButton) {
+        widgetButton.setAttribute('aria-label', 'Enviar mensaje por WhatsApp');
+      }
+    }, 100);
+  }
 </script>
 
 <style>
