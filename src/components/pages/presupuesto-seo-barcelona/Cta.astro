@@ -3,36 +3,90 @@ import { Euro, ShieldCheck, Clock } from '@lucide/astro'
 import WhatsAppButton from '../../WhatsAppButton.astro'
 ---
 
-<div class='bg-warm-white px-6 lg:px-8'>
+<div class='relative bg-petrol-900 overflow-hidden px-6 lg:px-8'>
+  <!-- Grid pattern (matching hero) -->
+  <svg
+    class='absolute inset-0 -z-10 h-full w-full'
+    aria-hidden='true'>
+    <defs>
+      <pattern
+        id='cta-grid'
+        width='40'
+        height='40'
+        patternUnits='userSpaceOnUse'>
+        <path
+          d='M 40 0 L 0 0 0 40'
+          fill='none'
+          stroke='rgba(255,255,255,0.05)'
+          stroke-width='1'
+        />
+      </pattern>
+    </defs>
+    <rect
+      width='100%'
+      height='100%'
+      fill='url(#cta-grid)'
+    />
+  </svg>
+
+  <!-- Sky ambient glow (top) -->
+  <div
+    class='pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full bg-sky-500/8 blur-3xl'
+    aria-hidden='true'>
+  </div>
+  <!-- Orange accent (bottom-left) -->
+  <div
+    class='pointer-events-none absolute -bottom-10 -left-10 w-[240px] h-[240px] rounded-full bg-orange-500/5 blur-3xl'
+    aria-hidden='true'>
+  </div>
+
   <div class='mx-auto max-w-2xl py-24 sm:py-32 text-center'>
-    <div class='mb-8 flex flex-wrap items-center justify-center gap-3'>
-      <span class='inline-flex items-center gap-2 bg-petrol-100 border border-petrol-200 rounded-full px-3 py-1 text-sm text-petrol-700'>
-        <Euro class='size-4' aria-hidden='true' />
+    <div
+      class='mb-8 flex flex-wrap items-center justify-center gap-3'
+      data-animate>
+      <span
+        class='inline-flex items-center gap-2 bg-white/8 border border-white/10 rounded-full px-3 py-1 text-sm text-petrol-100'>
+        <Euro
+          class='size-4 text-sky-400'
+          aria-hidden='true'
+        />
         Desde 350 €/mes
       </span>
-      <span class='inline-flex items-center gap-2 bg-petrol-100 border border-petrol-200 rounded-full px-3 py-1 text-sm text-petrol-700'>
-        <ShieldCheck class='size-4' aria-hidden='true' />
-        Contratación mensual
-      </span>
-      <span class='inline-flex items-center gap-2 bg-petrol-100 border border-petrol-200 rounded-full px-3 py-1 text-sm text-petrol-700'>
-        <Clock class='size-4' aria-hidden='true' />
+      <span
+        class='inline-flex items-center gap-2 bg-white/8 border border-white/10 rounded-full px-3 py-1 text-sm text-petrol-100'>
+        <Clock
+          class='size-4 text-sky-400'
+          aria-hidden='true'
+        />
         Diagnóstico inicial incluido
       </span>
     </div>
-    <p class='text-base/7 font-semibold text-sky-600'>
+    <p
+      class='text-base/7 font-semibold text-sky-400'
+      data-animate
+      data-animate-delay='80'>
       Presupuesto SEO Barcelona
     </p>
-    <p class='mt-2 text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl'>
+    <p
+      class='mt-2 text-4xl font-semibold tracking-tight text-white sm:text-5xl'
+      data-animate
+      data-animate-delay='160'>
       Radiografía completa de tu negocio en Google
     </p>
-    <p class='mt-6 text-lg/8 text-petrol-700'>
+    <p
+      class='mt-6 text-lg/8 text-petrol-100'
+      data-animate
+      data-animate-delay='240'>
       Diagnóstico profesional de tu ficha de Google, tu web y tu competencia directa en Barcelona. Presupuesto detallado del proyecto en 48 h — la decisión es tuya.
     </p>
-    <div class='mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-x-6'>
+    <div
+      class='mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-x-6'
+      data-animate
+      data-animate-delay='320'>
       <WhatsAppButton text='Solicita tu diagnóstico gratuito' />
       <a
         href='/#contacto'
-        class='text-sm/6 font-semibold text-petrol-600 hover:text-petrol-900 transition-colors'>
+        class='text-sm/6 font-semibold text-white hover:text-sky-300 transition-colors'>
         O rellena el formulario de contacto →
       </a>
     </div>

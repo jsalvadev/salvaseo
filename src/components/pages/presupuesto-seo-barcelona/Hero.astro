@@ -1,84 +1,54 @@
 ---
-import { Euro, ShieldCheck, Clock } from '@lucide/astro'
 import WhatsAppButton from '../../WhatsAppButton.astro'
+
+interface Props {
+  upheading?: string
+  heading?: string
+  description?: string
+  primaryCtaText?: string
+  secondaryCtaText?: string
+  secondaryCtaHref?: string
+}
+
+const {
+  upheading = 'Presupuesto SEO en Barcelona',
+  heading = 'Tu negocio merece más visibilidad',
+  description = 'Escala posiciones en Google desde 350€/mes. Incluimos diagnóstico inicial gratuito para trazar tu hoja de ruta.',
+  primaryCtaText = 'Solicita tu diagnóstico gratuito',
+  secondaryCtaText = 'Ver paquetes y precios',
+  secondaryCtaHref = '#paquetes'
+} = Astro.props
 ---
 
 <div class='bg-petrol-900'>
   <div class='relative isolate overflow-hidden px-6 lg:px-8'>
-    <svg
-      class='absolute inset-0 -z-10 h-full w-full'
-      aria-hidden='true'>
-      <defs>
-        <pattern
-          id='hero-dot-pattern'
-          width='20'
-          height='20'
-          patternUnits='userSpaceOnUse'>
-          <circle
-            cx='1'
-            cy='1'
-            r='1'
-            fill='rgb(255 255 255 / 0.12)'
-          ></circle>
-        </pattern>
-      </defs>
-      <rect
-        width='100%'
-        height='100%'
-        fill='url(#hero-dot-pattern)'
-      ></rect>
-    </svg>
+    <img
+      src='https://images.pexels.com/photos/8347889/pexels-photo-8347889.jpeg'
+      alt=''
+      class='absolute inset-0 -z-10 size-full object-cover opacity-20 [mask-image:linear-gradient(to_right,transparent_30%,black_70%)]'
+      loading='eager'
+      decoding='async'
+    />
 
     <div class='mx-auto max-w-3xl py-24 sm:py-32 lg:py-40'>
-      <div class='mb-6 flex justify-center'>
-        <span
-          class='rounded-full bg-sky-500/10 border border-sky-400/20 px-3 py-1 text-sm/6 text-sky-300'>
-          Presupuesto SEO en Barcelona
-        </span>
-      </div>
-      <div class='mb-8 flex flex-wrap items-center justify-center gap-3'>
-        <span
-          class='inline-flex items-center gap-2 bg-white/10 rounded-full px-3 py-1 text-sm text-petrol-100'>
-          <Euro
-            class='size-4'
-            aria-hidden='true'
-          />
-          Desde 350 €/mes
-        </span>
-        <span
-          class='inline-flex items-center gap-2 bg-white/10 rounded-full px-3 py-1 text-sm text-petrol-100'>
-          <ShieldCheck
-            class='size-4'
-            aria-hidden='true'
-          />
-          Contratación mensual
-        </span>
-        <span
-          class='inline-flex items-center gap-2 bg-white/10 rounded-full px-3 py-1 text-sm text-petrol-100'>
-          <Clock
-            class='size-4'
-            aria-hidden='true'
-          />
-          Diagnóstico gratuito
-        </span>
+      <div class='hidden sm:mb-8 sm:flex sm:justify-center'>
+        <h1 class='relative rounded-full bg-sky-500/10 border border-sky-400/20 px-3 py-1 text-sm/6 text-sky-300'>
+          {upheading}
+        </h1>
       </div>
       <div class='text-center'>
-        <h1
-          class='text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl'>
-          Presupuesto SEO en Barcelona — Precio y Paquetes Mensuales
-        </h1>
-
-        <p
-          class='mt-8 text-lg font-medium text-pretty text-petrol-100 sm:text-xl/8'>
-          Tres paquetes de servicios SEO con precio mensual cerrado desde el diagnóstico. Posicionamiento orgánico en Google para clientes que buscan resultados medibles — el compromiso se renueva con tracción real.
+        <p class='text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl'>
+          {heading}
         </p>
-        <div
-          class='mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-x-6'>
-          <WhatsAppButton text='Solicita tu diagnóstico gratuito' />
+        <p class='mt-8 text-lg font-medium text-pretty text-petrol-100 sm:text-xl/8'>
+          <Fragment set:html={description} />
+        </p>
+        <div class='mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-x-6'>
+          <WhatsAppButton text={primaryCtaText} />
           <a
-            href='#paquetes'
+            href={secondaryCtaHref}
             class='text-sm/6 font-semibold text-white hover:text-sky-300 transition-colors'>
-            Ver paquetes y precios <span aria-hidden='true'>→</span>
+            {secondaryCtaText} <span aria-hidden='true'>→</span>
           </a>
         </div>
       </div>
