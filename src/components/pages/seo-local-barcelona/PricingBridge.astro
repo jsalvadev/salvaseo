@@ -1,0 +1,82 @@
+---
+import Upheading from '../../Upheading.astro'
+import WhatsAppButton from '../../WhatsAppButton.astro'
+
+interface Guarantee {
+  title: string
+  description: string
+}
+
+interface Props {
+  upheading: string
+  heading: string
+  priceHighlight?: string
+  intro: string
+  guarantees: Guarantee[]
+  quote: string
+  quoteAuthor: string
+}
+
+const {
+  upheading,
+  heading,
+  priceHighlight,
+  intro,
+  guarantees,
+  quote,
+  quoteAuthor,
+} = Astro.props
+---
+
+<div class='bg-sandstone-soft px-6 py-24 sm:py-32 lg:px-8'>
+  <div class='mx-auto max-w-3xl'>
+    <Upheading as='h2' text={upheading} />
+    <p class='mt-2 text-4xl font-semibold tracking-tight text-pretty text-petrol-900 sm:text-5xl'>
+      {heading}
+    </p>
+
+    {priceHighlight && (
+      <div class='my-8 flex items-center gap-4 rounded-xl border border-sky-100 bg-sky-50 px-6 py-5'>
+        <span class='text-3xl font-bold text-petrol-900'>{priceHighlight}</span>
+        <span class='text-sm text-petrol-600'>· Definido tras diagnóstico gratuito · Sin contratos</span>
+      </div>
+    )}
+
+    <p class='mt-6 text-xl/8 text-petrol-700'>
+      <Fragment set:html={intro} />
+    </p>
+
+    <!-- Guarantees -->
+    <ul role='list' class='mt-10 space-y-6'>
+      {guarantees.map((item) => (
+        <li class='border-l-2 border-sky-100 pl-4 py-2 text-base/7 text-petrol-600'>
+          <strong class='text-petrol-900'>{item.title}</strong> {item.description}
+        </li>
+      ))}
+    </ul>
+
+    <!-- Quote -->
+    <figure class='mt-10'>
+      <blockquote class='border-l-4 border-sky-200 pl-6 text-xl/8 italic text-petrol-900 text-pretty'>
+        <p>{quote}</p>
+      </blockquote>
+      {quoteAuthor && (
+        <figcaption class='mt-4 pl-6'>
+          <div class='text-sm/6 text-petrol-600'>
+            <Fragment set:html={quoteAuthor} />
+          </div>
+        </figcaption>
+      )}
+    </figure>
+
+    <!-- CTA: bridge to pricing page -->
+    <div class='mt-10 flex flex-col sm:flex-row items-start gap-4'>
+      <a
+        href='/presupuesto-seo-barcelona#paquetes'
+        class='rounded-md bg-sky-500 px-5 py-3 text-sm font-bold text-white shadow-sm hover:bg-sky-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 transition-colors'>
+        Ver paquetes y precios
+      </a>
+      <WhatsAppButton text='O pide tu diagnóstico gratuito' />
+    </div>
+  </div>
+</div>

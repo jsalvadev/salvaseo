@@ -6,13 +6,13 @@ import LocalSeoServices from '../components/pages/seo-local-barcelona/Services.a
 import Timeline from '../components/pages/seo-local-barcelona/Timeline.astro'
 import LocalSeoVsAds from '../components/pages/seo-local-barcelona/VsAds.astro'
 import LocalBusinessTypes from '../components/pages/seo-local-barcelona/BusinessTypes.astro'
-import LocalSeoPricing from '../components/pages/seo-local-barcelona/Pricing.astro'
+import LocalSeoPricingBridge from '../components/pages/seo-local-barcelona/PricingBridge.astro'
 import LocalSeoFaq from '../components/pages/seo-local-barcelona/Faq.astro'
 import { faqSeoLocalItems } from '../data/faq-seo-local'
 import LocalSeoCta from '../components/pages/seo-local-barcelona/Cta.astro'
 import GoogleMapEmbed from '../components/shared/GoogleMapEmbed.astro'
 
-const MIN_MONTHLY_PRICE_EUR = 350
+const MIN_MONTHLY_PRICE_EUR = 300
 const MIN_MONTHLY_PRICE_TEXT = `${MIN_MONTHLY_PRICE_EUR} €/mes`
 const DATE_MODIFIED = new Date().toISOString().split('T')[0]
 const seoLocalExplainerItems = [
@@ -281,55 +281,19 @@ const seoLocalBusinessTypes = [
   />
 
   <!-- 7. PRECIOS -->
-  <LocalSeoPricing
+  <LocalSeoPricingBridge
     upheading='Precio del servicio de SEO local'
     heading='Lo que cuesta y lo que cuesta no hacerlo'
-    intro={`El presupuesto de tu consultoría SEO local se define tras auditar tu ficha de Google Business, tu sitio web y la competencia local en Barcelona. La inversión se asigna a acciones con impacto directo en captación de clientes potenciales, facturación y retorno.`}
-    priceText={`Desde ${MIN_MONTHLY_PRICE_EUR} €`}
-    priceUnit='/mes'
-    priceNote='Diagnóstico inicial gratuito. El presupuesto final de tu servicio SEO local depende de tu zona, competencia y objetivos de crecimiento.'
-    ctaText='Solicita tu diagnóstico gratuito'
-    ctaHref='https://wa.me/34692051399?text=Hola%20Salva%2C%20tengo%20un%20negocio%20en%20Barcelona%20y%20quiero%20aparecer%20en%20Google%20Maps.%20%C2%BFPuedes%20analizar%20mi%20ficha%3F'
-    categories={[
-      {
-        name: 'Google Business Profile y Maps',
-        features: [
-          { text: 'Auditoría completa de tu ficha de Google', included: true },
-          { text: 'Optimización de categorías, descripción y atributos', included: true },
-          { text: 'Publicaciones, fotos y productos en GBP', included: true },
-          { text: 'Monitorización de posiciones en Google Maps', included: true },
-        ]
-      },
-      {
-        name: 'Web y contenido local',
-        features: [
-          { text: 'SEO On Page con enfoque geolocalizado', included: true },
-          { text: 'Páginas de servicio optimizadas por zona', included: true },
-          { text: 'Schema LocalBusiness y datos estructurados', included: true },
-          { text: 'Investigación de palabras clave locales', included: true },
-        ]
-      },
-      {
-        name: 'Autoridad y reputación',
-        features: [
-          { text: 'Gestión de citaciones NAP en directorios clave', included: true },
-          { text: 'Estrategia de captación de reseñas', included: true },
-          { text: 'Link building local y menciones de zona', included: true },
-          { text: 'Respuesta activa a opiniones en Google', included: true },
-        ]
-      },
-      {
-        name: 'Seguimiento y reporting',
-        features: [
-          { text: 'Informe mensual de posiciones, tráfico y conversiones', included: true },
-          { text: 'Seguimiento de llamadas y formularios por zona', included: true },
-          { text: 'Canal directo de comunicación y decisiones sin intermediarios', included: true },
-          { text: 'Ajuste continuo de estrategia según resultados', included: true },
-        ]
-      },
+    priceHighlight={`Desde ${MIN_MONTHLY_PRICE_TEXT}`}
+    intro={`El presupuesto de tu consultoría SEO local se define tras auditar tu ficha de Google Business, tu sitio web y la competencia local en Barcelona. Los presupuestos parten de <strong>${MIN_MONTHLY_PRICE_TEXT} + IVA</strong> y la inversión se asigna a acciones con impacto directo en captación de clientes, facturación y retorno.`}
+    guarantees={[
+      { title: 'Diagnóstico inicial gratuito.', description: 'Audito tu ficha de Google Business Profile, tu web y la competencia local. Si el SEO local no tiene sentido para tu negocio, lo sabrás antes de invertir.' },
+      { title: 'Resultados visibles en semanas.', description: 'Los primeros cambios en Maps y visibilidad local llegan entre 1 y 3 meses. La consolidación real, entre 4 y 6 meses.' },
+      { title: 'Sin contratos de permanencia.', description: 'Todo el trabajo realizado queda en tu ficha y tu web. Es tuyo, independientemente de lo que decidas después.' },
+      { title: 'Ejecución técnica directa.', description: 'Sin intermediarios ni capas de gestión. Tu proyecto recibe atención especializada de un consultor SEO local.' },
     ]}
     quote='La visibilidad local solo cuenta cuando se traduce en clientes, llamadas y facturación. El SEO local es una inversión en crecimiento, no un gasto.'
-    quoteAuthor='— Salvador Jesús, Experto en SEO Local y Consultor SEO Local en Barcelona'
+    quoteAuthor='— Salvador Jesús, Consultor SEO en Barcelona'
   />
 
   <!-- 8. FAQs -->

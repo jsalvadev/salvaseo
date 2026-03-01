@@ -4,21 +4,21 @@ import Services from '../components/pages/posicionamiento-web-barcelona/Services
 import Timeline from '../components/pages/posicionamiento-web-barcelona/Timeline.astro'
 import HeroLanding from '../components/pages/posicionamiento-web-barcelona/Hero.astro'
 import TrustBanner from '../components/pages/posicionamiento-web-barcelona/TrustBanner.astro'
-import Pricing from '../components/pages/posicionamiento-web-barcelona/Pricing.astro'
+import PricingBridge from '../components/pages/posicionamiento-web-barcelona/PricingBridge.astro'
 import FreelancerVsAgency from '../components/pages/posicionamiento-web-barcelona/FreelancerVsAgency.astro'
 import LocalAreas from '../components/pages/posicionamiento-web-barcelona/LocalAreas.astro'
 import Faq from '../components/pages/posicionamiento-web-barcelona/Faq.astro'
 import { faqBarcelonaItems } from '../data/faq-barcelona'
 import Cta from '../components/pages/posicionamiento-web-barcelona/Cta.astro'
 
-const MIN_MONTHLY_PRICE_EUR = 400
+const MIN_MONTHLY_PRICE_EUR = 300
 const MIN_MONTHLY_PRICE_TEXT = `${MIN_MONTHLY_PRICE_EUR} €/mes`
 const DATE_MODIFIED = new Date().toISOString().split('T')[0]
 ---
 
 <Layout
   title='Posicionamiento Web en Barcelona | SalvaSEO'
-  description='Consultor SEO en Barcelona. Estrategia de captación orgánica para empresas locales y pymes. Presupuestos desde 400 €/mes.'
+  description='Consultor SEO en Barcelona. Estrategia de captación orgánica para empresas locales y pymes. Presupuestos desde 300 €/mes.'
   canonicalUrl='https://salvaseo.com/posicionamiento-web-barcelona'>
   <HeroLanding
     upheading='Posicionamiento web en Barcelona'
@@ -50,31 +50,19 @@ const DATE_MODIFIED = new Date().toISOString().split('T')[0]
     ]}
   />
   <FreelancerVsAgency />
-  <Pricing
+  <PricingBridge
     upheading='Precios de posicionamiento web en Barcelona'
     heading='Solo inviertes en lo que funciona'
     priceHighlight={`Desde ${MIN_MONTHLY_PRICE_TEXT}`}
-    intro={`Un servicio profesional de posicionamiento en Barcelona requiere recursos proporcionales a tus objetivos. Los presupuestos parten de <strong>${MIN_MONTHLY_PRICE_TEXT}</strong> y se definen según tres factores — tu competencia, el estado técnico de tu web y la velocidad de crecimiento que necesites.`}
-    costContext='Antes de valorar el precio, calcula el coste de oportunidad. <strong>Cada día que tu competencia ocupa tu lugar en Google, tú pierdes una venta</strong>.'
-    features={[
-      { title: 'Sabrás qué se hace cada mes.', description: 'Recibes un plan con las acciones concretas, los objetivos y el motivo de cada una.' },
-      { title: 'Sabrás cuándo verás resultados.', description: 'Cronograma realista según tu sector — qué esperar a las 4 semanas, a los 3 meses y a los 6.' },
-      { title: 'Sabrás en qué se va cada euro.', description: 'Presupuesto desglosado por fases, sin servicios de relleno.' },
-    ]}
-    subheading='Presupuesto de posicionamiento web a medida, no por plantilla'
-    subtext='Evita los planes cerrados. Tu estrategia se diseña tras un análisis real de tu web. Solo inviertes en lo que tu negocio necesita para escalar.'
-    quote={`Cada euro invertido se justifica con datos antes de comprometerse.
-Esa es la única forma de que la inversión tenga sentido.`}
-    quoteAuthor='— Salvador Jesús, Consultor SEO en Barcelona'
-    bottomHeading='Garantías antes de invertir en posicionamiento web'
-    bottomItems={[
+    intro={`Los presupuestos parten de <strong>${MIN_MONTHLY_PRICE_TEXT} + IVA</strong> y se definen según tu competencia, el estado técnico de tu web y la velocidad de crecimiento que necesites.`}
+    guarantees={[
       { title: 'No inviertes a ciegas.', description: 'El análisis inicial confirma si el SEO es rentable para tu sector. Si no hay demanda o la competencia es inalcanzable, lo sabrás antes de gastar un euro.' },
       { title: 'Los primeros cambios llegan en semanas.', description: 'Entre las 4 y 8 semanas ya hay movimiento. La consolidación real viene entre los 3 y 6 meses.' },
       { title: 'Sin contratos de permanencia.', description: 'Todo el trabajo realizado queda en tu web. Es tuyo, independientemente de lo que decidas después.' },
       { title: 'Ejecución técnica directa.', description: 'Capacidad limitada a pocos proyectos simultáneos. Tu web recibe atención especializada, no tareas delegadas.' },
     ]}
-    ctaText='Pide tu análisis gratis por WhatsApp'
-    ctaHref='https://wa.me/34692051399?text=Hola%20Salva%2C%20he%20visto%20tu%20web.%20Tengo%20un%20negocio%20en%20Barcelona%20y%20me%20gustar%C3%ADa%20saber%20si%20el%20SEO%20puede%20ayudarme%20a%20conseguir%20m%C3%A1s%20clientes.'
+    quote='Cada euro invertido se justifica con datos antes de comprometerse. Esa es la única forma de que la inversión tenga sentido.'
+    quoteAuthor='— Salvador Jesús, Consultor SEO en Barcelona'
   />
   <Faq
     upheading='Posicionamiento web profesional para empresas en Barcelona'
@@ -86,7 +74,7 @@ Esa es la única forma de que la inversión tenga sentido.`}
     layout='centered'
     upheading='Posicionamiento web para pymes en Barcelona'
     heading='El primer paso es gratis'
-    text='Accede a un estudio de mercado y una auditoría técnica de tu web <strong>sin coste (valorada en 200 €)</strong>. Verifica la rentabilidad de la inversión antes de tomar cualquier decisión.'
+    text='Accede a un estudio de mercado y una auditoría técnica de tu web <strong>sin coste ni compromiso</strong>. Verifica la rentabilidad de la inversión antes de tomar cualquier decisión.'
     primaryCtaText='Solicita tu análisis gratuito'
     secondaryCtaText='O rellena el formulario'
     secondaryCtaHref='/#contacto'
@@ -148,7 +136,7 @@ Esa es la única forma de que la inversión tenga sentido.`}
           url: 'https://salvaseo.com/posicionamiento-web-barcelona',
           name: 'Posicionamiento Web en Barcelona | SalvaSEO',
           description:
-            'Consultor SEO en Barcelona. Estrategia de captación orgánica para empresas locales y pymes. Presupuestos desde 400 €/mes.',
+            'Consultor SEO en Barcelona. Estrategia de captación orgánica para empresas locales y pymes. Presupuestos desde 300 €/mes.',
           isPartOf: {
             '@id': 'https://salvaseo.com/#website'
           },
