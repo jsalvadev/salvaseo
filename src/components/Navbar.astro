@@ -51,14 +51,14 @@ const { brand, contact, navigation } = siteConfig
       {navigation.primary.slice(0, 1).map((link) => (
         <a
           href={link.href}
-          class='text-sm/6 font-semibold text-petrol-900'
+          class='text-sm/6 font-semibold text-petrol-900 hover:text-sky-600 transition-colors duration-200'
           >{link.label}</a
         >
       ))}
       <div class='relative group'>
         <button
           type='button'
-          class='flex items-center gap-x-1 text-sm/6 font-semibold text-petrol-900'>
+          class='flex items-center gap-x-1 text-sm/6 font-semibold text-petrol-900 hover:text-sky-600 transition-colors duration-200'>
           Servicios
           <svg
             viewBox='0 0 20 20'
@@ -88,7 +88,7 @@ const { brand, contact, navigation } = siteConfig
       {navigation.primary.slice(1).map((link) => (
         <a
           href={link.href}
-          class='text-sm/6 font-semibold text-petrol-900'
+          class='text-sm/6 font-semibold text-petrol-900 hover:text-sky-600 transition-colors duration-200'
           >{link.label}</a
         >
       ))}
