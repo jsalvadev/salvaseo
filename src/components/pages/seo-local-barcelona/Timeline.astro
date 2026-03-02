@@ -161,20 +161,25 @@ const phaseGridColsClass =
     class="bg-white py-24 sm:py-32"
 >
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        {upheading && <Upheading as="h2" text={upheading} class="mb-2 text-center text-pretty" />}
-        <p
-            class:list={["mx-auto max-w-[60ch] text-center text-3xl font-semibold tracking-tight text-pretty text-petrol-900 sm:text-4xl", !upheading && "mb-2"]}
-        >
-            {heading}
-        </p>
-        <p class="mb-16 mx-auto max-w-[55ch] text-center text-lg text-petrol-700 text-pretty">
-            {subtitle}
-        </p>
+        <div data-animate>
+            {upheading && <Upheading as="h2" text={upheading} class="mb-2 text-center text-pretty" />}
+            <p
+                class:list={["mx-auto max-w-[60ch] text-center text-3xl font-semibold tracking-tight text-pretty text-petrol-900 sm:text-4xl", !upheading && "mb-2"]}
+            >
+                {heading}
+            </p>
+            <p class="mb-16 mx-auto max-w-[55ch] text-center text-lg text-petrol-700 text-pretty">
+                {subtitle}
+            </p>
+        </div>
         <div
             class:list={["mx-auto grid max-w-2xl grid-cols-1 gap-8 lg:mx-0 lg:max-w-none", phaseGridColsClass]}
         >
             {phases.map((phase, idx) => (
-                <div class="relative bg-white border border-petrol-100 rounded-xl p-6 overflow-hidden">
+                <div
+                    data-animate
+                    data-animate-delay={idx * 150}
+                    class="group relative bg-white border border-petrol-100 rounded-xl p-6 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-petrol-200">
                     <!-- Watermark number -->
                     <span
                         aria-hidden="true"
@@ -185,7 +190,7 @@ const phaseGridColsClass =
 
                     <!-- Progress bar -->
                     <div class="h-1 bg-petrol-50 rounded-full mb-6 overflow-hidden">
-                        <div class:list={['h-full bg-gradient-to-r from-sky-400 to-sky-600 rounded-full', progressWidths[idx] || 'w-full']}></div>
+                        <div class:list={['h-full bg-gradient-to-r from-sky-400 to-sky-600 rounded-full transition-all duration-300 group-hover:w-full', progressWidths[idx] || 'w-full']}></div>
                     </div>
 
                     <h3 class="text-lg font-bold text-petrol-900 relative">
@@ -219,7 +224,7 @@ const phaseGridColsClass =
         </div>
 
         <!-- CTA card -->
-        <div class="mt-16 bg-sandstone-soft border border-petrol-100 rounded-xl p-8 text-center">
+        <div data-animate class="mt-16 bg-sandstone-soft border border-petrol-100 rounded-xl p-8 text-center">
             <p class="text-xl font-semibold text-petrol-900">
                 {ctaHeading}
             </p>

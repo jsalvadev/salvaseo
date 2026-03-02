@@ -30,33 +30,38 @@ const {
 
 <div class='bg-white px-6 py-24 sm:py-32 lg:px-8'>
   <div class='mx-auto max-w-3xl'>
-    <Upheading as='h2' text={upheading} />
-    <p class='mt-2 text-4xl font-semibold tracking-tight text-pretty text-petrol-900 sm:text-5xl'>
-      {heading}
-    </p>
+    <div data-animate>
+      <Upheading as='h2' text={upheading} />
+      <p class='mt-2 text-4xl font-semibold tracking-tight text-pretty text-petrol-900 sm:text-5xl'>
+        {heading}
+      </p>
+    </div>
 
     {priceHighlight && (
-      <div class='my-8 flex items-center gap-4 rounded-xl border border-sky-100 bg-sky-50 px-6 py-5'>
+      <div data-animate class='my-8 flex items-center gap-4 rounded-xl border border-sky-100 bg-sky-50 px-6 py-5 pulse-glow'>
         <span class='text-3xl font-bold text-petrol-900'>{priceHighlight}</span>
         <span class='text-sm text-petrol-600'>· Definido tras diagnóstico gratuito · Sin contratos</span>
       </div>
     )}
 
-    <p class='mt-6 text-xl/8 text-petrol-700'>
+    <p data-animate class='mt-6 text-xl/8 text-petrol-700'>
       <Fragment set:html={intro} />
     </p>
 
     <!-- Guarantees -->
     <ul role='list' class='mt-10 space-y-6'>
-      {guarantees.map((item) => (
-        <li class='border-l-2 border-sky-100 pl-4 py-2 text-base/7 text-petrol-600'>
+      {guarantees.map((item, i) => (
+        <li
+          data-animate
+          data-animate-delay={i * 100}
+          class='border-l-2 border-sky-100 pl-4 py-2 text-base/7 text-petrol-600 transition-all duration-200 hover:border-l-sky-500'>
           <strong class='text-petrol-900'>{item.title}</strong> {item.description}
         </li>
       ))}
     </ul>
 
     <!-- Quote -->
-    <figure class='mt-10'>
+    <figure data-animate class='mt-10'>
       <blockquote class='border-l-4 border-sky-200 pl-6 text-xl/8 italic text-petrol-900 text-pretty'>
         <p>{quote}</p>
       </blockquote>
@@ -70,7 +75,7 @@ const {
     </figure>
 
     <!-- CTA: bridge to pricing page -->
-    <div class='mt-10 flex flex-col sm:flex-row items-start gap-4'>
+    <div data-animate class='mt-10 flex flex-col sm:flex-row items-start gap-4'>
       <a
         href='/presupuesto-seo-barcelona#paquetes'
         class='rounded-md bg-sky-500 px-5 py-3 text-sm font-bold text-white shadow-sm hover:bg-sky-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 transition-colors'>

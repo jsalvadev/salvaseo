@@ -5,10 +5,12 @@ import Upheading from '../../Upheading.astro'
 
 <div
   id='sobre-mi'
-  class='bg-white py-24 md:py-32'>
+  class='relative bg-white py-24 md:py-32'>
+  <!-- Hero → AboutMe gradient transition -->
+  <div class='absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-petrol-900/5 to-transparent pointer-events-none' aria-hidden='true'></div>
   <div
     class='mx-auto grid max-w-7xl grid-cols-1 gap-20 px-6 lg:px-8 xl:grid-cols-5'>
-    <div data-animate class='max-w-2xl xl:col-span-2'>
+    <div data-animate-direction='left' class='max-w-2xl xl:col-span-2'>
       <div class='bg-sandstone-soft border border-[#e8ddd1] shadow-sm rounded-xl px-8 py-10 sm:px-12 sm:py-12'>
         <Upheading text='Consultoría SEO profesional' />
         <p
@@ -19,22 +21,22 @@ import Upheading from '../../Upheading.astro'
           Esto es lo que tu negocio recibe con una consultoría SEO profesional
         </p>
         <div class='mt-8 space-y-4'>
-          <div class='bg-white border border-petrol-100 rounded-xl p-6'>
-            <span class='text-4xl font-bold text-sky-500/30 select-none' aria-hidden='true'>01</span>
+          <div class='bg-white border border-petrol-100 rounded-xl p-6 transition-all duration-300 hover:border-orange-500/30 hover:shadow-sm'>
+            <span class='text-4xl font-bold text-orange-500/25 select-none' aria-hidden='true'>01</span>
             <p class='mt-2 text-base/7 text-petrol-900'>
               <strong>Diagnóstico técnico completo.</strong> Análisis de por qué tu web no
               aparece en Google — estructura, contenido, enlaces y velocidad. Explicación clara de cada problema y su impacto en tu facturación.
             </p>
           </div>
-          <div class='bg-white border border-petrol-100 rounded-xl p-6'>
-            <span class='text-4xl font-bold text-sky-500/30 select-none' aria-hidden='true'>02</span>
+          <div class='bg-white border border-petrol-100 rounded-xl p-6 transition-all duration-300 hover:border-orange-500/30 hover:shadow-sm'>
+            <span class='text-4xl font-bold text-orange-500/25 select-none' aria-hidden='true'>02</span>
             <p class='mt-2 text-base/7 text-petrol-900'>
               <strong>Ejecución con resultados medibles.</strong>
               <strong>Cada cambio responde a un objetivo concreto de captación de clientes.</strong> Seguimiento semanal con métricas reales, no informes genéricos.
             </p>
           </div>
-          <div class='bg-white border border-petrol-100 rounded-xl p-6'>
-            <span class='text-4xl font-bold text-sky-500/30 select-none' aria-hidden='true'>03</span>
+          <div class='bg-white border border-petrol-100 rounded-xl p-6 transition-all duration-300 hover:border-orange-500/30 hover:shadow-sm'>
+            <span class='text-4xl font-bold text-orange-500/25 select-none' aria-hidden='true'>03</span>
             <p class='mt-2 text-base/7 text-petrol-900'>
               <strong>Comunicación directa.</strong> Línea abierta por teléfono, WhatsApp o email para cualquier duda sobre tu proyecto.
             </p>
@@ -47,18 +49,20 @@ import Upheading from '../../Upheading.astro'
       </div>
     </div>
     <ul
-      data-animate
-      data-animate-delay='150'
+      data-animate-direction='right'
       role='list'
-      class='divide-y divide-petrol-100 xl:col-span-3'>
+      class='divide-y divide-petrol-100 xl:col-span-3 xl:border-l xl:border-orange-500/20 xl:pl-12'>
       <li class='flex flex-col gap-10 py-12 first:pt-0 last:pb-0 sm:flex-row'>
-        <img
-          src={aboutMeImage.src}
-          width={aboutMeImage.width}
-          height={aboutMeImage.height}
-          alt='Salvador Jesús'
-          class='aspect-4/5 w-52 flex-none rounded-2xl object-cover'
-        />
+        <div class='relative flex-none'>
+          <div class='absolute -inset-2 rounded-2xl bg-gradient-to-br from-sky-500/10 to-orange-500/10 -z-10' aria-hidden='true'></div>
+          <img
+            src={aboutMeImage.src}
+            width={aboutMeImage.width}
+            height={aboutMeImage.height}
+            alt='Salvador Jesús'
+            class='aspect-4/5 w-52 flex-none rounded-2xl object-cover'
+          />
+        </div>
         <div class='max-w-xl flex-auto'>
           <p class='text-lg/8 font-semibold tracking-tight text-petrol-900'>
             Salvador Jesús

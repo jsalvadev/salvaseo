@@ -58,20 +58,22 @@ const {
 <div class='overflow-hidden bg-sandstone-soft py-24 sm:py-32'>
   <div class='mx-auto max-w-7xl px-6 lg:px-8'>
     <div class='mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2'>
-      <div class='lg:pr-8 lg:pt-4'>
+      <div class='lg:pr-8 lg:pt-4' data-animate data-animate-direction='left'>
         <div class='lg:max-w-lg'>
-          <Upheading as='h2' text={upheading} />
-          <p class='mt-2 text-4xl font-semibold tracking-tight text-pretty text-petrol-900 sm:text-5xl'>
-            {heading}
-          </p>
-          <p class='mt-6 text-lg/8 text-petrol-700'>
-            <Fragment set:html={intro} />
-          </p>
+          <div data-animate>
+            <Upheading as='h2' text={upheading} />
+            <p class='mt-2 text-4xl font-semibold tracking-tight text-pretty text-petrol-900 sm:text-5xl'>
+              {heading}
+            </p>
+            <p class='mt-6 text-lg/8 text-petrol-700'>
+              <Fragment set:html={intro} />
+            </p>
+          </div>
           <dl class='mt-10 max-w-xl space-y-8 text-base/7 text-petrol-700 lg:max-w-none'>
-            {items.map((item) => {
+            {items.map((item, idx) => {
               const Icon = iconByKey[item.icon]
               return (
-                <div class='relative border-l-2 border-sky-100 pl-8'>
+                <div data-animate data-animate-delay={idx * 100} class='relative border-l-2 border-sky-100 pl-8'>
                   <div class='absolute -left-[13px] top-0 bg-sandstone-soft rounded-full p-0.5'>
                     <Icon aria-hidden='true' class='size-5 text-sky-600' />
                   </div>
@@ -87,7 +89,7 @@ const {
           </dl>
         </div>
       </div>
-      <div class='flex items-start justify-end lg:order-last'>
+      <div class='flex items-start justify-end lg:order-last' data-animate data-animate-direction='right'>
         <div class='relative w-[48rem] max-w-none sm:w-[57rem] lg:w-full'>
           <!-- Browser frame -->
           <div class='rounded-xl border border-petrol-100 bg-white overflow-hidden'>

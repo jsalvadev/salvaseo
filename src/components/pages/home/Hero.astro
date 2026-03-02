@@ -5,10 +5,24 @@ import { Search, MapPin, TrendingUp } from '@lucide/astro'
 ---
 
 <div class='relative bg-petrol-900 overflow-hidden'>
+  <!-- gradient mesh -->
+  <div
+    class='pointer-events-none absolute inset-0'
+    style='background: radial-gradient(ellipse at 20% 50%, rgba(14,165,233,0.12) 0%, transparent 60%), radial-gradient(ellipse at 80% 30%, rgba(249,115,22,0.07) 0%, transparent 50%);'
+    aria-hidden='true'></div>
   <!-- dot grid -->
   <div
-    class='pointer-events-none absolute inset-0 opacity-[0.18]'
-    style='background-image: radial-gradient(circle, #7dd3fc 1px, transparent 1px); background-size: 28px 28px;'
+    class='pointer-events-none absolute inset-0 opacity-[0.10]'
+    style='background-image: radial-gradient(circle, #7dd3fc 1px, transparent 1px); background-size: 32px 32px;'
+    aria-hidden='true'></div>
+  <!-- floating decorative rings -->
+  <div
+    class='pointer-events-none absolute -top-20 -left-20 size-80 rounded-full border border-sky-400/10'
+    style='animation: subtle-float 6s ease-in-out infinite;'
+    aria-hidden='true'></div>
+  <div
+    class='pointer-events-none absolute -bottom-24 -right-24 size-96 rounded-full border border-orange-500/[0.08]'
+    style='animation: subtle-float 6s ease-in-out infinite 3s;'
     aria-hidden='true'></div>
   <div class='relative mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8'>
     <div
@@ -19,9 +33,11 @@ import { Search, MapPin, TrendingUp } from '@lucide/astro'
           Consultor SEO en Barcelona
         </h1>
         <p
-          class='animate-fade-in-up [animation-delay:100ms] mt-4 max-w-2xl text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl'>
+          class='animate-fade-in-up [animation-delay:100ms] mt-4 max-w-2xl text-5xl font-bold tracking-tighter text-balance text-white sm:text-7xl lg:text-8xl'>
           Cada día pierdes clientes que no saben que existes
         </p>
+        <!-- accent bar -->
+        <div class='animate-fade-in-up [animation-delay:150ms] mt-6 h-1 w-20 rounded-full bg-gradient-to-r from-orange-500 to-sky-500'></div>
       </div>
       <div class='mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1'>
         <p
@@ -54,14 +70,17 @@ import { Search, MapPin, TrendingUp } from '@lucide/astro'
         </div>
         <div class='animate-fade-in-up [animation-delay:560ms] mt-8 flex flex-wrap gap-x-6 gap-y-3'>
           <span class='inline-flex items-center gap-1.5 text-sm text-petrol-100'>
+            <span class='size-1.5 rounded-full bg-orange-500' aria-hidden='true'></span>
             <Search class='size-4' />
             Posicionamiento SEO
           </span>
           <span class='inline-flex items-center gap-1.5 text-sm text-petrol-100'>
+            <span class='size-1.5 rounded-full bg-orange-500' aria-hidden='true'></span>
             <MapPin class='size-4' />
             Barcelona
           </span>
           <span class='inline-flex items-center gap-1.5 text-sm text-petrol-100'>
+            <span class='size-1.5 rounded-full bg-orange-500' aria-hidden='true'></span>
             <TrendingUp class='size-4' />
             Más clientes
           </span>
@@ -72,7 +91,7 @@ import { Search, MapPin, TrendingUp } from '@lucide/astro'
         width={heroImage.width}
         height={heroImage.height}
         alt='Consultor SEO trabajando en estrategia digital para negocios locales en Barcelona'
-        class='animate-fade-in [animation-delay:300ms] mt-10 aspect-6/5 w-full max-w-lg rounded-2xl object-cover sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-36'
+        class='animate-fade-in [animation-delay:300ms] mt-10 aspect-6/5 w-full max-w-lg rounded-2xl object-cover ring-1 ring-white/10 shadow-2xl shadow-sky-500/10 sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-36'
       />
     </div>
   </div>

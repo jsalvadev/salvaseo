@@ -17,7 +17,12 @@
   --color-sky-600: #0284c7;
 
   /* Secondary */
+  --color-orange-50: #fff7ed;
+  --color-orange-400: #fb923c;
   --color-orange-500: #f97316;
+
+  /* Petrol extended */
+  --color-petrol-800: #1e4d5e;
 
   /* Warm White - Background */
   --color-warm-white: #FAFAF8;
@@ -77,6 +82,10 @@
   color: var(--color-maps-green);
 }
 
+@utility bg-orange-soft {
+  background-color: var(--color-orange-50);
+}
+
 :root {
   --navbar-height: 80px;
 }
@@ -121,6 +130,16 @@ html {
   to   { opacity: 1; }
 }
 
+@keyframes subtle-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0); }
+  50%      { box-shadow: 0 0 16px 4px rgba(14, 165, 233, 0.25); }
+}
+
 @utility animate-fade-in-up {
   animation: fade-in-up 0.6s ease-out both;
 }
@@ -146,13 +165,37 @@ html {
   transform: translateY(0) !important;
 }
 
+[data-animate-direction="left"] {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+[data-animate-direction="right"] {
+  opacity: 0;
+  transform: translateX(32px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.is-visible-left,
+.is-visible-right {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-in-up,
   .animate-fade-in,
-  [data-animate] {
+  [data-animate],
+  [data-animate-direction] {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
+  }
+
+  [style*="animation: subtle-float"],
+  [style*="animation: pulse-glow"] {
+    animation: none !important;
   }
 }

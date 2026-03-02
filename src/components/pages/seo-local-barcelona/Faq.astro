@@ -5,38 +5,81 @@ import type { FaqItem } from '../../../data/faq-home'
 interface Props {
   upheading?: string
   heading: string
-  intro?: string
+  idPrefix?: string
   items: FaqItem[]
 }
 
-const { upheading, heading, intro, items } = Astro.props
+const { upheading, heading, idPrefix = 'faq-local', items } = Astro.props
 ---
 
-<div class='bg-white'>
+<div class='bg-sandstone-soft'>
   <div class='mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40'>
-    {upheading && <Upheading as='h2' text={upheading} />}
-    <p class='text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl'>
-      {heading}
-    </p>
-    {intro && (
-      <p class='mt-6 max-w-2xl text-base/7 text-petrol-700'>
-        <Fragment set:html={intro} />
-      </p>
-    )}
-    <dl class='mt-20 space-y-4'>
-      {items.map((item, idx) => (
-        <div class='bg-petrol-50 rounded-lg p-5 border border-petrol-100 lg:grid lg:grid-cols-12 lg:gap-8'>
-          <dt class='text-base/7 font-semibold text-petrol-900 lg:col-span-5'>
-            <h3>
-              <span class='text-sky-500 font-mono text-sm mr-2'>{idx + 1}.</span>
-              {item.question}
-            </h3>
-          </dt>
-          <dd class='mt-4 text-base/7 text-petrol-600 lg:col-span-7 lg:mt-0'>
-            <Fragment set:html={item.answer} />
-          </dd>
-        </div>
-      ))}
-    </dl>
+    <div class='mx-auto max-w-4xl'>
+      <div data-animate>
+        {upheading && <Upheading as='h2' text={upheading} />}
+        <p class='text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl'>
+          {heading}
+        </p>
+      </div>
+      <div class='mt-16 space-y-4'>
+        {items.map((item, i) => (
+          <div
+            data-animate
+            data-animate-delay={i * 80}
+            class='bg-white rounded-lg border border-petrol-100 border-l-[3px] border-l-transparent p-5 transition-all duration-200 hover:border-petrol-200 hover:shadow-sm hover:border-l-sky-500'>
+            <dt>
+              <button
+                type='button'
+                command='--toggle'
+                commandfor={`${idPrefix}-${i}`}
+                class='flex w-full items-start justify-between text-left text-petrol-900'>
+                <h3 class='text-base/7 font-semibold'>
+                  <span class='text-orange-500 font-semibold font-mono text-sm mr-2'>{i + 1}.</span>
+                  {item.question}
+                </h3>
+                <span class='ml-6 flex h-7 items-center'>
+                  <svg
+                    viewBox='0 0 24 24'
+                    fill='none'
+                    stroke='currentColor'
+                    stroke-width='1.5'
+                    data-slot='icon'
+                    aria-hidden='true'
+                    class='size-6 in-aria-expanded:hidden'>
+                    <path
+                      d='M12 6v12m6-6H6'
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                    />
+                  </svg>
+                  <svg
+                    viewBox='0 0 24 24'
+                    fill='none'
+                    stroke='currentColor'
+                    stroke-width='1.5'
+                    data-slot='icon'
+                    aria-hidden='true'
+                    class='size-6 not-in-aria-expanded:hidden'>
+                    <path
+                      d='M18 12H6'
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                    />
+                  </svg>
+                </span>
+              </button>
+            </dt>
+            <el-disclosure
+              id={`${idPrefix}-${i}`}
+              hidden
+              class='contents'>
+              <dd class='mt-2 pr-12'>
+                <Fragment set:html={item.answer} />
+              </dd>
+            </el-disclosure>
+          </div>
+        ))}
+      </div>
+    </div>
   </div>
 </div>

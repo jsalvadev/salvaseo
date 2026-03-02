@@ -11,17 +11,18 @@ import Upheading from '../../Upheading.astro'
       class='mx-auto grid max-w-2xl grid-cols-1 items-start gap-x-8 gap-y-16 sm:gap-y-24 lg:mx-0 lg:max-w-none lg:grid-cols-2'>
       <div data-animate class='lg:pr-4'>
         <div
-          class='relative overflow-hidden rounded-xl shadow-md lg:max-w-lg'>
+          class='relative lg:max-w-lg'>
+          <div class='absolute -bottom-4 -right-4 rounded-xl bg-orange-500/10 inset-0 top-4 left-4 -z-10' aria-hidden='true'></div>
           <img
             src={workWithMeImage.src}
             width={workWithMeImage.width}
             height={workWithMeImage.height}
             alt='Espacio de trabajo moderno para consultoría SEO en Barcelona'
-            class='w-full rounded-xl object-cover'
+            class='relative w-full rounded-xl shadow-md object-cover'
           />
         </div>
       </div>
-      <div data-animate data-animate-delay='150'>
+      <div>
         <div class='text-base/7 text-petrol-900 lg:max-w-lg'>
           <Upheading
             as='h2'
@@ -31,27 +32,38 @@ import Upheading from '../../Upheading.astro'
             class='mt-2 text-4xl font-semibold tracking-tight text-pretty text-petrol-900 sm:text-5xl'>
             Cómo funciona el proceso
           </p>
-          <div class='max-w-xl'>
-            <p class='mt-6'>
-              Elegir a quién confiar el posicionamiento de tu negocio es una decisión importante. Por eso el proceso
-              empieza con un <strong>análisis gratuito antes de cualquier compromiso económico</strong>.
-            </p>
-            <p class='mt-8'>
-              Tu proyecto recibe <strong>tiempo de análisis real, objetivos definidos
-              con datos de tu mercado</strong> y una estrategia diseñada para
-              captar clientes en tu zona.
-            </p>
-            <p class='mt-8'>
-              <strong>Antes de pagar un solo euro</strong>, recibirás un diagnóstico de
-              tu web: estructura, contenido, velocidad y oportunidades de captación. Sabrás qué busca tu público
-              y qué necesita tu negocio para aparecer. Luego decides. Y, como mínimo, <strong>te quedas con una hoja de ruta
-              clara</strong>.
-            </p>
+          <!-- Timeline -->
+          <div class='mt-10 relative'>
+            <div data-animate data-animate-delay='0' class='relative border-l-2 border-petrol-100 pl-10 pb-10'>
+              <div class='absolute left-0 top-0 -translate-x-1/2 flex size-8 items-center justify-center rounded-full bg-sky-500 text-white text-sm font-bold ring-4 ring-white'>1</div>
+              <p>
+                Elegir a quién confiar el posicionamiento de tu negocio es una decisión importante. Por eso el proceso
+                empieza con un <strong>análisis gratuito antes de cualquier compromiso económico</strong>.
+              </p>
+            </div>
+            <div data-animate data-animate-delay='150' class='relative border-l-2 border-petrol-100 pl-10 pb-10'>
+              <div class='absolute left-0 top-0 -translate-x-1/2 flex size-8 items-center justify-center rounded-full bg-sky-500 text-white text-sm font-bold ring-4 ring-white'>2</div>
+              <p>
+                Tu proyecto recibe <strong>tiempo de análisis real, objetivos definidos
+                con datos de tu mercado</strong> y una estrategia diseñada para
+                captar clientes en tu zona.
+              </p>
+            </div>
+            <div data-animate data-animate-delay='300' class='relative pl-10'>
+              <div class='absolute left-0 top-0 -translate-x-1/2 flex size-8 items-center justify-center rounded-full bg-orange-500 text-white text-sm font-bold ring-4 ring-white'>3</div>
+              <p>
+                <strong>Antes de pagar un solo euro</strong>, recibirás un diagnóstico de
+                tu web: estructura, contenido, velocidad y oportunidades de captación. Sabrás qué busca tu público
+                y qué necesita tu negocio para aparecer. Luego decides. Y, como mínimo, <strong>te quedas con una hoja de ruta
+                clara</strong>.
+              </p>
+            </div>
           </div>
           <figure
-            class='mt-10 border-l-4 border-sky-200 pl-6 py-4 bg-sky-50/50 rounded-r-lg'>
+            class='mt-10 bg-petrol-900 rounded-xl p-8 relative'>
+            <span class='absolute top-4 left-6 text-6xl text-sky-500/20 font-serif leading-none select-none' aria-hidden='true'>"</span>
             <blockquote
-              class='text-xl/8 italic text-petrol-700 text-pretty'>
+              class='text-xl/8 italic text-petrol-100 text-pretty relative'>
               <p>
                 "Tu negocio recibe más horas de análisis y ejecución que en
                 cualquier plan estándar de agencia — porque la cartera es

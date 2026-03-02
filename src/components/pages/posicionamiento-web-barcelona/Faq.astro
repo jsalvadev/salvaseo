@@ -16,14 +16,19 @@ const { upheading, heading, idPrefix = 'faq', items, class: className } = Astro.
 <div class:list={['bg-sandstone-soft', className]}>
   <div class='mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40'>
     <div class='mx-auto max-w-4xl'>
-      {upheading && <Upheading as='h2' text={upheading} />}
-      <p
-        class='text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl'>
-        {heading}
-      </p>
+      <div data-animate>
+        {upheading && <Upheading as='h2' text={upheading} />}
+        <p
+          class='text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl'>
+          {heading}
+        </p>
+      </div>
       <div class='mt-16 space-y-4'>
         {items.map((item, i) => (
-          <div class='bg-white rounded-lg border border-petrol-100 p-5'>
+          <div
+            data-animate
+            data-animate-delay={i * 80}
+            class='bg-white rounded-lg border border-petrol-100 border-l-[3px] border-l-transparent p-5 transition-all duration-200 hover:border-petrol-200 hover:shadow-sm hover:border-l-sky-500'>
             <dt>
               <button
                 type='button'
@@ -31,7 +36,7 @@ const { upheading, heading, idPrefix = 'faq', items, class: className } = Astro.
                 commandfor={`${idPrefix}-${i}`}
                 class='flex w-full items-start justify-between text-left text-petrol-900'>
                 <h3 class='text-base/7 font-semibold'>
-                  <span class='text-sky-500 font-mono text-sm mr-2'>{i + 1}.</span>
+                  <span class='text-orange-500 font-semibold font-mono text-sm mr-2'>{i + 1}.</span>
                   {item.question}
                 </h3>
                 <span class='ml-6 flex h-7 items-center'>

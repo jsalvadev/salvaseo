@@ -24,10 +24,31 @@ const {
 } = Astro.props
 ---
 
-<div class:list={['bg-petrol-900', layout === 'centered' && 'px-6 lg:px-8']}>
+<div class:list={['relative bg-petrol-900 overflow-hidden', layout === 'centered' && 'px-6 lg:px-8']}>
+  <!-- gradient mesh -->
+  <div
+    class='pointer-events-none absolute inset-0'
+    style='background: radial-gradient(ellipse at 20% 50%, rgba(14,165,233,0.12) 0%, transparent 60%), radial-gradient(ellipse at 80% 30%, rgba(249,115,22,0.07) 0%, transparent 50%);'
+    aria-hidden='true'></div>
+  <!-- dot grid -->
+  <div
+    class='pointer-events-none absolute inset-0 opacity-[0.10]'
+    style='background-image: radial-gradient(circle, #7dd3fc 1px, transparent 1px); background-size: 32px 32px;'
+    aria-hidden='true'></div>
+  <!-- floating decorative rings -->
+  <div
+    class='pointer-events-none absolute -top-20 -left-20 size-80 rounded-full border border-sky-400/10'
+    style='animation: subtle-float 6s ease-in-out infinite;'
+    aria-hidden='true'></div>
+  <div
+    class='pointer-events-none absolute -bottom-24 -right-24 size-96 rounded-full border border-orange-500/[0.08]'
+    style='animation: subtle-float 6s ease-in-out infinite 3s;'
+    aria-hidden='true'></div>
+
   {layout === 'side-by-side' ? (
     <div
-      class='mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:flex lg:items-center lg:justify-between lg:px-8'>
+      data-animate
+      class='relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:flex lg:items-center lg:justify-between lg:px-8'>
       <div>
         <div class='mb-6 flex flex-wrap items-start gap-3'>
           <span class='inline-flex items-center gap-2 bg-white/10 rounded-full px-3 py-1 text-sm text-petrol-100'>
@@ -48,6 +69,8 @@ const {
           class='max-w-2xl text-4xl font-semibold tracking-tight text-white sm:text-5xl text-pretty'>
           {heading}
         </p>
+        <!-- accent bar -->
+        <div class='mt-4 h-1 w-20 rounded-full bg-gradient-to-r from-orange-500 to-sky-500'></div>
         <p class='mt-6 max-w-xl text-lg text-petrol-100'>
           <Fragment set:html={text} />
         </p>
@@ -66,7 +89,7 @@ const {
       </div>
     </div>
   ) : (
-    <div class='mx-auto max-w-2xl py-24 sm:py-32 text-center'>
+    <div data-animate class='relative mx-auto max-w-2xl py-24 sm:py-32 text-center'>
       <div class='mb-8 flex flex-wrap items-center justify-center gap-3'>
         <span class='inline-flex items-center gap-2 bg-white/10 rounded-full px-3 py-1 text-sm text-petrol-100'>
           <Search class='size-4' aria-hidden='true' />
@@ -86,6 +109,8 @@ const {
         class='mt-2 text-4xl font-semibold tracking-tight text-white sm:text-5xl'>
         {heading}
       </p>
+      <!-- accent bar -->
+      <div class='mx-auto mt-4 h-1 w-20 rounded-full bg-gradient-to-r from-orange-500 to-sky-500'></div>
       <p class='mt-6 text-lg/8 text-petrol-100'>
         <Fragment set:html={text} />
       </p>

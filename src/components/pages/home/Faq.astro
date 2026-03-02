@@ -23,7 +23,7 @@ const { upheading, heading, idPrefix = 'faq', items, class: className } = Astro.
       </p>
       <div class='mt-16 space-y-4'>
         {items.map((item, i) => (
-          <div class='bg-white rounded-lg border border-petrol-100 p-5'>
+          <div class='bg-white rounded-lg border border-petrol-100 border-l-[3px] border-l-transparent p-5 transition-all duration-200 hover:border-petrol-200 hover:shadow-sm hover:border-l-sky-500'>
             <dt>
               <button
                 type='button'
@@ -31,7 +31,7 @@ const { upheading, heading, idPrefix = 'faq', items, class: className } = Astro.
                 commandfor={`${idPrefix}-${i}`}
                 class='flex w-full items-start justify-between text-left text-petrol-900'>
                 <h3 class='text-base/7 font-semibold'>
-                  <span class='text-sky-500 font-mono text-sm mr-2'>{i + 1}.</span>
+                  <span class='text-orange-500 font-semibold font-mono text-sm mr-2'>{i + 1}.</span>
                   {item.question}
                 </h3>
                 <span class='ml-6 flex h-7 items-center'>
@@ -40,25 +40,10 @@ const { upheading, heading, idPrefix = 'faq', items, class: className } = Astro.
                     fill='none'
                     stroke='currentColor'
                     stroke-width='1.5'
-                    data-slot='icon'
                     aria-hidden='true'
-                    class='size-6 in-aria-expanded:hidden'>
+                    class='size-5 transition-transform duration-200 in-aria-expanded:rotate-180'>
                     <path
-                      d='M12 6v12m6-6H6'
-                      stroke-linecap='round'
-                      stroke-linejoin='round'
-                    />
-                  </svg>
-                  <svg
-                    viewBox='0 0 24 24'
-                    fill='none'
-                    stroke='currentColor'
-                    stroke-width='1.5'
-                    data-slot='icon'
-                    aria-hidden='true'
-                    class='size-6 not-in-aria-expanded:hidden'>
-                    <path
-                      d='M18 12H6'
+                      d='M19.5 8.25l-7.5 7.5-7.5-7.5'
                       stroke-linecap='round'
                       stroke-linejoin='round'
                     />

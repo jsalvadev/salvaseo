@@ -1,8 +1,11 @@
 ---
 import Upheading from '../../Upheading.astro'
+import { MapPin, Handshake, Building2 } from '@lucide/astro'
 ---
 
-<div class='bg-sandstone-soft py-24 sm:py-32'>
+<div class='relative bg-sandstone-soft py-24 sm:py-32 overflow-hidden'>
+  <!-- decorative circle -->
+  <div class='pointer-events-none absolute -top-40 -right-40 size-96 rounded-full border border-orange-500/5' aria-hidden='true'></div>
   <div class='mx-auto max-w-7xl px-6 lg:px-8'>
     <div data-animate class='mx-auto max-w-2xl lg:mx-0'>
       <Upheading
@@ -23,8 +26,9 @@ import Upheading from '../../Upheading.astro'
       <div
         data-animate
         data-animate-delay='0'
-        class='flex flex-col justify-start gap-y-4 bg-white border border-petrol-100 rounded-xl p-8 transition-all duration-200 hover:-translate-y-1 hover:shadow-md'>
-        <div class='h-0.5 w-10 bg-sky-500 rounded-full' aria-hidden='true'></div>
+        class='group flex flex-col justify-start gap-y-4 bg-white border border-petrol-100 rounded-xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl'>
+        <MapPin class='size-6 text-petrol-700' aria-hidden='true' />
+        <div class='h-0.5 w-10 bg-sky-500 rounded-full transition-all duration-300 group-hover:w-16' aria-hidden='true'></div>
         <h3
           class='text-lg font-semibold tracking-tight text-petrol-900 text-pretty'>
           Negocios que viven de su zona
@@ -37,8 +41,9 @@ import Upheading from '../../Upheading.astro'
       <div
         data-animate
         data-animate-delay='100'
-        class='flex flex-col justify-start gap-y-4 bg-white border border-petrol-100 rounded-xl p-8 transition-all duration-200 hover:-translate-y-1 hover:shadow-md'>
-        <div class='h-0.5 w-10 bg-sky-500 rounded-full' aria-hidden='true'></div>
+        class='group flex flex-col justify-start gap-y-4 bg-white border border-petrol-100 rounded-xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl'>
+        <Handshake class='size-6 text-petrol-700' aria-hidden='true' />
+        <div class='h-0.5 w-10 bg-orange-500 rounded-full transition-all duration-300 group-hover:w-16' aria-hidden='true'></div>
         <h3 class='text-lg font-semibold tracking-tight text-petrol-900'>
           Personas que se implican
         </h3>
@@ -49,8 +54,9 @@ import Upheading from '../../Upheading.astro'
       <div
         data-animate
         data-animate-delay='200'
-        class='flex flex-col justify-start gap-y-4 bg-white border border-petrol-100 rounded-xl p-8 transition-all duration-200 hover:-translate-y-1 hover:shadow-md'>
-        <div class='h-0.5 w-10 bg-sky-500 rounded-full' aria-hidden='true'></div>
+        class='group flex flex-col justify-start gap-y-4 bg-white border border-petrol-100 rounded-xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl'>
+        <Building2 class='size-6 text-petrol-700' aria-hidden='true' />
+        <div class='h-0.5 w-10 bg-gradient-to-r from-sky-500 to-orange-500 rounded-full transition-all duration-300 group-hover:w-16' aria-hidden='true'></div>
         <h3 class='text-lg font-semibold tracking-tight text-petrol-900'>
           Barcelona y alrededores
         </h3>

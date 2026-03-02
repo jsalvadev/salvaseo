@@ -15,8 +15,28 @@ interface Props {
 const { upheading, heading, description, primaryCtaText, secondaryCtaText, secondaryCtaHref } = Astro.props
 ---
 
-<div class='bg-petrol-900'>
-  <div class='relative isolate overflow-hidden px-6 lg:px-8'>
+<div class='relative bg-petrol-900 overflow-hidden'>
+  <!-- gradient mesh -->
+  <div
+    class='pointer-events-none absolute inset-0'
+    style='background: radial-gradient(ellipse at 20% 50%, rgba(14,165,233,0.12) 0%, transparent 60%), radial-gradient(ellipse at 80% 30%, rgba(249,115,22,0.07) 0%, transparent 50%);'
+    aria-hidden='true'></div>
+  <!-- dot grid -->
+  <div
+    class='pointer-events-none absolute inset-0 opacity-[0.10]'
+    style='background-image: radial-gradient(circle, #7dd3fc 1px, transparent 1px); background-size: 32px 32px;'
+    aria-hidden='true'></div>
+  <!-- floating decorative rings -->
+  <div
+    class='pointer-events-none absolute -top-20 -left-20 size-80 rounded-full border border-sky-400/10'
+    style='animation: subtle-float 6s ease-in-out infinite;'
+    aria-hidden='true'></div>
+  <div
+    class='pointer-events-none absolute -bottom-24 -right-24 size-96 rounded-full border border-orange-500/[0.08]'
+    style='animation: subtle-float 6s ease-in-out infinite 3s;'
+    aria-hidden='true'></div>
+
+  <div class='relative isolate px-6 lg:px-8'>
     <img
       src={barcelonaImage.src}
       alt=''
@@ -27,18 +47,20 @@ const { upheading, heading, description, primaryCtaText, secondaryCtaText, secon
 
     <div class='mx-auto max-w-3xl py-24 sm:py-32 lg:py-40'>
       <div class='hidden sm:mb-8 sm:flex sm:justify-center'>
-        <h1 class='relative rounded-full bg-sky-500/10 border border-sky-400/20 px-3 py-1 text-sm/6 text-sky-300'>
+        <h1 class='animate-fade-in-up [animation-delay:0ms] relative rounded-full bg-sky-500/10 border border-sky-400/20 px-3 py-1 text-sm/6 text-sky-300'>
           {upheading}
         </h1>
       </div>
       <div class='text-center'>
-        <p class='text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl'>
+        <p class='animate-fade-in-up [animation-delay:100ms] text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl'>
           {heading}
         </p>
-        <p class='mt-8 text-lg font-medium text-pretty text-petrol-100 sm:text-xl/8'>
+        <!-- accent bar -->
+        <div class='animate-fade-in-up [animation-delay:150ms] mx-auto mt-6 h-1 w-20 rounded-full bg-gradient-to-r from-orange-500 to-sky-500'></div>
+        <p class='animate-fade-in-up [animation-delay:200ms] mt-8 text-lg font-medium text-pretty text-petrol-100 sm:text-xl/8'>
           <Fragment set:html={description} />
         </p>
-        <div class='mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-x-6'>
+        <div class='animate-fade-in-up [animation-delay:300ms] mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-x-6'>
           <WhatsAppButton text={primaryCtaText} />
           <a
             href={secondaryCtaHref}
@@ -46,16 +68,19 @@ const { upheading, heading, description, primaryCtaText, secondaryCtaText, secon
             {secondaryCtaText} <span aria-hidden='true'>→</span>
           </a>
         </div>
-        <div class='mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3'>
-          <span class='inline-flex items-center gap-2 text-sm text-petrol-100'>
+        <div class='animate-fade-in-up [animation-delay:400ms] mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3'>
+          <span class='inline-flex items-center gap-1.5 text-sm text-petrol-100'>
+            <span class='size-1.5 rounded-full bg-orange-500' aria-hidden='true'></span>
             <Search class='size-4' aria-hidden='true' />
             SEO técnico
           </span>
-          <span class='inline-flex items-center gap-2 text-sm text-petrol-100'>
+          <span class='inline-flex items-center gap-1.5 text-sm text-petrol-100'>
+            <span class='size-1.5 rounded-full bg-orange-500' aria-hidden='true'></span>
             <TrendingUp class='size-4' aria-hidden='true' />
             Captación orgánica
           </span>
-          <span class='inline-flex items-center gap-2 text-sm text-petrol-100'>
+          <span class='inline-flex items-center gap-1.5 text-sm text-petrol-100'>
+            <span class='size-1.5 rounded-full bg-orange-500' aria-hidden='true'></span>
             <Users class='size-4' aria-hidden='true' />
             Resultados medibles
           </span>

@@ -20,6 +20,8 @@ const iconByKey = {
   trendingUp: TrendingUp,
 } as const
 
+const ringColors = ['sky', 'orange', 'sky', 'orange'] as const
+
 const defaultItems: BannerItem[] = [
   { icon: 'users', value: 'Trato directo', label: 'sin intermediarios' },
   { icon: 'badgeCheck', value: 'Auditoría gratuita', label: 'valorada en 200 €' },
@@ -30,18 +32,28 @@ const defaultItems: BannerItem[] = [
 const { items = defaultItems } = Astro.props
 ---
 
-<div class='bg-petrol-50 py-12'>
-  <div class='mx-auto max-w-7xl px-6 lg:px-8'>
-    <dl class='grid grid-cols-2 gap-6 lg:grid-cols-4'>
-      {items.map((item) => {
+<div class='relative bg-petrol-900 py-16 lg:py-20 overflow-hidden'>
+  <!-- diagonal texture -->
+  <div
+    class='pointer-events-none absolute inset-0 opacity-[0.04]'
+    style='background-image: repeating-linear-gradient(135deg, #7dd3fc 0 1px, transparent 1px 16px);'
+    aria-hidden='true'></div>
+  <div class='relative mx-auto max-w-7xl px-6 lg:px-8'>
+    <dl data-animate class='grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4'>
+      {items.map((item, idx) => {
         const Icon = iconByKey[item.icon]
+        const color = ringColors[idx]
+        const isSky = color === 'sky'
         return (
-          <div class='flex flex-col items-center gap-2 text-center'>
-            <div class='flex size-10 items-center justify-center rounded-full bg-sky-100 text-sky-600'>
-              <Icon class='size-5' aria-hidden='true' />
+          <div class='rounded-xl bg-white/5 backdrop-blur-sm border border-white/5 px-6 py-8 flex flex-col items-center gap-3 text-center transition-colors hover:bg-white/[0.08]'>
+            <div class:list={[
+              'flex size-10 items-center justify-center rounded-full ring-1',
+              isSky ? 'bg-sky-500/10 ring-sky-500/20' : 'bg-orange-500/10 ring-orange-500/20',
+            ]}>
+              <Icon class:list={['size-5', isSky ? 'text-sky-400' : 'text-orange-400']} aria-hidden='true' />
             </div>
-            <dt class='text-base font-semibold text-petrol-900'>{item.value}</dt>
-            <dd class='text-sm text-petrol-600'>{item.label}</dd>
+            <dt class='text-xl font-semibold text-white'>{item.value}</dt>
+            <dd class='text-sm text-petrol-100'>{item.label}</dd>
           </div>
         )
       })}
