@@ -20,15 +20,15 @@ export const siteConfig = {
   navigation: {
     primary: [
       { label: "Sobre mí", href: "/#sobre-mi" },
-      { label: "Precios", href: "/presupuesto-seo-barcelona" },
+      { label: "Precios", href: "/presupuesto-seo-barcelona/" },
       { label: "Contacto", href: "/#contacto" },
     ],
     services: [
       {
         label: "Posicionamiento Web Barcelona",
-        href: "/posicionamiento-web-barcelona",
+        href: "/posicionamiento-web-barcelona/",
       },
-      { label: "SEO Local Barcelona", href: "/seo-local-barcelona" },
+      { label: "SEO Local Barcelona", href: "/seo-local-barcelona/" },
     ],
     legal: [
       { label: "Aviso Legal", href: "/aviso-legal" },

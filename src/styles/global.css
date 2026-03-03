@@ -1,6 +1,31 @@
 @import "tailwindcss";
+@import "@fontsource-variable/dm-sans";
+@import "@fontsource/titan-one";
 @source "../node_modules/flowbite";
 @plugin "flowbite/plugin";
+
+/* WaChatWidget global styles */
+.wa-chat-widget {
+  bottom: calc(0.75rem + env(safe-area-inset-bottom));
+  z-index: 1000;
+}
+
+.wa-chat-widget-button {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.24);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wa-chat-widget-button:hover {
+  background-color: #1FAD54 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 640px) {
+  .wa-chat-widget {
+    right: 0.75rem;
+  }
+}
 
 @theme {
   /* Petrol Blue (supporting neutrals) */
@@ -43,7 +68,7 @@
   --radius-base: 0.5rem;
 
   /* Body font */
-  --font-family-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-family-sans: 'DM Sans Variable', ui-sans-serif, system-ui, sans-serif;
 }
 
 @utility bg-neutral-primary-soft {

@@ -11,6 +11,7 @@ interface Props {
     ogImage?: string;
     ogType?: string;
     canonicalUrl?: string;
+    preloadImageHref?: string;
 }
 
 const {
@@ -20,6 +21,7 @@ const {
     ogImage = "https://salvaseo.com/og-image.jpg",
     ogType = "website",
     canonicalUrl = "https://salvaseo.com/",
+    preloadImageHref,
 } = Astro.props;
 
 const isProd = import.meta.env.PROD;
@@ -54,6 +56,9 @@ const isHomePage = canonicalUrl === "https://salvaseo.com/" && !noindex;
         <title>{title}</title>
         <meta name="description" content={description} />
         <link rel="canonical" href={canonicalUrl} />
+        {preloadImageHref && (
+            <link rel="preload" as="image" href={preloadImageHref} fetchpriority="high" />
+        )}
         <link rel="alternate" hreflang="es-ES" href={canonicalUrl} />
         <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
         <meta
@@ -122,8 +127,8 @@ const isHomePage = canonicalUrl === "https://salvaseo.com/" && !noindex;
                         },
                         "geo": {
                             "@type": "GeoCoordinates",
-                            "latitude": 41.3874,
-                            "longitude": 2.1686
+                            "latitude": 41.392668,
+                            "longitude": 2.140189
                         },
                         "contactPoint": {
                             "@type": "ContactPoint",
@@ -294,12 +299,7 @@ const isHomePage = canonicalUrl === "https://salvaseo.com/" && !noindex;
             </>
         )}
 
-        <!-- DM Sans font -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet" />
-
-        <script>
+<script>
             import "@tailwindplus/elements";
             import "../scripts/cookieconsent.js";
             import "../scripts/scroll-animations.js";
