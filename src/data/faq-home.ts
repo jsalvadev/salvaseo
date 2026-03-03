@@ -31,7 +31,7 @@ export const faqHomeItems: FaqItem[] = [
   {
     question: '¿Cuánto cobra un consultor SEO en Barcelona? (Precio y tarifas 2026)',
     answer: `<p class="text-base/7 text-petrol-900">
-      El precio en Barcelona varía según el mercado y la complejidad del proyecto — <strong>entre 50€-150€/hora o desde 500€/mes</strong>.
+      El precio en Barcelona varía según el mercado y la complejidad del proyecto: <strong>entre 50€-150€/hora o desde 500€/mes</strong>.
     </p>
     <p class="mt-2 text-base/7 text-petrol-900">
       El modelo puede ser por proyecto, planes mensuales o servicios puntuales según lo que necesites. Antes de presupuestar, tu negocio recibe <strong>un análisis inicial</strong> de la situación actual. Después, <strong>el coste exacto adaptado a tu caso</strong>.
@@ -40,13 +40,13 @@ export const faqHomeItems: FaqItem[] = [
   {
     question: '¿Cómo encontrar un buen consultor SEO en Barcelona?',
     answer: `<p class="text-base/7 text-petrol-900">
-      Tres señales clave — que demuestre resultados reales con casos verificables, que explique el proceso con claridad antes de presupuestar, y que conozca tu mercado local. El indicador más fiable es <strong>un plan realista adaptado a tu negocio, con métricas y plazos concretos</strong>.
+      Tres señales clave: que demuestre resultados reales con casos verificables, que explique el proceso con claridad antes de presupuestar, y que conozca tu mercado local. El indicador más fiable es <strong>un plan realista adaptado a tu negocio, con métricas y plazos concretos</strong>.
     </p>`,
   },
   {
     question: '¿Cómo sé si necesito un consultor SEO profesional?',
     answer: `<p class="text-base/7 text-petrol-900">
-      Estas son las señales habituales — tu web no recibe visitas desde Google, tu competencia aparece antes que tú, tu ficha de Google Maps <strong>no genera llamadas</strong>, o tu negocio depende de publicidad de pago para conseguir visibilidad.
+      Estas son las señales habituales: tu web no recibe visitas desde Google, tu competencia aparece antes que tú, tu ficha de Google Maps <strong>no genera llamadas</strong>, o tu negocio depende de publicidad de pago para conseguir visibilidad.
     </p>
     <p class="mt-2 text-base/7 text-petrol-900">
       Si tu facturación <strong>depende de que te encuentren online y ahora mismo no apareces</strong>, el posicionamiento orgánico es la solución. En la consultoría inicial se valida si tu caso tiene recorrido.
@@ -64,7 +64,7 @@ export const faqHomeItems: FaqItem[] = [
   {
     question: '¿Cómo encontrar un consultor SEO cerca de mi negocio en Barcelona?',
     answer: `<p class="text-base/7 text-petrol-900">
-      Dos criterios clave — que <strong>conozca tu zona</strong> y que no presupueste antes de analizar tu caso.
+      Dos criterios clave: que <strong>conozca tu zona</strong> y que no presupueste antes de analizar tu caso.
     </p>
     <p class="mt-2 text-base/7 text-petrol-900">
       La ventaja de trabajar con alguien del área metropolitana de Barcelona es la posibilidad de <strong>visitar tu local, analizar la competencia sobre el terreno</strong> y entender la dinámica comercial de tu barrio.

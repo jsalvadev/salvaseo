@@ -14,7 +14,7 @@ const DATE_MODIFIED = new Date().toISOString().split('T')[0]
 <Layout
   title='Presupuesto SEO Barcelona — Precio, Tarifas y Paquetes Mensuales | SalvaSEO'
   description='Presupuesto SEO en Barcelona desde 350 €/mes + IVA. Paquetes mensuales para Google Maps, posicionamiento web o ambos. Precio cerrado tras diagnóstico inicial.'
-  canonicalUrl='https://salvaseo.com/presupuesto-seo-barcelona'>
+  canonicalUrl='https://salvaseo.com/presupuesto-seo-barcelona/'>
   <!-- 1. HERO -->
   <Hero
     upheading='Presupuesto SEO en Barcelona'
@@ -73,8 +73,8 @@ const DATE_MODIFIED = new Date().toISOString().split('T')[0]
       '@graph': [
         {
           '@type': 'WebPage',
-          '@id': 'https://salvaseo.com/presupuesto-seo-barcelona#webpage',
-          url: 'https://salvaseo.com/presupuesto-seo-barcelona',
+          '@id': 'https://salvaseo.com/presupuesto-seo-barcelona/#webpage',
+          url: 'https://salvaseo.com/presupuesto-seo-barcelona/',
           name: 'Presupuesto SEO Barcelona — Precio, Tarifas y Paquetes Mensuales | SalvaSEO',
           description:
             'Presupuesto SEO en Barcelona desde 350 €/mes + IVA. Paquetes mensuales para Google Maps, posicionamiento web o ambos. Precio cerrado tras diagnóstico inicial.',
@@ -85,12 +85,12 @@ const DATE_MODIFIED = new Date().toISOString().split('T')[0]
           dateModified: DATE_MODIFIED,
           inLanguage: 'es',
           breadcrumb: {
-            '@id': 'https://salvaseo.com/presupuesto-seo-barcelona#breadcrumb'
+            '@id': 'https://salvaseo.com/presupuesto-seo-barcelona/#breadcrumb'
           }
         },
         {
           '@type': 'BreadcrumbList',
-          '@id': 'https://salvaseo.com/presupuesto-seo-barcelona#breadcrumb',
+          '@id': 'https://salvaseo.com/presupuesto-seo-barcelona/#breadcrumb',
           itemListElement: [
             {
               '@type': 'ListItem',
@@ -102,13 +102,13 @@ const DATE_MODIFIED = new Date().toISOString().split('T')[0]
               '@type': 'ListItem',
               position: 2,
               name: 'Presupuesto SEO Barcelona',
-              item: 'https://salvaseo.com/presupuesto-seo-barcelona'
+              item: 'https://salvaseo.com/presupuesto-seo-barcelona/'
             }
           ]
         },
         {
           '@type': 'Service',
-          '@id': 'https://salvaseo.com/presupuesto-seo-barcelona#service',
+          '@id': 'https://salvaseo.com/presupuesto-seo-barcelona/#service',
           serviceType: 'Consultoría SEO',
           name: 'Presupuesto SEO en Barcelona',
           description:
@@ -166,7 +166,7 @@ const DATE_MODIFIED = new Date().toISOString().split('T')[0]
         },
         {
           '@type': 'FAQPage',
-          '@id': 'https://salvaseo.com/presupuesto-seo-barcelona#faq',
+          '@id': 'https://salvaseo.com/presupuesto-seo-barcelona/#faq',
           mainEntity: faqPresupuestoItems.map(item => ({
             '@type': 'Question',
             name: item.question,
