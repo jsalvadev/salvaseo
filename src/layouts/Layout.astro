@@ -26,6 +26,7 @@ const {
 
 const isProd = import.meta.env.PROD;
 const isHomePage = canonicalUrl === "https://salvaseo.com/" && !noindex;
+const DATE_MODIFIED = new Date().toISOString().split('T')[0];
 ---
 
 <!doctype html>
@@ -45,7 +46,7 @@ const isHomePage = canonicalUrl === "https://salvaseo.com/" && !noindex;
         ></script>
         <!-- End Google Tag Manager -->
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" sizes="any">
         <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -95,132 +96,141 @@ const isHomePage = canonicalUrl === "https://salvaseo.com/" && !noindex;
             content="SalvaSEO - Consultor SEO Local en Barcelona"
         />
 
-        {isHomePage && (
+{isHomePage && (
             <>
         <!-- JSON-LD Structured Data for SEO -->
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@graph": [
-                    {
-                        "@type": "ProfessionalService",
-                        "@id": "https://salvaseo.com/#business",
-                        "name": "SalvaSEO — Salvador Jesús",
-                        "alternateName": "SalvaSEO",
-                        "description": "Consultor SEO en Barcelona especializado en negocios locales. Trabajo solo con empresas de la zona para que tus clientes te encuentren en Google. Análisis inicial gratis.",
+        <script type="application/ld+json" set:html={JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "ProfessionalService",
+                    "@id": "https://salvaseo.com/#business",
+                    "name": "SalvaSEO — Salvador Jesús",
+                    "alternateName": "SalvaSEO",
+                    "description": "Consultor SEO en Barcelona especializado en negocios locales. Trabajo solo con empresas de la zona para que tus clientes te encuentren en Google. Análisis inicial gratis.",
+                    "url": "https://salvaseo.com/",
+                    "telephone": "+34692051399",
+                    "email": "info@salvaseo.com",
+                    "priceRange": "€€",
+                    "image": "https://salvaseo.com/logo.png",
+                    "logo": "https://salvaseo.com/logo.png",
+                    "areaServed": {
+                        "@type": "City",
+                        "name": "Barcelona",
+                        "sameAs": "https://es.wikipedia.org/wiki/Barcelona"
+                    },
+                    "address": {
+                        "@type": "PostalAddress",
+                        "streetAddress": "Carrer de Pelai, 8",
+                        "addressLocality": "Barcelona",
+                        "postalCode": "08001",
+                        "addressRegion": "Cataluña",
+                        "addressCountry": "ES"
+                    },
+                    "geo": {
+                        "@type": "GeoCoordinates",
+                        "latitude": 41.392668,
+                        "longitude": 2.140189
+                    },
+                    "openingHoursSpecification": {
+                        "@type": "OpeningHoursSpecification",
+                        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                        "opens": "09:00",
+                        "closes": "18:00"
+                    },
+                    "contactPoint": {
+                        "@type": "ContactPoint",
+                        "telephone": "+34692051399",
+                        "email": "info@salvaseo.com",
+                        "contactType": "customer service",
+                        "availableLanguage": ["Spanish"]
+                    },
+                    "founder": {
+                        "@type": "Person",
+                        "@id": "https://salvaseo.com/#founder",
+                        "name": "Salvador Jesús",
+                        "jobTitle": "Consultor SEO Local",
                         "url": "https://salvaseo.com/",
-                        "telephone": "+34 692 051 399",
-                        "email": "salvadorjesus.seo@gmail.com",
-                        "priceRange": "€€",
-                        "image": "https://salvaseo.com/logo.png",
-                        "logo": "https://salvaseo.com/logo.png",
-                        "areaServed": {
-                            "@type": "City",
-                            "name": "Barcelona",
-                            "sameAs": "https://es.wikipedia.org/wiki/Barcelona"
+                        "worksFor": {
+                            "@id": "https://salvaseo.com/#business"
                         },
-                        "address": {
-                            "@type": "PostalAddress",
-                            "addressLocality": "Barcelona",
-                            "addressRegion": "Cataluña",
-                            "addressCountry": "ES"
-                        },
-                        "geo": {
-                            "@type": "GeoCoordinates",
-                            "latitude": 41.392668,
-                            "longitude": 2.140189
-                        },
-                        "contactPoint": {
-                            "@type": "ContactPoint",
-                            "telephone": "+34 692 051 399",
-                            "email": "salvadorjesus.seo@gmail.com",
-                            "contactType": "customer service",
-                            "availableLanguage": ["Spanish"]
-                        },
-                        "founder": {
-                            "@type": "Person",
-                            "@id": "https://salvaseo.com/#founder",
-                            "name": "Salvador Jesús",
-                            "jobTitle": "Consultor SEO Local",
-                            "url": "https://salvaseo.com/",
-                            "worksFor": {
-                                "@id": "https://salvaseo.com/#business"
-                            },
-                            "email": "salvadorjesus.seo@gmail.com",
-                            "telephone": "+34 692 051 399",
-                            "image": "https://salvaseo.com/about-me.png",
-                            "sameAs": [
-                                "https://www.instagram.com/salva_seo/",
-                                "https://www.tiktok.com/@consultorseobarcelona"
-                            ]
-                        },
-                        "hasOfferCatalog": {
-                            "@type": "OfferCatalog",
-                            "name": "Servicios de Consultoría SEO",
-                            "itemListElement": [
-                                {
-                                    "@type": "Offer",
-                                    "itemOffered": {
-                                        "@type": "Service",
-                                        "name": "Auditoría SEO y estrategia de posicionamiento",
-                                        "description": "Análisis completo de tu web, competencia y oportunidades. Plan de acción personalizado para mejorar tu visibilidad en Google."
-                                    }
-                                },
-                                {
-                                    "@type": "Offer",
-                                    "itemOffered": {
-                                        "@type": "Service",
-                                        "name": "SEO On Page y contenido optimizado",
-                                        "description": "Optimización de estructura, contenido y elementos técnicos de tu web para posicionar por las palabras clave de tu negocio."
-                                    }
-                                },
-                                {
-                                    "@type": "Offer",
-                                    "itemOffered": {
-                                        "@type": "Service",
-                                        "name": "SEO Off Page y autoridad de dominio",
-                                        "description": "Estrategia de enlaces de calidad, citaciones y señales de relevancia para aumentar la autoridad de tu web en Google."
-                                    }
-                                }
-                            ]
-                        },
+                        "email": "info@salvaseo.com",
+                        "telephone": "+34692051399",
+                        "image": "https://salvaseo.com/about-me.png",
                         "sameAs": [
+                            "https://www.linkedin.com/in/salvadorjesus",
                             "https://www.instagram.com/salva_seo/",
-                            "https://www.tiktok.com/@consultorseobarcelona",
-                            "https://www.google.com/maps/place/SalvaSEO+-+Consultor+SEO+en+Barcelona/@41.3926387,2.0577883,12z/data=!4m15!1m8!3m7!1s0x47b687095c96ad7:0x4a8991093774db69!2sSalvaSEO+-+Consultor+SEO+en+Barcelona!8m2!3d41.392668!4d2.140189!10e1!16s%2Fg%2F11y_x5bbp3!3m5!1s0x47b687095c96ad7:0x4a8991093774db69!8m2!3d41.392668!4d2.140189!16s%2Fg%2F11y_x5bbp3?entry=ttu&g_ep=EgoyMDI2MDIxMS4wIKXMDSoASAFQAw%3D%3D"
+                            "https://www.tiktok.com/@consultorseobarcelona"
                         ]
                     },
-                    {
-                        "@type": "WebSite",
-                        "@id": "https://salvaseo.com/#website",
-                        "url": "https://salvaseo.com/",
-                        "name": "SalvaSEO — Consultor SEO Local en Barcelona",
-                        "description": "Consultor SEO en Barcelona especializado en negocios locales. Trabajo solo con empresas de la zona para que tus clientes te encuentren en Google. Análisis inicial gratis.",
-                        "publisher": {
-                            "@id": "https://salvaseo.com/#business"
-                        },
-                        "inLanguage": "es"
+                    "hasOfferCatalog": {
+                        "@type": "OfferCatalog",
+                        "name": "Servicios de Consultoría SEO",
+                        "itemListElement": [
+                            {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Service",
+                                    "name": "Auditoría SEO y estrategia de posicionamiento",
+                                    "description": "Análisis completo de tu web, competencia y oportunidades. Plan de acción personalizado para mejorar tu visibilidad en Google."
+                                }
+                            },
+                            {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Service",
+                                    "name": "SEO On Page y contenido optimizado",
+                                    "description": "Optimización de estructura, contenido y elementos técnicos de tu web para posicionar por las palabras clave de tu negocio."
+                                }
+                            },
+                            {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Service",
+                                    "name": "SEO Off Page y autoridad de dominio",
+                                    "description": "Estrategia de enlaces de calidad, citaciones y señales de relevancia para aumentar la autoridad de tu web en Google."
+                                }
+                            }
+                        ]
                     },
-                    {
-                        "@type": "WebPage",
-                        "@id": "https://salvaseo.com/#webpage",
-                        "url": "https://salvaseo.com/",
-                        "name": "Consultor SEO Local en Barcelona | SalvaSEO",
-                        "description": "Consultor SEO en Barcelona especializado en negocios locales. Trabajo solo con empresas de la zona para que tus clientes te encuentren en Google. Análisis inicial gratis.",
-                        "isPartOf": {
-                            "@id": "https://salvaseo.com/#website"
-                        },
-                        "about": {
-                            "@id": "https://salvaseo.com/#business"
-                        },
-                        "datePublished": "2025-01-15",
-                        "dateModified": "2026-02-16",
-                        "mainEntity": { "@id": "https://salvaseo.com/#faq" },
-                        "inLanguage": "es"
-                    }
-                ]
-            }
-        </script>
+                    "sameAs": [
+                        "https://www.linkedin.com/in/salvadorjesus",
+                        "https://www.instagram.com/salva_seo/",
+                        "https://www.tiktok.com/@consultorseobarcelona",
+                        "https://www.google.com/maps/place/SalvaSEO+-+Consultor+SEO+en+Barcelona/@41.3926387,2.0577883,12z/data=!4m15!1m8!3m7!1s0x47b687095c96ad7:0x4a8991093774db69!2sSalvaSEO+-+Consultor+SEO+en+Barcelona!8m2!3d41.392668!4d2.140189!10e1!16s%2Fg%2F11y_x5bbp3!3m5!1s0x47b687095c96ad7:0x4a8991093774db69!8m2!3d41.392668!4d2.140189!16s%2Fg%2F11y_x5bbp3?entry=ttu&g_ep=EgoyMDI2MDIxMS4wIKXMDSoASAFQAw%3D%3D"
+                    ]
+                },
+                {
+                    "@type": "WebSite",
+                    "@id": "https://salvaseo.com/#website",
+                    "url": "https://salvaseo.com/",
+                    "name": "SalvaSEO — Consultor SEO Local en Barcelona",
+                    "description": "Consultor SEO en Barcelona especializado en negocios locales. Trabajo solo con empresas de la zona para que tus clientes te encuentren en Google. Análisis inicial gratis.",
+                    "publisher": {
+                        "@id": "https://salvaseo.com/#business"
+                    },
+                    "inLanguage": "es"
+                },
+                {
+                    "@type": "WebPage",
+                    "@id": "https://salvaseo.com/#webpage",
+                    "url": "https://salvaseo.com/",
+                    "name": "Consultor SEO Local en Barcelona | SalvaSEO",
+                    "description": "Consultor SEO en Barcelona especializado en negocios locales. Trabajo solo con empresas de la zona para que tus clientes te encuentren en Google. Análisis inicial gratis.",
+                    "isPartOf": {
+                        "@id": "https://salvaseo.com/#website"
+                    },
+                    "about": {
+                        "@id": "https://salvaseo.com/#business"
+                    },
+                    "datePublished": "2025-01-15",
+                    "dateModified": DATE_MODIFIED,
+                    "mainEntity": { "@id": "https://salvaseo.com/#faq" },
+                    "inLanguage": "es"
+                }
+            ]
+        })} />
+
 
         <script type="application/ld+json">
             {
