@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import seoLocalHeroImage from '../assets/seo-local-hero.jpg'
 import BarcelonaLocalSeoHero from '../components/pages/seo-local-barcelona/Hero.astro'
 import LocalSeoExplainer from '../components/pages/seo-local-barcelona/Explainer.astro'
 import LocalSeoServices from '../components/pages/seo-local-barcelona/Services.astro'
@@ -14,7 +15,7 @@ import GoogleMapEmbed from '../components/shared/GoogleMapEmbed.astro'
 
 const MIN_MONTHLY_PRICE_EUR = 350
 const MIN_MONTHLY_PRICE_TEXT = `${MIN_MONTHLY_PRICE_EUR} €/mes`
-const DATE_MODIFIED = new Date().toISOString().split('T')[0]
+const DATE_MODIFIED = "2026-03-03"
 const seoLocalExplainerItems = [
   {
     icon: 'search',
@@ -223,7 +224,8 @@ const seoLocalBusinessTypes = [
 <Layout
   title='SEO Local en Barcelona | Consultor SEO Local — Más Clientes desde Google Maps | SalvaSEO'
   description='Servicio de SEO local en Barcelona: estrategia de posicionamiento local para que tu negocio aparezca en los primeros resultados de Google Maps. Consultor SEO local especializado en captar clientes potenciales y tráfico cualificado.'
-  canonicalUrl='https://salvaseo.com/seo-local-barcelona/'>
+  canonicalUrl='https://salvaseo.com/seo-local-barcelona/'
+  preloadImageHref={seoLocalHeroImage.src}>
 
   <!-- 1. HERO -->
   <BarcelonaLocalSeoHero
@@ -250,7 +252,7 @@ const seoLocalBusinessTypes = [
     intro='Estos son los factores que trabajamos <strong>según la situación y necesidades de tu negocio</strong>. En el diagnóstico inicial identificamos cuáles tienen mayor impacto en tu caso y se priorizan por retorno.'
     services={seoLocalServices}
     ctaText='Descubre qué incluye cada paquete'
-    ctaHref='/presupuesto-seo-barcelona#paquetes'
+    ctaHref='/presupuesto-seo-barcelona/#paquetes'
   />
 
   <!-- 4. PROCESO / TIMELINE -->
@@ -339,6 +341,9 @@ const seoLocalBusinessTypes = [
           },
           datePublished: '2026-02-24',
           dateModified: DATE_MODIFIED,
+          author: {
+            '@id': 'https://salvaseo.com/#founder'
+          },
           mainEntity: {
             '@id': 'https://salvaseo.com/seo-local-barcelona/#service'
           },
@@ -432,18 +437,6 @@ const seoLocalBusinessTypes = [
               }
             ]
           }
-        },
-        {
-          '@type': 'FAQPage',
-          '@id': 'https://salvaseo.com/seo-local-barcelona/#faq',
-          mainEntity: faqSeoLocalItems.map(item => ({
-            '@type': 'Question',
-            name: item.question,
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: item.answer.replace(/<[^>]*>/g, '')
-            }
-          }))
         }
       ]
     })}

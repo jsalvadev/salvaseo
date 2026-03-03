@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets'
 import WhatsAppButton from '../../WhatsAppButton.astro'
+import presupuestoHeroImage from '../../../assets/presupuesto-hero.jpg'
 
 interface Props {
   upheading?: string
@@ -22,12 +24,14 @@ const {
 
 <div class='bg-petrol-900'>
   <div class='relative isolate overflow-hidden px-6 lg:px-8'>
-    <img
-      src='https://images.pexels.com/photos/8347889/pexels-photo-8347889.jpeg'
+    <Image
+      src={presupuestoHeroImage}
       alt=''
+      width={1600}
+      height={900}
       class='absolute inset-0 -z-10 size-full object-cover opacity-20 [mask-image:linear-gradient(to_right,transparent_30%,black_70%)]'
       loading='eager'
-      decoding='async'
+      fetchpriority='high'
     />
 
     <div class='mx-auto max-w-3xl py-24 sm:py-32 lg:py-40'>

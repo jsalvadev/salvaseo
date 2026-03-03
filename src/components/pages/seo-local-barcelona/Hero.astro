@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets'
 import { MapPin, Map, Phone } from '@lucide/astro'
 import WhatsAppButton from '../../WhatsAppButton.astro'
+import seoLocalHeroImage from '../../../assets/seo-local-hero.jpg'
 
 interface Props {
   heading: string
@@ -35,30 +37,32 @@ const { heading, description, primaryCtaText, secondaryCtaText, secondaryCtaHref
     aria-hidden='true'></div>
 
   <div class='relative isolate px-6 lg:px-8'>
-    <img
-      src='https://images.pexels.com/photos/543606/pexels-photo-543606.jpeg'
+    <Image
+      src={seoLocalHeroImage}
       alt=''
+      width={1600}
+      height={1200}
       class='absolute inset-0 -z-10 size-full object-cover opacity-20 [mask-image:linear-gradient(to_right,transparent_30%,black_70%)]'
       loading='eager'
-      decoding='async'
+      fetchpriority='high'
     />
 
     <div class='mx-auto max-w-3xl py-32 sm:py-48 lg:py-56'>
       <div class='hidden sm:mb-8 sm:flex sm:justify-center'>
-        <h1 class='animate-fade-in-up [animation-delay:0ms] relative rounded-full bg-sky-500/10 border border-sky-400/20 px-3 py-1 text-sm/6 text-sky-300'>
+        <h1 class='relative rounded-full bg-sky-500/10 border border-sky-400/20 px-3 py-1 text-sm/6 text-sky-300'>
           SEO Local en Barcelona
         </h1>
       </div>
       <div class='text-center'>
-        <p class='animate-fade-in-up [animation-delay:100ms] text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl'>
+        <p class='text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl'>
           {heading}
         </p>
         <!-- accent bar -->
-        <div class='animate-fade-in-up [animation-delay:150ms] mx-auto mt-6 h-1 w-20 rounded-full bg-gradient-to-r from-orange-500 to-sky-500'></div>
-        <p class='animate-fade-in-up [animation-delay:200ms] mt-8 text-lg font-medium text-pretty text-petrol-100 sm:text-xl/8'>
+        <div class='mx-auto mt-6 h-1 w-20 rounded-full bg-gradient-to-r from-orange-500 to-sky-500'></div>
+        <p class='mt-8 text-lg font-medium text-pretty text-petrol-100 sm:text-xl/8'>
           <Fragment set:html={description} />
         </p>
-        <div class='animate-fade-in-up [animation-delay:300ms] mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-x-6'>
+        <div class='mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-x-6'>
           <WhatsAppButton text={primaryCtaText} />
           <a
             href={secondaryCtaHref}
@@ -66,7 +70,7 @@ const { heading, description, primaryCtaText, secondaryCtaText, secondaryCtaHref
             {secondaryCtaText} <span aria-hidden='true'>→</span>
           </a>
         </div>
-        <div class='animate-fade-in-up [animation-delay:400ms] mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3'>
+        <div class='mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3'>
           <span class='inline-flex items-center gap-1.5 text-sm text-petrol-100'>
             <span class='size-1.5 rounded-full bg-orange-500' aria-hidden='true'></span>
             <Map class='size-4' aria-hidden='true' />

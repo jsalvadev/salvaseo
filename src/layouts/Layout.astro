@@ -26,7 +26,7 @@ const {
 
 const isProd = import.meta.env.PROD;
 const isHomePage = canonicalUrl === "https://salvaseo.com/" && !noindex;
-const DATE_MODIFIED = new Date().toISOString().split('T')[0];
+const DATE_MODIFIED = "2026-03-03";
 ---
 
 <!doctype html>
@@ -97,8 +97,6 @@ const DATE_MODIFIED = new Date().toISOString().split('T')[0];
         />
 
 {isHomePage && (
-            <>
-        <!-- JSON-LD Structured Data for SEO -->
         <script type="application/ld+json" set:html={JSON.stringify({
             "@context": "https://schema.org",
             "@graph": [
@@ -132,18 +130,18 @@ const DATE_MODIFIED = new Date().toISOString().split('T')[0];
                         "latitude": 41.392668,
                         "longitude": 2.140189
                     },
-                    "openingHoursSpecification": {
+                    "openingHoursSpecification": [{
                         "@type": "OpeningHoursSpecification",
                         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
                         "opens": "09:00",
                         "closes": "18:00"
-                    },
+                    }],
                     "contactPoint": {
                         "@type": "ContactPoint",
                         "telephone": "+34692051399",
                         "email": "info@salvaseo.com",
                         "contactType": "customer service",
-                        "availableLanguage": ["Spanish"]
+                        "availableLanguage": ["es"]
                     },
                     "founder": {
                         "@type": "Person",
@@ -197,7 +195,7 @@ const DATE_MODIFIED = new Date().toISOString().split('T')[0];
                         "https://www.linkedin.com/in/salvadorjesus",
                         "https://www.instagram.com/salva_seo/",
                         "https://www.tiktok.com/@consultorseobarcelona",
-                        "https://www.google.com/maps/place/SalvaSEO+-+Consultor+SEO+en+Barcelona/@41.3926387,2.0577883,12z/data=!4m15!1m8!3m7!1s0x47b687095c96ad7:0x4a8991093774db69!2sSalvaSEO+-+Consultor+SEO+en+Barcelona!8m2!3d41.392668!4d2.140189!10e1!16s%2Fg%2F11y_x5bbp3!3m5!1s0x47b687095c96ad7:0x4a8991093774db69!8m2!3d41.392668!4d2.140189!16s%2Fg%2F11y_x5bbp3?entry=ttu&g_ep=EgoyMDI2MDIxMS4wIKXMDSoASAFQAw%3D%3D"
+                        "https://www.google.com/maps/place/SalvaSEO+-+Consultor+SEO+en+Barcelona/@41.3926387,2.0577883,12z/data=!4m15!1m8!3m7!1s0x47b687095c96ad7:0x4a8991093774db69!2sSalvaSEO+-+Consultor+SEO+en+Barcelona!8m2!3d41.392668!4d2.140189!10e1!16s%2Fg%2F11y_x5bbp3!3m5!1s0x47b687095c96ad7:0x4a8991093774db69!8m2!3d41.392668!4d2.140189!16s%2Fg%2F11y_x5bbp3"
                     ]
                 },
                 {
@@ -223,90 +221,27 @@ const DATE_MODIFIED = new Date().toISOString().split('T')[0];
                     "about": {
                         "@id": "https://salvaseo.com/#business"
                     },
+                    "mainEntity": {
+                        "@id": "https://salvaseo.com/#business"
+                    },
                     "datePublished": "2025-01-15",
                     "dateModified": DATE_MODIFIED,
-                    "mainEntity": { "@id": "https://salvaseo.com/#faq" },
                     "inLanguage": "es"
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "@id": "https://salvaseo.com/#breadcrumb",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "Inicio",
+                            "item": "https://salvaseo.com/"
+                        }
+                    ]
                 }
             ]
         })} />
-
-
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                "@id": "https://salvaseo.com/#faq",
-                "mainEntityOfPage": { "@id": "https://salvaseo.com/#webpage" },
-                "mainEntity": [
-                    {
-                        "@type": "Question",
-                        "name": "¿Qué diferencia hay entre un consultor SEO freelance y una agencia SEO en Barcelona?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Con un freelance, la comunicación es directa con quien ejecuta tu proyecto. Al mantener una cartera reducida, tu negocio recibe más horas de análisis y ejecución. Además, los costes operativos son más ajustados y la capacidad de adaptación, más rápida."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "¿Qué es un consultor SEO y qué funciones tiene exactamente?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Un consultor SEO analiza, optimiza y posiciona tu web en Google para que tus clientes potenciales te encuentren. Tu negocio obtiene un diagnóstico de por qué no aparece en Google y las soluciones necesarias. Auditoría técnica de velocidad, estructura y rendimiento de tu web. Investigación de qué buscan tus clientes en Google y con qué frecuencia. Optimización de contenido para las búsquedas que generan negocio. Optimización de tu ficha de Google Maps para captar clientes locales. Estrategia para aumentar la reputación de tu web ante Google. Análisis de competencia local. Seguimiento semanal y ajustes continuos con métricas de captación. Tu web aparece cuando un cliente potencial busca lo que ofreces."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "¿Cuánto cobra un consultor SEO en Barcelona? (Precio y tarifas 2026)",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "El precio en Barcelona varía según el mercado y la complejidad del proyecto: entre 50€-150€/hora o desde 500€/mes. El modelo puede ser por proyecto, planes mensuales o servicios puntuales según lo que necesites. Antes de presupuestar, tu negocio recibe un análisis inicial de la situación actual. Después, el coste exacto adaptado a tu caso."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "¿Cómo encontrar un buen consultor SEO en Barcelona?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Tres señales clave: que demuestre resultados reales con casos verificables, que explique el proceso con claridad antes de presupuestar, y que conozca tu mercado local. El indicador más fiable es un plan realista adaptado a tu negocio, con métricas y plazos concretos."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "¿Cómo sé si necesito un consultor SEO profesional?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Señales habituales: tu web no recibe visitas desde Google, tu competencia aparece antes que tú, tu ficha de Google Maps no genera llamadas, o tu negocio depende de publicidad de pago para conseguir visibilidad. Si tu facturación depende de que te encuentren online y ahora mismo no apareces, el posicionamiento orgánico es la solución. En la consultoría inicial se valida si tu caso tiene recorrido."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "¿Por qué necesito un especialista SEO para mi negocio en Barcelona?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Porque Google no posiciona una web solo porque el servicio sea bueno. El posicionamiento orgánico requiere trabajo técnico especializado. El resultado: tu web se convierte en un canal constante de captación de clientes. Mientras tu equipo se centra en el negocio, tu web capta solicitudes de presupuesto y llamadas. Si tu competencia recibe las llamadas que podrían ser tuyas, el posicionamiento orgánico redirige esa demanda a tu negocio."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "¿Cómo encontrar un consultor SEO cerca de mi negocio en Barcelona?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Dos criterios clave: que conozca tu zona y que no presupueste antes de analizar tu caso. La ventaja de trabajar con alguien del área metropolitana de Barcelona es la posibilidad de visitar tu local, analizar la competencia sobre el terreno y entender la dinámica comercial de tu barrio."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "¿Vale la pena contratar un consultor SEO para mi negocio local?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Si pierdes clientes que buscan lo que ofreces pero encuentran a tu competencia, tu web necesita posicionamiento. Tu página se convierte en un canal de captación de clientes con intención de compra. Los resultados tardan 3-6 meses, pero a partir de ahí tu web genera visitas y llamadas sin depender de publicidad mensual. La pregunta es ¿cuánta facturación pierde tu negocio cada mes por no aparecer en Google?"
-                        }
-                    }
-                ]
-            }
-        </script>
-            </>
         )}
 
 <script>

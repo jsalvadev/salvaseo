@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import presupuestoHeroImage from '../assets/presupuesto-hero.jpg'
 import Hero from '../components/pages/presupuesto-seo-barcelona/Hero.astro'
 import PricingCards from '../components/pages/presupuesto-seo-barcelona/PricingCards.astro'
 import FeatureComparison from '../components/pages/presupuesto-seo-barcelona/FeatureComparison.astro'
@@ -8,13 +9,14 @@ import TrustBanner from '../components/pages/posicionamiento-web-barcelona/Trust
 import Cta from '../components/pages/presupuesto-seo-barcelona/Cta.astro'
 import { faqPresupuestoItems } from '../data/faq-presupuesto'
 
-const DATE_MODIFIED = new Date().toISOString().split('T')[0]
+const DATE_MODIFIED = "2026-03-03"
 ---
 
 <Layout
   title='Presupuesto SEO Barcelona — Precio, Tarifas y Paquetes Mensuales | SalvaSEO'
   description='Presupuesto SEO en Barcelona desde 350 €/mes + IVA. Paquetes mensuales para Google Maps, posicionamiento web o ambos. Precio cerrado tras diagnóstico inicial.'
-  canonicalUrl='https://salvaseo.com/presupuesto-seo-barcelona/'>
+  canonicalUrl='https://salvaseo.com/presupuesto-seo-barcelona/'
+  preloadImageHref={presupuestoHeroImage.src}>
   <!-- 1. HERO -->
   <Hero
     upheading='Presupuesto SEO en Barcelona'
@@ -83,6 +85,9 @@ const DATE_MODIFIED = new Date().toISOString().split('T')[0]
           },
           datePublished: '2026-02-28',
           dateModified: DATE_MODIFIED,
+          author: {
+            '@id': 'https://salvaseo.com/#founder'
+          },
           inLanguage: 'es',
           breadcrumb: {
             '@id': 'https://salvaseo.com/presupuesto-seo-barcelona/#breadcrumb'
@@ -128,6 +133,8 @@ const DATE_MODIFIED = new Date().toISOString().split('T')[0]
               {
                 '@type': 'Offer',
                 name: 'Solo Ficha',
+                availability: 'https://schema.org/InStock',
+                url: 'https://salvaseo.com/presupuesto-seo-barcelona/',
                 description:
                   'Optimización de Google Business Profile: auditoría local, directorios NAP, publicaciones y gestión de reseñas.',
                 priceSpecification: {
@@ -140,6 +147,8 @@ const DATE_MODIFIED = new Date().toISOString().split('T')[0]
               {
                 '@type': 'Offer',
                 name: 'Solo Web',
+                availability: 'https://schema.org/InStock',
+                url: 'https://salvaseo.com/presupuesto-seo-barcelona/',
                 description:
                   'Posicionamiento web: auditoría SEO, palabras clave transaccionales, páginas de servicio, Core Web Vitals y schema markup.',
                 priceSpecification: {
@@ -152,6 +161,8 @@ const DATE_MODIFIED = new Date().toISOString().split('T')[0]
               {
                 '@type': 'Offer',
                 name: 'Ficha + Web',
+                availability: 'https://schema.org/InStock',
+                url: 'https://salvaseo.com/presupuesto-seo-barcelona/',
                 description:
                   'Paquete completo: Google Business Profile + posicionamiento web con análisis cruzado, enlazado interno y seguimiento unificado. Descuento de 100 €/mes.',
                 priceSpecification: {
@@ -163,18 +174,6 @@ const DATE_MODIFIED = new Date().toISOString().split('T')[0]
               }
             ]
           }
-        },
-        {
-          '@type': 'FAQPage',
-          '@id': 'https://salvaseo.com/presupuesto-seo-barcelona/#faq',
-          mainEntity: faqPresupuestoItems.map(item => ({
-            '@type': 'Question',
-            name: item.question,
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: item.answer.replace(/<[^>]*>/g, '')
-            }
-          }))
         }
       ]
     })}

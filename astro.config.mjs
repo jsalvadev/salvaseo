@@ -5,7 +5,12 @@ import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 import partytown from "@astrojs/partytown";
 
-const TODAY = new Date().toISOString().split("T")[0];
+const PAGE_LASTMOD = {
+  "https://salvaseo.com/": "2026-03-03",
+  "https://salvaseo.com/posicionamiento-web-barcelona/": "2026-03-03",
+  "https://salvaseo.com/seo-local-barcelona/": "2026-03-03",
+  "https://salvaseo.com/presupuesto-seo-barcelona/": "2026-03-03",
+};
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,13 +23,9 @@ export default defineConfig({
 
   integrations: [
     sitemap({
-      filter: (page) =>
-        page === "https://salvaseo.com/" ||
-        page === "https://salvaseo.com/posicionamiento-web-barcelona/" ||
-        page === "https://salvaseo.com/seo-local-barcelona/" ||
-        page === "https://salvaseo.com/presupuesto-seo-barcelona/",
+      filter: (page) => page in PAGE_LASTMOD,
       serialize: (item) => {
-        item.lastmod = TODAY;
+        item.lastmod = PAGE_LASTMOD[item.url] ?? item.url;
         return item;
       },
     }),
