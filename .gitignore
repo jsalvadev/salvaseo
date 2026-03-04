@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Skilld references (recreated by `skilld install`)
+.skilld
+.unlighthouse

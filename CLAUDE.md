@@ -65,3 +65,8 @@ The shared `Upheading.astro` component renders a colored section label above hea
 - **`wa-chat-widget`**: WhatsApp chat widget rendered as `<WaChatWidget />` in Layout
 - **`@lucide/astro`**: Icon library used in components
 - **`@fontsource/titan-one`**: Custom font available as a dependency
+
+<!-- skilld -->
+Before modifying code, evaluate each installed skill against the current task.
+For each skill, determine YES/NO relevance and invoke all YES skills before proceeding.
+<!-- /skilld -->
