@@ -17,6 +17,7 @@
     "@tailwindcss/vite": "^4.1.18",
     "@tailwindplus/elements": "^1.0.22",
     "astro": "^5.17.1",
+    "sharp": "^0.34.5",
     "flowbite": "^4.0.1",
     "tailwindcss": "^4.1.18",
     "vanilla-cookieconsent": "3.1.0",
