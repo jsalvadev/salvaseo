@@ -11,8 +11,27 @@ interface Props {
 }
 
 const { upheading, heading, idPrefix = 'faq', items, class: className } = Astro.props
+
+/** Strip HTML tags to get plain text for JSON-LD */
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim()
+}
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: items.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: stripHtml(item.answer),
+    },
+  })),
+}
 ---
 
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 <div class:list={['bg-sandstone-soft', className]}>
   <div class='mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40'>
     <div class='mx-auto max-w-4xl'>
