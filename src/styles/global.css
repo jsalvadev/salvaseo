@@ -40,6 +40,7 @@
   --color-sky-100: #e0f2fe;
   --color-sky-500: #0ea5e9;
   --color-sky-600: #0284c7;
+  --color-sky-a11y: #0279b8; /* sky-600 adjusted for WCAG AA 4.5:1 on white (4.74:1) */
 
   /* Secondary */
   --color-orange-50: #fff7ed;
@@ -97,6 +98,10 @@
 
 @utility text-fg-brand {
   color: var(--color-fg-brand);
+}
+
+@utility text-sky-a11y {
+  color: var(--color-sky-a11y);
 }
 
 @utility bg-sandstone-soft {
