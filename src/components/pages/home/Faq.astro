@@ -41,7 +41,7 @@ const faqSchema = {
         class='text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl'>
         {heading}
       </p>
-      <div class='mt-16 space-y-4'>
+      <dl class='mt-16 space-y-4'>
         {items.map((item, i) => (
           <div class='bg-white rounded-lg border border-petrol-100 border-l-[3px] border-l-transparent p-5 transition-all duration-200 hover:border-petrol-200 hover:shadow-sm hover:border-l-orange-500'>
             <dt>
@@ -81,7 +81,7 @@ const faqSchema = {
             </el-disclosure>
           </div>
         ))}
-      </div>
+      </dl>
     </div>
   </div>
 </div>
