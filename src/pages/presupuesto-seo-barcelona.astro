@@ -8,6 +8,7 @@ import Faq from '../components/pages/posicionamiento-web-barcelona/Faq.astro'
 import TrustBanner from '../components/pages/posicionamiento-web-barcelona/TrustBanner.astro'
 import Cta from '../components/pages/presupuesto-seo-barcelona/Cta.astro'
 import { faqPresupuestoItems } from '../data/faq-presupuesto'
+import Breadcrumb from '../components/Breadcrumb.astro'
 
 const DATE_MODIFIED = "2026-03-03"
 ---
@@ -17,6 +18,7 @@ const DATE_MODIFIED = "2026-03-03"
   description='¿Cuánto cuesta el SEO en Barcelona? ☎ 692 051 399 🔵 Desde 350 €/mes ⭐ 3 paquetes · Sin permanencia. ¡Contacta ya!'
   canonicalUrl='https://salvaseo.com/presupuesto-seo-barcelona/'
   preloadImageHref={presupuestoHeroImage.src}>
+  <Breadcrumb items={[{ label: 'Inicio', href: '/' }, { label: 'Presupuesto SEO Barcelona' }]} />
   <!-- 1. HERO -->
   <Hero
     upheading='Presupuesto SEO en Barcelona'

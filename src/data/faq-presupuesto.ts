@@ -10,7 +10,7 @@ export const faqPresupuestoItems: FaqItem[] = [
   {
     question: '¿Cuánto cuesta un servicio SEO en Barcelona?',
     answer: `<p class="text-base/7 text-petrol-900">
-      Depende del alcance del proyecto. El paquete Solo Ficha parte de <strong>350 €/mes</strong>, el Solo Web de <strong>550 €/mes</strong> y el combinado Ficha + Web de <strong>800 €/mes</strong>. El diagnóstico inicial determina qué servicios SEO necesita cada cliente para obtener resultados en su sector.
+      Depende del alcance del proyecto. El paquete <a href="/seo-local-barcelona/" class="text-sky-600 font-medium hover:text-sky-700 underline decoration-sky-200 underline-offset-2 transition-colors">Solo Ficha</a> parte de <strong>350 €/mes</strong>, el <a href="/posicionamiento-web-barcelona/" class="text-sky-600 font-medium hover:text-sky-700 underline decoration-sky-200 underline-offset-2 transition-colors">Solo Web</a> de <strong>550 €/mes</strong> y el combinado Ficha + Web de <strong>800 €/mes</strong>. El diagnóstico inicial determina qué servicios SEO necesita cada cliente para obtener resultados en su sector.
     </p>`,
   },
   {

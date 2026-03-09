@@ -21,7 +21,7 @@ const tiers: PricingTier[] = [
     name: 'Solo Ficha',
     price: '350 €',
     unit: '/mes + IVA',
-    description: 'Servicio SEO local para negocios que necesitan visibilidad y tráfico desde Google Maps y el Local Pack.',
+    description: 'Servicio de <a href="/seo-local-barcelona/" class="underline decoration-sky-200 underline-offset-2 hover:text-petrol-900 transition-colors">SEO local</a> para negocios que necesitan visibilidad y tráfico desde Google Maps y el Local Pack.',
     commitment: 'Compromiso recomendado: 3 meses',
     commitmentMonths: 3,
     features: [
@@ -43,7 +43,7 @@ const tiers: PricingTier[] = [
     name: 'Solo Web',
     price: '550 €',
     unit: '/mes + IVA',
-    description: 'Estrategia SEO on-page: páginas de servicio optimizadas, contenidos y autoridad web para captar tráfico orgánico.',
+    description: 'Estrategia de <a href="/posicionamiento-web-barcelona/" class="underline decoration-sky-200 underline-offset-2 hover:text-petrol-900 transition-colors">posicionamiento web</a>: páginas de servicio optimizadas, contenidos y autoridad web para captar tráfico orgánico.',
     commitment: 'Compromiso recomendado: 4 meses',
     commitmentMonths: 4,
     features: [
@@ -179,7 +179,7 @@ const TOTAL_SEGMENTS = 6
                 'mt-4 text-sm/6',
                 tier.featured ? 'text-sky-100' : 'text-petrol-600',
               ]}>
-              {tier.description}
+              <Fragment set:html={tier.description} />
             </p>
             <p class='mt-6 flex items-baseline gap-x-1'>
               <span

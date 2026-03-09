@@ -11,6 +11,7 @@ import Faq from '../components/pages/posicionamiento-web-barcelona/Faq.astro'
 import { faqBarcelonaItems } from '../data/faq-barcelona'
 import Cta from '../components/pages/posicionamiento-web-barcelona/Cta.astro'
 import barcelonaImage from '../assets/barcelona.webp'
+import Breadcrumb from '../components/Breadcrumb.astro'
 
 const MIN_MONTHLY_PRICE_EUR = 350
 const MIN_MONTHLY_PRICE_TEXT = `${MIN_MONTHLY_PRICE_EUR} €/mes`
@@ -22,6 +23,7 @@ const DATE_MODIFIED = "2026-03-03"
   description='¿Quieres más visitas desde Google? Posicionamiento web en Barcelona ☎ 692 051 399 🔵 Desde 350 €/mes ⭐ Sin permanencia. ¡Contacta ya!'
   canonicalUrl='https://salvaseo.com/posicionamiento-web-barcelona/'
   preloadImageHref={barcelonaImage.src}>
+  <Breadcrumb items={[{ label: 'Inicio', href: '/' }, { label: 'Posicionamiento Web Barcelona' }]} />
   <HeroLanding
     upheading='Posicionamiento web en Barcelona'
     heading='Deja de perder clientes frente a tu competencia'
@@ -43,7 +45,7 @@ const DATE_MODIFIED = "2026-03-03"
   <LocalAreas
     upheading='Posicionamiento web en Cataluña'
     heading='Cataluña es tu territorio'
-    intro='<p class="mt-6 text-base/7 text-petrol-700">La visibilidad en el buscador cambia según la ubicación del usuario. Si tu negocio no responde a la <strong>intención de búsqueda de tu zona</strong>, el tráfico se desvía hacia la competencia.</p><p class="mt-4 text-base/7 text-petrol-700">Captura la demanda real en los mercados con mayor potencial de conversión:</p>'
+    intro='<p class="mt-6 text-base/7 text-petrol-700">La visibilidad en el buscador cambia según la ubicación del usuario. Si tu negocio depende de clientes de tu barrio, el <a href="/seo-local-barcelona/" class="text-sky-600 font-medium hover:text-sky-700 underline decoration-sky-200 underline-offset-2 transition-colors">SEO local en Barcelona</a> trabaja tu ficha de Google Maps para captar esa demanda antes que tu competencia.</p><p class="mt-4 text-base/7 text-petrol-700">Captura la demanda real en los mercados con mayor potencial de conversión:</p>'
     areas={[
       { stat: '170 búsquedas/mes', title: 'Posicionamiento web en Sabadell', description: 'Una de las zonas con mayor actividad comercial del Vallès. Escalar posiciones aquí abre la puerta a liderar tu sector a nivel comarcal.' },
       { stat: '90 búsquedas/mes', title: 'Posicionamiento web en Badalona', description: 'Alta intención de compra local. El cliente que busca proximidad convierte más rápido, y ganar visibilidad aquí evita que tu negocio se diluya entre los resultados de la capital.' },

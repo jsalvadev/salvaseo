@@ -12,6 +12,7 @@ import LocalSeoFaq from '../components/pages/seo-local-barcelona/Faq.astro'
 import { faqSeoLocalItems } from '../data/faq-seo-local'
 import LocalSeoCta from '../components/pages/seo-local-barcelona/Cta.astro'
 import GoogleMapEmbed from '../components/shared/GoogleMapEmbed.astro'
+import Breadcrumb from '../components/Breadcrumb.astro'
 
 const MIN_MONTHLY_PRICE_EUR = 350
 const MIN_MONTHLY_PRICE_TEXT = `${MIN_MONTHLY_PRICE_EUR} €/mes`
@@ -21,7 +22,7 @@ const seoLocalExplainerItems = [
     icon: 'search',
     title: 'Canal distinto, cliente distinto.',
     description:
-      'El posicionamiento web tradicional atrae visitantes de todo el país. El SEO local te posiciona en Google Maps, Local Pack y resultados de búsqueda geolocalizados, donde están los <strong>clientes potenciales de tu barrio dispuestos a pagar hoy</strong>. Dos estrategias, dos tipos de tráfico cualificado.'
+      'El <a href="/posicionamiento-web-barcelona/" class="text-sky-600 font-medium hover:text-sky-700 underline decoration-sky-200 underline-offset-2 transition-colors">posicionamiento web en Barcelona</a> atrae visitantes a nivel nacional. El SEO local te posiciona en Google Maps, Local Pack y resultados de búsqueda geolocalizados, donde están los <strong>clientes potenciales de tu barrio dispuestos a pagar hoy</strong>. Dos estrategias complementarias, dos tipos de tráfico cualificado.'
   },
   {
     icon: 'layoutGrid',
@@ -226,6 +227,8 @@ const seoLocalBusinessTypes = [
   description='¿Tu negocio no aparece en Google Maps? SEO local en Barcelona ☎ 692 051 399 🔵 Desde 350 €/mes ⭐ Sin permanencia. ¡Contacta ya!'
   canonicalUrl='https://salvaseo.com/seo-local-barcelona/'
   preloadImageHref={seoLocalHeroImage.src}>
+
+  <Breadcrumb items={[{ label: 'Inicio', href: '/' }, { label: 'SEO Local Barcelona' }]} />
 
   <!-- 1. HERO -->
   <BarcelonaLocalSeoHero
