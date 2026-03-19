@@ -1,84 +1,201 @@
 ---
 import WhatsAppButton from '../../WhatsAppButton.astro'
-import heroImage from '../../../assets/hero.webp'
+import { buildWhatsAppHref } from '../../../data/site'
+
+const waHref = buildWhatsAppHref(
+  'Salva mi página web es invisible en Barcelona'
+)
 ---
 
-<div class='relative bg-petrol-900 overflow-hidden'>
-  <!-- gradient mesh -->
+<section class='relative bg-petrol-900 overflow-hidden'>
+  <!-- Watermark #1 -->
   <div
-    class='pointer-events-none absolute inset-0'
-    style='background: radial-gradient(ellipse at 20% 50%, rgba(14,165,233,0.12) 0%, transparent 60%), radial-gradient(ellipse at 80% 30%, rgba(249,115,22,0.07) 0%, transparent 50%);'
-    aria-hidden='true'></div>
-  <!-- dot grid -->
+    class='pointer-events-none absolute -top-8 right-0 select-none leading-none'
+    aria-hidden='true'
+    style='font-family: "Titan One", cursive; font-size: clamp(14rem, 28vw, 24rem); color: rgba(255,255,255,0.025); line-height: 1;'>
+    #1
+  </div>
+
+  <!-- Diagonal tension lines -->
+  <svg
+    class='pointer-events-none absolute inset-0 w-full h-full'
+    aria-hidden='true'
+    preserveAspectRatio='none'
+    xmlns='http://www.w3.org/2000/svg'>
+    <line
+      x1='72%'
+      y1='0%'
+      x2='100%'
+      y2='100%'
+      stroke='rgba(249,115,22,0.07)'
+      stroke-width='1'
+    ></line>
+    <line
+      x1='78%'
+      y1='0%'
+      x2='108%'
+      y2='100%'
+      stroke='rgba(249,115,22,0.04)'
+      stroke-width='1'
+    ></line>
+    <line
+      x1='65%'
+      y1='0%'
+      x2='93%'
+      y2='100%'
+      stroke='rgba(14,165,233,0.04)'
+      stroke-width='1'
+    ></line>
+  </svg>
+
+  <!-- Radial glow bottom-left -->
   <div
-    class='pointer-events-none absolute inset-0 opacity-[0.10]'
-    style='background-image: radial-gradient(circle, #7dd3fc 1px, transparent 1px); background-size: 32px 32px;'
-    aria-hidden='true'></div>
-  <!-- floating decorative rings -->
+    class='pointer-events-none absolute -bottom-32 -left-32 w-96 h-96 rounded-full'
+    aria-hidden='true'
+    style='background: radial-gradient(circle, rgba(14,165,233,0.08) 0%, transparent 70%);'>
+  </div>
+
+  <!-- ── Main grid ───────────────────────────────────────────────── -->
   <div
-    class='pointer-events-none absolute -top-20 -left-20 size-80 rounded-full border border-sky-400/10'
-    style='animation: subtle-float 6s ease-in-out infinite;'
-    aria-hidden='true'></div>
-  <div
-    class='pointer-events-none absolute -bottom-24 -right-24 size-96 rounded-full border border-orange-500/[0.08]'
-    style='animation: subtle-float 6s ease-in-out infinite 3s;'
-    aria-hidden='true'></div>
-  <div class='relative mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8'>
+    class='relative mx-auto max-w-7xl px-6 pt-20 pb-12 sm:pt-24 sm:pb-16 lg:px-8 lg:pt-28 lg:pb-20'>
     <div
-      class='mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-8 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8'>
-      <div class='lg:col-span-2 xl:col-auto'>
-        <h1
-          class='animate-fade-in-up [animation-delay:0ms] inline-flex items-center bg-sky-500/10 border border-sky-400/20 rounded-full px-3 py-1 text-sm/6 text-sky-300'>
-          Consultor SEO en Barcelona
-        </h1>
-        <p
-          class='animate-fade-in-up [animation-delay:100ms] mt-4 max-w-2xl text-5xl font-bold tracking-tighter text-balance text-white sm:text-7xl lg:text-8xl'>
-          Cada día pierdes clientes que no saben que existes
-        </p>
-        <!-- accent bar -->
-        <div class='animate-fade-in-up [animation-delay:150ms] mt-6 h-1 w-20 rounded-full bg-gradient-to-r from-orange-500 to-sky-500'></div>
-      </div>
-      <div class='mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1'>
-        <p
-          class='animate-fade-in-up [animation-delay:200ms] text-lg font-medium text-pretty text-petrol-100 sm:text-xl/8'>
-          Tu negocio es bueno. Tu equipo domina lo que hace. Pero
-          cuando alguien busca en Google lo que ofreces en Barcelona, <strong
-            class='text-white'>tu web no aparece</strong
-          >. Sin una estrategia de posicionamiento, es invisible para quien necesita tus servicios.
-        </p>
-        <p
-          class='animate-fade-in-up [animation-delay:280ms] mt-4 text-lg font-medium text-pretty text-petrol-100 sm:text-xl/8'>
-          Mientras tanto, tu competencia recibe las llamadas. <strong class='text-white'
-            >Detrás hay trabajo técnico que posiciona su web por encima de la tuya.</strong
-          >
-        </p>
-        <p
-          class='animate-fade-in-up [animation-delay:340ms] mt-4 text-lg font-medium text-pretty text-petrol-100 sm:text-xl/8'>
-          Un consultor SEO en Barcelona que <strong class='text-white'
-            >opera en tu zona, entiende tu mercado y ejecuta la estrategia directamente,</strong
-          > puede revertir esa situación.
-        </p>
+      class='grid lg:grid-cols-[1fr_300px] xl:grid-cols-[1fr_320px] gap-12 lg:gap-20 items-start'>
+      <!-- ── LEFT: Content ───────────────────────────────────────── -->
+      <div>
+        <!-- Eyebrow -->
         <div
-          class='animate-fade-in-up [animation-delay:440ms] mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-x-6'>
-          <WhatsAppButton text='Cuéntame tu caso' />
-          <a
-            href='#trabajo-conmigo'
-            class='text-sm/6 font-semibold text-white hover:text-sky-300 transition-colors'
-            >Cómo funciona <span aria-hidden='true'>→</span></a
-          >
+          class='animate-fade-in-up [animation-delay:0ms] flex items-center gap-3 mb-5'>
+          <span class='block h-px w-10 bg-orange-500'></span>
+          <span
+            class='text-[0.7rem] font-bold uppercase tracking-[0.22em] text-orange-400'>
+            Consultor SEO · Barcelona
+          </span>
         </div>
-        <div class='animate-fade-in-up [animation-delay:560ms] mt-8 flex flex-wrap gap-x-6 gap-y-3'>
+
+        <!-- Headline -->
+        <h1
+          class='animate-fade-in-up [animation-delay:80ms]'
+          style='font-family: "Titan One", cursive;'>
+          <span
+            class='block text-4xl sm:text-5xl lg:text-6xl xl:text-[4rem] leading-[0.93] tracking-tight text-white'>
+            Si no apareces
+          </span>
+          <span
+            class='block text-4xl sm:text-5xl lg:text-6xl xl:text-[4rem] leading-[0.93] tracking-tight mt-1'>
+            <span class='text-white'>en Google,&nbsp;</span><span
+              class='text-orange-400'>no existes.</span
+            >
+          </span>
+        </h1>
+
+        <!-- Accent rule -->
+        <div
+          class='animate-fade-in-up [animation-delay:160ms] mt-5 flex items-center gap-0'>
+          <div class='h-px w-16 bg-orange-500'></div>
+          <div
+            class='h-px w-24 bg-gradient-to-r from-orange-500/50 to-transparent'>
+          </div>
+        </div>
+
+        <!-- Body -->
+        <p
+          class='animate-fade-in-up [animation-delay:230ms] mt-5 max-w-[52ch] text-base leading-relaxed text-petrol-100 text-pretty'>
+          Cada día, cientos de potenciales clientes en Barcelona buscan en
+          Google lo que tú ofreces. Si tu web no aparece en la primera página,
+          <strong class='text-white font-semibold'>no saben que existes.</strong
+          >
+        </p>
+
+        <p
+          class='animate-fade-in-up [animation-delay:300ms] mt-4 max-w-[52ch] text-base leading-relaxed text-petrol-100'>
+          <strong class='text-white font-semibold'
+            >Pierdes clientes sin saberlo.</strong
+          > Llamadas que no recibes, puertas que no se abren, presupuestos que van
+          a parar a otro. Todo porque
+          <strong class='text-white font-semibold'
+            >tu competencia aparece antes que tú.</strong
+          >
+        </p>
+
+        <p
+          class='animate-fade-in-up [animation-delay:360ms] mt-4 max-w-[52ch] text-base leading-relaxed text-petrol-100 text-pretty'>
+          Ahora que ya sabes lo que pasa cuando no existes en Google, escríbeme
+          ahora mismo por WhatsApp y dime: <strong
+            class='text-white font-semibold'
+            >"Salva mi página web es invisible en Barcelona."</strong
+          >
+        </p>
+
+        <!-- CTAs -->
+        <div
+          class='animate-fade-in-up [animation-delay:440ms] mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-x-7'>
+          <WhatsAppButton
+            text='Hablamos'
+            href={waHref}
+            class='px-6 py-3 text-[0.9375rem] font-bold shadow-lg shadow-sky-500/20 hover:shadow-sky-500/30 transition-shadow'
+          />
         </div>
       </div>
-      <img
-        src={heroImage.src}
-        width={heroImage.width}
-        height={heroImage.height}
-        fetchpriority='high'
-        loading='eager'
-        alt='Consultor SEO trabajando en estrategia digital para negocios locales en Barcelona'
-        class='animate-fade-in mt-10 aspect-6/5 w-full max-w-lg rounded-2xl object-cover ring-1 ring-white/10 shadow-2xl shadow-sky-500/10 sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-36'
-      />
+
+      <!-- ── RIGHT: SERP visualization ──────────────────────────── -->
+      <aside
+        class='animate-fade-in [animation-delay:480ms] hidden lg:flex flex-col gap-2 pt-2'
+        aria-hidden='true'>
+        <p
+          class='text-[0.65rem] font-bold uppercase tracking-[0.18em] text-petrol-600 mb-2 px-1'>
+          Resultados Google · Barcelona
+        </p>
+
+        <!-- Posición #1 — TU EMPRESA (arriba del todo) -->
+        <div
+          class='rounded-xl bg-sky-500/[0.09] border border-sky-400/35 p-3.5 relative'
+          style='animation: pulse-glow 3s ease-in-out infinite;'>
+          <div class='flex items-center gap-3'>
+            <span
+              class='shrink-0 w-5 text-center text-[0.65rem] font-bold text-orange-400'
+              style='font-family: "Titan One", cursive;'
+              >1</span
+            >
+            <div class='flex-1'>
+              <div class='flex items-center gap-2 mb-2'>
+                <div class='size-3 rounded-full bg-sky-400/40 shrink-0'></div>
+                <div class='h-1.5 w-20 rounded-full bg-sky-300/40'></div>
+              </div>
+              <div class='h-1.5 w-36 rounded-full bg-white/25 mb-1.5'></div>
+              <div class='h-1.5 w-28 rounded-full bg-white/15'></div>
+            </div>
+          </div>
+          <p
+            class='mt-2.5 ml-8 text-[0.6rem] font-bold uppercase tracking-wider text-sky-400'>
+            Tu empresa aquí
+          </p>
+        </div>
+
+        <!-- Competidores: posiciones 2, 3, 4 — borrosos -->
+        {
+          [2, 3, 4].map(pos => (
+            <div class='rounded-xl bg-white/[0.03] border border-white/[0.05] p-3.5 blur-[1.5px]'>
+              <div class='flex items-center gap-3'>
+                <span class='shrink-0 w-5 text-center text-[0.65rem] font-bold text-white/20'>
+                  {pos}
+                </span>
+                <div class='flex-1'>
+                  <div class='flex items-center gap-2 mb-2'>
+                    <div class='size-3 rounded-full bg-white/10 shrink-0' />
+                    <div class='h-1.5 w-16 rounded-full bg-white/10' />
+                  </div>
+                  <div class='h-1.5 w-32 rounded-full bg-white/[0.08] mb-1.5' />
+                  <div class='h-1.5 w-24 rounded-full bg-white/[0.06]' />
+                </div>
+              </div>
+            </div>
+          ))
+        }
+
+        <p class='text-[0.6rem] text-petrol-600/70 text-center pt-1'>
+          91% de los clics van a la primera posición
+        </p>
+      </aside>
     </div>
   </div>
-</div>
+</section>

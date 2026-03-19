@@ -1,0 +1,177 @@
+---
+import WhatsAppButton from '../../WhatsAppButton.astro'
+import { buildWhatsAppHref } from '../../../data/site'
+
+const waHref = buildWhatsAppHref('Salva mi pagina web no existe en Google Barcelona')
+---
+
+<section class='relative overflow-hidden bg-petrol-50 py-24 md:py-32'>
+  <!-- Subtle dot grid texture -->
+  <div
+    class='pointer-events-none absolute inset-0'
+    aria-hidden='true'
+    style='background-image: radial-gradient(circle, rgba(26,60,74,0.07) 1px, transparent 1px); background-size: 28px 28px;'>
+  </div>
+
+  <!-- Large faded watermark -->
+  <div
+    class='pointer-events-none absolute -right-6 top-1/2 -translate-y-1/2 select-none overflow-hidden'
+    aria-hidden='true'
+    style='font-family: "Titan One", cursive; font-size: clamp(12rem, 26vw, 22rem); color: rgba(249,115,22,0.05); line-height: 1; white-space: nowrap;'>
+    SOLUCIÓN
+  </div>
+
+  <div class='relative mx-auto max-w-7xl px-6 lg:px-8'>
+    <div class='grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-16 xl:gap-24 items-start'>
+
+      <!-- ── LEFT: Headline block ─────────────────────────────────── -->
+      <div class='lg:sticky lg:top-28'>
+        <div data-animate class='flex items-center gap-3 mb-8'>
+          <span class='block h-px w-10 bg-orange-500' aria-hidden='true'></span>
+          <span class='text-[0.7rem] font-bold uppercase tracking-[0.22em] text-orange-500'>
+            La buena noticia
+          </span>
+        </div>
+
+        <h2
+          data-animate
+          style='font-family: "Titan One", cursive;'
+          class='leading-[0.9] tracking-tight'>
+          <span class='block text-[clamp(2rem,4.5vw,3.5rem)] text-petrol-700 mb-1'>
+            Pero se puede
+          </span>
+          <span class='block text-[clamp(3.2rem,7.5vw,5.5rem)] text-petrol-900'>
+            solucionar<span class='text-orange-400'>.</span>
+          </span>
+        </h2>
+
+        <div data-animate class='mt-6 flex items-center gap-0'>
+          <div class='h-[3px] w-16 bg-orange-500 rounded-full'></div>
+          <div class='h-px w-24 bg-gradient-to-r from-orange-500/40 to-transparent'></div>
+        </div>
+
+        <p
+          data-animate
+          class='mt-6 max-w-[40ch] text-base md:text-lg text-petrol-700 leading-relaxed text-pretty'>
+          En cuanto me envies ese WhatsApp, voy a analizar tu web gratis en menos de 24 horas.
+          Te dire exactamente por qué no apareces en primera página y
+          <strong class='text-petrol-900 font-semibold'>qué habría que hacer para que tus clientes te encuentren.</strong>
+        </p>
+      </div>
+
+      <!-- ── RIGHT: 4-step process ────────────────────────────────── -->
+      <div class='flex flex-col'>
+
+        <!-- Step 1 -->
+        <div
+          data-animate
+          class='relative flex gap-6 py-10 border-b border-petrol-100'>
+          <div class='shrink-0 flex flex-col items-center pt-0.5 w-10'>
+            <span class='text-[0.55rem] font-bold uppercase tracking-[0.18em] text-orange-400 leading-none mb-0.5'>
+              Paso
+            </span>
+            <span
+              class='text-[2.2rem] leading-none font-bold text-orange-400/40 tabular-nums'
+              style='font-family: "Titan One", cursive;'>
+              01
+            </span>
+          </div>
+          <div>
+            <h3 class='text-base font-bold text-petrol-900 mb-3'>
+              Pulsa aquí
+            </h3>
+            <WhatsAppButton
+              text='Escribir por WhatsApp'
+              href={waHref}
+              class='text-sm font-bold px-5 py-2.5 shadow-sm shadow-sky-500/20'
+            />
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div
+          data-animate
+          class='relative flex gap-6 py-10 border-b border-petrol-100'>
+          <div class='shrink-0 flex flex-col items-center pt-0.5 w-10'>
+            <span class='text-[0.55rem] font-bold uppercase tracking-[0.18em] text-orange-400 leading-none mb-0.5'>
+              Paso
+            </span>
+            <span
+              class='text-[2.2rem] leading-none font-bold text-orange-400/40 tabular-nums'
+              style='font-family: "Titan One", cursive;'>
+              02
+            </span>
+          </div>
+          <div>
+            <h3 class='text-base font-bold text-petrol-900 mb-3 '>
+              Dime este mensaje exacto
+            </h3>
+            <div class='bg-orange-50 border border-orange-200/70 rounded-xl rounded-tl-sm px-4 py-3'>
+              <p class='text-sm text-orange-700 italic leading-relaxed'>
+                "Salva mi pagina web no existe en Google Barcelona"
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div
+          data-animate
+          class='relative flex gap-6 py-10 border-b border-petrol-100'>
+          <div class='shrink-0 flex flex-col items-center pt-0.5 w-10'>
+            <span class='text-[0.55rem] font-bold uppercase tracking-[0.18em] text-orange-400 leading-none mb-0.5'>
+              Paso
+            </span>
+            <span
+              class='text-[2.2rem] leading-none font-bold text-orange-400/40 tabular-nums'
+              style='font-family: "Titan One", cursive;'>
+              03
+            </span>
+          </div>
+          <div>
+            <h3 class='text-base font-bold text-petrol-900 mb-2 '>
+              Esta es mi página web
+            </h3>
+            <p class='text-sm text-petrol-700 leading-relaxed'>
+              Comparte la URL de tu negocio. Nada más.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div
+          data-animate
+          class='relative flex gap-6 pt-10'>
+          <div class='shrink-0 flex flex-col items-center pt-0.5 w-10'>
+            <span class='text-[0.55rem] font-bold uppercase tracking-[0.18em] text-orange-400 leading-none mb-0.5'>
+              Paso
+            </span>
+            <span
+              class='text-[2.2rem] leading-none font-bold text-orange-400/40 tabular-nums'
+              style='font-family: "Titan One", cursive;'>
+              04
+            </span>
+          </div>
+          <div>
+            <div class='flex items-baseline gap-2 mb-2'>
+              <h3 class='text-base font-bold text-petrol-900 '>
+                En menos de
+              </h3>
+              <span
+                style='font-family: "Titan One", cursive;'
+                class='text-2xl leading-none text-orange-400'>
+                24h
+              </span>
+            </div>
+            <p class='text-sm text-petrol-700 leading-relaxed text-pretty'>
+              Me pongo en contacto contigo, te explico por qué tu web no
+              posiciona y qué voy a hacer para que aparezca en primera
+              página de Google.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
