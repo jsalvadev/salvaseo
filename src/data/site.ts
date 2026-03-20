@@ -8,9 +8,9 @@ export const siteConfig = {
       e164: "+34692051399",
       whatsapp: "34692051399",
       display: "+34 692 051 399",
-      shortDisplay: "692 051 399",
+      shortDisplay: "+34 692 051 399",
     },
-    email: "info@salvaseo.com",
+    email: "salvadorjesus.seo@gmail.com",
   },
   whatsapp: {
     defaultMessage:

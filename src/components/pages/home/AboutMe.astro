@@ -1,99 +1,137 @@
 ---
 import aboutMeImage from '../../../assets/about-me.webp'
+import { Mail, Phone } from '@lucide/astro'
 ---
 
-<div
+<section
   id='sobre-mi'
-  class='relative bg-white py-24 md:py-32'>
+  class='relative overflow-hidden bg-white py-24 md:py-32'>
+
   <!-- Hero → AboutMe gradient transition -->
-  <div class='absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-petrol-900/5 to-transparent pointer-events-none' aria-hidden='true'></div>
   <div
-    class='mx-auto grid max-w-7xl grid-cols-1 gap-20 px-6 lg:px-8 xl:grid-cols-5'>
-    <div data-animate-direction='left' class='max-w-2xl xl:col-span-2'>
-      <div class='bg-sandstone-soft border border-[#e8ddd1] shadow-sm rounded-xl px-8 py-10 sm:px-12 sm:py-12'>
-        <h2 class='text-sm/6 font-semibold tracking-widest text-orange-600 uppercase'>
-          Consultoría SEO profesional
-        </h2>
-        <p
-          class='mt-2 text-4xl font-semibold tracking-tight text-pretty text-petrol-900 sm:text-5xl text-pretty'>
-          Pero se puede solucionar
-        </p>
-        <p class='mt-3 text-xl text-petrol-700 font-medium text-pretty'>
-          Esto es lo que tu negocio recibe con una consultoría SEO profesional
-        </p>
-        <div class='mt-8 space-y-4'>
-          <div class='bg-white border border-petrol-100 rounded-xl p-6 transition-all duration-300 hover:border-orange-500/30 hover:shadow-sm'>
-            <span class='text-4xl font-bold text-orange-500/25 select-none' aria-hidden='true'>01</span>
-            <p class='mt-2 text-base/7 text-petrol-900'>
-              <strong>Diagnóstico técnico completo.</strong> Análisis de por qué tu web no
-              aparece en Google. Estructura, contenido, enlaces y velocidad. Explicación clara de cada problema y su impacto en tu facturación.
-            </p>
-          </div>
-          <div class='bg-white border border-petrol-100 rounded-xl p-6 transition-all duration-300 hover:border-orange-500/30 hover:shadow-sm'>
-            <span class='text-4xl font-bold text-orange-500/25 select-none' aria-hidden='true'>02</span>
-            <p class='mt-2 text-base/7 text-petrol-900'>
-              <strong>Ejecución con resultados medibles.</strong>
-              Cada cambio responde a un objetivo concreto de captación de clientes. Seguimiento mensual con métricas reales — <a href='/presupuesto-seo-barcelona/#paquetes' class='text-sky-600 font-medium hover:text-sky-700 underline decoration-sky-200 underline-offset-2 transition-colors'>consulta los paquetes y precios SEO</a>.
-            </p>
-          </div>
-          <div class='bg-white border border-petrol-100 rounded-xl p-6 transition-all duration-300 hover:border-orange-500/30 hover:shadow-sm'>
-            <span class='text-4xl font-bold text-orange-500/25 select-none' aria-hidden='true'>03</span>
-            <p class='mt-2 text-base/7 text-petrol-900'>
-              <strong>Comunicación directa.</strong> Línea abierta por teléfono, WhatsApp o email para cualquier duda sobre tu proyecto.
-            </p>
-          </div>
+    class='absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-petrol-900/5 to-transparent pointer-events-none'
+    aria-hidden='true'></div>
+
+  <!-- Titan One watermark -->
+  <div
+    class='pointer-events-none absolute -right-8 top-1/2 -translate-y-1/2 select-none leading-none'
+    aria-hidden='true'
+    style='font-family: "Titan One", cursive; font-size: clamp(10rem, 22vw, 20rem); color: rgba(249,115,22,0.04); line-height: 1;'>
+    SEO
+  </div>
+
+  <!-- Orange geometric accent -->
+  <div
+    class='absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-40 bg-orange-500 rounded-r-full pointer-events-none'
+    aria-hidden='true'></div>
+
+  <div class='mx-auto max-w-7xl px-6 lg:px-8'>
+    <div
+      data-animate-direction='left'
+      class='grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-12 lg:gap-20 items-center'>
+
+      <!-- Photo column -->
+      <div class='relative flex justify-center lg:justify-start flex-shrink-0'>
+
+        <!-- Stacked background rects for depth -->
+        <div
+          class='absolute -bottom-4 -right-4 w-full h-full rounded-2xl bg-orange-500/10 border border-orange-500/20'
+          aria-hidden='true'></div>
+        <div
+          class='absolute -bottom-2 -right-2 w-full h-full rounded-2xl bg-sky-500/8 border border-sky-100'
+          aria-hidden='true'></div>
+
+        <img
+          src={aboutMeImage.src}
+          width={aboutMeImage.width}
+          height={aboutMeImage.height}
+          alt='Salvador Jesús, consultor SEO freelance en Barcelona'
+          class='relative aspect-4/5 w-56 sm:w-64 rounded-2xl object-cover shadow-2xl shadow-petrol-900/15 ring-1 ring-petrol-900/5'
+        />
+
+        <!-- Orange corner dot -->
+        <div
+          class='absolute -top-3 -left-3 w-6 h-6 rounded-full bg-orange-500 shadow-sm shadow-orange-500/40'
+          aria-hidden='true'></div>
+      </div>
+
+      <!-- Content column -->
+      <div class='space-y-7 max-w-xl'>
+
+        <!-- Eyebrow label -->
+        <div class='flex items-center gap-3'>
+          <span class='h-px w-8 bg-orange-500 flex-shrink-0'></span>
+          <span
+            class='text-xs font-semibold tracking-[0.18em] uppercase text-orange-500'>
+            Sobre mí
+          </span>
         </div>
-        <p class='mt-4 text-sm text-petrol-600 text-pretty'>
-          Dedicación exclusiva a <strong>negocios de Barcelona y
-          alrededores</strong>.
+
+        <!-- Name + Role -->
+        <div class='space-y-1.5'>
+          <h2
+            class='text-4xl sm:text-5xl tracking-tight text-petrol-900'
+            style='font-family: "Titan One", cursive;'>
+            Salvador Jesús
+          </h2>
+          <p class='text-base font-medium text-sky-600 tracking-wide'>
+            Consultor SEO freelance en Barcelona
+          </p>
+        </div>
+
+        <!-- Bio -->
+        <p class='text-base/7 text-petrol-700 text-pretty'>
+          Cartera reducida para que cada negocio obtenga el tiempo y el análisis
+          que necesita. Tu proyecto recibe
+          <strong class='font-semibold text-petrol-900'
+            >dedicación exclusiva y herramientas de nivel agencia</strong
+          >.
         </p>
+
+        <!-- Tool badges -->
+        <div class='flex flex-wrap gap-2'>
+          {
+            [
+              'Google Search Console',
+              'Google Analytics 4',
+              'Keyword Planner',
+              'WordPress',
+              'Elementor Pro',
+              'Yoast SEO',
+              'DinoRank',
+            ].map((tool) => (
+              <span class='inline-flex items-center rounded-full bg-petrol-50 px-3 py-1 text-xs font-medium text-petrol-700 ring-1 ring-inset ring-petrol-100'>
+                {tool}
+              </span>
+            ))
+          }
+        </div>
+
+        <hr class='border-petrol-100' />
+
+        <!-- Contact links -->
+        <div class='flex flex-wrap gap-4'>
+          <a
+            href='mailto:salvadorjesus.seo@gmail.com'
+            class='group inline-flex items-center gap-2.5 text-sm text-petrol-700 hover:text-sky-600 transition-colors duration-200'>
+            <span
+              class='flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-petrol-50 ring-1 ring-petrol-100 group-hover:bg-sky-50 group-hover:ring-sky-200 transition-all duration-200'>
+              <Mail class='h-4 w-4' />
+            </span>
+            salvadorjesus.seo@gmail.com
+          </a>
+
+          <a
+            href='tel:+34692051399'
+            class='group inline-flex items-center gap-2.5 text-sm text-petrol-700 hover:text-sky-600 transition-colors duration-200'>
+            <span
+              class='flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-petrol-50 ring-1 ring-petrol-100 group-hover:bg-sky-50 group-hover:ring-sky-200 transition-all duration-200'>
+              <Phone class='h-4 w-4' />
+            </span>
+            +34 692 051 399
+          </a>
+        </div>
       </div>
     </div>
-    <ul
-      data-animate-direction='right'
-      role='list'
-      class='divide-y divide-petrol-100 xl:col-span-3 xl:pl-6'>
-      <li class='flex flex-col gap-10 py-12 first:pt-0 last:pb-0 sm:flex-row'>
-        <div class='relative flex-none'>
-          <div class='absolute -inset-2 rounded-2xl bg-gradient-to-br from-sky-500/10 to-orange-500/10 -z-10' aria-hidden='true'></div>
-          <img
-            src={aboutMeImage.src}
-            width={aboutMeImage.width}
-            height={aboutMeImage.height}
-            alt='Salvador Jesús'
-            class='aspect-4/5 w-52 flex-none rounded-2xl object-cover'
-          />
-        </div>
-        <div class='max-w-xl flex-auto'>
-          <p class='text-lg/8 font-semibold tracking-tight text-petrol-900'>
-            Salvador Jesús
-          </p>
-          <h2 class='text-base/7 text-petrol-900'>
-            Consultor SEO freelance en Barcelona
-          </h2>
-          <p class='mt-6 text-base/7 text-petrol-900 text-pretty'>
-            Cartera reducida para que cada negocio obtenga el tiempo y el análisis que necesita. Tu proyecto recibe <strong>dedicación exclusiva y herramientas de nivel agencia</strong>
-            <em>(Google Search Console, Google Analytics 4, Google Keyword Planner, WordPress, Elementor Pro, Yoast SEO y DinoRank)</em>.
-          </p>
-          <hr class='mt-6 border-petrol-100' />
-          <p class='mt-6 text-sm text-petrol-900'>
-            <strong class='block sm:inline'>Contacto:</strong>
-            <span class='block sm:inline sm:ml-2'>
-              <a
-                href='mailto:salvadorjesus.seo@gmail.com'
-                class='text-petrol-900 hover:text-petrol-900'>
-                salvadorjesus.seo@gmail.com
-              </a>
-              <span class='mx-2 text-petrol-200'>|</span>
-              <a
-                href='tel:+34692051399'
-                class='text-petrol-900 hover:text-petrol-900'>
-                +34 692 051 399
-              </a>
-            </span>
-          </p>
-        </div>
-      </li>
-    </ul>
   </div>
-</div>
+</section>

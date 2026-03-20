@@ -4,14 +4,14 @@ import { siteConfig } from '../data/site'
 const { brand, contact, navigation } = siteConfig
 ---
 
-<header class='fixed inset-x-0 top-0 z-50 bg-white border-b border-gray-200'>
+<header id='site-header' class='fixed inset-x-0 top-0 z-50'>
   <nav
-    aria-label='Global'
+    aria-label='Navegación principal'
     class='mx-auto flex max-w-7xl items-center justify-between px-6 py-2 lg:px-8'>
+
+    <!-- Logo -->
     <div class='flex lg:flex-1'>
-      <a
-        href='/'
-        class='-m-1.5 p-1.5 flex items-center gap-x-2'>
+      <a href='/' class='-m-1.5 p-1.5 flex items-center gap-x-2.5'>
         <span class='sr-only'>{brand.name}</span>
         <img
           src='/logo.webp'
@@ -23,182 +23,199 @@ const { brand, contact, navigation } = siteConfig
         <span class='brand-wordmark text-xl text-petrol-900'>{brand.name}</span>
       </a>
     </div>
+
+    <!-- Mobile hamburger -->
     <div class='flex lg:hidden'>
       <button
         type='button'
         command='show-modal'
         commandfor='mobile-menu'
-        class='-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700'>
+        class='-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-petrol-700 transition-colors duration-200 hover:text-petrol-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2'>
         <span class='sr-only'>Abrir menú</span>
         <svg
           viewBox='0 0 24 24'
           fill='none'
           stroke='currentColor'
           stroke-width='1.5'
-          data-slot='icon'
           aria-hidden='true'
           class='size-6'>
           <path
             d='M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5'
             stroke-linecap='round'
-            stroke-linejoin='round'
-          ></path>
+            stroke-linejoin='round'></path>
         </svg>
       </button>
     </div>
-    <div class='hidden lg:flex lg:gap-x-12 lg:items-center'>
+
+    <!-- Desktop nav -->
+    <div class='hidden lg:flex lg:gap-x-10 lg:items-center'>
       {navigation.primary.slice(0, 1).map((link) => (
-        <a
-          href={link.href}
-          class='text-sm/6 font-semibold text-petrol-900 hover:text-sky-600 transition-colors duration-200'
-          >{link.label}</a
-        >
+        <a href={link.href} class='nav-link text-sm font-semibold'>
+          {link.label}
+        </a>
       ))}
+
+      <!-- Services dropdown -->
       <div class='relative group'>
         <button
           type='button'
-          class='flex items-center gap-x-1 text-sm/6 font-semibold text-petrol-900 hover:text-sky-600 transition-colors duration-200'>
+          class='nav-link flex items-center gap-x-1 text-sm font-semibold'>
           Servicios
           <svg
             viewBox='0 0 20 20'
             fill='currentColor'
             aria-hidden='true'
-            class='size-5'>
+            class='size-4 dropdown-chevron transition-transform duration-200'>
             <path
               fill-rule='evenodd'
               d='M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z'
-              clip-rule='evenodd'
-            ></path>
+              clip-rule='evenodd'></path>
           </svg>
         </button>
-        <div
-          class='hidden group-hover:block group-focus-within:block absolute left-0 z-10 mt-2 w-64 origin-top-left rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none before:content-[""] before:absolute before:inset-x-0 before:-top-2 before:h-2'>
-          <div class='py-1'>
+        <div class='services-dropdown absolute left-0 z-10 mt-1 w-72 pt-2'>
+          <div class='overflow-hidden rounded-base bg-white shadow-xl ring-1 ring-petrol-100 py-1.5'>
             {navigation.services.map((service) => (
               <a
                 href={service.href}
-                class='block px-4 py-2 text-sm text-petrol-900 hover:bg-gray-50'>
+                class='group/item flex items-center gap-3 px-4 py-2.5 text-sm text-petrol-700 hover:bg-petrol-50 hover:text-petrol-900 transition-colors duration-150'>
+                <span class='h-1.5 w-1.5 flex-shrink-0 rounded-full bg-petrol-200 transition-colors duration-150 group-hover/item:bg-sky-500'></span>
                 {service.label}
               </a>
             ))}
           </div>
         </div>
       </div>
+
       {navigation.primary.slice(1).map((link) => (
-        <a
-          href={link.href}
-          class='text-sm/6 font-semibold text-petrol-900 hover:text-sky-600 transition-colors duration-200'
-          >{link.label}</a
-        >
+        <a href={link.href} class='nav-link text-sm font-semibold'>
+          {link.label}
+        </a>
       ))}
-      <span class='text-gray-300'>|</span>
+
+      <div class='nav-divider h-4 w-px bg-petrol-100 transition-colors duration-300' aria-hidden='true'></div>
+
       <a
         href={`tel:${contact.phone.e164}`}
-        class='text-sm/6 font-semibold text-sky-a11y hover:text-sky-600'
-        >{contact.phone.display}</a
-      >
+        class='nav-phone inline-flex items-center gap-1.5 text-sm font-semibold text-sky-a11y'>
+        <svg class='h-3.5 w-3.5 flex-shrink-0' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+          <path
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            stroke-width='2'
+            d='M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z'>
+          </path>
+        </svg>
+        {contact.phone.display}
+      </a>
     </div>
   </nav>
+
+  <!-- Mobile menu dialog -->
   <el-dialog>
-    <dialog
-      id='mobile-menu'
-      class='backdrop:bg-transparent lg:hidden'>
-      <div
-        tabindex='0'
-        class='fixed inset-0 focus:outline-none'>
+    <dialog id='mobile-menu' class='backdrop:bg-transparent lg:hidden'>
+      <div tabindex='0' class='fixed inset-0 focus:outline-none'>
         <el-dialog-panel
-          class='fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10'>
+          class='fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-petrol-900 p-6 sm:max-w-sm sm:ring-1 sm:ring-white/10'>
+
           <div class='flex items-center justify-between'>
-            <a
-              href='/'
-              class='-m-1.5 p-1.5 flex items-center gap-x-2'>
+            <a href='/' class='-m-1.5 p-1.5 flex items-center gap-x-2.5'>
               <span class='sr-only'>{brand.name}</span>
               <img
                 src='/logo.webp'
                 alt={`${brand.name} Logo`}
                 width='48'
                 height='49'
-                class='h-12 w-auto'
+                class='h-10 w-auto'
               />
-              <span class='brand-wordmark text-xl text-petrol-900'
-                >{brand.name}</span
-              >
+              <span class='brand-wordmark text-xl text-white'>{brand.name}</span>
             </a>
             <button
               type='button'
               command='close'
               commandfor='mobile-menu'
-              class='-m-2.5 rounded-md p-2.5 text-gray-700'>
+              class='-m-2.5 rounded-md p-2.5 text-petrol-100 transition-colors duration-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500'>
               <span class='sr-only'>Cerrar menú</span>
               <svg
                 viewBox='0 0 24 24'
                 fill='none'
                 stroke='currentColor'
                 stroke-width='1.5'
-                data-slot='icon'
                 aria-hidden='true'
                 class='size-6'>
                 <path
                   d='M6 18 18 6M6 6l12 12'
                   stroke-linecap='round'
-                  stroke-linejoin='round'
-                ></path>
+                  stroke-linejoin='round'></path>
               </svg>
             </button>
           </div>
-          <div class='mt-6 flow-root'>
-            <div class='-my-6 divide-y divide-gray-500/10'>
-              <div class='space-y-2 py-6'>
-                {navigation.primary.slice(0, 1).map((link) => (
-                  <a
-                    href={link.href}
-                    class='-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-petrol-900 hover:bg-gray-50'
-                    >{link.label}</a
-                  >
-                ))}
-                <details class='-mx-3'>
-                  <summary
-                    class='flex cursor-pointer list-none items-center justify-between rounded-lg px-3 py-2 text-base/7 font-semibold text-petrol-900 hover:bg-gray-50'>
-                    Servicios
-                    <svg
-                      viewBox='0 0 20 20'
-                      fill='currentColor'
-                      aria-hidden='true'
-                      class='size-5'>
-                      <path
-                        fill-rule='evenodd'
-                        d='M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z'
-                        clip-rule='evenodd'
-                      ></path>
-                    </svg>
-                  </summary>
-                  <div class='mt-1 pl-4'>
-                    {navigation.services.map((service) => (
-                      <a
-                        href={service.href}
-                        class='block rounded-lg px-3 py-2 text-sm/6 font-semibold text-petrol-900 hover:bg-gray-50'
-                        >{service.label}</a
-                      >
-                    ))}
-                  </div>
-                </details>
-                {navigation.primary.slice(1).map((link) => (
-                  <a
-                    href={link.href}
-                    class='-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-petrol-900 hover:bg-gray-50'
-                    >{link.label}</a
-                  >
-                ))}
-                <div class='border-t border-gray-200 pt-4 mt-4'>
-                  <a
-                    href={`tel:${contact.phone.e164}`}
-                    class='-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-sky-a11y hover:bg-sky-50'
-                    >{contact.phone.display}</a
-                  >
+
+          <div class='mt-8 flow-root'>
+            <div class='space-y-0.5'>
+              <p class='px-3 pb-2 text-xs font-semibold uppercase tracking-[0.15em] text-orange-400'>
+                Menú
+              </p>
+              {navigation.primary.slice(0, 1).map((link) => (
+                <a
+                  href={link.href}
+                  class='block rounded-base px-3 py-2.5 text-base font-semibold text-petrol-100 transition-colors duration-150 hover:bg-petrol-800 hover:text-white'>
+                  {link.label}
+                </a>
+              ))}
+              <details>
+                <summary
+                  class='flex cursor-pointer list-none items-center justify-between rounded-base px-3 py-2.5 text-base font-semibold text-petrol-100 transition-colors duration-150 hover:bg-petrol-800 hover:text-white'>
+                  Servicios
+                  <svg
+                    viewBox='0 0 20 20'
+                    fill='currentColor'
+                    aria-hidden='true'
+                    class='size-5'>
+                    <path
+                      fill-rule='evenodd'
+                      d='M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z'
+                      clip-rule='evenodd'></path>
+                  </svg>
+                </summary>
+                <div class='mt-1 ml-3 border-l border-petrol-700 pl-3 space-y-0.5'>
+                  {navigation.services.map((service) => (
+                    <a
+                      href={service.href}
+                      class='block rounded-base px-3 py-2 text-sm font-semibold text-petrol-100/80 transition-colors duration-150 hover:bg-petrol-800 hover:text-white'>
+                      {service.label}
+                    </a>
+                  ))}
                 </div>
+              </details>
+              {navigation.primary.slice(1).map((link) => (
+                <a
+                  href={link.href}
+                  class='block rounded-base px-3 py-2.5 text-base font-semibold text-petrol-100 transition-colors duration-150 hover:bg-petrol-800 hover:text-white'>
+                  {link.label}
+                </a>
+              ))}
+
+              <div class='mt-4 border-t border-petrol-700/60 pt-5'>
+                <p class='px-3 pb-2 text-xs font-semibold uppercase tracking-[0.15em] text-orange-400'>
+                  Contacto
+                </p>
+                <a
+                  href={`tel:${contact.phone.e164}`}
+                  class='flex items-center gap-2.5 rounded-base px-3 py-3 text-base font-semibold text-sky-400 transition-colors duration-150 hover:bg-petrol-800 hover:text-sky-300'>
+                  <svg class='h-5 w-5 flex-shrink-0' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                    <path
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      stroke-width='2'
+                      d='M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z'>
+                    </path>
+                  </svg>
+                  {contact.phone.display}
+                </a>
               </div>
             </div>
           </div>
+
         </el-dialog-panel>
       </div>
     </dialog>
@@ -206,22 +223,21 @@ const { brand, contact, navigation } = siteConfig
 </header>
 
 <script>
-  // Close mobile menu when clicking navigation links
-  document.addEventListener('DOMContentLoaded', () => {
-    const mobileDialog = document.getElementById(
-      'mobile-menu'
-    ) as HTMLDialogElement
-    const mobileNavLinks = document.querySelectorAll(
-      '#mobile-menu a[href^="#"]'
-    )
+  // Scroll-aware header
+  const header = document.getElementById('site-header')
+  const onScroll = () => {
+    if (header) header.classList.toggle('is-scrolled', window.scrollY > 60)
+  }
+  onScroll()
+  window.addEventListener('scroll', onScroll, { passive: true })
 
-    mobileNavLinks.forEach(link => {
+  // Close mobile menu on anchor link click
+  document.addEventListener('DOMContentLoaded', () => {
+    const mobileDialog = document.getElementById('mobile-menu') as HTMLDialogElement
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
       link.addEventListener('click', () => {
-        // Small delay to allow smooth scroll to initiate before closing
         setTimeout(() => {
-          if (mobileDialog && mobileDialog.open) {
-            mobileDialog.close()
-          }
+          if (mobileDialog?.open) mobileDialog.close()
         }, 100)
       })
     })
@@ -229,12 +245,127 @@ const { brand, contact, navigation } = siteConfig
 </script>
 
 <style>
+  /* ── Scroll-aware header ── */
+  #site-header {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: transparent;
+  }
+
+  #site-header.is-scrolled {
+    background-color: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 1px 0 rgba(213, 221, 226, 0.9), 0 2px 8px rgba(26, 60, 74, 0.06);
+  }
+
+  /* ── Brand wordmark ── */
   .brand-wordmark {
     font-family: 'Titan One', sans-serif;
     font-weight: 400;
     letter-spacing: 0.02em;
   }
 
+  /* ── Desktop nav links — animated underline ── */
+  .nav-link {
+    position: relative;
+    padding-bottom: 2px;
+    color: var(--color-petrol-700);
+    transition: color 0.2s ease;
+    text-decoration: none;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background-color: var(--color-sky-500);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.25s ease;
+  }
+
+  .nav-link:hover,
+  .nav-link:focus-visible {
+    color: var(--color-petrol-900);
+  }
+
+  .nav-link:hover::after,
+  .nav-link:focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  .nav-link:focus-visible {
+    outline: 2px solid var(--color-sky-500);
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
+
+  /* ── Transparent state (top of page) — light text over dark hero ── */
+  #site-header:not(.is-scrolled) .nav-link {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  #site-header:not(.is-scrolled) .nav-link:hover,
+  #site-header:not(.is-scrolled) .nav-link:focus-visible {
+    color: white;
+  }
+
+  #site-header:not(.is-scrolled) .nav-link::after {
+    background-color: white;
+  }
+
+  #site-header:not(.is-scrolled) .brand-wordmark {
+    color: white;
+  }
+
+  #site-header:not(.is-scrolled) .nav-divider {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Rotate chevron on dropdown open */
+  .group:hover .dropdown-chevron,
+  .group:focus-within .dropdown-chevron {
+    transform: rotate(180deg);
+  }
+
+  /* ── Phone pill ── */
+  .nav-phone {
+    padding: 0.3rem 0.875rem;
+    border-radius: 999px;
+    background-color: var(--color-sky-50);
+    border: 1px solid var(--color-sky-100);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .nav-phone:hover {
+    background-color: var(--color-sky-100);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.12);
+  }
+
+  .nav-phone:focus-visible {
+    outline: 2px solid var(--color-sky-500);
+    outline-offset: 3px;
+  }
+
+  /* ── Services dropdown — fade + slide ── */
+  .services-dropdown {
+    opacity: 0;
+    transform: translateY(-6px);
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .group:hover .services-dropdown,
+  .group:focus-within .services-dropdown {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* ── Details/summary reset ── */
   details > summary::-webkit-details-marker {
     display: none;
   }

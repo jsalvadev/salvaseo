@@ -5,7 +5,6 @@ import Hero from '../components/pages/presupuesto-seo-barcelona/Hero.astro'
 import PricingCards from '../components/pages/presupuesto-seo-barcelona/PricingCards.astro'
 import FeatureComparison from '../components/pages/presupuesto-seo-barcelona/FeatureComparison.astro'
 import Faq from '../components/pages/posicionamiento-web-barcelona/Faq.astro'
-import TrustBanner from '../components/pages/posicionamiento-web-barcelona/TrustBanner.astro'
 import Cta from '../components/pages/presupuesto-seo-barcelona/Cta.astro'
 import { faqPresupuestoItems } from '../data/faq-presupuesto'
 import Breadcrumb from '../components/Breadcrumb.astro'
@@ -27,28 +26,6 @@ const DATE_MODIFIED = "2026-03-03"
     primaryCtaText='Solicita tu diagnóstico gratuito'
     secondaryCtaText='Ver paquetes y precios'
     secondaryCtaHref='#paquetes'
-  />
-
-  <!-- 1b. TRUST SIGNALS -->
-  <TrustBanner
-    items={[
-      { icon: 'users', value: 'Ejecución directa', label: 'comunicación con quien implementa' },
-      {
-        icon: 'badgeCheck',
-        value: 'Diagnóstico incluido',
-        label: 'antes de cualquier inversión'
-      },
-      {
-        icon: 'calendarClock',
-        value: 'Contratación mensual',
-        label: 'el compromiso se renueva con resultados'
-      },
-      {
-        icon: 'trendingUp',
-        value: 'Tracción en 3-6 meses',
-        label: 'según sector y competencia'
-      }
-    ]}
   />
 
   <!-- 2. PRICING CARDS -->

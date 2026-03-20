@@ -1,86 +1,130 @@
 ---
-import workWithMeImage from '../../../assets/work-with-me.webp'
 import Upheading from '../../Upheading.astro'
+
+const steps = [
+  {
+    n: '01',
+    label: 'Análisis gratuito',
+    body: 'Elegir a quién confiar el posicionamiento de tu negocio es una decisión importante. El proceso empieza con un <strong>análisis gratuito antes de cualquier compromiso económico</strong>.',
+    accent: 'sky',
+  },
+  {
+    n: '02',
+    label: 'Estrategia con datos',
+    body: 'Tu proyecto recibe <strong>tiempo de análisis real, objetivos definidos con datos de tu mercado</strong> y una estrategia diseñada para captar clientes en tu zona.',
+    accent: 'sky',
+  },
+  {
+    n: '03',
+    label: 'Decides tú',
+    body: '<strong>Antes de pagar un solo euro</strong>, recibirás un diagnóstico de tu web: estructura, contenido, velocidad y oportunidades. <strong>Te quedas con una hoja de ruta clara</strong>, pase lo que pase.',
+    accent: 'orange',
+  },
+]
 ---
 
-<div
+<section
   id='trabajo-conmigo'
-  class='bg-white py-24 sm:py-32'>
-  <div class='mx-auto max-w-7xl px-6 lg:px-8'>
+  class='relative overflow-hidden bg-petrol-900 py-24 md:py-32'>
+
+  <!-- Subtle diagonal texture lines -->
+  <svg
+    class='pointer-events-none absolute inset-0 w-full h-full'
+    aria-hidden='true'
+    preserveAspectRatio='none'
+    xmlns='http://www.w3.org/2000/svg'>
+    <line x1='0%' y1='0%' x2='30%' y2='100%' stroke='rgba(249,115,22,0.05)' stroke-width='1'/>
+    <line x1='70%' y1='0%' x2='100%' y2='100%' stroke='rgba(14,165,233,0.04)' stroke-width='1'/>
+  </svg>
+
+  <div class='relative mx-auto max-w-7xl px-6 lg:px-8'>
+
+    <!-- Section header -->
     <div
-      class='mx-auto grid max-w-2xl grid-cols-1 items-start gap-x-8 gap-y-16 sm:gap-y-24 lg:mx-0 lg:max-w-none lg:grid-cols-2'>
-      <div data-animate class='lg:pr-4'>
-        <div
-          class='relative lg:max-w-lg'>
-          <div class='absolute -bottom-4 -right-4 rounded-xl bg-orange-500/10 inset-0 top-4 left-4 -z-10' aria-hidden='true'></div>
-          <img
-            src={workWithMeImage.src}
-            width={workWithMeImage.width}
-            height={workWithMeImage.height}
-            alt='Espacio de trabajo moderno para consultoría SEO en Barcelona'
-            class='relative w-full rounded-xl shadow-md object-cover'
-          />
-        </div>
-      </div>
+      data-animate-direction='left'
+      class='mb-16 flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between lg:gap-12'>
       <div>
-        <div class='text-base/7 text-petrol-900 lg:max-w-lg'>
-          <Upheading
-            as='h2'
-            text='Por qué contratar un consultor SEO profesional'
-          />
-          <p
-            class='mt-2 text-4xl font-semibold tracking-tight text-pretty text-petrol-900 sm:text-5xl'>
-            Cómo funciona el proceso
-          </p>
-          <!-- Timeline -->
-          <div class='mt-10 relative'>
-            <div data-animate data-animate-delay='0' class='relative border-l-2 border-petrol-100 pl-10 pb-10'>
-              <div class='absolute left-0 top-0 -translate-x-1/2 flex size-8 items-center justify-center rounded-full bg-sky-500 text-white text-sm font-bold ring-4 ring-white'>1</div>
-              <p>
-                Elegir a quién confiar el posicionamiento de tu negocio es una decisión importante. Por eso el proceso
-                empieza con un <strong>análisis gratuito antes de cualquier compromiso económico</strong>.
-              </p>
-            </div>
-            <div data-animate data-animate-delay='150' class='relative border-l-2 border-petrol-100 pl-10 pb-10'>
-              <div class='absolute left-0 top-0 -translate-x-1/2 flex size-8 items-center justify-center rounded-full bg-sky-500 text-white text-sm font-bold ring-4 ring-white'>2</div>
-              <p>
-                Tu proyecto recibe <strong>tiempo de análisis real, objetivos definidos
-                con datos de tu mercado</strong> y una estrategia diseñada para
-                captar clientes en tu zona.
-              </p>
-            </div>
-            <div data-animate data-animate-delay='300' class='relative pl-10'>
-              <div class='absolute left-0 top-0 -translate-x-1/2 flex size-8 items-center justify-center rounded-full bg-orange-500 text-white text-sm font-bold ring-4 ring-white'>3</div>
-              <p>
-                <strong>Antes de pagar un solo euro</strong>, recibirás un diagnóstico de
-                tu web: estructura, contenido, velocidad y oportunidades de captación. Sabrás qué busca tu público
-                y qué necesita tu negocio para aparecer. Luego decides. Y, como mínimo, <strong>te quedas con una hoja de ruta
-                clara</strong>.
-              </p>
-            </div>
-          </div>
-          <figure
-            class='mt-10 bg-petrol-900 rounded-xl p-8 relative'>
-            <span class='absolute top-4 left-6 text-6xl text-sky-500/20 font-serif leading-none select-none' aria-hidden='true'>"</span>
-            <blockquote
-              class='text-xl/8 italic text-petrol-100 text-pretty relative'>
-              <p>
-                "Tu negocio recibe más horas de análisis y ejecución que en
-                cualquier plan estándar de agencia — porque la cartera es
-                reducida y el trabajo, directo."
-              </p>
-            </blockquote>
-          </figure>
-          <div class='mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4'>
-            <a
-              href='#contacto'
-              class='rounded-md bg-sky-500 px-4 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-sky-600 hover:shadow-md active:bg-sky-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 transition-all'>
-              Solicitar análisis gratuito
-            </a>
-            <span class='text-sm text-petrol-700'>Sin compromiso económico</span>
-          </div>
-        </div>
+        <Upheading
+          as='p'
+          text='Por qué contratar un consultor SEO profesional'
+          color='var(--color-sky-500)'
+        />
+        <h2
+          class='mt-2 text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl'
+          style='font-family: "Titan One", cursive; font-weight: 400;'>
+          Cómo funciona<br class='hidden sm:block' /> el proceso
+        </h2>
       </div>
+      <!-- Decorative rule -->
+      <div class='hidden lg:block flex-shrink-0 w-px h-20 bg-white/10 self-end mb-2'></div>
+      <p class='max-w-xs text-sm/6 text-petrol-600 lg:text-right'>
+        Sin contratos de permanencia.<br />Sin agencias intermediarias.
+      </p>
     </div>
+
+    <!-- Steps -->
+    <div class='grid grid-cols-1 md:grid-cols-3 gap-px bg-white/5 rounded-2xl overflow-hidden'>
+      {
+        steps.map((step) => (
+          <div
+            data-animate
+            class='group relative overflow-hidden bg-petrol-900 p-8 lg:p-10 flex flex-col gap-6 hover:bg-petrol-800 transition-colors duration-300'>
+
+            <!-- Giant watermark number -->
+            <div
+              class='pointer-events-none absolute -bottom-6 -right-4 select-none leading-none text-white/[0.04] transition-all duration-500 group-hover:text-white/[0.07]'
+              aria-hidden='true'
+              style='font-family: "Titan One", cursive; font-size: clamp(8rem, 16vw, 13rem); line-height: 1;'>
+              {step.n}
+            </div>
+
+            <!-- Step pill -->
+            <div class='flex items-center gap-3'>
+              <span
+                class={`inline-flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-xs font-bold text-white ${step.accent === 'orange' ? 'bg-orange-500' : 'bg-sky-500'}`}>
+                {step.n.replace('0', '')}
+              </span>
+              <span
+                class={`text-xs font-semibold tracking-[0.15em] uppercase ${step.accent === 'orange' ? 'text-orange-400' : 'text-sky-400'}`}>
+                {step.label}
+              </span>
+            </div>
+
+            <!-- Body -->
+            <p
+              class='relative text-base/7 text-petrol-100 text-pretty'
+              set:html={step.body}
+            />
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Blockquote -->
+    <div
+      data-animate
+      class='mt-8 flex items-start gap-6 rounded-2xl border border-white/8 bg-white/[0.03] px-8 py-7'>
+      <span
+        class='flex-shrink-0 mt-0.5 text-5xl text-sky-500/30 font-serif leading-none select-none'
+        aria-hidden='true'>"</span>
+      <blockquote class='text-lg/8 italic text-petrol-100 text-pretty'>
+        Tu negocio recibe más horas de análisis y ejecución que en cualquier
+        plan estándar de agencia — porque la cartera es reducida y el trabajo,
+        directo.
+      </blockquote>
+    </div>
+
+    <!-- CTA -->
+    <div
+      data-animate
+      class='mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4'>
+      <a
+        href='#contacto'
+        class='rounded-md bg-sky-500 px-5 py-3 text-sm font-bold text-white shadow-sm hover:bg-sky-400 active:bg-sky-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400 transition-all'>
+        Solicitar análisis gratuito
+      </a>
+      <span class='text-sm text-petrol-600'>Sin compromiso económico</span>
+    </div>
+
   </div>
-</div>
+</section>
