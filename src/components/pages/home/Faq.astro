@@ -42,27 +42,29 @@ const faqSchema = {
     <!-- Header -->
     <header class="faq-header">
       {upheading && (
-        <p class="faq-label">{upheading}</p>
+        <h2 class="faq-label">{upheading}</h2>
       )}
-      <h2 class="faq-heading">{heading}</h2>
+      <p class="faq-heading">{heading}</p>
     </header>
 
     <!-- FAQ list -->
-    <dl class="faq-list">
+    <div class="faq-list">
       {items.map((item, i) => (
         <div class="faq-item">
-          <dt class="faq-dt">
+          <div class="faq-dt">
             <span class="faq-num" aria-hidden="true">
               {String(i + 1).padStart(2, '0')}
             </span>
-            <button
-              type="button"
-              command="--toggle"
-              commandfor={`${idPrefix}-${i}`}
-              class="faq-btn"
-            >
-              {item.question}
-            </button>
+            <h3 class="faq-question">
+              <button
+                type="button"
+                command="--toggle"
+                commandfor={`${idPrefix}-${i}`}
+                class="faq-btn"
+              >
+                {item.question}
+              </button>
+            </h3>
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -73,18 +75,18 @@ const faqSchema = {
             >
               <path d="M19.5 8.25l-7.5 7.5-7.5-7.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-          </dt>
+          </div>
           <el-disclosure id={`${idPrefix}-${i}`} hidden class="contents">
-            <dd class="faq-dd">
+            <div class="faq-dd">
               <span aria-hidden="true"></span>
               <div class="faq-answer-body">
                 <Fragment set:html={item.answer} />
               </div>
-            </dd>
+            </div>
           </el-disclosure>
         </div>
       ))}
-    </dl>
+    </div>
   </div>
 </section>
 
@@ -222,6 +224,15 @@ const faqSchema = {
 
   .faq-item:has(button[aria-expanded="true"]) .faq-num {
     color: #f97316; /* orange-500 — active */
+  }
+
+  /* ── Question h3 — reset heading defaults ──────────────── */
+  .faq-question {
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
   }
 
   /* ── Button ────────────────────────────────────────────── */
