@@ -13,7 +13,7 @@ export const siteConfig = {
     email: "salvadorjesus.seo@gmail.com",
   },
   whatsapp: {
-    defaultMessage: "Salva mi página web es invisible en Barcelona.",
+    defaultMessage: "Salva, mi página web es invisible en Barcelona.",
     tooltipText: "¿Más clientes con SEO? Escríbeme",
   },
   navigation: {
