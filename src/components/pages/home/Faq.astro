@@ -93,7 +93,7 @@ const faqSchema = {
   .faq-root {
     position: relative;
     overflow: hidden;
-    background-color: #1A3C4A; /* petrol-900 */
+    background-color: #EEF3F5; /* petrol-100 — soft cool off-white */
   }
 
   /* ── Watermark ─────────────────────────────────────────── */
@@ -111,8 +111,8 @@ const faqSchema = {
     font-family: 'Titan One', cursive;
     font-size: clamp(10rem, 28vw, 26rem);
     line-height: 1;
-    color: #1e4d5e; /* petrol-800 — barely visible above bg */
-    opacity: 0.7;
+    color: rgba(26, 60, 74, 0.06);
+    opacity: 1;
   }
 
   /* ── Inner container ───────────────────────────────────── */
@@ -128,13 +128,27 @@ const faqSchema = {
   }
 
   @media (min-width: 1024px) {
-    .faq-inner { padding: 10rem 2rem; }
+    .faq-inner {
+      padding: 10rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 0 5rem;
+      align-items: start;
+    }
   }
 
   /* ── Header ────────────────────────────────────────────── */
   .faq-header {
     max-width: 42rem;
     margin-bottom: 4rem;
+  }
+
+  @media (min-width: 1024px) {
+    .faq-header {
+      margin-bottom: 0;
+      position: sticky;
+      top: calc(var(--navbar-height, 80px) + 2rem);
+    }
   }
 
   .faq-label {
@@ -155,25 +169,30 @@ const faqSchema = {
 
   .faq-heading {
     font-family: 'Titan One', cursive;
-    font-size: clamp(2.75rem, 7vw, 5rem);
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
     line-height: 1.05;
-    color: #FAFAF8;
+    color: #1A3C4A; /* petrol-900 */
   }
 
   /* ── FAQ list ──────────────────────────────────────────── */
   .faq-list {
     margin: 0;
     padding: 0;
+    max-width: 48rem;
+  }
+
+  @media (min-width: 1024px) {
+    .faq-list { max-width: none; }
   }
 
   /* ── FAQ item ──────────────────────────────────────────── */
   .faq-item {
-    border-top: 1px solid #2A5566; /* petrol-700 */
+    border-top: 1px solid rgba(26, 60, 74, 0.12);
     padding: 1.75rem 0;
   }
 
   .faq-item:last-child {
-    border-bottom: 1px solid #2A5566;
+    border-bottom: 1px solid rgba(26, 60, 74, 0.12);
   }
 
   /* ── dt grid: [number | question | chevron] ────────────── */
@@ -197,7 +216,7 @@ const faqSchema = {
     font-size: clamp(1.5rem, 3.5vw, 2.25rem);
     line-height: 1;
     padding-top: 0.1rem;
-    color: #2A5566; /* petrol-700 — muted default */
+    color: rgba(26, 60, 74, 0.2); /* muted default on light bg */
     transition: color 0.3s ease;
   }
 
@@ -218,7 +237,7 @@ const faqSchema = {
     font-size: clamp(0.9375rem, 2vw, 1.125rem);
     font-weight: 600;
     line-height: 1.45;
-    color: #FAFAF8;
+    color: #1A3C4A; /* petrol-900 */
     transition: color 0.2s ease;
   }
 
@@ -277,18 +296,18 @@ const faqSchema = {
   /* Override hardcoded petrol-900 classes in set:html content (requires :global) */
   .faq-answer-body :global(p),
   .faq-answer-body :global(li) {
-    color: #8cb8c5 !important;
+    color: #2A5566 !important; /* petrol-700 */
     line-height: 1.75;
     font-size: 1rem;
   }
 
   .faq-answer-body :global(strong) {
-    color: #daedf2 !important;
+    color: #1A3C4A !important; /* petrol-900 */
     font-weight: 600;
   }
 
   .faq-answer-body :global(ul) {
-    color: #8cb8c5 !important;
+    color: #2A5566 !important; /* petrol-700 */
     margin-top: 0.5rem;
   }
 
