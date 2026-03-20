@@ -1,0 +1,378 @@
+---
+const plans = [
+  {
+    id: 'ficha',
+    label: 'Solo ficha de Google',
+    price: 350,
+    includes: 'Gestión completa de tu perfil en Google Maps',
+  },
+  {
+    id: 'ficha-web',
+    label: 'Ficha + página web',
+    price: 550,
+    includes: 'Perfil de Google Maps y tu web optimizada',
+  },
+]
+---
+
+<section class='relative overflow-hidden bg-white py-24 md:py-32'>
+
+  <!-- Subtle grid texture -->
+  <div
+    class='pointer-events-none absolute inset-0'
+    aria-hidden='true'
+    style='background-image: linear-gradient(rgba(26,60,74,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(26,60,74,0.03) 1px, transparent 1px); background-size: 48px 48px;'>
+  </div>
+
+
+  <!-- Top/bottom hairlines -->
+  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-petrol-100 to-transparent' aria-hidden='true'></div>
+  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-petrol-100 to-transparent' aria-hidden='true'></div>
+
+  <div class='relative mx-auto max-w-7xl px-6 lg:px-8'>
+
+    <div class='lg:grid lg:grid-cols-[1fr_1.15fr] lg:gap-20 lg:items-start'>
+
+      <!-- ══ LEFT COL — copy ══════════════════════════════════════════ -->
+      <div data-animate class='relative mb-12 lg:mb-0 lg:sticky lg:top-[calc(var(--navbar-height,80px)+2rem)]'>
+
+        <!-- Ghost watermark inside left col -->
+        <div
+          id='wm-ghost'
+          class='pointer-events-none absolute -bottom-8 -left-6 select-none leading-none transition-all duration-500'
+          aria-hidden='true'
+          style='font-family: "Titan One", cursive; font-size: clamp(8rem, 18vw, 14rem); color: rgba(26,60,74,0.06); line-height: 1; white-space: nowrap;'>
+          2×
+        </div>
+
+        <div class='flex items-center gap-3 mb-8'>
+          <span class='block h-px w-10 bg-orange-500' aria-hidden='true'></span>
+          <span class='text-[0.7rem] font-bold uppercase tracking-[0.22em] text-orange-500'>
+            Haz las cuentas tú mismo
+          </span>
+        </div>
+
+        <h2
+          style='font-family: "Titan One", cursive;'
+          class='leading-[0.92] tracking-tight'>
+          <span class='block text-[clamp(1.4rem,2.8vw,2.2rem)] text-petrol-700/50 mb-1'>
+            ¿Cuántos clientes necesitas
+          </span>
+          <span class='block text-[clamp(2.6rem,5.5vw,4.2rem)] text-petrol-900'>
+            para que salga a cuenta<span class='text-orange-500'>?</span>
+          </span>
+        </h2>
+
+        <p class='mt-7 text-base md:text-lg text-petrol-700 leading-relaxed text-pretty max-w-[42ch]'>
+          Si me contratas, lo primero que hacemos juntos es calcular
+          <strong class='font-semibold text-petrol-900'>cuánto dinero tiene que entrar por los clientes que te llegan desde Google</strong>.
+          Si lo que me pagas no trae más de lo que cuesta, no tiene ningún sentido seguir.
+        </p>
+
+        <!-- Bottom statement -->
+        <p class='mt-10 text-sm text-petrol-700/45 leading-relaxed max-w-[38ch] text-pretty'>
+          Mi trabajo es traerte esos clientes y más.<br />
+          Si no llego a ese número, me lo dices y paramos.
+        </p>
+
+      </div>
+
+      <!-- ══ RIGHT COL — calculator ═══════════════════════════════════ -->
+      <div>
+
+        <!-- ── Plan selector ────────────────────────────────────────── -->
+        <div data-animate class='mb-6 flex flex-col sm:flex-row gap-3'>
+          {plans.map((plan, i) => (
+            <button
+              class='plan-btn relative flex-1 rounded-xl border px-5 py-4 text-left transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500/50'
+              data-price={plan.price}
+              data-active={i === 0 ? 'true' : 'false'}
+              aria-pressed={i === 0 ? 'true' : 'false'}
+              type='button'>
+              <span class='plan-name block text-sm font-bold mb-1 leading-snug'>
+                {plan.label}
+              </span>
+              <span class='plan-price block leading-none mb-2' style='font-family: "Titan One", cursive; font-size: 1.6rem;'>
+                {plan.price}€<span class='text-sm font-normal'>/mes</span>
+              </span>
+              <span class='plan-desc block text-[0.7rem] leading-snug mb-2.5'>
+                {plan.includes}
+              </span>
+              <!-- IVA badge -->
+              <span class='plan-iva inline-flex items-center rounded-full border px-2 py-0.5 text-[0.6rem] font-semibold tracking-wide'>
+                IVA incluido
+              </span>
+            </button>
+          ))}
+        </div>
+
+        <!-- ── Calculator card ──────────────────────────────────────── -->
+        <div data-animate class='relative rounded-2xl overflow-hidden border border-petrol-100 bg-petrol-50'>
+
+          <!-- Card top accent -->
+          <div class='absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-orange-500/40 via-orange-400 to-orange-500/40'></div>
+
+          <div class='relative p-8 md:p-10'>
+
+            <!-- Slider row -->
+            <div class='mb-10'>
+              <label for='ticket-slider' class='block mb-3'>
+                <span class='text-sm font-semibold text-petrol-700/60 uppercase tracking-[0.14em]'>
+                  ¿Cuánto te paga de media un cliente tuyo?
+                </span>
+              </label>
+
+              <div class='flex items-center gap-5 mb-4'>
+                <input
+                  id='ticket-slider'
+                  type='range'
+                  min='50'
+                  max='2000'
+                  step='50'
+                  value='250'
+                  class='ticket-slider flex-1 h-2 rounded-full appearance-none cursor-pointer'
+                  aria-label='Cuánto te paga un cliente tuyo de media, en euros'
+                />
+                <div class='shrink-0 flex items-baseline gap-0.5 min-w-[5.5rem] justify-end'>
+                  <span
+                    id='ticket-display'
+                    class='tabular-nums text-orange-500 leading-none'
+                    style='font-family: "Titan One", cursive; font-size: clamp(2rem, 3.5vw, 2.6rem);'>
+                    250
+                  </span>
+                  <span class='text-lg font-bold text-orange-500/60 ml-0.5'>€</span>
+                </div>
+              </div>
+
+              <!-- Slider scale hints -->
+              <div class='flex justify-between text-[0.65rem] font-medium text-petrol-700/30 tabular-nums px-0.5'>
+                <span>50€</span>
+                <span>2.000€</span>
+              </div>
+            </div>
+
+            <!-- Equation divider -->
+            <div class='h-px bg-gradient-to-r from-transparent via-petrol-200 to-transparent mb-10'></div>
+
+            <!-- The equation -->
+            <div class='grid grid-cols-[1fr_auto_1fr_auto_1fr] items-center gap-2 md:gap-4 mb-10'>
+
+              <!-- Mi coste -->
+              <div class='text-center'>
+                <div class='text-[0.6rem] font-bold uppercase tracking-[0.15em] text-petrol-700/40 mb-2'>Lo que me pagas</div>
+                <div
+                  id='fee-display'
+                  class='tabular-nums text-petrol-700 leading-none transition-all duration-200'
+                  style='font-family: "Titan One", cursive; font-size: clamp(1.6rem, 3vw, 2.4rem);'>
+                  350
+                </div>
+                <div class='text-xs text-petrol-700/40 mt-1'>€/mes</div>
+              </div>
+
+              <!-- ÷ -->
+              <div
+                class='text-petrol-700/20 leading-none'
+                style='font-family: "Titan One", cursive; font-size: clamp(1.4rem, 2.5vw, 2rem);'
+                aria-hidden='true'>
+                ÷
+              </div>
+
+              <!-- Ticket medio -->
+              <div class='text-center'>
+                <div class='text-[0.6rem] font-bold uppercase tracking-[0.15em] text-petrol-700/40 mb-2'>Tu cliente medio</div>
+                <div
+                  id='ticket-eq'
+                  class='tabular-nums text-sky-600 leading-none'
+                  style='font-family: "Titan One", cursive; font-size: clamp(1.6rem, 3vw, 2.4rem);'>
+                  250
+                </div>
+                <div class='text-xs text-petrol-700/40 mt-1'>€/cliente</div>
+              </div>
+
+              <!-- = -->
+              <div
+                class='text-petrol-700/20 leading-none'
+                style='font-family: "Titan One", cursive; font-size: clamp(1.4rem, 2.5vw, 2rem);'
+                aria-hidden='true'>
+                =
+              </div>
+
+              <!-- Result -->
+              <div class='text-center'>
+                <div class='text-[0.6rem] font-bold uppercase tracking-[0.15em] text-orange-500/70 mb-2'>Clientes para cubrirme</div>
+                <div
+                  id='clients-result'
+                  class='tabular-nums text-orange-500 leading-none'
+                  style='font-family: "Titan One", cursive; font-size: clamp(2.4rem, 5vw, 4rem);'>
+                  2
+                </div>
+                <div class='text-xs text-orange-500/50 mt-1'>clientes</div>
+              </div>
+
+            </div>
+
+            <!-- Punchline -->
+            <div class='relative rounded-xl bg-white border border-petrol-100 px-6 py-5'>
+              <div
+                class='pointer-events-none absolute left-0 top-4 bottom-4 w-[3px] bg-orange-500 rounded-r-full'
+                aria-hidden='true'>
+              </div>
+              <p id='punchline' class='text-base text-petrol-900 leading-relaxed font-medium text-pretty'>
+                Con solo <strong id='punchline-n' class='text-orange-500'>2 clientes nuevos</strong> que lleguen por Google,
+                ya has cubierto lo que me pagas ese mes.
+                <span class='block mt-1 text-petrol-700/45 text-sm'>Todo lo que venga después es beneficio puro.</span>
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+      <!-- end right col -->
+
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ── Plan buttons — light background context ── */
+  .plan-btn[data-active='true'] {
+    background-color: rgba(249, 115, 22, 0.06);
+    border-color: rgba(249, 115, 22, 0.5);
+  }
+  .plan-btn[data-active='true'] .plan-name  { color: #1A3C4A; }
+  .plan-btn[data-active='true'] .plan-price { color: #ea6c0a; }
+  .plan-btn[data-active='true'] .plan-desc  { color: rgba(26, 60, 74, 0.55); }
+  .plan-btn[data-active='true'] .plan-iva   {
+    color: rgba(249,115,22,0.7);
+    border-color: rgba(249,115,22,0.25);
+    background-color: rgba(249,115,22,0.06);
+  }
+
+  .plan-btn[data-active='false'] {
+    background-color: #fff;
+    border-color: rgba(26, 60, 74, 0.12);
+  }
+  .plan-btn[data-active='false'] .plan-name  { color: rgba(26,60,74,0.5); }
+  .plan-btn[data-active='false'] .plan-price { color: rgba(26,60,74,0.3); }
+  .plan-btn[data-active='false'] .plan-desc  { color: rgba(26,60,74,0.35); }
+  .plan-btn[data-active='false'] .plan-iva   {
+    color: rgba(26,60,74,0.3);
+    border-color: rgba(26,60,74,0.12);
+  }
+
+  .plan-btn:hover[data-active='false'] {
+    background-color: rgba(26,60,74,0.025);
+    border-color: rgba(26,60,74,0.22);
+  }
+  .plan-btn:hover[data-active='false'] .plan-name { color: rgba(26,60,74,0.75); }
+
+  /* ── Slider ── */
+  .ticket-slider::-webkit-slider-runnable-track {
+    background: linear-gradient(to right, #f97316 var(--pct, 10%), rgba(26,60,74,0.12) var(--pct, 10%));
+    border-radius: 9999px;
+    height: 8px;
+  }
+  .ticket-slider::-moz-range-track {
+    background: rgba(26,60,74,0.12);
+    border-radius: 9999px;
+    height: 8px;
+  }
+  .ticket-slider::-moz-range-progress {
+    background: #f97316;
+    border-radius: 9999px;
+    height: 8px;
+  }
+  .ticket-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #f97316;
+    border: 3px solid #1A3C4A;
+    box-shadow: 0 0 0 2px rgba(249,115,22,0.35);
+    cursor: pointer;
+    margin-top: -7px;
+    transition: box-shadow 0.15s;
+  }
+  .ticket-slider::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #f97316;
+    border: 3px solid #1A3C4A;
+    box-shadow: 0 0 0 2px rgba(249,115,22,0.35);
+    cursor: pointer;
+  }
+  .ticket-slider:hover::-webkit-slider-thumb,
+  .ticket-slider:focus::-webkit-slider-thumb {
+    box-shadow: 0 0 0 5px rgba(249,115,22,0.25);
+  }
+
+  /* ── Number pop ── */
+  @keyframes numPop {
+    0%   { transform: scale(1); }
+    40%  { transform: scale(1.18); }
+    100% { transform: scale(1); }
+  }
+  .num-pop { animation: numPop 0.22s ease-out; }
+</style>
+
+<script>
+  const slider      = document.getElementById('ticket-slider') as HTMLInputElement
+  const ticketDisp  = document.getElementById('ticket-display') as HTMLElement
+  const ticketEq    = document.getElementById('ticket-eq') as HTMLElement
+  const feeDisp     = document.getElementById('fee-display') as HTMLElement
+  const clientsRes  = document.getElementById('clients-result') as HTMLElement
+  const punchlineN  = document.getElementById('punchline-n') as HTMLElement
+  const wmGhost     = document.getElementById('wm-ghost') as HTMLElement
+  const planBtns    = document.querySelectorAll<HTMLButtonElement>('.plan-btn')
+
+  const MIN = 50
+  const MAX = 2000
+  let currentFee = 350
+
+  function updateTrack(val: number) {
+    const pct = ((val - MIN) / (MAX - MIN)) * 100
+    slider.style.setProperty('--pct', `${pct}%`)
+  }
+
+  function pop(el: HTMLElement) {
+    el.classList.remove('num-pop')
+    void el.offsetWidth
+    el.classList.add('num-pop')
+  }
+
+  function recalc() {
+    const ticket  = parseInt(slider.value, 10)
+    const clients = Math.ceil(currentFee / ticket)
+    const word    = clients === 1 ? 'cliente nuevo' : 'clientes nuevos'
+
+    ticketDisp.textContent  = ticket.toLocaleString('es-ES')
+    ticketEq.textContent    = ticket.toLocaleString('es-ES')
+    feeDisp.textContent     = currentFee.toLocaleString('es-ES')
+    clientsRes.textContent  = String(clients)
+    punchlineN.textContent  = `${clients} ${word}`
+    wmGhost.textContent     = `${clients}×`
+
+    updateTrack(ticket)
+    pop(clientsRes)
+    pop(feeDisp)
+  }
+
+  planBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      planBtns.forEach((b) => {
+        b.dataset.active = 'false'
+        b.setAttribute('aria-pressed', 'false')
+      })
+      btn.dataset.active = 'true'
+      btn.setAttribute('aria-pressed', 'true')
+      currentFee = parseInt(btn.dataset.price ?? '350', 10)
+      recalc()
+    })
+  })
+
+  slider.addEventListener('input', recalc)
+  updateTrack(parseInt(slider.value, 10))
+</script>
