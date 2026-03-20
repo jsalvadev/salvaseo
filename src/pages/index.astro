@@ -1,13 +1,12 @@
 ---
 import AboutMe from '../components/pages/home/AboutMe.astro'
+import EstoEsParaTi from '../components/pages/home/EstoEsParaTi.astro'
 import SePuedeSolucionar from '../components/pages/home/SePuedeSolucionar.astro'
 import CtaEmail from '../components/pages/home/CtaEmail.astro'
 import Faq from '../components/pages/home/Faq.astro'
 import { faqHomeItems } from '../data/faq-home'
 import Hero from '../components/pages/home/Hero.astro'
 import MapSection from '../components/pages/home/MapSection.astro'
-import ServiceArea from '../components/pages/home/ServiceArea.astro'
-import WorkWithMe from '../components/pages/home/WorkWithMe.astro'
 import Layout from '../layouts/Layout.astro'
 import heroImage from '../assets/hero.webp'
 ---
@@ -15,10 +14,9 @@ import heroImage from '../assets/hero.webp'
 <Layout preloadImageHref={heroImage.src}>
   <Hero />
   <SePuedeSolucionar />
+  <EstoEsParaTi />
   <AboutMe />
   <CtaEmail />
-<WorkWithMe />
-  <ServiceArea />
   <Faq
     upheading='Todo sobre consultores SEO en Barcelona'
     heading='Aún tienes dudas'
