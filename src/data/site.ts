@@ -13,8 +13,7 @@ export const siteConfig = {
     email: "salvadorjesus.seo@gmail.com",
   },
   whatsapp: {
-    defaultMessage:
-      "Hola Salva, he visto tu web. Tengo un negocio en Barcelona y me gustaría saber si el SEO puede ayudarme a conseguir más clientes.",
+    defaultMessage: "Salva mi página web es invisible en Barcelona.",
     tooltipText: "¿Más clientes con SEO? Escríbeme",
   },
   navigation: {

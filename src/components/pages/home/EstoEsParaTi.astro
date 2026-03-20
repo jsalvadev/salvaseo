@@ -1,4 +1,8 @@
 ---
+import WhatsAppButton from '../../WhatsAppButton.astro'
+import { buildWhatsAppHref } from '../../../data/site'
+
+const waHref = buildWhatsAppHref()
 ---
 
 <section class='relative overflow-hidden bg-petrol-900 py-24 md:py-32'>
@@ -66,6 +70,15 @@
           Si te identificas con alguna de estas situaciones, estás
           en el lugar correcto.
         </p>
+
+        <!-- CTA -->
+        <div data-animate class='mt-10'>
+          <WhatsAppButton
+            text='Analiza mi web'
+            href={waHref}
+            class='px-6 py-3 text-[0.9375rem] font-bold shadow-lg shadow-sky-500/20 hover:shadow-sky-500/30 transition-shadow'
+          />
+        </div>
 
         <!-- Decorative vertical rule (desktop) -->
         <div

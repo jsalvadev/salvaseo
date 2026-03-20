@@ -1,4 +1,9 @@
 ---
+import WhatsAppButton from '../../WhatsAppButton.astro'
+import { buildWhatsAppHref } from '../../../data/site'
+
+const waHref = buildWhatsAppHref()
+
 const plans = [
   {
     id: 'ficha',
@@ -222,6 +227,15 @@ const plans = [
                 ya has cubierto lo que me pagas ese mes.
                 <span class='block mt-1 text-petrol-700/45 text-sm'>Todo lo que venga después es beneficio puro.</span>
               </p>
+            </div>
+
+            <!-- CTA -->
+            <div class='mt-6'>
+              <WhatsAppButton
+                text='Analiza mi web'
+                href={waHref}
+                class='w-full justify-center px-6 py-3.5 text-[0.9375rem] font-bold shadow-lg shadow-sky-500/20 hover:shadow-sky-500/30 transition-shadow'
+              />
             </div>
 
           </div>
