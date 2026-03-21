@@ -14,13 +14,14 @@ interface PricingTier {
   commitment: string
   commitmentMonths: number
   savings?: string
+  hidden?: boolean
 }
 
 const tiers: PricingTier[] = [
   {
     name: 'Solo Ficha',
     price: '350 €',
-    unit: '/mes + IVA',
+    unit: '/mes IVA incl.',
     description: 'Servicio de <a href="/seo-local-barcelona/" class="underline decoration-sky-200 underline-offset-2 hover:text-petrol-900 transition-colors">SEO local</a> para negocios que necesitan visibilidad y tráfico desde Google Maps y el Local Pack.',
     commitment: 'Compromiso recomendado: 3 meses',
     commitmentMonths: 3,
@@ -40,27 +41,30 @@ const tiers: PricingTier[] = [
     ctaHref: 'https://wa.me/34692051399?text=Hola%20Salva%2C%20me%20interesa%20el%20paquete%20Solo%20Ficha%20de%20350%E2%82%AC%2Fmes.%20%C2%BFPodemos%20hacer%20el%20diagn%C3%B3stico%20inicial%3F',
   },
   {
-    name: 'Solo Web',
+    name: 'Web + Ficha',
     price: '550 €',
-    unit: '/mes + IVA',
-    description: 'Estrategia de <a href="/posicionamiento-web-barcelona/" class="underline decoration-sky-200 underline-offset-2 hover:text-petrol-900 transition-colors">posicionamiento web</a>: páginas de servicio optimizadas, contenidos y autoridad web para captar tráfico orgánico.',
+    unit: '/mes IVA incl.',
+    description: '<a href="/posicionamiento-web-barcelona/" class="underline decoration-sky-200 underline-offset-2 hover:text-petrol-900 transition-colors">Posicionamiento web</a> + <a href="/seo-local-barcelona/" class="underline decoration-sky-200 underline-offset-2 hover:text-petrol-900 transition-colors">SEO local</a>: domina Google Maps y los resultados orgánicos al mismo tiempo.',
     commitment: 'Compromiso recomendado: 4 meses',
     commitmentMonths: 4,
+    featured: true,
     features: [
       'Auditoría SEO on-page de la web',
       'Estudio de palabras clave transaccionales',
       'Optimización de encabezados, titles y descriptions',
       'Creación de páginas de servicio optimizadas',
-      'Reestructuración de la arquitectura web si es necesario',
       'Optimización técnica de velocidad y experiencia de carga',
       'Datos estructurados para destacar en resultados de Google',
-      'Optimización de contenidos con análisis semántico competitivo',
-      'Informe mensual con seguimiento de posiciones orgánicas',
+      'Creación u optimización de Google Business Profile',
+      'Categorías, servicios, fotos y atributos optimizados',
+      'Publicaciones mensuales en GBP enlazadas a páginas de servicio',
+      'Informe mensual unificado con seguimiento en Maps + orgánico',
       'Llamada mensual de seguimiento',
       'Soporte por WhatsApp',
     ],
     cta: 'Solicita tu diagnóstico',
-    ctaHref: 'https://wa.me/34692051399?text=Hola%20Salva%2C%20me%20interesa%20el%20paquete%20Solo%20Web%20de%20550%E2%82%AC%2Fmes.%20%C2%BFPodemos%20hacer%20el%20diagn%C3%B3stico%20inicial%3F',
+    ctaHref: 'https://wa.me/34692051399?text=Hola%20Salva%2C%20me%20interesa%20el%20paquete%20Web%20%2B%20Ficha%20de%20550%E2%82%AC%2Fmes.%20%C2%BFPodemos%20hacer%20el%20diagn%C3%B3stico%20inicial%3F',
+    hidden: false,
   },
   {
     name: 'Ficha + Web',
@@ -69,23 +73,11 @@ const tiers: PricingTier[] = [
     description: 'Google Maps + posicionamiento orgánico. El proyecto SEO más completo para dominar las búsquedas locales en Barcelona.',
     commitment: 'Compromiso recomendado: 6 meses',
     commitmentMonths: 6,
-    featured: true,
-    savings: 'Ahorras 100 €/mes',
-    features: [
-      '<strong>Todo lo del paquete Solo Ficha</strong>',
-      '<strong>Todo lo del paquete Solo Web</strong>',
-      'Análisis de competencia local + orgánica cruzado',
-      'Investigación de keywords locales + transaccionales',
-      'Estrategia de enlaces internos entre páginas de servicio y ficha',
-      'Publicaciones en GBP enlazadas a páginas de servicio',
-      'Alineación de categorías y servicios GBP con páginas web',
-      'Datos estructurados cruzados: reseñas y servicios conectados entre Maps y web',
-      'Informe mensual unificado con seguimiento en Maps + orgánico',
-      'Llamada mensual de seguimiento',
-      'Soporte por WhatsApp',
-    ],
+    featured: false,
+    hidden: true,
+    features: [],
     cta: 'Solicita tu diagnóstico',
-    ctaHref: 'https://wa.me/34692051399?text=Hola%20Salva%2C%20me%20interesa%20el%20paquete%20Ficha%20%2B%20Web%20de%20800%E2%82%AC%2Fmes.%20%C2%BFPodemos%20hacer%20el%20diagn%C3%B3stico%20inicial%3F',
+    ctaHref: '',
   },
 ]
 
@@ -117,16 +109,14 @@ const TOTAL_SEGMENTS = 6
       Solo ficha de Google, solo web, o ambas con descuento. Cada presupuesto para SEO se adapta al sector, la competencia y los objetivos de cada cliente.
     </p>
 
-    <div class='isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-y-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3'>
-      {tiers.map((tier, index) => (
+    <div class='isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-y-8 sm:mt-20 lg:max-w-3xl lg:grid-cols-2 lg:gap-x-8'>
+      {tiers.filter(t => !t.hidden).map((tier) => (
         <div
           class:list={[
             'flex flex-col justify-between rounded-3xl p-8 xl:p-10',
             tier.featured
               ? 'bg-gradient-to-b from-sky-500 to-sky-700 ring-2 ring-white/20 shadow-2xl shadow-sky-900/20 lg:z-10'
-              : 'bg-white ring-1 ring-petrol-100 lg:mt-8 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg',
-            index === 2 && !tier.featured && 'lg:rounded-l-none',
-            tier.featured && 'lg:rounded-b-3xl',
+              : 'bg-white ring-1 ring-petrol-100 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg',
           ]}>
           <div>
             <!-- Commitment bar -->
@@ -242,7 +232,7 @@ const TOTAL_SEGMENTS = 6
     <p
       class='mx-auto mt-10 max-w-2xl text-center text-sm text-petrol-600'
       data-animate>
-      Todos los precios + IVA. El presupuesto final se concreta tras el diagnóstico inicial.
+      IVA incluido. El presupuesto final se concreta tras el diagnóstico inicial.
     </p>
   </div>
 </div>
