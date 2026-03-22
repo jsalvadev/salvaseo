@@ -1,7 +1,12 @@
 ---
-import { Image } from 'astro:assets'
 import WhatsAppButton from '../../WhatsAppButton.astro'
-import presupuestoHeroImage from '../../../assets/presupuesto-hero.jpg'
+import { buildWhatsAppHref } from '../../../data/site'
+import { ChevronRight } from '@lucide/astro'
+
+interface BreadcrumbItem {
+  label: string
+  href?: string
+}
 
 interface Props {
   upheading?: string
@@ -10,52 +15,244 @@ interface Props {
   primaryCtaText?: string
   secondaryCtaText?: string
   secondaryCtaHref?: string
+  breadcrumbItems?: BreadcrumbItem[]
 }
 
 const {
   upheading = 'Presupuesto SEO en Barcelona',
-  heading = 'Tu negocio merece más visibilidad',
-  description = 'Escala posiciones en Google desde 350€/mes. Incluimos diagnóstico inicial gratuito para trazar tu hoja de ruta.',
+  description = 'Estar en la sombra en una ciudad como Barcelona tiene un precio demasiado alto en ventas perdidas. Ser invisible te está saliendo caro hoy mismo. Elige tu estrategia y deja de regalarle mercado a tu competencia.',
   primaryCtaText = 'Solicita tu diagnóstico gratuito',
   secondaryCtaText = 'Ver paquetes y precios',
-  secondaryCtaHref = '#paquetes'
+  secondaryCtaHref = '#paquetes',
+  breadcrumbItems,
 } = Astro.props
+
+const waHref = buildWhatsAppHref()
+const currentYear = new Date().getFullYear()
 ---
 
-<div class='bg-petrol-900'>
-  <div class='relative isolate overflow-hidden px-6 lg:px-8'>
-    <Image
-      src={presupuestoHeroImage}
-      alt=''
-      width={1600}
-      height={900}
-      class='absolute inset-0 -z-10 size-full object-cover opacity-20 [mask-image:linear-gradient(to_right,transparent_30%,black_70%)]'
-      loading='eager'
-      fetchpriority='high'
-    />
+<section class='relative bg-petrol-900 overflow-hidden'>
+  <!-- Dot-grid texture -->
+  <div
+    class='pointer-events-none absolute inset-0'
+    aria-hidden='true'
+    style='background-image: radial-gradient(circle, rgba(255,255,255,0.028) 1px, transparent 1px); background-size: 32px 32px;'>
+  </div>
 
-    <div class='mx-auto max-w-3xl py-24 sm:py-32 lg:py-40'>
-      <div class='hidden sm:mb-8 sm:flex sm:justify-center'>
-        <h1 class='relative rounded-full bg-sky-500/10 border border-sky-400/20 px-3 py-1 text-sm/6 text-sky-300'>
-          {upheading}
-        </h1>
-      </div>
-      <div class='text-center'>
-        <p class='text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl'>
-          {heading}
-        </p>
-        <p class='mt-8 text-lg font-medium text-pretty text-petrol-100 sm:text-xl/8'>
-          <Fragment set:html={description} />
-        </p>
-        <div class='mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-x-6'>
-          <WhatsAppButton text={primaryCtaText} />
-          <a
-            href={secondaryCtaHref}
-            class='text-sm/6 font-semibold text-white hover:text-sky-300 transition-colors'>
-            {secondaryCtaText} <span aria-hidden='true'>→</span>
-          </a>
+  <!-- Large faded watermark -->
+  <div
+    class='pointer-events-none absolute -top-8 right-0 select-none leading-none'
+    aria-hidden='true'
+    style='font-family: "Titan One", cursive; font-size: clamp(14rem, 28vw, 24rem); color: rgba(255,255,255,0.025); line-height: 1;'>
+    €
+  </div>
+
+  <!-- Diagonal tension lines -->
+  <svg
+    class='pointer-events-none absolute inset-0 w-full h-full'
+    aria-hidden='true'
+    preserveAspectRatio='none'
+    xmlns='http://www.w3.org/2000/svg'>
+    <line
+      x1='72%' y1='0%' x2='100%' y2='100%'
+      stroke='rgba(249,115,22,0.07)' stroke-width='1'></line>
+    <line
+      x1='78%' y1='0%' x2='108%' y2='100%'
+      stroke='rgba(249,115,22,0.04)' stroke-width='1'></line>
+    <line
+      x1='65%' y1='0%' x2='93%' y2='100%'
+      stroke='rgba(14,165,233,0.04)' stroke-width='1'></line>
+  </svg>
+
+  <!-- Bottom hairline accent -->
+  <div
+    class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-orange-500/15 to-transparent'
+    aria-hidden='true'>
+  </div>
+
+  <!-- Radial glow bottom-left -->
+  <div
+    class='pointer-events-none absolute -bottom-32 -left-32 w-96 h-96 rounded-full'
+    aria-hidden='true'
+    style='background: radial-gradient(circle, rgba(14,165,233,0.08) 0%, transparent 70%);'>
+  </div>
+
+  <!-- Breadcrumb (inside dark section, below fixed navbar) -->
+  {breadcrumbItems && (
+    <nav
+      aria-label='Breadcrumb'
+      class='relative mx-auto max-w-7xl px-6 lg:px-8 pt-[calc(var(--navbar-height)+1.25rem)]'>
+      <ol class='flex items-center gap-1.5 text-sm'>
+        {breadcrumbItems.map((item, idx) => (
+          <li class='flex items-center gap-1.5'>
+            {idx > 0 && (
+              <ChevronRight class='size-3.5 text-white/30 shrink-0' aria-hidden='true' />
+            )}
+            {item.href ? (
+              <a
+                href={item.href}
+                class='text-white/60 hover:text-white transition-colors'>
+                {item.label}
+              </a>
+            ) : (
+              <span class='text-white/90 font-medium' aria-current='page'>
+                {item.label}
+              </span>
+            )}
+          </li>
+        ))}
+      </ol>
+    </nav>
+  )}
+
+  <!-- Main grid -->
+  <div class={`relative mx-auto max-w-7xl px-6 pb-12 sm:pb-16 lg:px-8 lg:pb-20 ${breadcrumbItems ? 'pt-6' : 'pt-20 sm:pt-24 lg:pt-28'}`}>
+    <div class='grid lg:grid-cols-[1fr_360px] xl:grid-cols-[1fr_400px] gap-10 lg:gap-16 items-center'>
+
+      <!-- LEFT: Content -->
+      <div>
+        <!-- Eyebrow -->
+        <div class='animate-fade-in-up [animation-delay:0ms] flex items-center gap-3 mb-5'>
+          <span class='block h-px w-10 bg-orange-500'></span>
+          <h1 class='text-[0.7rem] font-bold uppercase tracking-[0.22em] text-orange-400'>
+            {upheading}
+          </h1>
         </div>
+
+        <!-- Headline -->
+        <p
+          class='animate-fade-in-up [animation-delay:80ms]'
+          style='font-family: "Titan One", cursive;'>
+          <span class='block text-4xl sm:text-5xl lg:text-6xl xl:text-[4rem] leading-[0.93] tracking-tight text-white'>
+            Tu plan para
+          </span>
+          <span class='block text-4xl sm:text-5xl lg:text-6xl xl:text-[4rem] leading-[0.93] tracking-tight mt-1'>
+            <span class='text-white'>ser&nbsp;</span><span class='text-orange-400'>visible.</span>
+          </span>
+        </p>
+
+        <!-- Accent rule -->
+        <div class='animate-fade-in-up [animation-delay:160ms] mt-5 flex items-center gap-0'>
+          <div class='h-px w-16 bg-orange-500'></div>
+          <div class='h-px w-24 bg-gradient-to-r from-orange-500/50 to-transparent'></div>
+        </div>
+
+        <!-- Body copy -->
+        <p class='animate-fade-in-up [animation-delay:230ms] mt-5 max-w-[52ch] text-lg leading-relaxed text-petrol-100 text-pretty'>
+          Estar en la sombra en una ciudad como Barcelona tiene un <strong class='text-white font-semibold'>precio demasiado alto en ventas perdidas.</strong> Ser invisible <strong class='text-white font-semibold'>te está saliendo caro hoy mismo.</strong> Elige tu estrategia y deja de regalarle mercado a tu competencia.
+        </p>
+
+
+        <!-- CTA -->
+        <div class='animate-fade-in-up [animation-delay:440ms] mt-8'>
+          <WhatsAppButton
+            text={primaryCtaText}
+            href={waHref}
+            class='px-6 py-3 text-[0.9375rem] font-bold shadow-lg shadow-sky-500/20 hover:shadow-sky-500/30 transition-shadow'
+          />
+        </div>
+
       </div>
+
+      <!-- RIGHT: Price widget -->
+      <aside
+        class='animate-fade-in [animation-delay:480ms] hidden lg:flex flex-col gap-3'
+        aria-hidden='true'>
+
+        <!-- Label -->
+        <p class='text-xs font-bold uppercase tracking-[0.2em] text-white/30 px-1'>
+          Tarifas SEO · Barcelona {currentYear}
+        </p>
+
+        <!-- Tier 1: Solo Ficha -->
+        <div
+          class='rounded-2xl border p-5 relative overflow-hidden'
+          style='background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.14);'>
+          <div class='flex items-start justify-between mb-3'>
+            <div>
+              <span class='text-xs font-bold uppercase tracking-widest text-white/50 block mb-1'>
+                Que te encuentren en Google Maps
+              </span>
+              <div class='flex items-baseline gap-2'>
+                <span
+                  class='text-[2.25rem] font-bold text-white leading-none'
+                  style='font-family: "Titan One", cursive;'>
+                  350 €
+                </span>
+                <span class='text-sm text-white/35'>/mes · IVA incl.</span>
+              </div>
+            </div>
+            <span class='text-xs font-semibold text-white/30 mt-1'>3 meses rec.</span>
+          </div>
+          <div class='flex gap-1 mb-3'>
+            {[...Array(6)].map((_, i) => (
+              <div class={`h-1 flex-1 rounded-full ${i < 3 ? 'bg-orange-400/60' : 'bg-white/8'}`} />
+            ))}
+          </div>
+          <ul class='space-y-1.5'>
+            {['Convierte búsquedas en visitas reales.', 'Multiplica tus reseñas de 5 estrellas.', 'Ficha de Maps profesional y actualizada.'].map(f => (
+              <li class='flex items-center gap-2 text-sm text-white/50'>
+                <span class='h-1 w-1 rounded-full bg-orange-400/60 shrink-0'></span>
+                {f}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Tier 2: Web + Ficha (featured) -->
+        <div
+          class='rounded-2xl border p-5 relative overflow-hidden'
+          style='background: linear-gradient(135deg, rgba(14,165,233,0.22) 0%, rgba(14,165,233,0.12) 100%); border-color: rgba(56,189,248,0.6); box-shadow: 0 0 40px rgba(14,165,233,0.2), inset 0 1px 0 rgba(255,255,255,0.12);'>
+
+          <div class='flex items-start justify-between gap-2 mb-1'>
+            <span class='text-xs font-bold uppercase tracking-widest text-sky-300/70 block text-pretty'>
+              Que te encuentren en Maps y en Google
+            </span>
+            <div
+              class='shrink-0 rounded-full px-3 py-1'
+              style='background: #f97316; box-shadow: 0 4px 12px rgba(249,115,22,0.45);'>
+              <span class='text-xs font-bold uppercase tracking-wider text-white whitespace-nowrap'>
+                ★ Más elegido
+              </span>
+            </div>
+          </div>
+
+          <div class='mb-3'>
+            <div class='flex items-baseline gap-2'>
+              <span
+                class='text-[2.25rem] font-bold text-white leading-none'
+                style='font-family: "Titan One", cursive;'>
+                550 €
+              </span>
+              <span class='text-sm text-sky-200/40'>/mes · IVA incl.</span>
+            </div>
+          </div>
+
+          <div class='flex gap-1 mb-3'>
+            {[...Array(6)].map((_, i) => (
+              <div class={`h-1 flex-1 rounded-full ${i < 4 ? 'bg-sky-300/80' : 'bg-white/10'}`} />
+            ))}
+          </div>
+
+          <ul class='space-y-1.5 mb-3'>
+            {['Dominio total en Maps y buscadores.', 'Escala posiciones sobre tu competencia.', 'Lidera los resultados de tu sector.'].map(f => (
+              <li class='flex items-center gap-2 text-sm text-sky-100/60'>
+                <span class='h-1 w-1 rounded-full bg-sky-300/70 shrink-0'></span>
+                {f}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Footer -->
+        <div class='flex items-center justify-center gap-3 px-1'>
+          <div class='h-px flex-1 bg-gradient-to-r from-transparent to-white/15'></div>
+          <p class='text-xs font-semibold text-white/35 whitespace-nowrap'>
+            Sin permanencia
+          </p>
+          <div class='h-px flex-1 bg-gradient-to-l from-transparent to-white/15'></div>
+        </div>
+      </aside>
     </div>
   </div>
-</div>
+</section>

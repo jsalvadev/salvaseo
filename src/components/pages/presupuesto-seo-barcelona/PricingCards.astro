@@ -1,5 +1,4 @@
 ---
-import Upheading from '../../Upheading.astro'
 import { Check } from '@lucide/astro'
 
 interface PricingTier {
@@ -86,28 +85,63 @@ const TOTAL_SEGMENTS = 6
 
 <div
   id='paquetes'
-  class='bg-white py-24 sm:py-32'
+  class='relative overflow-hidden bg-petrol-50 py-24 sm:py-32'
   style='scroll-margin-top: var(--navbar-height)'>
-  <div class='mx-auto max-w-7xl px-6 lg:px-8'>
-    <div
-      class='mx-auto max-w-4xl text-center'
-      data-animate>
-      <Upheading
-        as='h2'
-        text='Precio SEO mensual: tarifas y paquetes'
-        class='text-center'
-      />
-      <p
-        class='mt-2 text-4xl font-semibold tracking-tight text-balance text-petrol-900 sm:text-5xl'>
-        Invierte solo en lo que tu negocio necesita
-      </p>
+
+  <!-- Dot-grid texture -->
+  <div
+    class='pointer-events-none absolute inset-0'
+    aria-hidden='true'
+    style='background-image: radial-gradient(circle, rgba(26,60,74,0.06) 1px, transparent 1px); background-size: 28px 28px;'>
+  </div>
+
+  <!-- Faded watermark -->
+  <div
+    class='pointer-events-none absolute -right-8 top-1/2 -translate-y-1/2 select-none overflow-hidden'
+    aria-hidden='true'
+    style='font-family: "Titan One", cursive; font-size: clamp(12rem, 26vw, 22rem); color: rgba(249,115,22,0.04); line-height: 1; white-space: nowrap;'>
+    SEO
+  </div>
+
+  <div class='relative mx-auto max-w-7xl px-6 lg:px-8'>
+    <div class='grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-16 xl:gap-24 items-start'>
+
+      <!-- LEFT: sticky headline block -->
+      <div class='lg:sticky lg:top-28'>
+        <div class='flex items-center gap-3 mb-8' data-animate>
+          <span class='block h-px w-10 bg-orange-500' aria-hidden='true'></span>
+          <h2 class='text-[0.7rem] font-bold uppercase tracking-[0.22em] text-orange-500'>
+            Precio SEO mensual: tarifas y paquetes
+          </h2>
+        </div>
+
+        <!-- Titan One headline -->
+        <p
+          data-animate
+          style='font-family: "Titan One", cursive;'
+          class='leading-[0.9] tracking-tight'>
+          <span class='block text-[clamp(2.2rem,5vw,3.8rem)] text-petrol-700 mb-1'>
+            Invierte solo en
+          </span>
+          <span class='block text-[clamp(3rem,6.5vw,5rem)] text-petrol-900'>
+            lo que necesitas<span class='text-orange-400'>.</span>
+          </span>
+        </p>
+
+        <!-- Accent rule -->
+        <div class='mt-6 flex items-center' data-animate>
+          <div class='h-[3px] w-12 bg-orange-500 rounded-full'></div>
+          <div class='h-px w-20 bg-gradient-to-r from-orange-500/40 to-transparent'></div>
+        </div>
+      </div>
+
+      <!-- RIGHT: description -->
+      <div class='flex items-start lg:pt-8' data-animate data-animate-delay='80'>
+        <p class='text-lg font-medium text-pretty text-petrol-700 sm:text-xl/8 leading-relaxed'>
+          Solo ficha de Google, solo web, o ambas con descuento. Cada presupuesto para SEO se adapta al sector, la competencia y los objetivos de cada cliente.
+        </p>
+      </div>
     </div>
-    <p
-      class='mx-auto mt-6 max-w-2xl text-center text-lg font-medium text-pretty text-petrol-700 sm:text-xl/8'
-      data-animate
-      data-animate-delay='80'>
-      Solo ficha de Google, solo web, o ambas con descuento. Cada presupuesto para SEO se adapta al sector, la competencia y los objetivos de cada cliente.
-    </p>
 
     <div class='isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-y-8 sm:mt-20 lg:max-w-3xl lg:grid-cols-2 lg:gap-x-8'>
       {tiers.filter(t => !t.hidden).map((tier) => (
@@ -136,7 +170,7 @@ const TOTAL_SEGMENTS = 6
                 ))}
               </div>
               <p class:list={[
-                'mt-2 text-xs',
+                'mt-2 text-sm',
                 tier.featured ? 'text-sky-100' : 'text-petrol-600',
               ]}>
                 {tier.commitmentMonths} de {TOTAL_SEGMENTS} meses recomendados
@@ -166,7 +200,7 @@ const TOTAL_SEGMENTS = 6
             )}
             <p
               class:list={[
-                'mt-4 text-sm/6',
+                'mt-4 text-base/6',
                 tier.featured ? 'text-sky-100' : 'text-petrol-600',
               ]}>
               <Fragment set:html={tier.description} />
@@ -190,7 +224,7 @@ const TOTAL_SEGMENTS = 6
             <ul
               role='list'
               class:list={[
-                'mt-8 space-y-3 text-sm/6',
+                'mt-8 space-y-3 text-base/6',
                 tier.featured ? 'text-sky-100' : 'text-petrol-600',
               ]}>
               {tier.features.map((feature) => (
@@ -217,7 +251,7 @@ const TOTAL_SEGMENTS = 6
               target='_blank'
               rel='noopener noreferrer nofollow'
               class:list={[
-                'block rounded-md px-3 py-2 text-center text-sm/6 font-semibold shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2',
+                'block rounded-md px-3 py-2 text-center text-base/6 font-semibold shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2',
                 tier.featured
                   ? 'bg-white text-sky-600 hover:bg-sky-50 focus-visible:outline-white'
                   : 'bg-sky-50 text-sky-600 ring-1 ring-sky-200 ring-inset hover:bg-sky-100 hover:ring-sky-300 focus-visible:outline-sky-600',
@@ -230,7 +264,7 @@ const TOTAL_SEGMENTS = 6
     </div>
 
     <p
-      class='mx-auto mt-10 max-w-2xl text-center text-sm text-petrol-600'
+      class='mx-auto mt-10 max-w-2xl text-center text-base text-petrol-600'
       data-animate>
       IVA incluido. El presupuesto final se concreta tras el diagnóstico inicial.
     </p>

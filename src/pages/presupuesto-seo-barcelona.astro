@@ -4,11 +4,8 @@ import presupuestoHeroImage from '../assets/presupuesto-hero.jpg'
 import Hero from '../components/pages/presupuesto-seo-barcelona/Hero.astro'
 import PricingCards from '../components/pages/presupuesto-seo-barcelona/PricingCards.astro'
 import FeatureComparison from '../components/pages/presupuesto-seo-barcelona/FeatureComparison.astro'
-import Faq from '../components/pages/posicionamiento-web-barcelona/Faq.astro'
-import Cta from '../components/pages/presupuesto-seo-barcelona/Cta.astro'
+import Faq from '../components/pages/home/Faq.astro'
 import { faqPresupuestoItems } from '../data/faq-presupuesto'
-import Breadcrumb from '../components/Breadcrumb.astro'
-
 const DATE_MODIFIED = "2026-03-03"
 ---
 
@@ -17,15 +14,15 @@ const DATE_MODIFIED = "2026-03-03"
   description='¿Cuánto cuesta el SEO en Barcelona? ☎ 692 051 399 🔵 Desde 350 €/mes ⭐ 3 paquetes · Sin permanencia. ¡Contacta ya!'
   canonicalUrl='https://salvaseo.com/presupuesto-seo-barcelona/'
   preloadImageHref={presupuestoHeroImage.src}>
-  <Breadcrumb items={[{ label: 'Inicio', href: '/' }, { label: 'Presupuesto SEO Barcelona' }]} />
   <!-- 1. HERO -->
   <Hero
     upheading='Presupuesto SEO en Barcelona'
     heading='Tu negocio merece más visibilidad'
-    description='Escala posiciones en Google desde 350€/mes. Incluimos diagnóstico inicial gratuito para trazar tu hoja de ruta.'
-    primaryCtaText='Solicita tu diagnóstico gratuito'
+    description='Estar en la sombra en una ciudad como Barcelona tiene un precio demasiado alto en ventas perdidas. Ser invisible te está saliendo caro hoy mismo. Elige tu estrategia y deja de regalarle mercado a tu competencia.'
+    primaryCtaText='Analiza mi web'
     secondaryCtaText='Ver paquetes y precios'
     secondaryCtaHref='#paquetes'
+    breadcrumbItems={[{ label: 'Inicio', href: '/' }, { label: 'Presupuesto SEO Barcelona' }]}
   />
 
   <!-- 2. PRICING CARDS -->
@@ -37,14 +34,11 @@ const DATE_MODIFIED = "2026-03-03"
   <!-- 4. FAQ -->
   <Faq
     upheading='Preguntas frecuentes sobre presupuesto y precio SEO'
-    heading=''
+    heading='Tus dudas sobre precios'
     idPrefix='faq-precios'
     items={faqPresupuestoItems}
-    class='!bg-white'
+    upheadingColor='var(--color-orange-500)'
   />
-
-  <!-- 5. CTA FINAL -->
-  <Cta />
 
   <!-- JSON-LD Structured Data -->
   <script

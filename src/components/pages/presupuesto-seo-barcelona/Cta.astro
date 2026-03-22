@@ -1,94 +1,123 @@
 ---
-import { Euro, ShieldCheck, Clock } from '@lucide/astro'
+import { Euro, Clock } from '@lucide/astro'
 import WhatsAppButton from '../../WhatsAppButton.astro'
 ---
 
-<div class='relative bg-petrol-900 overflow-hidden px-6 lg:px-8'>
-  <!-- Grid pattern (matching hero) -->
+<section class='relative bg-petrol-900 overflow-hidden px-6 lg:px-8'>
+  <!-- Dot-grid texture -->
+  <div
+    class='pointer-events-none absolute inset-0'
+    aria-hidden='true'
+    style='background-image: radial-gradient(circle, rgba(255,255,255,0.028) 1px, transparent 1px); background-size: 32px 32px;'>
+  </div>
+
+  <!-- Diagonal tension lines -->
   <svg
-    class='absolute inset-0 -z-10 h-full w-full'
-    aria-hidden='true'>
-    <defs>
-      <pattern
-        id='cta-grid'
-        width='40'
-        height='40'
-        patternUnits='userSpaceOnUse'>
-        <path
-          d='M 40 0 L 0 0 0 40'
-          fill='none'
-          stroke='rgba(255,255,255,0.05)'
-          stroke-width='1'
-        />
-      </pattern>
-    </defs>
-    <rect
-      width='100%'
-      height='100%'
-      fill='url(#cta-grid)'
-    />
+    class='pointer-events-none absolute inset-0 w-full h-full'
+    aria-hidden='true'
+    preserveAspectRatio='none'
+    xmlns='http://www.w3.org/2000/svg'>
+    <line x1='80%' y1='0%' x2='110%' y2='100%' stroke='rgba(249,115,22,0.06)' stroke-width='1'></line>
+    <line x1='70%' y1='0%' x2='95%' y2='100%' stroke='rgba(14,165,233,0.04)' stroke-width='1'></line>
   </svg>
 
-  <!-- Sky ambient glow (top) -->
+  <!-- Large ghosted watermark -->
   <div
-    class='pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full bg-sky-500/8 blur-3xl'
-    aria-hidden='true'>
+    class='pointer-events-none select-none absolute -bottom-8 -right-4 leading-none hidden lg:block'
+    aria-hidden='true'
+    style='font-family: "Titan One", cursive; font-size: 18rem; color: rgba(255,255,255,0.018); line-height: 1;'>
+    START
   </div>
-  <!-- Orange accent (bottom-left) -->
+
+  <!-- Radial glow top -->
   <div
-    class='pointer-events-none absolute -bottom-10 -left-10 w-[240px] h-[240px] rounded-full bg-orange-500/5 blur-3xl'
+    class='pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full blur-3xl'
+    aria-hidden='true'
+    style='background: rgba(14,165,233,0.08);'>
+  </div>
+
+  <!-- Orange accent bottom-left -->
+  <div
+    class='pointer-events-none absolute -bottom-10 -left-10 w-[240px] h-[240px] rounded-full blur-3xl'
+    aria-hidden='true'
+    style='background: rgba(249,115,22,0.05);'>
+  </div>
+
+  <!-- Top hairline -->
+  <div
+    class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-500/25 to-transparent'
     aria-hidden='true'>
   </div>
 
-  <div class='mx-auto max-w-2xl py-24 sm:py-32 text-center'>
+  <div class='relative mx-auto max-w-2xl py-24 sm:py-32 text-center'>
+
+    <!-- Trust pills -->
     <div
       class='mb-8 flex flex-wrap items-center justify-center gap-3'
       data-animate>
       <span
-        class='inline-flex items-center gap-2 bg-white/8 border border-white/10 rounded-full px-3 py-1 text-sm text-petrol-100'>
-        <Euro
-          class='size-4 text-sky-400'
-          aria-hidden='true'
-        />
+        class='inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/8 px-3 py-1 text-sm text-petrol-100'>
+        <Euro class='size-4 text-sky-400' aria-hidden='true' />
         Desde 350 €/mes
       </span>
       <span
-        class='inline-flex items-center gap-2 bg-white/8 border border-white/10 rounded-full px-3 py-1 text-sm text-petrol-100'>
-        <Clock
-          class='size-4 text-sky-400'
-          aria-hidden='true'
-        />
+        class='inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/8 px-3 py-1 text-sm text-petrol-100'>
+        <Clock class='size-4 text-sky-400' aria-hidden='true' />
         Diagnóstico inicial incluido
       </span>
     </div>
+
+    <!-- Eyebrow -->
+    <div class='flex items-center justify-center gap-3 mb-5' data-animate data-animate-delay='80'>
+      <span class='block h-px w-8 bg-orange-500' aria-hidden='true'></span>
+      <p class='text-[0.7rem] font-bold uppercase tracking-[0.22em] text-orange-400'>
+        Presupuesto SEO Barcelona
+      </p>
+      <span class='block h-px w-8 bg-orange-500' aria-hidden='true'></span>
+    </div>
+
+    <!-- Titan One headline -->
     <p
-      class='text-base/7 font-semibold text-sky-400'
       data-animate
-      data-animate-delay='80'>
-      Presupuesto SEO Barcelona
+      data-animate-delay='160'
+      style='font-family: "Titan One", cursive;'
+      class='leading-[0.9] tracking-tight'>
+      <span class='block text-[clamp(2rem,4.5vw,3.2rem)] text-white/55 mb-1'>
+        Radiografía completa
+      </span>
+      <span class='block text-[clamp(2.8rem,6vw,4.5rem)] text-white'>
+        de tu negocio en Google<span class='text-orange-400'>.</span>
+      </span>
     </p>
-    <p
-      class='mt-2 text-4xl font-semibold tracking-tight text-white sm:text-5xl'
-      data-animate
-      data-animate-delay='160'>
-      Radiografía completa de tu negocio en Google
-    </p>
+
+    <!-- Accent rule -->
+    <div class='mt-6 flex items-center justify-center' data-animate data-animate-delay='200'>
+      <div class='h-[3px] w-12 bg-orange-500 rounded-full'></div>
+      <div class='h-px w-20 bg-gradient-to-r from-orange-500/40 to-transparent'></div>
+    </div>
+
+    <!-- Body copy -->
     <p
       class='mt-6 text-lg/8 text-petrol-100'
       data-animate
       data-animate-delay='240'>
       Diagnóstico profesional de tu ficha de Google, tu web y tu competencia directa en Barcelona. Presupuesto detallado del proyecto en 48 h — la decisión es tuya.
     </p>
+
+    <!-- CTAs -->
     <div
       class='mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-x-6'
       data-animate
       data-animate-delay='320'>
-      <WhatsAppButton text='Solicita tu diagnóstico gratuito' />
+      <WhatsAppButton
+        text='Solicita tu diagnóstico gratuito'
+        class='px-6 py-3 text-[0.9375rem] font-bold shadow-lg shadow-sky-500/20 hover:shadow-sky-500/30 transition-shadow'
+      />
       <a
         href='/#contacto'
         class='text-sm/6 font-semibold text-white hover:text-sky-300 transition-colors'>
-        O rellena el formulario de contacto →
+        O rellena el formulario →
       </a>
     </div>
   </div>
-</div>
+</section>

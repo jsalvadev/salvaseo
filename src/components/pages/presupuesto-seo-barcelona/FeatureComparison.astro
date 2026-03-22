@@ -1,10 +1,7 @@
 ---
-import Upheading from '../../Upheading.astro'
-
 interface ComparisonFeature {
   name: string
   ficha: string
-  web: string
   bundle: string
 }
 
@@ -17,249 +14,141 @@ const categories: ComparisonCategory[] = [
   {
     name: 'Google Business Profile',
     features: [
-      {
-        name: 'Auditoría de competencia y visibilidad local',
-        ficha: '✓',
-        web: '—',
-        bundle: '✓'
-      },
-      {
-        name: 'Creación u optimización de GBP',
-        ficha: '✓',
-        web: '—',
-        bundle: '✓'
-      },
-      {
-        name: 'Categorías, servicios, fotos y atributos',
-        ficha: '✓',
-        web: '—',
-        bundle: '✓'
-      },
-      {
-        name: 'Publicaciones mensuales en GBP',
-        ficha: '✓',
-        web: '—',
-        bundle: '✓'
-      },
-      {
-        name: 'Monitorización y respuesta a reseñas',
-        ficha: '✓',
-        web: '—',
-        bundle: '✓'
-      },
-      {
-        name: 'Mapa de visibilidad real por barrios y zonas',
-        ficha: '✓',
-        web: '—',
-        bundle: '✓'
-      }
+      { name: 'Auditoría de competencia y visibilidad local',  ficha: '✓', bundle: '✓' },
+      { name: 'Creación u optimización de GBP',               ficha: '✓', bundle: '✓' },
+      { name: 'Categorías, servicios, fotos y atributos',      ficha: '✓', bundle: '✓' },
+      { name: 'Publicaciones mensuales en GBP',               ficha: '✓', bundle: '✓' },
+      { name: 'Monitorización y respuesta a reseñas',         ficha: '✓', bundle: '✓' },
+      { name: 'Mapa de visibilidad real por barrios y zonas', ficha: '✓', bundle: '✓' },
     ]
   },
   {
     name: 'Citaciones y directorios',
     features: [
-      {
-        name: 'Alta en directorios locales',
-        ficha: '✓',
-        web: '—',
-        bundle: '✓'
-      },
-      { name: 'Coherencia de nombre, dirección y teléfono', ficha: '✓', web: '—', bundle: '✓' }
+      { name: 'Alta en directorios locales',                        ficha: '✓', bundle: '✓' },
+      { name: 'Coherencia de nombre, dirección y teléfono (NAP)',   ficha: '✓', bundle: '✓' },
     ]
   },
   {
     name: 'Web y contenido',
     features: [
-      {
-        name: 'Auditoría SEO on-page de la web',
-        ficha: '—',
-        web: '✓',
-        bundle: '✓'
-      },
-      {
-        name: 'Estudio de palabras clave transaccionales',
-        ficha: '—',
-        web: '✓',
-        bundle: '✓'
-      },
-      {
-        name: 'Optimización de encabezados, titles y descriptions',
-        ficha: '—',
-        web: '✓',
-        bundle: '✓'
-      },
-      {
-        name: 'Páginas de servicio optimizadas',
-        ficha: '—',
-        web: '✓',
-        bundle: '✓'
-      },
-      {
-        name: 'Reestructuración de arquitectura web',
-        ficha: '—',
-        web: '✓',
-        bundle: '✓'
-      },
-      {
-        name: 'Optimización técnica de velocidad y experiencia de carga',
-        ficha: '—',
-        web: '✓',
-        bundle: '✓'
-      },
-      {
-        name: 'Datos estructurados para destacar en resultados de Google',
-        ficha: '—',
-        web: '✓',
-        bundle: '✓'
-      },
-      {
-        name: 'Optimización de contenidos con análisis semántico competitivo',
-        ficha: '—',
-        web: '✓',
-        bundle: '✓'
-      }
+      { name: 'Auditoría SEO on-page de la web',                              ficha: '—', bundle: '✓' },
+      { name: 'Estudio de palabras clave transaccionales',                    ficha: '—', bundle: '✓' },
+      { name: 'Optimización de encabezados, titles y descriptions',           ficha: '—', bundle: '✓' },
+      { name: 'Páginas de servicio optimizadas',                              ficha: '—', bundle: '✓' },
+      { name: 'Reestructuración de arquitectura web',                         ficha: '—', bundle: '✓' },
+      { name: 'Optimización técnica de velocidad y experiencia de carga',     ficha: '—', bundle: '✓' },
+      { name: 'Datos estructurados para destacar en resultados de Google',    ficha: '—', bundle: '✓' },
+      { name: 'Optimización de contenidos con análisis semántico competitivo',ficha: '—', bundle: '✓' },
     ]
   },
   {
-    name: 'Exclusivo Ficha + Web',
+    name: 'Estrategia combinada',
     features: [
-      {
-        name: 'Análisis de competencia local + orgánica cruzado',
-        ficha: '—',
-        web: '—',
-        bundle: '✓'
-      },
-      {
-        name: 'Investigación de keywords locales + transaccionales',
-        ficha: '—',
-        web: '—',
-        bundle: '✓'
-      },
-      {
-        name: 'Estrategia de enlaces internos entre páginas de servicio y ficha',
-        ficha: '—',
-        web: '—',
-        bundle: '✓'
-      },
-      {
-        name: 'Publicaciones en GBP enlazadas a páginas de servicio',
-        ficha: '—',
-        web: '—',
-        bundle: '✓'
-      },
-      {
-        name: 'Alineación de categorías y servicios GBP con páginas web',
-        ficha: '—',
-        web: '—',
-        bundle: '✓'
-      },
-      {
-        name: 'Datos estructurados cruzados ficha ↔ web',
-        ficha: '—',
-        web: '—',
-        bundle: '✓'
-      }
+      { name: 'Análisis de competencia local + orgánica cruzado',                   ficha: '—', bundle: '✓' },
+      { name: 'Investigación de keywords locales + transaccionales',                ficha: '—', bundle: '✓' },
+      { name: 'Estrategia de enlaces internos entre páginas y ficha',               ficha: '—', bundle: '✓' },
+      { name: 'Publicaciones en GBP enlazadas a páginas de servicio',              ficha: '—', bundle: '✓' },
+      { name: 'Alineación de categorías GBP con páginas web',                      ficha: '—', bundle: '✓' },
+      { name: 'Datos estructurados cruzados ficha ↔ web',                          ficha: '—', bundle: '✓' },
     ]
   },
   {
     name: 'Seguimiento',
     features: [
-      {
-        name: 'Seguimiento de posiciones en Maps',
-        ficha: '✓',
-        web: '—',
-        bundle: '✓'
-      },
-      {
-        name: 'Seguimiento de posiciones orgánicas',
-        ficha: '—',
-        web: '✓',
-        bundle: '✓'
-      },
-      {
-        name: 'Informe mensual de resultados',
-        ficha: '✓',
-        web: '✓',
-        bundle: '✓ unificado'
-      },
-      {
-        name: 'Llamada mensual de seguimiento',
-        ficha: '✓',
-        web: '✓',
-        bundle: '✓'
-      },
-      { name: 'Soporte por WhatsApp', ficha: '✓', web: '✓', bundle: '✓' },
-      {
-        name: 'Compromiso recomendado',
-        ficha: '3 meses',
-        web: '4 meses',
-        bundle: '6 meses'
-      }
+      { name: 'Seguimiento de posiciones en Maps',  ficha: '✓', bundle: '✓' },
+      { name: 'Seguimiento de posiciones orgánicas',ficha: '—', bundle: '✓' },
+      { name: 'Informe mensual de resultados',      ficha: '✓', bundle: '✓' },
+      { name: 'Llamada mensual de seguimiento',     ficha: '✓', bundle: '✓' },
+      { name: 'Soporte por WhatsApp',              ficha: '✓', bundle: '✓' },
+      { name: 'Compromiso recomendado',            ficha: '3 meses', bundle: '4 meses' },
     ]
   }
 ]
 
 const checkSvg = `<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="inline size-5 text-maps-green"><path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" /></svg>`
 
-const dashSvg = `<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="inline size-5 text-petrol-200"><path d="M4 10a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H4.75A.75.75 0 0 1 4 10Z" clip-rule="evenodd" fill-rule="evenodd" /></svg>`
+const dashSvg = `<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="inline size-5 text-white/20"><path d="M4 10a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H4.75A.75.75 0 0 1 4 10Z" clip-rule="evenodd" fill-rule="evenodd" /></svg>`
 
 function renderCell(value: string): string {
   if (value === '✓') return checkSvg
   if (value === '—') return dashSvg
-  return `<span class="text-sm text-petrol-700">${value}</span>`
+  return `<span class="text-sm font-medium text-white/60">${value}</span>`
 }
 ---
 
-<div class='bg-neutral-primary-soft py-24 sm:py-32'>
-  <div class='mx-auto max-w-7xl px-6 lg:px-8'>
+<div class='relative overflow-hidden bg-petrol-900 py-24 sm:py-32'>
+
+  <!-- Dot-grid texture -->
+  <div
+    class='pointer-events-none absolute inset-0'
+    aria-hidden='true'
+    style='background-image: radial-gradient(circle, rgba(255,255,255,0.028) 1px, transparent 1px); background-size: 32px 32px;'>
+  </div>
+
+  <!-- Large ghosted watermark -->
+  <div
+    class='pointer-events-none absolute -left-10 top-1/2 -translate-y-1/2 select-none leading-none'
+    aria-hidden='true'
+    style='font-family: "Titan One", cursive; font-size: clamp(12rem, 26vw, 20rem); color: rgba(249,115,22,0.04); line-height: 1; white-space: nowrap;'>
+    VS
+  </div>
+
+  <!-- Top/bottom hairlines -->
+  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-500/25 to-transparent' aria-hidden='true'></div>
+  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-orange-500/10 to-transparent' aria-hidden='true'></div>
+
+  <div class='relative mx-auto max-w-7xl px-6 lg:px-8'>
     <div class='mx-auto max-w-4xl text-center'>
-      <Upheading
-        as='h2'
-        text='Posicionamiento web: precios por servicio'
-        class='text-center'
-      />
+      <!-- Eyebrow -->
+      <div class='flex items-center justify-center gap-3 mb-5' data-animate>
+        <span class='block h-px w-8 bg-orange-500' aria-hidden='true'></span>
+        <h2 class='text-[0.7rem] font-bold uppercase tracking-[0.22em] text-orange-400'>
+          Posicionamiento web: precios por servicio
+        </h2>
+        <span class='block h-px w-8 bg-orange-500' aria-hidden='true'></span>
+      </div>
+
+      <!-- Titan One headline -->
       <p
-        class='mt-2 text-4xl font-semibold tracking-tight text-balance text-petrol-900 sm:text-5xl'>
-        Detalle completo de cada paquete
+        data-animate
+        style='font-family: "Titan One", cursive;'
+        class='leading-[0.9] tracking-tight'>
+        <span class='block text-[clamp(2.2rem,5vw,3.8rem)] text-white/55 mb-1'>
+          Detalle completo
+        </span>
+        <span class='block text-[clamp(3rem,6.5vw,5rem)] text-white'>
+          de cada paquete<span class='text-orange-400'>.</span>
+        </span>
       </p>
+
+      <!-- Accent rule -->
+      <div class='mt-6 flex items-center justify-center' data-animate>
+        <div class='h-[3px] w-12 bg-orange-500 rounded-full'></div>
+        <div class='h-px w-20 bg-gradient-to-r from-orange-500/40 to-transparent'></div>
+      </div>
     </div>
-    <p class='mx-auto mt-6 max-w-2xl text-center text-lg text-petrol-700'>
+    <p class='mx-auto mt-6 max-w-2xl text-center text-lg text-petrol-100' data-animate data-animate-delay='80'>
       Cada servicio detallado por paquete para que cada cliente identifique el precio de posicionamiento en Google que encaja con su negocio.
     </p>
 
     <!-- Desktop comparison table -->
-    <div class='mx-auto mt-16 max-w-5xl hidden lg:block'>
+    <div class='mx-auto mt-16 max-w-3xl hidden lg:block'>
       <table class='w-full text-left'>
         <caption class='sr-only'>Tarifas de posicionamiento SEO: comparativa de paquetes</caption>
         <thead
-          class='sticky bg-petrol-50 z-10'
-          style='top: var(--navbar-height)'>
+          class='sticky z-10'
+          style='top: var(--navbar-height); background-color: #1A3C4A;'>
           <tr>
-            <th
-              scope='col'
-              class='pb-4 text-sm font-semibold text-petrol-900'
-            ></th>
-            <th
-              scope='col'
-              class='pb-4 text-center text-sm font-semibold text-petrol-900'
-              >Solo Ficha<br /><span class='font-normal text-petrol-500'
-                >350 €/mes</span
-              ></th
-            >
-            <th
-              scope='col'
-              class='pb-4 text-center text-sm font-semibold text-petrol-900'
-              >Solo Web<br /><span class='font-normal text-petrol-500'
-                >550 €/mes</span
-              ></th
-            >
-            <th
-              scope='col'
-              class='pb-4 text-center text-sm font-semibold text-sky-600 bg-sky-50/60'
-              >Ficha + Web ★<br /><span class='font-normal text-petrol-500'
-                >800 €/mes</span
-              ></th
-            >
+            <th scope='col' class='pb-4 text-sm font-semibold text-white/40'></th>
+            <th scope='col' class='pb-4 text-center text-sm font-semibold text-white w-36'>
+              Solo Ficha<br />
+              <span class='font-normal text-white/40'>350 €/mes</span>
+            </th>
+            <th scope='col' class='pb-4 text-center text-sm font-semibold text-sky-300 w-36' style='background: rgba(14,165,233,0.08);'>
+              Web + Ficha ★<br />
+              <span class='font-normal text-white/40'>550 €/mes</span>
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -267,29 +156,21 @@ function renderCell(value: string): string {
             categories.map(category => (
               <>
                 <tr>
-                  <th
-                    scope='colgroup'
-                    colspan='4'
-                    class='pt-8 pb-3 text-sm/6 font-semibold text-petrol-900'>
-                    <div class='bg-petrol-100 rounded-lg px-4 py-2 font-semibold text-petrol-900'>
+                  <th scope='colgroup' colspan='3' class='pt-8 pb-3 text-sm/6 font-semibold text-white'>
+                    <div class='rounded-lg px-4 py-2 font-semibold text-petrol-100' style='background: rgba(255,255,255,0.06);'>
                       {category.name}
                     </div>
                   </th>
                 </tr>
                 {category.features.map(feature => (
-                  <tr class='border-b border-petrol-50 hover:bg-petrol-50/30 transition-colors'>
-                    <th
-                      scope='row'
-                      class='py-3 px-4 text-sm font-normal text-petrol-700'>
+                  <tr class='border-b transition-colors' style='border-color: rgba(255,255,255,0.05);'>
+                    <th scope='row' class='py-3 px-4 text-sm font-normal text-petrol-100'>
                       {feature.name}
                     </th>
-                    <td class='py-3 text-center'>
+                    <td class='py-3 text-center w-36'>
                       <Fragment set:html={renderCell(feature.ficha)} />
                     </td>
-                    <td class='py-3 text-center'>
-                      <Fragment set:html={renderCell(feature.web)} />
-                    </td>
-                    <td class='py-3 text-center bg-sky-50/60'>
+                    <td class='py-3 text-center w-36' style='background: rgba(14,165,233,0.08);'>
                       <Fragment set:html={renderCell(feature.bundle)} />
                     </td>
                   </tr>
@@ -302,67 +183,51 @@ function renderCell(value: string): string {
     </div>
 
     <!-- Mobile: stacked cards -->
-    <div class='mx-auto mt-16 max-w-lg space-y-8 lg:hidden'>
+    <div class='mx-auto mt-16 max-w-lg space-y-6 lg:hidden'>
       {
         (
           [
-            'Solo Ficha — 350 €/mes',
-            'Solo Web — 550 €/mes',
-            'Ficha + Web ★ — 800 €/mes'
-          ] as const
-        ).map((tierName, tierIndex) => {
-          const key =
-            tierIndex === 0 ? 'ficha'
-            : tierIndex === 1 ? 'web'
-            : 'bundle'
-          const isFeatured = tierIndex === 2
-          return (
-            <div
-              class:list={[
-                'rounded-xl border p-6',
-                isFeatured ?
-                  'border-sky-200 bg-sky-50/60'
-                : 'border-petrol-100 bg-white'
-              ]}>
-              <h3
-                class:list={[
-                  'text-lg font-semibold',
-                  isFeatured ? 'text-sky-600' : 'text-petrol-900'
-                ]}>
-                {tierName}
-              </h3>
-              {categories.map(category => (
-                <div class='mt-4'>
-                  <p class='text-xs font-semibold text-petrol-500 uppercase tracking-wider'>
-                    {category.name}
-                  </p>
-                  <ul class='mt-2 space-y-1'>
-                    {category.features.map(feature => {
-                      const value = feature[
-                        key as keyof typeof feature
-                      ] as string
-                      return (
-                        <li class='flex items-center justify-between text-sm py-1 border-b border-petrol-50 last:border-0'>
-                          <span class='text-petrol-700'>{feature.name}</span>
-                          <span class='ml-2 shrink-0'>
-                            <Fragment set:html={renderCell(value)} />
-                          </span>
-                        </li>
-                      )
-                    })}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          )
-        })
+            { label: 'Solo Ficha — 350 €/mes', key: 'ficha' as const, featured: false },
+            { label: 'Web + Ficha ★ — 550 €/mes', key: 'bundle' as const, featured: true },
+          ]
+        ).map(({ label, key, featured }) => (
+          <div
+            class='rounded-xl border p-6'
+            style={featured
+              ? 'border-color: rgba(56,189,248,0.4); background: linear-gradient(135deg, rgba(14,165,233,0.14) 0%, rgba(14,165,233,0.06) 100%);'
+              : 'border-color: rgba(255,255,255,0.1); background: rgba(255,255,255,0.05);'}>
+            <h3 class:list={['text-lg font-semibold mb-4', featured ? 'text-sky-300' : 'text-white']}>
+              {label}
+            </h3>
+            {categories.map(category => (
+              <div class='mt-4 first:mt-0'>
+                <p class='text-xs font-semibold text-white/40 uppercase tracking-wider mb-2'>
+                  {category.name}
+                </p>
+                <ul class='space-y-1'>
+                  {category.features.map(feature => {
+                    const value = feature[key]
+                    return (
+                      <li class='flex items-center justify-between text-sm py-1.5 border-b last:border-0' style='border-color: rgba(255,255,255,0.05);'>
+                        <span class='text-petrol-100 pr-4'>{feature.name}</span>
+                        <span class='shrink-0'>
+                          <Fragment set:html={renderCell(value)} />
+                        </span>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </div>
+            ))}
+          </div>
+        ))
       }
     </div>
 
     <div class='mt-12 text-center'>
       <a
         href='#paquetes'
-        class='inline-flex items-center gap-1 text-sm font-semibold text-sky-a11y hover:text-sky-600 transition-colors'>
+        class='inline-flex items-center gap-1 text-sm font-semibold text-sky-400 hover:text-sky-300 transition-colors'>
         Ver paquetes y elegir el tuyo <span aria-hidden='true'>→</span>
       </a>
     </div>
