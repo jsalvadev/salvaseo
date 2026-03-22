@@ -66,170 +66,279 @@ const categories: ComparisonCategory[] = [
   }
 ]
 
-const checkSvg = `<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="inline size-5 text-maps-green"><path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" /></svg>`
+// Inline-styled SVGs for set:html injection (no Tailwind class scanning needed)
+const checkSvg = `<span style="display:inline-flex;align-items:center;justify-content:center;width:1.5rem;height:1.5rem;border-radius:9999px;background:rgba(52,168,83,0.15);flex-shrink:0;"><svg viewBox="0 0 20 20" fill="#34a853" aria-hidden="true" style="width:0.7rem;height:0.7rem;"><path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd"/></svg></span>`
 
-const dashSvg = `<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="inline size-5 text-white/20"><path d="M4 10a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H4.75A.75.75 0 0 1 4 10Z" clip-rule="evenodd" fill-rule="evenodd" /></svg>`
+const dashSvg = `<span style="display:inline-block;width:1.25rem;height:2px;background:rgba(255,255,255,0.1);border-radius:9999px;vertical-align:middle;" aria-label="No incluido"></span>`
 
 function renderCell(value: string): string {
   if (value === '✓') return checkSvg
   if (value === '—') return dashSvg
-  return `<span class="text-sm font-medium text-white/60">${value}</span>`
+  return `<span style="font-size:0.75rem;font-weight:700;color:rgba(255,255,255,0.6);letter-spacing:0.02em;">${value}</span>`
 }
+
+// Petrol-900 hex for sticky background
+const BG_PETROL_900 = '#1A3C4A'
 ---
 
 <div class='relative overflow-hidden bg-petrol-900 py-24 sm:py-32'>
 
-  <!-- Dot-grid texture -->
+  <!-- White-line architectural grid -->
   <div
     class='pointer-events-none absolute inset-0'
     aria-hidden='true'
-    style='background-image: radial-gradient(circle, rgba(255,255,255,0.028) 1px, transparent 1px); background-size: 32px 32px;'>
+    style='background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 48px 48px;'>
   </div>
 
-  <!-- Large ghosted watermark -->
+  <!-- Top hairline (transition from warm-white PricingCards above) -->
   <div
-    class='pointer-events-none absolute -left-10 top-1/2 -translate-y-1/2 select-none leading-none'
-    aria-hidden='true'
-    style='font-family: "Titan One", cursive; font-size: clamp(12rem, 26vw, 20rem); color: rgba(249,115,22,0.04); line-height: 1; white-space: nowrap;'>
-    VS
+    class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-500/20 to-transparent'
+    aria-hidden='true'>
   </div>
 
-  <!-- Top/bottom hairlines -->
-  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-500/25 to-transparent' aria-hidden='true'></div>
-  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-orange-500/10 to-transparent' aria-hidden='true'></div>
+  <!-- Large ghosted watermark: package count -->
+  <div
+    class='pointer-events-none absolute -right-8 bottom-8 select-none leading-none'
+    aria-hidden='true'
+    style='font-family: "Titan One", cursive; font-size: clamp(14rem, 28vw, 22rem); color: rgba(249,115,22,0.03); line-height: 1;'>
+    02
+  </div>
 
   <div class='relative mx-auto max-w-7xl px-6 lg:px-8'>
-    <div class='mx-auto max-w-4xl text-center'>
-      <!-- Eyebrow -->
-      <div class='flex items-center justify-center gap-3 mb-5' data-animate>
-        <span class='block h-px w-8 bg-orange-500' aria-hidden='true'></span>
-        <h2 class='text-[0.7rem] font-bold uppercase tracking-[0.22em] text-orange-400'>
+
+    <!-- Headline block: left-aligned, dark-theme editorial -->
+    <div class='mb-14 max-w-2xl' data-animate>
+      <div class='flex items-center gap-3 mb-6'>
+        <span class='block h-px w-10 bg-orange-500' aria-hidden='true'></span>
+        <p class='text-[0.7rem] font-bold uppercase tracking-[0.22em] text-orange-400'>
           Posicionamiento web: precios por servicio
-        </h2>
-        <span class='block h-px w-8 bg-orange-500' aria-hidden='true'></span>
+        </p>
       </div>
 
-      <!-- Titan One headline -->
-      <p
-        data-animate
+      <h2
         style='font-family: "Titan One", cursive;'
-        class='leading-[0.9] tracking-tight'>
-        <span class='block text-[clamp(2.2rem,5vw,3.8rem)] text-white/55 mb-1'>
+        class='leading-[0.88] tracking-tight'>
+        <span class='block text-[clamp(1.6rem,3.5vw,2.75rem)] text-white/45 mb-1'>
           Detalle completo
         </span>
-        <span class='block text-[clamp(3rem,6.5vw,5rem)] text-white'>
+        <span class='block text-[clamp(3.5rem,8.5vw,7.5rem)] text-white'>
           de cada paquete<span class='text-orange-400'>.</span>
         </span>
-      </p>
+      </h2>
 
       <!-- Accent rule -->
-      <div class='mt-6 flex items-center justify-center' data-animate>
-        <div class='h-[3px] w-12 bg-orange-500 rounded-full'></div>
-        <div class='h-px w-20 bg-gradient-to-r from-orange-500/40 to-transparent'></div>
+      <div class='mt-5 flex items-center'>
+        <div class='h-[3px] w-16 bg-orange-500 rounded-full'></div>
+        <div class='h-px flex-1 bg-gradient-to-r from-orange-500/30 to-transparent'></div>
       </div>
     </div>
-    <p class='mx-auto mt-6 max-w-2xl text-center text-lg text-petrol-100' data-animate data-animate-delay='80'>
-      Cada servicio detallado por paquete para que cada cliente identifique el precio de posicionamiento en Google que encaja con su negocio.
+
+    <p class='mb-16 max-w-xl text-base leading-relaxed text-petrol-100/70' data-animate>
+      Cada servicio detallado por paquete para que puedas identificar el plan que encaja con tu negocio.
     </p>
 
-    <!-- Desktop comparison table -->
-    <div class='mx-auto mt-16 max-w-3xl hidden lg:block'>
-      <table class='w-full text-left'>
+    <!-- ── DESKTOP TABLE ────────────────────────────────── -->
+    <div class='mx-auto max-w-3xl hidden lg:block' data-animate>
+      <table class='w-full text-left border-collapse'>
         <caption class='sr-only'>Tarifas de posicionamiento SEO: comparativa de paquetes</caption>
+
         <thead
           class='sticky z-10'
-          style='top: var(--navbar-height); background-color: #1A3C4A;'>
-          <tr>
-            <th scope='col' class='pb-4 text-sm font-semibold text-white/40'></th>
-            <th scope='col' class='pb-4 text-center text-sm font-semibold text-white w-36'>
-              Solo Ficha<br />
-              <span class='font-normal text-white/40'>350 €/mes</span>
+          style={`top: var(--navbar-height); background-color: ${BG_PETROL_900};`}>
+          <tr style='border-bottom: 1px solid rgba(255,255,255,0.08);'>
+            <!-- Feature name column header -->
+            <th scope='col' class='py-4 pr-6 text-left text-[0.6rem] font-bold uppercase tracking-[0.18em] text-white/20'>
+              Características
             </th>
-            <th scope='col' class='pb-4 text-center text-sm font-semibold text-sky-300 w-36' style='background: rgba(14,165,233,0.08);'>
-              Web + Ficha ★<br />
-              <span class='font-normal text-white/40'>550 €/mes</span>
+
+            <!-- Plan Visibilidad Local column header -->
+            <th scope='col' class='py-4 px-5 text-center' style='width: 160px;'>
+              <span class='block text-[0.5rem] font-bold uppercase tracking-[0.2em] text-white/25 mb-0.5'>
+                Plan
+              </span>
+              <span class='block text-[0.6rem] font-bold uppercase tracking-[0.12em] text-white/50 mb-1.5'>
+                Visibilidad Local
+              </span>
+              <span
+                class='block font-bold text-white whitespace-nowrap'
+                style='font-family: "Titan One", cursive; font-size: 1.05rem; letter-spacing: -0.01em;'>
+                350 €/mes
+              </span>
+            </th>
+
+            <!-- Plan Visibilidad Total column header (featured, orange accent) -->
+            <th
+              scope='col'
+              class='py-4 px-5 text-center relative'
+              style='width: 160px; background: rgba(249,115,22,0.07);'>
+              <div class='absolute inset-x-0 top-0 h-[3px] bg-orange-500'></div>
+              <span class='block text-[0.5rem] font-bold uppercase tracking-[0.2em] text-orange-400/50 mb-0.5'>
+                Plan
+              </span>
+              <span class='block text-[0.6rem] font-bold uppercase tracking-[0.12em] text-orange-300/70 mb-1.5'>
+                Visibilidad Total
+              </span>
+              <span
+                class='block font-bold text-orange-300 whitespace-nowrap'
+                style='font-family: "Titan One", cursive; font-size: 1.05rem; letter-spacing: -0.01em;'>
+                550 €/mes
+              </span>
             </th>
           </tr>
         </thead>
+
         <tbody>
-          {
-            categories.map(category => (
-              <>
-                <tr>
-                  <th scope='colgroup' colspan='3' class='pt-8 pb-3 text-sm/6 font-semibold text-white'>
-                    <div class='rounded-lg px-4 py-2 font-semibold text-petrol-100' style='background: rgba(255,255,255,0.06);'>
+          {categories.map(category => (
+            <>
+              <!-- Category group header -->
+              <tr>
+                <th
+                  scope='colgroup'
+                  colspan={3}
+                  class='pt-8 pb-0'>
+                  <div
+                    class='flex items-center gap-3 py-2 px-3 rounded-lg'
+                    style='background: rgba(255,255,255,0.05); border-left: 3px solid #f97316;'>
+                    <span class='text-xs font-bold uppercase tracking-[0.18em] text-orange-400/80'>
                       {category.name}
-                    </div>
+                    </span>
+                  </div>
+                </th>
+              </tr>
+
+              <!-- Feature rows -->
+              {category.features.map((feature, rowIndex) => (
+                <tr
+                  class='transition-colors duration-150 hover:bg-white/[0.03]'
+                  style={rowIndex % 2 === 0 ? 'border-bottom: 1px solid rgba(255,255,255,0.04);' : 'border-bottom: 1px solid rgba(255,255,255,0.04);'}>
+                  <th
+                    scope='row'
+                    class='py-3 pr-6 text-sm font-normal text-white/65 text-left'>
+                    {feature.name}
                   </th>
+                  <td class='py-3 text-center w-36 px-4'>
+                    <Fragment set:html={renderCell(feature.ficha)} />
+                  </td>
+                  <td
+                    class='py-3 text-center w-36 px-4'
+                    style='background: rgba(249,115,22,0.04);'>
+                    <Fragment set:html={renderCell(feature.bundle)} />
+                  </td>
                 </tr>
-                {category.features.map(feature => (
-                  <tr class='border-b transition-colors' style='border-color: rgba(255,255,255,0.05);'>
-                    <th scope='row' class='py-3 px-4 text-sm font-normal text-petrol-100'>
-                      {feature.name}
-                    </th>
-                    <td class='py-3 text-center w-36'>
-                      <Fragment set:html={renderCell(feature.ficha)} />
-                    </td>
-                    <td class='py-3 text-center w-36' style='background: rgba(14,165,233,0.08);'>
-                      <Fragment set:html={renderCell(feature.bundle)} />
-                    </td>
-                  </tr>
-                ))}
-              </>
-            ))
-          }
+              ))}
+            </>
+          ))}
+
+          <!-- Final spacer row -->
+          <tr aria-hidden='true'>
+            <td colspan='3' class='pt-4'>
+              <div class='h-px' style='background: linear-gradient(90deg, rgba(255,255,255,0.08), transparent);'></div>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
 
-    <!-- Mobile: stacked cards -->
-    <div class='mx-auto mt-16 max-w-lg space-y-6 lg:hidden'>
-      {
-        (
-          [
-            { label: 'Solo Ficha — 350 €/mes', key: 'ficha' as const, featured: false },
-            { label: 'Web + Ficha ★ — 550 €/mes', key: 'bundle' as const, featured: true },
-          ]
-        ).map(({ label, key, featured }) => (
-          <div
-            class='rounded-xl border p-6'
-            style={featured
-              ? 'border-color: rgba(56,189,248,0.4); background: linear-gradient(135deg, rgba(14,165,233,0.14) 0%, rgba(14,165,233,0.06) 100%);'
-              : 'border-color: rgba(255,255,255,0.1); background: rgba(255,255,255,0.05);'}>
-            <h3 class:list={['text-lg font-semibold mb-4', featured ? 'text-sky-300' : 'text-white']}>
-              {label}
-            </h3>
-            {categories.map(category => (
-              <div class='mt-4 first:mt-0'>
-                <p class='text-xs font-semibold text-white/40 uppercase tracking-wider mb-2'>
-                  {category.name}
-                </p>
-                <ul class='space-y-1'>
-                  {category.features.map(feature => {
-                    const value = feature[key]
-                    return (
-                      <li class='flex items-center justify-between text-sm py-1.5 border-b last:border-0' style='border-color: rgba(255,255,255,0.05);'>
-                        <span class='text-petrol-100 pr-4'>{feature.name}</span>
-                        <span class='shrink-0'>
-                          <Fragment set:html={renderCell(value)} />
-                        </span>
-                      </li>
-                    )
-                  })}
-                </ul>
-              </div>
-            ))}
-          </div>
-        ))
-      }
+    <!-- ── MOBILE: Tabbed stacked cards ──────────────────── -->
+    <div class='lg:hidden' data-animate>
+
+      <style>
+        .fc-tab-input { display: none; }
+
+        .fc-tab-label {
+          cursor: pointer;
+          padding: 0.625rem 1.25rem;
+          font-size: 0.8125rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          border-radius: 0.5rem;
+          color: rgba(255,255,255,0.45);
+          transition: color 0.15s, background 0.15s;
+        }
+
+        #fc-tab-ficha:checked ~ .fc-tabs .fc-label-ficha,
+        #fc-tab-bundle:checked ~ .fc-tabs .fc-label-bundle {
+          background: rgba(249,115,22,0.15);
+          color: #fb923c;
+        }
+
+        #fc-tab-ficha:checked ~ .fc-panels .fc-panel-bundle,
+        #fc-tab-bundle:checked ~ .fc-panels .fc-panel-ficha {
+          display: none;
+        }
+      </style>
+
+      <input type='radio' id='fc-tab-ficha' name='fc-tabs' class='fc-tab-input' checked />
+      <input type='radio' id='fc-tab-bundle' name='fc-tabs' class='fc-tab-input' />
+
+      <!-- Tab labels -->
+      <div class='fc-tabs flex gap-2 p-1 rounded-xl mb-6' style='background: rgba(255,255,255,0.05);'>
+        <label for='fc-tab-ficha' class='fc-tab-label fc-label-ficha flex-1 text-center'>
+          Plan Visibilidad Local · 350 €
+        </label>
+        <label for='fc-tab-bundle' class='fc-tab-label fc-label-bundle flex-1 text-center'>
+          Plan Visibilidad Total · 550 €
+        </label>
+      </div>
+
+      <!-- Tab panels -->
+      <div class='fc-panels'>
+
+        <!-- Solo Ficha panel -->
+        <div class='fc-panel-ficha space-y-4'>
+          {categories.map(category => (
+            <div class='rounded-xl p-5' style='background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);'>
+              <p class='text-[0.65rem] font-bold uppercase tracking-[0.18em] text-orange-400/70 mb-3 pl-2' style='border-left: 2px solid rgba(249,115,22,0.4); padding-left: 0.5rem;'>
+                {category.name}
+              </p>
+              <ul class='space-y-0'>
+                {category.features.map(feature => (
+                  <li class='flex items-center justify-between py-2.5 gap-4' style='border-bottom: 1px solid rgba(255,255,255,0.05);'>
+                    <span class='text-sm text-white/60'>{feature.name}</span>
+                    <span class='shrink-0'>
+                      <Fragment set:html={renderCell(feature.ficha)} />
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <!-- Web + Ficha panel -->
+        <div class='fc-panel-bundle space-y-4'>
+          {categories.map(category => (
+            <div class='rounded-xl p-5' style='background: rgba(249,115,22,0.06); border: 1px solid rgba(249,115,22,0.18);'>
+              <p class='text-[0.65rem] font-bold uppercase tracking-[0.18em] text-orange-400/80 mb-3' style='border-left: 2px solid #f97316; padding-left: 0.5rem;'>
+                {category.name}
+              </p>
+              <ul class='space-y-0'>
+                {category.features.map(feature => (
+                  <li class='flex items-center justify-between py-2.5 gap-4' style='border-bottom: 1px solid rgba(249,115,22,0.1);'>
+                    <span class='text-sm text-white/65'>{feature.name}</span>
+                    <span class='shrink-0'>
+                      <Fragment set:html={renderCell(feature.bundle)} />
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+      </div>
     </div>
 
-    <div class='mt-12 text-center'>
+    <!-- CTA link -->
+    <div class='mt-12' data-animate>
       <a
         href='#paquetes'
-        class='inline-flex items-center gap-1 text-sm font-semibold text-sky-400 hover:text-sky-300 transition-colors'>
-        Ver paquetes y elegir el tuyo <span aria-hidden='true'>→</span>
+        class='inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-orange-400 hover:text-orange-300 transition-colors'>
+        Ver paquetes y elegir el tuyo
+        <span aria-hidden='true' class='text-base'>→</span>
       </a>
     </div>
+
   </div>
 </div>

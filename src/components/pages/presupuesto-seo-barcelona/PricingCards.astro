@@ -18,10 +18,10 @@ interface PricingTier {
 
 const tiers: PricingTier[] = [
   {
-    name: 'Solo Ficha',
+    name: 'Visibilidad Local',
     price: '350 €',
     unit: '/mes IVA incl.',
-    description: 'Servicio de <a href="/seo-local-barcelona/" class="underline decoration-sky-200 underline-offset-2 hover:text-petrol-900 transition-colors">SEO local</a> para negocios que necesitan visibilidad y tráfico desde Google Maps y el Local Pack.',
+    description: 'Deja de ser invisible en tu zona y empieza a recibir llamadas de clientes que tienes a la vuelta de la esquina.',
     commitment: 'Compromiso recomendado: 3 meses',
     commitmentMonths: 3,
     features: [
@@ -37,13 +37,13 @@ const tiers: PricingTier[] = [
       'Soporte por WhatsApp',
     ],
     cta: 'Solicita tu diagnóstico',
-    ctaHref: 'https://wa.me/34692051399?text=Hola%20Salva%2C%20me%20interesa%20el%20paquete%20Solo%20Ficha%20de%20350%E2%82%AC%2Fmes.%20%C2%BFPodemos%20hacer%20el%20diagn%C3%B3stico%20inicial%3F',
+    ctaHref: 'https://wa.me/34692051399?text=Hola%20Salva%2C%20me%20interesa%20el%20Plan%20Visibilidad%20Local%20de%20350%E2%82%AC%2Fmes.%20%C2%BFPodemos%20hacer%20el%20diagn%C3%B3stico%20inicial%3F',
   },
   {
-    name: 'Web + Ficha',
+    name: 'Visibilidad Total',
     price: '550 €',
     unit: '/mes IVA incl.',
-    description: '<a href="/posicionamiento-web-barcelona/" class="underline decoration-sky-200 underline-offset-2 hover:text-petrol-900 transition-colors">Posicionamiento web</a> + <a href="/seo-local-barcelona/" class="underline decoration-sky-200 underline-offset-2 hover:text-petrol-900 transition-colors">SEO local</a>: domina Google Maps y los resultados orgánicos al mismo tiempo.',
+    description: 'Sal de la sombra en toda la ciudad. Una estrategia de asalto para dominar las búsquedas más rentables de Barcelona.',
     commitment: 'Compromiso recomendado: 4 meses',
     commitmentMonths: 4,
     featured: true,
@@ -62,7 +62,7 @@ const tiers: PricingTier[] = [
       'Soporte por WhatsApp',
     ],
     cta: 'Solicita tu diagnóstico',
-    ctaHref: 'https://wa.me/34692051399?text=Hola%20Salva%2C%20me%20interesa%20el%20paquete%20Web%20%2B%20Ficha%20de%20550%E2%82%AC%2Fmes.%20%C2%BFPodemos%20hacer%20el%20diagn%C3%B3stico%20inicial%3F',
+    ctaHref: 'https://wa.me/34692051399?text=Hola%20Salva%2C%20me%20interesa%20el%20Plan%20Visibilidad%20Total%20de%20550%E2%82%AC%2Fmes.%20%C2%BFPodemos%20hacer%20el%20diagn%C3%B3stico%20inicial%3F',
     hidden: false,
   },
   {
@@ -85,176 +85,199 @@ const TOTAL_SEGMENTS = 6
 
 <div
   id='paquetes'
-  class='relative overflow-hidden bg-petrol-50 py-24 sm:py-32'
+  class='relative overflow-hidden bg-warm-white py-24 sm:py-32'
   style='scroll-margin-top: var(--navbar-height)'>
 
-  <!-- Dot-grid texture -->
+  <!-- Architectural grid (Eixample-inspired) -->
   <div
     class='pointer-events-none absolute inset-0'
     aria-hidden='true'
-    style='background-image: radial-gradient(circle, rgba(26,60,74,0.06) 1px, transparent 1px); background-size: 28px 28px;'>
-  </div>
-
-  <!-- Faded watermark -->
-  <div
-    class='pointer-events-none absolute -right-8 top-1/2 -translate-y-1/2 select-none overflow-hidden'
-    aria-hidden='true'
-    style='font-family: "Titan One", cursive; font-size: clamp(12rem, 26vw, 22rem); color: rgba(249,115,22,0.04); line-height: 1; white-space: nowrap;'>
-    SEO
+    style='background-image: linear-gradient(rgba(26,60,74,0.038) 1px, transparent 1px), linear-gradient(90deg, rgba(26,60,74,0.038) 1px, transparent 1px); background-size: 48px 48px;'>
   </div>
 
   <div class='relative mx-auto max-w-7xl px-6 lg:px-8'>
-    <div class='grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-16 xl:gap-24 items-start'>
 
-      <!-- LEFT: sticky headline block -->
-      <div class='lg:sticky lg:top-28'>
-        <div class='flex items-center gap-3 mb-8' data-animate>
+    <!-- Headline block: editorial split on desktop -->
+    <div class='mb-12 lg:flex lg:items-end lg:justify-between lg:gap-16'>
+
+      <!-- Left: section heading -->
+      <div class='flex-1' data-animate>
+        <div class='flex items-center gap-3 mb-6'>
           <span class='block h-px w-10 bg-orange-500' aria-hidden='true'></span>
-          <h2 class='text-[0.7rem] font-bold uppercase tracking-[0.22em] text-orange-500'>
+          <p class='text-[0.7rem] font-bold uppercase tracking-[0.22em] text-orange-500'>
             Precio SEO mensual: tarifas y paquetes
-          </h2>
+          </p>
         </div>
 
-        <!-- Titan One headline -->
-        <p
-          data-animate
+        <h2
           style='font-family: "Titan One", cursive;'
-          class='leading-[0.9] tracking-tight'>
-          <span class='block text-[clamp(2.2rem,5vw,3.8rem)] text-petrol-700 mb-1'>
+          class='leading-[0.88] tracking-tight'>
+          <span class='block text-[clamp(1.6rem,3.5vw,2.75rem)] text-petrol-600 mb-1'>
             Invierte solo en
           </span>
-          <span class='block text-[clamp(3rem,6.5vw,5rem)] text-petrol-900'>
+          <span class='block text-[clamp(3.5rem,8.5vw,7.5rem)] text-petrol-900'>
             lo que necesitas<span class='text-orange-400'>.</span>
           </span>
-        </p>
-
-        <!-- Accent rule -->
-        <div class='mt-6 flex items-center' data-animate>
-          <div class='h-[3px] w-12 bg-orange-500 rounded-full'></div>
-          <div class='h-px w-20 bg-gradient-to-r from-orange-500/40 to-transparent'></div>
-        </div>
+        </h2>
       </div>
 
-      <!-- RIGHT: description -->
-      <div class='flex items-start lg:pt-8' data-animate data-animate-delay='80'>
-        <p class='text-lg font-medium text-pretty text-petrol-700 sm:text-xl/8 leading-relaxed'>
-          Solo ficha de Google, solo web, o ambas con descuento. Cada presupuesto para SEO se adapta al sector, la competencia y los objetivos de cada cliente.
+      <!-- Right: philosophy note (desktop only) -->
+      <div
+        class='hidden lg:block lg:max-w-[240px] xl:max-w-[260px] pb-3 pl-10 border-l-2 border-petrol-100'
+        data-animate>
+        <p class='text-base leading-relaxed text-petrol-600 text-pretty'>
+          Dos paquetes. Precio fijo mensual. Sin permanencia ni letra pequeña.
+        </p>
+        <p class='mt-3 text-sm text-petrol-600/60'>
+          El presupuesto se concreta tras el diagnóstico inicial gratuito.
         </p>
       </div>
+
     </div>
 
-    <div class='isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-y-8 sm:mt-20 lg:max-w-3xl lg:grid-cols-2 lg:gap-x-8'>
-      {tiers.filter(t => !t.hidden).map((tier) => (
+    <!-- Accent rule -->
+    <div class='mb-14 flex items-center' data-animate>
+      <div class='h-[3px] w-16 bg-orange-500 rounded-full'></div>
+      <div class='h-px flex-1 bg-gradient-to-r from-orange-500/30 via-petrol-100 to-transparent'></div>
+    </div>
+
+    <!-- Pricing cards grid -->
+    <div class='grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8 max-w-5xl'>
+      {tiers.filter(t => !t.hidden).map((tier, index) => (
         <div
+          data-animate
+          style={tier.featured
+            ? `transition-delay: ${index * 100}ms; box-shadow: 0 30px 60px -15px rgba(26,60,74,0.4);`
+            : `transition-delay: ${index * 100}ms;`}
           class:list={[
-            'flex flex-col justify-between rounded-3xl p-8 xl:p-10',
+            'relative flex flex-col rounded-2xl overflow-hidden',
             tier.featured
-              ? 'bg-gradient-to-b from-sky-500 to-sky-700 ring-2 ring-white/20 shadow-2xl shadow-sky-900/20 lg:z-10'
-              : 'bg-white ring-1 ring-petrol-100 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg',
+              ? 'bg-petrol-900'
+              : 'bg-white border border-default shadow-sm hover:shadow-lg transition-shadow duration-300',
           ]}>
-          <div>
+
+          <!-- Ghost "€" watermark on featured card -->
+          {tier.featured && (
+            <div
+              class='pointer-events-none absolute -right-4 -bottom-2 select-none leading-none'
+              aria-hidden='true'
+              style='font-family: "Titan One", cursive; font-size: 13rem; color: rgba(249,115,22,0.06); line-height: 1;'>
+              €
+            </div>
+          )}
+
+          <div class='relative flex-1 p-8 xl:p-10'>
+
             <!-- Commitment bar -->
-            <div class='mb-6'>
-              <div class='flex gap-1'>
+            <div class='mb-7'>
+              <div class='flex gap-1.5 mb-2'>
                 {Array.from({ length: TOTAL_SEGMENTS }).map((_, i) => (
                   <div
                     class:list={[
                       'h-1.5 flex-1 rounded-full',
                       i < tier.commitmentMonths
-                        ? tier.featured ? 'bg-sky-200' : 'bg-sky-500'
-                        : tier.featured
-                          ? 'bg-white/20'
-                          : 'bg-petrol-100',
+                        ? 'bg-orange-500'
+                        : tier.featured ? 'bg-white/10' : 'bg-petrol-100',
                     ]}
                   />
                 ))}
               </div>
               <p class:list={[
-                'mt-2 text-sm',
-                tier.featured ? 'text-sky-100' : 'text-petrol-600',
+                'text-xs font-semibold uppercase tracking-wide',
+                tier.featured ? 'text-white/35' : 'text-petrol-600/50',
               ]}>
                 {tier.commitmentMonths} de {TOTAL_SEGMENTS} meses recomendados
               </p>
             </div>
 
-            <div class='flex items-center justify-between gap-x-4'>
-              <h3
-                class:list={[
-                  'text-lg/8 font-semibold',
-                  tier.featured ? 'text-white' : 'text-petrol-900',
+            <!-- Tier name + badge -->
+            <div class='flex items-start justify-between gap-3 mb-2'>
+              <div>
+                <p class:list={[
+                  'text-[0.55rem] font-bold uppercase tracking-[0.22em] mb-0.5',
+                  tier.featured ? 'text-orange-400/50' : 'text-petrol-600/40',
                 ]}>
-                {tier.name}
-              </h3>
-            </div>
-            {tier.featured && (
-              <div class='mt-2 flex flex-wrap gap-2'>
-                <span class='inline-block rounded-full bg-white px-3 py-0.5 text-xs font-semibold text-sky-600'>
-                  Recomendado
-                </span>
-                {tier.savings && (
-                  <span class='inline-block rounded-full bg-emerald-500 px-3 py-0.5 text-xs font-semibold text-white shadow-sm'>
-                    {tier.savings}
-                  </span>
-                )}
+                  Plan
+                </p>
+                <h3
+                  class:list={[
+                    'text-sm font-bold uppercase tracking-[0.12em]',
+                    tier.featured ? 'text-white/70' : 'text-petrol-800',
+                  ]}>
+                  {tier.name}
+                </h3>
               </div>
-            )}
+              {tier.featured && (
+                <span class='mt-0.5 inline-flex items-center rounded-full bg-orange-500 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wide text-white shadow-lg shadow-orange-500/40'>
+                  ★ Recomendado
+                </span>
+              )}
+            </div>
+
+            <!-- Price -->
+            <div class='mb-5 flex items-baseline gap-2'>
+              <span
+                class:list={[
+                  'font-bold leading-none text-[clamp(2.75rem,5.5vw,4rem)]',
+                  tier.featured ? 'text-orange-400' : 'text-petrol-900',
+                ]}
+                style='font-family: "Titan One", cursive;'>
+                {tier.price}
+              </span>
+              <span class:list={[
+                'text-sm font-semibold',
+                tier.featured ? 'text-white/35' : 'text-petrol-600/55',
+              ]}>
+                {tier.unit}
+              </span>
+            </div>
+
+            <!-- Description -->
             <p
               class:list={[
-                'mt-4 text-base/6',
-                tier.featured ? 'text-sky-100' : 'text-petrol-600',
+                'text-sm leading-relaxed pb-5 mb-5',
+                tier.featured
+                  ? 'text-white/55 border-b border-white/10'
+                  : 'text-petrol-600 border-b border-petrol-100',
               ]}>
               <Fragment set:html={tier.description} />
             </p>
-            <p class='mt-6 flex items-baseline gap-x-1'>
-              <span
-                class:list={[
-                  'font-semibold tracking-tight',
-                  tier.featured ? 'text-5xl text-white' : 'text-4xl text-petrol-900',
-                ]}>
-                {tier.price}
-              </span>
-              <span
-                class:list={[
-                  'text-sm/6 font-semibold',
-                  tier.featured ? 'text-white/70' : 'text-petrol-600',
-                ]}>
-                {tier.unit}
-              </span>
-            </p>
-            <ul
-              role='list'
-              class:list={[
-                'mt-8 space-y-3 text-base/6',
-                tier.featured ? 'text-sky-100' : 'text-petrol-600',
-              ]}>
+
+            <!-- Features list -->
+            <ul class='space-y-2.5'>
               {tier.features.map((feature) => (
-                <li class='flex gap-x-3'>
-                  <Check
+                <li class='flex items-start gap-3'>
+                  <span
                     class:list={[
-                      'h-6 w-5 flex-none',
-                      tier.featured ? 'text-white' : 'text-sky-600',
-                    ]}
-                    aria-hidden='true'
-                  />
-                  <Fragment set:html={feature} />
+                      'mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full',
+                      tier.featured
+                        ? 'bg-orange-500/15 text-orange-400'
+                        : 'bg-sky-50 text-sky-600',
+                    ]}>
+                    <Check class='h-3 w-3' aria-hidden='true' />
+                  </span>
+                  <span class:list={[
+                    'text-sm leading-relaxed',
+                    tier.featured ? 'text-white/65' : 'text-petrol-700',
+                  ]}>
+                    <Fragment set:html={feature} />
+                  </span>
                 </li>
               ))}
             </ul>
           </div>
-          <div class='mt-8'>
-            <hr class:list={[
-              'mb-6 border-0 h-px',
-              tier.featured ? 'bg-white/20' : 'bg-petrol-100',
-            ]} />
+
+          <!-- CTA button -->
+          <div class='relative p-8 xl:p-10 pt-0'>
             <a
               href={tier.ctaHref}
               target='_blank'
               rel='noopener noreferrer nofollow'
               class:list={[
-                'block rounded-md px-3 py-2 text-center text-base/6 font-semibold shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2',
+                'block w-full rounded-xl px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2',
                 tier.featured
-                  ? 'bg-white text-sky-600 hover:bg-sky-50 focus-visible:outline-white'
-                  : 'bg-sky-50 text-sky-600 ring-1 ring-sky-200 ring-inset hover:bg-sky-100 hover:ring-sky-300 focus-visible:outline-sky-600',
+                  ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/30 hover:bg-orange-400 hover:-translate-y-0.5 focus-visible:outline-orange-500'
+                  : 'bg-petrol-900 text-white hover:bg-petrol-800 hover:-translate-y-0.5 focus-visible:outline-petrol-900',
               ]}>
               {tier.cta}
             </a>
@@ -263,10 +286,12 @@ const TOTAL_SEGMENTS = 6
       ))}
     </div>
 
+    <!-- Footer note -->
     <p
-      class='mx-auto mt-10 max-w-2xl text-center text-base text-petrol-600'
+      class='mt-8 max-w-5xl text-sm text-petrol-600/60'
       data-animate>
       IVA incluido. El presupuesto final se concreta tras el diagnóstico inicial.
     </p>
+
   </div>
 </div>
