@@ -10,7 +10,7 @@ export const faqPresupuestoItems: FaqItem[] = [
   {
     question: '¿Cuánto cuesta un servicio SEO en Barcelona?',
     answer: `<p class="text-base/7 text-petrol-900">
-      Depende del alcance del proyecto. El paquete <a href="/seo-local-barcelona/" class="text-sky-600 font-medium hover:text-sky-700 underline decoration-sky-200 underline-offset-2 transition-colors">Solo Ficha</a> parte de <strong>350 €/mes</strong>, el <a href="/posicionamiento-web-barcelona/" class="text-sky-600 font-medium hover:text-sky-700 underline decoration-sky-200 underline-offset-2 transition-colors">Solo Web</a> de <strong>550 €/mes</strong> y el combinado Ficha + Web de <strong>800 €/mes</strong>. El diagnóstico inicial determina qué servicios SEO necesita cada cliente para obtener resultados en su sector.
+      Hay dos planes con precio fijo, IVA incluido. El <strong>Plan Visibilidad Local</strong> (<a href="/seo-local-barcelona/" class="text-sky-600 font-medium hover:text-sky-700 underline decoration-sky-200 underline-offset-2 transition-colors">SEO local en Google Maps</a>) son <strong>350 €/mes</strong>. El <strong>Plan Visibilidad Total</strong> (<a href="/posicionamiento-web-barcelona/" class="text-sky-600 font-medium hover:text-sky-700 underline decoration-sky-200 underline-offset-2 transition-colors">posicionamiento web</a> + Google Maps) son <strong>550 €/mes</strong>. El diagnóstico inicial gratuito ayuda a identificar qué plan encaja mejor con tu negocio.
     </p>`,
   },
   {
@@ -32,15 +32,15 @@ export const faqPresupuestoItems: FaqItem[] = [
     </p>`,
   },
   {
-    question: '¿Se puede cambiar de paquete o combinar servicios?',
+    question: '¿Se puede cambiar de plan?',
     answer: `<p class="text-base/7 text-petrol-900">
-      Sí. Es posible empezar con Solo Ficha o Solo Web y <strong>incorporar el otro servicio cuando tenga sentido</strong>. Al combinar ambos, se aplica automáticamente el descuento del paquete Ficha + Web.
+      Sí. Es posible empezar con el <strong>Plan Visibilidad Local</strong> (solo Google Maps) y <strong>pasar al Plan Visibilidad Total</strong> cuando tenga sentido. El cambio se hace al inicio del siguiente mes, sin coste adicional ni trámite.
     </p>`,
   },
   {
-    question: '¿El presupuesto SEO incluye IVA?',
+    question: '¿Los precios incluyen IVA?',
     answer: `<p class="text-base/7 text-petrol-900">
-      Todos los precios mostrados son <strong>+ IVA (21 %)</strong>. El presupuesto detallado que se entrega tras el diagnóstico incluye el desglose completo.
+      Sí. Los <strong>350 €/mes y 550 €/mes son el precio final con IVA incluido</strong>. No hay costes ocultos ni conceptos adicionales. Lo que ves es lo que se factura.
     </p>`,
   },
   {
