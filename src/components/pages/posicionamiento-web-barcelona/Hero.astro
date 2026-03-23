@@ -1,76 +1,252 @@
 ---
 import WhatsAppButton from '../../WhatsAppButton.astro'
-import barcelonaImage from '../../../assets/barcelona.webp'
+import { buildWhatsAppHref } from '../../../data/site'
+import { ChevronRight } from '@lucide/astro'
 
-interface Props {
-  upheading: string
-  heading: string
-  description: string
-  primaryCtaText: string
-  secondaryCtaText: string
-  secondaryCtaHref: string
+interface BreadcrumbItem {
+  label: string
+  href?: string
 }
 
-const { upheading, heading, description, primaryCtaText, secondaryCtaText, secondaryCtaHref } = Astro.props
+interface Props {
+  upheading?: string
+  primaryCtaText?: string
+  secondaryCtaText?: string
+  secondaryCtaHref?: string
+  breadcrumbItems?: BreadcrumbItem[]
+}
+
+const {
+  upheading = 'Posicionamiento web en Barcelona',
+  primaryCtaText = 'Analiza mi web ahora',
+  secondaryCtaText = 'Descubre el proceso',
+  secondaryCtaHref = '#proceso',
+  breadcrumbItems,
+} = Astro.props
+
+const waHref = buildWhatsAppHref()
+
+const keywords = [
+  { kw: 'posicionamiento web barcelona', pos: 1, delta: '+6', volume: '880/mes' },
+  { kw: 'consultor seo barcelona',       pos: 2, delta: '+3', volume: '590/mes' },
+  { kw: 'agencia seo barcelona',         pos: 4, delta: '+2', volume: '720/mes' },
+  { kw: 'seo local barcelona precio',    pos: 8, delta: '+4', volume: '210/mes' },
+]
 ---
 
-<div class='relative bg-petrol-900 overflow-hidden'>
-  <!-- gradient mesh -->
+<section class='relative bg-petrol-900 overflow-hidden'>
+  <!-- Dot-grid texture -->
   <div
     class='pointer-events-none absolute inset-0'
-    style='background: radial-gradient(ellipse at 20% 50%, rgba(14,165,233,0.12) 0%, transparent 60%), radial-gradient(ellipse at 80% 30%, rgba(249,115,22,0.07) 0%, transparent 50%);'
-    aria-hidden='true'></div>
-  <!-- dot grid -->
-  <div
-    class='pointer-events-none absolute inset-0 opacity-[0.10]'
-    style='background-image: radial-gradient(circle, #7dd3fc 1px, transparent 1px); background-size: 32px 32px;'
-    aria-hidden='true'></div>
-  <!-- floating decorative rings -->
-  <div
-    class='pointer-events-none absolute -top-20 -left-20 size-80 rounded-full border border-sky-400/10'
-    style='animation: subtle-float 6s ease-in-out infinite;'
-    aria-hidden='true'></div>
-  <div
-    class='pointer-events-none absolute -bottom-24 -right-24 size-96 rounded-full border border-orange-500/[0.08]'
-    style='animation: subtle-float 6s ease-in-out infinite 3s;'
-    aria-hidden='true'></div>
+    aria-hidden='true'
+    style='background-image: radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 32px 32px;'>
+  </div>
 
-  <div class='relative isolate px-6 lg:px-8'>
-    <img
-      src={barcelonaImage.src}
-      alt=''
-      width={barcelonaImage.width}
-      height={barcelonaImage.height}
-      class='absolute inset-0 -z-10 size-full object-cover opacity-20 [mask-image:linear-gradient(to_right,transparent_30%,black_70%)]'
-      loading='eager'
-      fetchpriority='high'
-      decoding='async'
-    />
+  <!-- Diagonal tension lines -->
+  <svg
+    class='pointer-events-none absolute inset-0 w-full h-full'
+    aria-hidden='true'
+    preserveAspectRatio='none'
+    xmlns='http://www.w3.org/2000/svg'>
+    <line x1='72%' y1='0%' x2='100%' y2='100%' stroke='rgba(249,115,22,0.07)' stroke-width='1'></line>
+    <line x1='78%' y1='0%' x2='108%' y2='100%' stroke='rgba(249,115,22,0.04)' stroke-width='1'></line>
+    <line x1='65%' y1='0%' x2='93%'  y2='100%' stroke='rgba(14,165,233,0.04)' stroke-width='1'></line>
+  </svg>
 
-    <div class='mx-auto max-w-3xl py-24 sm:py-32 lg:py-40'>
-      <div class='hidden sm:mb-8 sm:flex sm:justify-center'>
-        <h1 class='relative rounded-full bg-sky-500/10 border border-sky-400/20 px-3 py-1 text-sm/6 text-sky-300'>
-          {upheading}
-        </h1>
-      </div>
-      <div class='text-center'>
-        <p class='text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl'>
-          {heading}
+  <!-- Faded large watermark (clipped so it doesn't spill into widget area) -->
+  <div
+    class='pointer-events-none absolute -top-4 left-0 right-[45%] select-none leading-none overflow-hidden'
+    aria-hidden='true'
+    style='font-family: "Titan One", cursive; font-size: clamp(14rem, 22vw, 20rem); color: rgba(255,255,255,0.022); line-height: 1;'>
+    #1
+  </div>
+
+  <!-- Bottom hairline -->
+  <div
+    class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-orange-500/15 to-transparent'
+    aria-hidden='true'>
+  </div>
+
+  <!-- Radial glow bottom-left -->
+  <div
+    class='pointer-events-none absolute -bottom-32 -left-32 w-96 h-96 rounded-full'
+    aria-hidden='true'
+    style='background: radial-gradient(circle, rgba(14,165,233,0.08) 0%, transparent 70%);'>
+  </div>
+
+  <!-- Breadcrumb -->
+  {breadcrumbItems && (
+    <nav
+      aria-label='Breadcrumb'
+      class='relative mx-auto max-w-7xl px-6 lg:px-8 pt-[calc(var(--navbar-height)+1.25rem)]'>
+      <ol class='flex items-center gap-1.5 text-sm'>
+        {breadcrumbItems.map((item, idx) => (
+          <li class='flex items-center gap-1.5'>
+            {idx > 0 && (
+              <ChevronRight class='size-3.5 text-white/30 shrink-0' aria-hidden='true' />
+            )}
+            {item.href ? (
+              <a href={item.href} class='text-white/60 hover:text-white transition-colors'>
+                {item.label}
+              </a>
+            ) : (
+              <span class='text-white/90 font-medium' aria-current='page'>
+                {item.label}
+              </span>
+            )}
+          </li>
+        ))}
+      </ol>
+    </nav>
+  )}
+
+  <!-- Main grid -->
+  <div class={`relative mx-auto max-w-7xl px-6 pb-12 sm:pb-16 lg:px-8 lg:pb-20 ${breadcrumbItems ? 'pt-6' : 'pt-20 sm:pt-24 lg:pt-28'}`}>
+    <div class='grid lg:grid-cols-[1fr_360px] xl:grid-cols-[1fr_400px] gap-10 lg:gap-16 items-center'>
+
+      <!-- LEFT: Content -->
+      <div>
+        <!-- Eyebrow -->
+        <div class='animate-fade-in-up [animation-delay:0ms] flex items-center gap-3 mb-5'>
+          <span class='block h-px w-10 bg-orange-500'></span>
+          <h1 class='text-[0.7rem] font-bold uppercase tracking-[0.22em] text-orange-400'>
+            {upheading}
+          </h1>
+        </div>
+
+        <!-- Headline — 2-line pattern matching home/presupuesto -->
+        <p
+          class='animate-fade-in-up [animation-delay:80ms]'
+          style='font-family: "Titan One", cursive;'>
+          <span class='block text-4xl sm:text-5xl lg:text-6xl xl:text-[4rem] leading-[0.93] tracking-tight text-white'>
+            Deja de perder clientes
+          </span>
+          <span class='block text-4xl sm:text-5xl lg:text-6xl xl:text-[4rem] leading-[0.93] tracking-tight mt-2'>
+            <span class='text-white'>frente a tu&nbsp;</span><span class='text-orange-400'>competencia.</span>
+          </span>
         </p>
-        <!-- accent bar -->
-        <div class='mx-auto mt-6 h-1 w-20 rounded-full bg-gradient-to-r from-orange-500 to-sky-500'></div>
-        <p class='mt-8 text-lg font-medium text-pretty text-sky-50 sm:text-xl/8'>
-          <Fragment set:html={description} />
+
+        <!-- Accent rule -->
+        <div class='animate-fade-in-up [animation-delay:160ms] mt-5 flex items-center gap-0'>
+          <div class='h-px w-16 bg-orange-500'></div>
+          <div class='h-px w-24 bg-gradient-to-r from-orange-500/50 to-transparent'></div>
+        </div>
+
+        <!-- Body copy -->
+        <p class='animate-fade-in-up [animation-delay:230ms] mt-5 max-w-[52ch] text-lg leading-relaxed text-petrol-100 text-pretty'>
+          En Barcelona, <strong class='text-white font-semibold'>o eres el primero o eres el secreto de tu competencia.</strong> Domina las búsquedas de Google, multiplica tus contactos y pon tu web a trabajar de verdad.
         </p>
-        <div class='mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-x-6'>
-          <WhatsAppButton text={primaryCtaText} />
+
+        <p class='animate-fade-in-up [animation-delay:300ms] mt-4 max-w-[52ch] text-lg leading-relaxed text-petrol-100 text-pretty'>
+          Si te buscan, <strong class='text-white font-semibold'>que te encuentren a ti primero.</strong>
+        </p>
+
+        <!-- CTAs -->
+        <div class='animate-fade-in-up [animation-delay:440ms] mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-x-7'>
+          <WhatsAppButton
+            text={primaryCtaText}
+            href={waHref}
+            class='px-6 py-3 text-[0.9375rem] font-bold shadow-lg shadow-sky-500/20 hover:shadow-sky-500/30 transition-shadow'
+          />
           <a
             href={secondaryCtaHref}
-            class='text-sm/6 font-semibold text-orange-400 hover:text-orange-500 transition-colors'>
+            class='text-sm/6 font-semibold text-orange-400 hover:text-orange-300 transition-colors'>
             {secondaryCtaText} <span aria-hidden='true'>→</span>
           </a>
         </div>
       </div>
+
+      <!-- RIGHT: Keyword position tracker -->
+      <aside
+        class='animate-fade-in [animation-delay:480ms] hidden lg:flex flex-col gap-3'
+        aria-hidden='true'>
+
+        <!-- Widget header -->
+        <div class='flex items-center justify-between px-0.5'>
+          <p class='text-[0.6rem] font-bold uppercase tracking-[0.2em] text-petrol-500'>
+            Posiciones Google · Barcelona
+          </p>
+          <div class='flex items-center gap-1.5'>
+            <span class='block w-1.5 h-1.5 rounded-full bg-emerald-400' style='animation: pulse-glow 2s ease-in-out infinite;'></span>
+            <span class='text-[0.58rem] font-semibold text-emerald-400/80 uppercase tracking-wider'>En seguimiento</span>
+          </div>
+        </div>
+
+        <!-- Traffic sparkline card -->
+        <div
+          class='rounded-xl border px-4 pt-3.5 pb-3 relative overflow-hidden'
+          style='background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.09);'>
+          <div class='flex items-center justify-between mb-2'>
+            <span class='text-[0.6rem] font-bold uppercase tracking-widest text-petrol-500'>Tráfico orgánico</span>
+            <span class='text-[0.62rem] font-bold text-emerald-400'>↑ +143% últimos 6 meses</span>
+          </div>
+          <!-- SVG sparkline -->
+          <svg viewBox='0 0 200 40' class='w-full h-8' preserveAspectRatio='none' fill='none'>
+            <defs>
+              <linearGradient id='spark-fill' x1='0' y1='0' x2='0' y2='1'>
+                <stop offset='0%' stop-color='rgba(56,189,248,0.35)'/>
+                <stop offset='100%' stop-color='rgba(56,189,248,0)'/>
+              </linearGradient>
+            </defs>
+            <path
+              d='M0 36 C20 34, 30 30, 45 28 C60 26, 65 24, 80 20 C95 16, 100 18, 115 14 C130 10, 140 12, 155 8 C165 5, 175 6, 200 2'
+              stroke='rgba(56,189,248,0.7)' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/>
+            <path
+              d='M0 36 C20 34, 30 30, 45 28 C60 26, 65 24, 80 20 C95 16, 100 18, 115 14 C130 10, 140 12, 155 8 C165 5, 175 6, 200 2 L200 40 L0 40 Z'
+              fill='url(#spark-fill)'/>
+            <!-- End dot -->
+            <circle cx='200' cy='2' r='2.5' fill='rgba(56,189,248,0.9)'/>
+          </svg>
+        </div>
+
+        <!-- Keyword rows -->
+        <div class='flex flex-col gap-1.5'>
+          {keywords.map((item, idx) => (
+            <div
+              class={`rounded-xl border px-3.5 py-2.5 flex items-center gap-3 ${idx === 0 ? 'keyword-row-featured' : ''}`}
+              style={idx === 0
+                ? 'background: linear-gradient(135deg, rgba(14,165,233,0.14) 0%, rgba(14,165,233,0.07) 100%); border-color: rgba(56,189,248,0.4); box-shadow: 0 0 18px rgba(14,165,233,0.1), inset 0 1px 0 rgba(255,255,255,0.07);'
+                : `background: rgba(255,255,255,${0.025 - idx * 0.005}); border-color: rgba(255,255,255,${0.07 - idx * 0.015}); opacity: ${1 - idx * 0.12};`
+              }>
+              <!-- Keyword text + volume -->
+              <div class='flex-1 min-w-0'>
+                <p class={`text-[0.72rem] font-semibold truncate ${idx === 0 ? 'text-white/90' : 'text-white/50'}`}>
+                  {item.kw}
+                </p>
+                <p class={`text-[0.58rem] mt-0.5 ${idx === 0 ? 'text-sky-400/70' : 'text-white/25'}`}>
+                  {item.volume}
+                </p>
+              </div>
+
+              <!-- Delta badge -->
+              <div class={`shrink-0 flex items-center gap-0.5 text-[0.5rem] font-bold ${idx === 0 ? 'text-emerald-400' : 'text-emerald-400/50'}`}>
+                <svg width='6' height='6' viewBox='0 0 6 6' fill='currentColor'><path d='M3 0L6 6H0L3 0Z'/></svg>
+                {item.delta}
+              </div>
+
+              <!-- Position badge -->
+              <div
+                class={`shrink-0 w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold ${idx === 0 ? 'text-sky-200' : 'text-white/25'}`}
+                style={idx === 0
+                  ? 'font-family: "Titan One", cursive; background: rgba(14,165,233,0.25); border: 1px solid rgba(56,189,248,0.45);'
+                  : `font-family: "Titan One", cursive; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);`
+                }>
+                {item.pos}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Footer stat -->
+        <div class='flex items-center justify-center gap-2 mt-1'>
+          <div class='h-px flex-1 bg-gradient-to-r from-transparent to-white/15'></div>
+          <p class='text-[0.62rem] font-semibold text-white/35 whitespace-nowrap'>
+            91% de los clics van a la primera posición
+          </p>
+          <div class='h-px flex-1 bg-gradient-to-l from-transparent to-white/15'></div>
+        </div>
+      </aside>
+
     </div>
   </div>
-</div>
+</section>

@@ -1,5 +1,4 @@
 ---
-import Upheading from '../../Upheading.astro'
 import type { FaqItem } from '../../../data/faq-home'
 
 interface Props {
@@ -12,7 +11,6 @@ interface Props {
 
 const { upheading, heading, idPrefix = 'faq', items, class: className } = Astro.props
 
-/** Strip HTML tags to get plain text for JSON-LD */
 function stripHtml(html: string): string {
   return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim()
 }
@@ -32,75 +30,398 @@ const faqSchema = {
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-<div class:list={['bg-sandstone-soft', className]}>
-  <div class='mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40'>
-    <div class='mx-auto max-w-4xl'>
-      <div data-animate>
-        {upheading && <Upheading as='h2' text={upheading} />}
-        <p
-          class='text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl'>
-          {heading}
-        </p>
+
+<section class:list={['bcnfaq-root', className]}>
+
+  <!-- ── "?" watermark ───────────────────────────────────────────── -->
+  <div class="bcnfaq-wm" aria-hidden="true">?</div>
+
+  <!-- ── Dot-grid texture ──────────────────────────────────────────── -->
+  <div class="bcnfaq-grid" aria-hidden="true"></div>
+
+  <!-- ── Top / bottom hairlines ────────────────────────────────────── -->
+  <div class="bcnfaq-hairline-top" aria-hidden="true"></div>
+  <div class="bcnfaq-hairline-bottom" aria-hidden="true"></div>
+
+  <div class="bcnfaq-inner">
+
+    <!-- ── Header ──────────────────────────────────────────────────── -->
+    <header class="bcnfaq-header">
+
+      <!-- Eyebrow: h-px line + orange uppercase label -->
+      {upheading && (
+        <div class="bcnfaq-eyebrow" data-animate>
+          <span class="bcnfaq-eyebrow-line" aria-hidden="true"></span>
+          <p class="bcnfaq-eyebrow-text">{upheading}</p>
+        </div>
+      )}
+
+      <!-- Titan One heading -->
+      <p class="bcnfaq-heading" data-animate>
+        {heading}<span class="bcnfaq-dot">.</span>
+      </p>
+
+      <!-- Orange accent rule -->
+      <div class="bcnfaq-rule" data-animate aria-hidden="true">
+        <span class="bcnfaq-rule-solid"></span>
+        <span class="bcnfaq-rule-fade"></span>
       </div>
-      <dl class='mt-16 space-y-4'>
-        {items.map((item, i) => (
-          <div
-            data-animate
-            data-animate-delay={i * 80}
-            class='bg-white rounded-lg border border-petrol-100 border-l-[3px] border-l-transparent p-5 transition-all duration-200 hover:border-petrol-200 hover:shadow-sm hover:border-l-sky-500'>
-            <dt>
+
+    </header>
+
+    <!-- ── FAQ list ────────────────────────────────────────────────── -->
+    <div class="bcnfaq-list">
+      {items.map((item, i) => (
+        <div class="bcnfaq-item" data-animate data-animate-delay={i * 70}>
+
+          <div class="bcnfaq-dt">
+            <!-- Titan One number -->
+            <span class="bcnfaq-num" aria-hidden="true">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+
+            <!-- Question -->
+            <h3 class="bcnfaq-question">
               <button
-                type='button'
-                command='--toggle'
+                type="button"
+                command="--toggle"
                 commandfor={`${idPrefix}-${i}`}
-                class='flex w-full items-start justify-between text-left text-petrol-900'>
-                <h3 class='text-base/7 font-semibold'>
-                  <span class='text-orange-500 font-semibold font-mono text-sm mr-2'>{i + 1}.</span>
-                  {item.question}
-                </h3>
-                <span class='ml-6 flex h-7 items-center'>
-                  <svg
-                    viewBox='0 0 24 24'
-                    fill='none'
-                    stroke='currentColor'
-                    stroke-width='1.5'
-                    data-slot='icon'
-                    aria-hidden='true'
-                    class='size-6 in-aria-expanded:hidden'>
-                    <path
-                      d='M12 6v12m6-6H6'
-                      stroke-linecap='round'
-                      stroke-linejoin='round'
-                    />
-                  </svg>
-                  <svg
-                    viewBox='0 0 24 24'
-                    fill='none'
-                    stroke='currentColor'
-                    stroke-width='1.5'
-                    data-slot='icon'
-                    aria-hidden='true'
-                    class='size-6 not-in-aria-expanded:hidden'>
-                    <path
-                      d='M18 12H6'
-                      stroke-linecap='round'
-                      stroke-linejoin='round'
-                    />
-                  </svg>
-                </span>
+                class="bcnfaq-btn"
+              >
+                {item.question}
               </button>
-            </dt>
-            <el-disclosure
-              id={`${idPrefix}-${i}`}
-              hidden
-              class='contents'>
-              <dd class='mt-2 pr-12'>
-                <Fragment set:html={item.answer} />
-              </dd>
-            </el-disclosure>
+            </h3>
+
+            <!-- Chevron -->
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+              class="bcnfaq-chevron"
+            >
+              <path d="M19.5 8.25l-7.5 7.5-7.5-7.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
           </div>
-        ))}
-      </dl>
+
+          <el-disclosure id={`${idPrefix}-${i}`} hidden class="contents">
+            <div class="bcnfaq-dd">
+              <span aria-hidden="true"></span>
+              <div class="bcnfaq-answer-body">
+                <Fragment set:html={item.answer} />
+              </div>
+            </div>
+          </el-disclosure>
+
+        </div>
+      ))}
     </div>
+
   </div>
-</div>
+</section>
+
+<style>
+  /* ── Root ──────────────────────────────────────────────────── */
+  .bcnfaq-root {
+    position: relative;
+    overflow: hidden;
+    background-color: #EEF3F5; /* petrol-100 — cool off-white */
+  }
+
+  /* ── "?" watermark ─────────────────────────────────────────── */
+  .bcnfaq-wm {
+    pointer-events: none;
+    position: absolute;
+    top: -2rem;
+    right: -1rem;
+    overflow: hidden;
+    user-select: none;
+    font-family: 'Titan One', cursive;
+    font-size: clamp(10rem, 28vw, 26rem);
+    line-height: 1;
+    color: rgba(26, 60, 74, 0.065);
+  }
+
+  /* ── Dot-grid texture ─────────────────────────────────────── */
+  .bcnfaq-grid {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(26, 60, 74, 0.055) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  /* ── Hairlines ────────────────────────────────────────────── */
+  .bcnfaq-hairline-top,
+  .bcnfaq-hairline-bottom {
+    pointer-events: none;
+    position: absolute;
+    left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(26, 60, 74, 0.15), transparent);
+  }
+  .bcnfaq-hairline-top    { top: 0; }
+  .bcnfaq-hairline-bottom { bottom: 0; }
+
+  /* ── Inner container ────────────────────────────────────────── */
+  .bcnfaq-inner {
+    position: relative;
+    margin: 0 auto;
+    max-width: 80rem;
+    padding: 6rem 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .bcnfaq-inner { padding: 8rem 1.5rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .bcnfaq-inner {
+      padding: 10rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 0 5rem;
+      align-items: start;
+    }
+  }
+
+  /* ── Header ─────────────────────────────────────────────────── */
+  .bcnfaq-header {
+    max-width: 42rem;
+    margin-bottom: 4rem;
+  }
+
+  @media (min-width: 1024px) {
+    .bcnfaq-header {
+      margin-bottom: 0;
+      position: sticky;
+      top: calc(var(--navbar-height, 56px) + 2rem);
+    }
+  }
+
+  /* Eyebrow row */
+  .bcnfaq-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .bcnfaq-eyebrow-line {
+    display: block;
+    height: 1px;
+    width: 2.5rem;
+    flex-shrink: 0;
+    background-color: #f97316; /* orange-500 */
+  }
+
+  .bcnfaq-eyebrow-text {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #f97316; /* orange-500 */
+    margin: 0;
+  }
+
+  /* Heading */
+  .bcnfaq-heading {
+    font-family: 'Titan One', cursive;
+    font-size: clamp(2.4rem, 5.5vw, 4rem);
+    line-height: 1.0;
+    color: #1A3C4A; /* petrol-900 */
+    margin: 0 0 1.5rem;
+    text-wrap: pretty;
+  }
+
+  .bcnfaq-dot {
+    color: #fb923c; /* orange-400 */
+  }
+
+  /* Orange accent rule */
+  .bcnfaq-rule {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  .bcnfaq-rule-solid {
+    display: block;
+    height: 3px;
+    width: 4rem;
+    background-color: #f97316;
+    border-radius: 9999px;
+  }
+
+  .bcnfaq-rule-fade {
+    display: block;
+    height: 1px;
+    width: 6rem;
+    background: linear-gradient(to right, rgba(249, 115, 22, 0.4), transparent);
+  }
+
+  /* ── FAQ list ──────────────────────────────────────────────── */
+  .bcnfaq-list {
+    margin: 0;
+    padding: 0;
+    max-width: 48rem;
+  }
+
+  @media (min-width: 1024px) {
+    .bcnfaq-list { max-width: none; }
+  }
+
+  /* ── FAQ item ──────────────────────────────────────────────── */
+  .bcnfaq-item {
+    border-top: 1px solid rgba(26, 60, 74, 0.12);
+    padding: 1.75rem 0;
+  }
+
+  .bcnfaq-item:last-child {
+    border-bottom: 1px solid rgba(26, 60, 74, 0.12);
+  }
+
+  /* ── dt grid: [number | question | chevron] ────────────────── */
+  .bcnfaq-dt {
+    display: grid;
+    grid-template-columns: 3rem 1fr 1.5rem;
+    align-items: start;
+    gap: 0.75rem 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .bcnfaq-dt {
+      grid-template-columns: 4rem 1fr 1.5rem;
+      gap: 0.75rem 1.5rem;
+    }
+  }
+
+  /* ── Number ─────────────────────────────────────────────────── */
+  .bcnfaq-num {
+    font-family: 'Titan One', cursive;
+    font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+    line-height: 1;
+    padding-top: 0.1rem;
+    color: rgba(26, 60, 74, 0.18);
+    transition: color 0.3s ease;
+  }
+
+  .bcnfaq-item:has(button[aria-expanded="true"]) .bcnfaq-num {
+    color: #f97316;
+  }
+
+  /* ── Question h3 ─────────────────────────────────────────────── */
+  .bcnfaq-question {
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+  }
+
+  /* ── Button ──────────────────────────────────────────────────── */
+  .bcnfaq-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-family: var(--font-family-sans, 'DM Sans Variable', sans-serif);
+    font-size: clamp(0.9375rem, 2vw, 1.0625rem);
+    font-weight: 600;
+    line-height: 1.45;
+    color: #1A3C4A;
+    transition: color 0.2s ease;
+  }
+
+  .bcnfaq-btn:hover {
+    color: #f97316;
+  }
+
+  .bcnfaq-item:has(button[aria-expanded="true"]) .bcnfaq-btn {
+    color: #f97316;
+  }
+
+  /* ── Chevron ─────────────────────────────────────────────────── */
+  .bcnfaq-chevron {
+    width: 1.125rem;
+    height: 1.125rem;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+    color: #3A6D82;
+    transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+  }
+
+  .bcnfaq-item:has(button[aria-expanded="true"]) .bcnfaq-chevron {
+    transform: rotate(180deg);
+    color: #f97316;
+  }
+
+  /* ── Answer reveal ───────────────────────────────────────────── */
+  el-disclosure:not([hidden]) {
+    animation: bcnfaq-reveal 0.42s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes bcnfaq-reveal {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .bcnfaq-dd {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    gap: 0 1rem;
+    margin: 0.875rem 0 0;
+    padding: 0;
+  }
+
+  @media (min-width: 640px) {
+    .bcnfaq-dd {
+      grid-template-columns: 4rem 1fr;
+      gap: 0 1.5rem;
+    }
+  }
+
+  .bcnfaq-answer-body {
+    padding-right: 1.5rem;
+  }
+
+  /* Answer content color overrides */
+  .bcnfaq-answer-body :global(p),
+  .bcnfaq-answer-body :global(li) {
+    color: #2A5566 !important;
+    line-height: 1.75;
+    font-size: 0.9375rem;
+  }
+
+  .bcnfaq-answer-body :global(strong) {
+    color: #1A3C4A !important;
+    font-weight: 600;
+  }
+
+  .bcnfaq-answer-body :global(ul) {
+    color: #2A5566 !important;
+    margin-top: 0.5rem;
+  }
+
+  .bcnfaq-answer-body :global(a) {
+    color: #0284c7;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .bcnfaq-answer-body :global(a:hover) {
+    color: #0ea5e9;
+  }
+
+  /* ── Reduced motion ──────────────────────────────────────────── */
+  @media (prefers-reduced-motion: reduce) {
+    el-disclosure:not([hidden]) { animation: none; }
+    .bcnfaq-chevron,
+    .bcnfaq-num,
+    .bcnfaq-btn { transition: none; }
+  }
+</style>

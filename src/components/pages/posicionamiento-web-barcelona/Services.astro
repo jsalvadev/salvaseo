@@ -1,5 +1,5 @@
 ---
-import { Check } from '@lucide/astro'
+import { Check, Search, FileText, Link } from '@lucide/astro'
 import Upheading from '../../Upheading.astro'
 
 interface Props {
@@ -9,238 +9,219 @@ interface Props {
 }
 
 const { upheading, heading, subtitle } = Astro.props
+
+const services = [
+  {
+    num: '01',
+    icon: Search,
+    label: 'Descubrimiento y diagnóstico',
+    title: 'Análisis inicial',
+    intro:
+      'Antes de invertir un solo euro, una radiografía real de tu situación revela por qué tu web no está captando clientes y cuál es el plan de ataque directo.',
+    bullets: [
+      { label: 'Auditoría y viabilidad', body: 'Diagnóstico de los errores que frenan tu web y validación de si el posicionamiento orgánico es el motor que tu negocio necesita ahora mismo.' },
+      { label: 'Estudio de demanda', body: 'Mapa de las búsquedas reales de tus clientes en Google, filtradas por volumen e intención de compra para priorizar las que generan facturación.' },
+      { label: 'Arquitectura web', body: 'Estructura de servicios optimizada para que Google te muestre correctamente y tus clientes encuentren lo que buscan sin fricción.' },
+      { label: 'Auditoría técnica', body: 'Corrección de los fallos de carga y rastreo que frenan tu visibilidad. Si Google no puede recorrer tu web, tu negocio no aparece.' },
+      { label: 'Estrategia de impacto', body: 'Hoja de ruta con las acciones ordenadas por retorno esperado. Cada paso apunta directamente a generar resultados medibles.' },
+      { label: 'Consultoría directa', body: 'Criterio técnico disponible en cada paso para resolver dudas y validar decisiones con seguridad.' },
+      { label: 'Análisis de competencia', body: 'Radiografía de quién ocupa tus posiciones en Google, qué estrategias aplican y cuáles son los flancos por donde adelantarles.' },
+    ],
+  },
+  {
+    num: '02',
+    icon: FileText,
+    label: 'Optimización dentro de tu web',
+    title: 'SEO On Page',
+    intro:
+      'Cada página de tu web necesita un objetivo claro y una respuesta precisa a lo que tu cliente busca. Si el contenido no conecta con esa intención, tu web no factura.',
+    bullets: [
+      { label: 'Optimización de intención', body: 'Títulos, metadatos y encabezados alineados para que cada URL responda exactamente a lo que tu cliente quiere encontrar.' },
+      { label: 'Contenidos de negocio', body: 'Textos diseñados para atraer visitantes cualificados y transformar la lectura en oportunidades de venta reales.' },
+      { label: 'Contenidos que resuelven', body: 'Páginas que responden las preguntas reales de tu audiencia. Resolver la duda del visitante es el primer paso para convertirlo en cliente.' },
+      { label: 'Enlazado interno estratégico', body: 'Red de conexiones entre tus páginas que guía a Google por tu estructura y concentra la autoridad en tus servicios más rentables.' },
+      { label: 'Control de visibilidad', body: 'Google solo dedica recursos a las páginas que generan negocio. Las páginas irrelevantes que diluyen tu relevancia se eliminan del índice.' },
+      { label: 'Velocidad y estabilidad de carga', body: 'Una web rápida retiene al visitante y mejora su posición en Google. En Barcelona nadie espera: la lentitud cuesta clientes.' },
+    ],
+  },
+  {
+    num: '03',
+    icon: Link,
+    label: 'Autoridad fuera de tu web',
+    title: 'SEO Off Page',
+    intro:
+      'No basta con ser el mejor en Barcelona; los demás tienen que decirlo. Lo que ocurre fuera de tu web confirma a Google que eres una apuesta segura.',
+    bullets: [
+      { label: 'Enlaces de autoridad', body: 'Red de enlaces en sitios relevantes que transfieren fuerza real a tu dominio, con prácticas seguras y sostenibles para tu negocio.' },
+      { label: 'Auditoría de enlaces entrantes', body: 'Control total de quién enlaza a tu web. Los enlaces tóxicos que pueden estar hundiendo tu posicionamiento se identifican y eliminan.' },
+      { label: 'Contenidos que atraen enlaces', body: 'Activos de contenido tan relevantes que otras webs enlazan de forma natural. Autoridad orgánica y sostenible a medio plazo.' },
+      { label: 'Reputación y confianza', body: 'Menciones y reseñas que refuerzan tu marca ante Google y dan seguridad a tu cliente antes de comprar.' },
+      { label: 'Estrategia de autoridad', body: 'Plan de crecimiento a medio plazo con un ritmo natural. Una ventaja competitiva resistente a actualizaciones del algoritmo.' },
+    ],
+  },
+]
 ---
 
-<div
-  id='servicios'
-  class='bg-sandstone-soft py-24 sm:py-32'>
-  <div class='mx-auto max-w-7xl px-6 lg:px-8'>
-    <div data-animate class='mx-auto max-w-2xl lg:mx-0'>
-      {upheading && <Upheading as='h2' text={upheading} />}
-      <p
-        class:list={['text-4xl font-semibold tracking-tight text-pretty text-petrol-900 sm:text-5xl', upheading && 'mt-2']}>
-        {heading}
-      </p>
-      <p class='mt-6 text-lg/8 text-petrol-600'>
+<div id='servicios' class='relative overflow-hidden bg-petrol-50 py-24 sm:py-32'>
+
+  <!-- ── Dot-grid texture ──────────────────────────────────────────── -->
+  <div
+    class='pointer-events-none absolute inset-0'
+    aria-hidden='true'
+    style='background-image: radial-gradient(circle, rgba(26,60,74,0.07) 1px, transparent 1px); background-size: 28px 28px;'
+  ></div>
+
+  <!-- ── Faded Titan One watermark ─────────────────────────────────── -->
+  <div
+    class='pointer-events-none absolute -right-6 top-1/2 -translate-y-1/2 select-none leading-none'
+    aria-hidden='true'
+    style='font-family: "Titan One", cursive; font-size: clamp(12rem, 24vw, 20rem); color: rgba(249,115,22,0.04); line-height: 1; white-space: nowrap;'
+  >
+    SEO
+  </div>
+
+  <!-- ── Radial ambient glow ───────────────────────────────────────── -->
+  <div
+    class='pointer-events-none absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full'
+    aria-hidden='true'
+    style='background: radial-gradient(circle, rgba(14,165,233,0.05) 0%, transparent 65%);'
+  ></div>
+
+  <!-- ── Top / bottom hairlines ────────────────────────────────────── -->
+  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-petrol-200 to-transparent' aria-hidden='true'></div>
+  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-petrol-200 to-transparent' aria-hidden='true'></div>
+
+  <div class='relative mx-auto max-w-7xl px-6 lg:px-8'>
+
+    <!-- ── Section header ─────────────────────────────────────────── -->
+    <div class='mb-16 md:mb-20 max-w-3xl'>
+
+      <!-- Eyebrow -->
+      <div data-animate class='flex items-center gap-3 mb-8'>
+        <span class='block h-px w-10 bg-orange-500' aria-hidden='true'></span>
+        {upheading && (
+          <p class='text-[0.7rem] font-bold uppercase tracking-[0.22em] text-orange-500'>
+            {upheading}
+          </p>
+        )}
+      </div>
+
+      <!-- Titan One heading -->
+      <h2
+        data-animate
+        style='font-family: "Titan One", cursive;'
+        class='leading-[0.92] tracking-tight mb-6'
+      >
+        <span class='block text-[clamp(1.8rem,4vw,3rem)] text-petrol-700'>
+          Tu web tiene que
+        </span>
+        <span class='block text-[clamp(3rem,7vw,5rem)] text-petrol-900'>
+          trabajar para ti<span class='text-orange-400'>.</span>
+        </span>
+      </h2>
+
+      <!-- Orange accent rule -->
+      <div data-animate class='flex items-center'>
+        <div class='h-[3px] w-16 bg-orange-500 rounded-full'></div>
+        <div class='h-px w-24 bg-gradient-to-r from-orange-500/40 to-transparent'></div>
+      </div>
+
+      <!-- Subtitle -->
+      <p data-animate class='mt-6 text-base md:text-lg text-petrol-700 leading-relaxed text-pretty max-w-[52ch]'>
         <Fragment set:html={subtitle} />
       </p>
     </div>
 
+    <!-- ── Service cards ──────────────────────────────────────────── -->
     <ul
       role='list'
-      class='mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3'>
-      <li
-        data-animate
-        data-animate-delay='0'
-        class='group border border-petrol-100 border-t-2 border-t-sky-200 rounded-xl overflow-hidden bg-white transition-all duration-300 hover:-translate-y-2 hover:shadow-xl'>
-        <img
-          src='https://plus.unsplash.com/premium_photo-1683578888262-22a112723a83?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-          alt='Análisis inicial de posicionamiento web y auditoría SEO'
-          width='1740'
-          height='1160'
-          loading='lazy'
-          decoding='async'
-          class='aspect-3/2 w-full object-cover transition-transform duration-500 group-hover:scale-105'
-        />
-        <div class='p-6'>
-          <h3 class='text-2xl font-semibold tracking-tight text-petrol-900'>
-            Análisis inicial
-          </h3>
-          <p class='mt-3 text-base/7 text-petrol-700'>
-            Antes de invertir un solo euro, una
-            <strong>radiografía real de tu situación</strong> revela por qué tu web no
-            está captando clientes y cuál es el plan de ataque directo.
-          </p>
-          <ul
-            role='list'
-            class='mt-6 space-y-3'>
-            <li class='flex gap-3'>
-              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
-              <span>
-                <span class='text-sm font-semibold text-petrol-900'>Auditoría y viabilidad</span>
-                <span class='text-sm text-petrol-600'> — Diagnóstico de los errores que frenan tu web y validación de si el posicionamiento orgánico es el motor que tu negocio necesita ahora mismo.</span>
-              </span>
-            </li>
-            <li class='flex gap-3'>
-              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
-              <span>
-                <span class='text-sm font-semibold text-petrol-900'>Estudio de demanda</span>
-                <span class='text-sm text-petrol-600'> — Mapa de las búsquedas reales de tus clientes en Google, filtradas por volumen e intención de compra para priorizar las que generan facturación.</span>
-              </span>
-            </li>
-            <li class='flex gap-3'>
-              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
-              <span>
-                <span class='text-sm font-semibold text-petrol-900'>Arquitectura web</span>
-                <span class='text-sm text-petrol-600'> — Estructura de servicios optimizada para que Google te muestre correctamente y tus clientes encuentren lo que buscan sin fricción.</span>
-              </span>
-            </li>
-            <li class='flex gap-3'>
-              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
-              <span>
-                <span class='text-sm font-semibold text-petrol-900'>Auditoría técnica</span>
-                <span class='text-sm text-petrol-600'> — Corrección de los fallos de carga y rastreo que frenan tu visibilidad. Si Google no puede recorrer tu web, tu negocio no aparece.</span>
-              </span>
-            </li>
-            <li class='flex gap-3'>
-              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
-              <span>
-                <span class='text-sm font-semibold text-petrol-900'>Estrategia de impacto</span>
-                <span class='text-sm text-petrol-600'> — Hoja de ruta con las acciones ordenadas por retorno esperado. Cada paso apunta directamente a generar resultados medibles.</span>
-              </span>
-            </li>
-            <li class='flex gap-3'>
-              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
-              <span>
-                <span class='text-sm font-semibold text-petrol-900'>Consultoría directa</span>
-                <span class='text-sm text-petrol-600'> — Criterio técnico disponible en cada paso para resolver dudas y validar decisiones con seguridad.</span>
-              </span>
-            </li>
-            <li class='flex gap-3'>
-              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
-              <span>
-                <span class='text-sm font-semibold text-petrol-900'>Análisis de competencia</span>
-                <span class='text-sm text-petrol-600'> — Radiografía de quién ocupa tus posiciones en Google, qué estrategias aplican y cuáles son los flancos por donde adelantarles.</span>
-              </span>
-            </li>
-          </ul>
-        </div>
-      </li>
+      class='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3'
+    >
+      {services.map((service, idx) => {
+        const Icon = service.icon
+        return (
+          <li
+            data-animate
+            data-animate-delay={idx * 130}
+            class='group relative flex flex-col rounded-2xl border border-petrol-100 bg-white overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-petrol-900/8 hover:border-orange-200'
+          >
+            <!-- Left accent bar (hover reveal) -->
+            <div
+              class='pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-orange-500 scale-y-0 origin-top rounded-r-full transition-transform duration-300 group-hover:scale-y-100'
+              aria-hidden='true'
+            ></div>
 
-      <li
-        data-animate
-        data-animate-delay='150'
-        class='group border border-petrol-100 border-t-2 border-t-sky-200 rounded-xl overflow-hidden bg-white transition-all duration-300 hover:-translate-y-2 hover:shadow-xl'>
-        <img
-          src='https://plus.unsplash.com/premium_photo-1666739388124-6c2889490aa7?q=80&w=2106&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-          alt='Optimización SEO on page para mejorar el posicionamiento web'
-          width='2106'
-          height='1404'
-          loading='lazy'
-          decoding='async'
-          class='aspect-3/2 w-full object-cover transition-transform duration-500 group-hover:scale-105'
-        />
-        <div class='p-6'>
-          <h3 class='text-2xl font-semibold tracking-tight text-petrol-900'>
-            SEO On Page
-          </h3>
-          <p class='mt-3 text-base/7 text-petrol-700'>
-            Cada página de tu web necesita un objetivo claro y una respuesta
-            precisa a lo que tu cliente busca. Si el contenido no conecta con esa intención, <strong>tu web no factura</strong>.
-          </p>
-          <ul
-            role='list'
-            class='mt-6 space-y-3'>
-            <li class='flex gap-3'>
-              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
-              <span>
-                <span class='text-sm font-semibold text-petrol-900'>Optimización de intención</span>
-                <span class='text-sm text-petrol-600'> — Títulos, metadatos y encabezados alineados para que cada URL responda exactamente a lo que tu cliente quiere encontrar.</span>
-              </span>
-            </li>
-            <li class='flex gap-3'>
-              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
-              <span>
-                <span class='text-sm font-semibold text-petrol-900'>Contenidos de negocio</span>
-                <span class='text-sm text-petrol-600'> — Textos diseñados para atraer visitantes cualificados y transformar la lectura en oportunidades de venta reales.</span>
-              </span>
-            </li>
-            <li class='flex gap-3'>
-              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
-              <span>
-                <span class='text-sm font-semibold text-petrol-900'>Contenidos que resuelven</span>
-                <span class='text-sm text-petrol-600'> — Páginas que responden las preguntas reales de tu audiencia. Resolver la duda del visitante es el primer paso para convertirlo en cliente.</span>
-              </span>
-            </li>
-            <li class='flex gap-3'>
-              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
-              <span>
-                <span class='text-sm font-semibold text-petrol-900'>Enlazado interno estratégico</span>
-                <span class='text-sm text-petrol-600'> — Red de conexiones entre tus páginas que guía a Google por tu estructura y concentra la autoridad en tus servicios más rentables.</span>
-              </span>
-            </li>
-            <li class='flex gap-3'>
-              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
-              <span>
-                <span class='text-sm font-semibold text-petrol-900'>Control de visibilidad</span>
-                <span class='text-sm text-petrol-600'> — Google solo dedica recursos a las páginas que generan negocio. Las páginas irrelevantes que diluyen tu relevancia se eliminan del índice.</span>
-              </span>
-            </li>
-            <li class='flex gap-3'>
-              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
-              <span>
-                <span class='text-sm font-semibold text-petrol-900'>Velocidad y estabilidad de carga</span>
-                <span class='text-sm text-petrol-600'> — Una web rápida retiene al visitante y mejora su posición en Google. En Barcelona nadie espera: la lentitud cuesta clientes.</span>
-              </span>
-            </li>
-          </ul>
-        </div>
-      </li>
+            <!-- ── Dark banner header ──────────────────────────── -->
+            <div class='relative overflow-hidden bg-petrol-900 px-6 py-7 flex flex-col gap-4'>
 
-      <li
-        data-animate
-        data-animate-delay='300'
-        class='group border border-petrol-100 border-t-2 border-t-sky-200 rounded-xl overflow-hidden bg-white transition-all duration-300 hover:-translate-y-2 hover:shadow-xl'>
-        <img
-          src='https://plus.unsplash.com/premium_photo-1683977922495-3ab3ce7ba4e6?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-          alt='Estrategia SEO off page y link building para empresas en Barcelona'
-          width='1600'
-          height='1067'
-          loading='lazy'
-          decoding='async'
-          class='aspect-3/2 w-full object-cover transition-transform duration-500 group-hover:scale-105'
-        />
-        <div class='p-6'>
-          <h3 class='text-2xl font-semibold tracking-tight text-petrol-900'>
-            SEO Off Page
-          </h3>
-          <p class='mt-3 text-base/7 text-petrol-700'>
-            No basta con ser el mejor en Barcelona; los demás tienen que decirlo.
-            Lo que ocurre fuera de tu web es lo que le confirma a Google que eres
-            una apuesta segura. <strong>Relevancia real con menciones y enlaces</strong> que
-            tu competencia no pueda replicar.
-          </p>
-          <ul
-            role='list'
-            class='mt-6 space-y-3'>
-            <li class='flex gap-3'>
-              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
-              <span>
-                <span class='text-sm font-semibold text-petrol-900'>Enlaces de autoridad</span>
-                <span class='text-sm text-petrol-600'> — Red de enlaces en sitios relevantes que transfieren fuerza real a tu dominio, con prácticas seguras y sostenibles para tu negocio.</span>
-              </span>
-            </li>
-            <li class='flex gap-3'>
-              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
-              <span>
-                <span class='text-sm font-semibold text-petrol-900'>Auditoría de enlaces entrantes</span>
-                <span class='text-sm text-petrol-600'> — Control total de quién enlaza a tu web. Los enlaces tóxicos que pueden estar hundiendo tu posicionamiento se identifican y eliminan.</span>
-              </span>
-            </li>
-            <li class='flex gap-3'>
-              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
-              <span>
-                <span class='text-sm font-semibold text-petrol-900'>Contenidos que atraen enlaces</span>
-                <span class='text-sm text-petrol-600'> — Activos de contenido tan relevantes que otras webs enlazan de forma natural. Autoridad orgánica y sostenible a medio plazo.</span>
-              </span>
-            </li>
-            <li class='flex gap-3'>
-              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
-              <span>
-                <span class='text-sm font-semibold text-petrol-900'>Reputación y confianza</span>
-                <span class='text-sm text-petrol-600'> — Menciones y reseñas que refuerzan tu marca ante Google y dan seguridad a tu cliente antes de comprar.</span>
-              </span>
-            </li>
-            <li class='flex gap-3'>
-              <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
-              <span>
-                <span class='text-sm font-semibold text-petrol-900'>Estrategia de autoridad</span>
-                <span class='text-sm text-petrol-600'> — Plan de crecimiento a medio plazo con un ritmo natural. Una ventaja competitiva resistente a actualizaciones del algoritmo.</span>
-              </span>
-            </li>
-          </ul>
-        </div>
-      </li>
+              <!-- Diagonal tension line -->
+              <svg class='pointer-events-none absolute inset-0 w-full h-full' aria-hidden='true' preserveAspectRatio='none'>
+                <line x1='60%' y1='0%' x2='100%' y2='100%' stroke='rgba(249,115,22,0.08)' stroke-width='1' />
+              </svg>
+
+              <!-- Ghost ordinal watermark -->
+              <div
+                class='pointer-events-none absolute -right-1 -bottom-3 select-none leading-none transition-opacity duration-300 opacity-100 group-hover:opacity-[1.4]'
+                aria-hidden='true'
+                style='font-family: "Titan One", cursive; font-size: 5.5rem; color: rgba(249,115,22,0.10); line-height: 1;'
+              >
+                {service.num}
+              </div>
+
+              <!-- Icon badge + service label -->
+              <div class='relative flex items-center gap-3'>
+                <div class='flex size-10 shrink-0 items-center justify-center rounded-xl bg-orange-500/15 ring-1 ring-orange-500/30'>
+                  <Icon aria-hidden='true' class='size-5 text-orange-400' />
+                </div>
+                <span class='text-[0.6rem] font-bold uppercase tracking-[0.18em] text-white/40'>
+                  {service.label}
+                </span>
+              </div>
+
+              <!-- Service number + title -->
+              <div class='relative'>
+                <div class='flex items-baseline gap-2.5'>
+                  <span
+                    class='text-[1.6rem] leading-none font-bold text-orange-400/50 tabular-nums shrink-0'
+                    style='font-family: "Titan One", cursive;'
+                  >
+                    {service.num}
+                  </span>
+                  <h3 class='text-xl font-semibold text-white tracking-tight leading-snug'>
+                    {service.title}
+                  </h3>
+                </div>
+              </div>
+            </div>
+
+            <!-- ── Card body ──────────────────────────────────── -->
+            <div class='flex flex-col gap-5 p-6 flex-1'>
+
+              <!-- Intro -->
+              <p class='text-sm/6 text-petrol-700 text-pretty'>
+                {service.intro}
+              </p>
+
+              <!-- Divider -->
+              <div class='h-px bg-gradient-to-r from-orange-200 via-petrol-100 to-transparent'></div>
+
+              <!-- Bullets -->
+              <ul role='list' class='space-y-3'>
+                {service.bullets.map((bullet) => (
+                  <li class='flex gap-3'>
+                    <Check class='mt-0.5 size-4 shrink-0 text-sky-500' aria-hidden='true' />
+                    <span>
+                      <span class='text-sm font-semibold text-petrol-900'>{bullet.label}</span>
+                      <span class='text-sm text-petrol-600'> — {bullet.body}</span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </li>
+        )
+      })}
     </ul>
+
   </div>
 </div>

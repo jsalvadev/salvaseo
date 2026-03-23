@@ -10,8 +10,6 @@ import Faq from '../components/pages/posicionamiento-web-barcelona/Faq.astro'
 import { faqBarcelonaItems } from '../data/faq-barcelona'
 import Cta from '../components/pages/posicionamiento-web-barcelona/Cta.astro'
 import barcelonaImage from '../assets/barcelona.webp'
-import Breadcrumb from '../components/Breadcrumb.astro'
-
 const MIN_MONTHLY_PRICE_EUR = 350
 const MIN_MONTHLY_PRICE_TEXT = `${MIN_MONTHLY_PRICE_EUR} €/mes`
 const DATE_MODIFIED = "2026-03-03"
@@ -22,14 +20,12 @@ const DATE_MODIFIED = "2026-03-03"
   description='¿Quieres más visitas desde Google? Posicionamiento web en Barcelona ☎ 692 051 399 🔵 Desde 350 €/mes ⭐ Sin permanencia. ¡Contacta ya!'
   canonicalUrl='https://salvaseo.com/posicionamiento-web-barcelona/'
   preloadImageHref={barcelonaImage.src}>
-  <Breadcrumb items={[{ label: 'Inicio', href: '/' }, { label: 'Posicionamiento Web Barcelona' }]} />
   <HeroLanding
     upheading='Posicionamiento web en Barcelona'
-    heading='Deja de perder clientes frente a tu competencia'
-    description='En Barcelona, o eres el primero o eres el secreto de tu competencia. Domina las búsquedas de Google, multiplica tus contactos y pon tu web a trabajar de verdad. Si te buscan, que te encuentren a ti primero.'
     primaryCtaText='Analiza mi web ahora'
     secondaryCtaText='Descubre el proceso'
     secondaryCtaHref='#proceso'
+    breadcrumbItems={[{ label: 'Inicio', href: '/' }, { label: 'Posicionamiento Web Barcelona' }]}
   />
   <Timeline
     upheading='Informe de posicionamiento web y auditoría SEO'

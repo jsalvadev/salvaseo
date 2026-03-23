@@ -135,8 +135,6 @@ const defaultPhases: TimelinePhase[] = [
   },
 ];
 
-const progressWidths = ['w-1/4', 'w-1/2', 'w-3/4', 'w-full'];
-
 const {
   upheading,
   heading,
@@ -148,93 +146,196 @@ const {
   ctaHref = "https://wa.me/34692051399?text=Hola%20Salva%2C%20he%20visto%20tu%20web.%20Tengo%20un%20negocio%20en%20Barcelona%20y%20me%20gustar%C3%ADa%20saber%20si%20el%20SEO%20puede%20ayudarme%20a%20conseguir%20m%C3%A1s%20clientes.",
   ctaLabel = "Pide tu auditoría gratuita por WhatsApp",
 } = Astro.props;
-
-const phaseGridColsClass =
-  phases.length >= 4
-    ? "lg:grid-cols-4"
-    : phases.length === 2
-      ? "lg:grid-cols-2"
-      : "lg:grid-cols-3";
 ---
 
-<div
-    id={sectionId}
-    class="bg-white py-24 sm:py-32"
->
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <div data-animate>
-            {upheading && <Upheading as="h2" text={upheading} class="mb-2 text-center text-pretty" />}
-            <p
-                class:list={["mx-auto max-w-[60ch] text-center text-3xl font-semibold tracking-tight text-pretty text-petrol-900 sm:text-4xl", !upheading && "mb-2"]}
-            >
-                {heading}
+<div id={sectionId} class="relative overflow-hidden bg-petrol-900 py-24 sm:py-32">
+
+  <!-- ── Dot-grid texture ──────────────────────────────────────────── -->
+  <div
+    class="pointer-events-none absolute inset-0"
+    aria-hidden="true"
+    style="background-image: radial-gradient(circle, rgba(255,255,255,0.028) 1px, transparent 1px); background-size: 32px 32px;"
+  ></div>
+
+  <!-- ── Faded Titan One watermark ─────────────────────────────────── -->
+  <div
+    class="pointer-events-none absolute -right-8 top-1/2 -translate-y-1/2 select-none leading-none"
+    aria-hidden="true"
+    style='font-family: "Titan One", cursive; font-size: clamp(12rem, 24vw, 20rem); color: rgba(249,115,22,0.04); line-height: 1; white-space: nowrap;'
+  >
+    PLAN
+  </div>
+
+  <!-- ── Radial ambient glow ───────────────────────────────────────── -->
+  <div
+    class="pointer-events-none absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full"
+    aria-hidden="true"
+    style="background: radial-gradient(circle, rgba(14,165,233,0.05) 0%, transparent 65%);"
+  ></div>
+
+  <!-- ── Diagonal tension lines ───────────────────────────────────── -->
+  <svg
+    class="pointer-events-none absolute inset-0 w-full h-full"
+    aria-hidden="true"
+    preserveAspectRatio="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <line x1="0%" y1="0%" x2="30%" y2="100%" stroke="rgba(249,115,22,0.05)" stroke-width="1" />
+    <line x1="70%" y1="0%" x2="100%" y2="100%" stroke="rgba(14,165,233,0.04)" stroke-width="1" />
+  </svg>
+
+  <!-- ── Top / bottom hairlines ────────────────────────────────────── -->
+  <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-500/35 to-transparent" aria-hidden="true"></div>
+  <div class="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-orange-500/15 to-transparent" aria-hidden="true"></div>
+
+  <!-- ── Content ───────────────────────────────────────────────────── -->
+  <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="grid lg:grid-cols-[1fr_1.35fr] gap-12 lg:gap-20 items-start">
+
+      <!-- ── LEFT: sticky heading block ──────────────────────────────── -->
+      <div class="lg:sticky lg:top-28">
+
+        <!-- Eyebrow -->
+        <div data-animate class="flex items-center gap-3 mb-8">
+          <span class="block h-px w-10 bg-orange-500" aria-hidden="true"></span>
+          {upheading && (
+            <p class="text-[0.7rem] font-bold uppercase tracking-[0.22em] text-orange-400">
+              {upheading}
             </p>
-            <p class="mb-16 mx-auto max-w-[55ch] text-center text-lg text-petrol-700 text-pretty">
-                {subtitle}
-            </p>
+          )}
         </div>
-        <div
-            class:list={["mx-auto grid max-w-2xl grid-cols-1 gap-8 lg:mx-0 lg:max-w-none", phaseGridColsClass]}
+
+        <!-- Titan One heading -->
+        <p
+          data-animate
+          style='font-family: "Titan One", cursive;'
+          class="leading-[0.92] tracking-tight text-[clamp(2rem,4.5vw,3.25rem)] text-white text-pretty"
         >
-            {phases.map((phase, idx) => (
-                <div
-                    data-animate
-                    data-animate-delay={idx * 150}
-                    class="group relative bg-white border border-petrol-100 rounded-xl p-6 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-petrol-200">
-                    <!-- Watermark number -->
-                    <span
-                        aria-hidden="true"
-                        class="absolute -top-2 -right-2 text-7xl font-bold text-petrol-50 select-none pointer-events-none"
-                    >
-                        {idx + 1}
-                    </span>
+          {heading}<span class="text-orange-400">.</span>
+        </p>
 
-                    <!-- Progress bar -->
-                    <div class="h-1 bg-petrol-50 rounded-full mb-6 overflow-hidden">
-                        <div class:list={['h-full bg-gradient-to-r from-sky-400 to-sky-600 rounded-full transition-all duration-500', progressWidths[idx] || 'w-full', 'group-hover:w-full']}></div>
-                    </div>
+        <!-- Orange accent rule -->
+        <div data-animate class="mt-6 flex items-center">
+          <div class="h-[3px] w-16 bg-orange-500 rounded-full"></div>
+          <div class="h-px w-24 bg-gradient-to-r from-orange-500/40 to-transparent"></div>
+        </div>
 
-                    <h3 class="text-lg font-bold text-petrol-900 relative">
-                        <span class="inline-flex size-6 items-center justify-center rounded-full bg-sky-500 text-xs font-semibold text-white mr-2">
-                            {idx + 1}
+        <!-- Subtitle -->
+        <p data-animate class="mt-6 max-w-[38ch] text-base md:text-lg text-white/55 leading-relaxed text-pretty">
+          {subtitle}
+        </p>
+
+        <!-- Decorative vertical rule -->
+        <div class="hidden lg:block mt-12 w-px h-20 bg-gradient-to-b from-orange-500/30 to-transparent" aria-hidden="true"></div>
+      </div>
+
+      <!-- ── RIGHT: phase rows ─────────────────────────────────────── -->
+      <div class="flex flex-col">
+
+        {phases.map((phase, idx) => {
+          const isLast = idx === phases.length - 1;
+          const padNum = String(idx + 1).padStart(2, "0");
+
+          return (
+            <div
+              data-animate
+              data-animate-delay={idx * 130}
+              class:list={[
+                "relative flex gap-5 py-10 overflow-hidden",
+                !isLast && "border-b border-white/[0.07]",
+              ]}
+            >
+              <!-- Ghost ordinal number -->
+              <div
+                class="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 select-none leading-none"
+                aria-hidden="true"
+                style='font-family: "Titan One", cursive; font-size: 5.5rem; color: rgba(249,115,22,0.06); line-height: 1;'
+              >
+                {padNum}
+              </div>
+
+              <!-- Step column: "Fase" label + Titan One number -->
+              <div class="shrink-0 flex flex-col items-center pt-0.5 w-11">
+                <span class="text-[0.5rem] font-bold uppercase tracking-[0.18em] text-orange-400 leading-none mb-0.5">
+                  Fase
+                </span>
+                <span
+                  class="text-[2.2rem] leading-none font-bold text-orange-400/40 tabular-nums"
+                  style='font-family: "Titan One", cursive;'
+                >
+                  {padNum}
+                </span>
+              </div>
+
+              <!-- Phase content -->
+              <div class="relative min-w-0 flex-1">
+
+                <h3 class="text-[0.9375rem] font-bold text-white/90 mb-3 leading-snug text-pretty">
+                  {phase.title}
+                </h3>
+
+                <p class="text-sm/6 text-white/50 mb-5 text-pretty">
+                  {phase.intro}
+                </p>
+
+                <!-- Bullets -->
+                <ul class="space-y-2.5 mb-5">
+                  {phase.bullets.map((bullet) => {
+                    const Icon = iconByKey[bullet.icon];
+                    return (
+                      <li class="flex items-start gap-3">
+                        <span class="shrink-0 mt-0.5 flex size-6 items-center justify-center rounded-md bg-orange-500/10 ring-1 ring-orange-500/20">
+                          <Icon aria-hidden="true" class="size-3 text-orange-400" />
                         </span>
-                        {phase.title}
-                    </h3>
+                        <span class="text-sm/6 text-white/50">
+                          <strong class="font-semibold text-white/80">{bullet.emphasis}</strong>{" "}
+                          {bullet.text}
+                        </span>
+                      </li>
+                    );
+                  })}
+                </ul>
 
-                    <p class="mt-4 text-sm/6 text-petrol-700">
-                        {phase.intro}
-                    </p>
-
-                    <ul class="mt-4 space-y-2">
-                        {phase.bullets.map((bullet) => {
-                            const Icon = iconByKey[bullet.icon];
-                            return (
-                                <li class="border-l-2 border-sky-100 pl-3 py-1 text-sm/6 text-petrol-700">
-                                    <Icon aria-hidden="true" class="inline size-4 mr-1 text-sky-600" />
-                                    <strong class="text-petrol-900">{bullet.emphasis}</strong> {bullet.text}
-                                </li>
-                            );
-                        })}
-                    </ul>
-
-                    <p class="mt-4 text-sm/6 text-petrol-700 relative">
-                        {phase.outro}
-                    </p>
+                <!-- Outro pill — sky accent -->
+                <div class="inline-flex items-start gap-2 rounded-lg border border-sky-500/20 bg-sky-500/[0.07] px-3.5 py-2.5">
+                  <svg
+                    aria-hidden="true"
+                    class="mt-0.5 size-4 shrink-0 text-sky-400/80"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span class="text-sm/6 text-sky-300/75">{phase.outro}</span>
                 </div>
-            ))}
-        </div>
 
-        <!-- CTA card -->
-        <div data-animate class="mt-16 bg-sandstone-soft border border-petrol-100 rounded-xl p-8 text-center">
-            <p class="text-xl font-semibold text-petrol-900">
-                {ctaHeading}
-            </p>
-            <p class="mx-auto mt-3 max-w-[50ch] text-base text-petrol-700">
-                {ctaText}
-            </p>
-            <div class="mt-6 flex justify-center">
-                <WhatsAppButton text={ctaLabel} href={ctaHref} />
+              </div>
             </div>
-        </div>
+          );
+        })}
+
+      </div>
     </div>
+
+    <!-- ── CTA block ─────────────────────────────────────────────────── -->
+    <div
+      data-animate
+      class="mt-10 flex items-start rounded-2xl border border-white/[0.08] bg-white/[0.03] px-8 py-7 gap-6 flex-col sm:flex-row sm:items-center sm:justify-between"
+    >
+      <div>
+        <p class="text-lg font-semibold text-white/90 text-pretty">
+          {ctaHeading}
+        </p>
+        <p class="mt-1.5 max-w-[52ch] text-sm/6 text-white/50 text-pretty">
+          {ctaText}
+        </p>
+      </div>
+      <div class="shrink-0">
+        <WhatsAppButton text={ctaLabel} href={ctaHref} />
+      </div>
+    </div>
+
+  </div>
 </div>

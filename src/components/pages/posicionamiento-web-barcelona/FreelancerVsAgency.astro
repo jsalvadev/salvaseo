@@ -1,69 +1,171 @@
 ---
-import { MapPinned, MessageCircle, PiggyBank } from "@lucide/astro";
-import Upheading from '../../Upheading.astro'
+import { MapPinned, MessageCircle, PiggyBank } from '@lucide/astro'
 
-const borderTopColors = ['border-t-sky-400', 'border-t-orange-400', 'border-t-sky-400'] as const
+const benefits = [
+  {
+    num: '01',
+    icon: MessageCircle,
+    accentClass: 'bg-sky-500/10 ring-sky-500/25',
+    iconClass: 'text-sky-500',
+    barClass: 'bg-sky-500',
+    heading: 'Acceso directo al especialista',
+    body: 'Resuelve dudas y valida cambios técnicos <strong>al instante</strong> por WhatsApp, videollamada o email. Al eliminar las capas intermedias, tu proyecto gana en precisión y el tiempo de respuesta se reduce al mínimo.',
+  },
+  {
+    num: '02',
+    icon: MapPinned,
+    accentClass: 'bg-orange-500/10 ring-orange-500/25',
+    iconClass: 'text-orange-500',
+    barClass: 'bg-orange-500',
+    heading: 'Estrategia adaptada a tu zona',
+    body: 'Aprovecha un conocimiento profundo del mercado de Barcelona. Tu web se posiciona respondiendo a la realidad de tu barrio y sector, captando el tráfico que genera <strong>facturación real en tu zona</strong>.',
+  },
+  {
+    num: '03',
+    icon: PiggyBank,
+    accentClass: 'bg-sky-500/10 ring-sky-500/25',
+    iconClass: 'text-sky-500',
+    barClass: 'bg-gradient-to-r from-sky-500 to-orange-500',
+    heading: 'Tu presupuesto rinde al máximo',
+    body: 'Maximiza tu presupuesto destinándolo exclusivamente a optimizar tu web. Un modelo eficiente pensado para pymes y negocios locales.',
+  },
+]
 ---
 
-<div class='bg-sandstone-soft py-24 sm:py-32'>
-  <div class='mx-auto max-w-7xl px-6 lg:px-8'>
-    <div data-animate class='mx-auto max-w-2xl lg:mx-0'>
-      <Upheading as='h2' text='Consultor freelance vs agencia de posicionamiento web en Barcelona' />
-      <p
-        class='mt-2 text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl text-pretty'>
-        Alguien que responde cuando llamas
-      </p>
-      <p class='mt-4 text-base/7 text-petrol-700 w-full max-w-[60ch]'>
-        Como negocio local o pyme, tu mayor ventaja es la velocidad de respuesta. Un servicio donde la estrategia y la ejecución técnica ocurren en el mismo lugar, sin esperas ni filtros.
-      </p>
-    </div>
-    <div
-      class='mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-8 text-base/7 text-petrol-700 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3'>
-      <div
-        data-animate
-        data-animate-delay='0'
-        class:list={['group bg-white border border-petrol-100 border-t-2 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg', borderTopColors[0]]}>
-        <div class='rounded-lg bg-sky-50 p-2 mb-3 w-fit'>
-          <MessageCircle class='size-6 text-sky-600' aria-hidden='true' />
+<div class='relative overflow-hidden bg-white py-24 sm:py-32'>
+
+  <!-- ── Subtle linear grid texture ───────────────────────────────── -->
+  <div
+    class='pointer-events-none absolute inset-0'
+    aria-hidden='true'
+    style='background-image: linear-gradient(rgba(26,60,74,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(26,60,74,0.03) 1px, transparent 1px); background-size: 48px 48px;'
+  ></div>
+
+  <!-- ── Faded Titan One watermark ─────────────────────────────────── -->
+  <div
+    class='pointer-events-none absolute -left-6 top-1/2 -translate-y-1/2 select-none leading-none'
+    aria-hidden='true'
+    style='font-family: "Titan One", cursive; font-size: clamp(10rem, 22vw, 18rem); color: rgba(249,115,22,0.04); line-height: 1; white-space: nowrap;'
+  >
+    DIRECTO
+  </div>
+
+  <!-- ── Orange corner accent (right edge) ─────────────────────────── -->
+  <div
+    class='pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-40 bg-orange-500 rounded-l-full'
+    aria-hidden='true'
+  ></div>
+
+  <!-- ── Top / bottom hairlines ────────────────────────────────────── -->
+  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-petrol-100 to-transparent' aria-hidden='true'></div>
+  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-petrol-100 to-transparent' aria-hidden='true'></div>
+
+  <div class='relative mx-auto max-w-7xl px-6 lg:px-8'>
+    <div class='grid lg:grid-cols-[1fr_1.2fr] gap-12 lg:gap-20 items-start'>
+
+      <!-- ── LEFT: sticky heading block ──────────────────────────────── -->
+      <div class='lg:sticky lg:top-28'>
+
+        <!-- Eyebrow -->
+        <div data-animate class='flex items-center gap-3 mb-8'>
+          <span class='block h-px w-10 bg-orange-500' aria-hidden='true'></span>
+          <p class='text-[0.7rem] font-bold uppercase tracking-[0.22em] text-orange-500'>
+            Consultor freelance vs agencia de posicionamiento web en Barcelona
+          </p>
         </div>
-        <div class='h-0.5 w-8 bg-sky-500 rounded-full transition-all duration-300 group-hover:w-14 mb-3' aria-hidden='true'></div>
-        <h3 class='mb-2 text-2xl font-semibold tracking-tight text-petrol-900'>
-          Acceso directo al especialista
-        </h3>
-        <p class='mb-3 text-petrol-700'>
-          Resuelve dudas y valida cambios técnicos <strong>al instante</strong> por WhatsApp, videollamada o email. Al eliminar las capas intermedias, tu proyecto gana en precisión y el tiempo de respuesta se reduce al mínimo.
-        </p>
-      </div>
-      <div
-        data-animate
-        data-animate-delay='150'
-        class:list={['group bg-white border border-petrol-100 border-t-2 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg', borderTopColors[1]]}>
-        <div class='rounded-lg bg-sky-50 p-2 mb-3 w-fit'>
-          <MapPinned class='size-6 text-sky-600' aria-hidden='true' />
+
+        <!-- Titan One heading -->
+        <h2
+          data-animate
+          style='font-family: "Titan One", cursive;'
+          class='leading-[0.92] tracking-tight mb-6'
+        >
+          <span class='block text-[clamp(1.8rem,4vw,3rem)] text-petrol-700'>
+            Alguien que
+          </span>
+          <span class='block text-[clamp(3rem,7vw,5rem)] text-petrol-900'>
+            responde cuando llamas<span class='text-orange-400'>.</span>
+          </span>
+        </h2>
+
+        <!-- Orange accent rule -->
+        <div data-animate class='flex items-center'>
+          <div class='h-[3px] w-16 bg-orange-500 rounded-full'></div>
+          <div class='h-px w-24 bg-gradient-to-r from-orange-500/40 to-transparent'></div>
         </div>
-        <div class='h-0.5 w-8 bg-orange-500 rounded-full transition-all duration-300 group-hover:w-14 mb-3' aria-hidden='true'></div>
-        <h3 class='mb-2 text-2xl font-semibold tracking-tight text-petrol-900'>
-          Estrategia adaptada a tu zona
-        </h3>
-        <p class='mb-3 text-petrol-700'>
-          Aprovecha un conocimiento profundo del mercado de Barcelona. Tu web se posiciona respondiendo a la realidad de tu barrio y sector, captando el tráfico que genera <strong>facturación real en tu zona</strong>.
+
+        <!-- Subtitle -->
+        <p data-animate class='mt-6 max-w-[40ch] text-base md:text-lg text-petrol-700 leading-relaxed text-pretty'>
+          Como negocio local o pyme, tu mayor ventaja es la velocidad de respuesta. Un servicio donde la estrategia y la ejecución técnica ocurren en el mismo lugar, sin esperas ni filtros.
         </p>
+
+        <!-- Decorative vertical rule -->
+        <div class='hidden lg:block mt-12 w-px h-20 bg-gradient-to-b from-orange-500/30 to-transparent' aria-hidden='true'></div>
       </div>
-      <div
-        data-animate
-        data-animate-delay='300'
-        class:list={['group bg-white border border-petrol-100 border-t-2 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg', borderTopColors[2]]}>
-        <div class='rounded-lg bg-sky-50 p-2 mb-3 w-fit'>
-          <PiggyBank class='size-6 text-sky-600' aria-hidden='true' />
-        </div>
-        <div class='h-0.5 w-8 bg-gradient-to-r from-sky-500 to-orange-500 rounded-full transition-all duration-300 group-hover:w-14 mb-3' aria-hidden='true'></div>
-        <h3 class='mb-2 text-2xl font-semibold tracking-tight text-petrol-900'>
-          Tu presupuesto rinde al máximo
-        </h3>
-        <p class='mb-3 text-petrol-700'>
-          Maximiza tu presupuesto destinándolo exclusivamente a optimizar tu web. Un modelo eficiente pensado para pymes y negocios locales.
-        </p>
-      </div>
+
+      <!-- ── RIGHT: benefit card list ─────────────────────────────── -->
+      <ul class='flex flex-col gap-4 mt-2'>
+
+        {benefits.map((benefit, idx) => {
+          const Icon = benefit.icon
+          return (
+            <li
+              data-animate
+              data-animate-delay={idx * 120}
+              class='group relative rounded-2xl border border-petrol-100 bg-white px-6 py-6 transition-all duration-300 hover:border-orange-200 hover:shadow-xl hover:shadow-petrol-900/5 overflow-hidden cursor-default'
+            >
+
+              <!-- Left accent bar (hover reveal) -->
+              <div
+                class='pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-orange-500 scale-y-0 origin-top rounded-r-full transition-transform duration-300 group-hover:scale-y-100'
+                aria-hidden='true'
+              ></div>
+
+              <!-- Ghost ordinal watermark -->
+              <div
+                class='pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 select-none leading-none transition-opacity duration-300 opacity-60 group-hover:opacity-100'
+                aria-hidden='true'
+                style='font-family: "Titan One", cursive; font-size: 5rem; color: rgba(249,115,22,0.07); line-height: 1;'
+              >
+                {benefit.num}
+              </div>
+
+              <!-- Card content -->
+              <div class='relative flex items-start gap-4'>
+
+                <!-- Icon badge -->
+                <div class:list={[
+                  'shrink-0 mt-0.5 flex size-10 items-center justify-center rounded-xl ring-1 transition-all duration-300',
+                  benefit.accentClass,
+                ]}>
+                  <Icon aria-hidden='true' class:list={['size-5', benefit.iconClass]} />
+                </div>
+
+                <div class='min-w-0'>
+                  <!-- Expanding accent line -->
+                  <div
+                    class:list={[
+                      'h-0.5 w-8 rounded-full mb-3 transition-all duration-300 group-hover:w-16',
+                      benefit.barClass,
+                    ]}
+                    aria-hidden='true'
+                  ></div>
+
+                  <h3 class='text-lg font-semibold tracking-tight text-petrol-900 mb-2 leading-snug transition-colors duration-300'>
+                    {benefit.heading}
+                  </h3>
+                  <p
+                    class='text-sm/6 text-petrol-700 text-pretty transition-colors duration-300 group-hover:text-petrol-600'
+                    set:html={benefit.body}
+                  />
+                </div>
+
+              </div>
+            </li>
+          )
+        })}
+
+      </ul>
     </div>
   </div>
 </div>
