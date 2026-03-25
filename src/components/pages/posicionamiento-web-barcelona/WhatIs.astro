@@ -1,0 +1,442 @@
+---
+import Upheading from '../../Upheading.astro'
+---
+
+<section class='whatis-section bg-warm-white py-16 sm:py-20'>
+  <div class='mx-auto max-w-7xl px-6 lg:px-8'>
+
+    <div class='mx-auto max-w-2xl lg:max-w-none lg:grid lg:grid-cols-[1fr_480px] lg:gap-16 xl:gap-24 items-center'>
+
+      <!-- LEFT: Plain explanation -->
+      <div>
+        <Upheading text='En palabras simples' />
+        <h2 class='mt-3 text-3xl font-bold tracking-tight text-heading sm:text-4xl' style='font-family: "Titan One", cursive; line-height: 1.1;'>
+          Que te encuentren a ti<br/>
+          <span class='text-sky-500'>antes que a tu competencia.</span>
+        </h2>
+
+        <p class='mt-6 text-lg/8 text-body'>
+          Cuando alguien necesita un fontanero, un abogado o un dentista en Barcelona, abre Google y escribe lo que busca. En menos de un segundo, Google le muestra una lista de negocios.
+        </p>
+
+        <p class='mt-4 text-lg/8 text-body'>
+          <strong class='text-heading font-semibold'>Los tres primeros resultados reciben el 90% de los clics.</strong> Los demás, prácticamente ninguno.
+        </p>
+
+        <p class='mt-4 text-lg/8 text-body'>
+          Posicionamiento web es el trabajo técnico que hace que tu negocio aparezca en esos primeros puestos — y no el de tu competencia.
+        </p>
+
+        <!-- Stat pills -->
+        <div class='mt-8 flex flex-wrap gap-3'>
+          <div class='stat-pill'>
+            <span class='stat-num'>91%</span>
+            <span class='stat-label'>de los clics van al top 3</span>
+          </div>
+          <div class='stat-pill'>
+            <span class='stat-num'>0 €</span>
+            <span class='stat-label'>por clic, a diferencia de los anuncios</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Mock SERP -->
+      <div class='mt-12 lg:mt-0'>
+        <div class='serp-wrapper'>
+
+          <!-- Browser chrome -->
+          <div class='serp-chrome'>
+            <div class='serp-dots' aria-hidden='true'>
+              <span></span><span></span><span></span>
+            </div>
+            <div class='serp-bar'>
+              <svg class='serp-bar-icon' viewBox='0 0 16 16' fill='none' aria-hidden='true'>
+                <circle cx='7' cy='7' r='5' stroke='currentColor' stroke-width='1.5'/>
+                <path d='M11 11l3 3' stroke='currentColor' stroke-width='1.5' stroke-linecap='round'/>
+              </svg>
+              <span>fontanero urgente barcelona</span>
+            </div>
+          </div>
+
+          <!-- SERP body -->
+          <div class='serp-body'>
+
+            <!-- Ads label -->
+            <p class='serp-ads-label'>Anuncios · <span class='text-petrol-600'>pagas cada vez que alguien hace clic</span></p>
+
+            <!-- Ad result (muted) -->
+            <div class='serp-result serp-result--ad'>
+              <div class='serp-favicon serp-favicon--ad' aria-hidden='true'></div>
+              <div class='flex-1 min-w-0'>
+                <p class='serp-url'>fontanerosbcn.com › anuncio</p>
+                <p class='serp-title serp-title--ad'>Fontaneros Barcelona Anuncio — Presupuesto online</p>
+              </div>
+              <span class='serp-ad-badge'>Anuncio</span>
+            </div>
+
+            <!-- Organic divider -->
+            <p class='serp-organic-label'>Resultados orgánicos · <span class='text-petrol-600'>gratis para siempre</span></p>
+
+            <!-- Result #1 — featured (YOUR BUSINESS) -->
+            <div class='serp-result serp-result--featured' aria-label='Tu negocio en primera posición'>
+              <div class='serp-pos serp-pos--1'>1</div>
+              <div class='flex-1 min-w-0'>
+                <p class='serp-url'>tunegocio.com › barcelona</p>
+                <p class='serp-title serp-title--featured'>Fontanero Urgente Barcelona 24h — Sin esperas</p>
+                <p class='serp-snippet'>Servicio de fontanería urgente en Barcelona. Llegamos en menos de 1 hora. Sin desplazamiento en urgencias. Llámanos ahora.</p>
+              </div>
+              <span class='serp-you-badge'>Tu negocio</span>
+            </div>
+
+            <!-- Result #2 muted -->
+            <div class='serp-result'>
+              <div class='serp-pos serp-pos--n'>2</div>
+              <div class='flex-1 min-w-0'>
+                <p class='serp-url'>fontanerosbarcelona24.es</p>
+                <p class='serp-title'>Fontaneros Barcelona — Presupuesto gratis</p>
+                <p class='serp-snippet'>Fontanería profesional en Barcelona y alrededores. Más de 15 años de experiencia. Pide presupuesto sin compromiso.</p>
+              </div>
+            </div>
+
+            <!-- Result #3 muted -->
+            <div class='serp-result serp-result--last'>
+              <div class='serp-pos serp-pos--n'>3</div>
+              <div class='flex-1 min-w-0'>
+                <p class='serp-url'>plomerosbcn.com</p>
+                <p class='serp-title'>Fontanero Barcelona Centro — Económico y rápido</p>
+                <p class='serp-snippet'>Fontanería económica en el centro de Barcelona. Atención inmediata, sin letra pequeña.</p>
+              </div>
+            </div>
+
+            <!-- Click share bar -->
+            <div class='click-bar-wrapper' aria-label='Distribución de clics'>
+              <div class='click-bar-row'>
+                <span class='click-bar-label'>Posición 1</span>
+                <div class='click-bar-track'>
+                  <div class='click-bar-fill click-bar-fill--1' style='width: 42%'></div>
+                </div>
+                <span class='click-bar-pct click-bar-pct--1'>42%</span>
+              </div>
+              <div class='click-bar-row'>
+                <span class='click-bar-label'>Posición 2</span>
+                <div class='click-bar-track'>
+                  <div class='click-bar-fill click-bar-fill--2' style='width: 28%'></div>
+                </div>
+                <span class='click-bar-pct'>28%</span>
+              </div>
+              <div class='click-bar-row'>
+                <span class='click-bar-label'>Posición 3</span>
+                <div class='click-bar-track'>
+                  <div class='click-bar-fill click-bar-fill--3' style='width: 15%'></div>
+                </div>
+                <span class='click-bar-pct'>15%</span>
+              </div>
+              <div class='click-bar-row'>
+                <span class='click-bar-label'>Resto</span>
+                <div class='click-bar-track'>
+                  <div class='click-bar-fill click-bar-fill--rest' style='width: 8%'></div>
+                </div>
+                <span class='click-bar-pct'>15%</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <p class='mt-3 text-center text-xs text-petrol-600/60'>Ejemplo ilustrativo · distribución real aproximada de clics orgánicos</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ── Stat pills ── */
+  .stat-pill {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    background: var(--color-petrol-50);
+    border: 1px solid var(--color-border-default);
+    border-radius: 0.75rem;
+    padding: 0.75rem 1.1rem;
+  }
+
+  .stat-num {
+    font-family: 'Titan One', cursive;
+    font-size: 1.5rem;
+    color: var(--color-petrol-900);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--color-petrol-600);
+    line-height: 1.3;
+    max-width: 12ch;
+  }
+
+  /* ── SERP wrapper ── */
+  .serp-wrapper {
+    border-radius: 1rem;
+    border: 1px solid var(--color-border-default);
+    box-shadow: 0 4px 24px rgba(26,60,74,0.08), 0 1px 3px rgba(26,60,74,0.06);
+    overflow: hidden;
+    background: white;
+  }
+
+  /* ── Browser chrome ── */
+  .serp-chrome {
+    background: #f1f3f4;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 0.625rem 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .serp-dots {
+    display: flex;
+    gap: 5px;
+    flex-shrink: 0;
+  }
+
+  .serp-dots span {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #d1d1d1;
+  }
+
+  .serp-bar {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: white;
+    border: 1px solid #dadce0;
+    border-radius: 100px;
+    padding: 0.3rem 0.875rem;
+    font-size: 0.75rem;
+    color: #3c4043;
+    font-weight: 400;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .serp-bar-icon {
+    width: 13px;
+    height: 13px;
+    color: #5f6368;
+    flex-shrink: 0;
+  }
+
+  /* ── SERP body ── */
+  .serp-body {
+    padding: 1rem 1.125rem 0.75rem;
+    background: white;
+  }
+
+  .serp-ads-label,
+  .serp-organic-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #5f6368;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.375rem;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .serp-organic-label {
+    margin-top: 0.875rem;
+  }
+
+  /* ── Individual result ── */
+  .serp-result {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    padding: 0.625rem 0;
+    border-bottom: 1px solid #f5f5f5;
+    position: relative;
+  }
+
+  .serp-result--last {
+    border-bottom: none;
+  }
+
+  .serp-result--featured {
+    background: linear-gradient(135deg, rgba(14,165,233,0.05) 0%, rgba(14,165,233,0.02) 100%);
+    border-radius: 0.5rem;
+    border: 1px solid rgba(14,165,233,0.2) !important;
+    padding: 0.625rem 0.75rem;
+    margin: 0 -0.125rem;
+  }
+
+  .serp-result--ad {
+    opacity: 0.55;
+  }
+
+  /* ── Position badge ── */
+  .serp-pos {
+    width: 1.375rem;
+    height: 1.375rem;
+    border-radius: 0.375rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .serp-pos--1 {
+    background: rgba(14,165,233,0.15);
+    color: #0284c7;
+    border: 1px solid rgba(14,165,233,0.3);
+  }
+
+  .serp-pos--n {
+    background: #f1f3f4;
+    color: #5f6368;
+  }
+
+  /* ── Favicon placeholder ── */
+  .serp-favicon {
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+    background: #dadce0;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  /* ── Result text ── */
+  .serp-url {
+    font-size: 0.65rem;
+    color: #5f6368;
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .serp-title {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #1a0dab;
+    line-height: 1.4;
+    margin-top: 1px;
+  }
+
+  .serp-title--featured {
+    color: #0066cc;
+    font-weight: 700;
+  }
+
+  .serp-title--ad {
+    color: #1a0dab;
+  }
+
+  .serp-snippet {
+    font-size: 0.67rem;
+    color: #4d5156;
+    line-height: 1.5;
+    margin-top: 2px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* ── Badges ── */
+  .serp-you-badge {
+    flex-shrink: 0;
+    font-size: 0.58rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: rgba(14,165,233,0.12);
+    color: #0284c7;
+    border: 1px solid rgba(14,165,233,0.3);
+    border-radius: 100px;
+    padding: 0.2rem 0.5rem;
+    white-space: nowrap;
+    align-self: center;
+  }
+
+  .serp-ad-badge {
+    flex-shrink: 0;
+    font-size: 0.55rem;
+    font-weight: 600;
+    background: #f1f3f4;
+    color: #5f6368;
+    border: 1px solid #dadce0;
+    border-radius: 3px;
+    padding: 0.15rem 0.35rem;
+    white-space: nowrap;
+    align-self: center;
+  }
+
+  /* ── Click distribution bars ── */
+  .click-bar-wrapper {
+    margin-top: 0.875rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .click-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .click-bar-label {
+    font-size: 0.6rem;
+    color: #5f6368;
+    font-weight: 500;
+    width: 4.5rem;
+    flex-shrink: 0;
+  }
+
+  .click-bar-track {
+    flex: 1;
+    height: 5px;
+    background: #f1f3f4;
+    border-radius: 100px;
+    overflow: hidden;
+  }
+
+  .click-bar-fill {
+    height: 100%;
+    border-radius: 100px;
+  }
+
+  .click-bar-fill--1   { background: #0ea5e9; }
+  .click-bar-fill--2   { background: rgba(14,165,233,0.5); }
+  .click-bar-fill--3   { background: rgba(14,165,233,0.28); }
+  .click-bar-fill--rest { background: #e5e7eb; }
+
+  .click-bar-pct {
+    font-size: 0.6rem;
+    font-weight: 600;
+    color: #5f6368;
+    width: 2rem;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .click-bar-pct--1 {
+    color: #0284c7;
+    font-weight: 700;
+  }
+</style>
