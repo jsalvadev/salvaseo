@@ -1,6 +1,5 @@
 ---
 import { MapPin, Search, LayoutGrid } from '@lucide/astro'
-import Upheading from '../../Upheading.astro'
 
 type IconKey = 'mapPin' | 'search' | 'layoutGrid'
 
@@ -53,93 +52,134 @@ const {
   mockupCaption = 'Así se ve el Local Pack de Google: <strong>3 negocios, un mapa, el 44 % de los clics.</strong>',
 } = Astro.props
 
-const headingParts = heading.split('?')
-const hasQuestion = headingParts.length > 1
+// Two-size Titan One split: break at ". " between statement and question
+const periodIdx = heading.indexOf('. ')
+const headingFirst  = periodIdx !== -1 ? heading.slice(0, periodIdx + 1) : heading
+const headingSecond = periodIdx !== -1 ? heading.slice(periodIdx + 2)    : ''
 ---
 
-<section class='relative bg-sandstone-soft overflow-hidden py-24 sm:py-32'>
-  <!-- Subtle grid texture -->
-  <div
-    class='pointer-events-none absolute inset-0 opacity-[0.025]'
-    style='background-image: linear-gradient(var(--color-petrol-700) 1px, transparent 1px), linear-gradient(90deg, var(--color-petrol-700) 1px, transparent 1px); background-size: 64px 64px;'
-    aria-hidden='true'></div>
+<section class='relative overflow-hidden bg-petrol-50 py-24 md:py-32'>
 
-  <!-- Soft ambient orb -->
+  <!-- Dot-grid texture -->
   <div
-    class='pointer-events-none absolute -top-40 right-0 w-[600px] h-[600px] rounded-full opacity-30'
-    style='background: radial-gradient(circle, rgba(14,165,233,0.07) 0%, transparent 70%);'
-    aria-hidden='true'></div>
+    class='pointer-events-none absolute inset-0'
+    aria-hidden='true'
+    style='background-image: radial-gradient(circle, rgba(26,60,74,0.06) 1px, transparent 1px); background-size: 28px 28px;'>
+  </div>
+
+  <!-- Titan One watermark -->
+  <div
+    class='pointer-events-none absolute -left-8 top-1/2 -translate-y-1/2 select-none leading-none hidden lg:block'
+    aria-hidden='true'
+    style='font-family: "Titan One", cursive; font-size: clamp(12rem, 24vw, 20rem); color: rgba(249,115,22,0.04); line-height: 1; white-space: nowrap;'>
+    MAPA
+  </div>
+
+  <!-- Top / bottom hairlines -->
+  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-petrol-100 to-transparent' aria-hidden='true'></div>
+  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-petrol-100 to-transparent' aria-hidden='true'></div>
+
+  <!-- Orange right accent bar -->
+  <div
+    class='pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-32 bg-orange-500 rounded-l-full'
+    aria-hidden='true'>
+  </div>
 
   <div class='relative mx-auto max-w-7xl px-6 lg:px-8'>
 
-    <!-- ── Top header row ── -->
-    <div class='max-w-2xl mb-16 lg:mb-20' data-animate>
-      <Upheading as='p' text={upheading} />
-      <h2 class='mt-3 explainer-heading text-petrol-900 leading-[1.1]'>
-        {hasQuestion
-          ? (<Fragment>{headingParts[0]}<span class='explainer-question'>¿{headingParts[1]}</span></Fragment>)
-          : heading}
-      </h2>
+    <!-- ── Section header ──────────────────────────────────────────── -->
+    <div class='mb-14 lg:mb-18'>
+      <div data-animate class='flex items-center gap-3 mb-8'>
+        <span class='block h-px w-10 bg-orange-500' aria-hidden='true'></span>
+        <h2 class='text-[0.7rem] font-bold uppercase tracking-[0.22em] text-orange-500'>
+          {upheading}
+        </h2>
+      </div>
+
+      <p
+        data-animate
+        style='font-family: "Titan One", cursive;'
+        class='leading-[0.92] tracking-tight max-w-4xl'>
+        {headingSecond ? (
+          <>
+            <span class='block text-[clamp(1.6rem,3.5vw,2.6rem)] text-petrol-700/45 mb-1 leading-snug'>
+              {headingFirst}
+            </span>
+            <span class='block text-[clamp(2.8rem,6vw,4.5rem)] text-petrol-900'>
+              {headingSecond.replace(/\?$/, '')}<span class='text-sky-600'>?</span>
+            </span>
+          </>
+        ) : (
+          <span class='block text-[clamp(2.8rem,5.5vw,4rem)] text-petrol-900'>{heading}</span>
+        )}
+      </p>
+
+      <div data-animate class='mt-6 flex items-center'>
+        <div class='h-[3px] w-16 bg-orange-500 rounded-full'></div>
+        <div class='h-px w-24 bg-gradient-to-r from-orange-500/40 to-transparent'></div>
+      </div>
     </div>
 
-    <!-- ── Main 2-col grid ── -->
+    <!-- ── Main 2-col grid ──────────────────────────────────────────── -->
     <div class='grid lg:grid-cols-12 gap-12 lg:gap-16 items-start'>
 
-      <!-- LEFT: items (5 cols) -->
+      <!-- ── LEFT: items (5 cols) ─────────────────────────────────── -->
       <div class='lg:col-span-5'>
-        <p class='text-[1.0625rem] text-petrol-700 leading-[1.75] mb-10' data-animate>
+
+        <p class='text-base md:text-lg text-petrol-700 leading-relaxed mb-10 text-pretty max-w-[46ch]' data-animate>
           <Fragment set:html={intro} />
         </p>
 
-        <ol class='space-y-8'>
+        <ol class='flex flex-col gap-4'>
           {items.map((item, idx) => {
             const Icon = iconByKey[item.icon]
-            const num = String(idx + 1).padStart(2, '0')
+            const num  = String(idx + 1).padStart(2, '0')
             return (
               <li
-                class='explainer-item group relative pl-6 sm:pl-8'
+                class='item-card group relative overflow-hidden rounded-2xl border border-petrol-100 bg-white px-5 py-5 transition-all duration-300 hover:border-sky-200 hover:shadow-md hover:shadow-petrol-900/5 cursor-default'
                 data-animate
-                data-animate-delay={idx * 120}>
-                <!-- Watermark number -->
-                <span
-                  class='explainer-num pointer-events-none select-none absolute -left-2 top-1/2 -translate-y-1/2'
-                  aria-hidden='true'>
-                  {num}
-                </span>
+                data-animate-delay={idx * 110}>
 
-                <!-- Content -->
-                <div class='relative'>
-                  <div class='flex items-center gap-3 mb-2'>
-                    <span class='inline-flex items-center justify-center size-8 rounded-lg bg-sky-500/10 ring-1 ring-sky-500/20 shrink-0'>
-                      <Icon aria-hidden='true' class='size-4 text-sky-600' />
-                    </span>
-                    <dt class='font-semibold text-petrol-900 text-[0.9375rem] leading-snug'>
-                      {item.title}
-                    </dt>
-                  </div>
-                  <dd class='text-[0.9375rem] leading-[1.7] text-petrol-700 pl-11'>
-                    <Fragment set:html={item.description} />
-                  </dd>
+                <!-- Left accent bar -->
+                <div class='pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-sky-500 scale-y-0 origin-top rounded-r-full transition-transform duration-300 group-hover:scale-y-100' aria-hidden='true'></div>
+
+                <!-- Ghost ordinal -->
+                <div
+                  class='pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 select-none leading-none transition-opacity duration-300'
+                  aria-hidden='true'
+                  style={`font-family: "Titan One", cursive; font-size: 3.8rem; color: rgba(26,60,74,0.05); line-height: 1;`}>
+                  {num}
                 </div>
 
-                <!-- Connector line (not last) -->
-                {idx < items.length - 1 && (
-                  <div class='absolute left-[7px] sm:left-[9px] top-10 bottom-0 w-px bg-petrol-100 -mb-8'
-                    aria-hidden='true'></div>
-                )}
+                <div class='relative flex items-start gap-3.5'>
+                  <!-- Icon badge -->
+                  <div class='shrink-0 mt-0.5 flex h-8 w-8 items-center justify-center rounded-xl bg-sky-50 ring-1 ring-sky-100 transition-all duration-300 group-hover:bg-sky-100 group-hover:ring-sky-200'>
+                    <Icon class='size-4 text-sky-600' aria-hidden='true' />
+                  </div>
+
+                  <div class='min-w-0'>
+                    <!-- Expanding underline -->
+                    <div class='h-0.5 w-5 bg-orange-400 rounded-full transition-all duration-300 group-hover:w-10 mb-2'></div>
+                    <dt class='text-[0.9rem] font-bold text-petrol-900 leading-snug mb-1.5 transition-colors duration-300 group-hover:text-petrol-900'>
+                      {item.title}
+                    </dt>
+                    <dd class='text-sm text-petrol-600 leading-relaxed text-pretty'>
+                      <Fragment set:html={item.description} />
+                    </dd>
+                  </div>
+                </div>
               </li>
             )
           })}
         </ol>
       </div>
 
-      <!-- RIGHT: SERP anatomy diagram (7 cols) -->
-      <div class='lg:col-span-7' data-animate-direction='right'>
-        <div class='serp-wrapper relative'>
+      <!-- ── RIGHT: SERP anatomy diagram (7 cols) ─────────────────── -->
+      <div class='lg:col-span-7' data-animate>
+        <div class='serp-wrapper relative overflow-hidden'>
 
           <!-- Browser frame -->
-          <div
-            class='relative bg-white rounded-2xl border border-petrol-100 overflow-hidden shadow-[0_20px_60px_-10px_rgba(26,60,74,0.15),0_4px_16px_-4px_rgba(26,60,74,0.08)]'>
+          <div class='relative bg-white rounded-2xl border border-petrol-100 overflow-hidden shadow-[0_24px_64px_-10px_rgba(26,60,74,0.18),0_4px_16px_-4px_rgba(26,60,74,0.08)]'>
 
             <!-- Browser chrome -->
             <div class='bg-[#f1f3f4] px-4 py-2.5 flex items-center gap-3 border-b border-black/[0.06]'>
@@ -148,19 +188,10 @@ const hasQuestion = headingParts.length > 1
                 <div class='size-2.5 rounded-full bg-[#ffbd2e]'></div>
                 <div class='size-2.5 rounded-full bg-[#27c93f]'></div>
               </div>
-              <div
-                class='flex-1 bg-white rounded-full px-3 py-1.5 text-[11px] text-gray-500 flex items-center gap-1.5 border border-black/[0.08]'>
-                <svg
-                  class='size-3 text-gray-400 shrink-0'
-                  viewBox='0 0 16 16'
-                  fill='none'
-                  aria-hidden='true'>
-                  <circle cx='7' cy='7' r='4.5' stroke='currentColor' stroke-width='1.5'></circle>
-                  <path
-                    d='M10.5 10.5l2.5 2.5'
-                    stroke='currentColor'
-                    stroke-width='1.5'
-                    stroke-linecap='round'></path>
+              <div class='flex-1 bg-white rounded-full px-3 py-1.5 text-[11px] text-gray-500 flex items-center gap-1.5 border border-black/[0.08]'>
+                <svg class='size-3 text-gray-400 shrink-0' viewBox='0 0 16 16' fill='none' aria-hidden='true'>
+                  <circle cx='7' cy='7' r='4.5' stroke='currentColor' stroke-width='1.5'/>
+                  <path d='M10.5 10.5l2.5 2.5' stroke='currentColor' stroke-width='1.5' stroke-linecap='round'/>
                 </svg>
                 google.com/search?q=dentista+barcelona
               </div>
@@ -169,32 +200,25 @@ const hasQuestion = headingParts.length > 1
             <!-- SERP body -->
             <div class='relative overflow-hidden'>
 
-              <!-- Scan line (decorative — uses the existing serp-scan keyframe) -->
+              <!-- Scan line -->
               <div
                 class='serp-scanline pointer-events-none absolute left-0 right-0 h-8 z-20'
                 aria-hidden='true'
-                style='animation: serp-scan 5s linear infinite; background: linear-gradient(to bottom, transparent, rgba(14,165,233,0.06), transparent);'>
+                style='animation: serp-scan 5s linear infinite; background: linear-gradient(to bottom, transparent, rgba(14,165,233,0.05), transparent);'>
               </div>
 
-              <!-- Google header bar -->
+              <!-- Google header -->
               <div class='px-5 pt-4 pb-3 border-b border-gray-100'>
-                <!-- Google logo (text) -->
                 <div class='flex items-center gap-3 mb-3'>
                   <span class='text-2xl font-bold tracking-tight select-none' aria-hidden='true'>
                     <span style='color:#4285F4;'>G</span><span style='color:#EA4335;'>o</span><span style='color:#FBBC05;'>o</span><span style='color:#4285F4;'>g</span><span style='color:#34A853;'>l</span><span style='color:#EA4335;'>e</span>
                   </span>
                 </div>
-                <!-- Search bar -->
-                <div
-                  class='flex items-center gap-2 border border-gray-300 rounded-full px-4 py-2 hover:shadow-sm bg-white max-w-md'>
+                <div class='flex items-center gap-2 border border-gray-300 rounded-full px-4 py-2 bg-white max-w-md hover:shadow-sm transition-shadow'>
                   <span class='text-sm text-gray-700 flex-1'>dentista barcelona</span>
-                  <svg
-                    class='size-4 text-[#4285F4] shrink-0'
-                    viewBox='0 0 16 16'
-                    fill='none'
-                    aria-hidden='true'>
-                    <circle cx='7' cy='7' r='4.5' stroke='currentColor' stroke-width='1.8'></circle>
-                    <path d='M10.5 10.5l2.5 2.5' stroke='currentColor' stroke-width='1.8' stroke-linecap='round'></path>
+                  <svg class='size-4 text-[#4285F4] shrink-0' viewBox='0 0 16 16' fill='none' aria-hidden='true'>
+                    <circle cx='7' cy='7' r='4.5' stroke='currentColor' stroke-width='1.8'/>
+                    <path d='M10.5 10.5l2.5 2.5' stroke='currentColor' stroke-width='1.8' stroke-linecap='round'/>
                   </svg>
                 </div>
                 <div class='flex items-center gap-4 mt-2.5'>
@@ -206,93 +230,93 @@ const hasQuestion = headingParts.length > 1
                 </div>
               </div>
 
-              <!-- ── SECTION 1: ADS ── -->
-              <div class='serp-ads relative px-5 py-3 border-b border-gray-100'>
-                <!-- Annotation badge -->
-                <div class='serp-badge-ads absolute -right-1 top-2 z-10'>
-                  <span
-                    class='inline-flex items-center gap-1.5 rounded-full bg-gray-100 border border-gray-200 px-2.5 py-1 text-[10px] font-semibold text-gray-500 whitespace-nowrap shadow-sm'>
-                    <svg class='size-2.5' viewBox='0 0 8 8' fill='none' aria-hidden='true'>
-                      <circle cx='4' cy='4' r='3.5' stroke='currentColor' stroke-width='1'></circle>
-                      <path d='M4 2.5V4.5M4 5.5v.5' stroke='currentColor' stroke-width='1' stroke-linecap='round'></path>
+              <!-- ── ZONE 1: ADS ── -->
+              <div class='serp-zone relative px-5 py-3 border-b border-gray-100'>
+
+                <!-- Floating annotation (right side) -->
+                <div class='serp-badge absolute z-10' style='right: -2px; top: 8px;'>
+                  <div class='flex items-center gap-1.5 rounded-full bg-gray-100 border border-gray-200 px-2.5 py-1 text-[10px] font-semibold text-gray-500 shadow-sm'>
+                    <svg class='size-2.5 shrink-0' viewBox='0 0 8 8' fill='none' aria-hidden='true'>
+                      <circle cx='4' cy='4' r='3.5' stroke='currentColor' stroke-width='1'/>
+                      <path d='M4 2.5V4.5M4 5.5v.5' stroke='currentColor' stroke-width='1' stroke-linecap='round'/>
                     </svg>
                     Pagas por cada clic
-                  </span>
+                  </div>
                 </div>
 
                 <p class='text-[10px] text-gray-400 uppercase tracking-wide font-medium mb-2'>Anuncios</p>
-                <div class='space-y-3 opacity-35'>
-                  {['Clínica Dental Premium BCN — Implantes desde 699 €', 'Dental Express Barcelona — Urgencias 24h'].map(ad => (
+                <div class='space-y-3 opacity-30 pointer-events-none'>
+                  {[
+                    'Clínica Dental Premium BCN — Implantes desde 699 €',
+                    'Dental Express Barcelona — Urgencias 24h',
+                  ].map(ad => (
                     <div>
                       <div class='flex items-center gap-1.5 mb-0.5'>
                         <span class='text-[9px] border border-gray-400 text-gray-500 px-1 rounded leading-tight'>Patrocinado</span>
                         <span class='text-[11px] text-[#006621] truncate'>clinicabcn.es</span>
                       </div>
                       <p class='text-[13px] text-[#1a0dab] font-medium leading-snug'>{ad}</p>
-                      <p class='text-[11px] text-gray-500'>Tratamientos dentales de calidad · Reserva online · Sin esperas</p>
+                      <p class='text-[11px] text-gray-500'>Tratamientos dentales · Reserva online · Sin esperas</p>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <!-- ── SECTION 2: LOCAL PACK (HERO of the diagram) ── -->
+              <!-- ── ZONE 2: LOCAL PACK (star of the show) ── -->
               <div class='serp-local-pack relative px-5 py-3.5 border-b border-gray-100'>
 
-                <!-- Glowing ring highlight -->
-                <div
-                  class='absolute inset-0 pointer-events-none'
-                  aria-hidden='true'
-                  style='background: linear-gradient(135deg, rgba(14,165,233,0.04) 0%, rgba(14,165,233,0.02) 100%); border-left: 3px solid #0ea5e9;'>
+                <!-- Left highlight bar + bg tint -->
+                <div class='absolute inset-0 pointer-events-none' aria-hidden='true'
+                  style='background: linear-gradient(135deg, rgba(14,165,233,0.05) 0%, rgba(14,165,233,0.02) 100%); border-left: 3px solid #0ea5e9;'>
                 </div>
 
-                <!-- Annotation badge: floating -->
-                <div class='serp-badge-local absolute -right-1 top-2 z-10'>
-                  <span
-                    class='inline-flex items-center gap-1.5 rounded-full bg-sky-600 px-2.5 py-1 text-[10px] font-bold text-white whitespace-nowrap shadow-md'>
+                <!-- Floating annotations -->
+                <div class='serp-badge absolute z-10' style='right: -2px; top: 6px;'>
+                  <div class='flex items-center gap-1.5 rounded-full bg-sky-600 px-2.5 py-1 text-[10px] font-bold text-white shadow-md'>
                     <span class='size-1.5 rounded-full bg-white/80 animate-pulse' aria-hidden='true'></span>
                     44 % de los clics
-                  </span>
+                  </div>
                 </div>
-                <div class='serp-badge-local-sub absolute -right-1 top-9 z-10'>
-                  <span class='inline-flex items-center gap-1 rounded-full bg-orange-500 px-2.5 py-1 text-[10px] font-bold text-white whitespace-nowrap shadow-md'>
+                <div class='serp-badge absolute z-10' style='right: -2px; top: 32px;'>
+                  <div class='flex items-center gap-1 rounded-full bg-orange-500 px-2.5 py-1 text-[10px] font-bold text-white shadow-md'>
                     Aquí debes estar
-                  </span>
+                  </div>
                 </div>
 
-                <!-- Local pack heading -->
-                <p class='text-[11px] font-semibold text-sky-700 mb-2.5 flex items-center gap-1.5'>
+                <p class='text-[11px] font-semibold text-sky-700 mb-2.5 flex items-center gap-1.5 relative'>
                   <svg class='size-3' viewBox='0 0 16 16' fill='none' aria-hidden='true'>
-                    <path d='M8 1.5C5.51 1.5 3.5 3.51 3.5 6c0 3.5 4.5 8.5 4.5 8.5S12.5 9.5 12.5 6c0-2.49-2.01-4.5-4.5-4.5zm0 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z' fill='currentColor'></path>
+                    <path d='M8 1.5C5.51 1.5 3.5 3.51 3.5 6c0 3.5 4.5 8.5 4.5 8.5S12.5 9.5 12.5 6c0-2.49-2.01-4.5-4.5-4.5zm0 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z' fill='currentColor'/>
                   </svg>
                   Negocios locales
                 </p>
 
-                <div class='flex gap-3'>
+                <div class='flex gap-3 relative'>
                   <!-- Mini map -->
-                  <div
-                    class='shrink-0 w-[88px] h-[88px] rounded-lg overflow-hidden bg-[#e8edd4] relative border border-gray-200'
-                    aria-hidden='true'>
-                    <svg class='absolute inset-0 w-full h-full' xmlns='http://www.w3.org/2000/svg'>
-                      <line x1='0' y1='30' x2='88' y2='30' stroke='white' stroke-width='4'></line>
-                      <line x1='0' y1='58' x2='88' y2='58' stroke='white' stroke-width='3'></line>
-                      <line x1='30' y1='0' x2='30' y2='88' stroke='white' stroke-width='4'></line>
-                      <line x1='62' y1='0' x2='62' y2='88' stroke='white' stroke-width='3'></line>
-                      <rect x='33' y='8' width='26' height='18' rx='1.5' fill='#d4dfc0'></rect>
-                      <rect x='4' y='34' width='23' height='20' rx='1.5' fill='#cdd9b8'></rect>
-                      <rect x='65' y='34' width='20' height='16' rx='1.5' fill='#d4dfc0'></rect>
+                  <div class='relative shrink-0 w-[88px] h-[88px] rounded-lg overflow-hidden bg-[#e8edd4] border border-gray-200' aria-hidden='true'>
+                    <svg class='w-full h-full' xmlns='http://www.w3.org/2000/svg'>
+                      <line x1='0' y1='30' x2='88' y2='30' stroke='white' stroke-width='4'/>
+                      <line x1='0' y1='58' x2='88' y2='58' stroke='white' stroke-width='3'/>
+                      <line x1='30' y1='0' x2='30' y2='88' stroke='white' stroke-width='4'/>
+                      <line x1='62' y1='0' x2='62' y2='88' stroke='white' stroke-width='3'/>
+                      <rect x='33' y='8' width='26' height='18' rx='1.5' fill='#d4dfc0'/>
+                      <rect x='4' y='34' width='23' height='20' rx='1.5' fill='#cdd9b8'/>
+                      <rect x='65' y='34' width='20' height='16' rx='1.5' fill='#d4dfc0'/>
                     </svg>
                     <!-- Pins -->
-                    <div class='absolute' style='top: 33%; left: 28%;'>
-                      <div class='size-5 bg-[#4285F4] rounded-full border-2 border-white shadow-md flex items-center justify-center'>
-                        <span class='text-white text-[8px] font-black leading-none'>1</span>
+                    <div style='position:absolute; top:33%; left:28%;'>
+                      <div style='position:relative;'>
+                        <div class='size-5 bg-[#4285F4] rounded-full border-2 border-white shadow-md flex items-center justify-center' style='position:relative; z-index:1;'>
+                          <span class='text-white text-[8px] font-black leading-none'>1</span>
+                        </div>
+                        <div class='absolute inset-0 rounded-full bg-[#4285F4]/30' style='animation: pin-ring 2s ease-out infinite;'></div>
                       </div>
                     </div>
-                    <div class='absolute' style='top: 52%; left: 58%;'>
+                    <div style='position:absolute; top:52%; left:58%;'>
                       <div class='size-4 bg-gray-400 rounded-full border border-white shadow flex items-center justify-center'>
                         <span class='text-white text-[7px] font-bold leading-none'>2</span>
                       </div>
                     </div>
-                    <div class='absolute' style='top: 18%; left: 60%;'>
+                    <div style='position:absolute; top:18%; left:60%;'>
                       <div class='size-4 bg-gray-400 rounded-full border border-white shadow flex items-center justify-center'>
                         <span class='text-white text-[7px] font-bold leading-none'>3</span>
                       </div>
@@ -300,29 +324,29 @@ const hasQuestion = headingParts.length > 1
                   </div>
 
                   <!-- Listings -->
-                  <div class='flex-1 divide-y divide-gray-100 min-w-0'>
-                    <!-- #1: Highlighted -->
-                    <div class='pb-2 bg-[#f0f7ff] rounded-t-md px-2 py-1.5 border border-[#4285F4]/20 rounded-md mb-1'>
+                  <div class='flex-1 min-w-0 space-y-1'>
+                    <!-- #1 highlighted -->
+                    <div class='rounded-lg bg-[#f0f7ff] border border-[#4285F4]/20 px-2.5 py-2'>
                       <div class='flex items-start justify-between gap-2'>
                         <div class='min-w-0'>
-                          <p class='text-[12px] font-semibold text-gray-900 truncate'>Tu Negocio</p>
+                          <p class='text-[12px] font-bold text-gray-900 truncate'>Tu Negocio</p>
                           <div class='flex items-center gap-1 mt-0.5'>
                             <span class='text-yellow-400 text-[10px] leading-none'>★★★★★</span>
                             <span class='text-[10px] text-gray-500'>4.9 · 127</span>
                           </div>
                           <p class='text-[10px] text-[#137333] font-medium'>Abierto · 0.3 km</p>
                         </div>
-                        <span class='shrink-0 text-[10px] text-[#1a73e8] font-semibold border border-[#1a73e8]/30 rounded-full px-2 py-0.5'>
+                        <span class='shrink-0 text-[10px] text-[#1a73e8] font-bold border border-[#1a73e8]/30 rounded-full px-2 py-0.5 whitespace-nowrap'>
                           Llamar
                         </span>
                       </div>
                     </div>
-                    <!-- #2, #3: dimmed -->
+                    <!-- #2 & #3 dimmed -->
                     {[
-                      { name: 'Dental Center BCN', rating: '4.2', dist: '0.8 km' },
+                      { name: 'Dental Center BCN',  rating: '4.2', dist: '0.8 km' },
                       { name: 'Odontología Gràcia', rating: '3.8', dist: '1.2 km' },
                     ].map(b => (
-                      <div class='py-1.5 opacity-40'>
+                      <div class='px-2.5 py-1.5 opacity-35'>
                         <p class='text-[11px] font-semibold text-gray-700'>{b.name}</p>
                         <p class='text-[10px] text-gray-400'>{b.rating} ★ · {b.dist}</p>
                       </div>
@@ -330,22 +354,20 @@ const hasQuestion = headingParts.length > 1
                   </div>
                 </div>
 
-                <!-- "Ver más en Maps" link -->
-                <p class='text-[11px] text-[#1a73e8] mt-2'>Ver más en Maps →</p>
+                <p class='text-[11px] text-[#1a73e8] mt-2 relative'>Ver más en Maps →</p>
               </div>
 
-              <!-- ── SECTION 3: ORGANIC (faded) ── -->
-              <div class='serp-organic relative px-5 py-3'>
-                <!-- Annotation -->
-                <div class='serp-badge-organic absolute -right-1 top-2 z-10'>
-                  <span class='inline-flex items-center gap-1 rounded-full bg-petrol-100 border border-petrol-100 px-2.5 py-1 text-[10px] font-semibold text-petrol-600 whitespace-nowrap shadow-sm'>
+              <!-- ── ZONE 3: ORGANIC (faded) ── -->
+              <div class='serp-zone relative px-5 py-3'>
+                <div class='serp-badge absolute z-10' style='right: -2px; top: 8px;'>
+                  <div class='flex items-center rounded-full bg-petrol-100 border border-petrol-100 px-2.5 py-1 text-[10px] font-semibold text-petrol-600 shadow-sm'>
                     Resultados orgánicos
-                  </span>
+                  </div>
                 </div>
-                <div class='opacity-25 space-y-3'>
+                <div class='opacity-22 space-y-3 pointer-events-none'>
                   {[
-                    { url: 'clinicabarcelona.es', title: 'Clínica Dental Barcelona — Tratamientos Dentales de Calidad', snippet: 'Más de 20 años de experiencia en odontología. Solicita tu cita...' },
-                    { url: 'dentalbarcelona.com', title: 'Dentista Barcelona — Implantes, Estética, Ortodoncia', snippet: 'Tu clínica dental en el corazón de Barcelona. Primeras visitas...' },
+                    { url: 'clinicabarcelona.es', title: 'Clínica Dental Barcelona — Tratamientos de Calidad', snippet: 'Más de 20 años de experiencia en odontología. Solicita tu cita...' },
+                    { url: 'dentalbarcelona.com', title: 'Dentista Barcelona — Implantes, Estética, Ortodoncia',  snippet: 'Tu clínica dental en el corazón de Barcelona. Primeras visitas...' },
                   ].map(r => (
                     <div>
                       <p class='text-[11px] text-[#006621] mb-0.5'>{r.url}</p>
@@ -354,10 +376,8 @@ const hasQuestion = headingParts.length > 1
                     </div>
                   ))}
                 </div>
-                <!-- Gradient fade at bottom -->
-                <div
-                  class='absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-white to-transparent pointer-events-none'
-                  aria-hidden='true'></div>
+                <!-- Fade out -->
+                <div class='absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-white to-transparent pointer-events-none' aria-hidden='true'></div>
               </div>
 
             </div>
@@ -368,77 +388,50 @@ const hasQuestion = headingParts.length > 1
             <Fragment set:html={mockupCaption} />
           </p>
 
-          <!-- Decorative glow beneath card -->
-          <div
-            class='absolute -bottom-8 left-1/2 -translate-x-1/2 w-3/4 h-16 bg-sky-500/10 blur-3xl rounded-full pointer-events-none'
-            aria-hidden='true'></div>
+          <!-- Glow beneath card -->
+          <div class='absolute -bottom-8 left-1/2 -translate-x-1/2 w-3/4 h-16 bg-sky-500/10 blur-3xl rounded-full pointer-events-none' aria-hidden='true'></div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
 <style>
-  /* ── Heading typography ── */
-  .explainer-heading {
-    font-family: 'Titan One', cursive;
-    font-size: clamp(2rem, 4vw, 3.25rem);
-    letter-spacing: -0.015em;
-  }
-
-  .explainer-question {
-    color: var(--color-sky-600);
-    display: inline;
-  }
-
-  /* ── Watermark numbers ── */
-  .explainer-num {
-    font-family: 'Titan One', cursive;
-    font-size: 4.5rem;
-    line-height: 1;
-    color: var(--color-petrol-100);
-    opacity: 0.6;
-    transition: opacity 0.3s ease, color 0.3s ease;
-    user-select: none;
-  }
-
-  .explainer-item:hover .explainer-num {
-    color: var(--color-sky-100);
-    opacity: 1;
-  }
-
-  /* ── SERP annotation badges ── */
-  .serp-badge-ads,
-  .serp-badge-local,
-  .serp-badge-local-sub,
-  .serp-badge-organic {
-    transform: translateX(calc(100% - 4px));
-    transition: opacity 0.2s ease;
-  }
-
-  /* On smaller screens, hide the absolute badges to avoid overflow */
-  @media (max-width: 900px) {
-    .serp-badge-ads,
-    .serp-badge-local,
-    .serp-badge-local-sub,
-    .serp-badge-organic {
-      display: none;
-    }
-  }
-
-  /* ── Local Pack section pulse border ── */
+  /* ── SERP Local Pack glow ── */
   .serp-local-pack {
     animation: local-pack-glow 3s ease-in-out infinite;
   }
 
   @keyframes local-pack-glow {
-    0%, 100% { box-shadow: inset 3px 0 0 rgba(14, 165, 233, 0.6); }
-    50%       { box-shadow: inset 3px 0 0 rgba(14, 165, 233, 1), 2px 0 12px rgba(14, 165, 233, 0.15); }
+    0%, 100% { box-shadow: inset 3px 0 0 rgba(14, 165, 233, 0.55); }
+    50%       { box-shadow: inset 3px 0 0 rgba(14, 165, 233, 1), 2px 0 14px rgba(14, 165, 233, 0.14); }
+  }
+
+  /* ── Annotation badges (hidden on small screens) ── */
+  .serp-badge {
+    transform: translateX(calc(100% - 4px));
+  }
+
+  @media (max-width: 900px) {
+    .serp-badge { display: none; }
+  }
+
+  /* ── Scan line (uses @tailwindplus/elements keyframe if defined, else own) ── */
+  @keyframes serp-scan {
+    0%   { top: -2rem; }
+    100% { top: 100%; }
+  }
+
+  /* ── Map pin ring ── */
+  @keyframes pin-ring {
+    0%   { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(2.6); opacity: 0; }
   }
 
   /* ── Reduced motion ── */
   @media (prefers-reduced-motion: reduce) {
-    .serp-scanline { animation: none !important; opacity: 0; }
+    .serp-scanline  { animation: none !important; opacity: 0; }
     .serp-local-pack { animation: none !important; }
   }
 </style>
