@@ -3,7 +3,6 @@ import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 
 import sitemap from "@astrojs/sitemap";
-import partytown from "@astrojs/partytown";
 
 const PAGE_LASTMOD = {
   "https://salvaseo.com/": "2026-03-03",
@@ -27,11 +26,6 @@ export default defineConfig({
       serialize: (item) => {
         item.lastmod = PAGE_LASTMOD[item.url] ?? item.url;
         return item;
-      },
-    }),
-    partytown({
-      config: {
-        forward: ["dataLayer.push", "gtag"],
       },
     }),
   ],
