@@ -10,7 +10,6 @@ import {
   Target,
   TrendingUp,
 } from "@lucide/astro";
-import Upheading from "../../Upheading.astro";
 
 type IconKey =
   | "scale"
@@ -119,133 +118,192 @@ const {
   ctaLabel = "Solicita tu análisis local por WhatsApp",
 } = Astro.props;
 
-// Split heading for typographic accent on last clause
+// Heading split: "De no aparecer en el mapa" / "a recibir llamadas cada semana"
 const splitIdx = heading.lastIndexOf(' a recibir ');
 const headingBefore = splitIdx > -1 ? heading.slice(0, splitIdx) : heading;
 const headingAfter  = splitIdx > -1 ? heading.slice(splitIdx + 1) : '';
 
-// Phase fills: 1/4 → 4/4
-const fillPercents = ['25%', '50%', '75%', '100%'];
-// Last phase uses green/maps-green accent
+// Accent the last two words of headingAfter in orange
+const afterWords = headingAfter.split(' ');
+const headingAfterMain   = afterWords.slice(0, -2).join(' ');
+const headingAfterAccent = afterWords.slice(-2).join(' ');
+
 const lastIdx = phases.length - 1;
 ---
 
 <section
   id={sectionId}
-  class="relative bg-warm-white py-24 sm:py-32 overflow-hidden"
+  class="relative bg-petrol-900 py-24 sm:py-32 overflow-hidden"
 >
-  <!-- Subtle top wave from dark Services section -->
-  <div class="absolute top-0 left-0 right-0 pointer-events-none" aria-hidden="true">
-    <svg viewBox="0 0 1440 32" fill="none" xmlns="http://www.w3.org/2000/svg"
-      class="w-full h-8" preserveAspectRatio="none">
-      <path d="M0 0L480 20L960 8L1440 24V0H0Z" fill="#1A3C4A" opacity="0.06" />
-    </svg>
-  </div>
+
+  <!-- Subtle dot-grid texture -->
+  <div
+    class="pointer-events-none absolute inset-0"
+    aria-hidden="true"
+    style="background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 32px 32px;"
+  ></div>
+
+  <!-- Ambient glow — orange top-right -->
+  <div
+    class="pointer-events-none absolute -right-48 -top-48 w-[40rem] h-[40rem] rounded-full"
+    style="background: radial-gradient(circle, rgba(249,115,22,0.11) 0%, transparent 60%);"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Ambient glow — sky bottom-left -->
+  <div
+    class="pointer-events-none absolute -left-48 bottom-0 w-[36rem] h-[36rem] rounded-full"
+    style="background: radial-gradient(circle, rgba(14,165,233,0.09) 0%, transparent 60%);"
+    aria-hidden="true"
+  ></div>
 
   <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
 
-    <!-- ── Header ── -->
-    <div class="max-w-3xl mx-auto text-center mb-16 lg:mb-20" data-animate>
-      {upheading && <Upheading as="p" text={upheading} class="mb-3" />}
-      <h2 class="timeline-heading text-petrol-900 leading-[1.08]">
-        {headingBefore}
-        {headingAfter && (
-          <span class="timeline-heading-accent"> {headingAfter}</span>
+    <!-- ── Section header ───────────────────────────────────────────── -->
+    <div class="max-w-3xl mb-14 lg:mb-18" data-animate>
+
+      {upheading && (
+        <div class="flex items-center gap-3 mb-7">
+          <span class="block h-px w-10 bg-orange-500" aria-hidden="true"></span>
+          <p class="text-[0.68rem] font-bold uppercase tracking-[0.22em] text-orange-400">
+            {upheading}
+          </p>
+        </div>
+      )}
+
+      <h2
+        class="leading-[0.92] tracking-tight"
+        style="font-family: 'Titan One', cursive;"
+      >
+        {headingBefore && (
+          <span
+            class="block mb-2 leading-snug"
+            style="font-size: clamp(1.35rem, 2.8vw, 2rem); color: rgba(255,255,255,0.3);"
+          >
+            {headingBefore}
+          </span>
         )}
+        <span
+          class="block text-white"
+          style="font-size: clamp(2.4rem, 5.2vw, 4rem); line-height: 0.92;"
+        >
+          {headingAfterMain && <>{headingAfterMain} </>}
+          <span style="color: var(--color-orange-400);">{headingAfterAccent}</span>
+        </span>
       </h2>
-      <p class="mt-5 text-base lg:text-lg text-petrol-700 leading-relaxed max-w-[52ch] mx-auto text-pretty">
+
+      <div class="mt-5 flex items-center gap-2">
+        <div class="h-[3px] w-14 bg-orange-500 rounded-full"></div>
+        <div class="h-px flex-1 max-w-[6rem]" style="background: linear-gradient(90deg, rgba(249,115,22,0.5), transparent);"></div>
+      </div>
+
+      <p
+        class="mt-5 text-base lg:text-lg leading-relaxed max-w-[52ch] text-pretty"
+        style="color: rgba(255,255,255,0.55);"
+      >
         {subtitle}
       </p>
     </div>
 
-    <!-- ── Journey rail (desktop only) ── -->
-    <div class="hidden lg:block relative mb-10 px-[6.25%]" aria-hidden="true">
-      <!-- Left endpoint -->
-      <div class="journey-endpoint journey-endpoint--start">
-        <span class="journey-pin journey-pin--grey">
-          <!-- Ghost pin (no visibility) -->
-          <svg class="size-4" viewBox="0 0 16 16" fill="none">
-            <path d="M8 1.5C5.51 1.5 3.5 3.51 3.5 6c0 3.5 4.5 8.5 4.5 8.5S12.5 9.5 12.5 6c0-2.49-2.01-4.5-4.5-4.5zm0 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
-              fill="currentColor" />
-          </svg>
-        </span>
-        <span class="journey-label">Sin visibilidad</span>
+    <!-- ── Step indicator — hardcoded 4 steps, no dynamic classes ─── -->
+    <div class="step-indicator mb-12" data-animate aria-label="Proceso en 4 pasos">
+      <!-- Step 1 -->
+      <div class="step-item">
+        <div class="step-bubble">1</div>
+        <span class="step-name">{phases[0]?.title.split(' ')[0] ?? 'Paso 1'}</span>
       </div>
-
-      <!-- Right endpoint -->
-      <div class="journey-endpoint journey-endpoint--end">
-        <span class="journey-pin journey-pin--green">
+      <!-- Connector -->
+      <div class="step-connector" aria-hidden="true">
+        <div class="step-connector-line"></div>
+        <svg class="step-connector-arrow" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+          <path d="M2 5h6M5.5 2l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <!-- Step 2 -->
+      <div class="step-item">
+        <div class="step-bubble">2</div>
+        <span class="step-name">{phases[1]?.title.split(' ')[0] ?? 'Paso 2'}</span>
+      </div>
+      <!-- Connector -->
+      <div class="step-connector" aria-hidden="true">
+        <div class="step-connector-line"></div>
+        <svg class="step-connector-arrow" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+          <path d="M2 5h6M5.5 2l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <!-- Step 3 -->
+      <div class="step-item">
+        <div class="step-bubble">3</div>
+        <span class="step-name">{phases[2]?.title.split(' ')[0] ?? 'Paso 3'}</span>
+      </div>
+      <!-- Connector -->
+      <div class="step-connector" aria-hidden="true">
+        <div class="step-connector-line"></div>
+        <svg class="step-connector-arrow" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+          <path d="M2 5h6M5.5 2l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <!-- Step 4 — result state -->
+      <div class="step-item step-item--arrive">
+        <div class="step-bubble step-bubble--arrive">
           <!-- Phone icon -->
-          <svg class="size-4" viewBox="0 0 16 16" fill="none">
-            <path d="M13.5 10.5l-1.5-1.5c-.4-.4-1-.4-1.4 0l-.8.8c-.2.2-.5.2-.7.1C8.4 9.4 7.5 8.5 7.1 7.9c-.1-.2-.1-.5.1-.7l.8-.8c.4-.4.4-1 0-1.4L6.5 3.5c-.4-.4-1-.4-1.4 0L4.3 4.3C3.5 5.1 3.3 6.2 3.7 7.2 4.6 9.5 7 11.4 9.5 12.3c.9.3 2 .1 2.7-.6l.7-.7c.4-.4.4-1 0-1.5z"
-              fill="currentColor" />
+          <svg class="size-5" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M13.5 10.5l-1.5-1.5c-.4-.4-1-.4-1.4 0l-.8.8c-.2.2-.5.2-.7.1C8.4 9.4 7.5 8.5 7.1 7.9c-.1-.2-.1-.5.1-.7l.8-.8c.4-.4.4-1 0-1.4L6.5 3.5c-.4-.4-1-.4-1.4 0L4.3 4.3C3.5 5.1 3.3 6.2 3.7 7.2 4.6 9.5 7 11.4 9.5 12.3c.9.3 2 .1 2.7-.6l.7-.7c.4-.4.4-1 0-1.5z" fill="currentColor"/>
           </svg>
-        </span>
-        <span class="journey-label">Llamadas recurrentes</span>
-      </div>
-
-      <!-- Connector dashes -->
-      <div class="journey-connector" aria-hidden="true"></div>
-
-      <!-- Phase nodes -->
-      <div class={`grid grid-cols-${phases.length}`}>
-        {phases.map((phase, idx) => {
-          const isLast = idx === lastIdx;
-          return (
-            <div class="flex flex-col items-center gap-2">
-              <div class:list={['journey-node', isLast ? 'journey-node--arrive' : 'journey-node--active']}>
-                <span class="journey-node-num">{idx + 1}</span>
-              </div>
-              <span class="journey-node-label">{phase.title.split(' ').slice(0, 3).join(' ')}…</span>
-            </div>
-          );
-        })}
+        </div>
+        <span class="step-name step-name--arrive">Llamadas</span>
       </div>
     </div>
 
-    <!-- ── Phase cards grid ── -->
-    <div class={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-${phases.length} gap-5`}>
+    <!-- ── Phase cards — 4 columns hardcoded ────────────────────────── -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
       {phases.map((phase, idx) => {
         const isLast = idx === lastIdx;
-        const fill = fillPercents[idx] ?? '100%';
+        const num    = String(idx + 1).padStart(2, '0');
+        const Icon0  = iconByKey[phase.bullets[0]?.icon];
+        const Icon1  = iconByKey[phase.bullets[1]?.icon];
+        const Icon2  = iconByKey[phase.bullets[2]?.icon];
+        const icons  = [Icon0, Icon1, Icon2];
 
         return (
           <article
-            class:list={['phase-card group', isLast && 'phase-card--arrive']}
+            class:list={['phase-card', isLast && 'phase-card--arrive']}
             data-animate
-            data-animate-delay={idx * 100}
+            data-animate-delay={idx * 90}
           >
-            <!-- Watermark number -->
-            <span class="phase-num" aria-hidden="true">{idx + 1}</span>
-
-            <!-- Progress fill bar -->
-            <div class="phase-progress-track" aria-hidden="true">
-              <div
-                class:list={['phase-progress-fill', isLast ? 'phase-progress-fill--arrive' : '']}
-                style={`width: ${fill};`}
-              ></div>
-            </div>
-
-            <!-- Phase number badge + title -->
-            <div class="flex items-start gap-3 mb-4">
-              <span class:list={['phase-badge', isLast ? 'phase-badge--arrive' : '']}>
-                {idx + 1}
+            <!-- Card top: step label + big number -->
+            <div class="card-header">
+              <span class:list={['card-paso-label', isLast && 'card-paso-label--arrive']}>
+                {isLast ? 'Resultado' : `Paso ${idx + 1}`}
               </span>
-              <h3 class="phase-title">{phase.title}</h3>
+              <div class:list={['card-numeral', isLast && 'card-numeral--arrive']} aria-hidden="true">
+                {num}
+              </div>
             </div>
+
+            <!-- Divider -->
+            <div class:list={['card-divider', isLast && 'card-divider--arrive']}></div>
+
+            <!-- Phase title -->
+            <h3 class="card-title">{phase.title}</h3>
 
             <!-- Intro -->
-            <p class="phase-intro">{phase.intro}</p>
+            <p class="card-intro">{phase.intro}</p>
 
             <!-- Bullets -->
-            <ul class="phase-bullets">
-              {phase.bullets.map((bullet) => {
-                const Icon = iconByKey[bullet.icon];
+            <ul class="card-bullets" role="list">
+              {phase.bullets.map((bullet, bi) => {
+                const BulletIcon = icons[bi];
                 return (
-                  <li class="phase-bullet">
-                    <Icon aria-hidden="true" class="phase-bullet-icon" />
+                  <li class="card-bullet">
+                    {BulletIcon && (
+                      <BulletIcon
+                        aria-hidden="true"
+                        class:list={['card-bullet-icon', isLast && 'card-bullet-icon--arrive']}
+                      />
+                    )}
                     <span>
-                      <strong class="phase-bullet-em">{bullet.emphasis}</strong>
+                      <strong class="card-bullet-em">{bullet.emphasis}</strong>
                       {' '}{bullet.text}
                     </span>
                   </li>
@@ -254,38 +312,43 @@ const lastIdx = phases.length - 1;
             </ul>
 
             <!-- Outro -->
-            <p class="phase-outro">{phase.outro}</p>
+            <p class="card-outro">{phase.outro}</p>
           </article>
         );
       })}
     </div>
 
-    <!-- ── CTA banner ── -->
-    <div class="mt-14 relative rounded-2xl overflow-hidden" data-animate>
-      <!-- Dark background -->
-      <div class="cta-banner">
-        <!-- Ambient orb -->
+    <!-- ── CTA banner ─────────────────────────────────────────────── -->
+    <div class="mt-12" data-animate>
+      <div class="cta-panel">
+
+        <!-- Decorative glows -->
         <div
-          class="pointer-events-none absolute -right-20 -top-20 size-64 rounded-full opacity-20"
-          style="background: radial-gradient(circle, rgba(249,115,22,0.4) 0%, transparent 70%);"
+          class="pointer-events-none absolute -right-12 -top-12 size-52 rounded-full"
+          style="background: radial-gradient(circle, rgba(249,115,22,0.18) 0%, transparent 65%);"
           aria-hidden="true"
         ></div>
         <div
-          class="pointer-events-none absolute -left-10 -bottom-10 size-48 rounded-full opacity-15"
-          style="background: radial-gradient(circle, rgba(14,165,233,0.4) 0%, transparent 70%);"
+          class="pointer-events-none absolute -left-8 -bottom-8 size-44 rounded-full"
+          style="background: radial-gradient(circle, rgba(14,165,233,0.15) 0%, transparent 65%);"
           aria-hidden="true"
         ></div>
 
-        <div class="relative flex flex-col lg:flex-row items-center gap-6 lg:gap-10">
+        <div class="relative flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           <div class="flex-1 text-center lg:text-left">
-            <p class="text-xl font-semibold text-white leading-snug mb-2">{ctaHeading}</p>
-            <p class="text-[0.9375rem] text-petrol-100 leading-relaxed max-w-[50ch]">{ctaText}</p>
+            <p class="text-xl font-bold text-white leading-snug mb-2">{ctaHeading}</p>
+            <p
+              class="text-[0.9375rem] leading-relaxed max-w-[50ch]"
+              style="color: rgba(255,255,255,0.6);"
+            >
+              {ctaText}
+            </p>
           </div>
           <a
             href={ctaHref}
             target="_blank"
             rel="noopener noreferrer nofollow"
-            class="cta-wa-btn shrink-0"
+            class="cta-btn shrink-0"
           >
             <!-- WhatsApp icon -->
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -302,278 +365,271 @@ const lastIdx = phases.length - 1;
 </section>
 
 <style>
-  /* ── Heading typography ── */
-  .timeline-heading {
-    font-family: 'Titan One', cursive;
-    font-size: clamp(1.875rem, 4vw, 3.25rem);
-    letter-spacing: -0.015em;
+  /* ═══════════════════════════════════════
+     STEP INDICATOR
+     Hardcoded 4 steps — no dynamic Tailwind
+  ═══════════════════════════════════════ */
+  .step-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    max-width: 640px;
   }
 
-  .timeline-heading-accent {
-    color: var(--color-orange-500);
-  }
-
-  /* ────────────────────────────
-     JOURNEY RAIL
-  ──────────────────────────── */
-  .journey-connector {
-    position: absolute;
-    top: 24px; /* vertically centered on the 48px nodes */
-    left: calc(6.25% + 24px);  /* start at center of first node */
-    right: calc(6.25% + 24px); /* end at center of last node */
-    height: 2px;
-    background: repeating-linear-gradient(
-      90deg,
-      #0ea5e9 0, #0ea5e9 8px,
-      rgba(14, 165, 233, 0.2) 8px, rgba(14, 165, 233, 0.2) 16px
-    );
-    background-size: 16px 2px;
-    animation: dash-flow 0.55s linear infinite;
-  }
-
-  @keyframes dash-flow {
-    from { background-position: 0 0; }
-    to   { background-position: 16px 0; }
-  }
-
-  /* Endpoint labels */
-  .journey-endpoint {
-    position: absolute;
-    top: 0;
+  .step-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
-    z-index: 10;
-  }
-
-  .journey-endpoint--start { left: 0; }
-  .journey-endpoint--end   { right: 0; }
-
-  .journey-pin {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
+    gap: 8px;
     flex-shrink: 0;
   }
 
-  .journey-pin--grey  { background: #d1dde3; color: #3A6D82; }
-  .journey-pin--green { background: #34a853; color: #fff; }
-
-  .journey-label {
-    font-size: 10px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--color-petrol-600);
-    white-space: nowrap;
-  }
-
-  /* Phase nodes */
-  .journey-node {
-    width: 48px;
-    height: 48px;
+  .step-bubble {
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
+    background: rgba(14, 165, 233, 0.18);
+    border: 2px solid rgba(14, 165, 233, 0.5);
+    color: #38bdf8;
+    font-family: 'Titan One', cursive;
+    font-size: 1.125rem;
+    line-height: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    z-index: 10;
-    border: 2px solid white;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
   }
 
-  .journey-node--active {
-    background: var(--color-sky-500);
+  .step-bubble--arrive {
+    background: rgba(52, 168, 83, 0.18);
+    border-color: rgba(52, 168, 83, 0.6);
+    color: #34a853;
+    animation: bubble-arrive-pulse 2.4s ease-in-out infinite;
   }
 
-  .journey-node--arrive {
-    background: var(--color-maps-green);
+  @keyframes bubble-arrive-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(52, 168, 83, 0.3); }
+    50%       { box-shadow: 0 0 0 7px rgba(52, 168, 83, 0); }
   }
 
-  .journey-node-num {
-    font-family: 'Titan One', cursive;
-    font-size: 1.125rem;
-    color: white;
-    line-height: 1;
+  .step-name {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.38);
+    white-space: nowrap;
   }
 
-  .journey-node-label {
-    font-size: 10px;
-    color: var(--color-petrol-600);
-    text-align: center;
-    max-width: 80px;
-    line-height: 1.3;
+  .step-name--arrive {
+    color: #34a853;
   }
 
-  /* ────────────────────────────
+  .step-connector {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0 6px;
+    margin-bottom: 22px; /* offset for the label below bubbles */
+  }
+
+  .step-connector-line {
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.12);
+    background-image: repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.18) 0,
+      rgba(255,255,255,0.18) 5px,
+      transparent 5px,
+      transparent 10px
+    );
+  }
+
+  .step-connector-arrow {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    color: rgba(255, 255, 255, 0.2);
+  }
+
+  @media (max-width: 639px) {
+    .step-indicator {
+      display: none; /* Cards speak for themselves on mobile */
+    }
+  }
+
+  /* ═══════════════════════════════════════
      PHASE CARDS
-  ──────────────────────────── */
+  ═══════════════════════════════════════ */
   .phase-card {
     position: relative;
-    background: white;
-    border: 1px solid var(--color-border-default);
+    background: rgba(255, 255, 255, 0.055);
+    border: 1px solid rgba(255, 255, 255, 0.10);
     border-radius: 1rem;
     padding: 1.5rem;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
-    gap: 0;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    overflow: hidden;
+    transition:
+      transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.3s ease,
+      box-shadow 0.3s ease;
   }
 
   .phase-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 16px 40px -8px rgba(26, 60, 74, 0.14);
-    border-color: var(--color-sky-100);
+    border-color: rgba(14, 165, 233, 0.3);
+    box-shadow: 0 20px 48px -12px rgba(0, 0, 0, 0.45);
+  }
+
+  .phase-card--arrive {
+    border-color: rgba(52, 168, 83, 0.2);
+    background: rgba(52, 168, 83, 0.05);
   }
 
   .phase-card--arrive:hover {
-    border-color: rgba(52, 168, 83, 0.3);
+    border-color: rgba(52, 168, 83, 0.4);
   }
 
-  /* Watermark number */
-  .phase-num {
-    position: absolute;
-    top: -4px;
-    right: 6px;
+  /* ── Card header ── */
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-paso-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(14, 165, 233, 0.9);
+    margin-top: 0.2rem;
+  }
+
+  .card-paso-label--arrive {
+    color: #34a853;
+  }
+
+  .card-numeral {
     font-family: 'Titan One', cursive;
-    font-size: 5rem;
+    font-size: 3.5rem;
     line-height: 1;
-    color: var(--color-petrol-50);
-    pointer-events: none;
-    user-select: none;
+    color: rgba(255, 255, 255, 0.12);
+    letter-spacing: -0.02em;
+    margin-right: -0.25rem;
     transition: color 0.3s ease;
   }
 
-  .phase-card:hover .phase-num { color: var(--color-petrol-100); }
+  .phase-card:hover .card-numeral {
+    color: rgba(255, 255, 255, 0.2);
+  }
 
-  /* Progress bar */
-  .phase-progress-track {
-    height: 3px;
-    background: var(--color-petrol-50);
+  .card-numeral--arrive {
+    color: rgba(52, 168, 83, 0.2);
+  }
+
+  .phase-card--arrive:hover .card-numeral--arrive {
+    color: rgba(52, 168, 83, 0.35);
+  }
+
+  /* ── Divider ── */
+  .card-divider {
+    height: 2px;
     border-radius: 100px;
-    overflow: hidden;
-    margin-bottom: 1.25rem;
+    background: linear-gradient(90deg, rgba(14,165,233,0.6), rgba(14,165,233,0.1));
+    margin-bottom: 1rem;
   }
 
-  .phase-progress-fill {
-    height: 100%;
-    border-radius: 100px;
-    background: linear-gradient(90deg, #38bdf8, #0ea5e9);
-    transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  .card-divider--arrive {
+    background: linear-gradient(90deg, rgba(52,168,83,0.7), rgba(52,168,83,0.1));
   }
 
-  .phase-progress-fill--arrive {
-    background: linear-gradient(90deg, #34a853, #1e7e34);
-  }
-
-  /* Badge */
-  .phase-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 1.75rem;
-    height: 1.75rem;
-    border-radius: 50%;
-    background: var(--color-sky-500);
-    color: white;
-    font-size: 0.75rem;
-    font-weight: 700;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-
-  .phase-badge--arrive {
-    background: var(--color-maps-green);
-  }
-
-  /* Title */
-  .phase-title {
+  /* ── Title ── */
+  .card-title {
     font-size: 0.9375rem;
     font-weight: 700;
-    color: var(--color-heading);
+    color: rgba(255, 255, 255, 0.92);
     line-height: 1.4;
-    flex: 1;
+    margin-bottom: 0.625rem;
   }
 
-  /* Intro */
-  .phase-intro {
-    font-size: 0.875rem;
-    line-height: 1.7;
-    color: var(--color-body);
-    margin-bottom: 1rem;
-    margin-top: 0.25rem;
+  /* ── Intro ── */
+  .card-intro {
+    font-size: 0.8125rem;
+    line-height: 1.72;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 0.875rem;
   }
 
-  /* Bullets */
-  .phase-bullets {
+  /* ── Bullets ── */
+  .card-bullets {
     list-style: none;
-    margin: 0 0 1rem;
+    margin: 0 0 0.875rem;
     padding: 0;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
   }
 
-  .phase-bullet {
+  .card-bullet {
     display: flex;
     align-items: flex-start;
-    gap: 0.625rem;
-    font-size: 0.8125rem;
+    gap: 0.5rem;
+    font-size: 0.8rem;
     line-height: 1.65;
-    color: var(--color-body);
-    padding-left: 0.5rem;
-    border-left: 2px solid var(--color-sky-100);
+    color: rgba(255, 255, 255, 0.58);
+    padding-left: 0.375rem;
+    border-left: 1.5px solid rgba(14, 165, 233, 0.3);
   }
 
-  .phase-card--arrive .phase-bullet {
-    border-left-color: rgba(52, 168, 83, 0.3);
+  .phase-card--arrive .card-bullet {
+    border-left-color: rgba(52, 168, 83, 0.35);
   }
 
-  .phase-bullet-icon {
-    width: 1rem;
-    height: 1rem;
+  .card-bullet-icon {
+    width: 0.9rem;
+    height: 0.9rem;
     flex-shrink: 0;
-    margin-top: 0.1rem;
-    color: var(--color-sky-600);
+    margin-top: 0.2rem;
+    color: rgba(56, 189, 248, 0.85);
   }
 
-  .phase-card--arrive .phase-bullet-icon {
-    color: var(--color-maps-green);
+  .card-bullet-icon--arrive {
+    color: rgba(52, 168, 83, 0.9);
   }
 
-  .phase-bullet-em {
+  .card-bullet-em {
     font-weight: 600;
-    color: var(--color-heading);
+    color: rgba(255, 255, 255, 0.85);
   }
 
-  /* Outro */
-  .phase-outro {
-    font-size: 0.8125rem;
-    line-height: 1.65;
-    color: var(--color-petrol-600);
-    font-style: italic;
-    border-top: 1px solid var(--color-petrol-50);
-    padding-top: 0.875rem;
+  /* ── Outro ── */
+  .card-outro {
     margin-top: auto;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    font-size: 0.78rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.38);
+    font-style: italic;
   }
 
-  /* ────────────────────────────
-     CTA BANNER
-  ──────────────────────────── */
-  .cta-banner {
-    background: var(--color-petrol-900);
-    border-radius: 1rem;
-    padding: 2.5rem 2rem;
+  /* ═══════════════════════════════════════
+     CTA PANEL
+  ═══════════════════════════════════════ */
+  .cta-panel {
     position: relative;
     overflow: hidden;
+    border-radius: 1rem;
+    padding: 2.25rem 2rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.11);
   }
 
-  .cta-wa-btn {
+  .cta-btn {
     display: inline-flex;
     align-items: center;
     gap: 0.625rem;
@@ -581,26 +637,26 @@ const lastIdx = phases.length - 1;
     color: white;
     font-size: 0.875rem;
     font-weight: 700;
-    padding: 0.75rem 1.5rem;
+    padding: 0.8rem 1.5rem;
     border-radius: 0.5rem;
     text-decoration: none;
     white-space: nowrap;
-    transition: background 0.2s ease, transform 0.2s ease;
-    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   }
 
-  .cta-wa-btn:hover {
+  .cta-btn:hover {
     background: #1FAD54;
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+    box-shadow: 0 8px 28px rgba(37, 211, 102, 0.45);
   }
 
   /* ── Reduced motion ── */
   @media (prefers-reduced-motion: reduce) {
-    .journey-connector { animation: none; }
-    .phase-card { transition: none; }
-    .phase-card:hover { transform: none; }
-    .cta-wa-btn { transition: none; }
-    .cta-wa-btn:hover { transform: none; }
+    .step-bubble--arrive { animation: none; }
+    .phase-card          { transition: none; }
+    .phase-card:hover    { transform: none; }
+    .cta-btn             { transition: none; }
+    .cta-btn:hover       { transform: none; }
   }
 </style>
