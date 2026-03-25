@@ -76,81 +76,320 @@ const defaultServices: ServiceItem[] = [
 
 const {
   upheading = 'Servicios de SEO local para negocios en Barcelona',
-  heading = 'SEO local en Barcelona para escalar captación y facturación',
+  heading = 'Las palancas que determinan tu visibilidad en Google Maps',
   intro = 'Cada acción se ejecuta para que <strong>domines Google Maps y el Local Pack</strong>, aumentes contactos cualificados y conviertas búsquedas cercanas en ventas recurrentes.',
   services = defaultServices,
   ctaText,
   ctaHref,
 } = Astro.props
 
-const primaryServices = services.slice(0, 3)
-const secondaryServices = services.slice(3)
+// Visual metadata: signal bars (1–4) + optional callout stat
+const meta = [
+  { bars: 3, accent: 'sky',    stat: 'Punto de partida',         wide: false },
+  { bars: 4, accent: 'orange', stat: 'Hasta +70 % de contactos', wide: true  },
+  { bars: 3, accent: 'sky',    stat: null,                        wide: false },
+  { bars: 3, accent: 'sky',    stat: null,                        wide: false },
+  { bars: 3, accent: 'sky',    stat: null,                        wide: false },
+  { bars: 4, accent: 'sky',    stat: 'Señal de confianza clave',  wide: false },
+  { bars: 4, accent: 'orange', stat: '+30 % más llamadas',        wide: true  },
+]
 ---
 
-<div id='servicios-local' class='bg-white py-24 sm:py-32'>
-  <div class='mx-auto max-w-7xl px-6 lg:px-8'>
-    <div data-animate class='mx-auto max-w-2xl lg:mx-0'>
-      <Upheading as='h2' text={upheading} />
-      <p class='mt-2 text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl text-pretty'>
-        {heading}
-      </p>
-      <p class='mt-4 text-base/7 text-petrol-700 w-full max-w-[60ch]'>
+<section id='servicios-local' class='relative bg-petrol-900 py-24 sm:py-32 overflow-hidden'>
+
+  <!-- Background texture: fine dot grid -->
+  <div
+    class='pointer-events-none absolute inset-0 opacity-[0.06]'
+    style='background-image: radial-gradient(circle, #7dd3fc 1px, transparent 1px); background-size: 24px 24px;'
+    aria-hidden='true'></div>
+
+  <!-- Ambient glow blobs -->
+  <div
+    class='pointer-events-none absolute top-0 left-1/3 w-[500px] h-[500px] rounded-full opacity-20'
+    style='background: radial-gradient(circle, rgba(14,165,233,0.15) 0%, transparent 70%);'
+    aria-hidden='true'></div>
+  <div
+    class='pointer-events-none absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full opacity-15'
+    style='background: radial-gradient(circle, rgba(249,115,22,0.12) 0%, transparent 70%);'
+    aria-hidden='true'></div>
+
+  <div class='relative mx-auto max-w-7xl px-6 lg:px-8'>
+
+    <!-- ── Header ── -->
+    <div class='flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14 lg:mb-16' data-animate>
+      <div class='max-w-2xl'>
+        <Upheading as='p' text={upheading} color='var(--color-sky-500)' />
+        <h2
+          class='mt-3 text-white leading-[1.1]'
+          style='font-family: "Titan One", cursive; font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.015em;'>
+          {heading}
+        </h2>
+      </div>
+      <p class='text-petrol-100 text-base leading-relaxed max-w-sm lg:text-right lg:mb-1'>
         <Fragment set:html={intro} />
       </p>
     </div>
 
-    <!-- Local Pack card: top 3 services -->
-    <div data-animate class='mx-auto mt-16 max-w-2xl bg-white border border-petrol-100 rounded-xl overflow-hidden border-t-2 border-t-sky-200'>
-      <div class='flex items-center gap-2 px-6 py-3 border-b border-petrol-100 bg-petrol-50/50'>
-        <MapPin class='size-4 text-maps-green' aria-hidden='true' />
-        <span class='text-sm font-semibold text-petrol-900'>Servicios principales</span>
-      </div>
-      {primaryServices.map((service, idx) => {
+    <!-- ── Services grid ── -->
+    <div class='services-grid'>
+      {services.map((service, idx) => {
         const Icon = iconByKey[service.icon]
+        const m = meta[idx] ?? { bars: 3, accent: 'sky', stat: null, wide: false }
+        const isOrange = m.accent === 'orange'
+        const accentColor = isOrange ? 'var(--color-orange-500)' : 'var(--color-sky-500)'
+        const barClass = isOrange ? 'svc-bar-orange' : 'svc-bar-sky'
+        const iconBgClass = isOrange ? 'svc-icon-orange' : 'svc-icon-sky'
+
         return (
-          <div class:list={['flex gap-4 px-6 py-5', idx < primaryServices.length - 1 && 'border-b border-petrol-100']}>
-            <Icon class='size-6 shrink-0 mt-0.5 text-sky-600' aria-hidden='true' />
-            <div>
-              <h3 class='text-base font-semibold text-petrol-900'>{service.title}</h3>
-              <p class='mt-1 text-sm/6 text-petrol-700'>
-                <Fragment set:html={service.description} />
-              </p>
+          <article
+            class:list={[
+              'svc-card group relative flex flex-col gap-5 rounded-2xl p-6 border transition-all duration-300',
+              m.wide && 'svc-card--wide',
+            ]}
+            data-animate
+            data-animate-delay={idx * 80}>
+
+            <!-- Card number watermark -->
+            <span
+              class='svc-num pointer-events-none select-none absolute top-4 right-5'
+              aria-hidden='true'>
+              {String(idx + 1).padStart(2, '0')}
+            </span>
+
+            <!-- Top row: icon + signal bars -->
+            <div class='flex items-start justify-between'>
+              <!-- Icon -->
+              <div class:list={['svc-icon-wrap', iconBgClass]}>
+                <Icon aria-hidden='true' class='size-5' />
+              </div>
+
+              <!-- Signal bars -->
+              <div class='signal-bars' aria-hidden='true' title={`Impacto: ${m.bars}/4`}>
+                {[1, 2, 3, 4].map(n => (
+                  <div
+                    class:list={['signal-bar', barClass, n <= m.bars ? 'signal-bar--filled' : 'signal-bar--empty']}
+                    style={`--bar-h: ${n * 25}%;`}>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+
+            <!-- Title -->
+            <h3 class='svc-title text-white font-semibold leading-snug text-pretty pr-8'>
+              {service.title}
+            </h3>
+
+            <!-- Description -->
+            <p class='text-[0.875rem] leading-[1.7] text-petrol-100 flex-1'>
+              <Fragment set:html={service.description} />
+            </p>
+
+            <!-- Stat badge (if any) -->
+            {m.stat && (
+              <div class='svc-stat' style={`--accent: ${accentColor};`}>
+                <span
+                  class='size-1.5 rounded-full shrink-0'
+                  style={`background: ${accentColor};`}
+                  aria-hidden='true'></span>
+                {m.stat}
+              </div>
+            )}
+
+            <!-- Hover accent line -->
+            <div
+              class='svc-accent-line'
+              style={`--accent: ${accentColor};`}
+              aria-hidden='true'></div>
+          </article>
         )
       })}
     </div>
 
-    <!-- Secondary services grid -->
-    <div class='mt-12 bg-petrol-50 rounded-2xl p-8'>
-      <div class='grid grid-cols-1 gap-8 sm:grid-cols-2'>
-        {secondaryServices.map((service, idx) => {
-          const Icon = iconByKey[service.icon]
-          return (
-            <div
-              data-animate
-              data-animate-delay={idx * 100}
-              class='group bg-white rounded-lg p-6 border border-petrol-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-petrol-200'>
-              <Icon class='size-10 mb-3 text-sky-600' aria-hidden='true' />
-              <h3 class='text-base font-semibold text-petrol-900'>{service.title}</h3>
-              <div class='h-0.5 w-8 bg-sky-500 rounded-full transition-all duration-300 group-hover:w-14 mt-2 mb-2'></div>
-              <p class='mt-2 text-sm/6 text-petrol-700'>
-                <Fragment set:html={service.description} />
-              </p>
-            </div>
-          )
-        })}
-      </div>
-    </div>
-
+    <!-- ── CTA ── -->
     {ctaText && ctaHref && (
-      <div class='mt-12 text-center'>
+      <div class='mt-14 text-center' data-animate>
         <a
           href={ctaHref}
-          class='inline-flex items-center gap-1 text-sm font-semibold text-sky-a11y hover:text-sky-600 transition-colors'>
-          {ctaText} <span aria-hidden='true'>→</span>
+          class='group inline-flex items-center gap-2 text-sm font-semibold text-sky-400 hover:text-sky-300 transition-colors'>
+          {ctaText}
+          <span class='group-hover:translate-x-1 transition-transform duration-200' aria-hidden='true'>→</span>
         </a>
       </div>
     )}
+
   </div>
-</div>
+</section>
+
+<style>
+  /* ── Grid layout ── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+  }
+
+  /* Default: 2-col span */
+  .svc-card { grid-column: span 2; }
+
+  /* Wide cards: 3-col span */
+  .svc-card--wide { grid-column: span 3; }
+
+  /* Last row of 2 regular cards: center them */
+  .svc-card:nth-child(6),
+  .svc-card:nth-child(7) {
+    grid-column: span 3;
+  }
+
+  @media (max-width: 1024px) {
+    .services-grid { grid-template-columns: repeat(4, 1fr); }
+    .svc-card { grid-column: span 2; }
+    .svc-card--wide { grid-column: span 2; }
+    .svc-card:nth-child(6),
+    .svc-card:nth-child(7) { grid-column: span 2; }
+  }
+
+  @media (max-width: 640px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .svc-card,
+    .svc-card--wide,
+    .svc-card:nth-child(6),
+    .svc-card:nth-child(7) { grid-column: span 1; }
+  }
+
+  /* ── Card base ── */
+  .svc-card {
+    background-color: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.07);
+    overflow: hidden;
+  }
+
+  .svc-card:hover {
+    background-color: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.13);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.35);
+  }
+
+  /* ── Watermark number ── */
+  .svc-num {
+    font-family: 'Titan One', cursive;
+    font-size: 3rem;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.05);
+    transition: color 0.3s ease;
+  }
+
+  .svc-card:hover .svc-num {
+    color: rgba(255, 255, 255, 0.09);
+  }
+
+  /* ── Icon wrapper ── */
+  .svc-icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.625rem;
+    flex-shrink: 0;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .svc-icon-sky {
+    background-color: rgba(14, 165, 233, 0.15);
+    color: #38bdf8;
+    box-shadow: 0 0 0 0 rgba(14, 165, 233, 0);
+  }
+
+  .svc-icon-orange {
+    background-color: rgba(249, 115, 22, 0.15);
+    color: #fb923c;
+    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
+  }
+
+  .svc-card:hover .svc-icon-sky  { box-shadow: 0 0 16px 4px rgba(14, 165, 233, 0.2); }
+  .svc-card:hover .svc-icon-orange { box-shadow: 0 0 16px 4px rgba(249, 115, 22, 0.2); }
+
+  /* ── Signal bars ── */
+  .signal-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 22px;
+  }
+
+  .signal-bar {
+    width: 5px;
+    border-radius: 2px;
+    height: var(--bar-h, 50%);
+    transform: scaleY(0.18);
+    transform-origin: bottom;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .signal-bar:nth-child(1) { transition-delay: 0ms; }
+  .signal-bar:nth-child(2) { transition-delay: 55ms; }
+  .signal-bar:nth-child(3) { transition-delay: 110ms; }
+  .signal-bar:nth-child(4) { transition-delay: 165ms; }
+
+  /* Filled bars: accent color at rest (subtle), fully saturated on hover */
+  .signal-bar--filled.svc-bar-sky    { background-color: rgba(56, 189, 248, 0.45); }
+  .signal-bar--filled.svc-bar-orange { background-color: rgba(251, 146, 60, 0.45); }
+  .signal-bar--empty  { background-color: rgba(255, 255, 255, 0.1); }
+
+  .svc-card:hover .signal-bar { transform: scaleY(1); }
+  .svc-card:hover .signal-bar--filled.svc-bar-sky    { background-color: #38bdf8; }
+  .svc-card:hover .signal-bar--filled.svc-bar-orange { background-color: #fb923c; }
+  .svc-card:hover .signal-bar--empty                 { background-color: rgba(255, 255, 255, 0.2); }
+
+  /* ── Title size: larger on wide cards ── */
+  .svc-title { font-size: 0.9375rem; }
+  .svc-card--wide .svc-title { font-size: 1.0625rem; }
+
+  /* ── Stat badge ── */
+  .svc-stat {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    padding: 0.375rem 0.75rem;
+    border-radius: 100px;
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    width: fit-content;
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
+
+  .svc-card:hover .svc-stat {
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  /* ── Hover accent line at bottom ── */
+  .svc-accent-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent, #38bdf8);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    border-radius: 0 0 16px 16px;
+  }
+
+  .svc-card:hover .svc-accent-line {
+    transform: scaleX(1);
+  }
+
+  /* ── Reduced motion ── */
+  @media (prefers-reduced-motion: reduce) {
+    .svc-card { transition: none; }
+    .svc-card:hover { transform: none; }
+    .signal-bar { transform: scaleY(1) !important; transition: none; }
+    .svc-accent-line { transition: none; }
+  }
+</style>

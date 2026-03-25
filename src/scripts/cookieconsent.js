@@ -32,6 +32,17 @@ CookieConsent.run({
     }
   },
   
+  // Visita recurrente: el usuario ya había dado consentimiento
+  onConsent: ({ cookie }) => {
+    if (cookie.categories.includes('analytics')) {
+      gtag('consent', 'update', {
+        analytics_storage: 'granted',
+        ad_storage: 'granted'
+      })
+    }
+  },
+
+  // Primera vez que acepta en este dispositivo
   onFirstConsent: ({ cookie }) => {
     if (cookie.categories.includes('analytics')) {
       gtag('consent', 'update', {

@@ -66,21 +66,9 @@ const defaultPhases: TimelinePhase[] = [
     intro:
       "Identifica los errores que frenan tu visibilidad y conoce las oportunidades de mercado que ahora pierdes. Recibes un mapa de los problemas técnicos de tu web y un estudio de las búsquedas de tus clientes.",
     bullets: [
-      {
-        icon: "scale",
-        emphasis: "Mide tu autoridad.",
-        text: "Compara tu situación real frente a tus competidores.",
-      },
-      {
-        icon: "barChart3",
-        emphasis: "Cuantifica tu mercado.",
-        text: "Descubre el volumen de búsqueda real en tu zona.",
-      },
-      {
-        icon: "badgeCheck",
-        emphasis: "Decide con criterio.",
-        text: "Verifica la viabilidad del proyecto antes de invertir.",
-      },
+      { icon: "scale",     emphasis: "Mide tu autoridad.",    text: "Compara tu situación real frente a tus competidores." },
+      { icon: "barChart3", emphasis: "Cuantifica tu mercado.", text: "Descubre el volumen de búsqueda real en tu zona." },
+      { icon: "badgeCheck",emphasis: "Decide con criterio.",  text: "Verifica la viabilidad del proyecto antes de invertir." },
     ],
     outro: "Accede a tu auditoría gratuita y prioriza tus próximas acciones.",
   },
@@ -89,156 +77,530 @@ const defaultPhases: TimelinePhase[] = [
     intro:
       "Sustituye la incertidumbre por una hoja de ruta técnica. Con el diagnóstico en la mano, diseccionamos las acciones necesarias para captar clientes en tu zona y sector.",
     bullets: [
-      {
-        icon: "target",
-        emphasis: "Prioriza tus objetivos.",
-        text: "Identifica qué búsquedas atacar primero para acelerar el retorno.",
-      },
-      {
-        icon: "trendingUp",
-        emphasis: "Proyecta tu tráfico.",
-        text: "Obtén una estimación realista del volumen de visitas según tu mercado.",
-      },
-      {
-        icon: "calendarClock",
-        emphasis: "Define un cronograma de ejecución.",
-        text: "Visualiza qué cambios técnicos se aplican cada mes y el plazo estimado para consolidarlos.",
-      },
+      { icon: "target",       emphasis: "Prioriza tus objetivos.",         text: "Identifica qué búsquedas atacar primero para acelerar el retorno." },
+      { icon: "trendingUp",   emphasis: "Proyecta tu tráfico.",            text: "Obtén una estimación realista del volumen de visitas según tu mercado." },
+      { icon: "calendarClock",emphasis: "Define un cronograma.",           text: "Visualiza qué cambios técnicos se aplican cada mes y el plazo estimado." },
     ],
-    outro:
-      "Valida la estrategia. Audita cada paso del plan antes de ejecutarlo. Si una acción no alinea con tus objetivos de negocio, se descarta.",
+    outro: "Valida la estrategia. Si una acción no alinea con tus objetivos, se descarta.",
   },
   {
     title: "Ejecución y resultados medibles",
     intro:
       "Mientras gestionas tu negocio, tu web escala posiciones y consolida su autoridad en Google. Obtén métricas de negocio, no solo de tráfico.",
     bullets: [
-      {
-        icon: "chartNoAxesColumn",
-        emphasis: "Controla las conversiones.",
-        text: "Mide cuántas visitas se transforman en llamadas reales o formularios completados.",
-      },
-      {
-        icon: "lineChart",
-        emphasis: "Sigue la evolución de posiciones.",
-        text: "Visualiza qué términos has conquistado y cuáles son los siguientes objetivos.",
-      },
-      {
-        icon: "layers3",
-        emphasis: "Construye crecimiento acumulado.",
-        text: "Construye un activo que mantiene su valor. A diferencia de la publicidad, tu posicionamiento persiste y se refuerza mes a mes.",
-      },
+      { icon: "chartNoAxesColumn", emphasis: "Controla las conversiones.", text: "Mide cuántas visitas se transforman en llamadas reales o formularios." },
+      { icon: "lineChart",         emphasis: "Sigue la evolución.",        text: "Visualiza qué términos has conquistado y cuáles son los siguientes objetivos." },
+      { icon: "layers3",           emphasis: "Crecimiento acumulado.",     text: "A diferencia de la publicidad, tu posicionamiento persiste y se refuerza mes a mes." },
     ],
-    outro:
-      "Impulsa tu impacto local. Capta el volumen de búsquedas de tu sector en Barcelona y convierte a los usuarios en clientes.",
+    outro: "Capta el volumen de búsquedas de tu sector en Barcelona y convierte usuarios en clientes.",
+  },
+  {
+    title: "Seguimiento y escalado",
+    intro:
+      "Resultados medibles cada mes: llamadas, contactos y posiciones reales que confirman si la inversión avanza como debe.",
+    bullets: [
+      { icon: "chartNoAxesColumn", emphasis: "Métricas que importan.",    text: "Impresiones, clics, llamadas y formularios por zona, sin gráficos de vanidad." },
+      { icon: "target",            emphasis: "Prioridad por retorno.",    text: "Las acciones con mayor impacto van primero, sin desviar recursos." },
+      { icon: "trendingUp",        emphasis: "Crecimiento progresivo.",   text: "Lo que funciona en un servicio o zona se amplía hacia nuevas oportunidades." },
+    ],
+    outro: "La visibilidad local se convierte en un sistema continuo de captación, no en acciones aisladas.",
   },
 ];
-
-const progressWidths = ['w-1/4', 'w-1/2', 'w-3/4', 'w-full'];
 
 const {
   upheading,
   heading,
-  subtitle = "Tres fases para ejecutar, medir y escalar. Visualiza el retorno de tu inversión en Barcelona mediante informes claros y objetivos cumplidos.",
+  subtitle = "Cuatro fases para ejecutar, medir y escalar. Visualiza el retorno de tu inversión en Barcelona mediante informes claros y objetivos cumplidos.",
   sectionId = "proceso",
   phases = defaultPhases,
-  ctaHeading = "Identifica el potencial de tu negocio en Barcelona.",
-  ctaText = "Recibe gratis un análisis de tu situación actual valorado en 200 € y descubre cómo captar a los clientes que hoy pierdes.",
+  ctaHeading = "Tus clientes ya te buscan: descubre si te encuentran.",
+  ctaText = "Recibe un diagnóstico inicial de tu ficha de Google Business y tu visibilidad local para decidir con datos el retorno potencial de tu inversión en SEO local.",
   ctaHref = "https://wa.me/34692051399?text=Hola%20Salva%2C%20he%20visto%20tu%20web.%20Tengo%20un%20negocio%20en%20Barcelona%20y%20me%20gustar%C3%ADa%20saber%20si%20el%20SEO%20puede%20ayudarme%20a%20conseguir%20m%C3%A1s%20clientes.",
-  ctaLabel = "Pide tu auditoría gratuita por WhatsApp",
+  ctaLabel = "Solicita tu análisis local por WhatsApp",
 } = Astro.props;
 
-const phaseGridColsClass =
-  phases.length >= 4
-    ? "lg:grid-cols-4"
-    : phases.length === 2
-      ? "lg:grid-cols-2"
-      : "lg:grid-cols-3";
+// Split heading for typographic accent on last clause
+const splitIdx = heading.lastIndexOf(' a recibir ');
+const headingBefore = splitIdx > -1 ? heading.slice(0, splitIdx) : heading;
+const headingAfter  = splitIdx > -1 ? heading.slice(splitIdx + 1) : '';
+
+// Phase fills: 1/4 → 4/4
+const fillPercents = ['25%', '50%', '75%', '100%'];
+// Last phase uses green/maps-green accent
+const lastIdx = phases.length - 1;
 ---
 
-<div
-    id={sectionId}
-    class="bg-white py-24 sm:py-32"
+<section
+  id={sectionId}
+  class="relative bg-warm-white py-24 sm:py-32 overflow-hidden"
 >
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <div data-animate>
-            {upheading && <Upheading as="h2" text={upheading} class="mb-2 text-center text-pretty" />}
-            <p
-                class:list={["mx-auto max-w-[60ch] text-center text-3xl font-semibold tracking-tight text-pretty text-petrol-900 sm:text-4xl", !upheading && "mb-2"]}
-            >
-                {heading}
-            </p>
-            <p class="mb-16 mx-auto max-w-[55ch] text-center text-lg text-petrol-700 text-pretty">
-                {subtitle}
-            </p>
-        </div>
-        <div
-            class:list={["mx-auto grid max-w-2xl grid-cols-1 gap-8 lg:mx-0 lg:max-w-none", phaseGridColsClass]}
-        >
-            {phases.map((phase, idx) => (
-                <div
-                    data-animate
-                    data-animate-delay={idx * 150}
-                    class="group relative bg-white border border-petrol-100 rounded-xl p-6 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-petrol-200">
-                    <!-- Watermark number -->
-                    <span
-                        aria-hidden="true"
-                        class="absolute -top-2 -right-2 text-7xl font-bold text-petrol-50 select-none pointer-events-none"
-                    >
-                        {idx + 1}
-                    </span>
+  <!-- Subtle top wave from dark Services section -->
+  <div class="absolute top-0 left-0 right-0 pointer-events-none" aria-hidden="true">
+    <svg viewBox="0 0 1440 32" fill="none" xmlns="http://www.w3.org/2000/svg"
+      class="w-full h-8" preserveAspectRatio="none">
+      <path d="M0 0L480 20L960 8L1440 24V0H0Z" fill="#1A3C4A" opacity="0.06" />
+    </svg>
+  </div>
 
-                    <!-- Progress bar -->
-                    <div class="h-1 bg-petrol-50 rounded-full mb-6 overflow-hidden">
-                        <div class:list={['h-full bg-gradient-to-r from-sky-400 to-sky-600 rounded-full transition-all duration-300 group-hover:w-full', progressWidths[idx] || 'w-full']}></div>
-                    </div>
+  <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
 
-                    <h3 class="text-lg font-bold text-petrol-900 relative">
-                        <span class="inline-flex size-6 items-center justify-center rounded-full bg-sky-500 text-xs font-semibold text-white mr-2">
-                            {idx + 1}
-                        </span>
-                        {phase.title}
-                    </h3>
-
-                    <p class="mt-4 text-sm/6 text-petrol-700">
-                        {phase.intro}
-                    </p>
-
-                    <ul class="mt-4 space-y-2">
-                        {phase.bullets.map((bullet) => {
-                            const Icon = iconByKey[bullet.icon];
-                            return (
-                                <li class="border-l-2 border-sky-100 pl-3 py-1 text-sm/6 text-petrol-700">
-                                    <Icon aria-hidden="true" class="inline size-4 mr-1 text-sky-600" />
-                                    <strong class="text-petrol-900">{bullet.emphasis}</strong> {bullet.text}
-                                </li>
-                            );
-                        })}
-                    </ul>
-
-                    <p class="mt-4 text-sm/6 text-petrol-700 relative">
-                        {phase.outro}
-                    </p>
-                </div>
-            ))}
-        </div>
-
-        <!-- CTA card -->
-        <div data-animate class="mt-16 bg-sandstone-soft border border-petrol-100 rounded-xl p-8 text-center">
-            <p class="text-xl font-semibold text-petrol-900">
-                {ctaHeading}
-            </p>
-            <p class="mx-auto mt-3 max-w-[50ch] text-base text-petrol-700">
-                {ctaText}
-            </p>
-            <a
-                href={ctaHref}
-                target="_blank"
-                rel="noopener noreferrer nofollow"
-                class="mt-3 inline-block text-base font-semibold text-sky-600 underline decoration-sky-500/70 underline-offset-4 transition hover:text-sky-700"
-            >
-                {ctaLabel}
-            </a>
-        </div>
+    <!-- ── Header ── -->
+    <div class="max-w-3xl mx-auto text-center mb-16 lg:mb-20" data-animate>
+      {upheading && <Upheading as="p" text={upheading} class="mb-3" />}
+      <h2 class="timeline-heading text-petrol-900 leading-[1.08]">
+        {headingBefore}
+        {headingAfter && (
+          <span class="timeline-heading-accent"> {headingAfter}</span>
+        )}
+      </h2>
+      <p class="mt-5 text-base lg:text-lg text-petrol-700 leading-relaxed max-w-[52ch] mx-auto text-pretty">
+        {subtitle}
+      </p>
     </div>
-</div>
+
+    <!-- ── Journey rail (desktop only) ── -->
+    <div class="hidden lg:block relative mb-10 px-[6.25%]" aria-hidden="true">
+      <!-- Left endpoint -->
+      <div class="journey-endpoint journey-endpoint--start">
+        <span class="journey-pin journey-pin--grey">
+          <!-- Ghost pin (no visibility) -->
+          <svg class="size-4" viewBox="0 0 16 16" fill="none">
+            <path d="M8 1.5C5.51 1.5 3.5 3.51 3.5 6c0 3.5 4.5 8.5 4.5 8.5S12.5 9.5 12.5 6c0-2.49-2.01-4.5-4.5-4.5zm0 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+              fill="currentColor" />
+          </svg>
+        </span>
+        <span class="journey-label">Sin visibilidad</span>
+      </div>
+
+      <!-- Right endpoint -->
+      <div class="journey-endpoint journey-endpoint--end">
+        <span class="journey-pin journey-pin--green">
+          <!-- Phone icon -->
+          <svg class="size-4" viewBox="0 0 16 16" fill="none">
+            <path d="M13.5 10.5l-1.5-1.5c-.4-.4-1-.4-1.4 0l-.8.8c-.2.2-.5.2-.7.1C8.4 9.4 7.5 8.5 7.1 7.9c-.1-.2-.1-.5.1-.7l.8-.8c.4-.4.4-1 0-1.4L6.5 3.5c-.4-.4-1-.4-1.4 0L4.3 4.3C3.5 5.1 3.3 6.2 3.7 7.2 4.6 9.5 7 11.4 9.5 12.3c.9.3 2 .1 2.7-.6l.7-.7c.4-.4.4-1 0-1.5z"
+              fill="currentColor" />
+          </svg>
+        </span>
+        <span class="journey-label">Llamadas recurrentes</span>
+      </div>
+
+      <!-- Connector dashes -->
+      <div class="journey-connector" aria-hidden="true"></div>
+
+      <!-- Phase nodes -->
+      <div class={`grid grid-cols-${phases.length}`}>
+        {phases.map((phase, idx) => {
+          const isLast = idx === lastIdx;
+          return (
+            <div class="flex flex-col items-center gap-2">
+              <div class:list={['journey-node', isLast ? 'journey-node--arrive' : 'journey-node--active']}>
+                <span class="journey-node-num">{idx + 1}</span>
+              </div>
+              <span class="journey-node-label">{phase.title.split(' ').slice(0, 3).join(' ')}…</span>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+
+    <!-- ── Phase cards grid ── -->
+    <div class={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-${phases.length} gap-5`}>
+      {phases.map((phase, idx) => {
+        const isLast = idx === lastIdx;
+        const fill = fillPercents[idx] ?? '100%';
+
+        return (
+          <article
+            class:list={['phase-card group', isLast && 'phase-card--arrive']}
+            data-animate
+            data-animate-delay={idx * 100}
+          >
+            <!-- Watermark number -->
+            <span class="phase-num" aria-hidden="true">{idx + 1}</span>
+
+            <!-- Progress fill bar -->
+            <div class="phase-progress-track" aria-hidden="true">
+              <div
+                class:list={['phase-progress-fill', isLast ? 'phase-progress-fill--arrive' : '']}
+                style={`width: ${fill};`}
+              ></div>
+            </div>
+
+            <!-- Phase number badge + title -->
+            <div class="flex items-start gap-3 mb-4">
+              <span class:list={['phase-badge', isLast ? 'phase-badge--arrive' : '']}>
+                {idx + 1}
+              </span>
+              <h3 class="phase-title">{phase.title}</h3>
+            </div>
+
+            <!-- Intro -->
+            <p class="phase-intro">{phase.intro}</p>
+
+            <!-- Bullets -->
+            <ul class="phase-bullets">
+              {phase.bullets.map((bullet) => {
+                const Icon = iconByKey[bullet.icon];
+                return (
+                  <li class="phase-bullet">
+                    <Icon aria-hidden="true" class="phase-bullet-icon" />
+                    <span>
+                      <strong class="phase-bullet-em">{bullet.emphasis}</strong>
+                      {' '}{bullet.text}
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
+
+            <!-- Outro -->
+            <p class="phase-outro">{phase.outro}</p>
+          </article>
+        );
+      })}
+    </div>
+
+    <!-- ── CTA banner ── -->
+    <div class="mt-14 relative rounded-2xl overflow-hidden" data-animate>
+      <!-- Dark background -->
+      <div class="cta-banner">
+        <!-- Ambient orb -->
+        <div
+          class="pointer-events-none absolute -right-20 -top-20 size-64 rounded-full opacity-20"
+          style="background: radial-gradient(circle, rgba(249,115,22,0.4) 0%, transparent 70%);"
+          aria-hidden="true"
+        ></div>
+        <div
+          class="pointer-events-none absolute -left-10 -bottom-10 size-48 rounded-full opacity-15"
+          style="background: radial-gradient(circle, rgba(14,165,233,0.4) 0%, transparent 70%);"
+          aria-hidden="true"
+        ></div>
+
+        <div class="relative flex flex-col lg:flex-row items-center gap-6 lg:gap-10">
+          <div class="flex-1 text-center lg:text-left">
+            <p class="text-xl font-semibold text-white leading-snug mb-2">{ctaHeading}</p>
+            <p class="text-[0.9375rem] text-petrol-100 leading-relaxed max-w-[50ch]">{ctaText}</p>
+          </div>
+          <a
+            href={ctaHref}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            class="cta-wa-btn shrink-0"
+          >
+            <!-- WhatsApp icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+              aria-hidden="true" class="size-5 shrink-0">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+            {ctaLabel}
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* ── Heading typography ── */
+  .timeline-heading {
+    font-family: 'Titan One', cursive;
+    font-size: clamp(1.875rem, 4vw, 3.25rem);
+    letter-spacing: -0.015em;
+  }
+
+  .timeline-heading-accent {
+    color: var(--color-orange-500);
+  }
+
+  /* ────────────────────────────
+     JOURNEY RAIL
+  ──────────────────────────── */
+  .journey-connector {
+    position: absolute;
+    top: 24px; /* vertically centered on the 48px nodes */
+    left: calc(6.25% + 24px);  /* start at center of first node */
+    right: calc(6.25% + 24px); /* end at center of last node */
+    height: 2px;
+    background: repeating-linear-gradient(
+      90deg,
+      #0ea5e9 0, #0ea5e9 8px,
+      rgba(14, 165, 233, 0.2) 8px, rgba(14, 165, 233, 0.2) 16px
+    );
+    background-size: 16px 2px;
+    animation: dash-flow 0.55s linear infinite;
+  }
+
+  @keyframes dash-flow {
+    from { background-position: 0 0; }
+    to   { background-position: 16px 0; }
+  }
+
+  /* Endpoint labels */
+  .journey-endpoint {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    z-index: 10;
+  }
+
+  .journey-endpoint--start { left: 0; }
+  .journey-endpoint--end   { right: 0; }
+
+  .journey-pin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .journey-pin--grey  { background: #d1dde3; color: #3A6D82; }
+  .journey-pin--green { background: #34a853; color: #fff; }
+
+  .journey-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-petrol-600);
+    white-space: nowrap;
+  }
+
+  /* Phase nodes */
+  .journey-node {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+    border: 2px solid white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  }
+
+  .journey-node--active {
+    background: var(--color-sky-500);
+  }
+
+  .journey-node--arrive {
+    background: var(--color-maps-green);
+  }
+
+  .journey-node-num {
+    font-family: 'Titan One', cursive;
+    font-size: 1.125rem;
+    color: white;
+    line-height: 1;
+  }
+
+  .journey-node-label {
+    font-size: 10px;
+    color: var(--color-petrol-600);
+    text-align: center;
+    max-width: 80px;
+    line-height: 1.3;
+  }
+
+  /* ────────────────────────────
+     PHASE CARDS
+  ──────────────────────────── */
+  .phase-card {
+    position: relative;
+    background: white;
+    border: 1px solid var(--color-border-default);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  .phase-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px -8px rgba(26, 60, 74, 0.14);
+    border-color: var(--color-sky-100);
+  }
+
+  .phase-card--arrive:hover {
+    border-color: rgba(52, 168, 83, 0.3);
+  }
+
+  /* Watermark number */
+  .phase-num {
+    position: absolute;
+    top: -4px;
+    right: 6px;
+    font-family: 'Titan One', cursive;
+    font-size: 5rem;
+    line-height: 1;
+    color: var(--color-petrol-50);
+    pointer-events: none;
+    user-select: none;
+    transition: color 0.3s ease;
+  }
+
+  .phase-card:hover .phase-num { color: var(--color-petrol-100); }
+
+  /* Progress bar */
+  .phase-progress-track {
+    height: 3px;
+    background: var(--color-petrol-50);
+    border-radius: 100px;
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+  }
+
+  .phase-progress-fill {
+    height: 100%;
+    border-radius: 100px;
+    background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+    transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .phase-progress-fill--arrive {
+    background: linear-gradient(90deg, #34a853, #1e7e34);
+  }
+
+  /* Badge */
+  .phase-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    background: var(--color-sky-500);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .phase-badge--arrive {
+    background: var(--color-maps-green);
+  }
+
+  /* Title */
+  .phase-title {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--color-heading);
+    line-height: 1.4;
+    flex: 1;
+  }
+
+  /* Intro */
+  .phase-intro {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--color-body);
+    margin-bottom: 1rem;
+    margin-top: 0.25rem;
+  }
+
+  /* Bullets */
+  .phase-bullets {
+    list-style: none;
+    margin: 0 0 1rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .phase-bullet {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    font-size: 0.8125rem;
+    line-height: 1.65;
+    color: var(--color-body);
+    padding-left: 0.5rem;
+    border-left: 2px solid var(--color-sky-100);
+  }
+
+  .phase-card--arrive .phase-bullet {
+    border-left-color: rgba(52, 168, 83, 0.3);
+  }
+
+  .phase-bullet-icon {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    color: var(--color-sky-600);
+  }
+
+  .phase-card--arrive .phase-bullet-icon {
+    color: var(--color-maps-green);
+  }
+
+  .phase-bullet-em {
+    font-weight: 600;
+    color: var(--color-heading);
+  }
+
+  /* Outro */
+  .phase-outro {
+    font-size: 0.8125rem;
+    line-height: 1.65;
+    color: var(--color-petrol-600);
+    font-style: italic;
+    border-top: 1px solid var(--color-petrol-50);
+    padding-top: 0.875rem;
+    margin-top: auto;
+  }
+
+  /* ────────────────────────────
+     CTA BANNER
+  ──────────────────────────── */
+  .cta-banner {
+    background: var(--color-petrol-900);
+    border-radius: 1rem;
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-wa-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    background: #25D366;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+  }
+
+  .cta-wa-btn:hover {
+    background: #1FAD54;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+  }
+
+  /* ── Reduced motion ── */
+  @media (prefers-reduced-motion: reduce) {
+    .journey-connector { animation: none; }
+    .phase-card { transition: none; }
+    .phase-card:hover { transform: none; }
+    .cta-wa-btn { transition: none; }
+    .cta-wa-btn:hover { transform: none; }
+  }
+</style>
