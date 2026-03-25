@@ -1,6 +1,8 @@
 ---
-import Upheading from '../../Upheading.astro'
 import WhatsAppButton from '../../WhatsAppButton.astro'
+import { buildWhatsAppHref } from '../../../data/site'
+
+const waHref = buildWhatsAppHref()
 
 interface Guarantee {
   title: string
@@ -26,62 +28,245 @@ const {
   quote,
   quoteAuthor,
 } = Astro.props
+
+// Split heading on " y " for two-tone treatment
+const headingParts = heading.split(' y ')
+const headingFirst = headingParts[0] ?? heading
+const headingRest  = headingParts.slice(1).join(' y ')
+
+const ordinals = ['01', '02', '03', '04', '05', '06']
 ---
 
-<div class='bg-sandstone-soft px-6 py-24 sm:py-32 lg:px-8'>
-  <div class='mx-auto max-w-3xl'>
-    <div data-animate>
-      <Upheading as='h2' text={upheading} />
-      <p class='mt-2 text-4xl font-semibold tracking-tight text-pretty text-petrol-900 sm:text-5xl'>
-        {heading}
-      </p>
-    </div>
+<section class='relative overflow-hidden bg-petrol-900 py-24 md:py-32'>
 
-    {priceHighlight && (
-      <div data-animate class='my-8 flex items-center gap-4 rounded-xl border border-sky-100 bg-sky-50 px-6 py-5'>
-        <span class='text-3xl font-bold text-petrol-900'>{priceHighlight}</span>
-        <span class='text-sm text-petrol-600'>· Definido tras diagnóstico gratuito · Sin contratos</span>
-      </div>
-    )}
-
-    <p data-animate class='mt-6 text-xl/8 text-petrol-700'>
-      <Fragment set:html={intro} />
-    </p>
-
-    <!-- Guarantees -->
-    <ul role='list' class='mt-10 space-y-6'>
-      {guarantees.map((item, idx) => (
-        <li
-          data-animate
-          data-animate-delay={idx * 80}
-          class='border-l-2 border-sky-100 pl-4 py-2 text-base/7 text-petrol-600 transition-all duration-200 hover:border-l-sky-500'>
-          <strong class='text-petrol-900'>{item.title}</strong> {item.description}
-        </li>
-      ))}
-    </ul>
-
-    <!-- Quote -->
-    <figure data-animate class='mt-10'>
-      <blockquote class='border-l-4 border-sky-200 pl-6 text-xl/8 italic text-petrol-900 text-pretty'>
-        <p>{quote}</p>
-      </blockquote>
-      {quoteAuthor && (
-        <figcaption class='mt-4 pl-6'>
-          <div class='text-sm/6 text-petrol-600'>
-            <Fragment set:html={quoteAuthor} />
-          </div>
-        </figcaption>
-      )}
-    </figure>
-
-    <!-- CTA: bridge to pricing page -->
-    <div data-animate class='mt-10 flex flex-col sm:flex-row items-start gap-4'>
-      <a
-        href='/presupuesto-seo-barcelona/#paquetes'
-        class='rounded-md bg-sky-500 px-5 py-3 text-sm font-bold text-white shadow-sm hover:bg-sky-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 transition-colors'>
-        Ver paquetes y precios
-      </a>
-      <WhatsAppButton text='O pide tu diagnóstico gratuito' />
-    </div>
+  <!-- Dot-grid -->
+  <div
+    class='pointer-events-none absolute inset-0'
+    aria-hidden='true'
+    style='background-image: radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 30px 30px;'>
   </div>
-</div>
+
+  <!-- Diagonal tension lines -->
+  <svg class='pointer-events-none absolute inset-0 w-full h-full' aria-hidden='true' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'>
+    <line x1='55%' y1='0%' x2='72%' y2='100%' stroke='rgba(249,115,22,0.05)' stroke-width='1'/>
+    <line x1='60%' y1='0%' x2='80%' y2='100%' stroke='rgba(14,165,233,0.03)' stroke-width='1'/>
+  </svg>
+
+  <!-- Watermark -->
+  <div
+    class='pointer-events-none absolute -right-12 top-1/2 -translate-y-1/2 select-none leading-none'
+    aria-hidden='true'
+    style='font-family: "Titan One", cursive; font-size: clamp(14rem, 28vw, 22rem); color: rgba(249,115,22,0.04); line-height: 1; white-space: nowrap;'>
+    €€
+  </div>
+
+  <!-- Radial glow bottom-left -->
+  <div
+    class='pointer-events-none absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full'
+    aria-hidden='true'
+    style='background: radial-gradient(circle, rgba(14,165,233,0.05) 0%, transparent 65%);'>
+  </div>
+
+  <!-- Top / bottom hairlines -->
+  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-500/30 to-transparent' aria-hidden='true'></div>
+  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-orange-500/15 to-transparent' aria-hidden='true'></div>
+
+  <div class='relative mx-auto max-w-7xl px-6 lg:px-8'>
+
+    <!-- ── Main two-column layout ──────────────────────────────────── -->
+    <div class='grid lg:grid-cols-[1fr_1.1fr] gap-14 lg:gap-20 items-start'>
+
+      <!-- ── LEFT: Price anchor (sticky) ──────────────────────────── -->
+      <div class='lg:sticky lg:top-28'>
+
+        <!-- Eyebrow -->
+        <div data-animate class='flex items-center gap-3 mb-8'>
+          <span class='block h-px w-10 bg-orange-500' aria-hidden='true'></span>
+          <h2 class='text-[0.7rem] font-bold uppercase tracking-[0.22em] text-orange-400'>
+            {upheading}
+          </h2>
+        </div>
+
+        <!-- Heading -->
+        <p
+          data-animate
+          style='font-family: "Titan One", cursive;'
+          class='leading-[0.92] tracking-tight mb-6'>
+          {headingRest ? (
+            <>
+              <span class='block text-[clamp(1.8rem,4vw,3rem)] text-white/40 mb-1'>
+                {headingFirst}
+              </span>
+              <span class='block text-[clamp(3rem,6vw,4.5rem)] text-white'>
+                y lo que cuesta<br /><span class='text-orange-400'>no hacerlo</span><span class='text-white'>.</span>
+              </span>
+            </>
+          ) : (
+            <span class='block text-[clamp(3rem,6vw,4.5rem)] text-white'>{heading}</span>
+          )}
+        </p>
+
+        <!-- Accent rule -->
+        <div data-animate class='flex items-center mb-8'>
+          <div class='h-[3px] w-16 bg-orange-500 rounded-full'></div>
+          <div class='h-px w-24 bg-gradient-to-r from-orange-500/40 to-transparent'></div>
+        </div>
+
+        <!-- Giant price -->
+        {priceHighlight && (
+          <div data-animate class='mb-6'>
+            <div class='flex items-end gap-3 leading-none mb-3'>
+              <span
+                style='font-family: "Titan One", cursive; font-size: clamp(3.5rem, 8vw, 6rem);'
+                class='text-white leading-none tabular-nums'>
+                Desde
+              </span>
+            </div>
+            <div class='flex items-end gap-3 leading-none mb-1'>
+              <span
+                style='font-family: "Titan One", cursive; font-size: clamp(3.5rem, 10vw, 7.5rem);'
+                class='text-orange-400 leading-none tabular-nums'>
+                350€
+              </span>
+              <span
+                style='font-family: "Titan One", cursive; font-size: clamp(1.1rem, 2.5vw, 1.8rem);'
+                class='text-white/30 leading-none mb-2'>
+                /mes
+              </span>
+            </div>
+            <p class='text-[0.68rem] font-bold uppercase tracking-[0.18em] text-white/30 mt-2'>
+              Definido tras diagnóstico gratuito · Sin contratos
+            </p>
+          </div>
+        )}
+
+        <!-- Divider -->
+        <div data-animate class='h-px bg-gradient-to-r from-white/10 to-transparent mb-8'></div>
+
+        <!-- Intro text -->
+        <p data-animate class='text-base md:text-lg text-white/55 leading-relaxed text-pretty max-w-[42ch]'>
+          <Fragment set:html={intro} />
+        </p>
+
+        <!-- Invisible cost callout -->
+        <div data-animate class='mt-8 rounded-2xl border overflow-hidden' style='background: rgba(249,115,22,0.04); border-color: rgba(249,115,22,0.15);'>
+          <div class='px-5 py-4 border-b' style='border-color: rgba(249,115,22,0.1);'>
+            <p class='text-[0.62rem] font-bold uppercase tracking-[0.2em] text-orange-400/70'>El coste invisible</p>
+          </div>
+          <ul class='divide-y' style='--tw-divide-opacity: 1; border-color: rgba(249,115,22,0.08);'>
+            {[
+              { label: 'Clientes que no te encontraron', value: 'esta semana' },
+              { label: 'Búsquedas que fue a tu competencia', value: 'cada día' },
+              { label: 'Meses sin capitalizar la demanda local', value: 'acumulados' },
+            ].map(row => (
+              <li class='flex items-center justify-between gap-4 px-5 py-3.5'>
+                <span class='text-[0.78rem] text-white/45 leading-snug'>{row.label}</span>
+                <span class='shrink-0 text-[0.68rem] font-bold text-orange-400/70 text-right'>{row.value}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- ── RIGHT: Guarantees + Quote ─────────────────────────────── -->
+      <div class='flex flex-col gap-4 mt-2'>
+
+        {guarantees.map((item, idx) => (
+          <div
+            data-animate
+            data-animate-delay={idx * 80}
+            class='guarantee-card group relative rounded-2xl border border-white/[0.07] bg-white/[0.03] px-6 py-5 transition-all duration-300 hover:border-sky-500/25 hover:bg-white/[0.055] overflow-hidden cursor-default'>
+
+            <!-- Left accent bar -->
+            <div class='pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-sky-400 scale-y-0 origin-top rounded-r-full transition-transform duration-300 group-hover:scale-y-100' aria-hidden='true'></div>
+
+            <!-- Ghost ordinal -->
+            <div
+              class='pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 select-none leading-none'
+              aria-hidden='true'
+              style={`font-family: "Titan One", cursive; font-size: 4.5rem; color: rgba(249,115,22,0.06); line-height: 1;`}>
+              {ordinals[idx]}
+            </div>
+
+            <!-- Check badge + content -->
+            <div class='relative flex items-start gap-4'>
+              <div class='shrink-0 mt-0.5 flex h-7 w-7 items-center justify-center rounded-full bg-sky-500/10 ring-1 ring-sky-500/20 transition-all duration-300 group-hover:bg-sky-500/18 group-hover:ring-sky-500/40'>
+                <svg class='h-3.5 w-3.5 text-sky-400' viewBox='0 0 12 10' fill='none' aria-hidden='true'>
+                  <path d='M1 5l3.5 3.5L11 1' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/>
+                </svg>
+              </div>
+              <div class='min-w-0'>
+                <p class='text-[0.9375rem] font-bold text-white/90 mb-1.5 leading-snug transition-colors duration-300 group-hover:text-white'>
+                  {item.title}
+                </p>
+                <p class='text-sm text-white/45 leading-relaxed text-pretty transition-colors duration-300 group-hover:text-white/60'>
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+
+        <!-- Quote block -->
+        <figure
+          data-animate
+          class='relative mt-2 rounded-2xl overflow-hidden border'
+          style='background: rgba(14,165,233,0.04); border-color: rgba(56,189,248,0.15);'>
+
+          <!-- Large decorative quote mark -->
+          <div
+            class='pointer-events-none absolute -top-4 -left-2 select-none leading-none'
+            aria-hidden='true'
+            style='font-family: "Titan One", cursive; font-size: 8rem; color: rgba(56,189,248,0.07); line-height: 1;'>
+            "
+          </div>
+
+          <blockquote class='relative px-8 pt-8 pb-6'>
+            <p class='text-base md:text-lg text-white/75 leading-relaxed italic text-pretty'>
+              {quote}
+            </p>
+          </blockquote>
+
+          <figcaption class='px-8 pb-7 flex items-center gap-3'>
+            <!-- Avatar placeholder: initials -->
+            <div
+              class='shrink-0 flex h-8 w-8 items-center justify-center rounded-full text-[0.6rem] font-bold text-sky-400'
+              style='background: rgba(14,165,233,0.12); border: 1px solid rgba(56,189,248,0.22);'>
+              SJ
+            </div>
+            <div class='text-[0.72rem] text-white/35 leading-snug'>
+              <Fragment set:html={quoteAuthor} />
+            </div>
+          </figcaption>
+        </figure>
+
+      </div>
+    </div>
+
+    <!-- ── CTA strip ──────────────────────────────────────────────── -->
+    <div data-animate class='mt-16 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 rounded-2xl border px-7 py-6' style='background: rgba(14,165,233,0.05); border-color: rgba(56,189,248,0.15);'>
+      <div>
+        <p class='text-base font-bold text-white mb-1' style='font-family: "Titan One", cursive;'>
+          El diagnóstico no tiene coste.
+        </p>
+        <p class='text-sm text-white/50 max-w-[44ch] leading-relaxed'>
+          Analizo tu ficha de Google Business y tu web antes de hablar de presupuesto.
+        </p>
+      </div>
+      <div class='flex flex-col sm:flex-row items-start sm:items-center gap-3 shrink-0'>
+        <a
+          href='/presupuesto-seo-barcelona/#paquetes'
+          class='rounded-lg border border-white/15 px-5 py-3 text-sm font-bold text-white/80 transition-all hover:border-white/30 hover:text-white'>
+          Ver paquetes y precios
+        </a>
+        <WhatsAppButton
+          text='Pide tu diagnóstico gratuito'
+          href={waHref}
+          class='px-5 py-3 text-sm font-bold shadow-lg shadow-sky-500/20 hover:shadow-sky-500/30 transition-shadow'
+        />
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,15 +1,19 @@
 ---
-import Upheading from '../../Upheading.astro'
 import type { FaqItem } from '../../../data/faq-home'
+import WhatsAppButton from '../../WhatsAppButton.astro'
+import { buildWhatsAppHref } from '../../../data/site'
+
+const waHref = buildWhatsAppHref()
 
 interface Props {
   upheading?: string
   heading: string
+  intro?: string
   idPrefix?: string
   items: FaqItem[]
 }
 
-const { upheading, heading, idPrefix = 'faq-local', items } = Astro.props
+const { upheading, heading, intro, idPrefix = 'faq-local', items } = Astro.props
 
 /** Strip HTML tags to get plain text for JSON-LD */
 function stripHtml(html: string): string {
@@ -28,77 +32,187 @@ const faqSchema = {
     },
   })),
 }
+
+// Split heading on ": " for two-tone Titan One treatment
+const colonIdx = heading.indexOf(': ')
+const headingFirst = colonIdx !== -1 ? heading.slice(0, colonIdx) : heading
+const headingSecond = colonIdx !== -1 ? heading.slice(colonIdx + 2) : ''
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-<div class='bg-sandstone-soft'>
-  <div class='mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40'>
-    <div class='mx-auto max-w-4xl'>
-      <div data-animate>
-        {upheading && <Upheading as='h2' text={upheading} />}
-        <p class='text-4xl font-semibold tracking-tight text-petrol-900 sm:text-5xl'>
-          {heading}
+<script type='application/ld+json' set:html={JSON.stringify(faqSchema)} />
+
+<section class='relative overflow-hidden bg-petrol-50 py-24 md:py-32'>
+
+  <!-- Subtle dot-grid -->
+  <div
+    class='pointer-events-none absolute inset-0'
+    aria-hidden='true'
+    style='background-image: radial-gradient(circle, rgba(26,60,74,0.06) 1px, transparent 1px); background-size: 28px 28px;'>
+  </div>
+
+  <!-- Titan One watermark -->
+  <div
+    class='pointer-events-none absolute -right-8 top-1/2 -translate-y-1/2 select-none leading-none'
+    aria-hidden='true'
+    style='font-family: "Titan One", cursive; font-size: clamp(12rem, 24vw, 20rem); color: rgba(249,115,22,0.045); line-height: 1; white-space: nowrap;'>
+    FAQ
+  </div>
+
+  <!-- Orange left accent bar -->
+  <div
+    class='pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-32 bg-orange-500 rounded-r-full'
+    aria-hidden='true'>
+  </div>
+
+  <!-- Top / bottom hairlines -->
+  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-petrol-100 to-transparent' aria-hidden='true'></div>
+  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-petrol-100 to-transparent' aria-hidden='true'></div>
+
+  <div class='relative mx-auto max-w-7xl px-6 lg:px-8'>
+    <div class='grid lg:grid-cols-[1fr_1.4fr] gap-14 lg:gap-20 items-start'>
+
+      <!-- ── LEFT: sticky heading ──────────────────────────────────── -->
+      <div class='lg:sticky lg:top-28'>
+
+        <div data-animate class='flex items-center gap-3 mb-8'>
+          <span class='block h-px w-10 bg-orange-500' aria-hidden='true'></span>
+          {upheading && (
+            <h2 class='text-[0.7rem] font-bold uppercase tracking-[0.22em] text-orange-500'>
+              {upheading}
+            </h2>
+          )}
+        </div>
+
+        <p
+          data-animate
+          style='font-family: "Titan One", cursive;'
+          class='leading-[0.92] tracking-tight'>
+          {headingSecond ? (
+            <>
+              <span class='block text-[clamp(2rem,4.5vw,3.2rem)] text-petrol-700/50 mb-1'>
+                {headingFirst}
+              </span>
+              <span class='block text-[clamp(3rem,6.5vw,5rem)] text-petrol-900'>
+                {headingSecond.replace(/\.$/, '')}<span class='text-orange-400'>.</span>
+              </span>
+            </>
+          ) : (
+            <span class='block text-[clamp(3rem,6.5vw,5rem)] text-petrol-900'>{heading}</span>
+          )}
         </p>
+
+        <div data-animate class='mt-6 flex items-center'>
+          <div class='h-[3px] w-16 bg-orange-500 rounded-full'></div>
+          <div class='h-px w-24 bg-gradient-to-r from-orange-500/40 to-transparent'></div>
+        </div>
+
+        {intro && (
+          <p data-animate class='mt-6 max-w-[38ch] text-base md:text-lg text-petrol-700 leading-relaxed text-pretty'>
+            <Fragment set:html={intro} />
+          </p>
+        )}
+
+        <!-- Count badge -->
+        <div data-animate class='mt-8 inline-flex items-center gap-2.5 rounded-xl border border-petrol-100 bg-white px-4 py-3'>
+          <span
+            style='font-family: "Titan One", cursive;'
+            class='text-2xl leading-none text-orange-400'>
+            {items.length}
+          </span>
+          <span class='text-[0.72rem] font-bold uppercase tracking-[0.15em] text-petrol-600'>
+            preguntas<br class='hidden sm:block' /> respondidas
+          </span>
+        </div>
+
+        <!-- Still not answered? -->
+        <div data-animate class='mt-8'>
+          <p class='text-sm text-petrol-600 mb-3 leading-relaxed'>
+            ¿Tu duda no está aquí?<br />
+            <strong class='text-petrol-900 font-semibold'>Escríbeme directamente.</strong>
+          </p>
+          <WhatsAppButton
+            text='Pregúntame por WhatsApp'
+            href={waHref}
+            class='text-sm font-bold px-5 py-2.5 shadow-sm shadow-sky-500/20'
+          />
+        </div>
+
+        <!-- Vertical rule (desktop) -->
+        <div class='hidden lg:block mt-12 w-px h-20 bg-gradient-to-b from-orange-500/30 to-transparent' aria-hidden='true'></div>
+
       </div>
-      <dl class='mt-16 space-y-4'>
+
+      <!-- ── RIGHT: accordion items ────────────────────────────────── -->
+      <dl class='flex flex-col gap-3 mt-1'>
         {items.map((item, i) => (
           <div
             data-animate
-            data-animate-delay={i * 80}
-            class='bg-white rounded-lg border border-petrol-100 border-l-[3px] border-l-transparent p-5 transition-all duration-200 hover:border-petrol-200 hover:shadow-sm hover:border-l-sky-500'>
+            data-animate-delay={i * 60}
+            class='faq-item group relative overflow-hidden rounded-2xl border border-petrol-100 bg-white transition-all duration-200 hover:border-orange-300/50 hover:shadow-md hover:shadow-petrol-900/5'>
+
+            <!-- Left accent bar (always orange, expands on open) -->
+            <div
+              class='pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-orange-500/0 origin-top rounded-r-full transition-all duration-200 group-has-[el-disclosure:not([hidden])]:bg-orange-500'
+              aria-hidden='true'>
+            </div>
+
+            <!-- Ghost ordinal -->
+            <div
+              class='pointer-events-none absolute right-14 top-1/2 -translate-y-1/2 select-none leading-none transition-opacity duration-200 opacity-100'
+              aria-hidden='true'
+              style={`font-family: "Titan One", cursive; font-size: 4rem; color: rgba(26,60,74,0.04); line-height: 1;`}>
+              {String(i + 1).padStart(2, '0')}
+            </div>
+
             <dt>
               <button
                 type='button'
                 command='--toggle'
                 commandfor={`${idPrefix}-${i}`}
-                class='flex w-full items-start justify-between text-left text-petrol-900'>
-                <h3 class='text-base/7 font-semibold'>
-                  <span class='text-orange-500 font-semibold font-mono text-sm mr-2'>{i + 1}.</span>
+                class='relative flex w-full items-start gap-4 px-5 py-4 text-left'>
+
+                <!-- Number badge -->
+                <span
+                  class='shrink-0 mt-0.5 flex h-6 w-6 items-center justify-center rounded-full text-[0.62rem] font-bold tabular-nums text-orange-500 transition-colors duration-200'
+                  style='background: rgba(249,115,22,0.08); border: 1px solid rgba(249,115,22,0.18);'>
+                  {i + 1}
+                </span>
+
+                <h3 class='flex-1 text-[0.9375rem] font-bold text-petrol-900 leading-snug pr-2'>
                   {item.question}
                 </h3>
-                <span class='ml-6 flex h-7 items-center'>
+
+                <!-- Toggle icon -->
+                <span class='shrink-0 ml-auto flex h-7 w-7 items-center justify-center rounded-full transition-all duration-200' style='background: rgba(26,60,74,0.04);'>
                   <svg
                     viewBox='0 0 24 24'
                     fill='none'
                     stroke='currentColor'
-                    stroke-width='1.5'
-                    data-slot='icon'
+                    stroke-width='2'
                     aria-hidden='true'
-                    class='size-6 in-aria-expanded:hidden'>
-                    <path
-                      d='M12 6v12m6-6H6'
-                      stroke-linecap='round'
-                      stroke-linejoin='round'
-                    />
-                  </svg>
-                  <svg
-                    viewBox='0 0 24 24'
-                    fill='none'
-                    stroke='currentColor'
-                    stroke-width='1.5'
-                    data-slot='icon'
-                    aria-hidden='true'
-                    class='size-6 not-in-aria-expanded:hidden'>
-                    <path
-                      d='M18 12H6'
-                      stroke-linecap='round'
-                      stroke-linejoin='round'
-                    />
+                    class='size-3.5 text-petrol-600 transition-transform duration-200 in-aria-expanded:rotate-45'>
+                    <path d='M12 6v12m6-6H6' stroke-linecap='round' stroke-linejoin='round'/>
                   </svg>
                 </span>
+
               </button>
             </dt>
+
             <el-disclosure
               id={`${idPrefix}-${i}`}
               hidden
               class='contents'>
-              <dd class='mt-2 pr-12'>
-                <Fragment set:html={item.answer} />
+              <dd class='px-5 pb-5 pr-14 pl-[3.25rem]'>
+                <div class='pt-1 border-t border-petrol-100 pt-4 text-sm text-petrol-700 leading-relaxed [&_p]:text-sm [&_p]:leading-relaxed [&_p]:text-petrol-700 [&_ul]:mt-2 [&_ul]:pl-4 [&_li]:text-sm [&_li]:leading-relaxed [&_li]:text-petrol-700 [&_strong]:text-petrol-900 [&_strong]:font-semibold'>
+                  <Fragment set:html={item.answer} />
+                </div>
               </dd>
             </el-disclosure>
+
           </div>
         ))}
       </dl>
+
     </div>
   </div>
-</div>
+</section>
