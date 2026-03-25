@@ -1,0 +1,578 @@
+---
+interface Props {
+  upheading?: string
+  heading?: string
+  subtitle?: string
+  ctaHref?: string
+  ctaLabel?: string
+}
+
+const {
+  upheading = 'El coste de no aparecer',
+  heading = 'Deja de perder clientes frente a tu competencia.',
+  subtitle = 'Cada día que tu negocio no aparece en Google Maps, los clientes que te buscaban entran por la puerta de tu competencia. No es una hipótesis — es lo que pasa ahora mismo.',
+  ctaHref = 'https://wa.me/34692051399?text=Hola%20Salva%2C%20he%20visto%20tu%20web%20y%20me%20gustar%C3%ADa%20saber%20si%20mi%20negocio%20aparece%20en%20Google%20Maps.',
+  ctaLabel = 'Descubre si apareces en el mapa',
+} = Astro.props
+
+// Heading split: "Deja de perder clientes" / "frente a tu competencia."
+const pivotPhrase = ' frente a '
+const pivotIdx = heading.indexOf(pivotPhrase)
+const headingMain = pivotIdx > -1 ? heading.slice(0, pivotIdx) : heading
+const headingRest = pivotIdx > -1 ? heading.slice(pivotIdx + pivotPhrase.length) : ''
+
+// "tu competencia." → highlight "tu competencia" in orange
+const competenciaIdx = headingRest.indexOf('tu competencia')
+const headingRestBefore = headingRest.slice(0, competenciaIdx)
+const headingRestAccent = 'tu competencia'
+const headingRestAfter  = headingRest.slice(competenciaIdx + headingRestAccent.length)
+
+// Live feed events — each represents a missed opportunity
+const feedEvents = [
+  {
+    kind: 'search',
+    ago: 'hace 2 min',
+    text: 'Alguien buscó <strong>"fontanero urgente Barcelona"</strong>. Tu negocio no apareció en el mapa.',
+    outcome: 'lost',
+  },
+  {
+    kind: 'call',
+    ago: 'hace 5 min',
+    text: 'Tu competidor recibió una llamada desde Google Maps. Nuevo cliente.',
+    outcome: 'competitor',
+  },
+  {
+    kind: 'click',
+    ago: 'hace 11 min',
+    text: 'El Local Pack mostró 3 negocios para <strong>"clínica dental Eixample"</strong>. El tuyo no era uno.',
+    outcome: 'lost',
+  },
+  {
+    kind: 'call',
+    ago: 'hace 18 min',
+    text: 'Otro negocio del barrio consiguió 2 contactos de Google Maps esta tarde.',
+    outcome: 'competitor',
+  },
+  {
+    kind: 'search',
+    ago: 'hace 23 min',
+    text: '14 búsquedas de <strong>"abogado Barcelona"</strong> en tu zona. Tu ficha no estaba optimizada.',
+    outcome: 'lost',
+  },
+]
+
+const stats = [
+  { value: '46%', label: 'de las búsquedas locales son de personas listas para comprar hoy' },
+  { value: '3', label: 'negocios capturan el 44% de los clics en cada búsqueda local' },
+  { value: '70%', label: 'de los usuarios ignoran los anuncios y hacen clic en resultados orgánicos' },
+]
+---
+
+<section class="relative overflow-hidden bg-warm-white py-24 md:py-32">
+
+  <!-- Hairlines -->
+  <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-petrol-100 to-transparent" aria-hidden="true"></div>
+  <div class="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-petrol-100 to-transparent" aria-hidden="true"></div>
+
+  <!-- Subtle background texture -->
+  <div
+    class="pointer-events-none absolute inset-0 opacity-40"
+    aria-hidden="true"
+    style="background-image: radial-gradient(circle, rgba(26,60,74,0.045) 1px, transparent 1px); background-size: 28px 28px;"
+  ></div>
+
+  <!-- Ambient warm glow — top right -->
+  <div
+    class="pointer-events-none absolute -right-32 -top-32 w-96 h-96 rounded-full"
+    aria-hidden="true"
+    style="background: radial-gradient(circle, rgba(249,115,22,0.07) 0%, transparent 65%);"
+  ></div>
+
+  <!-- Watermark -->
+  <div
+    class="pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 select-none leading-none hidden xl:block"
+    aria-hidden="true"
+    style="font-family: 'Titan One', cursive; font-size: clamp(12rem,22vw,18rem); color: rgba(26,60,74,0.025); line-height: 1; white-space: nowrap; letter-spacing: -0.05em;"
+  >
+    MAPA
+  </div>
+
+  <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+
+    <!-- ── Section header ────────────────────────────────────────── -->
+    <div class="max-w-4xl mb-14 lg:mb-18" data-animate>
+
+      <!-- Upheading -->
+      <div class="flex items-center gap-3 mb-7">
+        <span class="block h-px w-10 bg-orange-500" aria-hidden="true"></span>
+        <p class="text-[0.68rem] font-bold uppercase tracking-[0.22em] text-orange-500">
+          {upheading}
+        </p>
+      </div>
+
+      <!-- Two-register heading -->
+      <h2
+        class="leading-[0.9] tracking-tight"
+        style="font-family: 'Titan One', cursive;"
+      >
+        <span
+          class="block text-petrol-900"
+          style="font-size: clamp(2.4rem, 5.5vw, 4.5rem);"
+        >
+          {headingMain}
+        </span>
+        <span
+          class="block mt-1"
+          style="font-size: clamp(1.5rem, 3.2vw, 2.6rem); color: rgba(26,60,74,0.35);"
+        >
+          frente a&nbsp;<span style="color: var(--color-orange-500);">{headingRestAccent}</span>{headingRestAfter}
+        </span>
+      </h2>
+
+      <div class="mt-5 flex items-center gap-2">
+        <div class="h-[3px] w-14 bg-orange-500 rounded-full"></div>
+        <div class="h-px w-20" style="background: linear-gradient(90deg, rgba(249,115,22,0.4), transparent);"></div>
+      </div>
+
+      <p class="mt-5 text-base lg:text-lg text-petrol-700 leading-relaxed max-w-[52ch] text-pretty">
+        {subtitle}
+      </p>
+    </div>
+
+    <!-- ── Main two-column layout ────────────────────────────────── -->
+    <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-14 items-start">
+
+      <!-- ── LEFT: Live feed card ───────────────────────────────── -->
+      <div data-animate>
+
+        <!-- Feed card — dark, terminal-like -->
+        <div class="feed-card">
+
+          <!-- Card header -->
+          <div class="feed-header">
+            <div class="feed-live-dot" aria-hidden="true"></div>
+            <span class="feed-live-label">Actividad local — Barcelona</span>
+            <span class="feed-header-sub">en tiempo real</span>
+          </div>
+
+          <!-- Feed events -->
+          <div class="feed-body">
+            {feedEvents.map((event, idx) => (
+              <div
+                class:list={['feed-event', `feed-event--${event.outcome}`]}
+                style={`animation-delay: ${idx * 0.12}s`}
+              >
+                <!-- Icon -->
+                <div class:list={['feed-icon', `feed-icon--${event.outcome}`]} aria-hidden="true">
+                  {event.outcome === 'lost' ? (
+                    <!-- X / missed -->
+                    <svg class="size-3.5" viewBox="0 0 12 12" fill="none">
+                      <path d="M2 2l8 8M10 2l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    </svg>
+                  ) : (
+                    <!-- Phone / competitor win -->
+                    <svg class="size-3.5" viewBox="0 0 14 14" fill="none">
+                      <path d="M11.8 9.2l-1.3-1.3c-.35-.35-.88-.35-1.23 0l-.7.7c-.18.18-.44.2-.62.08-.6-.44-1.33-1.17-1.6-1.6-.12-.18-.1-.44.08-.62l.7-.7c.35-.35.35-.88 0-1.23L5.8 3.2c-.35-.35-.88-.35-1.23 0l-.7.7C3.16 4.6 3 5.4 3.32 6.2 4.1 8.2 6.2 10.1 8.4 10.8c.78.26 1.7.1 2.3-.52l.7-.7c.35-.35.35-.88 0-1.23z" fill="currentColor"/>
+                    </svg>
+                  )}
+                </div>
+
+                <!-- Content -->
+                <div class="feed-event-content">
+                  <p class="feed-event-text">
+                    <Fragment set:html={event.text} />
+                  </p>
+                  <span class="feed-event-ago">{event.ago}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <!-- Card footer -->
+          <div class="feed-footer">
+            <div class="feed-footer-ticker" aria-hidden="true">
+              <div class="feed-ticker-text">
+                Cada hora sin visibilidad local = más clientes que van a tu competencia &nbsp;&nbsp;·&nbsp;&nbsp;
+                Cada hora sin visibilidad local = más clientes que van a tu competencia &nbsp;&nbsp;·&nbsp;&nbsp;
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Caption below card -->
+        <p class="mt-4 text-sm text-petrol-600 text-center">
+          Escenarios reales de búsquedas locales en Barcelona. ¿Tu negocio aparece?
+        </p>
+      </div>
+
+      <!-- ── RIGHT: Stats + CTA ─────────────────────────────────── -->
+      <div class="flex flex-col gap-6" data-animate>
+
+        <!-- Stat cards -->
+        {stats.map((stat, idx) => (
+          <div
+            class="stat-card"
+            data-animate
+            data-animate-delay={idx * 80}
+          >
+            <!-- Accent line -->
+            <div class:list={[
+              'stat-card-line',
+              idx === 0 ? 'stat-card-line--orange' :
+              idx === 1 ? 'stat-card-line--sky' :
+              'stat-card-line--petrol'
+            ]}></div>
+            <div class="stat-card-inner">
+              <span class="stat-value">{stat.value}</span>
+              <p class="stat-label">{stat.label}</p>
+            </div>
+          </div>
+        ))}
+
+        <!-- CTA block -->
+        <div class="cta-block" data-animate data-animate-delay="280">
+
+          <!-- Urgency line -->
+          <div class="cta-block-urgency">
+            <span class="cta-urgency-dot" aria-hidden="true"></span>
+            Diagnóstico gratuito — sin compromisos
+          </div>
+
+          <p class="cta-block-heading">
+            ¿Apareces en las 3 primeras posiciones de Maps cuando te buscan?
+          </p>
+
+          <a
+            href={ctaHref}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            class="cta-wa-btn"
+          >
+            <!-- WhatsApp icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+              aria-hidden="true" class="size-5 shrink-0">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+            {ctaLabel}
+          </a>
+
+          <p class="cta-block-note">
+            Analizo tu ficha de Google Business y tu posición actual en Maps. Sin coste. Sin presión.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ═══════════════════════════════════════
+     LIVE FEED CARD
+  ═══════════════════════════════════════ */
+  .feed-card {
+    background: var(--color-petrol-900);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow:
+      0 32px 64px -16px rgba(26, 60, 74, 0.28),
+      0 4px 16px -4px rgba(26, 60, 74, 0.14);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  /* Header bar */
+  .feed-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.875rem 1.25rem;
+    background: rgba(255,255,255,0.04);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .feed-live-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #34a853;
+    flex-shrink: 0;
+    animation: live-blink 1.8s ease-in-out infinite;
+  }
+
+  @keyframes live-blink {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(52,168,83,0.5); }
+    50%       { opacity: 0.85; box-shadow: 0 0 0 4px rgba(52,168,83,0); }
+  }
+
+  .feed-live-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 0.04em;
+    flex: 1;
+  }
+
+  .feed-header-sub {
+    font-size: 0.62rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.25);
+    white-space: nowrap;
+  }
+
+  /* Feed body */
+  .feed-body {
+    padding: 0.5rem 0;
+  }
+
+  .feed-event {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.875rem 1.25rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: background 0.2s ease;
+  }
+
+  .feed-event:last-child { border-bottom: none; }
+
+  .feed-event:hover { background: rgba(255,255,255,0.03); }
+
+  /* Icon circle */
+  .feed-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .feed-icon--lost {
+    background: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.25);
+  }
+
+  .feed-icon--competitor {
+    background: rgba(52, 168, 83, 0.12);
+    color: #34a853;
+    border: 1px solid rgba(52, 168, 83, 0.25);
+  }
+
+  /* Event text */
+  .feed-event-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .feed-event-text {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.62);
+  }
+
+  .feed-event-text strong {
+    font-weight: 600;
+    color: rgba(255,255,255,0.88);
+  }
+
+  .feed-event--lost .feed-event-text strong {
+    color: rgba(248, 113, 113, 0.9);
+  }
+
+  .feed-event--competitor .feed-event-text strong {
+    color: rgba(52, 168, 83, 0.9);
+  }
+
+  .feed-event-ago {
+    font-size: 0.68rem;
+    color: rgba(255,255,255,0.25);
+    margin-top: 2px;
+    display: block;
+  }
+
+  /* Ticker footer */
+  .feed-footer {
+    overflow: hidden;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    background: rgba(249,115,22,0.06);
+    padding: 0.5rem 0;
+  }
+
+  .feed-footer-ticker {
+    white-space: nowrap;
+    display: flex;
+    animation: ticker-scroll 18s linear infinite;
+  }
+
+  .feed-ticker-text {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(249,115,22,0.6);
+    padding: 0 1.25rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+    /* duplicate for seamless loop */
+  }
+
+  @keyframes ticker-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* ═══════════════════════════════════════
+     STAT CARDS
+  ═══════════════════════════════════════ */
+  .stat-card {
+    background: white;
+    border: 1px solid var(--color-border-default);
+    border-radius: 0.875rem;
+    overflow: hidden;
+    display: flex;
+    align-items: stretch;
+    box-shadow: 0 2px 8px rgba(26,60,74,0.06);
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+  }
+
+  .stat-card:hover {
+    box-shadow: 0 8px 24px rgba(26,60,74,0.1);
+    transform: translateY(-2px);
+  }
+
+  .stat-card-line {
+    width: 4px;
+    flex-shrink: 0;
+    border-radius: 4px 0 0 4px;
+  }
+
+  .stat-card-line--orange { background: var(--color-orange-500); }
+  .stat-card-line--sky    { background: var(--color-sky-500); }
+  .stat-card-line--petrol { background: var(--color-petrol-700); }
+
+  .stat-card-inner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    flex: 1;
+  }
+
+  .stat-value {
+    font-family: 'Titan One', cursive;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    line-height: 1;
+    color: var(--color-petrol-900);
+    flex-shrink: 0;
+    letter-spacing: -0.02em;
+  }
+
+  .stat-label {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--color-petrol-700);
+  }
+
+  /* ═══════════════════════════════════════
+     CTA BLOCK
+  ═══════════════════════════════════════ */
+  .cta-block {
+    background: var(--color-petrol-900);
+    border-radius: 1rem;
+    padding: 1.75rem 1.5rem;
+    border: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Ambient glow inside CTA */
+  .cta-block::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 80% 0%, rgba(249,115,22,0.1) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .cta-block-urgency {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #34a853;
+    margin-bottom: 0.875rem;
+    position: relative;
+  }
+
+  .cta-urgency-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #34a853;
+    flex-shrink: 0;
+    animation: live-blink 1.8s ease-in-out infinite;
+  }
+
+  .cta-block-heading {
+    font-family: 'Titan One', cursive;
+    font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+    line-height: 1.25;
+    color: rgba(255,255,255,0.92);
+    margin-bottom: 1.25rem;
+    position: relative;
+  }
+
+  .cta-wa-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    background: #25D366;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 700;
+    padding: 0.8rem 1.35rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: 0 4px 18px rgba(37, 211, 102, 0.35);
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cta-wa-btn:hover {
+    background: #1FAD54;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 26px rgba(37, 211, 102, 0.45);
+  }
+
+  .cta-block-note {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.55;
+    margin-top: 0.875rem;
+    text-align: center;
+    position: relative;
+  }
+
+  /* ── Reduced motion ── */
+  @media (prefers-reduced-motion: reduce) {
+    .feed-live-dot         { animation: none; }
+    .feed-footer-ticker    { animation: none; }
+    .cta-urgency-dot       { animation: none; }
+    .stat-card             { transition: none; }
+    .stat-card:hover       { transform: none; }
+    .cta-wa-btn            { transition: none; }
+    .cta-wa-btn:hover      { transform: none; }
+  }
+</style>
