@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets'
 import WhatsAppButton from '../../WhatsAppButton.astro'
+import { buildWhatsAppHref } from '../../../data/site'
 import seoLocalHeroImage from '../../../assets/seo-local-hero.jpg'
 
 interface Props {
@@ -12,28 +13,64 @@ interface Props {
 }
 
 const { heading, description, primaryCtaText, secondaryCtaText, secondaryCtaHref } = Astro.props
+
+const waHref = buildWhatsAppHref()
+
+// Split heading at " en " for two-tone Titan One treatment
+const splitIdx = heading.toLowerCase().indexOf(' en ')
+const headingFirst  = splitIdx !== -1 ? heading.slice(0, splitIdx + 4) : heading   // "…cercanas en"
+const headingSecond = splitIdx !== -1 ? heading.slice(splitIdx + 4)    : ''         // "clientes que pagan"
 ---
 
 <section class='relative bg-petrol-900 overflow-hidden'>
-  <!-- Ambient background blobs -->
+
+  <!-- Ambient radial blobs -->
   <div
     class='pointer-events-none absolute inset-0'
-    style='background: radial-gradient(ellipse at 10% 60%, rgba(14,165,233,0.13) 0%, transparent 55%), radial-gradient(ellipse at 85% 20%, rgba(249,115,22,0.08) 0%, transparent 50%), radial-gradient(ellipse at 50% 100%, rgba(14,165,233,0.06) 0%, transparent 60%);'
-    aria-hidden='true'></div>
+    aria-hidden='true'
+    style='background: radial-gradient(ellipse at 8% 65%, rgba(14,165,233,0.14) 0%, transparent 52%), radial-gradient(ellipse at 88% 18%, rgba(249,115,22,0.09) 0%, transparent 50%), radial-gradient(ellipse at 50% 105%, rgba(14,165,233,0.07) 0%, transparent 60%);'>
+  </div>
 
   <!-- Dot grid -->
   <div
-    class='pointer-events-none absolute inset-0 opacity-[0.07]'
-    style='background-image: radial-gradient(circle, #7dd3fc 1px, transparent 1px); background-size: 28px 28px;'
-    aria-hidden='true'></div>
+    class='pointer-events-none absolute inset-0'
+    aria-hidden='true'
+    style='background-image: radial-gradient(circle, rgba(255,255,255,0.028) 1px, transparent 1px); background-size: 28px 28px;'>
+  </div>
 
-  <!-- Hero photo: bleeds to right on large screens -->
+  <!-- Diagonal tension lines -->
+  <svg
+    class='pointer-events-none absolute inset-0 w-full h-full'
+    aria-hidden='true'
+    preserveAspectRatio='none'
+    xmlns='http://www.w3.org/2000/svg'>
+    <line x1='68%' y1='0%' x2='95%'  y2='100%' stroke='rgba(249,115,22,0.06)' stroke-width='1'/>
+    <line x1='74%' y1='0%' x2='104%' y2='100%' stroke='rgba(249,115,22,0.035)' stroke-width='1'/>
+    <line x1='61%' y1='0%' x2='88%'  y2='100%' stroke='rgba(14,165,233,0.04)' stroke-width='1'/>
+  </svg>
+
+  <!-- Titan One watermark -->
+  <div
+    class='pointer-events-none absolute -top-6 right-0 select-none leading-none hidden lg:block'
+    aria-hidden='true'
+    style='font-family: "Titan One", cursive; font-size: clamp(14rem, 26vw, 22rem); color: rgba(255,255,255,0.018); line-height: 1;'>
+    LOCAL
+  </div>
+
+  <!-- Radial glow bottom-left -->
+  <div
+    class='pointer-events-none absolute -bottom-32 -left-32 w-96 h-96 rounded-full'
+    aria-hidden='true'
+    style='background: radial-gradient(circle, rgba(14,165,233,0.08) 0%, transparent 70%);'>
+  </div>
+
+  <!-- Hero photo (faded, xl only) -->
   <Image
     src={seoLocalHeroImage}
     alt=''
     width={900}
     height={1100}
-    class='pointer-events-none absolute right-0 top-0 h-full w-[45%] object-cover object-center opacity-[0.08] [mask-image:linear-gradient(to_left,black_0%,transparent_100%)] hidden xl:block'
+    class='pointer-events-none absolute right-0 top-0 h-full w-[45%] object-cover object-center opacity-[0.06] [mask-image:linear-gradient(to_left,black_0%,transparent_100%)] hidden xl:block'
     loading='eager'
     fetchpriority='high'
     aria-hidden='true'
@@ -43,39 +80,41 @@ const { heading, description, primaryCtaText, secondaryCtaText, secondaryCtaHref
     <div class='min-h-[88vh] flex items-center py-24 lg:py-16'>
       <div class='w-full grid lg:grid-cols-12 gap-10 lg:gap-14 items-center'>
 
-        <!-- ── LEFT: Text content (7 cols) ── -->
+        <!-- ── LEFT: text content (7 cols) ─────────────────────────── -->
         <div class='lg:col-span-7 hero-left'>
 
           <!-- Badge -->
           <div class='mb-7 hero-badge'>
-            <span
-              class='inline-flex items-center gap-2 rounded-full bg-sky-500/10 border border-sky-400/20 px-4 py-1.5 text-sm font-medium text-sky-300'>
-              <svg
-                class='size-3.5 shrink-0'
-                viewBox='0 0 16 16'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-                aria-hidden='true'>
-                <path
-                  d='M8 1.5C5.51 1.5 3.5 3.51 3.5 6c0 3.5 4.5 8.5 4.5 8.5S12.5 9.5 12.5 6c0-2.49-2.01-4.5-4.5-4.5zm0 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z'
-                  fill='currentColor'></path>
+            <span class='inline-flex items-center gap-2 rounded-full bg-sky-500/10 border border-sky-400/20 px-4 py-1.5 text-[0.78rem] font-bold uppercase tracking-[0.14em] text-sky-300'>
+              <svg class='size-3 shrink-0' viewBox='0 0 16 16' fill='none' aria-hidden='true'>
+                <path d='M8 1.5C5.51 1.5 3.5 3.51 3.5 6c0 3.5 4.5 8.5 4.5 8.5S12.5 9.5 12.5 6c0-2.49-2.01-4.5-4.5-4.5zm0 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z' fill='currentColor'/>
               </svg>
               SEO Local en Barcelona
             </span>
           </div>
 
-          <!-- H1 -->
-          <h1
-            class='text-white leading-[1.08] mb-7 hero-heading'
-            style='font-family: "Titan One", cursive; font-size: clamp(2.6rem, 5.5vw, 4.25rem); letter-spacing: -0.015em;'>
-            {heading}
+          <!-- H1: two-size Titan One -->
+          <h1 class='hero-heading' style='font-family: "Titan One", cursive; leading-none;'>
+            {headingSecond ? (
+              <>
+                <span class='block text-[clamp(1.8rem,4vw,3rem)] text-white/40 leading-[1.05] tracking-tight mb-1'>
+                  {headingFirst}
+                </span>
+                <span class='block text-[clamp(3rem,6.5vw,5rem)] text-white leading-[0.93] tracking-tight'>
+                  {headingSecond}<span class='text-orange-400'>.</span>
+                </span>
+              </>
+            ) : (
+              <span class='block text-[clamp(2.6rem,5.5vw,4.25rem)] text-white leading-[1.05] tracking-tight'>
+                {heading}
+              </span>
+            )}
           </h1>
 
           <!-- Accent rule -->
-          <div class='flex items-center gap-2 mb-8 hero-rule' aria-hidden='true'>
-            <div class='h-[3px] w-14 bg-orange-500 rounded-full'></div>
-            <div class='h-[3px] w-5 bg-sky-400/35 rounded-full'></div>
-            <div class='h-[3px] w-2 bg-sky-400/15 rounded-full'></div>
+          <div class='mt-5 mb-7 flex items-center gap-0 hero-rule' aria-hidden='true'>
+            <div class='h-[3px] w-16 bg-orange-500 rounded-full'></div>
+            <div class='h-px w-24 bg-gradient-to-r from-orange-500/50 to-transparent'></div>
           </div>
 
           <!-- Description -->
@@ -83,84 +122,93 @@ const { heading, description, primaryCtaText, secondaryCtaText, secondaryCtaHref
             <Fragment set:html={description} />
           </p>
 
-          <!-- 46% stat callout -->
-          <div
-            class='inline-flex items-center gap-4 mb-10 px-5 py-4 rounded-xl bg-white/[0.05] border border-white/[0.09] backdrop-blur-sm hero-stat'>
-            <span
-              class='text-[3.25rem] leading-none text-orange-500 shrink-0'
-              style='font-family: "Titan One", cursive;'
-              aria-hidden='true'>46%</span>
-            <p class='text-sm text-petrol-100 leading-snug max-w-[16rem]'>
-              de las búsquedas en Google tienen intención local — tu cliente ya está buscando ahora mismo.
-            </p>
+          <!-- Stat callout -->
+          <div class='hero-stat mb-10'>
+            <div class='inline-flex items-stretch gap-0 rounded-xl overflow-hidden border border-white/[0.09]' style='background: rgba(255,255,255,0.04);'>
+              <!-- Big number -->
+              <div class='px-5 py-4 flex items-center justify-center border-r border-white/[0.09]' style='background: rgba(249,115,22,0.08);'>
+                <span
+                  class='text-[3.25rem] leading-none text-orange-400'
+                  style='font-family: "Titan One", cursive;'
+                  aria-hidden='true'>46%</span>
+              </div>
+              <!-- Label -->
+              <div class='px-5 py-4 flex items-center'>
+                <p class='text-sm text-petrol-100 leading-snug max-w-[16rem]'>
+                  de las búsquedas en Google tienen intención local — <strong class='text-white font-semibold'>tu cliente ya está buscando ahora mismo.</strong>
+                </p>
+              </div>
+            </div>
           </div>
 
           <!-- CTAs -->
           <div class='flex flex-col sm:flex-row gap-4 items-start mb-8 hero-ctas'>
-            <WhatsAppButton text={primaryCtaText} />
+            <WhatsAppButton text={primaryCtaText} href={waHref} class='px-6 py-3 text-[0.9375rem] font-bold shadow-lg shadow-sky-500/20 hover:shadow-sky-500/30 transition-shadow' />
             <a
               href={secondaryCtaHref}
-              class='group inline-flex items-center gap-2 text-sm font-semibold text-white/75 hover:text-white transition-colors py-3 px-1'>
+              class='group inline-flex items-center gap-2 text-sm font-semibold text-white/70 hover:text-white transition-colors py-3 px-1'>
               {secondaryCtaText}
-              <span
-                class='group-hover:translate-x-1 transition-transform duration-200'
-                aria-hidden='true'>→</span>
+              <span class='group-hover:translate-x-1 transition-transform duration-200' aria-hidden='true'>→</span>
             </a>
           </div>
 
           <!-- Trust signals -->
-          <div
-            class='flex flex-wrap gap-x-7 gap-y-2.5 pt-5 border-t border-white/[0.09] hero-trust'>
-            <span class='inline-flex items-center gap-2 text-sm text-petrol-100'>
-              <span class='size-2 rounded-full bg-maps-green shadow-[0_0_6px_rgba(52,168,83,0.7)]'
-                aria-hidden='true'></span>
-              Diagnóstico gratuito
-            </span>
-            <span class='inline-flex items-center gap-2 text-sm text-petrol-100'>
-              <span class='size-2 rounded-full bg-maps-green shadow-[0_0_6px_rgba(52,168,83,0.7)]'
-                aria-hidden='true'></span>
-              Sin permanencia
-            </span>
-            <span class='inline-flex items-center gap-2 text-sm text-petrol-100'>
-              <span class='size-2 rounded-full bg-maps-green shadow-[0_0_6px_rgba(52,168,83,0.7)]'
-                aria-hidden='true'></span>
-              Resultados en 4–8 semanas
-            </span>
+          <div class='flex flex-wrap gap-x-7 gap-y-2.5 pt-5 border-t border-white/[0.09] hero-trust'>
+            {[
+              'Diagnóstico gratuito',
+              'Sin permanencia',
+              'Resultados en 4–8 semanas',
+            ].map(signal => (
+              <span class='inline-flex items-center gap-2 text-sm text-petrol-100'>
+                <span class='size-2 rounded-full bg-maps-green shadow-[0_0_6px_rgba(52,168,83,0.7)]' aria-hidden='true'></span>
+                {signal}
+              </span>
+            ))}
           </div>
+
         </div>
 
-        <!-- ── RIGHT: Google Local Pack mockup (5 cols) ── -->
+        <!-- ── RIGHT: Local Pack mockup (5 cols) ─────────────────── -->
         <div class='hidden lg:flex lg:col-span-5 justify-center items-center hero-right'>
           <div class='mockup-scene' aria-hidden='true'>
 
-            <!-- Floating badge -->
+            <!-- "Tu negocio aquí" badge -->
             <div
-              class='absolute -top-3 -right-5 z-20 bg-orange-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg'
+              class='absolute -top-3 -right-5 z-20 bg-orange-500 text-white text-[0.7rem] font-bold px-3 py-1.5 rounded-full shadow-lg'
               style='transform: rotate(4deg);'>
               Tu negocio aquí ↓
             </div>
 
-            <!-- Local Pack card -->
+            <!-- Floating call notification -->
             <div
-              class='mockup-card bg-white rounded-2xl overflow-hidden w-[330px] shadow-[0_32px_80px_-8px_rgba(0,0,0,0.55),0_0_0_1px_rgba(255,255,255,0.06)]'>
+              class='call-notif absolute -left-16 top-[30%] z-20 flex items-center gap-2.5 rounded-xl border border-white/15 pl-2.5 pr-4 py-2.5'
+              style='background: rgba(26,60,74,0.92); backdrop-filter: blur(8px); box-shadow: 0 8px 32px rgba(0,0,0,0.4); min-width: 170px;'>
+              <div class='flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-maps-green/20 ring-1 ring-maps-green/40'>
+                <svg class='w-4 h-4 text-maps-green' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'>
+                  <path d='M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.66A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.54-.54a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z'/>
+                </svg>
+              </div>
+              <div>
+                <p class='text-[0.6rem] font-bold uppercase tracking-wider text-white/40 leading-none mb-0.5'>Llamada entrante</p>
+                <p class='text-[0.78rem] font-bold text-white leading-tight'>+34 6·· ·· ·· ··</p>
+                <p class='text-[0.6rem] text-maps-green leading-none mt-0.5'>desde Google Maps</p>
+              </div>
+            </div>
+
+            <!-- Local Pack card -->
+            <div class='mockup-card bg-white rounded-2xl overflow-hidden w-[330px] shadow-[0_32px_80px_-8px_rgba(0,0,0,0.55),0_0_0_1px_rgba(255,255,255,0.06)]'>
 
               <!-- Browser chrome -->
-              <div
-                class='bg-[#f1f3f4] px-4 py-2.5 flex items-center gap-3 border-b border-black/[0.07]'>
-                <div class='flex gap-1.5 shrink-0' aria-hidden='true'>
+              <div class='bg-[#f1f3f4] px-4 py-2.5 flex items-center gap-3 border-b border-black/[0.07]'>
+                <div class='flex gap-1.5 shrink-0'>
                   <div class='size-2.5 rounded-full bg-[#ff5f56]'></div>
                   <div class='size-2.5 rounded-full bg-[#ffbd2e]'></div>
                   <div class='size-2.5 rounded-full bg-[#27c93f]'></div>
                 </div>
-                <div
-                  class='flex-1 bg-white rounded-full px-3 py-1.5 text-[11px] text-gray-500 flex items-center gap-1.5 border border-black/[0.08]'>
+                <div class='flex-1 bg-white rounded-full px-3 py-1.5 text-[11px] text-gray-500 flex items-center gap-1.5 border border-black/[0.08]'>
                   <svg class='size-3 text-gray-400 shrink-0' viewBox='0 0 16 16' fill='none'>
-                    <circle cx='7' cy='7' r='4.5' stroke='currentColor' stroke-width='1.5'></circle>
-                    <path
-                      d='M10.5 10.5l2.5 2.5'
-                      stroke='currentColor'
-                      stroke-width='1.5'
-                      stroke-linecap='round'></path>
+                    <circle cx='7' cy='7' r='4.5' stroke='currentColor' stroke-width='1.5'/>
+                    <path d='M10.5 10.5l2.5 2.5' stroke='currentColor' stroke-width='1.5' stroke-linecap='round'/>
                   </svg>
                   <span>dentista barcelona</span>
                 </div>
@@ -168,64 +216,51 @@ const { heading, description, primaryCtaText, secondaryCtaText, secondaryCtaHref
 
               <!-- Map area -->
               <div class='relative h-40 overflow-hidden bg-[#e8edd4]'>
-                <!-- Street grid SVG -->
-                <svg
-                  class='absolute inset-0 w-full h-full'
-                  xmlns='http://www.w3.org/2000/svg'
-                  aria-hidden='true'>
+                <svg class='absolute inset-0 w-full h-full' xmlns='http://www.w3.org/2000/svg'>
                   <!-- Main roads -->
-                  <line x1='0' y1='60' x2='330' y2='60' stroke='#fff' stroke-width='5'></line>
-                  <line x1='0' y1='115' x2='330' y2='115' stroke='#fff' stroke-width='4'></line>
-                  <line x1='75' y1='0' x2='75' y2='160' stroke='#fff' stroke-width='5'></line>
-                  <line x1='165' y1='0' x2='165' y2='160' stroke='#fff' stroke-width='5'></line>
-                  <line x1='255' y1='0' x2='255' y2='160' stroke='#fff' stroke-width='4'></line>
+                  <line x1='0' y1='60' x2='330' y2='60' stroke='#fff' stroke-width='5'/>
+                  <line x1='0' y1='115' x2='330' y2='115' stroke='#fff' stroke-width='4'/>
+                  <line x1='75' y1='0' x2='75' y2='160' stroke='#fff' stroke-width='5'/>
+                  <line x1='165' y1='0' x2='165' y2='160' stroke='#fff' stroke-width='5'/>
+                  <line x1='255' y1='0' x2='255' y2='160' stroke='#fff' stroke-width='4'/>
                   <!-- Secondary streets -->
-                  <line x1='0' y1='30' x2='330' y2='30' stroke='#fff' stroke-width='2.5'></line>
-                  <line x1='0' y1='88' x2='330' y2='88' stroke='#fff' stroke-width='2.5'></line>
-                  <line x1='120' y1='0' x2='120' y2='160' stroke='#fff' stroke-width='2.5'></line>
-                  <line x1='210' y1='0' x2='210' y2='160' stroke='#fff' stroke-width='2.5'></line>
+                  <line x1='0' y1='30' x2='330' y2='30' stroke='#fff' stroke-width='2.5'/>
+                  <line x1='0' y1='88' x2='330' y2='88' stroke='#fff' stroke-width='2.5'/>
+                  <line x1='120' y1='0' x2='120' y2='160' stroke='#fff' stroke-width='2.5'/>
+                  <line x1='210' y1='0' x2='210' y2='160' stroke='#fff' stroke-width='2.5'/>
                   <!-- Building blocks -->
-                  <rect x='80' y='35' width='36' height='20' rx='2' fill='#d4dfc0'></rect>
-                  <rect x='125' y='10' width='38' height='18' rx='2' fill='#cdd9b8'></rect>
-                  <rect x='170' y='35' width='36' height='20' rx='2' fill='#d4dfc0'></rect>
-                  <rect x='216' y='10' width='35' height='18' rx='2' fill='#cdd9b8'></rect>
-                  <rect x='80' y='93' width='36' height='18' rx='2' fill='#cdd9b8'></rect>
-                  <rect x='170' y='93' width='36' height='18' rx='2' fill='#d4dfc0'></rect>
-                  <rect x='260' y='65' width='30' height='15' rx='2' fill='#cdd9b8'></rect>
+                  <rect x='80' y='35' width='36' height='20' rx='2' fill='#d4dfc0'/>
+                  <rect x='125' y='10' width='38' height='18' rx='2' fill='#cdd9b8'/>
+                  <rect x='170' y='35' width='36' height='20' rx='2' fill='#d4dfc0'/>
+                  <rect x='216' y='10' width='35' height='18' rx='2' fill='#cdd9b8'/>
+                  <rect x='80' y='93' width='36' height='18' rx='2' fill='#cdd9b8'/>
+                  <rect x='170' y='93' width='36' height='18' rx='2' fill='#d4dfc0'/>
+                  <rect x='260' y='65' width='30' height='15' rx='2' fill='#cdd9b8'/>
                 </svg>
 
                 <!-- Blue highlight area -->
-                <div
-                  class='absolute inset-0'
-                  style='background: radial-gradient(ellipse at 32% 48%, rgba(66,133,244,0.12) 0%, transparent 60%);'>
-                </div>
+                <div class='absolute inset-0' style='background: radial-gradient(ellipse at 32% 48%, rgba(66,133,244,0.14) 0%, transparent 55%);'></div>
 
-                <!-- Pin 1: highlighted (your business) -->
-                <div class='absolute' style='top: 36%; left: 26%;'>
+                <!-- Pin 1: your business -->
+                <div class='absolute' style='top: 34%; left: 24%;'>
                   <div class='relative'>
-                    <div
-                      class='size-8 bg-[#4285F4] rounded-full border-[2.5px] border-white shadow-[0_4px_12px_rgba(66,133,244,0.5)] flex items-center justify-center z-10 relative'>
+                    <div class='size-8 bg-[#4285F4] rounded-full border-[2.5px] border-white shadow-[0_4px_14px_rgba(66,133,244,0.55)] flex items-center justify-center z-10 relative'>
                       <span class='text-white text-[11px] font-black leading-none'>1</span>
                     </div>
-                    <div
-                      class='absolute inset-0 rounded-full bg-[#4285F4]/25 pin-pulse'
-                      style='animation: pin-ring 2s ease-out infinite;'>
-                    </div>
+                    <div class='absolute inset-0 rounded-full bg-[#4285F4]/25' style='animation: pin-ring 2s ease-out infinite;'></div>
                   </div>
                 </div>
 
                 <!-- Pin 2 -->
                 <div class='absolute' style='top: 50%; left: 58%;'>
-                  <div
-                    class='size-6 bg-gray-400 rounded-full border-2 border-white shadow-md flex items-center justify-center'>
+                  <div class='size-6 bg-gray-400 rounded-full border-2 border-white shadow-md flex items-center justify-center'>
                     <span class='text-white text-[10px] font-bold leading-none'>2</span>
                   </div>
                 </div>
 
                 <!-- Pin 3 -->
-                <div class='absolute' style='top: 22%; left: 70%;'>
-                  <div
-                    class='size-6 bg-gray-400 rounded-full border-2 border-white shadow-md flex items-center justify-center'>
+                <div class='absolute' style='top: 20%; left: 72%;'>
+                  <div class='size-6 bg-gray-400 rounded-full border-2 border-white shadow-md flex items-center justify-center'>
                     <span class='text-white text-[10px] font-bold leading-none'>3</span>
                   </div>
                 </div>
@@ -234,17 +269,13 @@ const { heading, description, primaryCtaText, secondaryCtaText, secondaryCtaHref
               <!-- Business listings -->
               <div class='divide-y divide-gray-100'>
 
-                <!-- #1 — highlighted -->
-                <div class='px-4 py-3.5 bg-[#f8fbff] border-l-[3px] border-[#4285F4]'>
+                <!-- #1 highlighted -->
+                <div class='px-4 py-3.5 bg-[#f0f7ff] border-l-[3px] border-[#4285F4]'>
                   <div class='flex justify-between items-center gap-3'>
                     <div class='min-w-0'>
-                      <p class='text-[13px] font-semibold text-gray-900 truncate'>
-                        Clínica Dental López
-                      </p>
+                      <p class='text-[13px] font-semibold text-gray-900 truncate'>Clínica Dental López</p>
                       <div class='flex items-center gap-1 mt-0.5'>
-                        <span class='text-yellow-400 text-[11px] leading-none tracking-tight'>
-                          ★★★★★
-                        </span>
+                        <span class='text-yellow-400 text-[11px] leading-none tracking-tight'>★★★★★</span>
                         <span class='text-[11px] text-gray-500'>4.9 · 127 reseñas</span>
                       </div>
                       <div class='flex items-center gap-2 mt-0.5'>
@@ -252,15 +283,14 @@ const { heading, description, primaryCtaText, secondaryCtaText, secondaryCtaHref
                         <span class='text-[11px] text-gray-400'>· 0.3 km · Dentista</span>
                       </div>
                     </div>
-                    <span
-                      class='shrink-0 bg-[#1a73e8] text-white text-[11px] px-3 py-1.5 rounded-full font-semibold'>
+                    <span class='shrink-0 bg-[#1a73e8] text-white text-[11px] px-3 py-1.5 rounded-full font-semibold whitespace-nowrap'>
                       Llamar
                     </span>
                   </div>
                 </div>
 
-                <!-- #2 — dimmed -->
-                <div class='px-4 py-3 opacity-40'>
+                <!-- #2 dimmed -->
+                <div class='px-4 py-3 opacity-35'>
                   <p class='text-[12px] font-semibold text-gray-700'>Dental Center BCN</p>
                   <div class='flex items-center gap-1 mt-0.5'>
                     <span class='text-yellow-400 text-[11px] leading-none'>★★★★</span>
@@ -268,8 +298,8 @@ const { heading, description, primaryCtaText, secondaryCtaText, secondaryCtaHref
                   </div>
                 </div>
 
-                <!-- #3 — dimmed -->
-                <div class='px-4 py-3 opacity-25'>
+                <!-- #3 dimmed -->
+                <div class='px-4 py-3 opacity-20'>
                   <p class='text-[12px] font-semibold text-gray-700'>Odontología Gràcia</p>
                   <div class='flex items-center gap-1 mt-0.5'>
                     <span class='text-yellow-400 text-[11px] leading-none'>★★★</span>
@@ -281,14 +311,12 @@ const { heading, description, primaryCtaText, secondaryCtaText, secondaryCtaHref
             </div>
 
             <!-- Caption -->
-            <p class='text-center text-[11px] text-petrol-100/50 mt-3 tracking-wide uppercase'>
-              Local Pack · <strong class='text-petrol-100/70 font-semibold'>44 % de los clics</strong>
+            <p class='text-center text-[11px] text-petrol-100/45 mt-3.5 tracking-wide uppercase'>
+              Local Pack · <strong class='text-petrol-100/65 font-semibold'>44 % de los clics</strong>
             </p>
 
-            <!-- Decorative glow behind card -->
-            <div
-              class='absolute -bottom-12 left-1/2 -translate-x-1/2 w-56 h-24 bg-sky-500/15 blur-3xl rounded-full pointer-events-none'
-              aria-hidden='true'></div>
+            <!-- Glow behind card -->
+            <div class='absolute -bottom-12 left-1/2 -translate-x-1/2 w-56 h-24 bg-sky-500/15 blur-3xl rounded-full pointer-events-none' aria-hidden='true'></div>
           </div>
         </div>
 
@@ -296,17 +324,13 @@ const { heading, description, primaryCtaText, secondaryCtaText, secondaryCtaHref
     </div>
   </div>
 
-  <!-- Bottom wave transition to warm-white -->
+  <!-- Bottom transition -->
   <div class='absolute bottom-0 left-0 right-0 pointer-events-none' aria-hidden='true'>
-    <svg
-      viewBox='0 0 1440 56'
-      fill='none'
-      xmlns='http://www.w3.org/2000/svg'
-      class='w-full h-14'
-      preserveAspectRatio='none'>
-      <path d='M0 56L360 28L720 44L1080 16L1440 36V56H0Z' fill='#FAFAF8'></path>
+    <svg viewBox='0 0 1440 56' fill='none' xmlns='http://www.w3.org/2000/svg' class='w-full h-14' preserveAspectRatio='none'>
+      <path d='M0 56L360 28L720 44L1080 16L1440 36V56H0Z' fill='#FAFAF8'/>
     </svg>
   </div>
+
 </section>
 
 <style>
@@ -326,16 +350,26 @@ const { heading, description, primaryCtaText, secondaryCtaText, secondaryCtaHref
     transform: perspective(1100px) rotateY(-1.5deg) rotateX(1deg) translateZ(10px);
   }
 
-  /* ── Map pin ring animation ── */
+  /* ── Floating call notification ── */
+  .call-notif {
+    animation: notif-enter 0.7s cubic-bezier(0.22, 1, 0.36, 1) 1.2s both,
+               notif-float 4s ease-in-out 2s infinite;
+  }
+
+  @keyframes notif-enter {
+    from { opacity: 0; transform: translateX(-12px) scale(0.95); }
+    to   { opacity: 1; transform: translateX(0) scale(1); }
+  }
+
+  @keyframes notif-float {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-5px); }
+  }
+
+  /* ── Map pin ring ── */
   @keyframes pin-ring {
-    0% {
-      transform: scale(1);
-      opacity: 0.7;
-    }
-    100% {
-      transform: scale(2.8);
-      opacity: 0;
-    }
+    0%   { transform: scale(1); opacity: 0.7; }
+    100% { transform: scale(2.8); opacity: 0; }
   }
 
   /* ── Entrance animations ── */
@@ -351,13 +385,13 @@ const { heading, description, primaryCtaText, secondaryCtaText, secondaryCtaHref
     animation: hero-enter 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 
-  .hero-badge      { animation-delay: 0.05s; }
-  .hero-heading    { animation-delay: 0.15s; }
-  .hero-rule       { animation-delay: 0.25s; }
+  .hero-badge       { animation-delay: 0.05s; }
+  .hero-heading     { animation-delay: 0.14s; }
+  .hero-rule        { animation-delay: 0.22s; }
   .hero-description { animation-delay: 0.30s; }
-  .hero-stat       { animation-delay: 0.38s; }
-  .hero-ctas       { animation-delay: 0.46s; }
-  .hero-trust      { animation-delay: 0.54s; }
+  .hero-stat        { animation-delay: 0.38s; }
+  .hero-ctas        { animation-delay: 0.46s; }
+  .hero-trust       { animation-delay: 0.54s; }
 
   .hero-right {
     opacity: 0;
@@ -366,25 +400,16 @@ const { heading, description, primaryCtaText, secondaryCtaText, secondaryCtaHref
   }
 
   @keyframes hero-enter {
-    to {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
+    to { opacity: 1; transform: translateY(0) scale(1); }
   }
 
   /* ── Reduced motion ── */
   @media (prefers-reduced-motion: reduce) {
     .hero-badge, .hero-heading, .hero-rule, .hero-description,
     .hero-stat, .hero-ctas, .hero-trust, .hero-right {
-      opacity: 1;
-      transform: none;
-      animation: none;
+      opacity: 1; transform: none; animation: none;
     }
-    .pin-pulse {
-      animation: none;
-    }
-    .mockup-card {
-      transform: none;
-    }
+    .call-notif { animation: none; opacity: 1; transform: none; }
+    .mockup-card { transform: none; }
   }
 </style>
