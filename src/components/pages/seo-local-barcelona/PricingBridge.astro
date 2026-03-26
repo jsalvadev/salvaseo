@@ -134,9 +134,6 @@ const ordinals = ['01', '02', '03', '04', '05', '06']
                 /mes
               </span>
             </div>
-            <p class='text-[0.68rem] font-bold uppercase tracking-[0.18em] text-white/30 mt-2'>
-              Definido tras diagnóstico gratuito · Sin contratos
-            </p>
           </div>
         )}
 
@@ -208,63 +205,7 @@ const ordinals = ['01', '02', '03', '04', '05', '06']
           </div>
         ))}
 
-        <!-- Quote block -->
-        <figure
-          data-animate
-          class='relative mt-2 rounded-2xl overflow-hidden border'
-          style='background: rgba(14,165,233,0.04); border-color: rgba(56,189,248,0.15);'>
 
-          <!-- Large decorative quote mark -->
-          <div
-            class='pointer-events-none absolute -top-4 -left-2 select-none leading-none'
-            aria-hidden='true'
-            style='font-family: "Titan One", cursive; font-size: 8rem; color: rgba(56,189,248,0.07); line-height: 1;'>
-            "
-          </div>
-
-          <blockquote class='relative px-8 pt-8 pb-6'>
-            <p class='text-base md:text-lg text-white/75 leading-relaxed italic text-pretty'>
-              {quote}
-            </p>
-          </blockquote>
-
-          <figcaption class='px-8 pb-7 flex items-center gap-3'>
-            <!-- Avatar placeholder: initials -->
-            <div
-              class='shrink-0 flex h-8 w-8 items-center justify-center rounded-full text-[0.6rem] font-bold text-sky-400'
-              style='background: rgba(14,165,233,0.12); border: 1px solid rgba(56,189,248,0.22);'>
-              SJ
-            </div>
-            <div class='text-[0.72rem] text-white/35 leading-snug'>
-              <Fragment set:html={quoteAuthor} />
-            </div>
-          </figcaption>
-        </figure>
-
-      </div>
-    </div>
-
-    <!-- ── CTA strip ──────────────────────────────────────────────── -->
-    <div data-animate class='mt-16 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 rounded-2xl border px-7 py-6' style='background: rgba(14,165,233,0.05); border-color: rgba(56,189,248,0.15);'>
-      <div>
-        <p class='text-base font-bold text-white mb-1' style='font-family: "Titan One", cursive;'>
-          El diagnóstico no tiene coste.
-        </p>
-        <p class='text-sm text-white/50 max-w-[44ch] leading-relaxed'>
-          Analizo tu ficha de Google Business y tu web antes de hablar de presupuesto.
-        </p>
-      </div>
-      <div class='flex flex-col sm:flex-row items-start sm:items-center gap-3 shrink-0'>
-        <a
-          href='/presupuesto-seo-barcelona/#paquetes'
-          class='rounded-lg border border-white/15 px-5 py-3 text-sm font-bold text-white/80 transition-all hover:border-white/30 hover:text-white'>
-          Ver paquetes y precios
-        </a>
-        <WhatsAppButton
-          text='Pide tu diagnóstico gratuito'
-          href={waHref}
-          class='px-5 py-3 text-sm font-bold shadow-lg shadow-sky-500/20 hover:shadow-sky-500/30 transition-shadow'
-        />
       </div>
     </div>
 

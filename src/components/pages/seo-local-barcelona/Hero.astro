@@ -144,27 +144,8 @@ const headingSecond = splitIdx !== -1 ? heading.slice(splitIdx + 4)    : ''     
           <!-- CTAs -->
           <div class='flex flex-col sm:flex-row gap-4 items-start mb-8 hero-ctas'>
             <WhatsAppButton text={primaryCtaText} href={waHref} class='px-6 py-3 text-[0.9375rem] font-bold shadow-lg shadow-sky-500/20 hover:shadow-sky-500/30 transition-shadow' />
-            <a
-              href={secondaryCtaHref}
-              class='group inline-flex items-center gap-2 text-sm font-semibold text-white/70 hover:text-white transition-colors py-3 px-1'>
-              {secondaryCtaText}
-              <span class='group-hover:translate-x-1 transition-transform duration-200' aria-hidden='true'>→</span>
-            </a>
           </div>
 
-          <!-- Trust signals -->
-          <div class='flex flex-wrap gap-x-7 gap-y-2.5 pt-5 border-t border-white/[0.09] hero-trust'>
-            {[
-              'Diagnóstico gratuito',
-              'Sin permanencia',
-              'Resultados en 4–8 semanas',
-            ].map(signal => (
-              <span class='inline-flex items-center gap-2 text-sm text-petrol-100'>
-                <span class='size-2 rounded-full bg-maps-green shadow-[0_0_6px_rgba(52,168,83,0.7)]' aria-hidden='true'></span>
-                {signal}
-              </span>
-            ))}
-          </div>
 
         </div>
 
@@ -378,8 +359,7 @@ const headingSecond = splitIdx !== -1 ? heading.slice(splitIdx + 4)    : ''     
   .hero-rule,
   .hero-description,
   .hero-stat,
-  .hero-ctas,
-  .hero-trust {
+  .hero-ctas {
     opacity: 0;
     transform: translateY(22px);
     animation: hero-enter 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
@@ -391,7 +371,6 @@ const headingSecond = splitIdx !== -1 ? heading.slice(splitIdx + 4)    : ''     
   .hero-description { animation-delay: 0.30s; }
   .hero-stat        { animation-delay: 0.38s; }
   .hero-ctas        { animation-delay: 0.46s; }
-  .hero-trust       { animation-delay: 0.54s; }
 
   .hero-right {
     opacity: 0;
@@ -406,7 +385,7 @@ const headingSecond = splitIdx !== -1 ? heading.slice(splitIdx + 4)    : ''     
   /* ── Reduced motion ── */
   @media (prefers-reduced-motion: reduce) {
     .hero-badge, .hero-heading, .hero-rule, .hero-description,
-    .hero-stat, .hero-ctas, .hero-trust, .hero-right {
+    .hero-stat, .hero-ctas, .hero-right {
       opacity: 1; transform: none; animation: none;
     }
     .call-notif { animation: none; opacity: 1; transform: none; }
