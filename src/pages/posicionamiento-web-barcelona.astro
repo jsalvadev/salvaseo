@@ -5,11 +5,9 @@ import Timeline from '../components/pages/posicionamiento-web-barcelona/Timeline
 import WhatIs from '../components/pages/posicionamiento-web-barcelona/WhatIs.astro'
 import HeroLanding from '../components/pages/posicionamiento-web-barcelona/Hero.astro'
 import PricingBridge from '../components/pages/posicionamiento-web-barcelona/PricingBridge.astro'
-import FreelancerVsAgency from '../components/pages/posicionamiento-web-barcelona/FreelancerVsAgency.astro'
 import LocalAreas from '../components/pages/posicionamiento-web-barcelona/LocalAreas.astro'
 import Faq from '../components/pages/posicionamiento-web-barcelona/Faq.astro'
 import { faqBarcelonaItems } from '../data/faq-barcelona'
-import Cta from '../components/pages/posicionamiento-web-barcelona/Cta.astro'
 import barcelonaImage from '../assets/barcelona.webp'
 const MIN_MONTHLY_PRICE_EUR = 350
 const MIN_MONTHLY_PRICE_TEXT = `${MIN_MONTHLY_PRICE_EUR} €/mes`
@@ -49,8 +47,7 @@ const DATE_MODIFIED = "2026-03-03"
       { stat: '70 búsquedas/mes', title: 'Posicionamiento web en Lleida', description: 'Baja competencia técnica en el entorno. La optimización profesional genera aquí resultados de liderazgo en plazos más cortos que en mercados saturados.' },
     ]}
   />
-  <FreelancerVsAgency />
-  <PricingBridge
+<PricingBridge
     upheading='Precios de posicionamiento web en Barcelona'
     heading='Solo inviertes en lo que funciona'
     priceHighlight={`Desde ${MIN_MONTHLY_PRICE_TEXT}`}
@@ -68,15 +65,6 @@ const DATE_MODIFIED = "2026-03-03"
     heading='Todavía te lo estás pensando'
     idPrefix='faq-pw'
     items={faqBarcelonaItems}
-  />
-  <Cta
-    layout='centered'
-    upheading='Posicionamiento web para pymes en Barcelona'
-    heading='El primer paso es gratis'
-    text='Accede a un estudio de mercado y una auditoría técnica de tu web <strong>sin coste ni compromiso</strong>. Verifica la rentabilidad de la inversión antes de tomar cualquier decisión.'
-    primaryCtaText='Analiza mi web'
-    secondaryCtaText='O rellena el formulario'
-    secondaryCtaHref='/#contacto'
   />
 
   <!-- JSON-LD Structured Data -->
