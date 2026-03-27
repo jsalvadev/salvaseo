@@ -17,7 +17,7 @@ interface Props {
 const { upheading, heading, intro, areas } = Astro.props
 ---
 
-<section class='relative overflow-hidden bg-white py-24 sm:py-32'>
+<section class='relative overflow-hidden bg-warm-white py-24 sm:py-32'>
 
   <!-- Dot-grid texture -->
   <div
@@ -65,13 +65,13 @@ const { upheading, heading, intro, areas } = Astro.props
       <!-- Eyebrow -->
       <div data-animate class='flex items-center gap-3 mb-8'>
         <span class='block h-px w-10 bg-orange-500' aria-hidden='true'></span>
-        <p class='text-[0.7rem] font-bold uppercase tracking-[0.22em] text-orange-500'>
+        <h2 class='text-[0.7rem] font-bold uppercase tracking-[0.22em] text-orange-500'>
           {upheading}
-        </p>
+        </h2>
       </div>
 
-      <!-- Titan One heading — 2-line treatment -->
-      <h2
+      <!-- Titan One display — visual only, not semantic heading -->
+      <p
         data-animate
         style='font-family: "Titan One", cursive;'
         class='leading-[0.92] tracking-tight text-pretty'
@@ -82,7 +82,7 @@ const { upheading, heading, intro, areas } = Astro.props
         <span class='block text-[clamp(3rem,6vw,4.5rem)] text-petrol-900'>
           {heading.split(' ').slice(2).join(' ')}<span class='text-orange-400'>.</span>
         </span>
-      </h2>
+      </p>
 
       <!-- Orange accent rule -->
       <div data-animate class='mt-6 flex items-center' aria-hidden='true'>

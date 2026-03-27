@@ -10,8 +10,6 @@ import {
   Target,
   TrendingUp,
 } from "@lucide/astro";
-import Upheading from "../../Upheading.astro";
-import WhatsAppButton from "../../WhatsAppButton.astro";
 
 type IconKey =
   | "scale"
@@ -43,10 +41,6 @@ interface Props {
   subtitle?: string;
   sectionId?: string;
   phases?: TimelinePhase[];
-  ctaHeading?: string;
-  ctaText?: string;
-  ctaHref?: string;
-  ctaLabel?: string;
 }
 
 const iconByKey = {
@@ -141,10 +135,6 @@ const {
   subtitle = "Tres fases para ejecutar, medir y escalar. Visualiza el retorno de tu inversión en Barcelona mediante informes claros y objetivos cumplidos.",
   sectionId = "proceso",
   phases = defaultPhases,
-  ctaHeading = "Identifica el potencial de tu negocio en Barcelona.",
-  ctaText = "Recibe gratis un análisis de tu situación actual valorado en 200 € y descubre cómo captar a los clientes que hoy pierdes.",
-  ctaHref = "https://wa.me/34692051399?text=Hola%20Salva%2C%20he%20visto%20tu%20web.%20Tengo%20un%20negocio%20en%20Barcelona%20y%20me%20gustar%C3%ADa%20saber%20si%20el%20SEO%20puede%20ayudarme%20a%20conseguir%20m%C3%A1s%20clientes.",
-  ctaLabel = "Analiza mi web",
 } = Astro.props;
 ---
 
@@ -199,20 +189,20 @@ const {
         <div data-animate class="flex items-center gap-3 mb-8">
           <span class="block h-px w-10 bg-orange-500" aria-hidden="true"></span>
           {upheading && (
-            <p class="text-[0.7rem] font-bold uppercase tracking-[0.22em] text-orange-400">
+            <h2 class="text-[0.7rem] font-bold uppercase tracking-[0.22em] text-orange-400">
               {upheading}
-            </p>
+            </h2>
           )}
         </div>
 
-        <!-- Titan One heading -->
-        <h2
+        <!-- Titan One display — visual only, not semantic heading -->
+        <p
           data-animate
           style='font-family: "Titan One", cursive;'
           class="leading-[0.92] tracking-tight text-[clamp(2rem,4.5vw,3.25rem)] text-white text-pretty"
         >
           {heading}<span class="text-orange-400">.</span>
-        </h2>
+        </p>
 
         <!-- Orange accent rule -->
         <div data-animate class="mt-6 flex items-center">

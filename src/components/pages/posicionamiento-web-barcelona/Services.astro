@@ -88,8 +88,8 @@ const services = [
   ></div>
 
   <!-- ── Top / bottom hairlines ────────────────────────────────────── -->
-  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-petrol-200 to-transparent' aria-hidden='true'></div>
-  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-petrol-200 to-transparent' aria-hidden='true'></div>
+  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-petrol-100 to-transparent' aria-hidden='true'></div>
+  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-petrol-100 to-transparent' aria-hidden='true'></div>
 
   <div class='relative mx-auto max-w-7xl px-6 lg:px-8'>
 
@@ -100,14 +100,14 @@ const services = [
       <div data-animate class='flex items-center gap-3 mb-8'>
         <span class='block h-px w-10 bg-orange-500' aria-hidden='true'></span>
         {upheading && (
-          <p class='text-[0.7rem] font-bold uppercase tracking-[0.22em] text-orange-500'>
+          <h2 class='text-[0.7rem] font-bold uppercase tracking-[0.22em] text-orange-500'>
             {upheading}
-          </p>
+          </h2>
         )}
       </div>
 
-      <!-- Titan One heading -->
-      <h2
+      <!-- Titan One display — visual only, not semantic heading -->
+      <p
         data-animate
         style='font-family: "Titan One", cursive;'
         class='leading-[0.92] tracking-tight mb-6'
@@ -118,7 +118,7 @@ const services = [
         <span class='block text-[clamp(3rem,7vw,5rem)] text-petrol-900'>
           trabajar para ti<span class='text-orange-400'>.</span>
         </span>
-      </h2>
+      </p>
 
       <!-- Orange accent rule -->
       <div data-animate class='flex items-center'>

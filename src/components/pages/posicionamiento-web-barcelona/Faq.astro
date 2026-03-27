@@ -52,7 +52,7 @@ const faqSchema = {
       {upheading && (
         <div class="bcnfaq-eyebrow" data-animate>
           <span class="bcnfaq-eyebrow-line" aria-hidden="true"></span>
-          <p class="bcnfaq-eyebrow-text">{upheading}</p>
+          <h2 class="bcnfaq-eyebrow-text">{upheading}</h2>
         </div>
       )}
 
@@ -126,7 +126,7 @@ const faqSchema = {
   .bcnfaq-root {
     position: relative;
     overflow: hidden;
-    background-color: #EEF3F5; /* petrol-100 — cool off-white */
+    background-color: var(--color-petrol-100);
   }
 
   /* ── "?" watermark ─────────────────────────────────────────── */
@@ -213,7 +213,7 @@ const faqSchema = {
     height: 1px;
     width: 2.5rem;
     flex-shrink: 0;
-    background-color: #f97316; /* orange-500 */
+    background-color: var(--color-orange-500);
   }
 
   .bcnfaq-eyebrow-text {
@@ -221,7 +221,7 @@ const faqSchema = {
     font-weight: 700;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: #f97316; /* orange-500 */
+    color: var(--color-orange-500);
     margin: 0;
   }
 
@@ -230,13 +230,13 @@ const faqSchema = {
     font-family: 'Titan One', cursive;
     font-size: clamp(2.4rem, 5.5vw, 4rem);
     line-height: 1.0;
-    color: #1A3C4A; /* petrol-900 */
+    color: var(--color-petrol-900);
     margin: 0 0 1.5rem;
     text-wrap: pretty;
   }
 
   .bcnfaq-dot {
-    color: #fb923c; /* orange-400 */
+    color: var(--color-orange-400);
   }
 
   /* Orange accent rule */
@@ -250,7 +250,7 @@ const faqSchema = {
     display: block;
     height: 3px;
     width: 4rem;
-    background-color: #f97316;
+    background-color: var(--color-orange-500);
     border-radius: 9999px;
   }
 
@@ -308,7 +308,7 @@ const faqSchema = {
   }
 
   .bcnfaq-item:has(button[aria-expanded="true"]) .bcnfaq-num {
-    color: #f97316;
+    color: var(--color-orange-500);
   }
 
   /* ── Question h3 ─────────────────────────────────────────────── */
@@ -333,16 +333,16 @@ const faqSchema = {
     font-size: clamp(0.9375rem, 2vw, 1.0625rem);
     font-weight: 600;
     line-height: 1.45;
-    color: #1A3C4A;
+    color: var(--color-petrol-900);
     transition: color 0.2s ease;
   }
 
   .bcnfaq-btn:hover {
-    color: #f97316;
+    color: var(--color-orange-500);
   }
 
   .bcnfaq-item:has(button[aria-expanded="true"]) .bcnfaq-btn {
-    color: #f97316;
+    color: var(--color-orange-500);
   }
 
   /* ── Chevron ─────────────────────────────────────────────────── */
@@ -351,23 +351,18 @@ const faqSchema = {
     height: 1.125rem;
     flex-shrink: 0;
     margin-top: 0.25rem;
-    color: #3A6D82;
+    color: var(--color-petrol-600);
     transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
   }
 
   .bcnfaq-item:has(button[aria-expanded="true"]) .bcnfaq-chevron {
     transform: rotate(180deg);
-    color: #f97316;
+    color: var(--color-orange-500);
   }
 
   /* ── Answer reveal ───────────────────────────────────────────── */
   el-disclosure:not([hidden]) {
     animation: bcnfaq-reveal 0.42s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-
-  @keyframes bcnfaq-reveal {
-    from { opacity: 0; transform: translateY(-6px); }
-    to   { opacity: 1; transform: translateY(0); }
   }
 
   .bcnfaq-dd {
@@ -408,13 +403,13 @@ const faqSchema = {
   }
 
   .bcnfaq-answer-body :global(a) {
-    color: #0284c7;
+    color: var(--color-sky-600);
     text-decoration: underline;
     text-underline-offset: 2px;
   }
 
   .bcnfaq-answer-body :global(a:hover) {
-    color: #0ea5e9;
+    color: var(--color-sky-500);
   }
 
   /* ── Reduced motion ──────────────────────────────────────────── */

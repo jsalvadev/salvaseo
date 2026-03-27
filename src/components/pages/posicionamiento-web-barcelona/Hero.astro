@@ -1,7 +1,7 @@
 ---
 import WhatsAppButton from '../../WhatsAppButton.astro'
+import Breadcrumb from '../../Breadcrumb.astro'
 import { buildWhatsAppHref } from '../../../data/site'
-import { ChevronRight } from '@lucide/astro'
 
 interface BreadcrumbItem {
   label: string
@@ -11,16 +11,12 @@ interface BreadcrumbItem {
 interface Props {
   upheading?: string
   primaryCtaText?: string
-  secondaryCtaText?: string
-  secondaryCtaHref?: string
   breadcrumbItems?: BreadcrumbItem[]
 }
 
 const {
   upheading = 'Posicionamiento web en Barcelona',
   primaryCtaText = 'Analiza mi web',
-  secondaryCtaText = 'Descubre el proceso',
-  secondaryCtaHref = '#proceso',
   breadcrumbItems,
 } = Astro.props
 
@@ -85,28 +81,9 @@ const keywords = [
 
   <!-- Breadcrumb -->
   {breadcrumbItems && (
-    <nav
-      aria-label='Breadcrumb'
-      class='relative mx-auto max-w-7xl px-6 lg:px-8 pt-[calc(var(--navbar-height)+1.25rem)]'>
-      <ol class='flex items-center gap-1.5 text-sm'>
-        {breadcrumbItems.map((item, idx) => (
-          <li class='flex items-center gap-1.5'>
-            {idx > 0 && (
-              <ChevronRight class='size-3.5 text-white/30 shrink-0' aria-hidden='true' />
-            )}
-            {item.href ? (
-              <a href={item.href} class='text-white/50 hover:text-white/80 transition-colors'>
-                {item.label}
-              </a>
-            ) : (
-              <span class='text-white/80 font-medium' aria-current='page'>
-                {item.label}
-              </span>
-            )}
-          </li>
-        ))}
-      </ol>
-    </nav>
+    <div class='relative'>
+      <Breadcrumb items={breadcrumbItems} dark={true} />
+    </div>
   )}
 
   <!-- Main grid -->
@@ -248,7 +225,7 @@ const keywords = [
         <div class='flex items-center gap-3 mt-0.5'>
           <div class='h-px flex-1' style='background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1));'></div>
           <p class='text-[0.58rem] font-semibold whitespace-nowrap' style='color: rgba(255,255,255,0.55);'>
-            91% de los clics van a la primera posición
+            91% de los clics van al top 3
           </p>
           <div class='h-px flex-1' style='background: linear-gradient(90deg, rgba(255,255,255,0.1), transparent);'></div>
         </div>
