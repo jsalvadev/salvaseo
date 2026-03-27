@@ -12,6 +12,7 @@ interface Props {
     ogType?: string;
     canonicalUrl?: string;
     preloadImageHref?: string;
+    navScrolled?: boolean;
 }
 
 const {
@@ -22,6 +23,7 @@ const {
     ogType = "website",
     canonicalUrl = "https://salvaseo.com/",
     preloadImageHref,
+    navScrolled = false,
 } = Astro.props;
 
 const isProd = import.meta.env.PROD;
@@ -268,7 +270,7 @@ const DATE_MODIFIED = "2026-03-03";
         <!-- End Google Tag Manager (noscript) -->
         <div class="pointer-events-none absolute top-0 z-[-2] h-screen w-screen bg-white bg-[radial-gradient(100%_50%_at_50%_0%,rgba(0,163,255,0.13)_0,rgba(0,163,255,0)_50%,rgba(0,163,255,0)_100%)]"></div>
         <div class="relative z-0">
-            <Navbar />
+            <Navbar forceScrolled={navScrolled} />
             <main>
                 <slot />
             </main>
