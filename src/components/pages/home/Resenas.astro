@@ -1,5 +1,6 @@
 ---
 import { buildWhatsAppHref } from '../../../data/site'
+import WhatsAppButton from '../../WhatsAppButton.astro'
 
 const waHref = buildWhatsAppHref()
 
@@ -70,7 +71,7 @@ const fakeTestimonials = [
       </p>
 
       <p class='mt-4 text-base/7 text-petrol-600 font-medium max-w-lg'>
-La mayoría de SEOs te llena la página de testimonios que no puedes verificar. Yo te doy algo mejor.      </p>
+La mayoría de SEOs te llenan la página de testimonios que no puedes verificar. Yo te doy algo mejor.      </p>
     </div>
 
     <!-- ── Two-column body ──────────────────────────────────── -->
@@ -83,7 +84,7 @@ La mayoría de SEOs te llena la página de testimonios que no puedes verificar. 
         <p class='text-sm font-semibold text-petrol-700 mb-1'>
           Muchas páginas de SEO tienen esto:
         </p>
-        <p class='text-xs text-petrol-400 mb-4 leading-relaxed'>
+        <p class='text-xs text-petrol-600/60 mb-4 leading-relaxed'>
           Personas que probablemente no conoces, no vas a conocer nunca,
           y cuya página web ni siquiera puedes buscar.
         </p>
@@ -130,12 +131,12 @@ La mayoría de SEOs te llena la página de testimonios que no puedes verificar. 
 
               <!-- Name + business -->
               <div class='mt-3 flex items-center gap-2'>
-                <div class='shrink-0 size-7 rounded-full bg-petrol-200 flex items-center justify-center'>
-                  <span class='text-[0.6rem] font-bold text-petrol-500'>{t.name.charAt(0)}</span>
+                <div class='shrink-0 size-7 rounded-full bg-petrol-100 flex items-center justify-center'>
+                  <span class='text-[0.6rem] font-bold text-petrol-600'>{t.name.charAt(0)}</span>
                 </div>
                 <div>
                   <p class='text-xs font-semibold text-petrol-600'>{t.name}</p>
-                  <p class='text-[0.65rem] text-petrol-400'>{t.business}</p>
+                  <p class='text-[0.65rem] text-petrol-600/60'>{t.business}</p>
                 </div>
               </div>
             </div>
@@ -143,7 +144,7 @@ La mayoría de SEOs te llena la página de testimonios que no puedes verificar. 
         </div>
 
         <!-- Disclaimer note -->
-        <p class='mt-4 text-[0.68rem] text-petrol-400 text-center italic leading-relaxed'>
+        <p class='mt-4 text-[0.68rem] text-petrol-600/60 text-center italic leading-relaxed'>
           Estos no son reales. No hay forma de comprobar si son verdad.
         </p>
       </div>
@@ -177,37 +178,14 @@ La mayoría de SEOs te llena la página de testimonios que no puedes verificar. 
         </a>
 
         <!-- WhatsApp CTA -->
-        <a
+        <WhatsAppButton
+          text='Analiza mi web'
           href={waHref}
-          target='_blank'
-          rel='noopener noreferrer'
-          class='group flex items-center justify-center gap-3 w-full rounded-xl bg-[#25D366] hover:bg-[#20c05c] active:bg-[#1aad52] text-white font-bold text-base px-6 py-4 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25D366]'
-          style='box-shadow: 0 4px 20px rgba(37,211,102,0.28);'>
-          <!-- WhatsApp icon -->
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            class='h-5 w-5 shrink-0'
-            fill='currentColor'
-            viewBox='0 0 24 24'
-            aria-hidden='true'>
-            <path d='M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z'/>
-            <path d='M12 0C5.374 0 0 5.373 0 12c0 2.117.549 4.107 1.51 5.84L.057 23.032a.75.75 0 0 0 .921.916l5.242-1.437A11.945 11.945 0 0 0 12 24c6.626 0 12-5.373 12-12S18.626 0 12 0zm0 21.75a9.75 9.75 0 0 1-4.953-1.347l-.355-.21-3.683 1.01.998-3.618-.23-.374A9.75 9.75 0 0 1 12 2.25c5.385 0 9.75 4.365 9.75 9.75s-4.365 9.75-9.75 9.75z'/>
-          </svg>
-          Analiza mi web
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            class='h-4 w-4 shrink-0 transition-transform duration-200 group-hover:translate-x-1'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'
-            stroke-width='2.5'
-            aria-hidden='true'>
-            <path stroke-linecap='round' stroke-linejoin='round' d='M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3' />
-          </svg>
-        </a>
+          class='w-full justify-center px-6 py-4 text-base rounded-xl'
+        />
 
         <!-- No risk note -->
-        <p class='text-center text-xs text-petrol-400 leading-relaxed'>
+        <p class='text-center text-xs text-petrol-600/60 leading-relaxed'>
           No pierdas el tiempo con testimonios que no puedes verificar.<br />
           <strong class='text-petrol-500'>Mándame tu página. Es gratis. Y si no te sorprende, no me contratas.</strong>
         </p>

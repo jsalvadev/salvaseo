@@ -145,12 +145,42 @@ Rendered via `<Upheading>` component — color passed as prop.
 | Body paragraph (muted dark) | `text-petrol-600` or `text-petrol-100` |
 | Small / caption | `text-sm text-white/50` or `text-sm text-petrol-600` |
 
-#### Heading hierarchy rules
+#### Heading hierarchy — SEO-first strategy
 
-- Each page has **exactly one `<h1>`** — in the `<Hero>` component.
-- All other section headings use `<h2>`.
-- Sub-headings within cards or list items use `<p>` or `<h3>` depending on semantic depth.
+This project uses an **SEO-first heading structure**: the small-caps eyebrow label carries the keyword-optimized heading tag, while the large Titan One display text is a visual element (`<p>`) for the user, not for Google.
+
+| Element | HTML tag | Purpose |
+|---|---|---|
+| Small-caps eyebrow ("Consultor SEO en Barcelona") | `<h1>` / `<h2>` | **Crawled by Google** — keyword-optimized |
+| Large Titan One display text ("Si no apareces en Google…") | `<p>` | **Visual only** — decorative, for user impact |
+| Card / list item sub-headings | `<h3>` or `<p>` | Semantic sub-level within section |
+
+**Rules:**
+- Each page has **exactly one `<h1>`** — the eyebrow in the `<Hero>` component.
+- All section eyebrow labels use `<h2>` (or `<h3>` for sub-levels).
+- The large Titan One headline is always `<p>` — it is never `<h1>` or `<h2>`.
+- When using `<Upheading>`, set `as='h2'` if the text contains a target keyword, `as='p'` otherwise.
 - Never skip heading levels.
+
+**Example — correct:**
+```astro
+<!-- Eyebrow = h2 → keyword for Google -->
+<h2 class="text-[0.7rem] font-bold uppercase tracking-[0.22em] text-orange-400">
+  Consultor SEO en Barcelona
+</h2>
+
+<!-- Display = p → visual only for user -->
+<p style='font-family: "Titan One", cursive;' class="leading-[0.9] tracking-tight">
+  Si no apareces en Google, no existes.
+</p>
+```
+
+**Example — wrong:**
+```astro
+<!-- ❌ Display text used as heading — wasted keyword opportunity -->
+<h1 style='font-family: "Titan One", cursive;'>Si no apareces en Google, no existes.</h1>
+<span>Consultor SEO en Barcelona</span>
+```
 
 ---
 
