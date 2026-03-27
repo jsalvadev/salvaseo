@@ -104,6 +104,40 @@
   color: var(--color-sky-a11y);
 }
 
+/* ── Falsos titulares (eyebrow labels) ──────────────────────────────────── */
+/*
+ * Three-tier system for decorative uppercase labels (never the real heading).
+ * Apply color separately with a text-* class (e.g. text-orange-500).
+ *
+ *  label-section  →  eyebrow above section headings       ~11.9 px
+ *  label-ui       →  labels inside UI components          ~10.2 px
+ *  label-micro    →  tiny labels: "Paso", badges, counters  ~9.4 px
+ */
+
+@utility label-section {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  line-height: 1;
+}
+
+@utility label-ui {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  line-height: 1;
+}
+
+@utility label-micro {
+  font-size: 0.55rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  line-height: 1;
+}
+
 @utility bg-sandstone-soft {
   background-color: var(--color-sandstone-50);
 }
@@ -123,6 +157,11 @@
 /* Body font */
 body {
   font-family: var(--font-family-sans);
+}
+
+/* Base font size — 17px improves readability (default browser is 16px) */
+html {
+  font-size: 17px;
 }
 
 /* Smooth scrolling for navigation links */

@@ -72,7 +72,7 @@ const { brand, contact, navigation } = siteConfig
               clip-rule='evenodd'></path>
           </svg>
         </button>
-        <div class='services-dropdown absolute left-0 z-10 mt-1 w-72 pt-2'>
+        <div class='services-dropdown absolute left-0 z-10 w-72 pt-3'>
           <div class='overflow-hidden rounded-base bg-white shadow-xl ring-1 ring-petrol-100 py-1.5'>
             {navigation.services.map((service) => (
               <a
@@ -366,7 +366,7 @@ const { brand, contact, navigation } = siteConfig
     opacity: 0;
     transform: translateY(-6px);
     pointer-events: none;
-    transition: opacity 0.2s ease, transform 0.2s ease;
+    transition: opacity 0.15s ease 0.1s, transform 0.15s ease 0.1s;
   }
 
   .group:hover .services-dropdown,
@@ -374,6 +374,7 @@ const { brand, contact, navigation } = siteConfig
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
+    transition: opacity 0.15s ease, transform 0.15s ease;
   }
 
   /* ── Calculadora "Nuevo" badge ── */

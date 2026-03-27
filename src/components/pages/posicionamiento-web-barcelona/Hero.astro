@@ -21,16 +21,9 @@ const {
 } = Astro.props
 
 const waHref = buildWhatsAppHref()
-
-const keywords = [
-  { kw: 'fontanero urgente barcelona',   pos: 1, delta: '+8', volume: '1.2K/mes' },
-  { kw: 'fontanero barcelona 24 horas',  pos: 2, delta: '+5', volume: '880/mes' },
-  { kw: 'fontanero barcelona barato',    pos: 3, delta: '+4', volume: '590/mes' },
-  { kw: 'fontanero eixample barcelona',  pos: 4, delta: '+6', volume: '320/mes' },
-]
 ---
 
-<section class='hero-section relative bg-petrol-900 overflow-hidden'>
+<section class='hero-section relative bg-petrol-900 overflow-hidden min-h-svh flex flex-col justify-center'>
 
   <!-- Eixample grid texture (Barcelona's characteristic city block pattern) -->
   <div class='pointer-events-none absolute inset-0' aria-hidden='true'>
@@ -38,7 +31,6 @@ const keywords = [
       <defs>
         <pattern id='eixample' x='0' y='0' width='64' height='64' patternUnits='userSpaceOnUse'>
           <rect x='4' y='4' width='56' height='56' fill='none' stroke='white' stroke-width='0.75'/>
-          <!-- Chamfered corners (octagonal blocks like Eixample) -->
           <line x1='4' y1='14' x2='14' y2='4' stroke='white' stroke-width='0.75'/>
           <line x1='50' y1='4' x2='60' y2='14' stroke='white' stroke-width='0.75'/>
           <line x1='60' y1='50' x2='50' y2='60' stroke='white' stroke-width='0.75'/>
@@ -79,165 +71,55 @@ const keywords = [
     aria-hidden='true'>
   </div>
 
-  <!-- Breadcrumb -->
+  <!-- Breadcrumb — absolute so it doesn't affect vertical centering -->
   {breadcrumbItems && (
-    <div class='relative'>
+    <div class='absolute top-0 left-0 right-0 z-10'>
       <Breadcrumb items={breadcrumbItems} dark={true} />
     </div>
   )}
 
-  <!-- Main grid -->
-  <div class={`relative mx-auto max-w-7xl px-6 pb-14 sm:pb-18 lg:px-8 lg:pb-22 ${breadcrumbItems ? 'pt-7' : 'pt-20 sm:pt-24 lg:pt-28'}`}>
-    <div class='grid lg:grid-cols-[1fr_380px] xl:grid-cols-[1fr_420px] gap-12 lg:gap-16 items-center'>
+  <!-- Main content -->
+  <div class='relative mx-auto max-w-7xl px-6 lg:px-8 py-16 sm:py-20 lg:py-24'>
 
-      <!-- ── LEFT: Copy ─────────────────────────────────────────────── -->
-      <div>
-
-        <!-- Upheading pill -->
-        <div class='hero-upheading animate-fade-in-up [animation-delay:0ms]'>
-          <span class='upheading-dot' aria-hidden='true'></span>
-          <h1 class='upheading-text'>{upheading}</h1>
-        </div>
-
-        <!-- Main heading — three typographic registers -->
-        <div class='hero-heading animate-fade-in-up [animation-delay:70ms]' style='font-family: "Titan One", cursive;'>
-          <!-- Line 1: the command — large, full white -->
-          <span class='hero-h-line1'>
-            Deja de perder
-          </span>
-          <!-- Line 2: the victim — slightly smaller, orange accent underline -->
-          <span class='hero-h-line2'>
-            clientes
-          </span>
-          <!-- Line 3: the framing — muted "frente a tu" + vivid "competencia." -->
-          <span class='hero-h-line3'>
-            <span class='hero-h-muted'>frente a tu&nbsp;</span><span class='hero-h-orange'>competencia.</span>
-          </span>
-        </div>
-
-        <!-- Accent rule -->
-        <div class='hero-rule animate-fade-in-up [animation-delay:150ms]' aria-hidden='true'>
-          <div class='hero-rule-solid'></div>
-          <div class='hero-rule-fade'></div>
-        </div>
-
-        <!-- Body copy -->
-        <p class='animate-fade-in-up [animation-delay:220ms] mt-5 max-w-[50ch] text-[1.0625rem] leading-relaxed text-pretty' style='color: rgba(255,255,255,0.62);'>
-          En Barcelona, <strong style='color: rgba(255,255,255,0.9); font-weight: 600;'>o eres el primero o eres el secreto de tu competencia.</strong> Aparece primero en Google y pon tu web a generar contactos de verdad.
-        </p>
-
-        <p class='animate-fade-in-up [animation-delay:280ms] mt-3 max-w-[46ch] text-[1.0625rem] leading-relaxed text-pretty' style='color: rgba(255,255,255,0.62);'>
-          Si te buscan, <strong style='color: rgba(255,255,255,0.9); font-weight: 600;'>que te encuentren a ti primero.</strong>
-        </p>
-
-        <!-- CTAs -->
-        <div class='animate-fade-in-up [animation-delay:380ms] mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4'>
-          <WhatsAppButton
-            text={primaryCtaText}
-            href={waHref}
-            class='px-6 py-3 text-[0.9375rem] font-bold shadow-lg shadow-sky-500/20 hover:shadow-sky-500/30 transition-shadow'
-          />
-        </div>
-
-      </div>
-
-      <!-- ── RIGHT: SEO dashboard widget ───────────────────────────── -->
-      <aside
-        class='animate-fade-in [animation-delay:500ms] hidden lg:flex flex-col gap-3'
-        aria-label='Dashboard de posicionamiento SEO en Barcelona'>
-
-        <!-- Widget header -->
-        <div class='flex items-center justify-between'>
-          <p class='text-[0.58rem] font-bold uppercase tracking-[0.22em]' style='color: rgba(255,255,255,0.28);'>
-            Posiciones Google · Barcelona
-          </p>
-          <div class='flex items-center gap-1.5'>
-            <span class='live-dot' aria-hidden='true'></span>
-            <span class='text-[0.55rem] font-bold uppercase tracking-wider' style='color: rgba(52,211,153,0.7);'>En seguimiento</span>
-          </div>
-        </div>
-
-        <!-- Traffic sparkline card -->
-        <div class='widget-card'>
-          <div class='flex items-center justify-between mb-2.5'>
-            <span class='text-[0.58rem] font-bold uppercase tracking-wider' style='color: rgba(255,255,255,0.3);'>
-              Tráfico orgánico
-            </span>
-            <span class='text-[0.6rem] font-bold' style='color: rgba(52,211,153,0.85);'>↑ +143% · últimos 6 meses</span>
-          </div>
-          <!-- SVG sparkline -->
-          <svg viewBox='0 0 200 44' class='w-full' style='height: 36px;' preserveAspectRatio='none' fill='none' aria-hidden='true'>
-            <defs>
-              <linearGradient id='spark-fill' x1='0' y1='0' x2='0' y2='1'>
-                <stop offset='0%' stop-color='rgba(56,189,248,0.3)'/>
-                <stop offset='100%' stop-color='rgba(56,189,248,0)'/>
-              </linearGradient>
-            </defs>
-            <!-- Baseline grid -->
-            <line x1='0' y1='38' x2='200' y2='38' stroke='rgba(255,255,255,0.05)' stroke-width='1'/>
-            <line x1='0' y1='22' x2='200' y2='22' stroke='rgba(255,255,255,0.04)' stroke-width='1'/>
-            <!-- S-curve growth line -->
-            <path
-              d='M0 40 C20 39, 35 36, 55 32 C75 28, 85 26, 100 21 C115 16, 128 16, 145 10 C158 6, 175 5, 200 2'
-              stroke='rgba(56,189,248,0.75)' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/>
-            <path
-              d='M0 40 C20 39, 35 36, 55 32 C75 28, 85 26, 100 21 C115 16, 128 16, 145 10 C158 6, 175 5, 200 2 L200 44 L0 44 Z'
-              fill='url(#spark-fill)'/>
-            <!-- End dot -->
-            <circle cx='200' cy='2' r='2.5' fill='rgba(56,189,248,0.9)'/>
-            <circle cx='200' cy='2' r='5' fill='rgba(56,189,248,0.2)'/>
-          </svg>
-        </div>
-
-        <!-- Keyword rows -->
-        <div class='flex flex-col gap-1.5'>
-          {keywords.map((item, idx) => (
-            <div class:list={['kw-row', idx === 0 && 'kw-row--featured']}>
-
-              <!-- Keyword + volume -->
-              <div class='flex-1 min-w-0'>
-                <p class:list={['kw-text', idx === 0 ? 'kw-text--featured' : 'kw-text--muted']}>
-                  {item.kw}
-                </p>
-                <p class:list={['kw-vol', idx === 0 ? 'kw-vol--featured' : 'kw-vol--muted']}>
-                  {item.volume}
-                </p>
-              </div>
-
-              <!-- Delta -->
-              <div class:list={['kw-delta', idx === 0 ? 'kw-delta--featured' : 'kw-delta--muted']}>
-                <svg width='5' height='5' viewBox='0 0 6 6' fill='currentColor' aria-hidden='true'>
-                  <path d='M3 0L6 6H0L3 0Z'/>
-                </svg>
-                {item.delta}
-              </div>
-
-              <!-- Position badge -->
-              <div class:list={['kw-pos', idx === 0 ? 'kw-pos--featured' : 'kw-pos--muted']}>
-                {item.pos}
-              </div>
-
-            </div>
-          ))}
-        </div>
-
-        <!-- Bottom stat bar -->
-        <div class='flex items-center gap-3 mt-0.5'>
-          <div class='h-px flex-1' style='background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1));'></div>
-          <p class='text-[0.58rem] font-semibold whitespace-nowrap' style='color: rgba(255,255,255,0.55);'>
-            91% del tráfico orgánico se queda en la primera página
-          </p>
-          <div class='h-px flex-1' style='background: linear-gradient(90deg, rgba(255,255,255,0.1), transparent);'></div>
-        </div>
-
-        <!-- Disclaimer -->
-        <p class='mt-3 text-center text-[0.55rem] font-medium tracking-wide' style='color: rgba(255,255,255,0.42);'>
-          Ejemplo ilustrativo · Los datos reales varían según el sector y la competencia
-        </p>
-
-      </aside>
-
+    <!-- Upheading pill -->
+    <div class='hero-upheading animate-fade-in-up [animation-delay:0ms]'>
+      <span class='upheading-dot' aria-hidden='true'></span>
+      <h1 class='upheading-text'>{upheading}</h1>
     </div>
+
+    <!-- Main heading -->
+    <div class='hero-heading animate-fade-in-up [animation-delay:70ms]' style='font-family: "Titan One", cursive;'>
+      <span class='hero-h-line1'>Deja de perder</span>
+      <span class='hero-h-line2'>clientes</span>
+      <span class='hero-h-line3'>
+        <span class='hero-h-muted'>frente a tu&nbsp;</span><span class='hero-h-orange'>competencia.</span>
+      </span>
+    </div>
+
+    <!-- Accent rule -->
+    <div class='hero-rule animate-fade-in-up [animation-delay:150ms]' aria-hidden='true'>
+      <div class='hero-rule-solid'></div>
+      <div class='hero-rule-fade'></div>
+    </div>
+
+    <!-- Body copy -->
+    <p class='animate-fade-in-up [animation-delay:220ms] mt-5 max-w-[52ch] text-[1.0625rem] leading-relaxed text-pretty' style='color: rgba(255,255,255,0.62);'>
+      En Barcelona, <strong style='color: rgba(255,255,255,0.9); font-weight: 600;'>o eres el primero o eres el secreto de tu competencia.</strong> Aparece primero en Google y pon tu web a generar contactos de verdad.
+    </p>
+
+    <p class='animate-fade-in-up [animation-delay:280ms] mt-3 max-w-[46ch] text-[1.0625rem] leading-relaxed text-pretty' style='color: rgba(255,255,255,0.62);'>
+      Si te buscan, <strong style='color: rgba(255,255,255,0.9); font-weight: 600;'>que te encuentren a ti primero.</strong>
+    </p>
+
+    <!-- CTA -->
+    <div class='animate-fade-in-up [animation-delay:380ms] mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4'>
+      <WhatsAppButton
+        text={primaryCtaText}
+        href={waHref}
+        class='px-6 py-3 text-[0.9375rem] font-bold shadow-lg shadow-sky-500/20 hover:shadow-sky-500/30 transition-shadow'
+      />
+    </div>
+
   </div>
 </section>
 
@@ -277,7 +159,7 @@ const keywords = [
     line-height: 1;
   }
 
-  /* ── Heading three-line treatment ── */
+  /* ── Heading ── */
   .hero-heading {
     display: flex;
     flex-direction: column;
@@ -287,35 +169,29 @@ const keywords = [
 
   .hero-h-line1 {
     display: block;
-    font-size: clamp(3rem, 6.5vw, 5.25rem);
+    font-size: clamp(3.2rem, 7.5vw, 6rem);
     color: white;
     line-height: 0.92;
   }
 
   .hero-h-line2 {
     display: block;
-    font-size: clamp(3rem, 6.5vw, 5.25rem);
+    font-size: clamp(3.2rem, 7.5vw, 6rem);
     color: white;
     line-height: 0.92;
-    /* Subtle underline glow accent */
     text-shadow: 0 2px 32px rgba(249,115,22,0.18);
     margin-top: 0.04em;
   }
 
   .hero-h-line3 {
     display: block;
-    font-size: clamp(1.5rem, 3.2vw, 2.6rem);
+    font-size: clamp(1.6rem, 3.5vw, 2.8rem);
     line-height: 1.1;
     margin-top: 0.22em;
   }
 
-  .hero-h-muted {
-    color: rgba(255, 255, 255, 0.32);
-  }
-
-  .hero-h-orange {
-    color: var(--color-orange-400);
-  }
+  .hero-h-muted  { color: rgba(255, 255, 255, 0.32); }
+  .hero-h-orange { color: var(--color-orange-400); }
 
   /* ── Accent rule ── */
   .hero-rule {
@@ -337,124 +213,8 @@ const keywords = [
     background: linear-gradient(90deg, rgba(249,115,22,0.5), transparent);
   }
 
-  /* ── Trust chips ── */
-  .trust-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.375rem;
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.4);
-  }
-
-  .trust-chip svg {
-    color: rgba(52, 211, 153, 0.7);
-    flex-shrink: 0;
-  }
-
-  /* ── Live dot ── */
-  .live-dot {
-    display: block;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: rgba(52, 211, 153, 0.8);
-    animation: live-pulse 1.8s ease-in-out infinite;
-  }
-
-  @keyframes live-pulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(52,211,153,0.4); }
-    50%       { box-shadow: 0 0 0 4px rgba(52,211,153,0); }
-  }
-
-  /* ── Widget card (sparkline) ── */
-  .widget-card {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 0.75rem;
-    padding: 0.875rem 1rem 0.75rem;
-  }
-
-  /* ── Keyword rows ── */
-  .kw-row {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 0.75rem;
-    padding: 0.625rem 0.875rem;
-    transition: background 0.2s ease;
-  }
-
-  .kw-row:hover { background: rgba(255,255,255,0.05); }
-
-  .kw-row--featured {
-    background: linear-gradient(135deg, rgba(14,165,233,0.13) 0%, rgba(14,165,233,0.06) 100%);
-    border-color: rgba(56, 189, 248, 0.35);
-    box-shadow: 0 0 16px rgba(14,165,233,0.08), inset 0 1px 0 rgba(255,255,255,0.06);
-  }
-
-  .kw-text {
-    font-size: 0.85rem;
-    font-weight: 600;
-    line-height: 1.3;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .kw-text--featured { color: rgba(255,255,255,0.88); }
-  .kw-text--muted    { color: rgba(255,255,255,0.35); }
-
-  .kw-vol {
-    font-size: 0.68rem;
-    margin-top: 1px;
-  }
-
-  .kw-vol--featured { color: rgba(56,189,248,0.6); }
-  .kw-vol--muted    { color: rgba(255,255,255,0.2); }
-
-  .kw-delta {
-    display: flex;
-    align-items: center;
-    gap: 2px;
-    font-size: 0.65rem;
-    font-weight: 700;
-    flex-shrink: 0;
-  }
-
-  .kw-delta--featured { color: rgba(52,211,153,0.85); }
-  .kw-delta--muted    { color: rgba(52,211,153,0.3); }
-
-  .kw-pos {
-    width: 2.25rem;
-    height: 2.25rem;
-    border-radius: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Titan One', cursive;
-    font-size: 1.05rem;
-    flex-shrink: 0;
-  }
-
-  .kw-pos--featured {
-    background: rgba(14,165,233,0.22);
-    border: 1px solid rgba(56,189,248,0.4);
-    color: rgba(186,230,253,0.9);
-  }
-
-  .kw-pos--muted {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.07);
-    color: rgba(255,255,255,0.2);
-  }
-
   /* ── Reduced motion ── */
   @media (prefers-reduced-motion: reduce) {
     .upheading-dot { animation: none; }
-    .live-dot      { animation: none; }
-    .kw-row        { transition: none; }
   }
 </style>

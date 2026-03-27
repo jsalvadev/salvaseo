@@ -110,7 +110,7 @@ const BG_PETROL_900 = '#1A3C4A'
     <div class='mb-14 max-w-2xl' data-animate>
       <div class='flex items-center gap-3 mb-6'>
         <span class='block h-px w-10 bg-orange-500' aria-hidden='true'></span>
-        <p class='text-[0.7rem] font-bold uppercase tracking-[0.22em] text-orange-400'>
+        <p class='label-section text-orange-400'>
           Posicionamiento web: precios por servicio
         </p>
       </div>
@@ -147,16 +147,16 @@ const BG_PETROL_900 = '#1A3C4A'
           style={`top: var(--navbar-height); background-color: ${BG_PETROL_900};`}>
           <tr style='border-bottom: 1px solid rgba(255,255,255,0.08);'>
             <!-- Feature name column header -->
-            <th scope='col' class='py-4 pr-6 text-left text-[0.6rem] font-bold uppercase tracking-[0.18em] text-white/20'>
+            <th scope='col' class='py-4 pr-6 text-left label-ui text-white/20'>
               Características
             </th>
 
             <!-- Plan Visibilidad Local column header -->
             <th scope='col' class='py-4 px-5 text-center' style='width: 160px;'>
-              <span class='block text-[0.5rem] font-bold uppercase tracking-[0.2em] text-white/25 mb-0.5'>
+              <span class='block label-micro text-white/25 mb-0.5'>
                 Plan
               </span>
-              <span class='block text-[0.6rem] font-bold uppercase tracking-[0.12em] text-white/50 mb-1.5'>
+              <span class='block label-ui text-white/50 mb-1.5'>
                 Visibilidad Local
               </span>
               <span
@@ -172,10 +172,10 @@ const BG_PETROL_900 = '#1A3C4A'
               class='py-4 px-5 text-center relative'
               style='width: 160px; background: rgba(249,115,22,0.07);'>
               <div class='absolute inset-x-0 top-0 h-[3px] bg-orange-500'></div>
-              <span class='block text-[0.5rem] font-bold uppercase tracking-[0.2em] text-orange-400/50 mb-0.5'>
+              <span class='block label-micro text-orange-400/50 mb-0.5'>
                 Plan
               </span>
-              <span class='block text-[0.6rem] font-bold uppercase tracking-[0.12em] text-orange-300/70 mb-1.5'>
+              <span class='block label-ui text-orange-300/70 mb-1.5'>
                 Visibilidad Total
               </span>
               <span
@@ -289,7 +289,7 @@ const BG_PETROL_900 = '#1A3C4A'
         <div class='fc-panel-ficha space-y-4'>
           {categories.map(category => (
             <div class='rounded-xl p-5' style='background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);'>
-              <p class='text-[0.65rem] font-bold uppercase tracking-[0.18em] text-orange-400/70 mb-3 pl-2' style='border-left: 2px solid rgba(249,115,22,0.4); padding-left: 0.5rem;'>
+              <p class='label-ui text-orange-400/70 mb-3 pl-2' style='border-left: 2px solid rgba(249,115,22,0.4); padding-left: 0.5rem;'>
                 {category.name}
               </p>
               <ul class='space-y-0'>
@@ -310,7 +310,7 @@ const BG_PETROL_900 = '#1A3C4A'
         <div class='fc-panel-bundle space-y-4'>
           {categories.map(category => (
             <div class='rounded-xl p-5' style='background: rgba(249,115,22,0.06); border: 1px solid rgba(249,115,22,0.18);'>
-              <p class='text-[0.65rem] font-bold uppercase tracking-[0.18em] text-orange-400/80 mb-3' style='border-left: 2px solid #f97316; padding-left: 0.5rem;'>
+              <p class='label-ui text-orange-400/80 mb-3' style='border-left: 2px solid #f97316; padding-left: 0.5rem;'>
                 {category.name}
               </p>
               <ul class='space-y-0'>
