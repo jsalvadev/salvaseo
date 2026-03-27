@@ -7,7 +7,6 @@ import LocalSeoServices from '../components/pages/seo-local-barcelona/Services.a
 import Timeline from '../components/pages/seo-local-barcelona/Timeline.astro'
 import LocalSeoVsAds from '../components/pages/seo-local-barcelona/VsAds.astro'
 import LocalBusinessTypes from '../components/pages/seo-local-barcelona/BusinessTypes.astro'
-import LocalSeoPricingBridge from '../components/pages/seo-local-barcelona/PricingBridge.astro'
 import LocalSeoFaq from '../components/pages/seo-local-barcelona/Faq.astro'
 import { faqSeoLocalItems } from '../data/faq-seo-local'
 import LocalSeoCta from '../components/pages/seo-local-barcelona/Cta.astro'
@@ -287,21 +286,6 @@ const seoLocalBusinessTypes = [
     heading='Puede que tu negocio ya tenga clientes buscándolo — estos sectores lo confirman'
     intro='Si tus clientes potenciales te buscan en Google como <strong>"[tu servicio] + Barcelona"</strong>, puedes capitalizar esa demanda con un servicio de SEO local y un canal estable de captación. Cualquier tipo de negocio local con presencia física se beneficia del posicionamiento SEO local.'
     businessTypes={seoLocalBusinessTypes}
-  />
-
-  <!-- 7. PRECIOS -->
-  <LocalSeoPricingBridge
-    upheading='Precio del servicio de SEO local'
-    heading='Lo que cuesta y lo que cuesta no hacerlo'
-    priceHighlight={`Desde ${MIN_MONTHLY_PRICE_TEXT}`}
-    intro={`El presupuesto de tu consultoría SEO local se define tras auditar tu ficha de Google Business, tu sitio web y la competencia local en Barcelona. Los presupuestos parten de <strong>${MIN_MONTHLY_PRICE_TEXT} IVA incluido</strong> y la inversión se asigna a acciones con impacto directo en captación de clientes, facturación y retorno.`}
-    guarantees={[
-      { title: 'Diagnóstico inicial gratuito.', description: 'Audito tu ficha de Google Business Profile, tu web y la competencia local. Si el SEO local no tiene sentido para tu negocio, lo sabrás antes de invertir.' },
-      { title: 'Resultados visibles en semanas.', description: 'Los primeros cambios en Maps y visibilidad local llegan entre 1 y 3 meses. La consolidación real, entre 4 y 6 meses.' },
-      { title: 'Sin contratos de permanencia.', description: 'Todo el trabajo realizado queda en tu ficha y tu web. Es tuyo, independientemente de lo que decidas después.' },
-    ]}
-    quote='La visibilidad local solo cuenta cuando se traduce en clientes, llamadas y facturación. El SEO local es una inversión en crecimiento, no un gasto.'
-    quoteAuthor='— Salvador Jesús, Consultor SEO en Barcelona'
   />
 
   <!-- 8. FAQs -->

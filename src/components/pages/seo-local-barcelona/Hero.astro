@@ -1,8 +1,6 @@
 ---
-import { Image } from 'astro:assets'
 import WhatsAppButton from '../../WhatsAppButton.astro'
 import { buildWhatsAppHref } from '../../../data/site'
-import seoLocalHeroImage from '../../../assets/seo-local-hero.jpg'
 
 interface Props {
   heading: string
@@ -64,18 +62,6 @@ const headingSecond = splitIdx !== -1 ? heading.slice(splitIdx + 4)    : ''     
     style='background: radial-gradient(circle, rgba(14,165,233,0.08) 0%, transparent 70%);'>
   </div>
 
-  <!-- Hero photo (faded, xl only) -->
-  <Image
-    src={seoLocalHeroImage}
-    alt=''
-    width={900}
-    height={1100}
-    class='pointer-events-none absolute right-0 top-0 h-full w-[45%] object-cover object-center opacity-[0.06] [mask-image:linear-gradient(to_left,black_0%,transparent_100%)] hidden xl:block'
-    loading='eager'
-    fetchpriority='high'
-    aria-hidden='true'
-  />
-
   <div class='relative z-10 mx-auto max-w-7xl px-6 lg:px-8'>
     <div class='min-h-[88vh] flex items-center py-24 lg:py-16'>
       <div class='w-full grid lg:grid-cols-12 gap-10 lg:gap-14 items-center'>
@@ -97,15 +83,15 @@ const headingSecond = splitIdx !== -1 ? heading.slice(splitIdx + 4)    : ''     
           <h1 class='hero-heading' style='font-family: "Titan One", cursive; leading-none;'>
             {headingSecond ? (
               <>
-                <span class='block text-[clamp(1.8rem,4vw,3rem)] text-white/40 leading-[1.05] tracking-tight mb-1'>
+                <span class='block text-[clamp(1rem,2.2vw,1.8rem)] text-white/40 leading-[1.05] tracking-tight mb-1'>
                   {headingFirst}
                 </span>
-                <span class='block text-[clamp(3rem,6.5vw,5rem)] text-white leading-[0.93] tracking-tight'>
+                <span class='block text-[clamp(2.25rem,5vw,4rem)] text-white leading-[0.93] tracking-tight'>
                   {headingSecond}<span class='text-orange-400'>.</span>
                 </span>
               </>
             ) : (
-              <span class='block text-[clamp(2.6rem,5.5vw,4.25rem)] text-white leading-[1.05] tracking-tight'>
+              <span class='block text-[clamp(2.25rem,5vw,4rem)] text-white leading-[1.05] tracking-tight'>
                 {heading}
               </span>
             )}

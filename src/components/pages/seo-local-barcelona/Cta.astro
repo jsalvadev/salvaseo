@@ -1,6 +1,5 @@
 ---
 import { Map, MapPin, Phone } from '@lucide/astro'
-import Upheading from '../../Upheading.astro'
 import WhatsAppButton from '../../WhatsAppButton.astro'
 
 interface Props {
@@ -53,7 +52,13 @@ const { upheading, heading, primaryCtaText, secondaryCtaText, secondaryCtaHref }
         </span>
       </div>
 
-      {upheading && <Upheading as='h2' text={upheading} />}
+      {upheading && (
+        <div class='flex items-center justify-center gap-3 mb-4'>
+          <span class='block h-px w-10 bg-sky-500' aria-hidden='true'></span>
+          <p class='label-section text-sky-500'>{upheading}</p>
+          <span class='block h-px w-10 bg-sky-500' aria-hidden='true'></span>
+        </div>
+      )}
       <p class='text-4xl font-semibold tracking-tight text-balance text-white sm:text-5xl'>
         {heading}
       </p>

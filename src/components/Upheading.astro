@@ -8,7 +8,7 @@ interface Props {
 
 const {
   text,
-  color = 'var(--color-sky-500)',
+  color = 'var(--color-orange-500)',
   as = 'p',
   class: className = '',
 } = Astro.props
@@ -17,7 +17,8 @@ const Tag = as
 ---
 
 <Tag
-  class={`text-sm/6 font-semibold text-pretty ${className}`}
+  class={`inline-flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-pretty ${className}`}
   style={`color: ${color};`}>
+  <span class="block h-px w-8 shrink-0" style={`background-color: ${color};`}></span>
   {text}
 </Tag>

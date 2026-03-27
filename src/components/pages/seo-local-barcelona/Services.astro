@@ -1,6 +1,5 @@
 ---
 import { SearchCheck, MapPin, Key, Globe, FileText, Link, Star } from '@lucide/astro'
-import Upheading from '../../Upheading.astro'
 
 type IconKey = 'searchCheck' | 'mapPin' | 'key' | 'globe' | 'fileText' | 'link' | 'star'
 
@@ -118,7 +117,10 @@ const meta = [
     <!-- ── Header ── -->
     <div class='flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14 lg:mb-16' data-animate>
       <div class='max-w-2xl'>
-        <Upheading as='p' text={upheading} color='var(--color-sky-500)' />
+        <div class='flex items-center gap-3 mb-4'>
+          <span class='block h-px w-10 bg-sky-500' aria-hidden='true'></span>
+          <p class='label-section text-sky-500'>{upheading}</p>
+        </div>
         <h2
           class='mt-3 text-white leading-[1.1]'
           style='font-family: "Titan One", cursive; font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.015em;'>

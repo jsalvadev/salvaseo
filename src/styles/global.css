@@ -120,6 +120,7 @@
   text-transform: uppercase;
   letter-spacing: 0.22em;
   line-height: 1;
+  white-space: nowrap;
 }
 
 @utility label-ui {
