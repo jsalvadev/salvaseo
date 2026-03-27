@@ -2,9 +2,15 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Design System
+
+> **Before writing any code, read [`DESIGN_SYSTEM.md`](./DESIGN_SYSTEM.md) at the root of this project.**
+>
+> It is the single source of truth for: color tokens, typography rules, component patterns (buttons, cards, sections), animation conventions, accessibility requirements, and Do/Don't rules. All contributions must comply with it.
+
 ## Project Overview
 
-SalvaSEO is a static SEO consultant landing site built with Astro 5, Tailwind CSS v4, and TailwindPlus Elements. It has two pages: a home page and a Barcelona landing page.
+SalvaSEO is a static SEO consultant landing site built with Astro 5, Tailwind CSS v4, and TailwindPlus Elements. It has four pages: home, Barcelona SEO landing, SEO Local Barcelona, and Presupuesto SEO Barcelona.
 
 ## Development Commands
 
@@ -33,6 +39,7 @@ interface Props {
   ogImage?: string;
   ogType?: string;
   canonicalUrl?: string;
+  preloadImageHref?: string;  // LCP image preload hint
 }
 ```
 
@@ -40,9 +47,9 @@ interface Props {
 
 ### Component Pattern
 
-All page sections are self-contained `.astro` files in `src/components/`. Pages compose them in order inside `<Layout>`. The Barcelona page has its own set of `*Barcelona.astro` components to avoid coupling with home page content.
+All page sections are self-contained `.astro` files in `src/components/pages/[page-slug]/`. Pages compose them in order inside `<Layout>`. Each page has its own component folder to avoid coupling between pages.
 
-The shared `Upheading.astro` component renders a colored section label above headings — use it when adding new sections.
+Shared primitives (`Upheading.astro`, `WhatsAppButton.astro`, `Breadcrumb.astro`) live directly under `src/components/`. Always use these components — do not recreate their patterns inline. See `DESIGN_SYSTEM.md` section 5 for full component API.
 
 ### Styling System
 
@@ -59,7 +66,7 @@ The shared `Upheading.astro` component renders a colored section label above hea
 
 ### Integrations
 
-- **`@astrojs/sitemap`**: Only indexes `/` and `/posicionamiento-web-barcelona/` (see filter in `astro.config.mjs`)
+- **`@astrojs/sitemap`**: Only indexes pages listed in `PAGE_LASTMOD` in `astro.config.mjs` — update this map when adding new public pages
 - **`@astrojs/partytown`**: Proxies GTM (`dataLayer.push`, `gtag`) to a web worker — GTM script uses `type="text/partytown"`
 - **`vanilla-cookieconsent`**: Initialized via `src/scripts/cookieconsent.js`, imported in `Layout.astro`
 - **`wa-chat-widget`**: WhatsApp chat widget rendered as `<WaChatWidget />` in Layout

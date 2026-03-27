@@ -148,7 +148,7 @@ const {
 } = Astro.props;
 ---
 
-<div id={sectionId} class="relative overflow-hidden bg-petrol-900 py-24 sm:py-32">
+<section id={sectionId} class="relative overflow-hidden bg-petrol-900 py-24 sm:py-32">
 
   <!-- ── Dot-grid texture ──────────────────────────────────────────── -->
   <div
@@ -206,13 +206,13 @@ const {
         </div>
 
         <!-- Titan One heading -->
-        <p
+        <h2
           data-animate
           style='font-family: "Titan One", cursive;'
           class="leading-[0.92] tracking-tight text-[clamp(2rem,4.5vw,3.25rem)] text-white text-pretty"
         >
           {heading}<span class="text-orange-400">.</span>
-        </p>
+        </h2>
 
         <!-- Orange accent rule -->
         <div data-animate class="mt-6 flex items-center">
@@ -321,4 +321,4 @@ const {
 
 
   </div>
-</div>
+</section>

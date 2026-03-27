@@ -1,36 +1,85 @@
 ---
-import Upheading from '../../Upheading.astro'
 import { Image } from 'astro:assets'
 import localPackGoogle from '../../../assets/local-pack-google.png'
 ---
 
-<section class='whatis-section bg-warm-white py-16 sm:py-20'>
-  <div class='mx-auto max-w-7xl px-6 lg:px-8'>
+<section class='relative overflow-hidden bg-petrol-50 py-24 sm:py-32'>
 
+  <!-- Dot-grid texture -->
+  <div
+    class='pointer-events-none absolute inset-0'
+    aria-hidden='true'
+    style='background-image: radial-gradient(circle, rgba(26,60,74,0.07) 1px, transparent 1px); background-size: 28px 28px;'
+  ></div>
+
+  <!-- Ghost watermark -->
+  <div
+    class='pointer-events-none absolute -right-6 top-1/2 -translate-y-1/2 select-none leading-none'
+    aria-hidden='true'
+    style='font-family: "Titan One", cursive; font-size: clamp(12rem, 24vw, 20rem); color: rgba(249,115,22,0.04); line-height: 1; white-space: nowrap;'
+  >
+    WEB
+  </div>
+
+  <!-- Radial ambient glow -->
+  <div
+    class='pointer-events-none absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full'
+    aria-hidden='true'
+    style='background: radial-gradient(circle, rgba(14,165,233,0.04) 0%, transparent 65%);'
+  ></div>
+
+  <!-- Top/bottom hairlines -->
+  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-petrol-100 to-transparent' aria-hidden='true'></div>
+  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-petrol-100 to-transparent' aria-hidden='true'></div>
+
+  <div class='mx-auto max-w-7xl px-6 lg:px-8'>
     <div class='mx-auto max-w-2xl lg:max-w-none lg:grid lg:grid-cols-[1fr_480px] lg:gap-16 xl:gap-24 items-center'>
 
       <!-- LEFT: Plain explanation -->
       <div>
-        <Upheading text='En palabras simples' />
-        <h2 class='mt-3 text-3xl font-bold tracking-tight text-heading sm:text-4xl' style='font-family: "Titan One", cursive; line-height: 1.1;'>
-          Que te encuentren a ti<br/>
-          <span class='text-sky-500'>antes que a tu competencia.</span>
+
+        <!-- Eyebrow -->
+        <div data-animate class='flex items-center gap-3 mb-8'>
+          <span class='block h-px w-10 bg-orange-500' aria-hidden='true'></span>
+          <p class='text-[0.7rem] font-bold uppercase tracking-[0.22em] text-orange-500'>
+            En palabras simples
+          </p>
+        </div>
+
+        <!-- Titan One heading — 2-line treatment -->
+        <h2
+          data-animate
+          style='font-family: "Titan One", cursive;'
+          class='leading-[0.92] tracking-tight mb-6'
+        >
+          <span class='block text-[clamp(1.8rem,4vw,3rem)] text-petrol-700'>
+            Que te encuentren a ti
+          </span>
+          <span class='block text-[clamp(3rem,7vw,5rem)] text-petrol-900'>
+            antes que a ellos<span class='text-orange-400'>.</span>
+          </span>
         </h2>
 
-        <p class='mt-6 text-lg/8 text-body'>
+        <!-- Orange accent rule -->
+        <div data-animate class='flex items-center mb-8' aria-hidden='true'>
+          <div class='h-[3px] w-16 bg-orange-500 rounded-full'></div>
+          <div class='h-px w-24 bg-gradient-to-r from-orange-500/40 to-transparent'></div>
+        </div>
+
+        <p data-animate class='text-base/8 text-body text-pretty'>
           Cuando alguien necesita un fontanero, un abogado o un dentista en Barcelona, abre Google y escribe lo que busca. En menos de un segundo, Google le muestra una lista de negocios.
         </p>
 
-        <p class='mt-4 text-lg/8 text-body'>
+        <p data-animate class='mt-4 text-base/8 text-body text-pretty'>
           <strong class='text-heading font-semibold'>Los tres primeros resultados reciben el 90% de los clics.</strong> Los demás, prácticamente ninguno.
         </p>
 
-        <p class='mt-4 text-lg/8 text-body'>
+        <p data-animate class='mt-4 text-base/8 text-body text-pretty'>
           Posicionamiento web es el trabajo técnico que hace que tu negocio aparezca en esos primeros puestos — y no el de tu competencia.
         </p>
 
         <!-- Stat pills -->
-        <div class='mt-8 flex flex-wrap gap-3'>
+        <div data-animate class='mt-8 flex flex-wrap gap-3'>
           <div class='stat-pill'>
             <span class='stat-num'>91%</span>
             <span class='stat-label'>de los clics van al top 3</span>
@@ -43,7 +92,7 @@ import localPackGoogle from '../../../assets/local-pack-google.png'
       </div>
 
       <!-- RIGHT: Google Local Pack screenshot -->
-      <div class='mt-12 lg:mt-0'>
+      <div data-animate class='mt-12 lg:mt-0'>
         <div class='serp-wrapper'>
           <Image
             src={localPackGoogle}
@@ -67,10 +116,11 @@ import localPackGoogle from '../../../assets/local-pack-google.png'
     display: inline-flex;
     flex-direction: column;
     gap: 0.1rem;
-    background: var(--color-petrol-50);
+    background: white;
     border: 1px solid var(--color-border-default);
     border-radius: 0.75rem;
     padding: 0.75rem 1.1rem;
+    box-shadow: 0 1px 3px rgba(26,60,74,0.06);
   }
 
   .stat-num {
