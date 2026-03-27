@@ -2,7 +2,9 @@
 export async function onRequestPost(context) {
   try {
     const formData = await context.request.formData();
+    const name = formData.get('name') || '';
     const email = formData.get('email');
+    const message = formData.get('message') || '';
 
     if (!email) {
       return new Response(
@@ -33,12 +35,13 @@ export async function onRequestPost(context) {
         from: EMAIL_FROM,
         to: EMAIL_TO,
         replyTo: email,
-        subject: 'Nuevo contacto interesado en SEO local',
+        subject: `Nuevo contacto interesado en SEO local${name ? ` - ${name}` : ''}`,
         html: `
           <h2>Nuevo contacto desde la landing page</h2>
-          <p>Un usuario ha dejado su email para hablar sobre SEO local:</p>
+          <p><strong>Nombre:</strong> ${name || 'No especificado'}</p>
           <p><strong>Email:</strong> ${email}</p>
-          <p>Escríbele para iniciar la conversación.</p>
+          <p><strong>Mensaje:</strong></p>
+          <p>${message ? message.replace(/\n/g, '<br>') : 'No proporcionado'}</p>
         `
       })
     });
