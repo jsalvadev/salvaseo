@@ -86,18 +86,11 @@ const headingSecond = colonIdx !== -1 ? heading.slice(colonIdx + 2) : ''
         <p
           data-animate
           style='font-family: "Titan One", cursive;'
-          class='leading-[0.92] tracking-tight'>
+          class='text-[clamp(2rem,4.5vw,3.25rem)] leading-[1.05] tracking-tight text-petrol-900 text-pretty'>
           {headingSecond ? (
-            <>
-              <span class='block text-[clamp(2rem,4.5vw,3.2rem)] text-petrol-700/50 mb-1'>
-                {headingFirst}
-              </span>
-              <span class='block text-[clamp(3rem,6.5vw,5rem)] text-petrol-900'>
-                {headingSecond.replace(/\.$/, '')}<span class='text-orange-400'>.</span>
-              </span>
-            </>
+            <>{headingFirst}{' '}{headingSecond.replace(/\.$/, '')}<span class='text-orange-400'>.</span></>
           ) : (
-            <span class='block text-[clamp(3rem,6.5vw,5rem)] text-petrol-900'>{heading}</span>
+            <>{heading}</>
           )}
         </p>
 

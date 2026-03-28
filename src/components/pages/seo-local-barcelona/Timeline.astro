@@ -172,24 +172,10 @@ const lastIdx = phases.length - 1;
       )}
 
       <h2
-        class="leading-[0.92] tracking-tight"
+        class="text-[clamp(2rem,4.5vw,3.25rem)] leading-[1.05] tracking-tight text-white text-pretty"
         style="font-family: 'Titan One', cursive;"
       >
-        {headingBefore && (
-          <span
-            class="block mb-2 leading-snug"
-            style="font-size: clamp(1.35rem, 2.8vw, 2rem); color: rgba(255,255,255,0.3);"
-          >
-            {headingBefore}
-          </span>
-        )}
-        <span
-          class="block text-white"
-          style="font-size: clamp(2.4rem, 5.2vw, 4rem); line-height: 0.92;"
-        >
-          {headingAfterMain && <>{headingAfterMain} </>}
-          <span style="color: var(--color-orange-400);">{headingAfterAccent}</span>
-        </span>
+        {headingBefore && <>{headingBefore} </>}{headingAfterMain && <>{headingAfterMain} </>}<span style="color: var(--color-orange-400);">{headingAfterAccent}</span>
       </h2>
 
       <div class="mt-5 flex items-center gap-2">

@@ -155,18 +155,11 @@ const headingSecond = headingParts[1] ?? ''
       <p
         data-animate
         style='font-family: "Titan One", cursive;'
-        class='leading-[0.92] tracking-tight'>
+        class='text-[clamp(2rem,4.5vw,3.25rem)] leading-[1.05] tracking-tight text-white text-pretty'>
         {headingSecond ? (
-          <>
-            <span class='block text-[clamp(1.8rem,4vw,3rem)] text-white/45 mb-1'>
-              {headingFirst}
-            </span>
-            <span class='block text-[clamp(3rem,6.5vw,5rem)] text-white'>
-              o <span class='text-orange-400'>{headingSecond}</span>
-            </span>
-          </>
+          <>{headingFirst} o <span class='text-orange-400'>{headingSecond}</span></>
         ) : (
-          <span class='block text-[clamp(3rem,6.5vw,5rem)] text-white'>{heading}</span>
+          <>{heading}</>
         )}
       </p>
 
