@@ -47,7 +47,7 @@ const {
 } = Astro.props
 ---
 
-<div class='bg-white px-6 py-32 lg:px-8'>
+<div class='px-6 py-32 lg:px-8'>
   <div class='mx-auto max-w-3xl text-base/7 text-petrol-700'>
     <Upheading as='h2' text={upheading} />
     <p
@@ -55,7 +55,7 @@ const {
       {heading}
     </p>
     {priceHighlight && (
-      <div class='my-8 flex items-center gap-4 rounded-xl border border-sky-100 bg-sky-50 px-6 py-5'>
+      <div class='my-8 flex items-center gap-4 rounded-xl border border-teal/10 bg-teal/5 px-6 py-5'>
         <span class='text-3xl font-bold text-petrol-900'>{priceHighlight}</span>
         <span class='text-sm text-petrol-600'>· Definido tras diagnóstico gratuito · Sin contratos</span>
       </div>
@@ -101,7 +101,7 @@ const {
       </p>
 
       <figure class='mt-10'>
-        <blockquote class='border-l-4 border-sky-200 pl-6 text-xl/8 italic text-petrol-900 text-pretty'>
+        <blockquote class='border-l-4 border-teal/30 pl-6 text-xl/8 italic text-charcoal text-pretty'>
           <p>{quote}</p>
         </blockquote>
         {quoteAuthor && (
@@ -125,7 +125,7 @@ const {
       </h3>
       <ul role='list' class='mt-6 space-y-8'>
         {bottomItems.map((item) => (
-          <li class='border-l-2 border-sky-100 pl-4 py-2'>
+          <li class='border-l-2 border-teal/20 pl-4 py-2'>
             <p>
               <strong class='text-petrol-900'>{item.title}</strong> {item.description}
             </p>
@@ -138,7 +138,7 @@ const {
           href={ctaHref}
           target='_blank'
           rel='noopener noreferrer nofollow'
-          class='rounded-md bg-sky-500 px-3.5 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-sky-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500'>
+          class='rounded-md bg-teal px-3.5 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-[#3d7880] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal'>
           {ctaText}
         </a>
       </div>

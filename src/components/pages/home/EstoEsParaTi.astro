@@ -5,7 +5,7 @@ import { buildWhatsAppHref } from '../../../data/site'
 const waHref = buildWhatsAppHref()
 ---
 
-<section class='relative overflow-hidden bg-petrol-900 py-24 md:py-32'>
+<section class='relative overflow-hidden bg-teal py-24 md:py-32'>
 
   <!-- Dot-grid texture overlay -->
   <div
@@ -18,7 +18,7 @@ const waHref = buildWhatsAppHref()
   <div
     class='pointer-events-none absolute -left-10 top-1/2 -translate-y-1/2 select-none leading-none'
     aria-hidden='true'
-    style='font-family: "Titan One", cursive; font-size: clamp(14rem, 28vw, 24rem); color: rgba(249,115,22,0.055); line-height: 1; white-space: nowrap;'>
+    style='font-family: "Titan One", cursive; font-size: clamp(14rem, 28vw, 24rem); color: rgba(250,234,177,0.08); line-height: 1; white-space: nowrap;'>
     TÚ
   </div>
 
@@ -30,8 +30,8 @@ const waHref = buildWhatsAppHref()
   </div>
 
   <!-- Top / bottom hairline accents -->
-  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-500/35 to-transparent' aria-hidden='true'></div>
-  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-orange-500/15 to-transparent' aria-hidden='true'></div>
+  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sand/35 to-transparent' aria-hidden='true'></div>
+  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-sand/15 to-transparent' aria-hidden='true'></div>
 
   <div class='relative mx-auto max-w-7xl px-6 lg:px-8'>
     <div class='grid lg:grid-cols-[1fr_1.15fr] gap-12 lg:gap-20 items-start'>
@@ -40,8 +40,8 @@ const waHref = buildWhatsAppHref()
       <div class='lg:sticky lg:top-28'>
 
         <div data-animate class='flex items-center gap-3 mb-8'>
-          <span class='block h-px w-10 bg-orange-500' aria-hidden='true'></span>
-          <h2 class='label-section text-orange-400'>
+          <span class='block h-px w-10 bg-sand' aria-hidden='true'></span>
+          <h2 class='label-section text-sand'>
             Consultor SEO cerca de ti
           </h2>
         </div>
@@ -54,21 +54,20 @@ const waHref = buildWhatsAppHref()
             Esto es
           </span>
           <span class='block text-[clamp(3.2rem,7.5vw,5.5rem)] text-white'>
-            para ti<span class='text-orange-400'>.</span>
+            para ti si<span class='text-sand'>.</span>
           </span>
         </p>
 
         <!-- Animated underline rule -->
         <div data-animate class='mt-6 flex items-center'>
-          <div class='h-[3px] w-16 bg-orange-500 rounded-full'></div>
-          <div class='h-px w-24 bg-gradient-to-r from-orange-500/40 to-transparent'></div>
+          <div class='h-[3px] w-16 bg-sand rounded-full'></div>
+          <div class='h-px w-24 bg-gradient-to-r from-sand/40 to-transparent'></div>
         </div>
 
         <p
           data-animate
           class='mt-6 max-w-[38ch] text-base md:text-lg text-white/55 leading-relaxed text-pretty'>
-          Si te identificas con alguna de estas situaciones, estás
-          en el lugar correcto.
+          Te identificas con alguna de estas situaciones
         </p>
 
         <!-- CTA -->
@@ -82,7 +81,7 @@ const waHref = buildWhatsAppHref()
 
         <!-- Decorative vertical rule (desktop) -->
         <div
-          class='hidden lg:block mt-12 w-px h-20 bg-gradient-to-b from-orange-500/30 to-transparent'
+          class='hidden lg:block mt-12 w-px h-20 bg-gradient-to-b from-sand/30 to-transparent'
           aria-hidden='true'>
         </div>
       </div>
@@ -119,11 +118,11 @@ const waHref = buildWhatsAppHref()
         ].map((item) => (
           <li
             data-animate
-            class='esto-card group relative rounded-xl border border-white/[0.07] bg-white/[0.03] px-6 py-5 transition-all duration-300 hover:border-orange-500/30 hover:bg-white/[0.055] overflow-hidden cursor-default'>
+            class='esto-card group relative rounded-xl border border-white/[0.07] bg-white/[0.03] px-6 py-5 transition-all duration-300 hover:border-sand/30 hover:bg-white/[0.055] overflow-hidden cursor-default'>
 
             <!-- Card left accent bar (appears on hover) -->
             <div
-              class='pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-orange-500 scale-y-0 origin-top rounded-r-full transition-transform duration-300 group-hover:scale-y-100'
+              class='pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-sand scale-y-0 origin-top rounded-r-full transition-transform duration-300 group-hover:scale-y-100'
               aria-hidden='true'>
             </div>
 
@@ -131,7 +130,7 @@ const waHref = buildWhatsAppHref()
             <div
               class='pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 select-none leading-none transition-opacity duration-300 opacity-60 group-hover:opacity-100'
               aria-hidden='true'
-              style={`font-family: "Titan One", cursive; font-size: 5rem; color: rgba(249,115,22,0.07); line-height: 1;`}>
+              style={`font-family: "Titan One", cursive; font-size: 5rem; color: rgba(250,234,177,0.10); line-height: 1;`}>
               {item.num}
             </div>
 
@@ -139,9 +138,9 @@ const waHref = buildWhatsAppHref()
             <div class='relative flex items-start gap-4'>
 
               <!-- Check badge -->
-              <div class='shrink-0 mt-0.5 flex h-7 w-7 items-center justify-center rounded-full bg-orange-500/12 ring-1 ring-orange-500/25 transition-all duration-300 group-hover:bg-orange-500/22 group-hover:ring-orange-500/50'>
+              <div class='shrink-0 mt-0.5 flex h-7 w-7 items-center justify-center rounded-full bg-sand/12 ring-1 ring-sand/25 transition-all duration-300 group-hover:bg-sand/22 group-hover:ring-sand/50'>
                 <svg
-                  class='h-3.5 w-3.5 text-orange-400'
+                  class='h-3.5 w-3.5 text-sand'
                   viewBox='0 0 12 10'
                   fill='none'
                   aria-hidden='true'>
@@ -160,7 +159,7 @@ const waHref = buildWhatsAppHref()
                 <p class='text-[0.9375rem] font-bold text-white/90 mb-1.5 leading-snug transition-colors duration-300 group-hover:text-white'>
                   {item.heading}
                 </p>
-                <p class='text-sm text-white/50 leading-relaxed text-pretty transition-colors duration-300 group-hover:text-white/65'>
+                <p class='text-sm text-white/75 leading-relaxed text-pretty transition-colors duration-300 group-hover:text-white/85'>
                   {item.body}
                 </p>
               </div>

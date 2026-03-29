@@ -94,7 +94,7 @@ const meta = [
 ]
 ---
 
-<section id='servicios-local' class='relative bg-petrol-900 py-24 sm:py-32 overflow-hidden'>
+<section id='servicios-local' class='relative bg-charcoal py-24 sm:py-32 overflow-hidden'>
 
   <!-- Background texture: fine dot grid -->
   <div
@@ -109,7 +109,7 @@ const meta = [
     aria-hidden='true'></div>
   <div
     class='pointer-events-none absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full opacity-15'
-    style='background: radial-gradient(circle, rgba(249,115,22,0.12) 0%, transparent 70%);'
+    style='background: radial-gradient(circle, rgba(250,234,177,0.08) 0%, transparent 70%);'
     aria-hidden='true'></div>
 
   <div class='relative mx-auto max-w-7xl px-6 lg:px-8'>
@@ -118,18 +118,15 @@ const meta = [
     <div class='flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14 lg:mb-16' data-animate>
       <div class='max-w-2xl'>
         <div class='flex items-center gap-3 mb-4'>
-          <span class='block h-px w-10 bg-sky-500' aria-hidden='true'></span>
-          <p class='label-section text-sky-500'>{upheading}</p>
+          <span class='block h-px w-10 bg-sand' aria-hidden='true'></span>
+          <h2 class='label-section text-sand'>{upheading}</h2>
         </div>
-        <h2
+        <p
           class='mt-3 text-white leading-[1.1]'
           style='font-family: "Titan One", cursive; font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.015em;'>
           {heading}
-        </h2>
+        </p>
       </div>
-      <p class='text-petrol-100 text-base leading-relaxed max-w-sm lg:text-right lg:mb-1'>
-        <Fragment set:html={intro} />
-      </p>
     </div>
 
     <!-- ── Services grid ── -->
@@ -138,7 +135,7 @@ const meta = [
         const Icon = iconByKey[service.icon]
         const m = meta[idx] ?? { bars: 3, accent: 'sky', stat: null, wide: false }
         const isOrange = m.accent === 'orange'
-        const accentColor = isOrange ? 'var(--color-orange-500)' : 'var(--color-sky-500)'
+        const accentColor = isOrange ? 'var(--color-sand)' : 'var(--color-sky-500)'
         const barClass = isOrange ? 'svc-bar-orange' : 'svc-bar-sky'
         const iconBgClass = isOrange ? 'svc-icon-orange' : 'svc-icon-sky'
 
@@ -182,7 +179,7 @@ const meta = [
             </h3>
 
             <!-- Description -->
-            <p class='text-[0.875rem] leading-[1.7] text-petrol-100 flex-1'>
+            <p class='text-[0.875rem] leading-[1.7] text-white/75 flex-1'>
               <Fragment set:html={service.description} />
             </p>
 
@@ -212,7 +209,7 @@ const meta = [
       <div class='mt-14 text-center' data-animate>
         <a
           href={ctaHref}
-          class='group inline-flex items-center gap-2 text-sm font-semibold text-sky-400 hover:text-sky-300 transition-colors'>
+          class='group inline-flex items-center gap-2 text-sm font-semibold text-sand hover:text-sand/80 transition-colors'>
           {ctaText}
           <span class='group-hover:translate-x-1 transition-transform duration-200' aria-hidden='true'>→</span>
         </a>
@@ -304,13 +301,13 @@ const meta = [
   }
 
   .svc-icon-orange {
-    background-color: rgba(249, 115, 22, 0.15);
-    color: #fb923c;
-    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
+    background-color: rgba(250, 234, 177, 0.15);
+    color: #FAEAB1;
+    box-shadow: 0 0 0 0 rgba(250, 234, 177, 0);
   }
 
   .svc-card:hover .svc-icon-sky  { box-shadow: 0 0 16px 4px rgba(14, 165, 233, 0.2); }
-  .svc-card:hover .svc-icon-orange { box-shadow: 0 0 16px 4px rgba(249, 115, 22, 0.2); }
+  .svc-card:hover .svc-icon-orange { box-shadow: 0 0 16px 4px rgba(250, 234, 177, 0.2); }
 
   /* ── Signal bars ── */
   .signal-bars {
@@ -336,12 +333,12 @@ const meta = [
 
   /* Filled bars: accent color at rest (subtle), fully saturated on hover */
   .signal-bar--filled.svc-bar-sky    { background-color: rgba(56, 189, 248, 0.45); }
-  .signal-bar--filled.svc-bar-orange { background-color: rgba(251, 146, 60, 0.45); }
+  .signal-bar--filled.svc-bar-orange { background-color: rgba(250, 234, 177, 0.45); }
   .signal-bar--empty  { background-color: rgba(255, 255, 255, 0.1); }
 
   .svc-card:hover .signal-bar { transform: scaleY(1); }
   .svc-card:hover .signal-bar--filled.svc-bar-sky    { background-color: #38bdf8; }
-  .svc-card:hover .signal-bar--filled.svc-bar-orange { background-color: #fb923c; }
+  .svc-card:hover .signal-bar--filled.svc-bar-orange { background-color: #FAEAB1; }
   .svc-card:hover .signal-bar--empty                 { background-color: rgba(255, 255, 255, 0.2); }
 
   /* ── Title size: larger on wide cards ── */

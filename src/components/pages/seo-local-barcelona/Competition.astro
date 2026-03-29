@@ -68,11 +68,11 @@ const stats = [
 ]
 ---
 
-<section class="relative overflow-hidden bg-warm-white py-24 md:py-32">
+<section class="relative overflow-hidden py-24 md:py-32">
 
   <!-- Hairlines -->
-  <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-petrol-100 to-transparent" aria-hidden="true"></div>
-  <div class="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-petrol-100 to-transparent" aria-hidden="true"></div>
+  <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-charcoal/10 to-transparent" aria-hidden="true"></div>
+  <div class="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-charcoal/10 to-transparent" aria-hidden="true"></div>
 
   <!-- Subtle background texture -->
   <div
@@ -85,14 +85,14 @@ const stats = [
   <div
     class="pointer-events-none absolute -right-32 -top-32 w-96 h-96 rounded-full"
     aria-hidden="true"
-    style="background: radial-gradient(circle, rgba(249,115,22,0.07) 0%, transparent 65%);"
+    style="background: radial-gradient(circle, rgba(52,101,109,0.05) 0%, transparent 65%);"
   ></div>
 
   <!-- Watermark -->
   <div
     class="pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 select-none leading-none hidden xl:block"
     aria-hidden="true"
-    style="font-family: 'Titan One', cursive; font-size: clamp(12rem,22vw,18rem); color: rgba(26,60,74,0.025); line-height: 1; white-space: nowrap; letter-spacing: -0.05em;"
+    style="font-family: 'Titan One', cursive; font-size: clamp(12rem,22vw,18rem); color: rgba(52,101,109,0.05); line-height: 1; white-space: nowrap; letter-spacing: -0.05em;"
   >
     MAPA
   </div>
@@ -104,26 +104,26 @@ const stats = [
 
       <!-- Upheading -->
       <div class="flex items-center gap-3 mb-7">
-        <span class="block h-px w-10 bg-orange-500" aria-hidden="true"></span>
-        <p class="label-section text-orange-500">
+        <span class="block h-px w-10 bg-teal" aria-hidden="true"></span>
+        <p class="label-section text-teal">
           {upheading}
         </p>
       </div>
 
       <!-- Heading -->
       <h2
-        class="text-[clamp(2rem,4.5vw,3.25rem)] leading-[1.05] tracking-tight text-petrol-900 text-pretty"
+        class="text-[clamp(2rem,4.5vw,3.25rem)] leading-[1.05] tracking-tight text-charcoal text-pretty"
         style="font-family: 'Titan One', cursive;"
       >
-        {headingMain} frente a&nbsp;<span style="color: var(--color-orange-500);">{headingRestAccent}</span>{headingRestAfter}
+        {headingMain} frente a&nbsp;<span style="color: var(--color-teal);">{headingRestAccent}</span>{headingRestAfter}
       </h2>
 
       <div class="mt-5 flex items-center gap-2">
-        <div class="h-[3px] w-14 bg-orange-500 rounded-full"></div>
-        <div class="h-px w-20" style="background: linear-gradient(90deg, rgba(249,115,22,0.4), transparent);"></div>
+        <div class="h-[3px] w-14 bg-teal rounded-full"></div>
+        <div class="h-px w-20" style="background: linear-gradient(90deg, rgba(52,101,109,0.4), transparent);"></div>
       </div>
 
-      <p class="mt-5 text-base lg:text-lg text-petrol-700 leading-relaxed max-w-[52ch] text-pretty">
+      <p class="mt-5 text-base lg:text-lg text-charcoal/70 leading-relaxed max-w-[52ch] text-pretty">
         {subtitle}
       </p>
     </div>
@@ -190,7 +190,7 @@ const stats = [
         </div>
 
         <!-- Caption below card -->
-        <p class="mt-4 text-sm text-petrol-600 text-center">
+        <p class="mt-4 text-sm text-charcoal/70 text-center">
           Escenarios reales de búsquedas locales en Barcelona. ¿Tu negocio aparece?
         </p>
       </div>
@@ -261,7 +261,7 @@ const stats = [
      LIVE FEED CARD
   ═══════════════════════════════════════ */
   .feed-card {
-    background: var(--color-petrol-900);
+    background: var(--color-charcoal);
     border-radius: 1rem;
     overflow: hidden;
     box-shadow:
@@ -389,7 +389,7 @@ const stats = [
   .feed-footer {
     overflow: hidden;
     border-top: 1px solid rgba(255,255,255,0.06);
-    background: rgba(249,115,22,0.06);
+    background: rgba(250,234,177,0.05);
     padding: 0.5rem 0;
   }
 
@@ -404,7 +404,7 @@ const stats = [
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: rgba(249,115,22,0.6);
+    color: rgba(250,234,177,0.6);
     padding: 0 1.25rem;
     white-space: nowrap;
     flex-shrink: 0;
@@ -441,9 +441,9 @@ const stats = [
     border-radius: 4px 0 0 4px;
   }
 
-  .stat-card-line--orange { background: var(--color-orange-500); }
+  .stat-card-line--orange { background: var(--color-teal); }
   .stat-card-line--sky    { background: var(--color-sky-500); }
-  .stat-card-line--petrol { background: var(--color-petrol-700); }
+  .stat-card-line--petrol { background: var(--color-charcoal); }
 
   .stat-card-inner {
     display: flex;
@@ -457,7 +457,7 @@ const stats = [
     font-family: 'Titan One', cursive;
     font-size: clamp(2rem, 4vw, 2.75rem);
     line-height: 1;
-    color: var(--color-petrol-900);
+    color: var(--color-charcoal);
     flex-shrink: 0;
     letter-spacing: -0.02em;
   }
@@ -465,14 +465,14 @@ const stats = [
   .stat-label {
     font-size: 0.8125rem;
     line-height: 1.5;
-    color: var(--color-petrol-700);
+    color: color-mix(in srgb, var(--color-charcoal) 70%, transparent);
   }
 
   /* ═══════════════════════════════════════
      CTA BLOCK
   ═══════════════════════════════════════ */
   .cta-block {
-    background: var(--color-petrol-900);
+    background: var(--color-charcoal);
     border-radius: 1rem;
     padding: 1.75rem 1.5rem;
     border: 1px solid rgba(255,255,255,0.08);
@@ -485,7 +485,7 @@ const stats = [
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at 80% 0%, rgba(249,115,22,0.1) 0%, transparent 60%);
+    background: radial-gradient(ellipse at 80% 0%, rgba(250,234,177,0.07) 0%, transparent 60%);
     pointer-events: none;
   }
 

@@ -1,9 +1,10 @@
 ---
 import { Image } from 'astro:assets'
-import localPackGoogle from '../../../assets/local-pack-google.png'
+import fisioterapeutaBarcelona from '../../../assets/fisioterapeuta-barcelona.png'
+import WhatsAppButton from '../../WhatsAppButton.astro'
 ---
 
-<section class='relative overflow-hidden bg-petrol-50 py-24 sm:py-32'>
+<section class='relative overflow-hidden py-24 sm:py-32'>
 
   <!-- Dot-grid texture -->
   <div
@@ -16,7 +17,7 @@ import localPackGoogle from '../../../assets/local-pack-google.png'
   <div
     class='pointer-events-none absolute -right-6 top-1/2 -translate-y-1/2 select-none leading-none'
     aria-hidden='true'
-    style='font-family: "Titan One", cursive; font-size: clamp(12rem, 24vw, 20rem); color: rgba(249,115,22,0.04); line-height: 1; white-space: nowrap;'
+    style='font-family: "Titan One", cursive; font-size: clamp(12rem, 24vw, 20rem); color: rgba(52,101,109,0.06); line-height: 1; white-space: nowrap;'
   >
     WEB
   </div>
@@ -40,49 +41,40 @@ import localPackGoogle from '../../../assets/local-pack-google.png'
 
         <!-- Eyebrow -->
         <div data-animate class='flex items-center gap-3 mb-8'>
-          <span class='block h-px w-10 bg-orange-500' aria-hidden='true'></span>
-          <p class='label-section text-orange-500'>
-            En palabras simples
-          </p>
+          <span class='block h-px w-10 bg-teal' aria-hidden='true'></span>
+          <h1 class='label-section text-teal'>
+            Posicionamiento web en Barcelona
+          </h1>
         </div>
 
         <!-- Section heading -->
         <p
           data-animate
           style='font-family: "Titan One", cursive;'
-          class='text-[clamp(2rem,4.5vw,3.25rem)] leading-[1.05] tracking-tight text-petrol-900 text-pretty mb-6'
+          class='text-[clamp(2rem,4.5vw,3.25rem)] leading-[1.05] tracking-tight text-charcoal text-pretty mb-6'
         >
-          Que te encuentren a ti antes que a ellos<span class='text-orange-400'>.</span>
+          Que te encuentren a ti antes que a ellos<span class='text-teal'>.</span>
         </p>
 
-        <!-- Orange accent rule -->
+        <!-- Teal accent rule -->
         <div data-animate class='flex items-center mb-8' aria-hidden='true'>
-          <div class='h-[3px] w-16 bg-orange-500 rounded-full'></div>
-          <div class='h-px w-24 bg-gradient-to-r from-orange-500/40 to-transparent'></div>
+          <div class='h-[3px] w-16 bg-teal rounded-full'></div>
+          <div class='h-px w-24 bg-gradient-to-r from-teal/40 to-transparent'></div>
         </div>
 
         <p data-animate class='text-base/8 text-body text-pretty'>
-          Cuando alguien necesita un fontanero, un abogado o un dentista en Barcelona, abre Google y escribe lo que busca. En menos de un segundo, Google le muestra una lista de negocios.
+          Cuando alguien busca un servicio en Barcelona, Google decide quién se lleva el cliente en segundos. Si tu negocio no aparece en la primera página, eres invisible para el <strong class='text-heading font-semibold'>90% del mercado potencial</strong>.
         </p>
 
         <p data-animate class='mt-4 text-base/8 text-body text-pretty'>
-          <strong class='text-heading font-semibold'>El 91% del tráfico orgánico se queda en la primera página de Google.</strong> Los de la segunda, prácticamente ninguno.
+          Estar en la segunda página es ceder tus ventas a la competencia por falta de presencia. El posicionamiento web elimina estos bloqueos para que tu empresa sea la opción elegida.
         </p>
 
-        <p data-animate class='mt-4 text-base/8 text-body text-pretty'>
-          Posicionamiento web es el trabajo que hace que Google muestre tu negocio antes que el de tu competencia.
-        </p>
-
-        <!-- Stat pills -->
-        <div data-animate class='mt-8 flex flex-wrap gap-3'>
-          <div class='stat-pill'>
-            <span class='stat-num'>91%</span>
-            <span class='stat-label'>del tráfico orgánico se queda en pág. 1</span>
-          </div>
-          <div class='stat-pill'>
-            <span class='stat-num'>0 €</span>
-            <span class='stat-label'>por clic, a diferencia de los anuncios</span>
-          </div>
+        <div data-animate class='mt-8'>
+          <WhatsAppButton
+            text='Analiza mi web'
+            class='px-6 py-3 text-[0.9375rem] font-bold'
+          />
         </div>
       </div>
 
@@ -90,15 +82,15 @@ import localPackGoogle from '../../../assets/local-pack-google.png'
       <div data-animate class='mt-12 lg:mt-0'>
         <div class='serp-wrapper'>
           <Image
-            src={localPackGoogle}
-            alt='Resultados de Google para "fontanero urgente barcelona" mostrando el Local Pack con empresas en el mapa'
-            width={530}
-            height={700}
+            src={fisioterapeutaBarcelona}
+            alt='Resultados orgánicos de Google para "fisioterapeuta barcelona" mostrando las primeras posiciones'
+            width={708}
+            height={750}
             class='w-full h-auto block'
             loading='lazy'
           />
         </div>
-        <p class='mt-3 text-center text-xs text-petrol-600/60'>Captura real de Google · Local Pack para "fontanero urgente barcelona"</p>
+        <p class='mt-3 text-center text-xs text-petrol-600/60'>Captura real de Google · Resultados orgánicos para "fisioterapeuta barcelona"</p>
       </div>
 
     </div>
@@ -106,33 +98,6 @@ import localPackGoogle from '../../../assets/local-pack-google.png'
 </section>
 
 <style>
-  /* ── Stat pills ── */
-  .stat-pill {
-    display: inline-flex;
-    flex-direction: column;
-    gap: 0.1rem;
-    background: white;
-    border: 1px solid var(--color-border-default);
-    border-radius: 0.75rem;
-    padding: 0.75rem 1.1rem;
-    box-shadow: 0 1px 3px rgba(26,60,74,0.06);
-  }
-
-  .stat-num {
-    font-family: 'Titan One', cursive;
-    font-size: 1.5rem;
-    color: var(--color-petrol-900);
-    line-height: 1;
-  }
-
-  .stat-label {
-    font-size: 0.72rem;
-    font-weight: 500;
-    color: var(--color-petrol-600);
-    line-height: 1.3;
-    max-width: 12ch;
-  }
-
   /* ── SERP wrapper ── */
   .serp-wrapper {
     border-radius: 1rem;

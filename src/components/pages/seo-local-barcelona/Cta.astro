@@ -13,24 +13,24 @@ interface Props {
 const { upheading, heading, primaryCtaText, secondaryCtaText, secondaryCtaHref } = Astro.props
 ---
 
-<div class='relative bg-petrol-900 overflow-hidden'>
+<div class='relative bg-teal overflow-hidden'>
   <!-- gradient mesh -->
   <div
     class='pointer-events-none absolute inset-0'
-    style='background: radial-gradient(ellipse at 20% 50%, rgba(14,165,233,0.12) 0%, transparent 60%), radial-gradient(ellipse at 80% 30%, rgba(249,115,22,0.07) 0%, transparent 50%);'
+    style='background: radial-gradient(ellipse at 20% 50%, rgba(250,234,177,0.08) 0%, transparent 60%), radial-gradient(ellipse at 80% 30%, rgba(250,234,177,0.05) 0%, transparent 50%);'
     aria-hidden='true'></div>
   <!-- dot grid -->
   <div
     class='pointer-events-none absolute inset-0 opacity-[0.10]'
-    style='background-image: radial-gradient(circle, #7dd3fc 1px, transparent 1px); background-size: 32px 32px;'
+    style='background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px); background-size: 32px 32px;'
     aria-hidden='true'></div>
   <!-- floating decorative rings -->
   <div
-    class='pointer-events-none absolute -top-20 -left-20 size-80 rounded-full border border-sky-400/10'
+    class='pointer-events-none absolute -top-20 -left-20 size-80 rounded-full border border-sand/10'
     style='animation: subtle-float 6s ease-in-out infinite;'
     aria-hidden='true'></div>
   <div
-    class='pointer-events-none absolute -bottom-24 -right-24 size-96 rounded-full border border-orange-500/[0.08]'
+    class='pointer-events-none absolute -bottom-24 -right-24 size-96 rounded-full border border-sand/[0.08]'
     style='animation: subtle-float 6s ease-in-out infinite 3s;'
     aria-hidden='true'></div>
 
@@ -38,15 +38,15 @@ const { upheading, heading, primaryCtaText, secondaryCtaText, secondaryCtaHref }
     <div class='mx-auto max-w-2xl text-center'>
       <!-- Benefit pills -->
       <div class='mb-8 flex flex-wrap items-center justify-center gap-3'>
-        <span class='inline-flex items-center gap-2 bg-white/10 rounded-full px-3 py-1 text-sm text-petrol-100'>
+        <span class='inline-flex items-center gap-2 bg-white/10 rounded-full px-3 py-1 text-sm text-white/75'>
           <Map class='size-4' aria-hidden='true' />
           Google Maps
         </span>
-        <span class='inline-flex items-center gap-2 bg-white/10 rounded-full px-3 py-1 text-sm text-petrol-100'>
+        <span class='inline-flex items-center gap-2 bg-white/10 rounded-full px-3 py-1 text-sm text-white/75'>
           <MapPin class='size-4' aria-hidden='true' />
           Local Pack
         </span>
-        <span class='inline-flex items-center gap-2 bg-white/10 rounded-full px-3 py-1 text-sm text-petrol-100'>
+        <span class='inline-flex items-center gap-2 bg-white/10 rounded-full px-3 py-1 text-sm text-white/75'>
           <Phone class='size-4' aria-hidden='true' />
           Más llamadas
         </span>
@@ -54,22 +54,22 @@ const { upheading, heading, primaryCtaText, secondaryCtaText, secondaryCtaHref }
 
       {upheading && (
         <div class='flex items-center justify-center gap-3 mb-4'>
-          <span class='block h-px w-10 bg-sky-500' aria-hidden='true'></span>
-          <p class='label-section text-sky-500'>{upheading}</p>
-          <span class='block h-px w-10 bg-sky-500' aria-hidden='true'></span>
+          <span class='block h-px w-10 bg-sand' aria-hidden='true'></span>
+          <p class='label-section text-sand'>{upheading}</p>
+          <span class='block h-px w-10 bg-sand' aria-hidden='true'></span>
         </div>
       )}
       <p class='text-4xl font-semibold tracking-tight text-balance text-white sm:text-5xl'>
         {heading}
       </p>
       <!-- accent bar -->
-      <div class='mx-auto mt-4 h-1 w-20 rounded-full bg-gradient-to-r from-orange-500 to-sky-500'></div>
+      <div class='mx-auto mt-4 h-1 w-20 rounded-full bg-gradient-to-r from-sand to-sand/40'></div>
       <div class='mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-x-6'>
         <WhatsAppButton text={primaryCtaText} />
         {secondaryCtaText && secondaryCtaHref && (
           <a
             href={secondaryCtaHref}
-            class='text-sm/6 font-semibold text-white hover:text-sky-300 transition-colors'>
+            class='text-sm/6 font-semibold text-white hover:text-sand transition-colors'>
             {secondaryCtaText} <span aria-hidden='true'>→</span>
           </a>
         )}

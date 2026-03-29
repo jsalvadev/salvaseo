@@ -50,8 +50,14 @@
   /* Petrol extended */
   --color-petrol-800: #1e4d5e;
 
-  /* Warm White - Background */
-  --color-warm-white: #FAFAF8;
+  /* ── 2026 Brand Palette ───────────────────────────────────────────────── */
+  --color-cream: #FAF8F1;       /* 60% — page background, transparent sections */
+  --color-sand: #FAEAB1;        /* 10% — accent: badges, bars on dark sections */
+  --color-teal: #34656D;        /* 30% — dark sections, heading accents */
+  --color-charcoal: #334443;    /* 30% alt — headings, text, dark band variant */
+
+  /* Warm White - Background (updated to new cream) */
+  --color-warm-white: #FAF8F1;
 
   /* Sandstone — warm Barcelona accent */
   --color-sandstone-50: #fdf8f3;
@@ -62,10 +68,10 @@
   /* Card tokens for custom utility classes used in content blocks */
   --color-neutral-primary-soft: var(--color-petrol-50);
   --color-neutral-secondary-medium: var(--color-petrol-100);
-  --color-heading: var(--color-petrol-900);
-  --color-body: var(--color-petrol-700);
-  --color-fg-brand: var(--color-sky-600);
-  --color-border-default: #d5dde2;
+  --color-heading: var(--color-charcoal);
+  --color-body: var(--color-charcoal);
+  --color-fg-brand: var(--color-teal);
+  --color-border-default: #d6cbb8;
   --radius-base: 0.5rem;
 
   /* Body font */
@@ -143,6 +149,65 @@
   background-color: var(--color-sandstone-50);
 }
 
+/* ── Brand palette utilities ─────────────────────────────────────────── */
+
+@utility bg-cream {
+  background-color: var(--color-cream);
+}
+
+@utility bg-teal {
+  background-color: var(--color-teal);
+}
+
+@utility bg-charcoal {
+  background-color: var(--color-charcoal);
+}
+
+@utility bg-sand {
+  background-color: var(--color-sand);
+}
+
+@utility text-charcoal {
+  color: var(--color-charcoal);
+}
+
+@utility text-teal {
+  color: var(--color-teal);
+}
+
+@utility text-sand {
+  color: var(--color-sand);
+}
+
+/* ── Heading size system ─────────────────────────────────────────────── */
+/*
+ * These classes set ONLY size, leading, and tracking.
+ * Apply font-family via inline style (Titan One) or let DM Sans apply.
+ * Apply color via text-heading (charcoal) on light sections, text-white on dark.
+ *
+ *  heading-1  →  hero display / page headline         ~40–72px fluid
+ *  heading-2  →  section headline                     ~29–48px fluid
+ *  heading-3  →  card / subsection heading            ~18–24px fluid
+ */
+
+@utility heading-1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 0.93;
+  letter-spacing: -0.02em;
+}
+
+@utility heading-2 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 0.95;
+  letter-spacing: -0.015em;
+}
+
+@utility heading-3 {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 1.3;
+  font-weight: 700;
+}
+
 @utility text-maps-green {
   color: var(--color-maps-green);
 }
@@ -155,9 +220,10 @@
   --navbar-height: 56px;
 }
 
-/* Body font */
+/* Body font and page background */
 body {
   font-family: var(--font-family-sans);
+  background-color: var(--color-cream);
 }
 
 /* Base font size — 17px improves readability (default browser is 16px) */

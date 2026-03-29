@@ -5,12 +5,13 @@ interface Props {
   upheading?: string
   upheadingColor?: string
   heading: string
+  intro?: string
   idPrefix?: string
   items: FaqItem[]
   class?: string
 }
 
-const { upheading, heading, idPrefix = 'faq', items, class: className } = Astro.props
+const { upheading, heading, intro, idPrefix = 'faq', items, class: className } = Astro.props
 
 function stripHtml(html: string): string {
   return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim()
@@ -42,9 +43,15 @@ const faqSchema = {
     <!-- Header -->
     <header class="faq-header">
       {upheading && (
-        <h2 class="faq-label">{upheading}</h2>
+        <div class="faq-label-wrap">
+          <span class="faq-label-line" aria-hidden="true"></span>
+          <h2 class="faq-label">{upheading}</h2>
+        </div>
       )}
       <p class="faq-heading">{heading}</p>
+      {intro && (
+        <p class="faq-intro" set:html={intro} />
+      )}
     </header>
 
     <!-- FAQ list -->
@@ -95,7 +102,7 @@ const faqSchema = {
   .faq-root {
     position: relative;
     overflow: hidden;
-    background-color: #EEF3F5; /* petrol-100 — soft cool off-white */
+    background-color: var(--color-cream); /* cream — matches page background */
   }
 
   /* ── Watermark ─────────────────────────────────────────── */
@@ -153,27 +160,45 @@ const faqSchema = {
     }
   }
 
-  .faq-label {
-    display: inline-flex;
+  .faq-label-wrap {
+    display: flex;
     align-items: center;
+    gap: 0.75rem;
     margin-bottom: 1.25rem;
-    border-radius: 9999px;
-    border: 1px solid rgba(249, 115, 22, 0.35);
-    background: rgba(249, 115, 22, 0.1);
-    padding: 0.25rem 0.875rem;
-    font-family: var(--font-family-sans, 'DM Sans Variable', sans-serif);
+  }
+
+  .faq-label-line {
+    display: block;
+    flex-shrink: 0;
+    height: 1px;
+    width: 2rem;
+    background-color: #34656D;
+  }
+
+  .faq-label {
     font-size: 0.7rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: #fb923c;
+    line-height: 1;
+    white-space: nowrap;
+    color: #34656D;
   }
 
   .faq-heading {
     font-family: 'Titan One', cursive;
     font-size: clamp(2.5rem, 5vw, 3.75rem);
     line-height: 1.05;
-    color: #1A3C4A; /* petrol-900 */
+    color: #334443; /* charcoal */
+  }
+
+  .faq-intro {
+    margin-top: 1.25rem;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgba(51, 68, 67, 0.7);
+    max-width: 38ch;
+    text-wrap: pretty;
   }
 
   /* ── FAQ list ──────────────────────────────────────────── */
@@ -218,12 +243,12 @@ const faqSchema = {
     font-size: clamp(1.5rem, 3.5vw, 2.25rem);
     line-height: 1;
     padding-top: 0.1rem;
-    color: rgba(26, 60, 74, 0.2); /* muted default on light bg */
+    color: rgba(51, 68, 67, 0.2); /* muted default on light bg */
     transition: color 0.3s ease;
   }
 
   .faq-item:has(button[aria-expanded="true"]) .faq-num {
-    color: #f97316; /* orange-500 — active */
+    color: #34656D; /* teal — active */
   }
 
   /* ── Question h3 — reset heading defaults ──────────────── */
@@ -248,16 +273,16 @@ const faqSchema = {
     font-size: clamp(0.9375rem, 2vw, 1.125rem);
     font-weight: 600;
     line-height: 1.45;
-    color: #1A3C4A; /* petrol-900 */
+    color: #334443; /* charcoal */
     transition: color 0.2s ease;
   }
 
   .faq-btn:hover {
-    color: #fb923c;
+    color: #34656D;
   }
 
   .faq-item:has(button[aria-expanded="true"]) .faq-btn {
-    color: #fb923c;
+    color: #34656D;
   }
 
   /* ── Chevron ───────────────────────────────────────────── */
@@ -266,13 +291,13 @@ const faqSchema = {
     height: 1.125rem;
     flex-shrink: 0;
     margin-top: 0.25rem;
-    color: #3A6D82; /* petrol-600 */
+    color: #34656D; /* teal */
     transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
   }
 
   .faq-item:has(button[aria-expanded="true"]) .faq-chevron {
     transform: rotate(180deg);
-    color: #f97316;
+    color: #34656D;
   }
 
   /* ── Answer dd ─────────────────────────────────────────── */
@@ -307,18 +332,18 @@ const faqSchema = {
   /* Override hardcoded petrol-900 classes in set:html content (requires :global) */
   .faq-answer-body :global(p),
   .faq-answer-body :global(li) {
-    color: #2A5566 !important; /* petrol-700 */
+    color: #334443 !important; /* charcoal */
     line-height: 1.75;
     font-size: 1rem;
   }
 
   .faq-answer-body :global(strong) {
-    color: #1A3C4A !important; /* petrol-900 */
+    color: #334443 !important; /* charcoal */
     font-weight: 600;
   }
 
   .faq-answer-body :global(ul) {
-    color: #2A5566 !important; /* petrol-700 */
+    color: #334443 !important; /* charcoal */
     margin-top: 0.5rem;
   }
 

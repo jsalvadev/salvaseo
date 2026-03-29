@@ -5,34 +5,34 @@ const benefits = [
   {
     num: '01',
     icon: MessageCircle,
-    accentClass: 'bg-sky-500/10 ring-sky-500/25',
-    iconClass: 'text-sky-500',
-    barClass: 'bg-sky-500',
+    accentClass: 'bg-teal/10 ring-teal/25',
+    iconClass: 'text-teal',
+    barClass: 'bg-teal',
     heading: 'Acceso directo al especialista',
     body: 'Resuelve dudas y valida cambios técnicos <strong>al instante</strong> por WhatsApp, videollamada o email. Al eliminar las capas intermedias, tu proyecto gana en precisión y el tiempo de respuesta se reduce al mínimo.',
   },
   {
     num: '02',
     icon: MapPinned,
-    accentClass: 'bg-orange-500/10 ring-orange-500/25',
-    iconClass: 'text-orange-500',
-    barClass: 'bg-orange-500',
+    accentClass: 'bg-teal/10 ring-teal/25',
+    iconClass: 'text-teal',
+    barClass: 'bg-teal',
     heading: 'Estrategia adaptada a tu zona',
     body: 'Aprovecha un conocimiento profundo del mercado de Barcelona. Tu web se posiciona respondiendo a la realidad de tu barrio y sector, captando el tráfico que genera <strong>facturación real en tu zona</strong>.',
   },
   {
     num: '03',
     icon: PiggyBank,
-    accentClass: 'bg-sky-500/10 ring-sky-500/25',
-    iconClass: 'text-sky-500',
-    barClass: 'bg-gradient-to-r from-sky-500 to-orange-500',
+    accentClass: 'bg-teal/10 ring-teal/25',
+    iconClass: 'text-teal',
+    barClass: 'bg-teal',
     heading: 'Tu presupuesto rinde al máximo',
     body: 'Maximiza tu presupuesto destinándolo exclusivamente a optimizar tu web. Un modelo eficiente pensado para pymes y negocios locales.',
   },
 ]
 ---
 
-<div class='relative overflow-hidden bg-white py-24 sm:py-32'>
+<div class='relative overflow-hidden py-24 sm:py-32'>
 
   <!-- ── Subtle linear grid texture ───────────────────────────────── -->
   <div
@@ -45,14 +45,14 @@ const benefits = [
   <div
     class='pointer-events-none absolute -left-6 top-1/2 -translate-y-1/2 select-none leading-none'
     aria-hidden='true'
-    style='font-family: "Titan One", cursive; font-size: clamp(10rem, 22vw, 18rem); color: rgba(249,115,22,0.04); line-height: 1; white-space: nowrap;'
+    style='font-family: "Titan One", cursive; font-size: clamp(10rem, 22vw, 18rem); color: rgba(52,101,109,0.06); line-height: 1; white-space: nowrap;'
   >
     DIRECTO
   </div>
 
   <!-- ── Orange corner accent (right edge) ─────────────────────────── -->
   <div
-    class='pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-40 bg-orange-500 rounded-l-full'
+    class='pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-40 bg-teal rounded-l-full'
     aria-hidden='true'
   ></div>
 
@@ -68,8 +68,8 @@ const benefits = [
 
         <!-- Eyebrow -->
         <div data-animate class='flex items-center gap-3 mb-8'>
-          <span class='block h-px w-10 bg-orange-500' aria-hidden='true'></span>
-          <p class='label-section text-orange-500'>
+          <span class='block h-px w-10 bg-teal' aria-hidden='true'></span>
+          <p class='label-section text-teal'>
             Consultor freelance vs agencia de posicionamiento web en Barcelona
           </p>
         </div>
@@ -80,27 +80,27 @@ const benefits = [
           style='font-family: "Titan One", cursive;'
           class='leading-[0.92] tracking-tight mb-6'
         >
-          <span class='block text-[clamp(1.8rem,4vw,3rem)] text-petrol-700'>
+          <span class='block text-[clamp(1.8rem,4vw,3rem)] text-charcoal/60'>
             Alguien que
           </span>
-          <span class='block text-[clamp(3rem,7vw,5rem)] text-petrol-900'>
-            responde cuando llamas<span class='text-orange-400'>.</span>
+          <span class='block text-[clamp(3rem,7vw,5rem)] text-charcoal'>
+            responde cuando llamas<span class='text-teal'>.</span>
           </span>
         </h2>
 
-        <!-- Orange accent rule -->
+        <!-- Teal accent rule -->
         <div data-animate class='flex items-center'>
-          <div class='h-[3px] w-16 bg-orange-500 rounded-full'></div>
-          <div class='h-px w-24 bg-gradient-to-r from-orange-500/40 to-transparent'></div>
+          <div class='h-[3px] w-16 bg-teal rounded-full'></div>
+          <div class='h-px w-24 bg-gradient-to-r from-teal/40 to-transparent'></div>
         </div>
 
         <!-- Subtitle -->
-        <p data-animate class='mt-6 max-w-[40ch] text-base md:text-lg text-petrol-700 leading-relaxed text-pretty'>
+        <p data-animate class='mt-6 max-w-[40ch] text-base md:text-lg text-charcoal/70 leading-relaxed text-pretty'>
           Como negocio local o pyme, tu mayor ventaja es la velocidad de respuesta. Un servicio donde la estrategia y la ejecución técnica ocurren en el mismo lugar, sin esperas ni filtros.
         </p>
 
         <!-- Decorative vertical rule -->
-        <div class='hidden lg:block mt-12 w-px h-20 bg-gradient-to-b from-orange-500/30 to-transparent' aria-hidden='true'></div>
+        <div class='hidden lg:block mt-12 w-px h-20 bg-gradient-to-b from-teal/30 to-transparent' aria-hidden='true'></div>
       </div>
 
       <!-- ── RIGHT: benefit card list ─────────────────────────────── -->
@@ -112,12 +112,12 @@ const benefits = [
             <li
               data-animate
               data-animate-delay={idx * 120}
-              class='group relative rounded-2xl border border-petrol-100 bg-white px-6 py-6 transition-all duration-300 hover:border-orange-200 hover:shadow-xl hover:shadow-petrol-900/5 overflow-hidden cursor-default'
+              class='group relative rounded-2xl border border-charcoal/10 bg-white px-6 py-6 transition-all duration-300 hover:border-teal/30 hover:shadow-xl hover:shadow-charcoal/5 overflow-hidden cursor-default'
             >
 
               <!-- Left accent bar (hover reveal) -->
               <div
-                class='pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-orange-500 scale-y-0 origin-top rounded-r-full transition-transform duration-300 group-hover:scale-y-100'
+                class='pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-teal scale-y-0 origin-top rounded-r-full transition-transform duration-300 group-hover:scale-y-100'
                 aria-hidden='true'
               ></div>
 
@@ -125,7 +125,7 @@ const benefits = [
               <div
                 class='pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 select-none leading-none transition-opacity duration-300 opacity-60 group-hover:opacity-100'
                 aria-hidden='true'
-                style='font-family: "Titan One", cursive; font-size: 5rem; color: rgba(249,115,22,0.07); line-height: 1;'
+                style='font-family: "Titan One", cursive; font-size: 5rem; color: rgba(52,101,109,0.08); line-height: 1;'
               >
                 {benefit.num}
               </div>
