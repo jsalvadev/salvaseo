@@ -51,7 +51,7 @@ const profiles = [
       <p
         class='mt-2 tracking-tight text-petrol-900 text-pretty'
         style='font-family: "Titan One", cursive; font-size: clamp(2.8rem, 6vw, 4.5rem); line-height: 1.05; font-weight: 400;'>
-        Esto es para ti
+        Esto es para ti si.
       </p>
       <p class='mt-5 text-lg/7 text-petrol-700 max-w-lg text-pretty'>
         Cada proyecto entra con un objetivo claro de facturación. Sin ese foco,
@@ -71,31 +71,19 @@ const profiles = [
             <div
               class='pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 select-none leading-none transition-all duration-500 opacity-[0.028] group-hover:opacity-[0.06]'
               aria-hidden='true'
-              style={`font-family: "Titan One", cursive; font-size: clamp(5rem, 13vw, 11rem); line-height: 1; color: ${accent === 'orange' ? '#f97316' : '#0ea5e9'};`}>
+              style={`font-family: "Titan One", cursive; font-size: clamp(5rem, 13vw, 11rem); line-height: 1; color: rgba(52,101,109,0.06);`}>
               {watermark}
             </div>
 
             <!-- Left accent bar -->
             <div
-              class={`flex-shrink-0 mt-1 w-1 self-stretch rounded-full min-h-[3rem] ${
-                accent === 'sky'
-                  ? 'bg-sky-500'
-                  : accent === 'orange'
-                    ? 'bg-orange-500'
-                    : 'bg-gradient-to-b from-sky-500 to-orange-500'
-              }`}
+              class='flex-shrink-0 mt-1 w-1 self-stretch rounded-full min-h-[3rem] bg-teal'
               aria-hidden='true'
             />
 
             <!-- Icon -->
             <div
-              class={`flex-shrink-0 mt-0.5 flex h-10 w-10 items-center justify-center rounded-xl ${
-                accent === 'sky'
-                  ? 'bg-sky-50 text-sky-600'
-                  : accent === 'orange'
-                    ? 'bg-orange-50 text-orange-500'
-                    : 'bg-petrol-50 text-petrol-600'
-              }`}>
+              class='flex-shrink-0 mt-0.5 flex h-10 w-10 items-center justify-center rounded-xl bg-teal/10 text-teal'>
               <Icon class='size-5' aria-hidden='true' />
             </div>
 
@@ -118,7 +106,7 @@ const profiles = [
       class='mt-12 flex flex-col sm:flex-row items-center gap-4'>
       <a
         href='#contacto'
-        class='rounded-md bg-sky-500 px-5 py-3 text-sm font-bold text-white shadow-sm hover:bg-sky-400 active:bg-sky-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400 transition-all'>
+        class='rounded-md bg-teal px-5 py-3 text-sm font-bold text-white shadow-sm hover:bg-[#3d7880] active:bg-[#2b565d] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal transition-all'>
         Quiero mi análisis gratuito
       </a>
       <p class='text-sm text-petrol-700'>Auditoría gratuita · Sin contratos de permanencia</p>

@@ -24,24 +24,24 @@ const {
 } = Astro.props
 ---
 
-<div class:list={['relative bg-petrol-900 overflow-hidden', layout === 'centered' && 'px-6 lg:px-8']}>
+<div class:list={['relative bg-teal overflow-hidden', layout === 'centered' && 'px-6 lg:px-8']}>
   <!-- gradient mesh -->
   <div
     class='pointer-events-none absolute inset-0'
-    style='background: radial-gradient(ellipse at 20% 50%, rgba(14,165,233,0.12) 0%, transparent 60%), radial-gradient(ellipse at 80% 30%, rgba(249,115,22,0.07) 0%, transparent 50%);'
+    style='background: radial-gradient(ellipse at 20% 50%, rgba(255,255,255,0.06) 0%, transparent 60%), radial-gradient(ellipse at 80% 30%, rgba(250,234,177,0.06) 0%, transparent 50%);'
     aria-hidden='true'></div>
   <!-- dot grid -->
   <div
     class='pointer-events-none absolute inset-0 opacity-[0.10]'
-    style='background-image: radial-gradient(circle, #7dd3fc 1px, transparent 1px); background-size: 32px 32px;'
+    style='background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px); background-size: 32px 32px;'
     aria-hidden='true'></div>
   <!-- floating decorative rings -->
   <div
-    class='pointer-events-none absolute -top-20 -left-20 size-80 rounded-full border border-sky-400/10'
+    class='pointer-events-none absolute -top-20 -left-20 size-80 rounded-full border border-sand/10'
     style='animation: subtle-float 6s ease-in-out infinite;'
     aria-hidden='true'></div>
   <div
-    class='pointer-events-none absolute -bottom-24 -right-24 size-96 rounded-full border border-orange-500/[0.08]'
+    class='pointer-events-none absolute -bottom-24 -right-24 size-96 rounded-full border border-sand/[0.08]'
     style='animation: subtle-float 6s ease-in-out infinite 3s;'
     aria-hidden='true'></div>
 
@@ -50,14 +50,14 @@ const {
       data-animate
       class='relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:flex lg:items-center lg:justify-between lg:px-8'>
       <div>
-        {upheading && <Upheading as='h2' text={upheading} />}
+        {upheading && <Upheading as='h2' text={upheading} color='var(--color-sand)' />}
         <p
           class='max-w-2xl text-4xl font-semibold tracking-tight text-white sm:text-5xl text-pretty'>
           {heading}
         </p>
         <!-- accent bar -->
-        <div class='mt-4 h-1 w-20 rounded-full bg-gradient-to-r from-orange-500 to-sky-500'></div>
-        <p class='mt-6 max-w-xl text-lg text-petrol-100'>
+        <div class='mt-4 h-1 w-20 rounded-full bg-gradient-to-r from-sand to-sand/60'></div>
+        <p class='mt-6 max-w-xl text-lg text-white/75'>
           <Fragment set:html={text} />
         </p>
       </div>
@@ -67,7 +67,7 @@ const {
         {secondaryCtaText && secondaryCtaHref && (
           <a
             href={secondaryCtaHref}
-            class='text-sm/6 font-semibold text-white hover:text-sky-300 transition-colors'>
+            class='text-sm/6 font-semibold text-white hover:text-sand transition-colors'>
             {secondaryCtaText}
             <span aria-hidden='true'>→</span>
           </a>
@@ -82,8 +82,8 @@ const {
         {heading}
       </p>
       <!-- accent bar -->
-      <div class='mx-auto mt-4 h-1 w-20 rounded-full bg-gradient-to-r from-orange-500 to-sky-500'></div>
-      <p class='mt-6 text-lg/8 text-petrol-100'>
+      <div class='mx-auto mt-4 h-1 w-20 rounded-full bg-gradient-to-r from-sand to-sand/60'></div>
+      <p class='mt-6 text-lg/8 text-white/75'>
         <Fragment set:html={text} />
       </p>
       <div
@@ -92,7 +92,7 @@ const {
         {secondaryCtaText && secondaryCtaHref && (
           <a
             href={secondaryCtaHref}
-            class='text-sm/6 font-semibold text-white hover:text-sky-300 transition-colors'>
+            class='text-sm/6 font-semibold text-white hover:text-sand transition-colors'>
             {secondaryCtaText} →
           </a>
         )}

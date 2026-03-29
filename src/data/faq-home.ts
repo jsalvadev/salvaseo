@@ -37,7 +37,7 @@ export const faqHomeItems: FaqItem[] = [
       Busca tu propio negocio en Google ahora mismo. ¿Apareces? ¿En qué posición? ¿Tu competencia está antes que tú? ¿Tu ficha de Google Maps genera llamadas o está ahí sin que nadie la vea?
     </p>
     <p class="mt-2 text-base/7 text-petrol-900">
-      Si dependes de publicidad de pago para tener visibilidad y <strong>en cuanto paras la campaña desapareces</strong>, ya sabes la respuesta. La primera consulta es gratis. En menos de 24 horas sabes si tu caso tiene recorrido.
+      Si dependes de publicidad de pago para tener visibilidad y <strong>en cuanto paras la campaña desapareces</strong>, ya sabes la respuesta. La primera consulta es gratis. En menos de 48 horas sabes si tu caso tiene recorrido.
     </p>`,
   },
   {

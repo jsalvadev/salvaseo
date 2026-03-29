@@ -33,7 +33,7 @@ const priceNum    = priceParts[1] ?? ''
 const priceUnit   = priceParts.slice(2).join(' ')
 ---
 
-<section class='relative overflow-hidden bg-petrol-900 py-24 sm:py-32'>
+<section class='relative overflow-hidden bg-charcoal py-24 sm:py-32'>
 
   <!-- ── Dot-grid texture ──────────────────────────────────────────── -->
   <div
@@ -47,7 +47,7 @@ const priceUnit   = priceParts.slice(2).join(' ')
     <div
       class='pointer-events-none absolute -right-4 top-1/2 -translate-y-1/2 select-none leading-none'
       aria-hidden='true'
-      style={`font-family: "Titan One", cursive; font-size: clamp(14rem, 30vw, 26rem); color: rgba(249,115,22,0.04); line-height: 1;`}
+      style={`font-family: "Titan One", cursive; font-size: clamp(14rem, 30vw, 26rem); color: rgba(250,234,177,0.08); line-height: 1;`}
     >
       {priceNum}
     </div>
@@ -57,21 +57,21 @@ const priceUnit   = priceParts.slice(2).join(' ')
   <div
     class='pointer-events-none absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full'
     aria-hidden='true'
-    style='background: radial-gradient(circle, rgba(14,165,233,0.05) 0%, transparent 65%);'
+    style='background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 65%);'
   ></div>
 
   <!-- ── Radial ambient glow — right center ───────────────────────── -->
   <div
     class='pointer-events-none absolute top-1/3 right-0 w-[500px] h-[500px] rounded-full'
     aria-hidden='true'
-    style='background: radial-gradient(circle, rgba(249,115,22,0.055) 0%, transparent 65%);'
+    style='background: radial-gradient(circle, rgba(250,234,177,0.05) 0%, transparent 65%);'
   ></div>
 
   <!-- ── Radial ambient glow — bottom ─────────────────────────────── -->
   <div
     class='pointer-events-none absolute -bottom-20 right-1/3 w-96 h-96 rounded-full'
     aria-hidden='true'
-    style='background: radial-gradient(circle, rgba(249,115,22,0.04) 0%, transparent 65%);'
+    style='background: radial-gradient(circle, rgba(250,234,177,0.04) 0%, transparent 65%);'
   ></div>
 
   <!-- ── Diagonal tension lines ───────────────────────────────────── -->
@@ -81,13 +81,13 @@ const priceUnit   = priceParts.slice(2).join(' ')
     preserveAspectRatio='none'
     xmlns='http://www.w3.org/2000/svg'
   >
-    <line x1='0%' y1='0%' x2='30%' y2='100%' stroke='rgba(249,115,22,0.05)' stroke-width='1' />
-    <line x1='70%' y1='0%' x2='100%' y2='100%' stroke='rgba(14,165,233,0.04)' stroke-width='1' />
+    <line x1='0%' y1='0%' x2='30%' y2='100%' stroke='rgba(250,234,177,0.06)' stroke-width='1' />
+    <line x1='70%' y1='0%' x2='100%' y2='100%' stroke='rgba(255,255,255,0.04)' stroke-width='1' />
   </svg>
 
   <!-- ── Top / bottom hairlines ────────────────────────────────────── -->
-  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-500/35 to-transparent' aria-hidden='true'></div>
-  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-orange-500/15 to-transparent' aria-hidden='true'></div>
+  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sand/35 to-transparent' aria-hidden='true'></div>
+  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-sand/15 to-transparent' aria-hidden='true'></div>
 
   <div class='relative mx-auto max-w-7xl px-6 lg:px-8'>
     <div class='grid lg:grid-cols-[1fr_1.25fr] gap-12 lg:gap-16 items-start'>
@@ -97,8 +97,8 @@ const priceUnit   = priceParts.slice(2).join(' ')
 
         <!-- Eyebrow -->
         <div data-animate class='flex items-center gap-3 mb-8'>
-          <span class='block h-px w-10 bg-orange-500' aria-hidden='true'></span>
-          <h2 class='label-section text-orange-400'>
+          <span class='block h-px w-10 bg-sand' aria-hidden='true'></span>
+          <h2 class='label-section text-sand'>
             {upheading}
           </h2>
         </div>
@@ -109,13 +109,13 @@ const priceUnit   = priceParts.slice(2).join(' ')
           style='font-family: "Titan One", cursive;'
           class='text-[clamp(2rem,4.5vw,3.25rem)] leading-[1.05] tracking-tight text-white text-pretty mb-6'
         >
-          {heading}<span class='text-orange-400'>.</span>
+          {heading}<span class='text-sand'>.</span>
         </p>
 
-        <!-- Orange accent rule -->
+        <!-- Sand accent rule -->
         <div data-animate class='flex items-center mt-8'>
-          <div class='h-[3px] w-16 bg-orange-500 rounded-full'></div>
-          <div class='h-px w-24 bg-gradient-to-r from-orange-500/40 to-transparent'></div>
+          <div class='h-[3px] w-16 bg-sand rounded-full'></div>
+          <div class='h-px w-24 bg-gradient-to-r from-sand/40 to-transparent'></div>
         </div>
 
         <!-- Intro HTML (dark bg overrides) -->
@@ -123,7 +123,7 @@ const priceUnit   = priceParts.slice(2).join(' ')
           data-animate
           class='mt-6 max-w-[40ch] text-base md:text-lg leading-relaxed text-pretty'
         >
-          <p class='text-white/55 leading-relaxed text-pretty [&_strong]:text-white/85 [&_strong]:font-semibold'>
+          <p class='text-white/75 leading-relaxed text-pretty [&_strong]:text-white/90 [&_strong]:font-semibold'>
             <Fragment set:html={intro} />
           </p>
         </div>
@@ -132,11 +132,10 @@ const priceUnit   = priceParts.slice(2).join(' ')
         <div data-animate class='mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-4'>
           <a
             href='/presupuesto-seo-barcelona/#paquetes'
-            class='rounded-md bg-sky-500 px-5 py-3 text-sm font-bold text-white shadow-sm hover:bg-sky-400 active:bg-sky-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400 transition-colors'
+            class='rounded-md bg-sand px-5 py-3 text-sm font-bold text-charcoal shadow-sm hover:bg-[#f5e09a] active:bg-[#e8d280] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sand transition-colors'
           >
             Ver paquetes y precios
           </a>
-          <WhatsAppButton text='Analiza mi web' />
         </div>
       </div>
 
@@ -153,28 +152,28 @@ const priceUnit   = priceParts.slice(2).join(' ')
             <div
               class='pointer-events-none absolute inset-x-0 top-0 h-[2px] rounded-t-2xl'
               aria-hidden='true'
-              style='background: linear-gradient(to right, transparent, rgba(249,115,22,0.65) 40%, rgba(249,115,22,0.65) 60%, transparent);'
+              style='background: linear-gradient(to right, transparent, rgba(250,234,177,0.65) 40%, rgba(250,234,177,0.65) 60%, transparent);'
             ></div>
 
             <!-- Inner diagonal accent -->
             <svg class='pointer-events-none absolute inset-0 w-full h-full' aria-hidden='true' preserveAspectRatio='none'>
-              <line x1='80%' y1='0%' x2='100%' y2='100%' stroke='rgba(249,115,22,0.08)' stroke-width='1' />
+              <line x1='80%' y1='0%' x2='100%' y2='100%' stroke='rgba(250,234,177,0.08)' stroke-width='1' />
             </svg>
 
             <!-- Corner ambient glow -->
             <div
               class='pointer-events-none absolute -top-8 -right-8 w-32 h-32 rounded-full'
               aria-hidden='true'
-              style='background: radial-gradient(circle, rgba(249,115,22,0.12) 0%, transparent 70%);'
+              style='background: radial-gradient(circle, rgba(250,234,177,0.12) 0%, transparent 70%);'
             ></div>
 
-            <p class='label-micro text-orange-400/60 mb-1'>
+            <p class='label-micro text-sand/60 mb-1'>
               {pricePrefix}
             </p>
 
             <div class='flex items-end gap-3 leading-none'>
               <span
-                class='font-bold text-orange-400 tabular-nums'
+                class='font-bold text-sand tabular-nums'
                 style='font-family: "Titan One", cursive; font-size: clamp(2.25rem, 5vw, 3.5rem); line-height: 1;'
               >
                 {priceNum}
@@ -183,7 +182,7 @@ const priceUnit   = priceParts.slice(2).join(' ')
                 <span class='text-2xl font-semibold text-white/50'>
                   {priceUnit}
                 </span>
-                <span class='label-ui text-orange-400/50'>
+                <span class='label-ui text-sand/50'>
                   IVA incluido
                 </span>
               </div>
@@ -191,12 +190,12 @@ const priceUnit   = priceParts.slice(2).join(' ')
 
             <!-- Meta pills -->
             <div class='mt-5 flex flex-wrap gap-2'>
-              <span class='inline-flex items-center gap-1.5 rounded-full border border-sky-500/20 bg-sky-500/[0.08] px-3 py-1 text-xs font-semibold text-sky-300/80'>
-                <span class='block w-1.5 h-1.5 rounded-full bg-sky-400'></span>
+              <span class='inline-flex items-center gap-1.5 rounded-full border border-sand/20 bg-sand/[0.08] px-3 py-1 text-xs font-semibold text-sand/80'>
+                <span class='block w-1.5 h-1.5 rounded-full bg-sand'></span>
                 Diagnóstico gratuito
               </span>
-              <span class='inline-flex items-center gap-1.5 rounded-full border border-orange-500/20 bg-orange-500/[0.08] px-3 py-1 text-xs font-semibold text-orange-300/80'>
-                <span class='block w-1.5 h-1.5 rounded-full bg-orange-400'></span>
+              <span class='inline-flex items-center gap-1.5 rounded-full border border-sand/20 bg-sand/[0.08] px-3 py-1 text-xs font-semibold text-sand/80'>
+                <span class='block w-1.5 h-1.5 rounded-full bg-sand'></span>
                 Sin contratos de permanencia
               </span>
             </div>
@@ -212,11 +211,11 @@ const priceUnit   = priceParts.slice(2).join(' ')
             <li
               data-animate
               class='group relative overflow-hidden rounded-xl border border-white/[0.07] bg-white/[0.03] px-6 py-5
-                     transition-all duration-300 hover:border-orange-500/30 hover:bg-white/[0.055] cursor-default'
+                     transition-all duration-300 hover:border-sand/30 hover:bg-white/[0.055] cursor-default'
             >
               <!-- Left accent bar -->
               <div
-                class='pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-orange-500
+                class='pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-sand
                         scale-y-0 origin-top rounded-r-full transition-transform duration-300 group-hover:scale-y-100'
                 aria-hidden='true'
               ></div>
@@ -226,7 +225,7 @@ const priceUnit   = priceParts.slice(2).join(' ')
                 class='pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 select-none leading-none
                         opacity-0 group-hover:opacity-100 transition-opacity duration-300'
                 aria-hidden='true'
-                style={`font-family: "Titan One", cursive; font-size: 4.5rem; color: rgba(249,115,22,0.07); line-height: 1;`}
+                style={`font-family: "Titan One", cursive; font-size: 4.5rem; color: rgba(250,234,177,0.10); line-height: 1;`}
               >
                 {String(i + 1).padStart(2, '0')}
               </div>
@@ -234,8 +233,8 @@ const priceUnit   = priceParts.slice(2).join(' ')
               <!-- Content -->
               <div class='relative flex items-start gap-4'>
                 <!-- Check badge -->
-                <div class='shrink-0 mt-0.5 flex size-6 items-center justify-center rounded-full bg-orange-500/12 ring-1 ring-orange-500/25 transition-all duration-200 group-hover:bg-orange-500/22 group-hover:ring-orange-500/50'>
-                  <svg class='size-3 text-orange-400' viewBox='0 0 12 10' fill='none' aria-hidden='true'>
+                <div class='shrink-0 mt-0.5 flex size-6 items-center justify-center rounded-full bg-sand/12 ring-1 ring-sand/25 transition-all duration-200 group-hover:bg-sand/22 group-hover:ring-sand/50'>
+                  <svg class='size-3 text-sand' viewBox='0 0 12 10' fill='none' aria-hidden='true'>
                     <path d='M1 5l3.5 3.5L11 1' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' />
                   </svg>
                 </div>
@@ -260,7 +259,7 @@ const priceUnit   = priceParts.slice(2).join(' ')
               aria-hidden='true'
             >"</span>
             <figure>
-              <blockquote class='text-base/7 italic text-petrol-100 text-pretty'>
+              <blockquote class='text-base/7 italic text-white/75 text-pretty'>
                 <p>{quote}</p>
               </blockquote>
               {quoteAuthor && (

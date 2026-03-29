@@ -77,11 +77,11 @@ function renderCell(value: string): string {
   return `<span style="font-size:0.75rem;font-weight:700;color:rgba(255,255,255,0.6);letter-spacing:0.02em;">${value}</span>`
 }
 
-// Petrol-900 hex for sticky background
-const BG_PETROL_900 = '#1A3C4A'
+// Teal hex for sticky background
+const BG_TEAL = '#34656D'
 ---
 
-<div class='relative overflow-hidden bg-petrol-900 py-24 sm:py-32'>
+<div class='relative overflow-hidden bg-teal py-24 sm:py-32'>
 
   <!-- White-line architectural grid -->
   <div
@@ -90,9 +90,9 @@ const BG_PETROL_900 = '#1A3C4A'
     style='background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 48px 48px;'>
   </div>
 
-  <!-- Top hairline (transition from warm-white PricingCards above) -->
+  <!-- Top hairline (transition from PricingCards above) -->
   <div
-    class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-500/20 to-transparent'
+    class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sand/20 to-transparent'
     aria-hidden='true'>
   </div>
 
@@ -100,7 +100,7 @@ const BG_PETROL_900 = '#1A3C4A'
   <div
     class='pointer-events-none absolute -right-8 bottom-8 select-none leading-none'
     aria-hidden='true'
-    style='font-family: "Titan One", cursive; font-size: clamp(14rem, 28vw, 22rem); color: rgba(249,115,22,0.03); line-height: 1;'>
+    style='font-family: "Titan One", cursive; font-size: clamp(14rem, 28vw, 22rem); color: rgba(250,234,177,0.04); line-height: 1;'>
     02
   </div>
 
@@ -109,22 +109,22 @@ const BG_PETROL_900 = '#1A3C4A'
     <!-- Headline block: left-aligned, dark-theme editorial -->
     <div class='mb-14 max-w-2xl' data-animate>
       <div class='flex items-center gap-3 mb-6'>
-        <span class='block h-px w-10 bg-orange-500' aria-hidden='true'></span>
-        <p class='label-section text-orange-400'>
+        <span class='block h-px w-10 bg-sand' aria-hidden='true'></span>
+        <h2 class='label-section text-sand'>
           Posicionamiento web: precios por servicio
-        </p>
+        </h2>
       </div>
 
-      <h2
+      <p
         style='font-family: "Titan One", cursive;'
         class='text-[clamp(2rem,4.5vw,3.25rem)] leading-[1.05] tracking-tight text-white text-pretty'>
-        Detalle completo de cada paquete<span class='text-orange-400'>.</span>
-      </h2>
+        Detalle completo de cada paquete<span class='text-sand'>.</span>
+      </p>
 
       <!-- Accent rule -->
       <div class='mt-5 flex items-center'>
-        <div class='h-[3px] w-16 bg-orange-500 rounded-full'></div>
-        <div class='h-px flex-1 bg-gradient-to-r from-orange-500/30 to-transparent'></div>
+        <div class='h-[3px] w-16 bg-sand rounded-full'></div>
+        <div class='h-px flex-1 bg-gradient-to-r from-sand/30 to-transparent'></div>
       </div>
     </div>
 
@@ -136,7 +136,7 @@ const BG_PETROL_900 = '#1A3C4A'
 
         <thead
           class='sticky z-10'
-          style={`top: var(--navbar-height); background-color: ${BG_PETROL_900};`}>
+          style={`top: var(--navbar-height); background-color: ${BG_TEAL};`}>
           <tr style='border-bottom: 1px solid rgba(255,255,255,0.08);'>
             <!-- Feature name column header -->
             <th scope='col' class='py-4 pr-6 text-left label-ui text-white/20'>
@@ -148,7 +148,7 @@ const BG_PETROL_900 = '#1A3C4A'
               <span class='block label-micro text-white/25 mb-0.5'>
                 Plan
               </span>
-              <span class='block label-ui text-white/50 mb-1.5'>
+              <span class='block label-ui text-white/75 mb-1.5'>
                 Visibilidad Local
               </span>
               <span
@@ -162,16 +162,16 @@ const BG_PETROL_900 = '#1A3C4A'
             <th
               scope='col'
               class='py-4 px-5 text-center relative'
-              style='width: 160px; background: rgba(249,115,22,0.07);'>
-              <div class='absolute inset-x-0 top-0 h-[3px] bg-orange-500'></div>
-              <span class='block label-micro text-orange-400/50 mb-0.5'>
+              style='width: 160px; background: rgba(250,234,177,0.07);'>
+              <div class='absolute inset-x-0 top-0 h-[3px] bg-sand'></div>
+              <span class='block label-micro text-sand/50 mb-0.5'>
                 Plan
               </span>
-              <span class='block label-ui text-orange-300/70 mb-1.5'>
+              <span class='block label-ui text-sand/70 mb-1.5'>
                 Visibilidad Total
               </span>
               <span
-                class='block font-bold text-orange-300 whitespace-nowrap'
+                class='block font-bold text-sand whitespace-nowrap'
                 style='font-family: "Titan One", cursive; font-size: 1.05rem; letter-spacing: -0.01em;'>
                 550 €/mes
               </span>
@@ -190,8 +190,8 @@ const BG_PETROL_900 = '#1A3C4A'
                   class='pt-8 pb-0'>
                   <div
                     class='flex items-center gap-3 py-2 px-3 rounded-lg'
-                    style='background: rgba(255,255,255,0.05); border-left: 3px solid #f97316;'>
-                    <span class='text-xs font-bold uppercase tracking-[0.18em] text-orange-400/80'>
+                    style='background: rgba(255,255,255,0.05); border-left: 3px solid var(--color-sand);'>
+                    <span class='text-xs font-bold uppercase tracking-[0.18em] text-sand/80'>
                       {category.name}
                     </span>
                   </div>
@@ -213,7 +213,7 @@ const BG_PETROL_900 = '#1A3C4A'
                   </td>
                   <td
                     class='py-3 text-center w-36 px-4'
-                    style='background: rgba(249,115,22,0.04);'>
+                    style='background: rgba(250,234,177,0.04);'>
                     <Fragment set:html={renderCell(feature.bundle)} />
                   </td>
                 </tr>
@@ -251,8 +251,8 @@ const BG_PETROL_900 = '#1A3C4A'
 
         #fc-tab-ficha:checked ~ .fc-tabs .fc-label-ficha,
         #fc-tab-bundle:checked ~ .fc-tabs .fc-label-bundle {
-          background: rgba(249,115,22,0.15);
-          color: #fb923c;
+          background: rgba(250,234,177,0.15);
+          color: #FAEAB1;
         }
 
         #fc-tab-ficha:checked ~ .fc-panels .fc-panel-bundle,
@@ -281,7 +281,7 @@ const BG_PETROL_900 = '#1A3C4A'
         <div class='fc-panel-ficha space-y-4'>
           {categories.map(category => (
             <div class='rounded-xl p-5' style='background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);'>
-              <p class='label-ui text-orange-400/70 mb-3 pl-2' style='border-left: 2px solid rgba(249,115,22,0.4); padding-left: 0.5rem;'>
+              <p class='label-ui text-sand/70 mb-3 pl-2' style='border-left: 2px solid rgba(250,234,177,0.4); padding-left: 0.5rem;'>
                 {category.name}
               </p>
               <ul class='space-y-0'>
@@ -301,13 +301,13 @@ const BG_PETROL_900 = '#1A3C4A'
         <!-- Web + Ficha panel -->
         <div class='fc-panel-bundle space-y-4'>
           {categories.map(category => (
-            <div class='rounded-xl p-5' style='background: rgba(249,115,22,0.06); border: 1px solid rgba(249,115,22,0.18);'>
-              <p class='label-ui text-orange-400/80 mb-3' style='border-left: 2px solid #f97316; padding-left: 0.5rem;'>
+            <div class='rounded-xl p-5' style='background: rgba(250,234,177,0.06); border: 1px solid rgba(250,234,177,0.18);'>
+              <p class='label-ui text-sand/80 mb-3' style='border-left: 2px solid var(--color-sand); padding-left: 0.5rem;'>
                 {category.name}
               </p>
               <ul class='space-y-0'>
                 {category.features.map(feature => (
-                  <li class='flex items-center justify-between py-2.5 gap-4' style='border-bottom: 1px solid rgba(249,115,22,0.1);'>
+                  <li class='flex items-center justify-between py-2.5 gap-4' style='border-bottom: 1px solid rgba(250,234,177,0.1);'>
                     <span class='text-sm text-white/65'>{feature.name}</span>
                     <span class='shrink-0'>
                       <Fragment set:html={renderCell(feature.bundle)} />

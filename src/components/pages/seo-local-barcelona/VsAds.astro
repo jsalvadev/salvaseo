@@ -103,7 +103,7 @@ const headingFirst = headingParts[0] ?? heading
 const headingSecond = headingParts[1] ?? ''
 ---
 
-<section class='relative overflow-hidden bg-petrol-900 py-24 md:py-32'>
+<section class='relative overflow-hidden bg-teal py-24 md:py-32'>
 
   <!-- Dot-grid texture -->
   <div
@@ -118,15 +118,15 @@ const headingSecond = headingParts[1] ?? ''
     aria-hidden='true'
     preserveAspectRatio='none'
     xmlns='http://www.w3.org/2000/svg'>
-    <line x1='42%' y1='0%' x2='58%' y2='100%' stroke='rgba(249,115,22,0.05)' stroke-width='1'></line>
-    <line x1='48%' y1='0%' x2='66%' y2='100%' stroke='rgba(14,165,233,0.04)' stroke-width='1'></line>
+    <line x1='42%' y1='0%' x2='58%' y2='100%' stroke='rgba(250,234,177,0.05)' stroke-width='1'></line>
+    <line x1='48%' y1='0%' x2='66%' y2='100%' stroke='rgba(250,234,177,0.04)' stroke-width='1'></line>
   </svg>
 
   <!-- Large ghosted watermark -->
   <div
     class='pointer-events-none absolute -right-8 top-1/2 -translate-y-1/2 select-none leading-none'
     aria-hidden='true'
-    style='font-family: "Titan One", cursive; font-size: clamp(12rem, 25vw, 20rem); color: rgba(249,115,22,0.04); line-height: 1; white-space: nowrap;'>
+    style='font-family: "Titan One", cursive; font-size: clamp(12rem, 25vw, 20rem); color: rgba(250,234,177,0.04); line-height: 1; white-space: nowrap;'>
     CANAL
   </div>
 
@@ -138,16 +138,16 @@ const headingSecond = headingParts[1] ?? ''
   </div>
 
   <!-- Top / bottom hairlines -->
-  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-500/30 to-transparent' aria-hidden='true'></div>
-  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-orange-500/15 to-transparent' aria-hidden='true'></div>
+  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sand/30 to-transparent' aria-hidden='true'></div>
+  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-sand/15 to-transparent' aria-hidden='true'></div>
 
   <div class='relative mx-auto max-w-7xl px-6 lg:px-8'>
 
     <!-- ── Section header ──────────────────────────────────────────────── -->
     <div class='mb-14 md:mb-18 max-w-3xl'>
       <div data-animate class='flex items-center gap-3 mb-8'>
-        <span class='block h-px w-10 bg-orange-500' aria-hidden='true'></span>
-        <h2 class='label-section text-orange-400'>
+        <span class='block h-px w-10 bg-sand' aria-hidden='true'></span>
+        <h2 class='label-section text-sand'>
           {upheading}
         </h2>
       </div>
@@ -157,18 +157,18 @@ const headingSecond = headingParts[1] ?? ''
         style='font-family: "Titan One", cursive;'
         class='text-[clamp(2rem,4.5vw,3.25rem)] leading-[1.05] tracking-tight text-white text-pretty'>
         {headingSecond ? (
-          <>{headingFirst} o <span class='text-orange-400'>{headingSecond}</span></>
+          <>{headingFirst} o <span class='text-sand'>{headingSecond}</span></>
         ) : (
           <>{heading}</>
         )}
       </p>
 
       <div data-animate class='mt-6 flex items-center'>
-        <div class='h-[3px] w-16 bg-orange-500 rounded-full'></div>
-        <div class='h-px w-24 bg-gradient-to-r from-orange-500/40 to-transparent'></div>
+        <div class='h-[3px] w-16 bg-sand rounded-full'></div>
+        <div class='h-px w-24 bg-gradient-to-r from-sand/40 to-transparent'></div>
       </div>
 
-      <p data-animate class='mt-6 max-w-[52ch] text-base md:text-lg text-white/55 leading-relaxed text-pretty'>
+      <p data-animate class='mt-6 max-w-[52ch] text-base md:text-lg text-white/75 leading-relaxed text-pretty'>
         <Fragment set:html={intro} />
       </p>
     </div>
@@ -180,33 +180,33 @@ const headingSecond = headingParts[1] ?? ''
       <div
         data-animate
         class='relative rounded-2xl border overflow-hidden'
-        style='background: rgba(14,165,233,0.05); border-color: rgba(56,189,248,0.22);'>
+        style='background: rgba(250,234,177,0.04); border-color: rgba(250,234,177,0.20);'>
 
         <!-- Recommended badge -->
-        <div class='absolute top-5 right-5 flex items-center gap-1.5 rounded-full px-2.5 py-1' style='background: rgba(14,165,233,0.15); border: 1px solid rgba(56,189,248,0.3);'>
-          <span class='block w-1.5 h-1.5 rounded-full bg-sky-400' style='animation: pulse-glow 1.8s ease-in-out infinite;'></span>
-          <span class='text-[0.58rem] font-bold uppercase tracking-wider text-sky-300'>Recomendado</span>
+        <div class='absolute top-5 right-5 flex items-center gap-1.5 rounded-full px-2.5 py-1' style='background: rgba(250,234,177,0.12); border: 1px solid rgba(250,234,177,0.25);'>
+          <span class='block w-1.5 h-1.5 rounded-full bg-sand' style='animation: pulse-glow 1.8s ease-in-out infinite;'></span>
+          <span class='text-[0.58rem] font-bold uppercase tracking-wider text-sand/80'>Recomendado</span>
         </div>
 
         <!-- Top accent bar -->
-        <div class='absolute top-0 inset-x-0 h-[3px] bg-gradient-to-r from-sky-500/60 via-sky-400/40 to-transparent rounded-t-2xl'></div>
+        <div class='absolute top-0 inset-x-0 h-[3px] bg-gradient-to-r from-sand/60 via-sand/40 to-transparent rounded-t-2xl'></div>
 
         <!-- Ghost watermark -->
         <div
           class='pointer-events-none absolute -bottom-3 -right-3 select-none leading-none'
           aria-hidden='true'
-          style='font-family: "Titan One", cursive; font-size: 7rem; color: rgba(14,165,233,0.06); line-height: 1;'>
+          style='font-family: "Titan One", cursive; font-size: 7rem; color: rgba(250,234,177,0.06); line-height: 1;'>
           ↗
         </div>
 
         <div class='p-7 sm:p-8'>
           <!-- Card header -->
           <div class='flex items-center gap-3 mb-7 pr-24'>
-            <div class='flex h-9 w-9 items-center justify-center rounded-xl shrink-0' style='background: rgba(14,165,233,0.12); border: 1px solid rgba(56,189,248,0.25);'>
-              {(() => { const Icon = iconByKey[leftColumn.icon]; return <Icon class='size-4.5 text-sky-400' aria-hidden='true' /> })()}
+            <div class='flex h-9 w-9 items-center justify-center rounded-xl shrink-0' style='background: rgba(250,234,177,0.10); border: 1px solid rgba(250,234,177,0.22);'>
+              {(() => { const Icon = iconByKey[leftColumn.icon]; return <Icon class='size-4.5 text-sand' aria-hidden='true' /> })()}
             </div>
             <div>
-              <p class='label-ui text-sky-400/60 leading-none mb-0.5'>Canal propio</p>
+              <p class='label-ui text-sand/60 leading-none mb-0.5'>Canal propio</p>
               <p class='text-[1.05rem] font-bold text-white leading-tight' style='font-family: "Titan One", cursive;'>{leftColumn.title}</p>
             </div>
           </div>
@@ -216,10 +216,10 @@ const headingSecond = headingParts[1] ?? ''
               const BulletIcon = iconByKey[bullet.icon]
               return (
                 <li class='flex items-start gap-3.5'>
-                  <span class='shrink-0 mt-0.5 flex h-6 w-6 items-center justify-center rounded-full' style='background: rgba(14,165,233,0.1); border: 1px solid rgba(56,189,248,0.25);'>
-                    <BulletIcon class='size-3 text-sky-400' aria-hidden='true' />
+                  <span class='shrink-0 mt-0.5 flex h-6 w-6 items-center justify-center rounded-full' style='background: rgba(250,234,177,0.08); border: 1px solid rgba(250,234,177,0.20);'>
+                    <BulletIcon class='size-3 text-sand' aria-hidden='true' />
                   </span>
-                  <p class='text-sm text-white/60 leading-relaxed pt-0.5'>
+                  <p class='text-base text-white/75 leading-relaxed pt-0.5'>
                     <strong class='text-white/90 font-semibold'>{bullet.emphasis}</strong>{' '}{bullet.text}
                   </p>
                 </li>
@@ -228,24 +228,24 @@ const headingSecond = headingParts[1] ?? ''
           </ul>
 
           <!-- Note -->
-          <div class='rounded-xl px-4 py-3.5' style='background: rgba(14,165,233,0.06); border: 1px solid rgba(56,189,248,0.13);'>
-            <p class='text-sm text-white/50 leading-relaxed'>
+          <div class='rounded-xl px-4 py-3.5' style='background: rgba(250,234,177,0.05); border: 1px solid rgba(250,234,177,0.12);'>
+            <p class='text-base text-white/75 leading-relaxed'>
               <Fragment set:html={leftColumn.note} />
             </p>
           </div>
 
           <!-- Growth bars -->
-          <div class='mt-5 rounded-xl px-4 pt-3.5 pb-4' style='background: rgba(14,165,233,0.04); border: 1px solid rgba(56,189,248,0.1);'>
-            <p class='label-ui text-sky-400/50 mb-2.5'>Efecto acumulativo · 12 meses</p>
+          <div class='mt-5 rounded-xl px-4 pt-3.5 pb-4' style='background: rgba(250,234,177,0.04); border: 1px solid rgba(250,234,177,0.10);'>
+            <p class='label-ui text-sand/50 mb-2.5'>Efecto acumulativo · 12 meses</p>
             <div class='flex items-end gap-1 h-8'>
               {[1,2,3,4,5,8,11,15,19,24,29,35].map((h) => (
                 <div
                   class='flex-1 rounded-sm'
-                  style={`height: ${Math.min(h / 35 * 30, 30)}px; background: rgba(14,165,233,${0.15 + (h/35) * 0.4});`}>
+                  style={`height: ${Math.min(h / 35 * 30, 30)}px; background: rgba(250,234,177,${0.15 + (h/35) * 0.4});`}>
                 </div>
               ))}
             </div>
-            <p class='text-[0.6rem] text-sky-300/40 mt-1.5'>Cada mes genera más que el anterior</p>
+            <p class='text-[0.6rem] text-sand/40 mt-1.5'>Cada mes genera más que el anterior</p>
           </div>
         </div>
       </div>
@@ -254,10 +254,10 @@ const headingSecond = headingParts[1] ?? ''
       <div
         data-animate
         class='relative rounded-2xl border overflow-hidden'
-        style='background: rgba(249,115,22,0.03); border-color: rgba(249,115,22,0.15);'>
+        style='background: rgba(250,234,177,0.03); border-color: rgba(250,234,177,0.15);'>
 
         <!-- Top accent bar -->
-        <div class='absolute top-0 inset-x-0 h-[3px] bg-gradient-to-r from-orange-500/40 via-orange-400/25 to-transparent rounded-t-2xl'></div>
+        <div class='absolute top-0 inset-x-0 h-[3px] bg-gradient-to-r from-sand/40 via-sand/25 to-transparent rounded-t-2xl'></div>
 
         <!-- Ghost watermark -->
         <div
@@ -270,11 +270,11 @@ const headingSecond = headingParts[1] ?? ''
         <div class='p-7 sm:p-8'>
           <!-- Card header -->
           <div class='flex items-center gap-3 mb-7'>
-            <div class='flex h-9 w-9 items-center justify-center rounded-xl shrink-0' style='background: rgba(249,115,22,0.1); border: 1px solid rgba(249,115,22,0.2);'>
-              {(() => { const Icon = iconByKey[rightColumn.icon]; return <Icon class='size-4.5 text-orange-400' aria-hidden='true' /> })()}
+            <div class='flex h-9 w-9 items-center justify-center rounded-xl shrink-0' style='background: rgba(250,234,177,0.1); border: 1px solid rgba(250,234,177,0.2);'>
+              {(() => { const Icon = iconByKey[rightColumn.icon]; return <Icon class='size-4.5 text-sand' aria-hidden='true' /> })()}
             </div>
             <div>
-              <p class='label-ui text-orange-400/60 leading-none mb-0.5'>Canal alquilado</p>
+              <p class='label-ui text-sand/60 leading-none mb-0.5'>Canal alquilado</p>
               <p class='text-[1.05rem] font-bold text-white leading-tight' style='font-family: "Titan One", cursive;'>{rightColumn.title}</p>
             </div>
           </div>
@@ -284,10 +284,10 @@ const headingSecond = headingParts[1] ?? ''
               const BulletIcon = iconByKey[bullet.icon]
               return (
                 <li class='flex items-start gap-3.5'>
-                  <span class='shrink-0 mt-0.5 flex h-6 w-6 items-center justify-center rounded-full' style='background: rgba(249,115,22,0.08); border: 1px solid rgba(249,115,22,0.18);'>
-                    <BulletIcon class='size-3 text-orange-400' aria-hidden='true' />
+                  <span class='shrink-0 mt-0.5 flex h-6 w-6 items-center justify-center rounded-full' style='background: rgba(250,234,177,0.08); border: 1px solid rgba(250,234,177,0.18);'>
+                    <BulletIcon class='size-3 text-sand' aria-hidden='true' />
                   </span>
-                  <p class='text-sm text-white/60 leading-relaxed pt-0.5'>
+                  <p class='text-base text-white/75 leading-relaxed pt-0.5'>
                     <strong class='text-white/90 font-semibold'>{bullet.emphasis}</strong>{' '}{bullet.text}
                   </p>
                 </li>
@@ -296,32 +296,32 @@ const headingSecond = headingParts[1] ?? ''
           </ul>
 
           <!-- Note -->
-          <div class='rounded-xl px-4 py-3.5' style='background: rgba(249,115,22,0.05); border: 1px solid rgba(249,115,22,0.12);'>
-            <p class='text-sm text-white/50 leading-relaxed'>
+          <div class='rounded-xl px-4 py-3.5' style='background: rgba(250,234,177,0.05); border: 1px solid rgba(250,234,177,0.12);'>
+            <p class='text-base text-white/75 leading-relaxed'>
               <Fragment set:html={rightColumn.note} />
             </p>
           </div>
 
           <!-- Flat bars -->
-          <div class='mt-5 rounded-xl px-4 pt-3.5 pb-4' style='background: rgba(249,115,22,0.03); border: 1px solid rgba(249,115,22,0.09);'>
-            <p class='label-ui text-orange-400/50 mb-2.5'>Coste por visibilidad · 12 meses</p>
+          <div class='mt-5 rounded-xl px-4 pt-3.5 pb-4' style='background: rgba(250,234,177,0.03); border: 1px solid rgba(250,234,177,0.09);'>
+            <p class='label-ui text-sand/50 mb-2.5'>Coste por visibilidad · 12 meses</p>
             <div class='flex items-end gap-1 h-8'>
               {[30,30,30,30,30,30,30,30,30,30,30,30].map(() => (
                 <div
                   class='flex-1 rounded-sm'
-                  style='height: 26px; background: rgba(249,115,22,0.18);'>
+                  style='height: 26px; background: rgba(250,234,177,0.18);'>
                 </div>
               ))}
             </div>
-            <p class='text-[0.6rem] text-orange-300/40 mt-1.5'>Mismo coste, mes 1 que mes 12</p>
+            <p class='text-[0.6rem] text-sand/40 mt-1.5'>Mismo coste, mes 1 que mes 12</p>
           </div>
         </div>
       </div>
     </div>
 
     <!-- ── Conclusion + CTA strip ───────────────────────────────────── -->
-    <div data-animate class='flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 rounded-2xl border px-7 py-6' style='background: rgba(14,165,233,0.05); border-color: rgba(56,189,248,0.15);'>
-      <p class='text-sm md:text-base text-white/60 leading-relaxed max-w-[52ch]'>
+    <div data-animate class='flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 rounded-2xl border px-7 py-6' style='background: rgba(250,234,177,0.05); border-color: rgba(250,234,177,0.15);'>
+      <p class='text-sm md:text-base text-white/75 leading-relaxed max-w-[52ch]'>
         <Fragment set:html={conclusion} />
       </p>
       <WhatsAppButton

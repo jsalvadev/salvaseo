@@ -37,7 +37,7 @@ const headingRest  = headingParts.slice(1).join(' y ')
 const ordinals = ['01', '02', '03', '04', '05', '06']
 ---
 
-<section class='relative overflow-hidden bg-petrol-900 py-24 md:py-32'>
+<section class='relative overflow-hidden bg-charcoal py-24 md:py-32'>
 
   <!-- Dot-grid -->
   <div
@@ -48,15 +48,15 @@ const ordinals = ['01', '02', '03', '04', '05', '06']
 
   <!-- Diagonal tension lines -->
   <svg class='pointer-events-none absolute inset-0 w-full h-full' aria-hidden='true' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'>
-    <line x1='55%' y1='0%' x2='72%' y2='100%' stroke='rgba(249,115,22,0.05)' stroke-width='1'/>
-    <line x1='60%' y1='0%' x2='80%' y2='100%' stroke='rgba(14,165,233,0.03)' stroke-width='1'/>
+    <line x1='55%' y1='0%' x2='72%' y2='100%' stroke='rgba(250,234,177,0.05)' stroke-width='1'/>
+    <line x1='60%' y1='0%' x2='80%' y2='100%' stroke='rgba(250,234,177,0.03)' stroke-width='1'/>
   </svg>
 
   <!-- Watermark -->
   <div
     class='pointer-events-none absolute -right-12 top-1/2 -translate-y-1/2 select-none leading-none'
     aria-hidden='true'
-    style='font-family: "Titan One", cursive; font-size: clamp(14rem, 28vw, 22rem); color: rgba(249,115,22,0.04); line-height: 1; white-space: nowrap;'>
+    style='font-family: "Titan One", cursive; font-size: clamp(14rem, 28vw, 22rem); color: rgba(250,234,177,0.04); line-height: 1; white-space: nowrap;'>
     €€
   </div>
 
@@ -68,8 +68,8 @@ const ordinals = ['01', '02', '03', '04', '05', '06']
   </div>
 
   <!-- Top / bottom hairlines -->
-  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-500/30 to-transparent' aria-hidden='true'></div>
-  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-orange-500/15 to-transparent' aria-hidden='true'></div>
+  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sand/30 to-transparent' aria-hidden='true'></div>
+  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-sand/15 to-transparent' aria-hidden='true'></div>
 
   <div class='relative mx-auto max-w-7xl px-6 lg:px-8'>
 
@@ -81,8 +81,8 @@ const ordinals = ['01', '02', '03', '04', '05', '06']
 
         <!-- Eyebrow -->
         <div data-animate class='flex items-center gap-3 mb-8'>
-          <span class='block h-px w-10 bg-orange-500' aria-hidden='true'></span>
-          <h2 class='label-section text-orange-400'>
+          <span class='block h-px w-10 bg-sand' aria-hidden='true'></span>
+          <h2 class='label-section text-sand'>
             {upheading}
           </h2>
         </div>
@@ -93,7 +93,7 @@ const ordinals = ['01', '02', '03', '04', '05', '06']
           style='font-family: "Titan One", cursive;'
           class='text-[clamp(2rem,4.5vw,3.25rem)] leading-[1.05] tracking-tight text-white text-pretty mb-6'>
           {headingRest ? (
-            <>{headingFirst} y lo que cuesta <span class='text-orange-400'>no hacerlo</span>.</>
+            <>{headingFirst} y lo que cuesta <span class='text-sand'>no hacerlo</span>.</>
           ) : (
             <>{heading}</>
           )}
@@ -101,8 +101,8 @@ const ordinals = ['01', '02', '03', '04', '05', '06']
 
         <!-- Accent rule -->
         <div data-animate class='flex items-center mb-8'>
-          <div class='h-[3px] w-16 bg-orange-500 rounded-full'></div>
-          <div class='h-px w-24 bg-gradient-to-r from-orange-500/40 to-transparent'></div>
+          <div class='h-[3px] w-16 bg-sand rounded-full'></div>
+          <div class='h-px w-24 bg-gradient-to-r from-sand/40 to-transparent'></div>
         </div>
 
         <!-- Giant price -->
@@ -118,7 +118,7 @@ const ordinals = ['01', '02', '03', '04', '05', '06']
             <div class='flex items-end gap-3 leading-none mb-1'>
               <span
                 style='font-family: "Titan One", cursive; font-size: clamp(3.5rem, 10vw, 7.5rem);'
-                class='text-orange-400 leading-none tabular-nums'>
+                class='text-sand leading-none tabular-nums'>
                 350€
               </span>
               <span
@@ -134,24 +134,24 @@ const ordinals = ['01', '02', '03', '04', '05', '06']
         <div data-animate class='h-px bg-gradient-to-r from-white/10 to-transparent mb-8'></div>
 
         <!-- Intro text -->
-        <p data-animate class='text-base md:text-lg text-white/55 leading-relaxed text-pretty max-w-[42ch]'>
+        <p data-animate class='text-base md:text-lg text-white/75 leading-relaxed text-pretty max-w-[42ch]'>
           <Fragment set:html={intro} />
         </p>
 
         <!-- Invisible cost callout -->
-        <div data-animate class='mt-8 rounded-2xl border overflow-hidden' style='background: rgba(249,115,22,0.04); border-color: rgba(249,115,22,0.15);'>
-          <div class='px-5 py-4 border-b' style='border-color: rgba(249,115,22,0.1);'>
-            <p class='label-ui text-orange-400/70'>El coste invisible</p>
+        <div data-animate class='mt-8 rounded-2xl border overflow-hidden' style='background: rgba(250,234,177,0.04); border-color: rgba(250,234,177,0.15);'>
+          <div class='px-5 py-4 border-b' style='border-color: rgba(250,234,177,0.1);'>
+            <p class='label-ui text-sand/70'>El coste invisible</p>
           </div>
-          <ul class='divide-y' style='--tw-divide-opacity: 1; border-color: rgba(249,115,22,0.08);'>
+          <ul class='divide-y' style='--tw-divide-opacity: 1; border-color: rgba(250,234,177,0.08);'>
             {[
               { label: 'Clientes que no te encontraron', value: 'esta semana' },
               { label: 'Búsquedas que fue a tu competencia', value: 'cada día' },
               { label: 'Meses sin capitalizar la demanda local', value: 'acumulados' },
             ].map(row => (
               <li class='flex items-center justify-between gap-4 px-5 py-3.5'>
-                <span class='text-[0.78rem] text-white/45 leading-snug'>{row.label}</span>
-                <span class='shrink-0 text-[0.68rem] font-bold text-orange-400/70 text-right'>{row.value}</span>
+                <span class='text-[0.78rem] text-white/75 leading-snug'>{row.label}</span>
+                <span class='shrink-0 text-[0.68rem] font-bold text-sand/70 text-right'>{row.value}</span>
               </li>
             ))}
           </ul>
@@ -166,23 +166,23 @@ const ordinals = ['01', '02', '03', '04', '05', '06']
           <div
             data-animate
             data-animate-delay={idx * 80}
-            class='guarantee-card group relative rounded-2xl border border-white/[0.07] bg-white/[0.03] px-6 py-5 transition-all duration-300 hover:border-sky-500/25 hover:bg-white/[0.055] overflow-hidden cursor-default'>
+            class='guarantee-card group relative rounded-2xl border border-white/[0.07] bg-white/[0.03] px-6 py-5 transition-all duration-300 hover:border-sand/25 hover:bg-white/[0.055] overflow-hidden cursor-default'>
 
             <!-- Left accent bar -->
-            <div class='pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-sky-400 scale-y-0 origin-top rounded-r-full transition-transform duration-300 group-hover:scale-y-100' aria-hidden='true'></div>
+            <div class='pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-sand scale-y-0 origin-top rounded-r-full transition-transform duration-300 group-hover:scale-y-100' aria-hidden='true'></div>
 
             <!-- Ghost ordinal -->
             <div
               class='pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 select-none leading-none'
               aria-hidden='true'
-              style={`font-family: "Titan One", cursive; font-size: 4.5rem; color: rgba(249,115,22,0.06); line-height: 1;`}>
+              style={`font-family: "Titan One", cursive; font-size: 4.5rem; color: rgba(250,234,177,0.06); line-height: 1;`}>
               {ordinals[idx]}
             </div>
 
             <!-- Check badge + content -->
             <div class='relative flex items-start gap-4'>
-              <div class='shrink-0 mt-0.5 flex h-7 w-7 items-center justify-center rounded-full bg-sky-500/10 ring-1 ring-sky-500/20 transition-all duration-300 group-hover:bg-sky-500/18 group-hover:ring-sky-500/40'>
-                <svg class='h-3.5 w-3.5 text-sky-400' viewBox='0 0 12 10' fill='none' aria-hidden='true'>
+              <div class='shrink-0 mt-0.5 flex h-7 w-7 items-center justify-center rounded-full bg-sand/10 ring-1 ring-sand/20 transition-all duration-300 group-hover:bg-sand/18 group-hover:ring-sand/40'>
+                <svg class='h-3.5 w-3.5 text-sand' viewBox='0 0 12 10' fill='none' aria-hidden='true'>
                   <path d='M1 5l3.5 3.5L11 1' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/>
                 </svg>
               </div>

@@ -20,7 +20,7 @@ const iconByKey = {
   trendingUp: TrendingUp,
 } as const
 
-const ringColors = ['sky', 'orange', 'sky', 'orange'] as const
+const ringColors = ['teal', 'teal', 'teal', 'teal'] as const
 
 const defaultItems: BannerItem[] = [
   { icon: 'users', value: 'Trato directo', label: 'sin intermediarios' },
@@ -32,7 +32,7 @@ const defaultItems: BannerItem[] = [
 const { items = defaultItems } = Astro.props
 ---
 
-<div class='relative bg-petrol-900 py-16 lg:py-20 overflow-hidden'>
+<div class='relative bg-charcoal py-16 lg:py-20 overflow-hidden'>
   <!-- diagonal texture -->
   <div
     class='pointer-events-none absolute inset-0 opacity-[0.04]'
@@ -42,18 +42,13 @@ const { items = defaultItems } = Astro.props
     <dl data-animate class='grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4'>
       {items.map((item, idx) => {
         const Icon = iconByKey[item.icon]
-        const color = ringColors[idx]
-        const isSky = color === 'sky'
         return (
           <div class='rounded-xl bg-white/5 backdrop-blur-sm border border-white/5 px-6 py-8 flex flex-col items-center gap-3 text-center transition-colors hover:bg-white/[0.08]'>
-            <div class:list={[
-              'flex size-10 items-center justify-center rounded-full ring-1',
-              isSky ? 'bg-sky-500/10 ring-sky-500/20' : 'bg-orange-500/10 ring-orange-500/20',
-            ]}>
-              <Icon class:list={['size-5', isSky ? 'text-sky-400' : 'text-orange-400']} aria-hidden='true' />
+            <div class='flex size-10 items-center justify-center rounded-full ring-1 bg-sand/10 ring-sand/20'>
+              <Icon class='size-5 text-sand' aria-hidden='true' />
             </div>
             <dt class='text-xl font-semibold text-white'>{item.value}</dt>
-            <dd class='text-sm text-petrol-100'>{item.label}</dd>
+            <dd class='text-sm text-white/75'>{item.label}</dd>
           </div>
         )
       })}

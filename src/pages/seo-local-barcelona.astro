@@ -7,7 +7,7 @@ import LocalSeoServices from '../components/pages/seo-local-barcelona/Services.a
 import Timeline from '../components/pages/seo-local-barcelona/Timeline.astro'
 import LocalSeoVsAds from '../components/pages/seo-local-barcelona/VsAds.astro'
 import LocalBusinessTypes from '../components/pages/seo-local-barcelona/BusinessTypes.astro'
-import LocalSeoFaq from '../components/pages/seo-local-barcelona/Faq.astro'
+import LocalSeoFaq from '../components/pages/home/Faq.astro'
 import { faqSeoLocalItems } from '../data/faq-seo-local'
 import LocalSeoCta from '../components/pages/seo-local-barcelona/Cta.astro'
 import GoogleMapEmbed from '../components/shared/GoogleMapEmbed.astro'
@@ -42,37 +42,37 @@ const seoLocalServices = [
     icon: 'searchCheck',
     title: 'Auditoría SEO local',
     description:
-      'Análisis completo de tu presencia digital en Google Maps, sitio web y directorios para detectar <strong>dónde pierdes clientes potenciales y dónde captarlos primero</strong>. El primer paso de cualquier estrategia de SEO local efectiva.'
+      'Análisis completo de tu presencia digital en Google Maps, sitio web y directorios para detectar <strong>dónde pierdes clientes potenciales y dónde captarlos primero</strong>.'
   },
   {
     icon: 'mapPin',
     title: 'Optimización de Google Business Profile',
     description:
-      'Perfil de Google Business optimizado al completo (categorías, fotos, atributos, horarios y publicaciones) para aparecer más arriba en los resultados de búsqueda y generar <strong>hasta un 70 % más de contactos</strong>. Tu ficha de Google es el escaparate digital de tu negocio local.'
+      'Perfil de Google Business optimizado al completo (categorías, fotos, atributos, horarios y publicaciones) para aparecer más arriba en los resultados de búsqueda y generar <strong>hasta un 70 % más de contactos</strong>.'
   },
   {
     icon: 'key',
     title: 'Investigación de palabras clave locales',
     description:
-      'Investigación de palabras clave geolocalizadas: un mapa de las búsquedas reales de tu zona para atraer exactamente a los <strong>clientes que necesitan tu servicio cerca y ahora</strong>. Las palabras clave correctas son la base del posicionamiento web local.'
+      'Investigación de palabras clave geolocalizadas: un mapa de las búsquedas reales de tu zona para atraer exactamente a los <strong>clientes que necesitan tu servicio cerca y ahora</strong>.'
   },
   {
     icon: 'globe',
     title: 'SEO On Page con enfoque local',
     description:
-      'Sitio web adaptado a búsquedas locales: URLs geográficas, schema LocalBusiness y NAP consistente, para <strong>posicionar cada servicio en la zona donde opera tu negocio</strong>. Diseño web y optimización técnica orientados a mejorar tu presencia digital local.'
+      'Sitio web adaptado a búsquedas locales: URLs geográficas, schema LocalBusiness y NAP consistente, para <strong>posicionar cada servicio en la zona donde opera tu negocio</strong>.'
   },
   {
     icon: 'fileText',
     title: 'Creación de contenido geolocalizado',
     description:
-      'Creación de contenido relevante por zona y barrio: páginas de servicio que responden las dudas reales de compra y <strong>captan clientes potenciales en Barcelona</strong> con tráfico orgánico recurrente. Marketing digital local que genera crecimiento sostenido.'
+      'Creación de contenido relevante por zona y barrio: páginas de servicio que responden las dudas reales de compra y <strong>captan clientes potenciales en Barcelona</strong> con tráfico orgánico recurrente.'
   },
   {
     icon: 'link',
     title: 'Construcción de enlaces locales y citaciones NAP',
     description:
-      'Mayor autoridad local con presencia coherente en directorios, medios de zona y colaboraciones: <strong>la señal que Google usa para decidir si tu negocio es de confianza</strong>. Una construcción de enlaces sólida mejora la visibilidad en los resultados orgánicos.'
+      'Mayor autoridad local con presencia coherente en directorios, medios de zona y colaboraciones: <strong>la señal que Google usa para decidir si tu negocio es de confianza</strong>.'
   },
   {
     icon: 'star',
@@ -227,14 +227,10 @@ const seoLocalBusinessTypes = [
   canonicalUrl='https://salvaseo.com/seo-local-barcelona/'
   preloadImageHref={seoLocalHeroImage.src}>
 
-  <div class='bg-petrol-900'>
-    <Breadcrumb items={[{ label: 'Inicio', href: '/' }, { label: 'SEO Local Barcelona' }]} dark />
-  </div>
-
   <!-- 1. HERO -->
   <BarcelonaLocalSeoHero
     heading='Convierte las búsquedas cercanas en clientes que pagan'
-    description='El <strong>46 % de las búsquedas en Google son locales</strong>. Cada día que tu negocio local no aparece en los primeros resultados de Google Maps, tus clientes potenciales entran en el negocio de al lado. Con una estrategia de SEO local en Barcelona, puedes captar ese tráfico cualificado y convertirlo en llamadas y facturación.'
+    description='Haz que tu negocio sea la primera opción en Barcelona. Con casi la mitad de las búsquedas (46%) en Google siendo locales, Maps es hoy tu escaparate más rentable. <strong>Tu cliente ya está buscando ahora mismo.</strong>'
     primaryCtaText='Analiza mi web'
     secondaryCtaText='Revisa el plan de ejecución'
     secondaryCtaHref='#proceso'
@@ -242,9 +238,9 @@ const seoLocalBusinessTypes = [
 
   <!-- 2. QUÉ ES EL SEO LOCAL -->
   <LocalSeoExplainer
-    upheading='SEO local en Barcelona'
+    upheading='Consultoría SEO local'
     heading='Google muestra el mapa antes que los resultados web. ¿Aparece tu negocio?'
-    intro='Cuando alguien escribe "dentista Barcelona" o "taller cerca de mí", Google muestra el mapa antes que los resultados orgánicos. Si tu negocio en Barcelona no aparece en esos tres primeros resultados de búsqueda, tus clientes potenciales llaman directamente a tu competencia. Una estrategia de SEO local corrige eso: posicionamiento local orientado a captar tráfico cualificado en tu zona.'
+    intro='El Local Pack ocupa más espacio visual que cualquier resultado orgánico. Tres negocios, un mapa, el 44% de los clics. O estás ahí, o no existes para ese cliente.'
     items={seoLocalExplainerItems}
     mockupCaption='Así se ve el Local Pack de Google: <strong>3 negocios, un mapa, el 44 % de los clics.</strong>'
   />
@@ -253,7 +249,7 @@ const seoLocalBusinessTypes = [
   <LocalSeoServices
     upheading='Servicios de SEO local en Barcelona'
     heading='Las palancas que determinan tu visibilidad en Google Maps'
-    intro='Estos son los factores que trabajamos <strong>según la situación y necesidades de tu negocio</strong>. En el diagnóstico inicial identificamos cuáles tienen mayor impacto en tu caso y se priorizan por retorno.'
+
     services={seoLocalServices}
     ctaText='Descubre qué incluye cada paquete'
     ctaHref='/presupuesto-seo-barcelona/#paquetes'
@@ -263,10 +259,10 @@ const seoLocalBusinessTypes = [
   <Timeline
     upheading='Posicionamiento web local en Barcelona'
     heading='De no aparecer en el mapa a recibir llamadas cada semana'
-    subtitle='Cuatro fases de nuestra estrategia de SEO local para auditar, ejecutar y escalar tu presencia digital. Cada fase prioriza resultados medibles en llamadas, formularios y captación comercial para tu negocio en Barcelona.'
+    subtitle='Cuatro fases de mi estrategia de SEO local para auditar, ejecutar y escalar tu presencia digital. Cada fase prioriza resultados medibles en llamadas, formularios y captación comercial para tu negocio en Barcelona.'
     phases={seoLocalTimelinePhases}
-    ctaHeading='Tus clientes ya te buscan: descubre si te encuentran'
-    ctaText='Recibe un diagnóstico inicial de tu ficha de Google Business y tu visibilidad local para decidir con datos el retorno potencial de tu inversión en SEO local.'
+    ctaHeading='Tus clientes ya te buscan, descubre si te encuentran'
+    ctaText='Recibe un diagnóstico inicial de tu ficha de Google Business y tu web para decidir con datos el retorno potencial de tu inversión en SEO local.'
     ctaLabel='Analiza mi web'
   />
 

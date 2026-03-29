@@ -58,7 +58,7 @@ const headingFirst  = periodIdx !== -1 ? heading.slice(0, periodIdx + 1) : headi
 const headingSecond = periodIdx !== -1 ? heading.slice(periodIdx + 2)    : ''
 ---
 
-<section class='relative overflow-hidden bg-petrol-50 py-24 md:py-32'>
+<section class='relative overflow-hidden py-24 md:py-32'>
 
   <!-- Dot-grid texture -->
   <div
@@ -71,17 +71,17 @@ const headingSecond = periodIdx !== -1 ? heading.slice(periodIdx + 2)    : ''
   <div
     class='pointer-events-none absolute -left-8 top-1/2 -translate-y-1/2 select-none leading-none hidden lg:block'
     aria-hidden='true'
-    style='font-family: "Titan One", cursive; font-size: clamp(12rem, 24vw, 20rem); color: rgba(249,115,22,0.04); line-height: 1; white-space: nowrap;'>
+    style='font-family: "Titan One", cursive; font-size: clamp(12rem, 24vw, 20rem); color: rgba(52,101,109,0.06); line-height: 1; white-space: nowrap;'>
     MAPA
   </div>
 
   <!-- Top / bottom hairlines -->
-  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-petrol-100 to-transparent' aria-hidden='true'></div>
-  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-petrol-100 to-transparent' aria-hidden='true'></div>
+  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-charcoal/10 to-transparent' aria-hidden='true'></div>
+  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-charcoal/10 to-transparent' aria-hidden='true'></div>
 
   <!-- Orange right accent bar -->
   <div
-    class='pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-32 bg-orange-500 rounded-l-full'
+    class='pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-32 bg-teal rounded-l-full'
     aria-hidden='true'>
   </div>
 
@@ -90,8 +90,8 @@ const headingSecond = periodIdx !== -1 ? heading.slice(periodIdx + 2)    : ''
     <!-- ── Section header ──────────────────────────────────────────── -->
     <div class='mb-14 lg:mb-18'>
       <div data-animate class='flex items-center gap-3 mb-8'>
-        <span class='block h-px w-10 bg-orange-500' aria-hidden='true'></span>
-        <h2 class='label-section text-orange-500'>
+        <span class='block h-px w-10 bg-teal' aria-hidden='true'></span>
+        <h2 class='label-section text-teal'>
           {upheading}
         </h2>
       </div>
@@ -99,17 +99,20 @@ const headingSecond = periodIdx !== -1 ? heading.slice(periodIdx + 2)    : ''
       <p
         data-animate
         style='font-family: "Titan One", cursive;'
-        class='text-[clamp(2rem,4.5vw,3.25rem)] leading-[1.05] tracking-tight text-petrol-900 text-pretty max-w-4xl'>
+        class='leading-[0.95] tracking-tight text-pretty max-w-4xl'>
         {headingSecond ? (
-          <>{headingFirst} {headingSecond.replace(/\?$/, '')}<span class='text-sky-600'>?</span></>
+          <>
+            <span class='block text-[clamp(1.5rem,3vw,2.25rem)] text-charcoal/55 mb-1'>{headingFirst}</span>
+            <span class='block text-[clamp(2.5rem,5.5vw,4rem)] text-charcoal'>{headingSecond.replace(/\?$/, '')}<span class='text-teal'>?</span></span>
+          </>
         ) : (
-          <>{heading}</>
+          <span class='block text-[clamp(2rem,4.5vw,3.25rem)] text-charcoal'>{heading}</span>
         )}
       </p>
 
       <div data-animate class='mt-6 flex items-center'>
-        <div class='h-[3px] w-16 bg-orange-500 rounded-full'></div>
-        <div class='h-px w-24 bg-gradient-to-r from-orange-500/40 to-transparent'></div>
+        <div class='h-[3px] w-16 bg-teal rounded-full'></div>
+        <div class='h-px w-24 bg-gradient-to-r from-teal/40 to-transparent'></div>
       </div>
     </div>
 
@@ -117,7 +120,7 @@ const headingSecond = periodIdx !== -1 ? heading.slice(periodIdx + 2)    : ''
     <div class='max-w-2xl'>
       <div>
 
-        <p class='text-base md:text-lg text-petrol-700 leading-relaxed mb-10 text-pretty max-w-[46ch]' data-animate>
+        <p class='text-base md:text-lg text-charcoal/70 leading-relaxed mb-10 text-pretty max-w-[46ch]' data-animate>
           <Fragment set:html={intro} />
         </p>
 
@@ -127,12 +130,12 @@ const headingSecond = periodIdx !== -1 ? heading.slice(periodIdx + 2)    : ''
             const num  = String(idx + 1).padStart(2, '0')
             return (
               <li
-                class='item-card group relative overflow-hidden rounded-2xl border border-petrol-100 bg-white px-5 py-5 transition-all duration-300 hover:border-sky-200 hover:shadow-md hover:shadow-petrol-900/5 cursor-default'
+                class='item-card group relative overflow-hidden rounded-2xl border border-charcoal/10 bg-white px-5 py-5 transition-all duration-300 hover:border-teal/30 hover:shadow-md hover:shadow-charcoal/5 cursor-default'
                 data-animate
                 data-animate-delay={idx * 110}>
 
                 <!-- Left accent bar -->
-                <div class='pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-sky-500 scale-y-0 origin-top rounded-r-full transition-transform duration-300 group-hover:scale-y-100' aria-hidden='true'></div>
+                <div class='pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-teal scale-y-0 origin-top rounded-r-full transition-transform duration-300 group-hover:scale-y-100' aria-hidden='true'></div>
 
                 <!-- Ghost ordinal -->
                 <div
@@ -144,17 +147,17 @@ const headingSecond = periodIdx !== -1 ? heading.slice(periodIdx + 2)    : ''
 
                 <div class='relative flex items-start gap-3.5'>
                   <!-- Icon badge -->
-                  <div class='shrink-0 mt-0.5 flex h-8 w-8 items-center justify-center rounded-xl bg-sky-50 ring-1 ring-sky-100 transition-all duration-300 group-hover:bg-sky-100 group-hover:ring-sky-200'>
-                    <Icon class='size-4 text-sky-600' aria-hidden='true' />
+                  <div class='shrink-0 mt-0.5 flex h-8 w-8 items-center justify-center rounded-xl bg-teal/5 ring-1 ring-teal/15 transition-all duration-300 group-hover:bg-teal/10 group-hover:ring-teal/25'>
+                    <Icon class='size-4 text-teal' aria-hidden='true' />
                   </div>
 
                   <div class='min-w-0'>
                     <!-- Expanding underline -->
-                    <div class='h-0.5 w-5 bg-orange-400 rounded-full transition-all duration-300 group-hover:w-10 mb-2'></div>
-                    <dt class='text-[0.9rem] font-bold text-petrol-900 leading-snug mb-1.5 transition-colors duration-300 group-hover:text-petrol-900'>
+                    <div class='h-0.5 w-5 bg-teal rounded-full transition-all duration-300 group-hover:w-10 mb-2'></div>
+                    <dt class='text-[0.9rem] font-bold text-charcoal leading-snug mb-1.5 transition-colors duration-300 group-hover:text-charcoal'>
                       {item.title}
                     </dt>
-                    <dd class='text-sm text-petrol-600 leading-relaxed text-pretty'>
+                    <dd class='text-base text-charcoal/70 leading-relaxed text-pretty'>
                       <Fragment set:html={item.description} />
                     </dd>
                   </div>
