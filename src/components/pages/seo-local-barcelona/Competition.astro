@@ -1,4 +1,6 @@
 ---
+import { buildWhatsAppHref } from '../../../data/site'
+
 interface Props {
   upheading?: string
   heading?: string
@@ -11,7 +13,7 @@ const {
   upheading = 'El coste de no aparecer',
   heading = 'Deja de perder clientes frente a tu competencia.',
   subtitle = 'Cada día que tu negocio no aparece en Google Maps, los clientes que te buscaban entran por la puerta de tu competencia. No es una hipótesis — es lo que pasa ahora mismo.',
-  ctaHref = 'https://wa.me/34692051399?text=Hola%20Salva%2C%20he%20visto%20tu%20web%20y%20me%20gustar%C3%ADa%20saber%20si%20mi%20negocio%20aparece%20en%20Google%20Maps.',
+  ctaHref = buildWhatsAppHref('Hola Salva, he visto tu web y me gustaría saber si mi negocio aparece en Google Maps.'),
   ctaLabel = 'Descubre si apareces en el mapa',
 } = Astro.props
 
@@ -295,7 +297,7 @@ const stats = [
   }
 
   .feed-live-label {
-    font-size: 0.72rem;
+    font-size: var(--text-tiny);
     font-weight: 700;
     color: rgba(255,255,255,0.75);
     letter-spacing: 0.04em;
@@ -303,7 +305,7 @@ const stats = [
   }
 
   .feed-header-sub {
-    font-size: 0.62rem;
+    font-size: var(--text-tiny);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -379,7 +381,7 @@ const stats = [
   }
 
   .feed-event-ago {
-    font-size: 0.68rem;
+    font-size: var(--text-tiny);
     color: rgba(255,255,255,0.25);
     margin-top: 2px;
     display: block;
@@ -400,7 +402,7 @@ const stats = [
   }
 
   .feed-ticker-text {
-    font-size: 0.65rem;
+    font-size: var(--text-tiny);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -493,7 +495,7 @@ const stats = [
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.65rem;
+    font-size: var(--text-tiny);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -546,7 +548,7 @@ const stats = [
   }
 
   .cta-block-note {
-    font-size: 0.72rem;
+    font-size: var(--text-tiny);
     color: rgba(255,255,255,0.35);
     line-height: 1.55;
     margin-top: 0.875rem;

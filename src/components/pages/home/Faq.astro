@@ -12,26 +12,7 @@ interface Props {
 }
 
 const { upheading, heading, intro, idPrefix = 'faq', items, class: className } = Astro.props
-
-function stripHtml(html: string): string {
-  return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim()
-}
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: items.map((item) => ({
-    '@type': 'Question',
-    name: item.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: stripHtml(item.answer),
-    },
-  })),
-}
 ---
-
-<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
 <section class:list={['faq-root', className]}>
   <!-- Decorative watermark -->
@@ -176,7 +157,7 @@ const faqSchema = {
   }
 
   .faq-label {
-    font-size: 0.7rem;
+    font-size: var(--text-tiny);
     font-weight: 700;
     letter-spacing: 0.22em;
     text-transform: uppercase;

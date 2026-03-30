@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout
+  title="Página no encontrada — SalvaSEO"
+  description="Esta página no existe. Vuelve al inicio para encontrar lo que buscas."
+  noindex={true}
+  canonicalUrl="https://salvaseo.com/404/"
+>
+  <section class="flex min-h-[70vh] flex-col items-center justify-center px-6 text-center">
+    <p
+      class="text-[8rem] font-bold leading-none text-teal/20"
+      style='font-family: "Titan One", cursive;'
+      aria-hidden="true"
+    >
+      404
+    </p>
+    <h1 class="mt-4 text-3xl font-bold text-charcoal" style='font-family: "Titan One", cursive;'>
+      Página no encontrada
+    </h1>
+    <p class="mt-4 max-w-[40ch] text-base text-petrol-700">
+      La URL que buscas no existe. Puede que haya sido movida o eliminada.
+    </p>
+    <a
+      href="/"
+      class="mt-8 inline-flex items-center gap-2 rounded-full bg-teal px-6 py-3 text-sm font-bold text-white transition hover:bg-teal/90"
+    >
+      Volver al inicio
+    </a>
+  </section>
+</Layout>

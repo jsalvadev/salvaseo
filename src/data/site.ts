@@ -42,7 +42,7 @@ export const siteConfig = {
   social: {
     linkedin: "https://www.linkedin.com/in/salvadorjesus",
     googleBusiness: "https://www.google.com/maps/place/?cid=5370983499387165545",
-    instagram: "https://www.instagram.com/salva_seo/",
+    instagram: "https://www.instagram.com/salva_seo",
     tiktok: "https://www.tiktok.com/@consultorseobarcelona",
   },
 } as const;

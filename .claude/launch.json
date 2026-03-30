@@ -6,14 +6,14 @@
       "runtimeExecutable": "pnpm",
       "runtimeArgs": ["dev"],
       "port": 4321,
-      "cwd": "/Users/personal/Desktop/salvaseo/.claude/worktrees/sad-colden"
+      "cwd": "/Users/personal/Desktop/salvaseo/.claude/worktrees/pedantic-brahmagupta"
     },
     {
       "name": "preview",
       "runtimeExecutable": "pnpm",
       "runtimeArgs": ["preview"],
       "port": 4321,
-      "cwd": "/Users/personal/Desktop/salvaseo/.claude/worktrees/sad-colden"
+      "cwd": "/Users/personal/Desktop/salvaseo/.claude/worktrees/pedantic-brahmagupta"
     }
   ]
 }

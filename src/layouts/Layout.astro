@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import WaChatWidget from "../components/WaChatWidget.astro";
 import "../styles/global.css";
+import titanOneUrl from "@fontsource/titan-one/files/titan-one-latin-400-normal.woff2";
 
 interface Props {
     title?: string;
@@ -28,12 +29,15 @@ const {
 
 const isProd = import.meta.env.PROD;
 const isHomePage = canonicalUrl === "https://salvaseo.com/" && !noindex;
-const DATE_MODIFIED = "2026-03-03";
+const DATE_MODIFIED = "2026-03-30";
 ---
 
 <!doctype html>
 <html lang="es">
     <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preload" as="font" type="font/woff2" href={titanOneUrl} crossorigin />
         <!-- Google Tag Manager -->
         <script is:inline>
             window.dataLayer = window.dataLayer || [];
@@ -53,8 +57,6 @@ const DATE_MODIFIED = "2026-03-03";
             src="https://www.googletagmanager.com/gtm.js?id=GTM-P6LRQRXS"
         ></script>
         <!-- End Google Tag Manager -->
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" sizes="any">
         <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -111,15 +113,25 @@ const DATE_MODIFIED = "2026-03-03";
                 {
                     "@type": "ProfessionalService",
                     "@id": "https://salvaseo.com/#business",
-                    "name": "SalvaSEO — Salvador Jesús",
+                    "name": "SalvaSEO - Consultor SEO en Barcelona",
                     "alternateName": "SalvaSEO",
                     "description": "Consultor SEO en Barcelona especializado en negocios locales. Trabajo solo con empresas de la zona para que tus clientes te encuentren en Google. Análisis inicial gratis.",
                     "url": "https://salvaseo.com/",
                     "telephone": "+34692051399",
-                    "email": "info@salvaseo.com",
+                    "email": "salvadorjesus.seo@gmail.com",
                     "priceRange": "€€",
-                    "image": "https://salvaseo.com/logo.webp",
-                    "logo": "https://salvaseo.com/logo.webp",
+                    "image": {
+                        "@type": "ImageObject",
+                        "url": "https://salvaseo.com/logo.webp",
+                        "width": 144,
+                        "height": 146
+                    },
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://salvaseo.com/logo.webp",
+                        "width": 144,
+                        "height": 146
+                    },
                     "areaServed": {
                         "@type": "City",
                         "name": "Barcelona",
@@ -127,16 +139,8 @@ const DATE_MODIFIED = "2026-03-03";
                     },
                     "address": {
                         "@type": "PostalAddress",
-                        "streetAddress": "Carrer de Pelai, 8",
                         "addressLocality": "Barcelona",
-                        "postalCode": "08001",
-                        "addressRegion": "Cataluña",
                         "addressCountry": "ES"
-                    },
-                    "geo": {
-                        "@type": "GeoCoordinates",
-                        "latitude": 41.392668,
-                        "longitude": 2.140189
                     },
                     "openingHoursSpecification": [{
                         "@type": "OpeningHoursSpecification",
@@ -147,7 +151,7 @@ const DATE_MODIFIED = "2026-03-03";
                     "contactPoint": {
                         "@type": "ContactPoint",
                         "telephone": "+34692051399",
-                        "email": "info@salvaseo.com",
+                        "email": "salvadorjesus.seo@gmail.com",
                         "contactType": "customer service",
                         "availableLanguage": ["es"]
                     },
@@ -160,12 +164,17 @@ const DATE_MODIFIED = "2026-03-03";
                         "worksFor": {
                             "@id": "https://salvaseo.com/#business"
                         },
-                        "email": "info@salvaseo.com",
+                        "email": "salvadorjesus.seo@gmail.com",
                         "telephone": "+34692051399",
-                        "image": "https://salvaseo.com/about-me.png",
+                        "image": {
+                            "@type": "ImageObject",
+                            "url": "https://salvaseo.com/about-me.png",
+                            "width": 800,
+                            "height": 800
+                        },
                         "sameAs": [
                             "https://www.linkedin.com/in/salvadorjesus",
-                            "https://www.instagram.com/salva_seo/",
+                            "https://www.instagram.com/salva_seo",
                             "https://www.tiktok.com/@consultorseobarcelona"
                         ]
                     },
@@ -201,9 +210,9 @@ const DATE_MODIFIED = "2026-03-03";
                     },
                     "sameAs": [
                         "https://www.linkedin.com/in/salvadorjesus",
-                        "https://www.instagram.com/salva_seo/",
+                        "https://www.instagram.com/salva_seo",
                         "https://www.tiktok.com/@consultorseobarcelona",
-                        "https://www.google.com/maps/place/SalvaSEO+-+Consultor+SEO+en+Barcelona/@41.3926387,2.0577883,12z/data=!4m15!1m8!3m7!1s0x47b687095c96ad7:0x4a8991093774db69!2sSalvaSEO+-+Consultor+SEO+en+Barcelona!8m2!3d41.392668!4d2.140189!10e1!16s%2Fg%2F11y_x5bbp3!3m5!1s0x47b687095c96ad7:0x4a8991093774db69!8m2!3d41.392668!4d2.140189!16s%2Fg%2F11y_x5bbp3"
+                        "https://www.google.com/maps/place/?cid=5370983499387165545"
                     ]
                 },
                 {
@@ -234,7 +243,11 @@ const DATE_MODIFIED = "2026-03-03";
                     },
                     "datePublished": "2025-01-15",
                     "dateModified": DATE_MODIFIED,
-                    "inLanguage": "es"
+                    "inLanguage": "es",
+                    "speakable": {
+                        "@type": "SpeakableSpecification",
+                        "cssSelector": ["h1", "[data-speakable]"]
+                    }
                 },
                 {
                     "@type": "BreadcrumbList",

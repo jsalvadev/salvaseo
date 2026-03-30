@@ -1,6 +1,8 @@
 ---
 import aboutMeImage from '../../../assets/about-me.webp'
 import { Mail, Phone } from '@lucide/astro'
+import { siteConfig } from '../../../data/site'
+const { email, phone } = siteConfig.contact
 ---
 
 <section
@@ -42,6 +44,7 @@ import { Mail, Phone } from '@lucide/astro'
           width={aboutMeImage.width}
           height={aboutMeImage.height}
           alt='Salvador Jesús, consultor SEO freelance en Barcelona'
+          loading='lazy'
           class='relative aspect-4/5 w-56 sm:w-64 rounded-2xl object-cover shadow-2xl shadow-petrol-900/15 ring-1 ring-petrol-900/5'
         />
 
@@ -104,23 +107,23 @@ import { Mail, Phone } from '@lucide/astro'
         <!-- Contact links -->
         <div class='flex flex-wrap gap-4'>
           <a
-            href='mailto:salvadorjesus.seo@gmail.com'
+            href={`mailto:${email}`}
             class='group inline-flex items-center gap-2.5 text-sm text-petrol-700 hover:text-teal transition-colors duration-200'>
             <span
               class='flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-petrol-50 ring-1 ring-petrol-100 group-hover:bg-teal/5 group-hover:ring-teal/20 transition-all duration-200'>
               <Mail class='h-4 w-4' />
             </span>
-            salvadorjesus.seo@gmail.com
+            {email}
           </a>
 
           <a
-            href='tel:+34692051399'
+            href={`tel:${phone.e164}`}
             class='group inline-flex items-center gap-2.5 text-sm text-petrol-700 hover:text-teal transition-colors duration-200'>
             <span
               class='flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-petrol-50 ring-1 ring-petrol-100 group-hover:bg-teal/5 group-hover:ring-teal/20 transition-all duration-200'>
               <Phone class='h-4 w-4' />
             </span>
-            +34 692 051 399
+            {phone.display}
           </a>
         </div>
       </div>

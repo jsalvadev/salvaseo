@@ -9,7 +9,7 @@ import { faqBarcelonaItems } from '../data/faq-barcelona'
 import barcelonaImage from '../assets/barcelona.webp'
 const MIN_MONTHLY_PRICE_EUR = 350
 const MIN_MONTHLY_PRICE_TEXT = `${MIN_MONTHLY_PRICE_EUR} €/mes`
-const DATE_MODIFIED = "2026-03-03"
+const DATE_MODIFIED = "2026-03-30"
 ---
 
 <Layout
@@ -59,6 +59,9 @@ const DATE_MODIFIED = "2026-03-03"
         },
         {
           '@id': 'https://salvaseo.com/#business'
+        },
+        {
+          '@id': 'https://salvaseo.com/#founder'
         },
         {
           '@type': 'WebPage',
@@ -114,42 +117,10 @@ const DATE_MODIFIED = "2026-03-03"
           provider: {
             '@id': 'https://salvaseo.com/#business'
           },
-          areaServed: [
-            {
-              '@type': 'City',
-              name: 'Barcelona',
-              sameAs: 'https://es.wikipedia.org/wiki/Barcelona'
-            },
-            {
-              '@type': 'City',
-              name: 'Sabadell',
-              sameAs: 'https://es.wikipedia.org/wiki/Sabadell'
-            },
-            {
-              '@type': 'City',
-              name: 'Badalona',
-              sameAs: 'https://es.wikipedia.org/wiki/Badalona'
-            },
-            {
-              '@type': 'City',
-              name: 'Terrassa',
-              sameAs: 'https://es.wikipedia.org/wiki/Tarrasa'
-            },
-            {
-              '@type': 'City',
-              name: 'Lleida',
-              sameAs: 'https://es.wikipedia.org/wiki/L%C3%A9rida'
-            }
-          ],
-          offers: {
-            '@type': 'Offer',
-            priceSpecification: {
-              '@type': 'UnitPriceSpecification',
-              priceCurrency: 'EUR',
-              price: String(MIN_MONTHLY_PRICE_EUR),
-              unitText: 'mes',
-              description: `Presupuesto desde ${MIN_MONTHLY_PRICE_TEXT}, definido tras diagnóstico gratuito`
-            }
+          areaServed: {
+            '@type': 'City',
+            name: 'Barcelona',
+            sameAs: 'https://es.wikipedia.org/wiki/Barcelona'
           },
           hasOfferCatalog: {
             '@type': 'OfferCatalog',

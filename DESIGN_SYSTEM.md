@@ -97,6 +97,56 @@ Always prefer these semantic utilities over raw palette tokens:
 
 ## 3. Typography
 
+### 3.0 Type & Spacing Token Scale
+
+All typographic and spacing tokens are CSS custom properties defined in `src/styles/global.css` under `:root`. Use them in custom CSS via `var(--token-name)`. They use `px`-based `clamp()` values so they work independently of the html font-size.
+
+#### Text scale
+
+| Token | Range | Use for |
+|---|---|---|
+| `--text-tiny` | 12–14px | Eyebrow labels, UI labels, micro badges |
+| `--text-small` | 14–16px | Captions, fine print, supporting text |
+| `--text-regular` | 16–20px | Body paragraphs |
+| `--text-medium` | 20–26.6px | Lead paragraphs, card body |
+| `--text-large` | 26.6–35.5px | Small display, large card headings |
+| `--text-xlarge` | 35.5–47.3px | Section subheadings |
+| `--text-xxlarge` | 47.3–63.1px | Section headings |
+
+#### Heading scale
+
+| Token | Range | Maps to heading utility |
+|---|---|---|
+| `--fs-h6` | 16–20px | — |
+| `--fs-h5` | 20–26.6px | `heading-3` |
+| `--fs-h4` | 26.6–35.5px | — |
+| `--fs-h3` | 35.5–47.3px | `heading-2` |
+| `--fs-h2` | 47.3–63.1px | — |
+| `--fs-h1` | 63.1–84.2px | `heading-1` |
+
+#### Line height scale
+
+| Token | Range | Use for |
+|---|---|---|
+| `--lh-tight` | 1.1–1.2 | Display headings (Titan One) |
+| `--lh-base` | 1.4–1.5 | Body paragraphs |
+| `--lh-loose` | 1.6–1.75 | Long-form content blocks |
+
+#### Spacing / Gap scale
+
+| Token | Range | Approx usage |
+|---|---|---|
+| `--space-xxs` / `--gap-xxs` | 4–6px | Icon gaps, micro padding |
+| `--space-xs` / `--gap-xs` | 6–8px | Tight inline gaps |
+| `--space-s` / `--gap-s` | 8–12px | Compact component padding |
+| `--space-m` / `--gap-m` | 12–20px | Card inner padding |
+| `--space-l` / `--gap-l` | 16–30px | Section inner gaps |
+| `--space-xl` / `--gap-xl` | 24–40px | Section header margins |
+| `--space-xxl` / `--gap-xxl` | 32–56px | Large section gaps |
+| `--space-xxxl` / `--gap-xxxl` | 48–80px | Full section vertical padding |
+
+> **Note:** Tailwind spacing utilities (`py-24`, `gap-12`, etc.) remain the primary tool for layout. Use spacing tokens for custom CSS rules in component `<style>` blocks or when a clamp-fluid value is needed.
+
 ### 3.1 Font Families
 
 | Role | Font | How to apply |

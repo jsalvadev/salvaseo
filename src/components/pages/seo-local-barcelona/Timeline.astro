@@ -1,5 +1,6 @@
 ---
 import WhatsAppButton from '../../WhatsAppButton.astro'
+import { buildWhatsAppHref } from '../../../data/site'
 import {
   BadgeCheck,
   BarChart3,
@@ -115,7 +116,7 @@ const {
   phases = defaultPhases,
   ctaHeading = "Tus clientes ya te buscan, descubre si te encuentran.",
   ctaText = "Recibe un diagnóstico inicial de tu ficha de Google Business y tu visibilidad local para decidir con datos el retorno potencial de tu inversión en SEO local.",
-  ctaHref = "https://wa.me/34692051399?text=Hola%20Salva%2C%20he%20visto%20tu%20web.%20Tengo%20un%20negocio%20en%20Barcelona%20y%20me%20gustar%C3%ADa%20saber%20si%20el%20SEO%20puede%20ayudarme%20a%20conseguir%20m%C3%A1s%20clientes.",
+  ctaHref = buildWhatsAppHref('Hola Salva, he visto tu web. Tengo un negocio en Barcelona y me gustaría saber si el SEO puede ayudarme a conseguir más clientes.'),
   ctaLabel = "Analiza mi web",
 } = Astro.props;
 
@@ -391,7 +392,7 @@ const lastIdx = phases.length - 1;
   }
 
   .step-name {
-    font-size: 0.65rem;
+    font-size: var(--text-tiny);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -480,7 +481,7 @@ const lastIdx = phases.length - 1;
   }
 
   .card-paso-label {
-    font-size: 0.65rem;
+    font-size: var(--text-tiny);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.12em;
