@@ -15,7 +15,7 @@ import Breadcrumb from '../components/Breadcrumb.astro'
 
 const MIN_MONTHLY_PRICE_EUR = 350
 const MIN_MONTHLY_PRICE_TEXT = `${MIN_MONTHLY_PRICE_EUR} €/mes`
-const DATE_MODIFIED = "2026-03-03"
+const DATE_MODIFIED = "2026-03-30"
 const seoLocalExplainerItems = [
   {
     icon: 'search',
@@ -302,6 +302,15 @@ const seoLocalBusinessTypes = [
     set:html={JSON.stringify({
       '@context': 'https://schema.org',
       '@graph': [
+        {
+          '@id': 'https://salvaseo.com/#website'
+        },
+        {
+          '@id': 'https://salvaseo.com/#business'
+        },
+        {
+          '@id': 'https://salvaseo.com/#founder'
+        },
         {
           '@type': 'WebPage',
           '@id': 'https://salvaseo.com/seo-local-barcelona/#webpage',

@@ -6,7 +6,7 @@ import PricingCards from '../components/pages/presupuesto-seo-barcelona/PricingC
 import FeatureComparison from '../components/pages/presupuesto-seo-barcelona/FeatureComparison.astro'
 import Faq from '../components/pages/home/Faq.astro'
 import { faqPresupuestoItems } from '../data/faq-presupuesto'
-const DATE_MODIFIED = "2026-03-03"
+const DATE_MODIFIED = "2026-03-30"
 ---
 
 <Layout
@@ -47,6 +47,15 @@ const DATE_MODIFIED = "2026-03-03"
       '@context': 'https://schema.org',
       '@graph': [
         {
+          '@id': 'https://salvaseo.com/#website'
+        },
+        {
+          '@id': 'https://salvaseo.com/#business'
+        },
+        {
+          '@id': 'https://salvaseo.com/#founder'
+        },
+        {
           '@type': 'WebPage',
           '@id': 'https://salvaseo.com/presupuesto-seo-barcelona/#webpage',
           url: 'https://salvaseo.com/presupuesto-seo-barcelona/',
@@ -55,6 +64,12 @@ const DATE_MODIFIED = "2026-03-03"
             'Presupuesto SEO en Barcelona desde 350 €/mes IVA incluido. Paquetes mensuales para Google Maps, posicionamiento web o ambos. Precio cerrado tras diagnóstico inicial.',
           isPartOf: {
             '@id': 'https://salvaseo.com/#website'
+          },
+          about: {
+            '@id': 'https://salvaseo.com/presupuesto-seo-barcelona/#service'
+          },
+          mainEntity: {
+            '@id': 'https://salvaseo.com/presupuesto-seo-barcelona/#service'
           },
           datePublished: '2026-02-28',
           dateModified: DATE_MODIFIED,
@@ -105,7 +120,7 @@ const DATE_MODIFIED = "2026-03-03"
             itemListElement: [
               {
                 '@type': 'Offer',
-                name: 'Solo Ficha',
+                name: 'Visibilidad Local',
                 availability: 'https://schema.org/InStock',
                 url: 'https://salvaseo.com/presupuesto-seo-barcelona/',
                 description:
@@ -119,7 +134,7 @@ const DATE_MODIFIED = "2026-03-03"
               },
               {
                 '@type': 'Offer',
-                name: 'Solo Web',
+                name: 'Visibilidad Total',
                 availability: 'https://schema.org/InStock',
                 url: 'https://salvaseo.com/presupuesto-seo-barcelona/',
                 description:

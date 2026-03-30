@@ -9,7 +9,7 @@ import { faqBarcelonaItems } from '../data/faq-barcelona'
 import barcelonaImage from '../assets/barcelona.webp'
 const MIN_MONTHLY_PRICE_EUR = 350
 const MIN_MONTHLY_PRICE_TEXT = `${MIN_MONTHLY_PRICE_EUR} €/mes`
-const DATE_MODIFIED = "2026-03-03"
+const DATE_MODIFIED = "2026-03-30"
 ---
 
 <Layout
@@ -59,6 +59,9 @@ const DATE_MODIFIED = "2026-03-03"
         },
         {
           '@id': 'https://salvaseo.com/#business'
+        },
+        {
+          '@id': 'https://salvaseo.com/#founder'
         },
         {
           '@type': 'WebPage',
@@ -135,22 +138,7 @@ const DATE_MODIFIED = "2026-03-03"
               name: 'Terrassa',
               sameAs: 'https://es.wikipedia.org/wiki/Tarrasa'
             },
-            {
-              '@type': 'City',
-              name: 'Lleida',
-              sameAs: 'https://es.wikipedia.org/wiki/L%C3%A9rida'
-            }
           ],
-          offers: {
-            '@type': 'Offer',
-            priceSpecification: {
-              '@type': 'UnitPriceSpecification',
-              priceCurrency: 'EUR',
-              price: String(MIN_MONTHLY_PRICE_EUR),
-              unitText: 'mes',
-              description: `Presupuesto desde ${MIN_MONTHLY_PRICE_TEXT}, definido tras diagnóstico gratuito`
-            }
-          },
           hasOfferCatalog: {
             '@type': 'OfferCatalog',
             name: 'Servicios de Posicionamiento Web en Barcelona',
