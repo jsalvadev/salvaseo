@@ -1,3 +1,8 @@
+---
+import { siteConfig } from '../../../data/site'
+const { phone } = siteConfig.contact
+---
+
 <div
   id='contacto'
   class='relative px-6 py-12 sm:py-16 lg:px-8'
@@ -165,9 +170,9 @@
               </h3>
               <p class='mt-1 text-sm text-petrol-900 max-w-md'>
                 <a
-                  href='tel:+34692051399'
+                  href={`tel:${phone.e164}`}
                   class='font-semibold text-teal hover:text-teal/80'>
-                  +34 692 051 399
+                  {phone.display}
                 </a>
               </p>
             </div>

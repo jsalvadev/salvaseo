@@ -1,5 +1,6 @@
 ---
 import { Check } from '@lucide/astro'
+import { buildWhatsAppHref } from '../../../data/site'
 
 interface PricingTier {
   name: string
@@ -37,7 +38,7 @@ const tiers: PricingTier[] = [
       'Soporte por WhatsApp',
     ],
     cta: 'Solicita tu diagnóstico',
-    ctaHref: 'https://wa.me/34692051399?text=Hola%20Salva%2C%20me%20interesa%20el%20Plan%20Visibilidad%20Local%20de%20350%E2%82%AC%2Fmes.%20%C2%BFPodemos%20hacer%20el%20diagn%C3%B3stico%20inicial%3F',
+    ctaHref: buildWhatsAppHref('Hola Salva, me interesa el Plan Visibilidad Local de 350€/mes. ¿Podemos hacer el diagnóstico inicial?'),
   },
   {
     name: 'Visibilidad Total',
@@ -62,7 +63,7 @@ const tiers: PricingTier[] = [
       'Soporte por WhatsApp',
     ],
     cta: 'Solicita tu diagnóstico',
-    ctaHref: 'https://wa.me/34692051399?text=Hola%20Salva%2C%20me%20interesa%20el%20Plan%20Visibilidad%20Total%20de%20550%E2%82%AC%2Fmes.%20%C2%BFPodemos%20hacer%20el%20diagn%C3%B3stico%20inicial%3F',
+    ctaHref: buildWhatsAppHref('Hola Salva, me interesa el Plan Visibilidad Total de 550€/mes. ¿Podemos hacer el diagnóstico inicial?'),
     hidden: false,
   },
   {
