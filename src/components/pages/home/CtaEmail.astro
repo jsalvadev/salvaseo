@@ -1,285 +1,110 @@
 ---
-// "Empecemos por tu caso" — split-panel CTA
-// Left: dark petrol with form / Right: cream with trust signals
+// Reserva una llamada — Cal.com element-click
+import WhatsAppButton from '../../WhatsAppButton.astro'
 ---
 
-<section id='contacto' class='relative overflow-hidden'>
-  <div class='grid grid-cols-1 lg:grid-cols-2'>
+<section id='contacto' class='relative overflow-hidden bg-cream'>
 
-    <!-- ── LEFT: Dark form panel ─────────────────────────────────── -->
-    <div class='relative bg-teal overflow-hidden px-8 py-16 sm:px-12 sm:py-20 lg:py-24 flex flex-col justify-center'>
+  <!-- Subtle radial gradient top-center -->
+  <div
+    class='pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full blur-3xl'
+    aria-hidden='true'
+    style='background: radial-gradient(ellipse, rgba(52,101,109,0.07) 0%, transparent 70%);'>
+  </div>
 
-      <!-- Eixample dot grid watermark -->
-      <div
-        class='pointer-events-none absolute inset-0'
-        aria-hidden='true'
-        style='background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1.5px, transparent 1.5px); background-size: 28px 28px;'>
+  <!-- Top hairline -->
+  <div
+    class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-teal/20 to-transparent'
+    aria-hidden='true'>
+  </div>
+
+  <div class='relative mx-auto max-w-7xl px-6 py-24 md:py-32 lg:px-8'>
+
+    <!-- Header centrado -->
+    <div class='text-center mb-16' data-animate-direction='left'>
+
+      <!-- Eyebrow -->
+      <div class='flex items-center justify-center gap-3 mb-4'>
+        <span class='block h-px w-8 bg-teal/40' aria-hidden='true'></span>
+        <p class='label-section text-teal'>Consultor SEO · Barcelona</p>
+        <span class='block h-px w-8 bg-teal/40' aria-hidden='true'></span>
       </div>
 
-      <!-- Diagonal tension lines (inherited from Hero language) -->
-      <svg
-        class='pointer-events-none absolute inset-0 w-full h-full'
-        aria-hidden='true'
-        preserveAspectRatio='none'
-        xmlns='http://www.w3.org/2000/svg'>
-        <line x1='80%' y1='0%' x2='110%' y2='100%' stroke='rgba(250,234,177,0.10)' stroke-width='1'></line>
-        <line x1='70%' y1='0%' x2='95%' y2='100%' stroke='rgba(255,255,255,0.04)' stroke-width='1'></line>
-      </svg>
+      <!-- Headline -->
+      <h2
+        class='text-[clamp(2.4rem,5vw,3.75rem)] leading-[0.95] tracking-tight text-charcoal text-pretty'
+        style='font-family: "Titan One", cursive; font-weight: 400;'>
+        30 minutos.<br>
+        <span class='text-teal'>Un plan real para tu negocio.</span>
+      </h2>
 
-      <!-- Orange left accent bar -->
-      <div class='absolute top-0 left-0 w-[3px] h-full bg-gradient-to-b from-sand via-sand/60 to-transparent'></div>
-
-      <!-- Large faded "@" watermark -->
-      <div
-        class='pointer-events-none select-none absolute -bottom-8 -right-4 leading-none hidden lg:block'
-        aria-hidden='true'
-        style='font-family: "Titan One", cursive; font-size: 18rem; color: rgba(255,255,255,0.018); line-height: 1;'>
-        @
+      <!-- Accent rule -->
+      <div class='mt-5 flex items-center justify-center'>
+        <div class='h-[3px] w-12 rounded-full bg-teal'></div>
+        <div class='h-px w-20 bg-gradient-to-r from-teal/40 to-transparent'></div>
       </div>
 
-      <!-- Content -->
-      <div class='relative max-w-md' data-animate>
-
-        <!-- Eyebrow -->
-        <div class='flex items-center gap-3 mb-5'>
-          <span class='block h-px w-8 bg-sand'></span>
-          <h2 class='label-section text-sand'>
-            Especialista SEO en Barcelona
-          </h2>
-        </div>
-
-        <!-- Headline -->
-        <p
-          class='text-4xl sm:text-5xl text-white leading-[0.95] tracking-tight'
-          style='font-family: "Titan One", cursive;'>
-          Empecemos<br />
-          <span class='text-sand'>por tu caso</span>
-        </p>
-
-        <!-- Accent rule -->
-        <div class='mt-4 flex items-center gap-0'>
-          <div class='h-px w-12 bg-sand'></div>
-          <div class='h-px w-20 bg-gradient-to-r from-sand/50 to-transparent'></div>
-        </div>
-
-        <!-- Description -->
-        <p class='mt-5 text-base leading-relaxed text-petrol-100 text-pretty'>
-          Rellena el formulario y en menos de 48h te envío un análisis de por qué tu web no aparece en Google.
-          <strong class='text-white font-semibold'>Sin coste ni compromiso.</strong>
-        </p>
-
-        <!-- Form -->
-        <form id='cta-email-form' class='mt-7 space-y-3.5'>
-          <div>
-            <label for='cta-name' class='sr-only'>Nombre</label>
-            <input
-              id='cta-name'
-              type='text'
-              name='name'
-              autocomplete='name'
-              placeholder='Tu nombre (opcional)'
-              class='w-full rounded-lg px-4 py-3.5 text-sm text-white placeholder:text-white/35 border border-white/15 focus:outline-none focus:border-sand/60 focus:ring-4 focus:ring-sand/15 transition-all'
-              style='background: rgba(255,255,255,0.06);'
-            />
-          </div>
-
-          <div>
-            <label for='email-address' class='sr-only'>Email</label>
-            <input
-              id='email-address'
-              type='email'
-              name='email'
-              required
-              placeholder='tu@email.com'
-              autocomplete='email'
-              class='w-full rounded-lg px-4 py-3.5 text-sm text-white placeholder:text-white/35 border border-white/15 focus:outline-none focus:border-sand/60 focus:ring-4 focus:ring-sand/15 transition-all'
-              style='background: rgba(255,255,255,0.06);'
-            />
-          </div>
-
-          <div>
-            <label for='cta-message' class='sr-only'>Mensaje</label>
-            <textarea
-              id='cta-message'
-              name='message'
-              rows='3'
-              required
-              placeholder='Tu negocio, tu zona, qué te preocupa…'
-              class='w-full rounded-lg px-4 py-3.5 text-sm text-white placeholder:text-white/35 border border-white/15 focus:outline-none focus:border-sand/60 focus:ring-4 focus:ring-sand/15 transition-all resize-none'
-              style='background: rgba(255,255,255,0.06);'
-            ></textarea>
-          </div>
-
-          <div class='flex items-start gap-2.5'>
-            <input
-              type='checkbox'
-              id='cta-privacy-consent'
-              name='privacyConsent'
-              required
-              class='mt-0.5 accent-teal shrink-0'
-            />
-            <label for='cta-privacy-consent' class='text-sm text-white/55 leading-relaxed'>
-              He leído y acepto la
-              <a href='/politica-privacidad' class='text-sand underline underline-offset-2 hover:text-sand/80 transition-colors'>
-                política de privacidad
-              </a>
-            </label>
-          </div>
-
-          <button
-            type='submit'
-            id='cta-submit-btn'
-            class='w-full rounded-lg bg-sand hover:bg-[#f5e09a] active:bg-[#e8d280] text-charcoal font-bold text-sm px-6 py-3.5 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sand disabled:opacity-50 disabled:cursor-not-allowed'
-            style='box-shadow: 0 4px 24px rgba(250,234,177,0.20);'>
-            Analiza mi web
-          </button>
-        </form>
-
-        <div id='cta-form-message' class='mt-4 hidden'>
-          <p class='text-sm'></p>
-        </div>
-
-      </div>
+      <!-- Body -->
+      <p class='mt-6 text-lg leading-relaxed text-charcoal/70 text-pretty max-w-[46ch] mx-auto'>
+        Una llamada gratuita donde analizamos tu situación real en Google y te digo qué está fallando.
+        <strong class='text-charcoal font-semibold'>Sin rodeos. Sin venderte nada.</strong>
+      </p>
     </div>
 
-    <!-- ── RIGHT: Stat blocks panel ─────────────────────────────── -->
-    <div class='relative overflow-hidden px-8 py-16 sm:px-12 sm:py-20 lg:py-24 flex flex-col justify-center bg-sandstone-soft'>
+    <!-- Stats + CTA -->
+    <div class='flex flex-col items-center gap-12' data-animate>
 
-      <!-- Large faded "BCN" watermark -->
-      <div
-        class='pointer-events-none select-none absolute -bottom-6 -right-8 leading-none hidden lg:block'
-        aria-hidden='true'
-        style='font-family: "Titan One", cursive; font-size: 13rem; color: rgba(26,60,74,0.04); line-height: 1;'>
-        BCN
-      </div>
+      <!-- Stats row -->
+      <div class='grid grid-cols-3 divide-x divide-teal/15 w-full max-w-xl'>
 
-      <div class='relative max-w-sm'>
-
-        <!-- Stat 1 — 48h -->
-        <div data-animate class='py-8'>
-          <div class='flex items-baseline gap-2 leading-none mb-3'>
-            <span
-              style='font-family: "Titan One", cursive; font-size: clamp(3rem, 6vw, 4rem);'
-              class='text-teal leading-none'>
-              48h
-            </span>
-          </div>
-          <p class='text-base text-petrol-700 leading-relaxed max-w-[32ch]'>
-            Te respondo yo directamente.
+        <div class='text-center px-6 py-2'>
+          <p
+            class='text-teal leading-none mb-1'
+            style='font-family: "Titan One", cursive; font-size: clamp(2.2rem, 5vw, 3rem);'>
+            30'
           </p>
+          <p class='text-sm text-charcoal/55 font-medium'>de duración</p>
         </div>
 
-        <!-- Divider -->
-        <div class='h-px bg-petrol-100'></div>
-
-        <!-- Stat 2 — 0€ -->
-        <div data-animate class='py-8'>
-          <div class='flex items-baseline gap-2 leading-none mb-3'>
-            <span
-              style='font-family: "Titan One", cursive; font-size: clamp(3rem, 6vw, 4rem);'
-              class='text-teal leading-none'>
-              0€
-            </span>
-          </div>
-          <p class='text-base text-petrol-700 leading-relaxed max-w-[32ch]'>
-            El análisis no tiene coste.
+        <div class='text-center px-6 py-2'>
+          <p
+            class='text-teal leading-none mb-1'
+            style='font-family: "Titan One", cursive; font-size: clamp(2.2rem, 5vw, 3rem);'>
+            0€
           </p>
+          <p class='text-sm text-charcoal/55 font-medium'>sin coste</p>
         </div>
 
-        <!-- Divider -->
-        <div class='h-px bg-petrol-100'></div>
-
-        <!-- Stat 3 — Solo yo -->
-        <div data-animate class='py-8'>
-          <div class='flex items-baseline gap-3 leading-none mb-3'>
-            <span
-              style='font-family: "Titan One", cursive; font-size: clamp(3rem, 6vw, 4rem);'
-              class='text-teal leading-none'>
-              1
-            </span>
-            <span
-              style='font-family: "Titan One", cursive; font-size: clamp(1.1rem, 2vw, 1.4rem);'
-              class='text-petrol-900/40 leading-none'>
-              persona
-            </span>
-          </div>
-          <p class='text-base text-petrol-700 leading-relaxed max-w-[32ch]'>
-            Yo llevo tu proyecto de principio a fin.
+        <div class='text-center px-6 py-2'>
+          <p
+            class='text-teal leading-none mb-1'
+            style='font-family: "Titan One", cursive; font-size: clamp(2.2rem, 5vw, 3rem);'>
+            1:1
           </p>
+          <p class='text-sm text-charcoal/55 font-medium'>solo yo, tú</p>
         </div>
 
       </div>
+
+      <!-- CTA -->
+      <div class='flex flex-col items-center gap-3'>
+        <WhatsAppButton
+          text='Reserva tu llamada gratuita'
+          class='px-7 py-3.5 text-base shadow-lg shadow-sand/30 hover:shadow-sand/50 transition-shadow'
+        />
+        <p class='text-xs text-charcoal/40'>
+          Sin spam. Elige el día y la hora que te vaya mejor.
+        </p>
+      </div>
+
     </div>
 
   </div>
+
+  <!-- Bottom hairline -->
+  <div
+    class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-teal/20 to-transparent'
+    aria-hidden='true'>
+  </div>
+
 </section>
-
-<script>
-  const ctaForm = document.getElementById('cta-email-form') as HTMLFormElement;
-  const ctaSubmitBtn = document.getElementById('cta-submit-btn') as HTMLButtonElement;
-  const ctaMessageDiv = document.getElementById('cta-form-message') as HTMLDivElement;
-  const ctaMessageP = ctaMessageDiv.querySelector('p') as HTMLParagraphElement;
-
-  const parseApiResponse = async (response: Response) => {
-    const rawBody = await response.text();
-    const contentType = response.headers.get('content-type') || '';
-    const isJsonResponse = contentType.includes('application/json');
-
-    if (!isJsonResponse) {
-      return { data: null, rawBody, isJsonResponse };
-    }
-
-    try {
-      return { data: JSON.parse(rawBody), rawBody, isJsonResponse: true };
-    } catch {
-      return { data: null, rawBody, isJsonResponse: false };
-    }
-  };
-
-  ctaForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    ctaSubmitBtn.disabled = true;
-    ctaSubmitBtn.textContent = 'Enviando...';
-    ctaMessageDiv.classList.add('hidden');
-
-    try {
-      const formData = new FormData(ctaForm);
-      const response = await fetch('/api/send-cta-email', {
-        method: 'POST',
-        body: formData
-      });
-
-      const { data, rawBody, isJsonResponse } = await parseApiResponse(response);
-
-      if (!response.ok) {
-        const errorMessage =
-          data && typeof data === 'object' && 'error' in data
-            ? String(data.error)
-            : null;
-        const looksLikeHtml = rawBody.trim().startsWith('<');
-        throw new Error(
-          errorMessage ||
-            (looksLikeHtml
-              ? 'El servicio de envío no está disponible ahora mismo.'
-              : 'Error al enviar el email')
-        );
-      }
-
-      if (!isJsonResponse) {
-        throw new Error('Respuesta inesperada del servidor. Inténtalo de nuevo.');
-      }
-
-      ctaMessageP.textContent = '¡Email enviado! Te contactaré pronto.';
-      ctaMessageP.className = 'text-sm text-green-400';
-      ctaForm.reset();
-    } catch (error) {
-      ctaMessageP.textContent = error instanceof Error ? error.message : 'Error al enviar el email. Inténtalo de nuevo.';
-      ctaMessageP.className = 'text-sm text-red-400';
-    }
-
-    ctaSubmitBtn.disabled = false;
-    ctaSubmitBtn.textContent = 'Analiza mi web';
-    ctaMessageDiv.classList.remove('hidden');
-  });
-</script>

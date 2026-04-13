@@ -1,8 +1,5 @@
 ---
 import WhatsAppButton from '../../WhatsAppButton.astro'
-import { buildWhatsAppHref } from '../../../data/site'
-
-const waHref = buildWhatsAppHref()
 ---
 
 <section class='relative overflow-hidden py-24 md:py-32'>
@@ -53,7 +50,7 @@ const waHref = buildWhatsAppHref()
         <p
           data-animate
           class='mt-6 max-w-[40ch] text-base md:text-lg text-petrol-700 leading-relaxed text-pretty'>
-          En cuanto me envíes ese WhatsApp, analizo tu web gratis en menos de 48 horas y te digo exactamente <strong class='text-petrol-900 font-semibold'>qué hay que hacer para que tus clientes te encuentren en Google.</strong>
+          En la llamada revisamos tu presencia en Google, analizamos a tu competencia y te digo exactamente <strong class='text-petrol-900 font-semibold'>qué está fallando y qué hay que hacer para que tus clientes te encuentren.</strong>
         </p>
       </div>
 
@@ -76,12 +73,11 @@ const waHref = buildWhatsAppHref()
           </div>
           <div>
             <p class='text-base font-bold text-petrol-900 mb-3'>
-              Pulsa aquí
+              Reserva tu llamada gratuita
             </p>
             <WhatsAppButton
-              text='Analiza mi web'
-              href={waHref}
-              class='text-sm font-bold px-5 py-2.5 shadow-sm shadow-sky-500/20'
+              text='Elige tu horario'
+              class='text-sm font-bold px-5 py-2.5 shadow-sm shadow-sand/20'
             />
           </div>
         </div>
@@ -101,21 +97,19 @@ const waHref = buildWhatsAppHref()
             </span>
           </div>
           <div>
-            <p class='text-base font-bold text-petrol-900 mb-3'>
-              Dime este mensaje
+            <p class='text-base font-bold text-petrol-900 mb-2'>
+              Cuéntame tu situación
             </p>
-            <div class='bg-teal/8 border border-teal/20 rounded-xl rounded-tl-sm px-4 py-3'>
-              <p class='text-sm text-teal italic leading-relaxed'>
-                "Salva, mi página web es invisible en Barcelona."
-              </p>
-            </div>
+            <p class='text-sm text-petrol-700 leading-relaxed'>
+              Al reservar, indícame la URL de tu web y qué te preocupa. Nada más.
+            </p>
           </div>
         </div>
 
         <!-- Step 3 -->
         <div
           data-animate
-          class='relative flex gap-6 py-10 border-b border-charcoal/10'>
+          class='relative flex gap-6 pt-10'>
           <div class='shrink-0 flex flex-col items-center pt-0.5 w-10'>
             <span class='label-micro text-teal leading-none mb-0.5'>
               Paso
@@ -127,47 +121,22 @@ const waHref = buildWhatsAppHref()
             </span>
           </div>
           <div>
-            <p class='text-base font-bold text-petrol-900 mb-2'>
-              Esta es mi página web
-            </p>
-            <p class='text-sm text-petrol-700 leading-relaxed'>
-              Comparte la URL de tu negocio. Nada más.
-            </p>
-          </div>
-        </div>
-
-        <!-- Step 4 -->
-        <div
-          data-animate
-          class='relative flex gap-6 pt-10'>
-          <div class='shrink-0 flex flex-col items-center pt-0.5 w-10'>
-            <span class='label-micro text-teal leading-none mb-0.5'>
-              Paso
-            </span>
-            <span
-              class='text-[2.2rem] leading-none font-bold text-teal/40 tabular-nums'
-              style='font-family: "Titan One", cursive;'>
-              04
-            </span>
-          </div>
-          <div>
             <div class='flex items-baseline gap-2 mb-2'>
               <p class='text-base font-bold text-petrol-900'>
-                En menos de
+                Hablamos
               </p>
               <span
                 style='font-family: "Titan One", cursive;'
                 class='text-2xl leading-none text-teal'>
-                48h
+                30 min
               </span>
             </div>
             <p class='text-sm text-petrol-700 leading-relaxed text-pretty'>
-              Me pongo en contacto contigo, te explico por qué tu web no
-              posiciona y qué voy a hacer para que aparezca en primera
-              página de Google.
+              Reviso tu web en tiempo real, te explico qué está fallando y por qué Google no te muestra.
             </p>
           </div>
         </div>
+
 
       </div>
     </div>

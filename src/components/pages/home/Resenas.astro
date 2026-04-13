@@ -1,8 +1,5 @@
 ---
-import { buildWhatsAppHref } from '../../../data/site'
 import WhatsAppButton from '../../WhatsAppButton.astro'
-
-const waHref = buildWhatsAppHref()
 
 const fakeTestimonials = [
   { name: "María G.", business: "Tienda online", text: "¡Salva es el mejor! En 3 meses mi web está la primera en Google. ¡Os lo juro!" },
@@ -166,19 +163,18 @@ La mayoría de SEOs te llenan la página de testimonios que no puedes verificar.
             </ul>
           </p>
           <p>
-    Y si después de verlo no estás deseando llamarme, no pasa nada. Solo habrás perdido esos 30 segundos que vas a invertir en enviar este mensaje.
+            Y si después de la llamada no quieres seguir, no pasa nada. Solo habrás invertido 30 minutos.
           </p>
         </div>
 
-        <!-- WhatsApp CTA + note -->
+        <!-- CTA + note -->
         <div class='flex flex-col items-start gap-3'>
           <WhatsAppButton
-            text='Analiza mi web'
-            href={waHref}
+            text='Reserva tu llamada'
             class='px-6 py-3 text-[0.9375rem] font-bold'
           />
           <p class='text-sm text-petrol-600 leading-relaxed'>
-            Mándame tu página. Es gratis. Y si no te sorprende, no me contratas.
+            Gratis. Sin compromiso. Y si no te convence, no me contratas.
           </p>
         </div>
 

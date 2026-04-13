@@ -1,8 +1,5 @@
 ---
 import WhatsAppButton from '../../WhatsAppButton.astro'
-import { buildWhatsAppHref } from '../../../data/site'
-
-const waHref = buildWhatsAppHref()
 
 const plans = [
   {
@@ -20,19 +17,18 @@ const plans = [
 ]
 ---
 
-<section id='calculadora' class='relative overflow-hidden py-24 md:py-32'>
+<section id='calculadora' class='relative overflow-hidden bg-charcoal py-24 md:py-32'>
 
-  <!-- Subtle grid texture -->
+  <!-- Dot-grid texture -->
   <div
     class='pointer-events-none absolute inset-0'
     aria-hidden='true'
-    style='background-image: linear-gradient(rgba(26,60,74,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(26,60,74,0.03) 1px, transparent 1px); background-size: 48px 48px;'>
+    style='background-image: radial-gradient(circle, rgba(255,255,255,0.028) 1px, transparent 1px); background-size: 32px 32px;'>
   </div>
 
-
   <!-- Top/bottom hairlines -->
-  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-charcoal/15 to-transparent' aria-hidden='true'></div>
-  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-charcoal/15 to-transparent' aria-hidden='true'></div>
+  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sand/20 to-transparent' aria-hidden='true'></div>
+  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-sand/20 to-transparent' aria-hidden='true'></div>
 
   <div class='relative mx-auto max-w-7xl px-6 lg:px-8'>
 
@@ -46,13 +42,13 @@ const plans = [
           id='wm-ghost'
           class='pointer-events-none absolute -bottom-8 -left-6 select-none leading-none transition-all duration-500'
           aria-hidden='true'
-          style='font-family: "Titan One", cursive; font-size: clamp(8rem, 18vw, 14rem); color: rgba(26,60,74,0.06); line-height: 1; white-space: nowrap;'>
+          style='font-family: "Titan One", cursive; font-size: clamp(8rem, 18vw, 14rem); color: rgba(255,255,255,0.05); line-height: 1; white-space: nowrap;'>
           2×
         </div>
 
         <div class='flex items-center gap-3 mb-8'>
-          <span class='block h-px w-10 bg-teal' aria-hidden='true'></span>
-          <h2 class='label-section text-teal'>
+          <span class='block h-px w-10 bg-sand' aria-hidden='true'></span>
+          <h2 class='label-section text-sand'>
             Precio del consultor SEO profesional
           </h2>
         </div>
@@ -60,27 +56,27 @@ const plans = [
         <p
           style='font-family: "Titan One", cursive;'
           class='leading-[0.92] tracking-tight'>
-          <span class='block text-[clamp(1.4rem,2.8vw,2.2rem)] text-petrol-700/50 mb-1'>
+          <span class='block text-[clamp(1.4rem,2.8vw,2.2rem)] text-white/50 mb-1'>
             ¿Cuántos clientes necesitas
           </span>
-          <span class='block text-[clamp(2.6rem,5.5vw,4.2rem)] text-charcoal'>
-            para que salga a cuenta<span class='text-teal'>?</span>
+          <span class='block text-[clamp(2.6rem,5.5vw,4.2rem)] text-white'>
+            para que salga a cuenta<span class='text-sand'>?</span>
           </span>
         </p>
 
-        <p class='mt-7 text-base md:text-lg text-petrol-700 leading-relaxed text-pretty max-w-[42ch]'>
+        <p class='mt-7 text-base md:text-lg text-white/70 leading-relaxed text-pretty max-w-[42ch]'>
           Lo primero que hacemos juntos es calcular
-          <strong class='font-semibold text-petrol-900'>cuánto tiene que rentarte esto</strong>.
+          <strong class='font-semibold text-white'>cuánto tiene que rentarte esto</strong>.
           Si lo que me pagas no trae más de lo que cuesta, no tiene ningún sentido seguir.
         </p>
 
-        <!-- Bottom statement — same card treatment as the punchline on the right -->
-        <div class='relative mt-8 rounded-xl bg-white border border-charcoal/10 px-6 py-5 max-w-[42ch]'>
+        <!-- Bottom statement -->
+        <div class='relative mt-8 rounded-xl bg-white/[0.06] border border-white/10 px-6 py-5 max-w-[42ch]'>
           <div
-            class='pointer-events-none absolute left-0 top-4 bottom-4 w-[6px] bg-teal rounded-r-full'
+            class='pointer-events-none absolute left-0 top-4 bottom-4 w-[6px] bg-sand rounded-r-full'
             aria-hidden='true'>
           </div>
-          <p class='text-base md:text-lg text-petrol-900 leading-relaxed font-medium text-pretty'>
+          <p class='text-base md:text-lg text-white leading-relaxed font-medium text-pretty'>
             Mi trabajo es traerte esos clientes y más.<br />
             Si no lo consigo, me lo dices y paramos.
           </p>
@@ -118,17 +114,17 @@ const plans = [
         </div>
 
         <!-- ── Calculator card ──────────────────────────────────────── -->
-        <div data-animate class='relative rounded-2xl overflow-hidden border border-charcoal/10 bg-white'>
+        <div data-animate class='relative rounded-2xl overflow-hidden border border-white/10 bg-white/[0.06]'>
 
           <!-- Card top accent -->
-          <div class='absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-teal/40 via-teal to-teal/40'></div>
+          <div class='absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-sand/30 via-sand to-sand/30'></div>
 
           <div class='relative p-8 md:p-10'>
 
             <!-- Slider row -->
             <div class='mb-10'>
               <label for='ticket-slider' class='block mb-3'>
-                <span class='text-sm font-semibold text-petrol-700/60 uppercase tracking-[0.14em]'>
+                <span class='text-sm font-semibold text-white/45 uppercase tracking-[0.14em]'>
                   ¿Cuánto te paga de media un cliente tuyo?
                 </span>
               </label>
@@ -147,42 +143,42 @@ const plans = [
                 <div class='shrink-0 flex items-baseline gap-0.5 min-w-[5.5rem] justify-end'>
                   <span
                     id='ticket-display'
-                    class='tabular-nums text-teal leading-none'
+                    class='tabular-nums text-sand leading-none'
                     style='font-family: "Titan One", cursive; font-size: clamp(2rem, 3.5vw, 2.6rem);'>
                     250
                   </span>
-                  <span class='text-lg font-bold text-teal/60 ml-0.5'>€</span>
+                  <span class='text-lg font-bold text-sand/60 ml-0.5'>€</span>
                 </div>
               </div>
 
               <!-- Slider scale hints -->
-              <div class='flex justify-between text-[0.65rem] font-medium text-petrol-700/30 tabular-nums px-0.5'>
+              <div class='flex justify-between text-[0.65rem] font-medium text-white/25 tabular-nums px-0.5'>
                 <span>50€</span>
                 <span>2.000€</span>
               </div>
             </div>
 
             <!-- Equation divider -->
-            <div class='h-px bg-gradient-to-r from-transparent via-petrol-200 to-transparent mb-10'></div>
+            <div class='h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-10'></div>
 
             <!-- The equation -->
             <div class='grid grid-cols-[1fr_auto_1fr_auto_1fr] items-center gap-2 md:gap-4 mb-10'>
 
               <!-- Mi coste -->
               <div class='text-center'>
-                <div class='label-ui text-petrol-700/40 mb-2'>Lo que me pagas</div>
+                <div class='label-ui text-white/35 mb-2'>Lo que me pagas</div>
                 <div
                   id='fee-display'
-                  class='tabular-nums text-petrol-700 leading-none transition-all duration-200'
+                  class='tabular-nums text-white/80 leading-none transition-all duration-200'
                   style='font-family: "Titan One", cursive; font-size: clamp(1.6rem, 3vw, 2.4rem);'>
                   350
                 </div>
-                <div class='text-xs text-petrol-700/40 mt-1'>€/mes</div>
+                <div class='text-xs text-white/30 mt-1'>€/mes</div>
               </div>
 
               <!-- ÷ -->
               <div
-                class='text-petrol-700/20 leading-none'
+                class='text-white/20 leading-none'
                 style='font-family: "Titan One", cursive; font-size: clamp(1.4rem, 2.5vw, 2rem);'
                 aria-hidden='true'>
                 ÷
@@ -190,19 +186,19 @@ const plans = [
 
               <!-- Ticket medio -->
               <div class='text-center'>
-                <div class='label-ui text-petrol-700/40 mb-2'>Tu cliente medio</div>
+                <div class='label-ui text-white/35 mb-2'>Tu cliente medio</div>
                 <div
                   id='ticket-eq'
-                  class='tabular-nums text-teal leading-none'
+                  class='tabular-nums text-sand leading-none'
                   style='font-family: "Titan One", cursive; font-size: clamp(1.6rem, 3vw, 2.4rem);'>
                   250
                 </div>
-                <div class='text-xs text-petrol-700/40 mt-1'>€/cliente</div>
+                <div class='text-xs text-white/30 mt-1'>€/cliente</div>
               </div>
 
               <!-- = -->
               <div
-                class='text-petrol-700/20 leading-none'
+                class='text-white/20 leading-none'
                 style='font-family: "Titan One", cursive; font-size: clamp(1.4rem, 2.5vw, 2rem);'
                 aria-hidden='true'>
                 =
@@ -210,37 +206,36 @@ const plans = [
 
               <!-- Result -->
               <div class='text-center'>
-                <div class='label-ui text-teal/70 mb-2'>Clientes para cubrirme</div>
+                <div class='label-ui text-sand/70 mb-2'>Clientes para cubrirme</div>
                 <div
                   id='clients-result'
-                  class='tabular-nums text-teal leading-none'
+                  class='tabular-nums text-sand leading-none'
                   style='font-family: "Titan One", cursive; font-size: clamp(2.4rem, 5vw, 4rem);'>
                   2
                 </div>
-                <div class='text-xs text-teal/50 mt-1'>clientes</div>
+                <div class='text-xs text-sand/50 mt-1'>clientes</div>
               </div>
 
             </div>
 
             <!-- Punchline -->
-            <div class='relative rounded-xl bg-white border border-charcoal/10 px-6 py-5'>
+            <div class='relative rounded-xl bg-white/[0.05] border border-white/10 px-6 py-5'>
               <div
-                class='pointer-events-none absolute left-0 top-4 bottom-4 w-[3px] bg-teal rounded-r-full'
+                class='pointer-events-none absolute left-0 top-4 bottom-4 w-[3px] bg-sand rounded-r-full'
                 aria-hidden='true'>
               </div>
-              <p id='punchline' class='text-base text-petrol-900 leading-relaxed font-medium text-pretty'>
-                Con solo <strong id='punchline-n' class='text-teal'>2 clientes nuevos</strong> que lleguen por Google,
+              <p id='punchline' class='text-base text-white leading-relaxed font-medium text-pretty'>
+                Con solo <strong id='punchline-n' class='text-sand'>2 clientes nuevos</strong> que lleguen por Google,
                 ya has cubierto lo que me pagas ese mes.
-                <span class='block mt-1 text-petrol-700/45 text-sm'>Todo lo que venga después es beneficio puro.</span>
+                <span class='block mt-1 text-white/40 text-sm'>Todo lo que venga después es beneficio puro.</span>
               </p>
             </div>
 
             <!-- CTA -->
             <div class='mt-6'>
               <WhatsAppButton
-                text='Analiza mi web'
-                href={waHref}
-                class='w-full justify-center px-6 py-3.5 text-[0.9375rem] font-bold shadow-lg shadow-teal/20 hover:shadow-teal/30 transition-shadow'
+                text='Reserva tu llamada'
+                class='w-full justify-center px-6 py-3.5 text-[0.9375rem] font-bold shadow-lg shadow-sand/20 hover:shadow-sand/30 transition-shadow'
               />
             </div>
 
@@ -255,51 +250,51 @@ const plans = [
 </section>
 
 <style>
-  /* ── Plan buttons — light background context ── */
+  /* ── Plan buttons — dark background context ── */
   .plan-btn[data-active='true'] {
-    background-color: rgba(52, 101, 109, 0.06);
-    border-color: rgba(52, 101, 109, 0.5);
+    background-color: rgba(250, 234, 177, 0.10);
+    border-color: rgba(250, 234, 177, 0.45);
   }
-  .plan-btn[data-active='true'] .plan-name  { color: #1A3C4A; }
-  .plan-btn[data-active='true'] .plan-price { color: var(--color-teal); }
-  .plan-btn[data-active='true'] .plan-desc  { color: rgba(26, 60, 74, 0.55); }
+  .plan-btn[data-active='true'] .plan-name  { color: #FAEAB1; }
+  .plan-btn[data-active='true'] .plan-price { color: var(--color-sand); }
+  .plan-btn[data-active='true'] .plan-desc  { color: rgba(250,234,177,0.65); }
   .plan-btn[data-active='true'] .plan-iva   {
-    color: rgba(52,101,109,0.7);
-    border-color: rgba(52,101,109,0.25);
-    background-color: rgba(52,101,109,0.06);
+    color: rgba(250,234,177,0.7);
+    border-color: rgba(250,234,177,0.25);
+    background-color: rgba(250,234,177,0.08);
   }
 
   .plan-btn[data-active='false'] {
-    background-color: #fff;
-    border-color: rgba(26, 60, 74, 0.12);
+    background-color: rgba(255,255,255,0.04);
+    border-color: rgba(255,255,255,0.10);
   }
-  .plan-btn[data-active='false'] .plan-name  { color: rgba(26,60,74,0.5); }
-  .plan-btn[data-active='false'] .plan-price { color: rgba(26,60,74,0.3); }
-  .plan-btn[data-active='false'] .plan-desc  { color: rgba(26,60,74,0.35); }
+  .plan-btn[data-active='false'] .plan-name  { color: rgba(255,255,255,0.4); }
+  .plan-btn[data-active='false'] .plan-price { color: rgba(255,255,255,0.25); }
+  .plan-btn[data-active='false'] .plan-desc  { color: rgba(255,255,255,0.3); }
   .plan-btn[data-active='false'] .plan-iva   {
-    color: rgba(26,60,74,0.3);
-    border-color: rgba(26,60,74,0.12);
+    color: rgba(255,255,255,0.3);
+    border-color: rgba(255,255,255,0.10);
   }
 
   .plan-btn:hover[data-active='false'] {
-    background-color: rgba(26,60,74,0.025);
-    border-color: rgba(26,60,74,0.22);
+    background-color: rgba(255,255,255,0.07);
+    border-color: rgba(255,255,255,0.18);
   }
-  .plan-btn:hover[data-active='false'] .plan-name { color: rgba(26,60,74,0.75); }
+  .plan-btn:hover[data-active='false'] .plan-name { color: rgba(255,255,255,0.65); }
 
   /* ── Slider ── */
   .ticket-slider::-webkit-slider-runnable-track {
-    background: linear-gradient(to right, #34656D var(--pct, 10%), rgba(26,60,74,0.12) var(--pct, 10%));
+    background: linear-gradient(to right, #FAEAB1 var(--pct, 10%), rgba(255,255,255,0.12) var(--pct, 10%));
     border-radius: 9999px;
     height: 8px;
   }
   .ticket-slider::-moz-range-track {
-    background: rgba(26,60,74,0.12);
+    background: rgba(255,255,255,0.12);
     border-radius: 9999px;
     height: 8px;
   }
   .ticket-slider::-moz-range-progress {
-    background: #34656D;
+    background: #FAEAB1;
     border-radius: 9999px;
     height: 8px;
   }
@@ -308,9 +303,9 @@ const plans = [
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    background: #34656D;
-    border: 3px solid #1A3C4A;
-    box-shadow: 0 0 0 2px rgba(52,101,109,0.35);
+    background: #FAEAB1;
+    border: 3px solid #334443;
+    box-shadow: 0 0 0 2px rgba(250,234,177,0.35);
     cursor: pointer;
     margin-top: -7px;
     transition: box-shadow 0.15s;
@@ -319,14 +314,14 @@ const plans = [
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    background: #34656D;
-    border: 3px solid #1A3C4A;
-    box-shadow: 0 0 0 2px rgba(52,101,109,0.35);
+    background: #FAEAB1;
+    border: 3px solid #334443;
+    box-shadow: 0 0 0 2px rgba(250,234,177,0.35);
     cursor: pointer;
   }
   .ticket-slider:hover::-webkit-slider-thumb,
   .ticket-slider:focus::-webkit-slider-thumb {
-    box-shadow: 0 0 0 5px rgba(52,101,109,0.25);
+    box-shadow: 0 0 0 5px rgba(250,234,177,0.20);
   }
 
   /* ── Number pop ── */
