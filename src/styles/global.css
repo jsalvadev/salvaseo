@@ -185,26 +185,26 @@
  * Apply font-family via inline style (Titan One) or let DM Sans apply.
  * Apply color via text-heading (charcoal) on light sections, text-white on dark.
  *
- *  heading-1  →  hero display / page headline         ~40–72px fluid
- *  heading-2  →  section headline                     ~29–48px fluid
- *  heading-3  →  card / subsection heading            ~18–24px fluid
+ *  heading-1  →  hero display / page headline     → --fs-h1  (63–84px fluid)
+ *  heading-2  →  section headline                 → --fs-h2  (47–63px fluid)
+ *  heading-3  →  card / subsection heading        → --fs-h5  (20–27px fluid)
  */
 
 @utility heading-1 {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  line-height: 0.93;
+  font-size: var(--fs-h1);
+  line-height: var(--lh-tight);
   letter-spacing: -0.02em;
 }
 
 @utility heading-2 {
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  line-height: 0.95;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-tight);
   letter-spacing: -0.015em;
 }
 
 @utility heading-3 {
-  font-size: clamp(1.1rem, 2vw, 1.4rem);
-  line-height: 1.3;
+  font-size: var(--fs-h5);
+  line-height: var(--lh-tight);
   font-weight: 700;
 }
 
@@ -218,6 +218,52 @@
 
 :root {
   --navbar-height: 56px;
+
+  /* ── Design System ─────────────────────────────────────────────────────── */
+  /* rem min/max from 62.5%-base spec converted to px (1rem = 10px).         */
+  /* Font-size independent — safe alongside html { font-size: 17px }.        */
+
+  /* Typography Scale */
+  --text-tiny:    clamp(12px,  8px + 0.5vw, 14px);
+  --text-small:   clamp(14px, 10px + 0.6vw, 16px);
+  --text-regular: clamp(16px, 12px + 1.2vw, 20px);
+  --text-medium:  clamp(20px, 14px + 1.6vw, 26.66px);
+  --text-large:   clamp(26.66px, 16px + 2.2vw, 35.5px);
+  --text-xlarge:  clamp(35.5px,  18px + 3.0vw, 47.3px);
+  --text-xxlarge: clamp(47.3px,  20px + 4.0vw, 63.1px);
+
+  /* Heading Font Sizes */
+  --fs-h6: clamp(16px,    10px + 1.2vw, 20px);
+  --fs-h5: clamp(20px,    12px + 1.6vw, 26.66px);
+  --fs-h4: clamp(26.66px, 16px + 2.2vw, 35.5px);
+  --fs-h3: clamp(35.5px,  18px + 3.0vw, 47.3px);
+  --fs-h2: clamp(47.3px,  20px + 4.0vw, 63.1px);
+  --fs-h1: clamp(63.1px,  22px + 5.6vw, 84.2px);
+
+  /* Line Heights (unitless — no conversion needed) */
+  --lh-tight: clamp(1.1, 1.05 + 0.2vw, 1.2);
+  --lh-base:  clamp(1.4, 1.2  + 0.3vw, 1.5);
+  --lh-loose: clamp(1.6, 1.4  + 0.4vw, 1.75);
+
+  /* Spacing */
+  --space-xxs:  clamp(4px,  2px + 0.4vw, 6px);
+  --space-xs:   clamp(6px,  2px + 0.6vw, 8px);
+  --space-s:    clamp(8px,  3px + 1.0vw, 12px);
+  --space-m:    clamp(12px, 6px + 1.6vw, 20px);
+  --space-l:    clamp(16px, 8px + 2.4vw, 30px);
+  --space-xl:   clamp(24px, 12px + 3.6vw, 40px);
+  --space-xxl:  clamp(32px, 16px + 4.8vw, 56px);
+  --space-xxxl: clamp(48px, 24px + 6.4vw, 80px);
+
+  /* Gaps */
+  --gap-xxs:  clamp(4px,  2px + 0.4vw, 6px);
+  --gap-xs:   clamp(6px,  2px + 0.6vw, 8px);
+  --gap-s:    clamp(8px,  3px + 1.0vw, 12px);
+  --gap-m:    clamp(12px, 6px + 1.6vw, 20px);
+  --gap-l:    clamp(16px, 8px + 2.4vw, 30px);
+  --gap-xl:   clamp(24px, 12px + 3.6vw, 40px);
+  --gap-xxl:  clamp(32px, 16px + 4.8vw, 56px);
+  --gap-xxxl: clamp(48px, 24px + 6.4vw, 80px);
 }
 
 /* Body font and page background */
