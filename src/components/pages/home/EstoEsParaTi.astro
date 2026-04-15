@@ -57,13 +57,13 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
 
         <!-- Animated underline rule -->
         <div data-animate class='mt-6 flex items-center'>
-          <div class='h-[3px] w-16 bg-sand rounded-full'></div>
+          <div class='h-px w-16 bg-sand'></div>
           <div class='h-px w-24 bg-gradient-to-r from-sand/40 to-transparent'></div>
         </div>
 
         <p
           data-animate
-          class='mt-6 max-w-[38ch] text-base md:text-lg text-white/55 leading-relaxed text-pretty'>
+          class='mt-6 max-w-[38ch] text-base text-white/55 leading-relaxed text-pretty'>
           Te identificas con alguna de estas situaciones
         </p>
 
@@ -152,10 +152,10 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
 
               <!-- Text -->
               <div class='min-w-0'>
-                <p class='text-[0.9375rem] font-bold text-white/90 mb-1.5 leading-snug transition-colors duration-300 group-hover:text-white'>
+                <p class='text-base font-bold text-white/90 mb-1.5 leading-snug transition-colors duration-300 group-hover:text-white'>
                   {item.heading}
                 </p>
-                <p class='text-sm text-white/75 leading-relaxed text-pretty transition-colors duration-300 group-hover:text-white/85'>
+                <p class='text-base text-white/75 leading-relaxed text-pretty transition-colors duration-300 group-hover:text-white/85'>
                   {item.body}
                 </p>
               </div>
