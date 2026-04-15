@@ -23,6 +23,7 @@ const { brand, contact, navigation } = siteConfig
           alt={`${brand.name} Logo`}
           width='32'
           height='33'
+          loading='eager'
           class='h-8 w-auto'
         />
         <span class='brand-wordmark text-xl text-petrol-900'>{brand.name}</span>
@@ -135,6 +136,7 @@ const { brand, contact, navigation } = siteConfig
                 alt={`${brand.name} Logo`}
                 width='48'
                 height='49'
+                loading='lazy'
                 class='h-10 w-auto'
               />
               <span class='brand-wordmark text-xl text-charcoal'>{brand.name}</span>
