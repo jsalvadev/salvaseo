@@ -201,7 +201,7 @@ This is the standard section rhythm. Do not deviate without a strong visual reas
 All sections use the same max-width container:
 
 ```html
-<div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+<div class="relative mx-auto max-w-[1280px] px-5">
 ```
 
 Never use a different `max-w-*` for page sections. Modals, tooltips, or widgets are exempt.
@@ -259,7 +259,7 @@ Every page section follows this structure:
   <!-- (dot grid, gradient overlay, watermark, hairlines) -->
 
   <!-- CONTENT LAYER -->
-  <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+  <div class="relative mx-auto max-w-[1280px] px-5">
     <!-- section content -->
   </div>
 

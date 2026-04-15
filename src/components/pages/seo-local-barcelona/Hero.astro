@@ -70,7 +70,7 @@ const headingSecond = splitIdx !== -1 ? heading.slice(splitIdx + 4)    : ''     
     dark
   />
 
-  <div class='relative z-10 mx-auto max-w-7xl px-6 lg:px-8'>
+  <div class='relative z-10 mx-auto max-w-[1280px] px-5'>
     <div class='min-h-[80vh] flex items-center pt-10 pb-24 lg:pt-12 lg:pb-28'>
       <div class='w-full grid lg:grid-cols-12 gap-10 lg:gap-14 items-center'>
 
@@ -90,12 +90,12 @@ const headingSecond = splitIdx !== -1 ? heading.slice(splitIdx + 4)    : ''     
                 <span class='block text-[clamp(1rem,2.2vw,1.8rem)] text-white/40 leading-[1.05] tracking-tight mb-1'>
                   {headingFirst}
                 </span>
-                <span class='block text-[clamp(1.35rem,3.1vw,2.49rem)] text-white leading-[0.93] tracking-tight'>
+                <span class='block text-[clamp(1.55rem,3.1vw,2.49rem)] text-white leading-[0.93] tracking-tight'>
                   {headingSecond}<span class='text-sand'>.</span>
                 </span>
               </>
             ) : (
-              <span class='block text-[clamp(1.35rem,3.1vw,2.49rem)] text-white leading-[1.05] tracking-tight'>
+              <span class='block text-[clamp(1.55rem,3.1vw,2.49rem)] text-white leading-[1.05] tracking-tight'>
                 {heading}
               </span>
             )}

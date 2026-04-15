@@ -14,7 +14,7 @@ interface Props {
 const { items, dark = false } = Astro.props
 ---
 
-<nav aria-label='Breadcrumb' class='mx-auto max-w-7xl px-6 lg:px-8 pt-[calc(var(--navbar-height)+1rem)]'>
+<nav aria-label='Breadcrumb' class='mx-auto max-w-[1280px] px-5 pt-[calc(var(--navbar-height)+1rem)]'>
   <ol class={`flex items-center gap-1.5 text-sm ${dark ? 'text-white/60' : 'text-petrol-600'}`}>
     {items.map((item, idx) => (
       <li class='flex items-center gap-1.5'>

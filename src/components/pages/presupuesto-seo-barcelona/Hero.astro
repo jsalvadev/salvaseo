@@ -81,7 +81,7 @@ const currentYear = new Date().getFullYear()
   {breadcrumbItems && (
     <nav
       aria-label='Breadcrumb'
-      class='relative mx-auto max-w-7xl px-6 lg:px-8 pt-[calc(var(--navbar-height)+1.25rem)]'>
+      class='relative mx-auto max-w-[1280px] px-5 pt-[calc(var(--navbar-height)+1.25rem)]'>
       <ol class='flex items-center gap-1.5 text-sm'>
         {breadcrumbItems.map((item, idx) => (
           <li class='flex items-center gap-1.5'>
@@ -106,7 +106,7 @@ const currentYear = new Date().getFullYear()
   )}
 
   <!-- Main grid -->
-  <div class={`relative mx-auto max-w-7xl px-6 pb-12 sm:pb-16 lg:px-8 lg:pb-20 ${breadcrumbItems ? 'pt-6' : 'pt-20 sm:pt-24 lg:pt-28'}`}>
+  <div class={`relative mx-auto max-w-[1280px] px-5 pb-12 sm:pb-16 lg:pb-20 ${breadcrumbItems ? 'pt-6' : 'pt-20 sm:pt-24 lg:pt-28'}`}>
     <div class='grid lg:grid-cols-[1fr_360px] xl:grid-cols-[1fr_400px] gap-10 lg:gap-16 items-center'>
 
       <!-- LEFT: Content -->

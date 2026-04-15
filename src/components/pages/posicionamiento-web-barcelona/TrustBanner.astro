@@ -38,7 +38,7 @@ const { items = defaultItems } = Astro.props
     class='pointer-events-none absolute inset-0 opacity-[0.04]'
     style='background-image: repeating-linear-gradient(135deg, #7dd3fc 0 1px, transparent 1px 16px);'
     aria-hidden='true'></div>
-  <div class='relative mx-auto max-w-7xl px-6 lg:px-8'>
+  <div class='relative mx-auto max-w-[1280px] px-5'>
     <dl data-animate class='grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4'>
       {items.map((item, idx) => {
         const Icon = iconByKey[item.icon]
