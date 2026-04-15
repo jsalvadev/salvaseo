@@ -35,7 +35,7 @@ const { brand, contact, navigation } = siteConfig
         type='button'
         command='show-modal'
         commandfor='mobile-menu'
-        class='-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-petrol-700 transition-colors duration-200 hover:text-petrol-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2'>
+        class='hamburger-btn -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-petrol-700 transition-colors duration-200 hover:text-petrol-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2'>
         <span class='sr-only'>Abrir menú</span>
         <svg
           viewBox='0 0 24 24'
@@ -125,7 +125,7 @@ const { brand, contact, navigation } = siteConfig
     <dialog id='mobile-menu' class='backdrop:bg-transparent lg:hidden'>
       <div tabindex='0' class='fixed inset-0 focus:outline-none'>
         <el-dialog-panel
-          class='fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-petrol-900 p-6 sm:max-w-sm sm:ring-1 sm:ring-white/10'>
+          class='fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-cream p-6 sm:max-w-sm sm:ring-1 sm:ring-charcoal/10'>
 
           <div class='flex items-center justify-between'>
             <a href='/' class='-m-1.5 p-1.5 flex items-center gap-x-2.5'>
@@ -137,13 +137,13 @@ const { brand, contact, navigation } = siteConfig
                 height='49'
                 class='h-10 w-auto'
               />
-              <span class='brand-wordmark text-xl text-white'>{brand.name}</span>
+              <span class='brand-wordmark text-xl text-charcoal'>{brand.name}</span>
             </a>
             <button
               type='button'
               command='close'
               commandfor='mobile-menu'
-              class='-m-2.5 rounded-md p-2.5 text-petrol-100 transition-colors duration-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500'>
+              class='-m-2.5 rounded-md p-2.5 text-charcoal/60 transition-colors duration-200 hover:text-charcoal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal'>
               <span class='sr-only'>Cerrar menú</span>
               <svg
                 viewBox='0 0 24 24'
@@ -162,19 +162,19 @@ const { brand, contact, navigation } = siteConfig
 
           <div class='mt-8 flow-root'>
             <div class='space-y-0.5'>
-              <p class='px-3 pb-2 text-xs font-semibold uppercase tracking-[0.15em] text-white/50'>
+              <p class='px-3 pb-2 text-xs font-semibold uppercase tracking-[0.15em] text-charcoal/40'>
                 Menú
               </p>
               {navigation.primary.slice(0, 1).map((link) => (
                 <a
                   href={link.href}
-                  class='block rounded-base px-3 py-2.5 text-base font-semibold text-petrol-100 transition-colors duration-150 hover:bg-petrol-800 hover:text-white'>
+                  class='block rounded-base px-3 py-2.5 text-base font-semibold text-charcoal transition-colors duration-150 hover:bg-teal/8 hover:text-teal'>
                   {link.label}
                 </a>
               ))}
               <details>
                 <summary
-                  class='flex cursor-pointer list-none items-center justify-between rounded-base px-3 py-2.5 text-base font-semibold text-petrol-100 transition-colors duration-150 hover:bg-petrol-800 hover:text-white'>
+                  class='flex cursor-pointer list-none items-center justify-between rounded-base px-3 py-2.5 text-base font-semibold text-charcoal transition-colors duration-150 hover:bg-teal/8 hover:text-teal'>
                   Servicios
                   <svg
                     viewBox='0 0 20 20'
@@ -187,11 +187,11 @@ const { brand, contact, navigation } = siteConfig
                       clip-rule='evenodd'></path>
                   </svg>
                 </summary>
-                <div class='mt-1 ml-3 border-l border-petrol-700 pl-3 space-y-0.5'>
+                <div class='mt-1 ml-3 border-l border-charcoal/20 pl-3 space-y-0.5'>
                   {navigation.services.map((service) => (
                     <a
                       href={service.href}
-                      class='block rounded-base px-3 py-2 text-sm font-semibold text-petrol-100/80 transition-colors duration-150 hover:bg-petrol-800 hover:text-white'>
+                      class='block rounded-base px-3 py-2 text-sm font-semibold text-charcoal/70 transition-colors duration-150 hover:bg-teal/8 hover:text-teal'>
                       {service.label}
                     </a>
                   ))}
@@ -200,24 +200,24 @@ const { brand, contact, navigation } = siteConfig
               {navigation.primary.slice(1).map((link) => (
                 <a
                   href={link.href}
-                  class='block rounded-base px-3 py-2.5 text-base font-semibold text-petrol-100 transition-colors duration-150 hover:bg-petrol-800 hover:text-white'>
+                  class='block rounded-base px-3 py-2.5 text-base font-semibold text-charcoal transition-colors duration-150 hover:bg-teal/8 hover:text-teal'>
                   {link.label}
                 </a>
               ))}
               <a
                 href='/#calculadora'
-                class='flex items-center gap-2 rounded-base px-3 py-2.5 text-base font-semibold text-petrol-100 transition-colors duration-150 hover:bg-petrol-800 hover:text-white'>
+                class='flex items-center gap-2 rounded-base px-3 py-2.5 text-base font-semibold text-charcoal transition-colors duration-150 hover:bg-teal/8 hover:text-teal'>
                 Calculadora
                 <span class='calc-badge'>Nuevo</span>
               </a>
 
-              <div class='mt-4 border-t border-petrol-700/60 pt-5'>
-                <p class='px-3 pb-2 text-xs font-semibold uppercase tracking-[0.15em] text-white/50'>
+              <div class='mt-4 border-t border-charcoal/15 pt-5'>
+                <p class='px-3 pb-2 text-xs font-semibold uppercase tracking-[0.15em] text-charcoal/40'>
                   Contacto
                 </p>
                 <a
                   href={`tel:${contact.phone.e164}`}
-                  class='flex items-center gap-2.5 rounded-base px-3 py-3 text-base font-semibold text-white/75 transition-colors duration-150 hover:bg-white/10 hover:text-white'>
+                  class='flex items-center gap-2.5 rounded-base px-3 py-3 text-base font-semibold text-charcoal/70 transition-colors duration-150 hover:bg-teal/8 hover:text-charcoal'>
                   <svg class='h-5 w-5 flex-shrink-0' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                     <path
                       stroke-linecap='round'
@@ -336,6 +336,19 @@ const { brand, contact, navigation } = siteConfig
 
   #site-header:not(.is-scrolled) .brand-wordmark {
     color: white;
+  }
+
+  #site-header:not(.is-scrolled) .hamburger-btn {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  #site-header:not(.is-scrolled) .hamburger-btn:hover {
+    color: white;
+  }
+
+  /* Exception: wordmark inside the mobile panel (cream bg) stays dark */
+  #site-header #mobile-menu .brand-wordmark {
+    color: var(--color-charcoal);
   }
 
   #site-header:not(.is-scrolled) .nav-divider {
