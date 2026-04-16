@@ -26,7 +26,7 @@ const { brand, contact, navigation } = siteConfig
           loading='eager'
           class='h-8 w-auto'
         />
-        <span class='brand-wordmark text-xl text-petrol-900'>{brand.name}</span>
+        <span class='brand-wordmark text-xl text-charcoal'>{brand.name}</span>
       </a>
     </div>
 
@@ -36,7 +36,7 @@ const { brand, contact, navigation } = siteConfig
         type='button'
         command='show-modal'
         commandfor='mobile-menu'
-        class='hamburger-btn -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-petrol-700 transition-colors duration-200 hover:text-petrol-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2'>
+        class='hamburger-btn -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-charcoal transition-colors duration-200 hover:text-charcoal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2'>
         <span class='sr-only'>Abrir menú</span>
         <svg
           viewBox='0 0 24 24'
@@ -79,11 +79,11 @@ const { brand, contact, navigation } = siteConfig
           </svg>
         </button>
         <div class='services-dropdown absolute left-0 z-10 w-72 pt-3'>
-          <div class='overflow-hidden rounded-base bg-white shadow-xl ring-1 ring-petrol-100 py-1.5'>
+          <div class='overflow-hidden rounded-base bg-white shadow-xl ring-1 ring-teal/15 py-1.5'>
             {navigation.services.map((service) => (
               <a
                 href={service.href}
-                class='group/item flex items-center gap-3 px-4 py-2.5 text-sm text-petrol-700 hover:bg-petrol-50 hover:text-petrol-900 transition-colors duration-150'>
+                class='group/item flex items-center gap-3 px-4 py-2.5 text-sm text-charcoal hover:bg-cream hover:text-teal transition-colors duration-150'>
                 <span class='h-1.5 w-1.5 flex-shrink-0 rounded-full bg-teal/30 transition-colors duration-150 group-hover/item:bg-teal'></span>
                 {service.label}
               </a>
@@ -103,7 +103,7 @@ const { brand, contact, navigation } = siteConfig
         <span class='calc-badge'>Nuevo</span>
       </a>
 
-      <div class='nav-divider h-4 w-px bg-petrol-100 transition-colors duration-300' aria-hidden='true'></div>
+      <div class='nav-divider h-4 w-px bg-teal/15 transition-colors duration-300' aria-hidden='true'></div>
 
       <a
         href={`tel:${contact.phone.e164}`}
@@ -274,7 +274,7 @@ const { brand, contact, navigation } = siteConfig
     background-color: rgba(255, 255, 255, 0.97);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 1px 0 rgba(213, 221, 226, 0.9), 0 2px 8px rgba(26, 60, 74, 0.06);
+    box-shadow: 0 1px 0 rgba(213, 221, 226, 0.9), 0 2px 8px rgba(52, 101, 109, 0.06);
   }
 
   /* ── Brand wordmark ── */
@@ -288,7 +288,7 @@ const { brand, contact, navigation } = siteConfig
   .nav-link {
     position: relative;
     padding-bottom: 2px;
-    color: var(--color-petrol-700);
+    color: var(--color-charcoal);
     transition: color 0.2s ease;
     text-decoration: none;
   }
@@ -308,7 +308,7 @@ const { brand, contact, navigation } = siteConfig
 
   .nav-link:hover,
   .nav-link:focus-visible {
-    color: var(--color-petrol-900);
+    color: var(--color-teal);
   }
 
   .nav-link:hover::after,

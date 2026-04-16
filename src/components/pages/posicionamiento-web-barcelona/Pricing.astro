@@ -48,28 +48,28 @@ const {
 ---
 
 <div class='px-6 py-32 lg:px-8'>
-  <div class='mx-auto max-w-3xl text-base/7 text-petrol-700'>
+  <div class='mx-auto max-w-3xl text-base/7 text-body'>
     <Upheading as='h2' text={upheading} />
     <p
-      class='mt-2 text-4xl font-semibold tracking-tight text-pretty text-petrol-900 sm:text-5xl'>
+      class='mt-2 text-4xl font-semibold tracking-tight text-pretty text-charcoal sm:text-5xl'>
       {heading}
     </p>
     {priceHighlight && (
       <div class='my-8 flex items-center gap-4 rounded-xl border border-teal/10 bg-teal/5 px-6 py-5'>
-        <span class='text-3xl font-bold text-petrol-900'>{priceHighlight}</span>
-        <span class='text-sm text-petrol-600'>· Definido tras diagnóstico gratuito · Sin contratos</span>
+        <span class='text-3xl font-bold text-charcoal'>{priceHighlight}</span>
+        <span class='text-sm text-teal'>· Definido tras diagnóstico gratuito · Sin contratos</span>
       </div>
     )}
     <p class='mt-6 text-xl/8'>
       <Fragment set:html={intro} />
     </p>
 
-    <div class='mt-10 max-w-2xl text-petrol-600'>
+    <div class='mt-10 max-w-2xl text-teal'>
       <p>
         <Fragment set:html={costContext} />
       </p>
 
-      <ul role='list' class='mt-8 max-w-xl space-y-8 text-petrol-600'>
+      <ul role='list' class='mt-8 max-w-xl space-y-8 text-teal'>
         {features.map((feature) => (
           <li class='flex gap-x-3'>
             <svg
@@ -85,7 +85,7 @@ const {
               />
             </svg>
             <span>
-              <strong class='font-semibold text-petrol-900'>{feature.title}</strong>
+              <strong class='font-semibold text-charcoal'>{feature.title}</strong>
               {' '}{feature.description}
             </span>
           </li>
@@ -93,7 +93,7 @@ const {
       </ul>
 
       <h3
-        class='mt-16 text-3xl font-semibold tracking-tight text-pretty text-petrol-900'>
+        class='mt-16 text-3xl font-semibold tracking-tight text-pretty text-charcoal'>
         {subheading}
       </h3>
       <p class='mt-6'>
@@ -118,16 +118,16 @@ const {
       </div>
     </div>
 
-    <div class='mt-16 max-w-2xl text-petrol-600'>
+    <div class='mt-16 max-w-2xl text-teal'>
       <h3
-        class='text-3xl font-semibold tracking-tight text-pretty text-petrol-900'>
+        class='text-3xl font-semibold tracking-tight text-pretty text-charcoal'>
         {bottomHeading}
       </h3>
       <ul role='list' class='mt-6 space-y-8'>
         {bottomItems.map((item) => (
           <li class='border-l-2 border-teal/20 pl-4 py-2'>
             <p>
-              <strong class='text-petrol-900'>{item.title}</strong> {item.description}
+              <strong class='text-charcoal'>{item.title}</strong> {item.description}
             </p>
           </li>
         ))}

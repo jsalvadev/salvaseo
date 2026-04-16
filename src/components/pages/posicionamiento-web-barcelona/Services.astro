@@ -68,7 +68,7 @@ const services = [
   <div
     class='pointer-events-none absolute inset-0'
     aria-hidden='true'
-    style='background-image: radial-gradient(circle, rgba(26,60,74,0.07) 1px, transparent 1px); background-size: 28px 28px;'
+    style='background-image: radial-gradient(circle, rgba(52,101,109,0.07) 1px, transparent 1px); background-size: 28px 28px;'
   ></div>
 
   <!-- ── Faded Titan One watermark ─────────────────────────────────── -->
@@ -84,12 +84,12 @@ const services = [
   <div
     class='pointer-events-none absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full'
     aria-hidden='true'
-    style='background: radial-gradient(circle, rgba(14,165,233,0.05) 0%, transparent 65%);'
+    style='background: radial-gradient(circle, rgba(52,101,109,0.05) 0%, transparent 65%);'
   ></div>
 
   <!-- ── Top / bottom hairlines ────────────────────────────────────── -->
-  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-petrol-100 to-transparent' aria-hidden='true'></div>
-  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-petrol-100 to-transparent' aria-hidden='true'></div>
+  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-teal/15 to-transparent' aria-hidden='true'></div>
+  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-teal/15 to-transparent' aria-hidden='true'></div>
 
   <div class='relative mx-auto max-w-[1280px] px-5'>
 
@@ -122,7 +122,7 @@ const services = [
       </div>
 
       <!-- Subtitle -->
-      <p data-animate class='mt-6 text-base md:text-lg text-petrol-700 leading-relaxed text-pretty max-w-[52ch]'>
+      <p data-animate class='mt-6 text-base md:text-lg text-body leading-relaxed text-pretty max-w-[52ch]'>
         <Fragment set:html={subtitle} />
       </p>
     </div>
@@ -193,7 +193,7 @@ const services = [
             <div class='flex flex-col gap-5 p-6 flex-1'>
 
               <!-- Intro -->
-              <p class='text-sm/6 text-petrol-700 text-pretty'>
+              <p class='text-sm/6 text-body text-pretty'>
                 {service.intro}
               </p>
 
@@ -206,8 +206,8 @@ const services = [
                   <li class='flex gap-3'>
                     <Check class='mt-0.5 size-4 shrink-0 text-teal' aria-hidden='true' />
                     <span>
-                      <span class='text-sm font-semibold text-petrol-900'>{bullet.label}</span>
-                      <span class='text-sm text-petrol-600'> — {bullet.body}</span>
+                      <span class='text-sm font-semibold text-charcoal'>{bullet.label}</span>
+                      <span class='text-sm text-teal'> — {bullet.body}</span>
                     </span>
                   </li>
                 ))}

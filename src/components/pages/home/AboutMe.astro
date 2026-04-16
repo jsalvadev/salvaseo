@@ -34,7 +34,7 @@ import { Mail, Phone } from '@lucide/astro'
           class='absolute -bottom-4 -right-4 w-full h-full rounded-2xl bg-teal/10 border border-teal/20'
           aria-hidden='true'></div>
         <div
-          class='absolute -bottom-2 -right-2 w-full h-full rounded-2xl bg-sky-500/8 border border-sky-100'
+          class='absolute -bottom-2 -right-2 w-full h-full rounded-2xl bg-teal/8 border border-teal/20'
           aria-hidden='true'></div>
 
         <img
@@ -43,7 +43,7 @@ import { Mail, Phone } from '@lucide/astro'
           height={aboutMeImage.height}
           loading='lazy'
           alt='Salvador Jesús, consultor SEO freelance en Barcelona'
-          class='relative aspect-4/5 w-56 sm:w-64 rounded-2xl object-cover shadow-2xl shadow-petrol-900/15 ring-1 ring-petrol-900/5'
+          class='relative aspect-4/5 w-56 sm:w-64 rounded-2xl object-cover shadow-2xl shadow-charcoal/15 ring-1 ring-charcoal/5'
         />
 
         <!-- Orange corner dot -->
@@ -67,7 +67,7 @@ import { Mail, Phone } from '@lucide/astro'
         <!-- Name + Role -->
         <div class='space-y-1.5'>
           <p
-            class='text-[clamp(1.55rem,3.1vw,2.49rem)] tracking-tight text-petrol-900'
+            class='text-[clamp(1.55rem,3.1vw,2.49rem)] tracking-tight text-charcoal'
             style='font-family: "Titan One", cursive;'>
             ¿Quién demonios soy?
           </p>
@@ -83,7 +83,7 @@ import { Mail, Phone } from '@lucide/astro'
         </div>
 
         <!-- Bio -->
-        <p class='text-base/7 text-petrol-700 text-pretty'>
+        <p class='text-base/7 text-body text-pretty'>
           Me llamo Salva y hago que los negocios locales dejen de ser invisibles en Google. Soy muy analítico, así que todo lo que hago se mide: más llamadas, más mensajes, más presupuestos. Si se puede medir, se puede mejorar.
         </p>
 
@@ -99,22 +99,22 @@ import { Mail, Phone } from '@lucide/astro'
               'Yoast SEO',
               'DinoRank',
             ].map((tool) => (
-              <span class='inline-flex items-center rounded-full bg-white px-3 py-1 text-xs font-medium text-petrol-700 ring-1 ring-inset ring-petrol-200'>
+              <span class='inline-flex items-center rounded-full bg-white px-3 py-1 text-xs font-medium text-charcoal ring-1 ring-inset ring-teal/20'>
                 {tool}
               </span>
             ))
           }
         </div>
 
-        <hr class='border-petrol-100' />
+        <hr class='border-teal/15' />
 
         <!-- Contact links -->
         <div class='flex flex-wrap gap-4'>
           <a
             href='mailto:salvadorjesus.seo@gmail.com'
-            class='group inline-flex items-center gap-2.5 text-sm text-petrol-700 hover:text-teal transition-colors duration-200'>
+            class='group inline-flex items-center gap-2.5 text-sm text-charcoal hover:text-teal transition-colors duration-200'>
             <span
-              class='flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-petrol-50 ring-1 ring-petrol-100 group-hover:bg-teal/5 group-hover:ring-teal/20 transition-all duration-200'>
+              class='flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-cream ring-1 ring-teal/15 group-hover:bg-teal/5 group-hover:ring-teal/20 transition-all duration-200'>
               <Mail class='h-4 w-4' />
             </span>
             salvadorjesus.seo@gmail.com
@@ -122,9 +122,9 @@ import { Mail, Phone } from '@lucide/astro'
 
           <a
             href='tel:+34692051399'
-            class='group inline-flex items-center gap-2.5 text-sm text-petrol-700 hover:text-teal transition-colors duration-200'>
+            class='group inline-flex items-center gap-2.5 text-sm text-charcoal hover:text-teal transition-colors duration-200'>
             <span
-              class='flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-petrol-50 ring-1 ring-petrol-100 group-hover:bg-teal/5 group-hover:ring-teal/20 transition-all duration-200'>
+              class='flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-cream ring-1 ring-teal/15 group-hover:bg-teal/5 group-hover:ring-teal/20 transition-all duration-200'>
               <Phone class='h-4 w-4' />
             </span>
             +34 692 051 399

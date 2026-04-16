@@ -10,6 +10,7 @@ import LocalBusinessTypes from '../components/pages/seo-local-barcelona/Business
 import LocalSeoFaq from '../components/pages/home/Faq.astro'
 import { faqSeoLocalItems } from '../data/faq-seo-local'
 import LocalSeoCta from '../components/pages/seo-local-barcelona/Cta.astro'
+import RelatedServices from '../components/pages/seo-local-barcelona/RelatedServices.astro'
 import GoogleMapEmbed from '../components/shared/GoogleMapEmbed.astro'
 import Breadcrumb from '../components/Breadcrumb.astro'
 
@@ -21,7 +22,7 @@ const seoLocalExplainerItems = [
     icon: 'search',
     title: 'Canal distinto, cliente distinto.',
     description:
-      'El <a href="/posicionamiento-web-barcelona/" class="text-sky-600 font-medium hover:text-sky-700 underline decoration-sky-200 underline-offset-2 transition-colors">posicionamiento web en Barcelona</a> atrae visitantes a nivel nacional. El SEO local te posiciona en Google Maps, Local Pack y resultados de búsqueda geolocalizados, donde están los <strong>clientes potenciales de tu barrio dispuestos a pagar hoy</strong>. Dos estrategias complementarias, dos tipos de tráfico cualificado.'
+      'El <a href="/posicionamiento-web-barcelona/" class="text-teal font-medium hover:text-teal/80 underline decoration-teal/30 underline-offset-2 transition-colors">posicionamiento web en Barcelona</a> atrae visitantes a nivel nacional. El SEO local te posiciona en Google Maps, Local Pack y resultados de búsqueda geolocalizados, donde están los <strong>clientes potenciales de tu barrio dispuestos a pagar hoy</strong>. Dos estrategias complementarias gestionadas por el mismo <a href="/" class="text-teal font-medium hover:text-teal/80 underline decoration-teal/30 underline-offset-2 transition-colors">consultor SEO en Barcelona</a>, dos tipos de tráfico cualificado.'
   },
   {
     icon: 'layoutGrid',
@@ -33,7 +34,7 @@ const seoLocalExplainerItems = [
     icon: 'mapPin',
     title: 'Tres factores que determinan si Google muestra tu negocio o el de tu competidor.',
     description:
-      'Google prioriza negocios por relevancia de servicio, distancia y reputación online. Cuando estas señales se optimizan con una estrategia de SEO local, tu negocio aparece en los primeros resultados de Google, <strong>recibe más llamadas cualificadas y convierte búsquedas locales en facturación y crecimiento</strong>.'
+      'Google prioriza negocios por relevancia de servicio, distancia y reputación online. Cuando estas señales se optimizan con una estrategia de SEO local, tu negocio aparece en los primeros resultados de Google, <strong>recibe más llamadas cualificadas y convierte búsquedas locales en facturación y crecimiento</strong>. Consulta los <a href="/presupuesto-seo-barcelona/" class="text-teal font-medium hover:text-teal/80 underline decoration-teal/30 underline-offset-2 transition-colors">paquetes de SEO local y precios</a>.'
   },
 ]
 
@@ -132,9 +133,9 @@ const seoLocalTimelinePhases = [
 const seoLocalVsAdsLeftColumn = {
   title: 'SEO local',
   icon: 'trendingUp',
-  accentClass: 'bg-sky-600',
-  ringClass: 'ring-sky-200',
-  noteClass: 'bg-sky-50',
+  accentClass: 'bg-teal',
+  ringClass: 'ring-teal/30',
+  noteClass: 'bg-cream',
   note: '<strong>Ideal para:</strong> negocios locales que buscan estabilidad, crecimiento a medio plazo y reducir la dependencia de la publicidad de pago.',
   bullets: [
     {
@@ -295,6 +296,8 @@ const seoLocalBusinessTypes = [
   <!-- 9. MAPA -->
   <GoogleMapEmbed ariaLabelledbyId='mapa-seo-local-barcelona' />
 
+  <!-- 10. RELATED SERVICES -->
+  <RelatedServices />
 
   <!-- JSON-LD Structured Data -->
   <script

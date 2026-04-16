@@ -15,11 +15,11 @@ const { items, dark = false } = Astro.props
 ---
 
 <nav aria-label='Breadcrumb' class='mx-auto max-w-[1280px] px-5 pt-[calc(var(--navbar-height)+1rem)]'>
-  <ol class={`flex items-center gap-1.5 text-sm ${dark ? 'text-white/60' : 'text-petrol-600'}`}>
+  <ol class={`flex items-center gap-1.5 text-sm ${dark ? 'text-white/60' : 'text-teal'}`}>
     {items.map((item, idx) => (
       <li class='flex items-center gap-1.5'>
         {idx > 0 && (
-          <ChevronRight class={`size-3.5 shrink-0 ${dark ? 'text-white/30' : 'text-petrol-300'}`} aria-hidden='true' />
+          <ChevronRight class={`size-3.5 shrink-0 ${dark ? 'text-white/30' : 'text-teal/40'}`} aria-hidden='true' />
         )}
         {item.href ? (
           <a
@@ -28,7 +28,7 @@ const { items, dark = false } = Astro.props
             {item.label}
           </a>
         ) : (
-          <span class={`font-medium ${dark ? 'text-white' : 'text-petrol-900'}`} aria-current='page'>
+          <span class={`font-medium ${dark ? 'text-white' : 'text-charcoal'}`} aria-current='page'>
             {item.label}
           </span>
         )}

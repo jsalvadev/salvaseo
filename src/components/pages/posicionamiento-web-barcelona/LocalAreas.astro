@@ -23,14 +23,14 @@ const { upheading, heading, intro, areas } = Astro.props
   <div
     class='pointer-events-none absolute inset-0'
     aria-hidden='true'
-    style='background-image: radial-gradient(circle, rgba(26,60,74,0.05) 1px, transparent 1px); background-size: 32px 32px;'
+    style='background-image: radial-gradient(circle, rgba(52,101,109,0.05) 1px, transparent 1px); background-size: 32px 32px;'
   ></div>
 
   <!-- Ghost watermark -->
   <div
     class='pointer-events-none absolute -right-8 top-1/2 -translate-y-1/2 select-none leading-none'
     aria-hidden='true'
-    style='font-family: "Titan One", cursive; font-size: clamp(10rem, 22vw, 18rem); color: rgba(249,115,22,0.04); line-height: 1; white-space: nowrap;'
+    style='font-family: "Titan One", cursive; font-size: clamp(10rem, 22vw, 18rem); color: rgba(52,101,109,0.04); line-height: 1; white-space: nowrap;'
   >
     CAT
   </div>
@@ -39,7 +39,7 @@ const { upheading, heading, intro, areas } = Astro.props
   <div
     class='pointer-events-none absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full'
     aria-hidden='true'
-    style='background: radial-gradient(circle, rgba(14,165,233,0.04) 0%, transparent 65%);'
+    style='background: radial-gradient(circle, rgba(52,101,109,0.04) 0%, transparent 65%);'
   ></div>
 
   <!-- Diagonal tension lines -->
@@ -49,13 +49,13 @@ const { upheading, heading, intro, areas } = Astro.props
     preserveAspectRatio='none'
     xmlns='http://www.w3.org/2000/svg'
   >
-    <line x1='0%' y1='100%' x2='30%' y2='0%' stroke='rgba(26,60,74,0.04)' stroke-width='1' />
-    <line x1='70%' y1='100%' x2='100%' y2='0%' stroke='rgba(249,115,22,0.03)' stroke-width='1' />
+    <line x1='0%' y1='100%' x2='30%' y2='0%' stroke='rgba(52,101,109,0.04)' stroke-width='1' />
+    <line x1='70%' y1='100%' x2='100%' y2='0%' stroke='rgba(52,101,109,0.03)' stroke-width='1' />
   </svg>
 
   <!-- Top/bottom hairlines -->
-  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-petrol-100 to-transparent' aria-hidden='true'></div>
-  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-petrol-100 to-transparent' aria-hidden='true'></div>
+  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-teal/15 to-transparent' aria-hidden='true'></div>
+  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-teal/15 to-transparent' aria-hidden='true'></div>
 
   <div class='relative mx-auto max-w-[1280px] px-5'>
 
@@ -114,7 +114,7 @@ const { upheading, heading, intro, areas } = Astro.props
             <div
               class='pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 select-none leading-none transition-opacity duration-300 opacity-100 group-hover:opacity-[1.5]'
               aria-hidden='true'
-              style='font-family: "Titan One", cursive; font-size: 7rem; color: rgba(26,60,74,0.06); line-height: 1;'
+              style='font-family: "Titan One", cursive; font-size: 7rem; color: rgba(52,101,109,0.06); line-height: 1;'
             >
               {padNum}
             </div>
@@ -145,20 +145,20 @@ const { upheading, heading, intro, areas } = Astro.props
 
               <!-- City row meta -->
               <div class='flex items-center gap-2.5 mb-2'>
-                <span class='label-micro text-petrol-600/40'>
+                <span class='label-micro text-teal/40'>
                   {padNum}
                 </span>
-                <MapPin aria-hidden='true' class='size-3 text-petrol-600/40' />
-                <span class='label-micro text-petrol-600/40'>
+                <MapPin aria-hidden='true' class='size-3 text-teal/40' />
+                <span class='label-micro text-teal/40'>
                   Cataluña
                 </span>
               </div>
 
-              <h3 class='text-lg font-semibold text-petrol-900 leading-snug mb-2.5'>
+              <h3 class='text-lg font-semibold text-charcoal leading-snug mb-2.5'>
                 {area.title}
               </h3>
 
-              <p class='text-sm/6 text-petrol-600 text-pretty transition-colors duration-300 group-hover:text-petrol-700 max-w-[60ch]'>
+              <p class='text-sm/6 text-teal text-pretty transition-colors duration-300 group-hover:text-teal/80 max-w-[60ch]'>
                 {area.description}
               </p>
             </div>

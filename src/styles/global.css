@@ -28,28 +28,6 @@
 }
 
 @theme {
-  /* Petrol Blue (supporting neutrals) */
-  --color-petrol-50: #F7F9FA;
-  --color-petrol-100: #EEF3F5;
-  --color-petrol-600: #3A6D82;
-  --color-petrol-700: #2A5566;
-  --color-petrol-900: #1A3C4A;
-
-  /* Primary */
-  --color-sky-50: #f0f9ff;
-  --color-sky-100: #e0f2fe;
-  --color-sky-500: #0ea5e9;
-  --color-sky-600: #0284c7;
-  --color-sky-a11y: #0279b8; /* sky-600 adjusted for WCAG AA 4.5:1 on white (4.74:1) */
-
-  /* Secondary */
-  --color-orange-50: #fff7ed;
-  --color-orange-400: #fb923c;
-  --color-orange-500: #f97316;
-
-  /* Petrol extended */
-  --color-petrol-800: #1e4d5e;
-
   /* ── 2026 Brand Palette ───────────────────────────────────────────────── */
   --color-cream: #FAF8F1;       /* 60% — page background, transparent sections */
   --color-sand: #FAEAB1;        /* 10% — accent: badges, bars on dark sections */
@@ -66,8 +44,8 @@
   --color-maps-green: #34a853;
 
   /* Card tokens for custom utility classes used in content blocks */
-  --color-neutral-primary-soft: var(--color-petrol-50);
-  --color-neutral-secondary-medium: var(--color-petrol-100);
+  --color-neutral-primary-soft: #F0EDE5;
+  --color-neutral-secondary-medium: #E8E3D8;
   --color-heading: var(--color-charcoal);
   --color-body: var(--color-charcoal);
   --color-fg-brand: var(--color-teal);
@@ -106,14 +84,11 @@
   color: var(--color-fg-brand);
 }
 
-@utility text-sky-a11y {
-  color: var(--color-sky-a11y);
-}
 
 /* ── Falsos titulares (eyebrow labels) ──────────────────────────────────── */
 /*
  * Three-tier system for decorative uppercase labels (never the real heading).
- * Apply color separately with a text-* class (e.g. text-orange-500).
+ * Apply color separately with a text-* class (e.g. text-teal, text-sand).
  *
  *  label-section  →  eyebrow above section headings       ~11.9 px
  *  label-ui       →  labels inside UI components          ~10.2 px
@@ -212,9 +187,6 @@
   color: var(--color-maps-green);
 }
 
-@utility bg-orange-soft {
-  background-color: var(--color-orange-50);
-}
 
 :root {
   --navbar-height: 56px;

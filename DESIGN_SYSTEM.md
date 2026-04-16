@@ -22,7 +22,7 @@
 
 These five principles govern every visual and structural decision in SalvaSEO.
 
-**1. Dark with luminous accents.** The primary aesthetic is dark (`bg-petrol-900`) with controlled, intentional pops of color (sky blue for CTAs, orange for highlights). Light sections exist but are the exception.
+**1. Dark with luminous accents.** The primary aesthetic is dark (`bg-teal`) with controlled, intentional pops of color (sand for highlights, teal for CTAs). Light sections exist but are the exception.
 
 **2. Accessibility is non-negotiable.** Every interactive element must be keyboard-accessible with visible focus rings. Contrast ratios follow WCAG AA (4.5:1 minimum for body text). Motion must respect `prefers-reduced-motion`.
 
@@ -40,34 +40,14 @@ All tokens are defined in `src/styles/global.css` under `@theme`. **Never hardco
 
 ### 2.1 Color Palette
 
-#### Petrol — Supporting neutrals (dark backgrounds, text)
+#### 2026 Brand Palette
 
 | Token | Value | Usage |
 |---|---|---|
-| `petrol-50` | `#F7F9FA` | Soft card background (light sections) |
-| `petrol-100` | `#EEF3F5` | Medium card background (light sections) |
-| `petrol-600` | `#3A6D82` | Muted text on dark backgrounds |
-| `petrol-700` | `#2A5566` | Body text on light backgrounds |
-| `petrol-800` | `#1e4d5e` | Hover state for dark section cells |
-| `petrol-900` | `#1A3C4A` | **Primary dark background** |
-
-#### Sky — Primary brand / CTA
-
-| Token | Value | Usage |
-|---|---|---|
-| `sky-50` | `#f0f9ff` | Very soft sky tint |
-| `sky-100` | `#e0f2fe` | Soft sky background |
-| `sky-500` | `#0ea5e9` | Primary CTA button, section upheadings, step pills |
-| `sky-600` | `#0284c7` | Brand foreground (`text-fg-brand`) |
-| `sky-a11y` | `#0279b8` | Sky text on **white** backgrounds (WCAG AA 4.5:1) |
-
-#### Orange — Secondary accent / highlight
-
-| Token | Value | Usage |
-|---|---|---|
-| `orange-50` | `#fff7ed` | Soft orange background |
-| `orange-400` | `#fb923c` | Accent text, step labels, card hover text |
-| `orange-500` | `#f97316` | Decorative rules, card left accent bar, step pills |
+| `cream` | `#FAF8F1` | Page root background, light card backgrounds |
+| `sand` | `#FAEAB1` | Decorative accents, eyebrow rules, highlight text on dark bg |
+| `teal` | `#34656D` | **Primary brand color** — CTAs, upheadings, icons, dark section bg |
+| `charcoal` | `#334443` | **Primary text** — headings and body on light backgrounds |
 
 #### Semantic aliases
 
@@ -75,13 +55,12 @@ Always prefer these semantic utilities over raw palette tokens:
 
 | Utility class | Maps to | Use for |
 |---|---|---|
-| `text-heading` | `petrol-900` | All headings on light backgrounds |
-| `text-body` | `petrol-700` | All body text on light backgrounds |
-| `text-fg-brand` | `sky-600` | Brand-colored inline text on light backgrounds |
-| `text-sky-a11y` | `sky-a11y` | Sky-colored text on white (accessibility-safe) |
-| `bg-neutral-primary-soft` | `petrol-50` | Card/section backgrounds (light) |
-| `bg-neutral-secondary-medium` | `petrol-100` | Slightly darker card backgrounds (light) |
-| `border-default` | `#d5dde2` | Default border color on light sections |
+| `text-heading` | `charcoal` | All headings on light backgrounds |
+| `text-body` | `charcoal` | All body text on light backgrounds |
+| `text-fg-brand` | `teal` | Brand-colored inline text on light backgrounds |
+| `bg-neutral-primary-soft` | `#F0EDE5` | Card/section backgrounds (light) |
+| `bg-neutral-secondary-medium` | `#E8E3D8` | Slightly darker card backgrounds (light) |
+| `border-default` | `#d6cbb8` | Default border color on light sections |
 | `rounded-base` | `0.5rem` | Standard border radius |
 
 #### Special colors (use only for their specific purpose)
@@ -89,7 +68,6 @@ Always prefer these semantic utilities over raw palette tokens:
 | Token | Value | Usage |
 |---|---|---|
 | `warm-white` | `#FAFAF8` | Site background (page root) |
-| `sandstone-50` | `#fdf8f3` | Barcelona landing page warm accent |
 | `maps-green` | `#34a853` | Google Maps pin icon |
 | `#25D366` / `#1FAD54` | WhatsApp brand green | **WhatsApp button only** |
 
@@ -120,12 +98,12 @@ Always prefer these semantic utilities over raw palette tokens:
 #### Section labels / eyebrows (DM Sans)
 
 ```
-text-[0.7rem] font-bold uppercase tracking-[0.22em] text-orange-400
+text-[0.7rem] font-bold uppercase tracking-[0.22em] text-sand
 ```
-Used as small all-caps labels with a horizontal rule before them. Always pair with `aria-label` or ensure a parent heading provides context.
+Used as small all-caps labels with a horizontal rule before them (on dark bg). Always pair with `aria-label` or ensure a parent heading provides context.
 
 ```
-text-xs font-semibold tracking-[0.15em] uppercase text-sky-400
+text-xs font-semibold tracking-[0.15em] uppercase text-teal
 ```
 Used inside step pills (process cards).
 
@@ -142,8 +120,8 @@ Rendered via `<Upheading>` component — color passed as prop.
 |---|---|
 | Body paragraph (dark bg) | `text-base/7 text-white/85` or `text-base md:text-lg text-white/55 leading-relaxed text-pretty` |
 | Body paragraph (light bg) | `text-body text-base/7` or `text-lg leading-relaxed text-pretty` |
-| Body paragraph (muted dark) | `text-petrol-600` or `text-petrol-100` |
-| Small / caption | `text-sm text-white/50` or `text-sm text-petrol-600` |
+| Body paragraph (muted dark) | `text-white/60` or `text-white/75` |
+| Small / caption | `text-sm text-white/50` or `text-sm text-charcoal/60` |
 
 #### Heading hierarchy — SEO-first strategy
 
@@ -165,7 +143,7 @@ This project uses an **SEO-first heading structure**: the small-caps eyebrow lab
 **Example — correct:**
 ```astro
 <!-- Eyebrow = h2 → keyword for Google -->
-<h2 class="text-[0.7rem] font-bold uppercase tracking-[0.22em] text-orange-400">
+<h2 class="text-[0.7rem] font-bold uppercase tracking-[0.22em] text-sand">
   Consultor SEO en Barcelona
 </h2>
 
