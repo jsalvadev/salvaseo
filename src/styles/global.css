@@ -183,6 +183,10 @@
   font-weight: 700;
 }
 
+@utility heading-display {
+  font-size: var(--heading-display);
+}
+
 @utility text-maps-green {
   color: var(--color-maps-green);
 }
@@ -190,6 +194,7 @@
 
 :root {
   --navbar-height: 56px;
+  --heading-display: clamp(2rem, 4.5vw, 3.5rem);
 
   /* ── Design System ─────────────────────────────────────────────────────── */
   /* rem min/max from 62.5%-base spec converted to px (1rem = 10px).         */
