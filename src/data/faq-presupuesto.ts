@@ -40,7 +40,7 @@ export const faqPresupuestoItems: FaqItem[] = [
   {
     question: '¿Los precios incluyen IVA?',
     answer: `<p class="text-base/7 text-charcoal">
-      Sí. Los <strong>350 €/mes y 550 €/mes son el precio final con IVA incluido</strong>. No hay costes ocultos ni conceptos adicionales. Lo que ves es lo que se factura.
+      No. Los <strong>350 €/mes y 550 €/mes son precios sin IVA</strong>. El IVA (21%) se añade en factura. Sin costes ocultos ni conceptos adicionales.
     </p>`,
   },
   {

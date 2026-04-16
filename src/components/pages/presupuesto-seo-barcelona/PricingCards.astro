@@ -13,14 +13,13 @@ interface PricingTier {
   commitment: string
   commitmentMonths: number
   savings?: string
-  hidden?: boolean
 }
 
 const tiers: PricingTier[] = [
   {
     name: 'Visibilidad Local',
     price: '350 €',
-    unit: '/mes IVA incl.',
+    unit: '/mes + IVA',
     description: 'Deja de ser invisible en tu zona y empieza a recibir llamadas de clientes que tienes a la vuelta de la esquina.',
     commitment: 'Compromiso recomendado: 3 meses',
     commitmentMonths: 3,
@@ -42,7 +41,7 @@ const tiers: PricingTier[] = [
   {
     name: 'Visibilidad Total',
     price: '550 €',
-    unit: '/mes IVA incl.',
+    unit: '/mes + IVA',
     description: 'Sal de la sombra en toda la ciudad. Una estrategia de asalto para dominar las búsquedas más rentables de Barcelona.',
     commitment: 'Compromiso recomendado: 4 meses',
     commitmentMonths: 4,
@@ -63,20 +62,6 @@ const tiers: PricingTier[] = [
     ],
     cta: 'Solicita tu diagnóstico',
     ctaHref: 'https://wa.me/34692051399?text=Hola%20Salva%2C%20me%20interesa%20el%20Plan%20Visibilidad%20Total%20de%20550%E2%82%AC%2Fmes.%20%C2%BFPodemos%20hacer%20el%20diagn%C3%B3stico%20inicial%3F',
-    hidden: false,
-  },
-  {
-    name: 'Ficha + Web',
-    price: '800 €',
-    unit: '/mes IVA incl.',
-    description: 'Google Maps + posicionamiento orgánico. El proyecto SEO más completo para dominar las búsquedas locales en Barcelona.',
-    commitment: 'Compromiso recomendado: 6 meses',
-    commitmentMonths: 6,
-    featured: false,
-    hidden: true,
-    features: [],
-    cta: 'Solicita tu diagnóstico',
-    ctaHref: '',
   },
 ]
 
@@ -136,7 +121,7 @@ const TOTAL_SEGMENTS = 6
 
     <!-- Pricing cards grid -->
     <div class='grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8 max-w-5xl'>
-      {tiers.filter(t => !t.hidden).map((tier, index) => (
+      {tiers.map((tier, index) => (
         <div
           data-animate
           style={tier.featured
@@ -283,7 +268,7 @@ const TOTAL_SEGMENTS = 6
     <p
       class='mt-8 max-w-5xl text-sm text-charcoal/50'
       data-animate>
-      Precios con IVA incluido. Sin permanencia ni letra pequeña. ¿Quieres saber más antes de decidir? Lee sobre mi metodología como <a href='/' class='text-teal hover:text-teal/80 underline decoration-teal/30 underline-offset-2 transition-colors'>consultor SEO en Barcelona</a>.
+      Precios sin IVA. Sin permanencia ni letra pequeña. ¿Quieres saber más antes de decidir? Lee sobre mi metodología como <a href='/' class='text-teal hover:text-teal/80 underline decoration-teal/30 underline-offset-2 transition-colors'>consultor SEO en Barcelona</a>.
     </p>
 
   </div>
