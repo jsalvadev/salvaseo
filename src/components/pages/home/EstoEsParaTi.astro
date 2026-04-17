@@ -7,23 +7,19 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
   <!-- Dot-grid texture overlay -->
   <div
     class='pointer-events-none absolute inset-0'
-    aria-hidden='true'
-    style='background-image: radial-gradient(circle, rgba(255,255,255,0.028) 1px, transparent 1px); background-size: 32px 32px;'>
+    aria-hidden='true'>
   </div>
 
   <!-- Large ghosted watermark -->
-  <div
-    class='pointer-events-none absolute -left-10 top-1/2 -translate-y-1/2 select-none leading-none'
-    aria-hidden='true'
-    style='font-family: "Titan One", cursive; font-size: clamp(14rem, 28vw, 24rem); color: rgba(250,234,177,0.08); line-height: 1; white-space: nowrap;'>
+  <div class="font-display pointer-events-none absolute -left-10 top-1/2 -translate-y-1/2 select-none leading-none"
+    aria-hidden='true'>
     TÚ
   </div>
 
   <!-- Radial ambient top-right -->
   <div
     class='pointer-events-none absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full'
-    aria-hidden='true'
-    style='background: radial-gradient(circle, rgba(52,101,109,0.05) 0%, transparent 65%);'>
+    aria-hidden='true'>
   </div>
 
   <!-- Top / bottom hairline accents -->
@@ -38,19 +34,19 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
 
         <div data-animate class='flex items-center gap-3 mb-8'>
           <span class='block h-px w-10 bg-sand' aria-hidden='true'></span>
-          <h2 class='label-section text-sand'>
+          <h2 class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-sand'>
             Consultor SEO cerca de ti
           </h2>
         </div>
 
         <p
           data-animate
-          style='font-family: "Titan One", cursive;'
+
           class='leading-[0.9] tracking-tight'>
-          <span class='block heading-display text-white/55 mb-1'>
+          <span class='block font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] text-white/55 mb-1'>
             Esto es
           </span>
-          <span class='block heading-display text-white'>
+          <span class='block font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] text-white'>
             para ti si<span class='text-sand'>.</span>
           </span>
         </p>
@@ -123,10 +119,8 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
             </div>
 
             <!-- Ghost ordinal number background -->
-            <div
-              class='pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 select-none leading-none transition-opacity duration-300 opacity-60 group-hover:opacity-100'
-              aria-hidden='true'
-              style={`font-family: "Titan One", cursive; font-size: 5rem; color: rgba(250,234,177,0.10); line-height: 1;`}>
+            <div class="font-display pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 select-none leading-none transition-opacity duration-300 opacity-60 group-hover:opacity-100"
+              aria-hidden='true'>
               {item.num}
             </div>
 

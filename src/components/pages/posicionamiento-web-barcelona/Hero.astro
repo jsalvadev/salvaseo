@@ -44,15 +44,13 @@ const waHref = buildWhatsAppHref()
   <!-- Radial ambient — top left (teal) -->
   <div
     class='pointer-events-none absolute -top-40 -left-40 w-[640px] h-[640px] rounded-full'
-    aria-hidden='true'
-    style='background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 60%);'>
+    aria-hidden='true'>
   </div>
 
   <!-- Radial ambient — bottom right (sand) -->
   <div
     class='pointer-events-none absolute -bottom-32 -right-32 w-[480px] h-[480px] rounded-full'
-    aria-hidden='true'
-    style='background: radial-gradient(circle, rgba(250,234,177,0.06) 0%, transparent 65%);'>
+    aria-hidden='true'>
   </div>
 
   <!-- Diagonal tension lines -->
@@ -88,7 +86,7 @@ const waHref = buildWhatsAppHref()
     </div>
 
     <!-- Main heading -->
-    <div class='hero-heading animate-fade-in-up [animation-delay:70ms]' style='font-family: "Titan One", cursive;'>
+    <div class='hero-heading animate-fade-in-up [animation-delay:70ms] font-display'>
       <span class='hero-h-line1'>Deja de perder clientes</span>
       <span class='hero-h-line3'>
         <span class='hero-h-muted'>frente a tu&nbsp;</span><span class='hero-h-orange'>competencia.</span>
@@ -102,12 +100,12 @@ const waHref = buildWhatsAppHref()
     </div>
 
     <!-- Body copy -->
-    <p class='animate-fade-in-up [animation-delay:220ms] mt-5 max-w-[52ch] text-[1.0625rem] leading-relaxed text-pretty' style='color: rgba(255,255,255,0.62);'>
-      En Barcelona, <strong style='color: rgba(255,255,255,0.9); font-weight: 600;'>o eres el primero o eres el secreto de tu competencia.</strong> Aparece primero en Google y pon tu web a generar contactos de verdad.
+    <p class='animate-fade-in-up [animation-delay:220ms] mt-5 max-w-[52ch] text-[1.0625rem] leading-relaxed text-pretty'>
+      En Barcelona, <strong>o eres el primero o eres el secreto de tu competencia.</strong> Aparece primero en Google y pon tu web a generar contactos de verdad.
     </p>
 
-    <p class='animate-fade-in-up [animation-delay:280ms] mt-3 max-w-[46ch] text-[1.0625rem] leading-relaxed text-pretty' style='color: rgba(255,255,255,0.62);'>
-      Si te buscan, <strong style='color: rgba(255,255,255,0.9); font-weight: 600;'>que te encuentren a ti primero.</strong>
+    <p class='animate-fade-in-up [animation-delay:280ms] mt-3 max-w-[46ch] text-[1.0625rem] leading-relaxed text-pretty'>
+      Si te buscan, <strong>que te encuentren a ti primero.</strong>
     </p>
 
     <!-- CTA -->
@@ -121,90 +119,3 @@ const waHref = buildWhatsAppHref()
 
   </div>
 </section>
-
-<style>
-  /* ── Upheading pill ── */
-  .hero-upheading {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: rgba(250, 234, 177, 0.1);
-    border: 1px solid rgba(250, 234, 177, 0.25);
-    border-radius: 100px;
-    padding: 0.3rem 0.85rem 0.3rem 0.6rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .upheading-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--color-sand);
-    flex-shrink: 0;
-    animation: dot-pulse 2.2s ease-in-out infinite;
-  }
-
-  @keyframes dot-pulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(250,234,177,0.4); }
-    50%       { box-shadow: 0 0 0 5px rgba(250,234,177,0); }
-  }
-
-  .upheading-text {
-    font-size: 0.65rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-    color: rgba(250, 234, 177, 0.85);
-    line-height: 1;
-  }
-
-  /* ── Heading ── */
-  .hero-heading {
-    display: flex;
-    flex-direction: column;
-    letter-spacing: -0.02em;
-    line-height: 0.9;
-  }
-
-  .hero-h-line1 {
-    display: block;
-    font-size: var(--heading-display);
-    color: white;
-    line-height: 0.92;
-  }
-
-  .hero-h-line3 {
-    display: block;
-    font-size: clamp(0.9rem, 1.8vw, 1.5rem);
-    line-height: 1.1;
-    margin-top: 0.22em;
-  }
-
-  .hero-h-muted  { color: rgba(255, 255, 255, 0.32); }
-  .hero-h-orange { color: var(--color-sand); }
-
-  /* ── Accent rule ── */
-  .hero-rule {
-    display: flex;
-    align-items: center;
-    margin-top: 1.25rem;
-  }
-
-  .hero-rule-solid {
-    width: 3.5rem;
-    height: 3px;
-    background: var(--color-sand);
-    border-radius: 100px;
-  }
-
-  .hero-rule-fade {
-    width: 5rem;
-    height: 1px;
-    background: linear-gradient(90deg, rgba(250,234,177,0.5), transparent);
-  }
-
-  /* ── Reduced motion ── */
-  @media (prefers-reduced-motion: reduce) {
-    .upheading-dot { animation: none; }
-  }
-</style>

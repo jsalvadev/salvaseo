@@ -145,14 +145,11 @@ const {
   <div
     class="pointer-events-none absolute inset-0"
     aria-hidden="true"
-    style="background-image: radial-gradient(circle, rgba(255,255,255,0.028) 1px, transparent 1px); background-size: 32px 32px;"
   ></div>
 
   <!-- ── Faded Titan One watermark ─────────────────────────────────── -->
-  <div
-    class="pointer-events-none absolute -right-8 top-1/2 -translate-y-1/2 select-none leading-none"
+  <div class="pointer-events-none absolute -right-8 top-1/2 -translate-y-1/2 select-none leading-none font-display"
     aria-hidden="true"
-    style='font-family: "Titan One", cursive; font-size: clamp(12rem, 24vw, 20rem); color: rgba(250,234,177,0.08); line-height: 1; white-space: nowrap;'
   >
     PLAN
   </div>
@@ -161,7 +158,6 @@ const {
   <div
     class="pointer-events-none absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full"
     aria-hidden="true"
-    style="background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 65%);"
   ></div>
 
   <!-- ── Diagonal tension lines ───────────────────────────────────── -->
@@ -190,7 +186,7 @@ const {
         <div data-animate class="flex items-center gap-3 mb-8">
           <span class="block h-px w-10 bg-sand" aria-hidden="true"></span>
           {upheading && (
-            <h2 class="label-section text-sand">
+            <h2 class="text-[0.65rem] font-bold tracking-[0.18em] uppercase text-sand">
               {upheading}
             </h2>
           )}
@@ -199,8 +195,8 @@ const {
         <!-- Titan One display — visual only, not semantic heading -->
         <p
           data-animate
-          style='font-family: "Titan One", cursive;'
-          class="leading-[0.92] tracking-tight heading-display text-white text-pretty"
+
+          class="leading-[0.92] tracking-tight font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] text-white text-pretty"
         >
           {heading}<span class="text-sand">.</span>
         </p>
@@ -241,22 +237,20 @@ const {
               ]}
             >
               <!-- Ghost ordinal number -->
-              <div
-                class="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 select-none leading-none"
+              <div class="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 select-none leading-none font-display"
                 aria-hidden="true"
-                style='font-family: "Titan One", cursive; font-size: 5.5rem; color: rgba(250,234,177,0.10); line-height: 1;'
               >
                 {padNum}
               </div>
 
               <!-- Step column: "Fase" label + Titan One number -->
               <div class="shrink-0 flex flex-col items-center pt-0.5 w-11">
-                <span class="label-micro text-sand leading-none mb-0.5">
+                <span class="text-[0.6rem] font-bold tracking-[0.14em] uppercase text-sand leading-none mb-0.5">
                   Fase
                 </span>
                 <span
                   class="text-[2.2rem] leading-none font-bold text-sand/40 tabular-nums"
-                  style='font-family: "Titan One", cursive;'
+
                 >
                   {padNum}
                 </span>

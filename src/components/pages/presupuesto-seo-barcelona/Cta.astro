@@ -7,8 +7,7 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
   <!-- Dot-grid texture -->
   <div
     class='pointer-events-none absolute inset-0'
-    aria-hidden='true'
-    style='background-image: radial-gradient(circle, rgba(255,255,255,0.028) 1px, transparent 1px); background-size: 32px 32px;'>
+    aria-hidden='true'>
   </div>
 
   <!-- Diagonal tension lines -->
@@ -22,25 +21,21 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
   </svg>
 
   <!-- Large ghosted watermark -->
-  <div
-    class='pointer-events-none select-none absolute -bottom-8 -right-4 leading-none hidden lg:block'
-    aria-hidden='true'
-    style='font-family: "Titan One", cursive; font-size: 18rem; color: rgba(255,255,255,0.018); line-height: 1;'>
+  <div class="font-display pointer-events-none select-none absolute -bottom-8 -right-4 leading-none hidden lg:block"
+    aria-hidden='true'>
     START
   </div>
 
   <!-- Radial glow top -->
   <div
     class='pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full blur-3xl'
-    aria-hidden='true'
-    style='background: rgba(52,101,109,0.08);'>
+    aria-hidden='true'>
   </div>
 
   <!-- Orange accent bottom-left -->
   <div
     class='pointer-events-none absolute -bottom-10 -left-10 w-[240px] h-[240px] rounded-full blur-3xl'
-    aria-hidden='true'
-    style='background: rgba(250,234,177,0.05);'>
+    aria-hidden='true'>
   </div>
 
   <!-- Top hairline -->
@@ -70,7 +65,7 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
     <!-- Eyebrow -->
     <div class='flex items-center justify-center gap-3 mb-5' data-animate data-animate-delay='80'>
       <span class='block h-px w-8 bg-sand' aria-hidden='true'></span>
-      <p class='label-section text-sand'>
+      <p class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-sand'>
         Presupuesto SEO Barcelona
       </p>
       <span class='block h-px w-8 bg-sand' aria-hidden='true'></span>
@@ -80,8 +75,8 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
     <p
       data-animate
       data-animate-delay='160'
-      style='font-family: "Titan One", cursive;'
-      class='heading-display leading-[1.05] tracking-tight text-white text-pretty'>
+
+      class='font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] leading-[1.05] tracking-tight text-white text-pretty'>
       Diagnóstico completo de tu negocio en Google<span class='text-sand'>.</span>
     </p>
 

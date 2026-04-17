@@ -10,14 +10,11 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
   <div
     class='pointer-events-none absolute inset-0'
     aria-hidden='true'
-    style='background-image: radial-gradient(circle, rgba(52,101,109,0.07) 1px, transparent 1px); background-size: 28px 28px;'
   ></div>
 
   <!-- Ghost watermark -->
-  <div
-    class='pointer-events-none absolute -right-6 top-1/2 -translate-y-1/2 select-none leading-none'
+  <div class="font-display pointer-events-none absolute -right-6 top-1/2 -translate-y-1/2 select-none leading-none"
     aria-hidden='true'
-    style='font-family: "Titan One", cursive; font-size: clamp(12rem, 24vw, 20rem); color: rgba(52,101,109,0.06); line-height: 1; white-space: nowrap;'
   >
     WEB
   </div>
@@ -26,7 +23,6 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
   <div
     class='pointer-events-none absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full'
     aria-hidden='true'
-    style='background: radial-gradient(circle, rgba(52,101,109,0.04) 0%, transparent 65%);'
   ></div>
 
   <!-- Top/bottom hairlines -->
@@ -42,7 +38,7 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
         <!-- Eyebrow -->
         <div data-animate class='flex items-center gap-3 mb-8'>
           <span class='block h-px w-10 bg-teal' aria-hidden='true'></span>
-          <h1 class='label-section text-teal'>
+          <h1 class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-teal'>
             Posicionamiento web en Barcelona
           </h1>
         </div>
@@ -50,8 +46,8 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
         <!-- Section heading -->
         <p
           data-animate
-          style='font-family: "Titan One", cursive;'
-          class='heading-display leading-[1.05] tracking-tight text-charcoal text-pretty mb-6'
+
+          class='font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] leading-[1.05] tracking-tight text-cream text-pretty mb-6'
         >
           Que te encuentren a ti antes que a ellos<span class='text-teal'>.</span>
         </p>
@@ -62,11 +58,11 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
           <div class='h-px w-24 bg-gradient-to-r from-teal/40 to-transparent'></div>
         </div>
 
-        <p data-animate class='text-base/8 text-body text-pretty'>
+        <p data-animate class='text-base/8 text-cream/70 text-pretty'>
           Cuando alguien busca un servicio en Barcelona, Google decide quién se lleva el cliente en segundos. Si tu negocio no aparece en la primera página, eres invisible para el <strong class='text-heading font-semibold'>90% del mercado potencial</strong>.
         </p>
 
-        <p data-animate class='mt-4 text-base/8 text-body text-pretty'>
+        <p data-animate class='mt-4 text-base/8 text-cream/70 text-pretty'>
           Estar en la segunda página es ceder tus ventas a la competencia por falta de presencia. El posicionamiento web elimina estos bloqueos para que tu empresa sea la opción elegida.
         </p>
 
@@ -96,14 +92,3 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
     </div>
   </div>
 </section>
-
-<style>
-  /* ── SERP wrapper ── */
-  .serp-wrapper {
-    border-radius: 1rem;
-    border: 1px solid var(--color-border-default);
-    box-shadow: 0 4px 24px rgba(52,101,109,0.08), 0 1px 3px rgba(52,101,109,0.06);
-    overflow: hidden;
-    background: white;
-  }
-</style>

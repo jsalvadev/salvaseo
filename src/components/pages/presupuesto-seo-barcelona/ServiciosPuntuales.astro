@@ -50,32 +50,32 @@ const extras = [
   <div class='mx-auto max-w-[1280px] px-5'>
     <div class='mx-auto max-w-4xl'>
       <Upheading as='h2' text='Precio auditoría SEO y servicios puntuales' />
-      <p class='mt-2 text-4xl font-semibold tracking-tight text-pretty text-charcoal sm:text-5xl'>
+      <p class='mt-2 text-4xl font-semibold tracking-tight text-pretty text-cream sm:text-5xl'>
         Acciones puntuales con precio cerrado
       </p>
-      <p class='mt-6 text-lg text-charcoal/70'>
+      <p class='mt-6 text-lg text-cream/70'>
         Desde el precio de una auditoría SEO hasta consultoría por horas. Intervenciones profesionales fuera del plan mensual — en muchos casos, el primer paso antes de iniciar un proyecto de posicionamiento recurrente.
       </p>
     </div>
 
     <!-- Servicios puntuales -->
     <div class='mx-auto mt-16 max-w-4xl'>
-      <div class='overflow-hidden rounded-xl border border-charcoal/10'>
+      <div class='overflow-hidden rounded-xl border border-surface/10'>
         <table class='min-w-full divide-y divide-charcoal/10'>
           <thead>
-            <tr class='bg-charcoal/5'>
-              <th scope='col' class='py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-charcoal sm:pl-6'>Servicio</th>
-              <th scope='col' class='px-3 py-3.5 text-left text-sm font-semibold text-charcoal'>Precio</th>
+            <tr class='bg-surface/5'>
+              <th scope='col' class='py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-cream sm:pl-6'>Servicio</th>
+              <th scope='col' class='px-3 py-3.5 text-left text-sm font-semibold text-cream'>Precio</th>
             </tr>
           </thead>
           <tbody class='divide-y divide-charcoal/5'>
             {services.map((service) => (
-              <tr class='hover:bg-charcoal/5 transition-colors'>
+              <tr class='hover:bg-surface/5 transition-colors'>
                 <td class='py-4 pr-3 pl-4 sm:pl-6'>
-                  <div class='text-sm font-medium text-charcoal'>{service.name}</div>
-                  <div class='mt-1 text-sm text-charcoal/60'>{service.description}</div>
+                  <div class='text-sm font-medium text-cream'>{service.name}</div>
+                  <div class='mt-1 text-sm text-cream/60'>{service.description}</div>
                 </td>
-                <td class='whitespace-nowrap px-3 py-4 text-sm font-semibold text-charcoal'>{service.price}</td>
+                <td class='whitespace-nowrap px-3 py-4 text-sm font-semibold text-cream'>{service.price}</td>
               </tr>
             ))}
           </tbody>
@@ -86,13 +86,13 @@ const extras = [
     <!-- Extras / Add-ons -->
     <div class='mx-auto mt-16 max-w-4xl'>
       <Upheading as='h3' text='Add-ons disponibles' />
-      <p class='mt-4 text-sm text-charcoal/60'>
+      <p class='mt-4 text-sm text-cream/60'>
         Disponibles para clientes de cualquier paquete mensual.
       </p>
       <div class='mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2'>
         {extras.map((extra) => (
-          <div class='flex items-center justify-between rounded-lg border border-charcoal/10 px-4 py-3'>
-            <span class='text-sm text-charcoal/70'>{extra.name}</span>
+          <div class='flex items-center justify-between rounded-lg border border-surface/10 px-4 py-3'>
+            <span class='text-sm text-cream/70'>{extra.name}</span>
             <span class='ml-4 shrink-0 text-sm font-semibold text-teal'>{extra.price}</span>
           </div>
         ))}

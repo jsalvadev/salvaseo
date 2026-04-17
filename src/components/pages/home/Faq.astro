@@ -33,349 +33,73 @@ const faqSchema = {
 
 <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
-<section class:list={['faq-root', className]}>
-  <!-- Decorative watermark -->
-  <div class="faq-watermark-wrap" aria-hidden="true">
-    <span class="faq-watermark">?</span>
-  </div>
+<section class:list={['relative overflow-hidden py-24 sm:py-32', className]}>
 
-  <div class="faq-inner">
+  <!-- Watermark -->
+  <div
+    class='font-display pointer-events-none absolute -right-8 top-1/2 -translate-y-1/2 select-none text-[20rem] leading-none text-cream/[0.03]'
+    aria-hidden='true'>?</div>
+
+  <div class='relative mx-auto max-w-[1280px] px-5'>
+
     <!-- Header -->
-    <header class="faq-header">
+    <div class='mb-14' data-animate>
       {upheading && (
-        <div class="faq-label-wrap">
-          <span class="faq-label-line" aria-hidden="true"></span>
-          <h2 class="faq-label">{upheading}</h2>
+        <div class='flex items-center gap-3 mb-6'>
+          <span class='block h-px w-10 bg-teal' aria-hidden='true'></span>
+          <h2 class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-teal'>{upheading}</h2>
         </div>
       )}
-      <p class="faq-heading">{heading}</p>
-      <div class="faq-rule" aria-hidden="true">
-        <div class="faq-rule-thick"></div>
-        <div class="faq-rule-fade"></div>
+      <p class='font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] tracking-tight text-cream text-pretty'>
+        {heading}<span class='text-teal'>.</span>
+      </p>
+      <div class='mt-5 flex items-center'>
+        <div class='h-[3px] w-16 bg-teal rounded-full'></div>
+        <div class='h-px flex-1 bg-gradient-to-r from-teal/30 to-transparent'></div>
       </div>
       {intro && (
-        <p class="faq-intro" set:html={intro} />
+        <p class='mt-5 max-w-2xl text-base/7 text-cream/70 text-pretty' set:html={intro} />
       )}
-    </header>
+    </div>
 
-    <!-- FAQ list -->
-    <div class="faq-list">
+    <!-- FAQ items -->
+    <div class='divide-y divide-surface/40 max-w-3xl'>
       {items.map((item, i) => (
-        <div class="faq-item">
-          <div class="faq-dt">
-            <span class="faq-num" aria-hidden="true">
+        <div class='py-6' data-animate>
+          <div class='flex items-start gap-5'>
+            <!-- Number -->
+            <span class='shrink-0 pt-0.5 text-[0.6rem] font-bold tracking-[0.14em] uppercase text-teal/50 w-6 text-right'>
               {String(i + 1).padStart(2, '0')}
             </span>
-            <h3 class="faq-question">
-              <button
-                type="button"
-                command="--toggle"
-                commandfor={`${idPrefix}-${i}`}
-                class="faq-btn"
-              >
-                {item.question}
-              </button>
-            </h3>
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              aria-hidden="true"
-              class="faq-chevron"
-            >
-              <path d="M19.5 8.25l-7.5 7.5-7.5-7.5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </div>
-          <el-disclosure id={`${idPrefix}-${i}`} hidden class="contents">
-            <div class="faq-dd">
-              <span aria-hidden="true"></span>
-              <div class="faq-answer-body">
-                <Fragment set:html={item.answer} />
-              </div>
+            <div class='flex-1 min-w-0'>
+              <h3 class='text-base font-semibold text-cream leading-snug'>
+                <button
+                  type='button'
+                  command='--toggle'
+                  commandfor={`${idPrefix}-${i}`}
+                  class='text-left w-full hover:text-cream/80 transition-colors cursor-pointer flex items-start justify-between gap-4 group'>
+                  <span>{item.question}</span>
+                  <svg
+                    viewBox='0 0 24 24'
+                    fill='none'
+                    stroke='currentColor'
+                    stroke-width='1.5'
+                    aria-hidden='true'
+                    class='shrink-0 mt-0.5 w-4 h-4 text-teal/50 transition-transform duration-200 group-[[open]]:rotate-180'>
+                    <path d='M19.5 8.25l-7.5 7.5-7.5-7.5' stroke-linecap='round' stroke-linejoin='round' />
+                  </svg>
+                </button>
+              </h3>
+              <el-disclosure id={`${idPrefix}-${i}`} hidden class='contents'>
+                <div class='mt-4 pl-0 text-base/7 text-cream/70 text-pretty'>
+                  <Fragment set:html={item.answer} />
+                </div>
+              </el-disclosure>
             </div>
-          </el-disclosure>
+          </div>
         </div>
       ))}
     </div>
+
   </div>
 </section>
-
-<style>
-  /* ── Root ─────────────────────────────────────────────── */
-  .faq-root {
-    position: relative;
-    overflow: hidden;
-    background-color: var(--color-cream); /* cream — matches page background */
-  }
-
-  /* ── Watermark ─────────────────────────────────────────── */
-  .faq-watermark-wrap {
-    pointer-events: none;
-    position: absolute;
-    top: -2rem;
-    right: -1rem;
-    overflow: hidden;
-    user-select: none;
-  }
-
-  .faq-watermark {
-    display: block;
-    font-family: 'Titan One', cursive;
-    font-size: clamp(10rem, 28vw, 26rem);
-    line-height: 1;
-    color: rgba(52, 101, 109, 0.06);
-    opacity: 1;
-  }
-
-  /* ── Inner container ───────────────────────────────────── */
-  .faq-inner {
-    position: relative;
-    margin: 0 auto;
-    max-width: 1280px;
-    padding: 6rem 1.25rem;
-  }
-
-  @media (min-width: 640px) {
-    .faq-inner { padding: 8rem 1.25rem; }
-  }
-
-  @media (min-width: 1024px) {
-    .faq-inner {
-      padding: 10rem 1.25rem;
-      display: grid;
-      grid-template-columns: 1fr 1.6fr;
-      gap: 0 5rem;
-      align-items: start;
-    }
-  }
-
-  /* ── Header ────────────────────────────────────────────── */
-  .faq-header {
-    max-width: 42rem;
-    margin-bottom: 4rem;
-  }
-
-  @media (min-width: 1024px) {
-    .faq-header {
-      margin-bottom: 0;
-      position: sticky;
-      top: calc(var(--navbar-height, 80px) + 2rem);
-    }
-  }
-
-  .faq-label-wrap {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 1.25rem;
-  }
-
-  .faq-label-line {
-    display: block;
-    flex-shrink: 0;
-    height: 1px;
-    width: 2rem;
-    background-color: #34656D;
-  }
-
-  .faq-label {
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    line-height: 1;
-    white-space: nowrap;
-    color: #34656D;
-  }
-
-  .faq-heading {
-    font-family: 'Titan One', cursive;
-    font-size: var(--heading-display);
-    line-height: 1.05;
-    color: #334443; /* charcoal */
-  }
-
-  .faq-rule {
-    display: flex;
-    align-items: center;
-    margin-top: 1.25rem;
-  }
-
-  .faq-rule-thick {
-    height: 3px;
-    width: 4rem;
-    background-color: #34656D;
-    border-radius: 9999px;
-    flex-shrink: 0;
-  }
-
-  .faq-rule-fade {
-    height: 1px;
-    width: 6rem;
-    background: linear-gradient(to right, rgba(52, 101, 109, 0.4), transparent);
-  }
-
-  .faq-intro {
-    margin-top: 1.25rem;
-    font-size: 1rem;
-    line-height: 1.75;
-    color: rgba(51, 68, 67, 0.7);
-    max-width: 38ch;
-    text-wrap: pretty;
-  }
-
-  /* ── FAQ list ──────────────────────────────────────────── */
-  .faq-list {
-    margin: 0;
-    padding: 0;
-    max-width: 48rem;
-  }
-
-  @media (min-width: 1024px) {
-    .faq-list { max-width: none; }
-  }
-
-  /* ── FAQ item ──────────────────────────────────────────── */
-  .faq-item {
-    border-top: 1px solid rgba(52, 101, 109, 0.12);
-    padding: 1.75rem 0;
-  }
-
-  .faq-item:last-child {
-    border-bottom: 1px solid rgba(52, 101, 109, 0.12);
-  }
-
-  /* ── dt grid: [number | question | chevron] ────────────── */
-  .faq-dt {
-    display: grid;
-    grid-template-columns: 3rem 1fr 1.5rem;
-    align-items: start;
-    gap: 0.75rem 1rem;
-  }
-
-  @media (min-width: 640px) {
-    .faq-dt {
-      grid-template-columns: 4rem 1fr 1.5rem;
-      gap: 0.75rem 1.5rem;
-    }
-  }
-
-  /* ── Number ────────────────────────────────────────────── */
-  .faq-num {
-    font-family: 'Titan One', cursive;
-    font-size: clamp(1.5rem, 3.5vw, 2.25rem);
-    line-height: 1;
-    padding-top: 0.1rem;
-    color: rgba(51, 68, 67, 0.2); /* muted default on light bg */
-    transition: color 0.3s ease;
-  }
-
-  .faq-item:has(button[aria-expanded="true"]) .faq-num {
-    color: #34656D; /* teal — active */
-  }
-
-  /* ── Question h3 — reset heading defaults ──────────────── */
-  .faq-question {
-    margin: 0;
-    padding: 0;
-    font-size: inherit;
-    font-weight: inherit;
-    line-height: inherit;
-  }
-
-  /* ── Button ────────────────────────────────────────────── */
-  .faq-btn {
-    display: block;
-    width: 100%;
-    text-align: left;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    font-family: var(--font-family-sans, 'DM Sans Variable', sans-serif);
-    font-size: 1rem;
-    font-weight: 600;
-    line-height: 1.45;
-    color: #334443; /* charcoal */
-    transition: color 0.2s ease;
-  }
-
-  .faq-btn:hover {
-    color: #34656D;
-  }
-
-  .faq-item:has(button[aria-expanded="true"]) .faq-btn {
-    color: #34656D;
-  }
-
-  /* ── Chevron ───────────────────────────────────────────── */
-  .faq-chevron {
-    width: 1.125rem;
-    height: 1.125rem;
-    flex-shrink: 0;
-    margin-top: 0.25rem;
-    color: #34656D; /* teal */
-    transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
-  }
-
-  .faq-item:has(button[aria-expanded="true"]) .faq-chevron {
-    transform: rotate(180deg);
-    color: #34656D;
-  }
-
-  /* ── Answer dd ─────────────────────────────────────────── */
-  el-disclosure:not([hidden]) {
-    animation: faq-reveal 0.42s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-
-  @keyframes faq-reveal {
-    from { opacity: 0; transform: translateY(-6px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .faq-dd {
-    display: grid;
-    grid-template-columns: 3rem 1fr;
-    gap: 0 1rem;
-    margin: 0.875rem 0 0;
-    padding: 0;
-  }
-
-  @media (min-width: 640px) {
-    .faq-dd {
-      grid-template-columns: 4rem 1fr;
-      gap: 0 1.5rem;
-    }
-  }
-
-  .faq-answer-body {
-    padding-right: 1.5rem;
-  }
-
-  /* Override text-charcoal classes in set:html content (requires :global) */
-  .faq-answer-body :global(p),
-  .faq-answer-body :global(li) {
-    color: #334443 !important; /* charcoal */
-    line-height: 1.75;
-    font-size: 1rem;
-  }
-
-  .faq-answer-body :global(strong) {
-    color: #334443 !important; /* charcoal */
-    font-weight: 600;
-  }
-
-  .faq-answer-body :global(ul) {
-    color: #334443 !important; /* charcoal */
-    margin-top: 0.5rem;
-  }
-
-  /* ── Reduced motion ────────────────────────────────────── */
-  @media (prefers-reduced-motion: reduce) {
-    el-disclosure:not([hidden]) { animation: none; }
-    .faq-chevron,
-    .faq-num,
-    .faq-btn { transition: none; }
-  }
-</style>

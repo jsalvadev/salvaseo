@@ -68,14 +68,11 @@ const services = [
   <div
     class='pointer-events-none absolute inset-0'
     aria-hidden='true'
-    style='background-image: radial-gradient(circle, rgba(52,101,109,0.07) 1px, transparent 1px); background-size: 28px 28px;'
   ></div>
 
   <!-- ── Faded Titan One watermark ─────────────────────────────────── -->
-  <div
-    class='pointer-events-none absolute -right-6 top-1/2 -translate-y-1/2 select-none leading-none'
+  <div class="font-display pointer-events-none absolute -right-6 top-1/2 -translate-y-1/2 select-none leading-none"
     aria-hidden='true'
-    style='font-family: "Titan One", cursive; font-size: clamp(12rem, 24vw, 20rem); color: rgba(52,101,109,0.06); line-height: 1; white-space: nowrap;'
   >
     SEO
   </div>
@@ -84,7 +81,6 @@ const services = [
   <div
     class='pointer-events-none absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full'
     aria-hidden='true'
-    style='background: radial-gradient(circle, rgba(52,101,109,0.05) 0%, transparent 65%);'
   ></div>
 
   <!-- ── Top / bottom hairlines ────────────────────────────────────── -->
@@ -100,7 +96,7 @@ const services = [
       <div data-animate class='flex items-center gap-3 mb-8'>
         <span class='block h-px w-10 bg-teal' aria-hidden='true'></span>
         {upheading && (
-          <h2 class='label-section text-teal'>
+          <h2 class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-teal'>
             {upheading}
           </h2>
         )}
@@ -109,8 +105,8 @@ const services = [
       <!-- Section heading -->
       <p
         data-animate
-        style='font-family: "Titan One", cursive;'
-        class='heading-display leading-[1.05] tracking-tight text-charcoal text-pretty mb-6'
+
+        class='font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] leading-[1.05] tracking-tight text-cream text-pretty mb-6'
       >
         {heading}<span class='text-teal'>.</span>
       </p>
@@ -122,7 +118,7 @@ const services = [
       </div>
 
       <!-- Subtitle -->
-      <p data-animate class='mt-6 text-base md:text-lg text-body leading-relaxed text-pretty max-w-[52ch]'>
+      <p data-animate class='mt-6 text-base md:text-lg text-cream/70 leading-relaxed text-pretty max-w-[52ch]'>
         <Fragment set:html={subtitle} />
       </p>
     </div>
@@ -138,7 +134,7 @@ const services = [
           <li
             data-animate
             data-animate-delay={idx * 130}
-            class='group relative flex flex-col rounded-2xl border border-charcoal/10 bg-white overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-charcoal/8 hover:border-teal/30'
+            class='group relative flex flex-col rounded-2xl border border-surface/10 bg-white overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-charcoal/8 hover:border-teal/30'
           >
             <!-- Left accent bar (hover reveal) -->
             <div
@@ -147,7 +143,7 @@ const services = [
             ></div>
 
             <!-- ── Dark banner header ──────────────────────────── -->
-            <div class='relative overflow-hidden bg-charcoal px-6 py-7 flex flex-col gap-4'>
+            <div class='relative overflow-hidden bg-surface px-6 py-7 flex flex-col gap-4'>
 
               <!-- Diagonal tension line -->
               <svg class='pointer-events-none absolute inset-0 w-full h-full' aria-hidden='true' preserveAspectRatio='none'>
@@ -155,10 +151,8 @@ const services = [
               </svg>
 
               <!-- Ghost ordinal watermark -->
-              <div
-                class='pointer-events-none absolute -right-1 -bottom-3 select-none leading-none transition-opacity duration-300 opacity-100 group-hover:opacity-[1.4]'
+              <div class="font-display pointer-events-none absolute -right-1 -bottom-3 select-none leading-none transition-opacity duration-300 opacity-100 group-hover:opacity-[1.4]"
                 aria-hidden='true'
-                style='font-family: "Titan One", cursive; font-size: 5.5rem; color: rgba(250,234,177,0.12); line-height: 1;'
               >
                 {service.num}
               </div>
@@ -168,7 +162,7 @@ const services = [
                 <div class='flex size-10 shrink-0 items-center justify-center rounded-xl bg-sand/15 ring-1 ring-sand/30'>
                   <Icon aria-hidden='true' class='size-5 text-sand' />
                 </div>
-                <span class='label-ui text-white/40'>
+                <span class='text-[0.6rem] font-semibold tracking-[0.12em] uppercase text-white/40'>
                   {service.label}
                 </span>
               </div>
@@ -178,7 +172,7 @@ const services = [
                 <div class='flex items-baseline gap-2.5'>
                   <span
                     class='text-[1.6rem] leading-none font-bold text-sand/50 tabular-nums shrink-0'
-                    style='font-family: "Titan One", cursive;'
+
                   >
                     {service.num}
                   </span>
@@ -193,7 +187,7 @@ const services = [
             <div class='flex flex-col gap-5 p-6 flex-1'>
 
               <!-- Intro -->
-              <p class='text-sm/6 text-body text-pretty'>
+              <p class='text-sm/6 text-cream/70 text-pretty'>
                 {service.intro}
               </p>
 
@@ -206,7 +200,7 @@ const services = [
                   <li class='flex gap-3'>
                     <Check class='mt-0.5 size-4 shrink-0 text-teal' aria-hidden='true' />
                     <span>
-                      <span class='text-sm font-semibold text-charcoal'>{bullet.label}</span>
+                      <span class='text-sm font-semibold text-cream'>{bullet.label}</span>
                       <span class='text-sm text-teal'> — {bullet.body}</span>
                     </span>
                   </li>

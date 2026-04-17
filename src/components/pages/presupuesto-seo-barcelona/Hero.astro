@@ -35,15 +35,12 @@ const currentYear = new Date().getFullYear()
   <!-- Dot-grid texture -->
   <div
     class='pointer-events-none absolute inset-0'
-    aria-hidden='true'
-    style='background-image: radial-gradient(circle, rgba(255,255,255,0.028) 1px, transparent 1px); background-size: 32px 32px;'>
+    aria-hidden='true'>
   </div>
 
   <!-- Large faded watermark -->
-  <div
-    class='pointer-events-none absolute -top-8 right-0 select-none leading-none'
-    aria-hidden='true'
-    style='font-family: "Titan One", cursive; font-size: clamp(14rem, 28vw, 24rem); color: rgba(255,255,255,0.025); line-height: 1;'>
+  <div class="font-display pointer-events-none absolute -top-8 right-0 select-none leading-none"
+    aria-hidden='true'>
     €
   </div>
 
@@ -73,8 +70,7 @@ const currentYear = new Date().getFullYear()
   <!-- Radial glow bottom-left -->
   <div
     class='pointer-events-none absolute -bottom-32 -left-32 w-96 h-96 rounded-full'
-    aria-hidden='true'
-    style='background: radial-gradient(circle, rgba(52,101,109,0.08) 0%, transparent 70%);'>
+    aria-hidden='true'>
   </div>
 
   <!-- Breadcrumb (inside dark section, below fixed navbar) -->
@@ -114,7 +110,7 @@ const currentYear = new Date().getFullYear()
         <!-- Eyebrow -->
         <div class='animate-fade-in-up [animation-delay:0ms] flex items-center gap-3 mb-5'>
           <span class='block h-px w-10 bg-sand'></span>
-          <h1 class='label-section text-sand'>
+          <h1 class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-sand'>
             {upheading}
           </h1>
         </div>
@@ -122,7 +118,7 @@ const currentYear = new Date().getFullYear()
         <!-- Headline -->
         <p
           class='animate-fade-in-up [animation-delay:80ms]'
-          style='font-family: "Titan One", cursive;'>
+>
           <span class='block text-[1.9rem] sm:text-[2.2rem] lg:text-[2.5rem] xl:text-[2.94rem] leading-[0.93] tracking-tight text-white'>
             Tu plan para
           </span>
@@ -160,23 +156,22 @@ const currentYear = new Date().getFullYear()
         aria-hidden='true'>
 
         <!-- Label -->
-        <p class='label-section text-white/30 px-1'>
+        <p class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-white/30 px-1'>
           Tarifas SEO · Barcelona {currentYear}
         </p>
 
         <!-- Tier 1: Solo Ficha -->
         <div
-          class='rounded-2xl border p-5 relative overflow-hidden'
-          style='background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.14);'>
+          class='rounded-2xl border p-5 relative overflow-hidden'>
           <div class='flex items-start justify-between mb-3'>
             <div>
-              <span class='label-section text-white/75 block mb-1'>
+              <span class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-white/75 block mb-1'>
                 Que te encuentren en Google Maps
               </span>
               <div class='flex items-baseline gap-2'>
                 <span
                   class='text-[clamp(1.85rem,3.5vw,2.5rem)] font-bold text-white leading-none'
-                  style='font-family: "Titan One", cursive;'>
+>
                   350 €
                 </span>
                 <span class='text-sm text-white/35'>/mes · sin IVA</span>
@@ -201,17 +196,15 @@ const currentYear = new Date().getFullYear()
 
         <!-- Tier 2: Web + Ficha (featured) -->
         <div
-          class='rounded-2xl border p-5 relative overflow-hidden'
-          style='background: linear-gradient(135deg, rgba(250,234,177,0.18) 0%, rgba(250,234,177,0.08) 100%); border-color: rgba(250,234,177,0.5); box-shadow: 0 0 40px rgba(250,234,177,0.12), inset 0 1px 0 rgba(255,255,255,0.12);'>
+          class='rounded-2xl border p-5 relative overflow-hidden'>
 
           <div class='flex items-start justify-between gap-2 mb-1'>
-            <span class='label-section text-sand/70 block text-pretty'>
+            <span class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-sand/70 block text-pretty'>
               Que te encuentren en Maps y en Google
             </span>
             <div
-              class='shrink-0 rounded-full px-3 py-1'
-              style='background: var(--color-sand); box-shadow: 0 4px 12px rgba(250,234,177,0.45);'>
-              <span class='text-xs font-bold uppercase tracking-wider text-charcoal whitespace-nowrap'>
+              class='shrink-0 rounded-full px-3 py-1'>
+              <span class='text-xs font-bold uppercase tracking-wider text-cream whitespace-nowrap'>
                 ★ Más elegido
               </span>
             </div>
@@ -221,7 +214,7 @@ const currentYear = new Date().getFullYear()
             <div class='flex items-baseline gap-2'>
               <span
                 class='text-[clamp(1.85rem,3.5vw,2.5rem)] font-bold text-white leading-none'
-                style='font-family: "Titan One", cursive;'>
+>
                 550 €
               </span>
               <span class='text-sm text-sand/40'>/mes · sin IVA</span>

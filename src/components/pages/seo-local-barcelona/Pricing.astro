@@ -45,11 +45,11 @@ const {
   <div class='mx-auto max-w-[1280px] px-5'>
     <div class='mx-auto max-w-4xl text-center'>
       <Upheading as='h2' text={upheading} class='text-center' />
-      <p class='mt-2 text-4xl font-semibold tracking-tight text-balance text-charcoal sm:text-5xl'>
+      <p class='mt-2 text-4xl font-semibold tracking-tight text-balance text-cream sm:text-5xl'>
         {heading}
       </p>
     </div>
-    <p class='mx-auto mt-6 max-w-2xl text-center text-lg font-medium text-pretty text-charcoal/70 sm:text-xl/8'>
+    <p class='mx-auto mt-6 max-w-2xl text-center text-lg font-medium text-pretty text-cream/70 sm:text-xl/8'>
       <Fragment set:html={intro} />
     </p>
 
@@ -61,10 +61,10 @@ const {
           Servicio de SEO local
         </h3>
         <p class='mt-4 flex items-baseline gap-x-2'>
-          <span class='text-5xl font-semibold tracking-tight text-charcoal'>{priceText}</span>
-          <span class='text-base font-semibold text-charcoal/70'>{priceUnit}</span>
+          <span class='text-5xl font-semibold tracking-tight text-cream'>{priceText}</span>
+          <span class='text-base font-semibold text-cream/70'>{priceUnit}</span>
         </p>
-        <p class='mt-2 text-sm text-charcoal/70'>
+        <p class='mt-2 text-sm text-cream/70'>
           {priceNote}
         </p>
         <div class='mt-8'>
@@ -93,17 +93,17 @@ const {
                   <th
                     scope='colgroup'
                     colspan='2'
-                    class='pt-6 pb-3 text-sm/6 font-semibold text-charcoal'>
-                    <div class='bg-charcoal/5 rounded-lg px-4 py-2'>
+                    class='pt-6 pb-3 text-sm/6 font-semibold text-cream'>
+                    <div class='bg-surface/5 rounded-lg px-4 py-2'>
                       {category.name}
                     </div>
                   </th>
                 </tr>
                 {category.features.map((feature) => (
                   <tr>
-                    <th scope='row' class='py-3 px-4 text-sm/6 font-normal text-charcoal/70'>
+                    <th scope='row' class='py-3 px-4 text-sm/6 font-normal text-cream/70'>
                       {feature.text}
-                      <div class='mt-3 h-px bg-charcoal/5'></div>
+                      <div class='mt-3 h-px bg-surface/5'></div>
                     </th>
                     <td class='py-3 pl-4 text-right'>
                       {feature.included ? (
@@ -128,10 +128,10 @@ const {
     <!-- Quote — full width -->
     <div class='mx-auto mt-16 max-w-3xl'>
       <figure>
-        <blockquote class='border-l-4 border-teal/30 pl-6 text-xl/8 italic text-charcoal text-pretty text-left'>
+        <blockquote class='border-l-4 border-teal/30 pl-6 text-xl/8 italic text-cream text-pretty text-left'>
           <p>"{quote}"</p>
         </blockquote>
-        <figcaption class='mt-4 pl-6 text-sm text-charcoal/70'>
+        <figcaption class='mt-4 pl-6 text-sm text-cream/70'>
           <Fragment set:html={quoteAuthor} />
         </figcaption>
       </figure>

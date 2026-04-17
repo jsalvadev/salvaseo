@@ -6,15 +6,12 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
   <!-- Subtle dot grid texture -->
   <div
     class='pointer-events-none absolute inset-0'
-    aria-hidden='true'
-    style='background-image: radial-gradient(circle, rgba(52,101,109,0.07) 1px, transparent 1px); background-size: 28px 28px;'>
+    aria-hidden='true'>
   </div>
 
   <!-- Large faded watermark -->
-  <div
-    class='pointer-events-none absolute -right-6 top-1/2 -translate-y-1/2 select-none overflow-hidden'
-    aria-hidden='true'
-    style='font-family: "Titan One", cursive; font-size: clamp(12rem, 26vw, 22rem); color: rgba(52,101,109,0.06); line-height: 1; white-space: nowrap;'>
+  <div class="font-display pointer-events-none absolute -right-6 top-1/2 -translate-y-1/2 select-none overflow-hidden"
+    aria-hidden='true'>
     SOLUCIÓN
   </div>
 
@@ -25,19 +22,19 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
       <div class='lg:sticky lg:top-28'>
         <div data-animate class='flex items-center gap-3 mb-8'>
           <span class='block h-px w-10 bg-teal' aria-hidden='true'></span>
-          <h2 class='label-section text-teal'>
+          <h2 class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-teal'>
             Contratar un consultor SEO
           </h2>
         </div>
 
         <p
           data-animate
-          style='font-family: "Titan One", cursive;'
+
           class='leading-[0.9] tracking-tight'>
-          <span class='block heading-display text-charcoal/60 mb-1'>
+          <span class='block font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] text-cream/60 mb-1'>
             Pero se puede
           </span>
-          <span class='block heading-display text-charcoal'>
+          <span class='block font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] text-cream'>
             solucionar<span class='text-teal'>.</span>
           </span>
         </p>
@@ -49,8 +46,8 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
 
         <p
           data-animate
-          class='mt-6 max-w-[40ch] text-base text-body leading-relaxed text-pretty'>
-          En la llamada revisamos tu presencia en Google, analizamos a tu competencia y te digo exactamente <strong class='text-charcoal font-semibold'>qué está fallando y qué hay que hacer para que tus clientes te encuentren.</strong>
+          class='mt-6 max-w-[40ch] text-base text-cream/70 leading-relaxed text-pretty'>
+          En la llamada revisamos tu presencia en Google, analizamos a tu competencia y te digo exactamente <strong class='text-cream font-semibold'>qué está fallando y qué hay que hacer para que tus clientes te encuentren.</strong>
         </p>
       </div>
 
@@ -60,19 +57,19 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
         <!-- Step 1 -->
         <div
           data-animate
-          class='relative flex gap-6 py-10 border-b border-charcoal/10'>
+          class='relative flex gap-6 py-10 border-b border-surface/10'>
           <div class='shrink-0 flex flex-col items-center pt-0.5 w-10'>
-            <span class='label-micro text-teal leading-none mb-0.5'>
+            <span class='text-[0.6rem] font-bold tracking-[0.14em] uppercase text-teal leading-none mb-0.5'>
               Paso
             </span>
             <span
               class='text-[2.2rem] leading-none font-bold text-teal/40 tabular-nums'
-              style='font-family: "Titan One", cursive;'>
+>
               01
             </span>
           </div>
           <div>
-            <p class='text-base font-bold text-charcoal mb-3'>
+            <p class='text-base font-bold text-cream mb-3'>
               Reserva tu llamada gratuita
             </p>
             <WhatsAppButton
@@ -85,22 +82,22 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
         <!-- Step 2 -->
         <div
           data-animate
-          class='relative flex gap-6 py-10 border-b border-charcoal/10'>
+          class='relative flex gap-6 py-10 border-b border-surface/10'>
           <div class='shrink-0 flex flex-col items-center pt-0.5 w-10'>
-            <span class='label-micro text-teal leading-none mb-0.5'>
+            <span class='text-[0.6rem] font-bold tracking-[0.14em] uppercase text-teal leading-none mb-0.5'>
               Paso
             </span>
             <span
               class='text-[2.2rem] leading-none font-bold text-teal/40 tabular-nums'
-              style='font-family: "Titan One", cursive;'>
+>
               02
             </span>
           </div>
           <div>
-            <p class='text-base font-bold text-charcoal mb-2'>
+            <p class='text-base font-bold text-cream mb-2'>
               Cuéntame tu situación
             </p>
-            <p class='text-base text-body leading-relaxed'>
+            <p class='text-base text-cream/70 leading-relaxed'>
               Al reservar, indícame la URL de tu web y qué te preocupa. Nada más.
             </p>
           </div>
@@ -111,27 +108,27 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
           data-animate
           class='relative flex gap-6 pt-10'>
           <div class='shrink-0 flex flex-col items-center pt-0.5 w-10'>
-            <span class='label-micro text-teal leading-none mb-0.5'>
+            <span class='text-[0.6rem] font-bold tracking-[0.14em] uppercase text-teal leading-none mb-0.5'>
               Paso
             </span>
             <span
               class='text-[2.2rem] leading-none font-bold text-teal/40 tabular-nums'
-              style='font-family: "Titan One", cursive;'>
+>
               03
             </span>
           </div>
           <div>
             <div class='flex items-baseline gap-2 mb-2'>
-              <p class='text-base font-bold text-charcoal'>
+              <p class='text-base font-bold text-cream'>
                 Hablamos
               </p>
               <span
-                style='font-family: "Titan One", cursive;'
+
                 class='text-2xl leading-none text-teal'>
                 30 min
               </span>
             </div>
-            <p class='text-base text-body leading-relaxed text-pretty'>
+            <p class='text-base text-cream/70 leading-relaxed text-pretty'>
               Reviso tu web en tiempo real, te explico qué está fallando y por qué Google no te muestra.
             </p>
           </div>

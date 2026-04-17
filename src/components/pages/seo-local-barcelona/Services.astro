@@ -94,22 +94,19 @@ const meta = [
 ]
 ---
 
-<section id='servicios-local' class='relative bg-charcoal py-24 sm:py-32 overflow-hidden'>
+<section id='servicios-local' class='relative bg-surface py-24 sm:py-32 overflow-hidden'>
 
   <!-- Background texture: fine dot grid -->
   <div
     class='pointer-events-none absolute inset-0 opacity-[0.06]'
-    style='background-image: radial-gradient(circle, rgba(52,101,109,0.5) 1px, transparent 1px); background-size: 24px 24px;'
     aria-hidden='true'></div>
 
   <!-- Ambient glow blobs -->
   <div
     class='pointer-events-none absolute top-0 left-1/3 w-[500px] h-[500px] rounded-full opacity-20'
-    style='background: radial-gradient(circle, rgba(52,101,109,0.15) 0%, transparent 70%);'
     aria-hidden='true'></div>
   <div
     class='pointer-events-none absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full opacity-15'
-    style='background: radial-gradient(circle, rgba(250,234,177,0.08) 0%, transparent 70%);'
     aria-hidden='true'></div>
 
   <div class='relative mx-auto max-w-[1280px] px-5'>
@@ -119,11 +116,9 @@ const meta = [
       <div class='max-w-2xl'>
         <div class='flex items-center gap-3 mb-4'>
           <span class='block h-px w-10 bg-sand' aria-hidden='true'></span>
-          <h2 class='label-section text-sand'>{upheading}</h2>
+          <h2 class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-sand'>{upheading}</h2>
         </div>
-        <p
-          class='mt-3 text-white leading-[1.1]'
-          style='font-family: "Titan One", cursive; font-size: var(--heading-display); letter-spacing: -0.015em;'>
+        <p class="font-display mt-3 text-white leading-[1.1]">
           {heading}
         </p>
       </div>
@@ -166,8 +161,7 @@ const meta = [
               <div class='signal-bars' aria-hidden='true' title={`Impacto: ${m.bars}/4`}>
                 {[1, 2, 3, 4].map(n => (
                   <div
-                    class:list={['signal-bar', barClass, n <= m.bars ? 'signal-bar--filled' : 'signal-bar--empty']}
-                    style={`--bar-h: ${n * 25}%;`}>
+                    class:list={['signal-bar', barClass, n <= m.bars ? 'signal-bar--filled' : 'signal-bar--empty']}>
                   </div>
                 ))}
               </div>
@@ -185,10 +179,9 @@ const meta = [
 
             <!-- Stat badge (if any) -->
             {m.stat && (
-              <div class='svc-stat' style={`--accent: ${accentColor};`}>
+              <div class='svc-stat'>
                 <span
                   class='size-1.5 rounded-full shrink-0'
-                  style={`background: ${accentColor};`}
                   aria-hidden='true'></span>
                 {m.stat}
               </div>
@@ -197,7 +190,6 @@ const meta = [
             <!-- Hover accent line -->
             <div
               class='svc-accent-line'
-              style={`--accent: ${accentColor};`}
               aria-hidden='true'></div>
           </article>
         )
@@ -218,177 +210,3 @@ const meta = [
 
   </div>
 </section>
-
-<style>
-  /* ── Grid layout ── */
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 1rem;
-  }
-
-  /* Default: 2-col span */
-  .svc-card { grid-column: span 2; }
-
-  /* Wide cards: 3-col span */
-  .svc-card--wide { grid-column: span 3; }
-
-  /* Last row of 2 regular cards: center them */
-  .svc-card:nth-child(6),
-  .svc-card:nth-child(7) {
-    grid-column: span 3;
-  }
-
-  @media (max-width: 1024px) {
-    .services-grid { grid-template-columns: repeat(4, 1fr); }
-    .svc-card { grid-column: span 2; }
-    .svc-card--wide { grid-column: span 2; }
-    .svc-card:nth-child(6),
-    .svc-card:nth-child(7) { grid-column: span 2; }
-  }
-
-  @media (max-width: 640px) {
-    .services-grid { grid-template-columns: 1fr; }
-    .svc-card,
-    .svc-card--wide,
-    .svc-card:nth-child(6),
-    .svc-card:nth-child(7) { grid-column: span 1; }
-  }
-
-  /* ── Card base ── */
-  .svc-card {
-    background-color: rgba(255, 255, 255, 0.04);
-    border-color: rgba(255, 255, 255, 0.07);
-    overflow: hidden;
-  }
-
-  .svc-card:hover {
-    background-color: rgba(255, 255, 255, 0.07);
-    border-color: rgba(255, 255, 255, 0.13);
-    transform: translateY(-3px);
-    box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.35);
-  }
-
-  /* ── Watermark number ── */
-  .svc-num {
-    font-family: 'Titan One', cursive;
-    font-size: 3rem;
-    line-height: 1;
-    color: rgba(255, 255, 255, 0.05);
-    transition: color 0.3s ease;
-  }
-
-  .svc-card:hover .svc-num {
-    color: rgba(255, 255, 255, 0.09);
-  }
-
-  /* ── Icon wrapper ── */
-  .svc-icon-wrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 0.625rem;
-    flex-shrink: 0;
-    transition: box-shadow 0.3s ease;
-  }
-
-  .svc-icon-sky {
-    background-color: rgba(52, 101, 109, 0.15);
-    color: #34656D;
-    box-shadow: 0 0 0 0 rgba(52, 101, 109, 0);
-  }
-
-  .svc-icon-orange {
-    background-color: rgba(250, 234, 177, 0.15);
-    color: #FAEAB1;
-    box-shadow: 0 0 0 0 rgba(250, 234, 177, 0);
-  }
-
-  .svc-card:hover .svc-icon-sky  { box-shadow: 0 0 16px 4px rgba(52, 101, 109, 0.2); }
-  .svc-card:hover .svc-icon-orange { box-shadow: 0 0 16px 4px rgba(250, 234, 177, 0.2); }
-
-  /* ── Signal bars ── */
-  .signal-bars {
-    display: flex;
-    align-items: flex-end;
-    gap: 3px;
-    height: 22px;
-  }
-
-  .signal-bar {
-    width: 5px;
-    border-radius: 2px;
-    height: var(--bar-h, 50%);
-    transform: scaleY(0.18);
-    transform-origin: bottom;
-    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-
-  .signal-bar:nth-child(1) { transition-delay: 0ms; }
-  .signal-bar:nth-child(2) { transition-delay: 55ms; }
-  .signal-bar:nth-child(3) { transition-delay: 110ms; }
-  .signal-bar:nth-child(4) { transition-delay: 165ms; }
-
-  /* Filled bars: accent color at rest (subtle), fully saturated on hover */
-  .signal-bar--filled.svc-bar-sky    { background-color: rgba(52, 101, 109, 0.45); }
-  .signal-bar--filled.svc-bar-orange { background-color: rgba(250, 234, 177, 0.45); }
-  .signal-bar--empty  { background-color: rgba(255, 255, 255, 0.1); }
-
-  .svc-card:hover .signal-bar { transform: scaleY(1); }
-  .svc-card:hover .signal-bar--filled.svc-bar-sky    { background-color: #34656D; }
-  .svc-card:hover .signal-bar--filled.svc-bar-orange { background-color: #FAEAB1; }
-  .svc-card:hover .signal-bar--empty                 { background-color: rgba(255, 255, 255, 0.2); }
-
-  /* ── Title size: larger on wide cards ── */
-  .svc-title { font-size: 0.9375rem; }
-  .svc-card--wide .svc-title { font-size: 1.0625rem; }
-
-  /* ── Stat badge ── */
-  .svc-stat {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.6);
-    padding: 0.375rem 0.75rem;
-    border-radius: 100px;
-    background-color: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    width: fit-content;
-    transition: color 0.3s ease, background-color 0.3s ease;
-  }
-
-  .svc-card:hover .svc-stat {
-    color: rgba(255, 255, 255, 0.9);
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-
-  /* ── Hover accent line at bottom ── */
-  .svc-accent-line {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--accent, #34656D);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-    border-radius: 0 0 16px 16px;
-  }
-
-  .svc-card:hover .svc-accent-line {
-    transform: scaleX(1);
-  }
-
-  /* ── Reduced motion ── */
-  @media (prefers-reduced-motion: reduce) {
-    .svc-card { transition: none; }
-    .svc-card:hover { transform: none; }
-    .signal-bar { transform: scaleY(1) !important; transition: none; }
-    .svc-accent-line { transition: none; }
-  }
-</style>

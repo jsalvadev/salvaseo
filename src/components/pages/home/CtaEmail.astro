@@ -8,8 +8,7 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
   <!-- Subtle radial gradient top-center -->
   <div
     class='pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full blur-3xl'
-    aria-hidden='true'
-    style='background: radial-gradient(ellipse, rgba(52,101,109,0.07) 0%, transparent 70%);'>
+    aria-hidden='true'>
   </div>
 
   <!-- Top hairline -->
@@ -26,14 +25,12 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
       <!-- Eyebrow -->
       <div class='flex items-center justify-center gap-3 mb-4'>
         <span class='block h-px w-8 bg-teal/40' aria-hidden='true'></span>
-        <p class='label-section text-teal'>Consultor SEO · Barcelona</p>
+        <p class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-teal'>Consultor SEO · Barcelona</p>
         <span class='block h-px w-8 bg-teal/40' aria-hidden='true'></span>
       </div>
 
       <!-- Headline -->
-      <h2
-        class='heading-display leading-[0.95] tracking-tight text-charcoal text-pretty'
-        style='font-family: "Titan One", cursive; font-weight: 400;'>
+      <h2 class="font-display font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] leading-[0.95] tracking-tight text-cream text-pretty">
         30 minutos.<br>
         <span class='text-teal'>Un plan real para tu negocio.</span>
       </h2>
@@ -45,9 +42,9 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
       </div>
 
       <!-- Body -->
-      <p class='mt-6 text-base leading-relaxed text-charcoal/70 text-pretty max-w-[46ch] mx-auto'>
+      <p class='mt-6 text-base leading-relaxed text-cream/70 text-pretty max-w-[46ch] mx-auto'>
         Una llamada gratuita donde analizamos tu situación real en Google y te digo qué está fallando.
-        <strong class='text-charcoal font-semibold'>Sin rodeos. Sin venderte nada.</strong>
+        <strong class='text-cream font-semibold'>Sin rodeos. Sin venderte nada.</strong>
       </p>
     </div>
 
@@ -58,30 +55,24 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
       <div class='grid grid-cols-3 divide-x divide-teal/15 w-full max-w-xl'>
 
         <div class='text-center px-6 py-2'>
-          <p
-            class='text-teal leading-none mb-1'
-            style='font-family: "Titan One", cursive; font-size: clamp(2.2rem, 5vw, 3rem);'>
+          <p class="font-display text-teal leading-none mb-1">
             30'
           </p>
-          <p class='text-sm text-charcoal/55 font-medium'>de duración</p>
+          <p class='text-sm text-cream/55 font-medium'>de duración</p>
         </div>
 
         <div class='text-center px-6 py-2'>
-          <p
-            class='text-teal leading-none mb-1'
-            style='font-family: "Titan One", cursive; font-size: clamp(2.2rem, 5vw, 3rem);'>
+          <p class="font-display text-teal leading-none mb-1">
             0€
           </p>
-          <p class='text-sm text-charcoal/55 font-medium'>sin coste</p>
+          <p class='text-sm text-cream/55 font-medium'>sin coste</p>
         </div>
 
         <div class='text-center px-6 py-2'>
-          <p
-            class='text-teal leading-none mb-1'
-            style='font-family: "Titan One", cursive; font-size: clamp(2.2rem, 5vw, 3rem);'>
+          <p class="font-display text-teal leading-none mb-1">
             1:1
           </p>
-          <p class='text-sm text-charcoal/55 font-medium'>solo yo, tú</p>
+          <p class='text-sm text-cream/55 font-medium'>solo yo, tú</p>
         </div>
 
       </div>
@@ -92,7 +83,7 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
           text='Reserva tu llamada gratuita'
           class='px-7 py-3.5 text-base shadow-lg shadow-sand/30 hover:shadow-sand/50 transition-shadow'
         />
-        <p class='text-xs text-charcoal/40'>
+        <p class='text-xs text-cream/40'>
           Sin spam. Elige el día y la hora que te vaya mejor.
         </p>
       </div>

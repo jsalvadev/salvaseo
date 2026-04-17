@@ -17,13 +17,12 @@ const plans = [
 ]
 ---
 
-<section id='calculadora' class='relative overflow-hidden bg-charcoal py-24 md:py-32'>
+<section id='calculadora' class='relative overflow-hidden bg-surface py-24 md:py-32'>
 
   <!-- Dot-grid texture -->
   <div
     class='pointer-events-none absolute inset-0'
-    aria-hidden='true'
-    style='background-image: radial-gradient(circle, rgba(255,255,255,0.028) 1px, transparent 1px); background-size: 32px 32px;'>
+    aria-hidden='true'>
   </div>
 
   <!-- Top/bottom hairlines -->
@@ -38,28 +37,26 @@ const plans = [
       <div data-animate class='relative mb-12 lg:mb-0 lg:sticky lg:top-[calc(var(--navbar-height,80px)+2rem)]'>
 
         <!-- Ghost watermark inside left col -->
-        <div
+        <div class="font-display pointer-events-none absolute -bottom-8 -left-6 select-none leading-none transition-all duration-500"
           id='wm-ghost'
-          class='pointer-events-none absolute -bottom-8 -left-6 select-none leading-none transition-all duration-500'
-          aria-hidden='true'
-          style='font-family: "Titan One", cursive; font-size: clamp(8rem, 18vw, 14rem); color: rgba(255,255,255,0.05); line-height: 1; white-space: nowrap;'>
+          aria-hidden='true'>
           2×
         </div>
 
         <div class='flex items-center gap-3 mb-8'>
           <span class='block h-px w-10 bg-sand' aria-hidden='true'></span>
-          <h2 class='label-section text-sand'>
+          <h2 class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-sand'>
             Precio del consultor SEO profesional
           </h2>
         </div>
 
         <p
-          style='font-family: "Titan One", cursive;'
+
           class='leading-[0.92] tracking-tight'>
-          <span class='block heading-display text-white/50 mb-1'>
+          <span class='block font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] text-white/50 mb-1'>
             ¿Cuántos clientes necesitas
           </span>
-          <span class='block heading-display text-white'>
+          <span class='block font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] text-white'>
             para que salga a cuenta<span class='text-sand'>?</span>
           </span>
         </p>
@@ -105,7 +102,7 @@ const plans = [
               <span class='plan-name block text-sm font-bold mb-1 leading-snug'>
                 {plan.label}
               </span>
-              <span class='plan-price block leading-none mb-2' style='font-family: "Titan One", cursive; font-size: 1.6rem;'>
+              <span class='plan-price block leading-none mb-2 font-display'>
                 {plan.price}€<span class='text-sm font-normal'>/mes</span>
               </span>
               <span class='plan-desc block text-[0.7rem] leading-snug mb-2.5'>
@@ -147,10 +144,8 @@ const plans = [
                   aria-label='Cuánto te paga un cliente tuyo de media, en euros'
                 />
                 <div class='shrink-0 flex items-baseline gap-0.5 min-w-[5.5rem] justify-end'>
-                  <span
-                    id='ticket-display'
-                    class='tabular-nums text-sand leading-none'
-                    style='font-family: "Titan One", cursive; font-size: clamp(2rem, 3.5vw, 2.6rem);'>
+                  <span class="font-display tabular-nums text-sand leading-none"
+                    id='ticket-display'>
                     250
                   </span>
                   <span class='text-lg font-bold text-sand/60 ml-0.5'>€</span>
@@ -172,51 +167,41 @@ const plans = [
 
               <!-- Mi coste -->
               <div class='text-center'>
-                <div class='label-ui text-white/35 mb-2'>Lo que me pagas</div>
-                <div
-                  id='fee-display'
-                  class='tabular-nums text-white/80 leading-none transition-all duration-200'
-                  style='font-family: "Titan One", cursive; font-size: clamp(1.6rem, 3vw, 2.4rem);'>
+                <div class='text-[0.6rem] font-semibold tracking-[0.12em] uppercase text-white/35 mb-2'>Lo que me pagas</div>
+                <div class="font-display tabular-nums text-white/80 leading-none transition-all duration-200"
+                  id='fee-display'>
                   350
                 </div>
                 <div class='text-xs text-white/30 mt-1'>€/mes</div>
               </div>
 
               <!-- ÷ -->
-              <div
-                class='text-white/20 leading-none'
-                style='font-family: "Titan One", cursive; font-size: clamp(1.4rem, 2.5vw, 2rem);'
+              <div class="font-display text-white/20 leading-none"
                 aria-hidden='true'>
                 ÷
               </div>
 
               <!-- Ticket medio -->
               <div class='text-center'>
-                <div class='label-ui text-white/35 mb-2'>Tu cliente medio</div>
-                <div
-                  id='ticket-eq'
-                  class='tabular-nums text-sand leading-none'
-                  style='font-family: "Titan One", cursive; font-size: clamp(1.6rem, 3vw, 2.4rem);'>
+                <div class='text-[0.6rem] font-semibold tracking-[0.12em] uppercase text-white/35 mb-2'>Tu cliente medio</div>
+                <div class="font-display tabular-nums text-sand leading-none"
+                  id='ticket-eq'>
                   250
                 </div>
                 <div class='text-xs text-white/30 mt-1'>€/cliente</div>
               </div>
 
               <!-- = -->
-              <div
-                class='text-white/20 leading-none'
-                style='font-family: "Titan One", cursive; font-size: clamp(1.4rem, 2.5vw, 2rem);'
+              <div class="font-display text-white/20 leading-none"
                 aria-hidden='true'>
                 =
               </div>
 
               <!-- Result -->
               <div class='text-center'>
-                <div class='label-ui text-sand/70 mb-2'>Clientes para cubrirme</div>
-                <div
-                  id='clients-result'
-                  class='tabular-nums text-sand leading-none'
-                  style='font-family: "Titan One", cursive; font-size: clamp(2.4rem, 5vw, 4rem);'>
+                <div class='text-[0.6rem] font-semibold tracking-[0.12em] uppercase text-sand/70 mb-2'>Clientes para cubrirme</div>
+                <div class="font-display tabular-nums text-sand leading-none"
+                  id='clients-result'>
                   2
                 </div>
                 <div class='text-xs text-sand/50 mt-1'>clientes</div>
@@ -254,90 +239,6 @@ const plans = [
     </div>
   </div>
 </section>
-
-<style>
-  /* ── Plan buttons — dark background context ── */
-  .plan-btn[data-active='true'] {
-    background-color: rgba(250, 234, 177, 0.10);
-    border-color: rgba(250, 234, 177, 0.45);
-  }
-  .plan-btn[data-active='true'] .plan-name  { color: #FAEAB1; }
-  .plan-btn[data-active='true'] .plan-price { color: var(--color-sand); }
-  .plan-btn[data-active='true'] .plan-desc  { color: rgba(250,234,177,0.65); }
-  .plan-btn[data-active='true'] .plan-iva   {
-    color: rgba(250,234,177,0.7);
-    border-color: rgba(250,234,177,0.25);
-    background-color: rgba(250,234,177,0.08);
-  }
-
-  .plan-btn[data-active='false'] {
-    background-color: rgba(255,255,255,0.04);
-    border-color: rgba(255,255,255,0.10);
-  }
-  .plan-btn[data-active='false'] .plan-name  { color: rgba(255,255,255,0.4); }
-  .plan-btn[data-active='false'] .plan-price { color: rgba(255,255,255,0.25); }
-  .plan-btn[data-active='false'] .plan-desc  { color: rgba(255,255,255,0.3); }
-  .plan-btn[data-active='false'] .plan-iva   {
-    color: rgba(255,255,255,0.3);
-    border-color: rgba(255,255,255,0.10);
-  }
-
-  .plan-btn:hover[data-active='false'] {
-    background-color: rgba(255,255,255,0.07);
-    border-color: rgba(255,255,255,0.18);
-  }
-  .plan-btn:hover[data-active='false'] .plan-name { color: rgba(255,255,255,0.65); }
-
-  /* ── Slider ── */
-  .ticket-slider::-webkit-slider-runnable-track {
-    background: linear-gradient(to right, #FAEAB1 var(--pct, 10%), rgba(255,255,255,0.12) var(--pct, 10%));
-    border-radius: 9999px;
-    height: 8px;
-  }
-  .ticket-slider::-moz-range-track {
-    background: rgba(255,255,255,0.12);
-    border-radius: 9999px;
-    height: 8px;
-  }
-  .ticket-slider::-moz-range-progress {
-    background: #FAEAB1;
-    border-radius: 9999px;
-    height: 8px;
-  }
-  .ticket-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: #FAEAB1;
-    border: 3px solid #334443;
-    box-shadow: 0 0 0 2px rgba(250,234,177,0.35);
-    cursor: pointer;
-    margin-top: -7px;
-    transition: box-shadow 0.15s;
-  }
-  .ticket-slider::-moz-range-thumb {
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: #FAEAB1;
-    border: 3px solid #334443;
-    box-shadow: 0 0 0 2px rgba(250,234,177,0.35);
-    cursor: pointer;
-  }
-  .ticket-slider:hover::-webkit-slider-thumb,
-  .ticket-slider:focus::-webkit-slider-thumb {
-    box-shadow: 0 0 0 5px rgba(250,234,177,0.20);
-  }
-
-  /* ── Number pop ── */
-  @keyframes numPop {
-    0%   { transform: scale(1); }
-    40%  { transform: scale(1.18); }
-    100% { transform: scale(1); }
-  }
-  .num-pop { animation: numPop 0.22s ease-out; }
-</style>
 
 <script>
   const slider      = document.getElementById('ticket-slider') as HTMLInputElement

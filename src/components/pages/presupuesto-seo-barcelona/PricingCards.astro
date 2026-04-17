@@ -70,14 +70,12 @@ const TOTAL_SEGMENTS = 6
 
 <div
   id='paquetes'
-  class='relative overflow-hidden py-24 sm:py-32'
-  style='scroll-margin-top: var(--navbar-height)'>
+  class='relative overflow-hidden py-24 sm:py-32'>
 
   <!-- Architectural grid (Eixample-inspired) -->
   <div
     class='pointer-events-none absolute inset-0'
-    aria-hidden='true'
-    style='background-image: linear-gradient(rgba(52,101,109,0.038) 1px, transparent 1px), linear-gradient(90deg, rgba(52,101,109,0.038) 1px, transparent 1px); background-size: 48px 48px;'>
+    aria-hidden='true'>
   </div>
 
   <div class='relative mx-auto max-w-[1280px] px-5'>
@@ -89,23 +87,23 @@ const TOTAL_SEGMENTS = 6
       <div class='flex-1' data-animate>
         <div class='flex items-center gap-3 mb-6'>
           <span class='block h-px w-10 bg-teal' aria-hidden='true'></span>
-          <h2 class='label-section text-teal'>
+          <h2 class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-teal'>
             Precio SEO mensual: tarifas y paquetes
           </h2>
         </div>
 
         <p
-          style='font-family: "Titan One", cursive;'
-          class='heading-display leading-[1.05] tracking-tight text-charcoal text-pretty'>
+
+          class='font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] leading-[1.05] tracking-tight text-cream text-pretty'>
           Invierte solo en lo que necesitas<span class='text-teal'>.</span>
         </p>
       </div>
 
       <!-- Right: philosophy note (desktop only) -->
       <div
-        class='hidden lg:block lg:max-w-[240px] xl:max-w-[260px] pb-3 pl-10 border-l-2 border-charcoal/10'
+        class='hidden lg:block lg:max-w-[240px] xl:max-w-[260px] pb-3 pl-10 border-l-2 border-surface/10'
         data-animate>
-        <p class='text-base leading-relaxed text-charcoal/70 text-pretty'>
+        <p class='text-base leading-relaxed text-cream/70 text-pretty'>
           Dos paquetes. Precio fijo mensual. Sin permanencia ni letra pequeña.
         </p>
 
@@ -124,22 +122,17 @@ const TOTAL_SEGMENTS = 6
       {tiers.map((tier, index) => (
         <div
           data-animate
-          style={tier.featured
-            ? `transition-delay: ${index * 100}ms; box-shadow: 0 30px 60px -15px rgba(52,101,109,0.4);`
-            : `transition-delay: ${index * 100}ms;`}
           class:list={[
             'relative flex flex-col rounded-2xl overflow-hidden',
             tier.featured
-              ? 'bg-charcoal'
+              ? 'bg-surface'
               : 'border border-default shadow-sm hover:shadow-lg transition-shadow duration-300',
           ]}>
 
           <!-- Ghost "€" watermark on featured card -->
           {tier.featured && (
-            <div
-              class='pointer-events-none absolute -right-4 -bottom-2 select-none leading-none'
-              aria-hidden='true'
-              style='font-family: "Titan One", cursive; font-size: 13rem; color: rgba(250,234,177,0.06); line-height: 1;'>
+            <div class="font-display pointer-events-none absolute -right-4 -bottom-2 select-none leading-none"
+              aria-hidden='true'>
               €
             </div>
           )}
@@ -155,14 +148,14 @@ const TOTAL_SEGMENTS = 6
                       'h-1.5 flex-1 rounded-full',
                       i < tier.commitmentMonths
                         ? 'bg-teal'
-                        : tier.featured ? 'bg-white/10' : 'bg-charcoal/10',
+                        : tier.featured ? 'bg-white/10' : 'bg-surface/10',
                     ]}
                   />
                 ))}
               </div>
               <p class:list={[
                 'text-xs font-semibold uppercase tracking-wide',
-                tier.featured ? 'text-white/35' : 'text-charcoal/50',
+                tier.featured ? 'text-white/35' : 'text-cream/50',
               ]}>
                 {tier.commitmentMonths} de {TOTAL_SEGMENTS} meses recomendados
               </p>
@@ -172,21 +165,21 @@ const TOTAL_SEGMENTS = 6
             <div class='flex items-start justify-between gap-3 mb-2'>
               <div>
                 <p class:list={[
-                  'label-micro mb-0.5',
-                  tier.featured ? 'text-sand/50' : 'text-charcoal/40',
+                  'text-[0.6rem] font-bold tracking-[0.14em] uppercase mb-0.5',
+                  tier.featured ? 'text-sand/50' : 'text-cream/40',
                 ]}>
                   Plan
                 </p>
                 <h3
                   class:list={[
                     'text-base font-bold uppercase tracking-[0.1em]',
-                    tier.featured ? 'text-white/70' : 'text-charcoal',
+                    tier.featured ? 'text-white/70' : 'text-cream',
                   ]}>
                   {tier.name}
                 </h3>
               </div>
               {tier.featured && (
-                <span class='mt-0.5 inline-flex items-center rounded-full bg-sand px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wide text-charcoal shadow-lg shadow-sand/40'>
+                <span class='mt-0.5 inline-flex items-center rounded-full bg-sand px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wide text-cream shadow-lg shadow-sand/40'>
                   ★ Recomendado
                 </span>
               )}
@@ -197,14 +190,14 @@ const TOTAL_SEGMENTS = 6
               <span
                 class:list={[
                   'font-bold leading-none text-[clamp(2.75rem,5.5vw,4rem)]',
-                  tier.featured ? 'text-sand' : 'text-charcoal',
+                  tier.featured ? 'text-sand' : 'text-cream',
                 ]}
-                style='font-family: "Titan One", cursive;'>
+>
                 {tier.price}
               </span>
               <span class:list={[
                 'text-sm font-semibold',
-                tier.featured ? 'text-white/35' : 'text-charcoal/55',
+                tier.featured ? 'text-white/35' : 'text-cream/55',
               ]}>
                 {tier.unit}
               </span>
@@ -216,7 +209,7 @@ const TOTAL_SEGMENTS = 6
                 'text-sm leading-relaxed pb-5 mb-5',
                 tier.featured
                   ? 'text-white/75 border-b border-white/10'
-                  : 'text-charcoal/70 border-b border-charcoal/10',
+                  : 'text-cream/70 border-b border-surface/10',
               ]}>
               <Fragment set:html={tier.description} />
             </p>
@@ -236,7 +229,7 @@ const TOTAL_SEGMENTS = 6
                   </span>
                   <span class:list={[
                     'text-sm leading-relaxed',
-                    tier.featured ? 'text-white/75' : 'text-charcoal/70',
+                    tier.featured ? 'text-white/75' : 'text-cream/70',
                   ]}>
                     <Fragment set:html={feature} />
                   </span>
@@ -255,7 +248,7 @@ const TOTAL_SEGMENTS = 6
                 'block w-full rounded-xl px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2',
                 tier.featured
                   ? 'bg-teal text-white shadow-lg shadow-teal/30 hover:bg-[#3d7880] active:bg-[#2b565d] hover:-translate-y-0.5 focus-visible:outline-teal'
-                  : 'bg-charcoal text-white hover:bg-charcoal/85 hover:-translate-y-0.5 focus-visible:outline-charcoal',
+                  : 'bg-surface text-white hover:bg-surface/85 hover:-translate-y-0.5 focus-visible:outline-charcoal',
               ]}>
               {tier.cta}
             </a>
@@ -266,9 +259,9 @@ const TOTAL_SEGMENTS = 6
 
     <!-- Footer note -->
     <p
-      class='mt-8 max-w-5xl text-sm text-charcoal/50'
+      class='mt-8 max-w-5xl text-sm text-cream/50'
       data-animate>
-      Precios sin IVA. Sin permanencia ni letra pequeña. ¿Quieres saber más antes de decidir? Lee sobre mi metodología como <a href='/' class='text-teal hover:text-teal/80 underline decoration-teal/30 underline-offset-2 transition-colors'>consultor SEO en Barcelona</a>.
+      Precios sin IVA. Sin permanencia ni letra pequeña. ¿Quieres saber más antes de decidir? Lee sobre mi metodología como <a href='/' class='text-teal hover:text-sage/80 underline decoration-teal/30 underline-offset-2 transition-colors'>consultor SEO en Barcelona</a>.
     </p>
 
   </div>

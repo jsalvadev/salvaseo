@@ -9,21 +9,21 @@ const profiles = [
     accent: 'sky',
     heading: 'Negocios que viven de su zona',
     body: `Clínicas, talleres, despachos, empresas locales… Si tus clientes están
-      cerca, una <a href='/seo-local-barcelona/' class='text-teal font-medium hover:text-teal/80 underline decoration-teal/30 underline-offset-2 transition-colors'>estrategia de SEO local en Barcelona</a> transforma tu ficha de Google en un canal constante de llamadas y solicitudes de presupuesto.`,
+      cerca, una <a href='/seo-local-barcelona/' class='text-teal font-medium hover:text-sage/80 underline decoration-teal/30 underline-offset-2 transition-colors'>estrategia de SEO local en Barcelona</a> transforma tu ficha de Google en un canal constante de llamadas y solicitudes de presupuesto.`,
   },
   {
     icon: Handshake,
     watermark: 'DIRECTO',
     accent: 'orange',
     heading: 'Personas que se implican',
-    body: `Los mejores resultados llegan cuando el dueño del negocio <strong class='font-semibold text-charcoal'>conoce su mercado, participa en las decisiones estratégicas y valora la transparencia en el proceso</strong>.`,
+    body: `Los mejores resultados llegan cuando el dueño del negocio <strong class='font-semibold text-cream'>conoce su mercado, participa en las decisiones estratégicas y valora la transparencia en el proceso</strong>.`,
   },
   {
     icon: Building2,
     watermark: 'BCN',
     accent: 'gradient',
     heading: 'Barcelona y alrededores',
-    body: `El <a href='/posicionamiento-web-barcelona/' class='text-teal font-medium hover:text-teal/80 underline decoration-teal/30 underline-offset-2 transition-colors'>servicio de posicionamiento web en Barcelona</a> se complementa con trabajo de proximidad: visitar tu local y analizar la competencia de tu barrio <strong class='font-semibold text-charcoal'>sobre el terreno</strong>.`,
+    body: `El <a href='/posicionamiento-web-barcelona/' class='text-teal font-medium hover:text-sage/80 underline decoration-teal/30 underline-offset-2 transition-colors'>servicio de posicionamiento web en Barcelona</a> se complementa con trabajo de proximidad: visitar tu local y analizar la competencia de tu barrio <strong class='font-semibold text-cream'>sobre el terreno</strong>.`,
   },
 ]
 ---
@@ -33,8 +33,7 @@ const profiles = [
   <!-- Subtle dot-grid texture -->
   <div
     class='pointer-events-none absolute inset-0 opacity-60'
-    aria-hidden='true'
-    style='background-image: radial-gradient(circle, rgba(52,101,109,0.055) 1px, transparent 1px); background-size: 32px 32px;'>
+    aria-hidden='true'>
   </div>
 
   <div class='relative mx-auto max-w-[1280px] px-5'>
@@ -48,9 +47,7 @@ const profiles = [
         text='Especialista SEO en Barcelona para negocios locales'
         color='var(--color-teal)'
       />
-      <p
-        class='mt-2 tracking-tight text-charcoal text-pretty'
-        style='font-family: "Titan One", cursive; font-size: var(--heading-display); line-height: 1.05; font-weight: 400;'>
+      <p class="font-display mt-2 tracking-tight text-cream text-pretty">
         Esto es para ti si.
       </p>
       <!-- Accent rule -->
@@ -58,7 +55,7 @@ const profiles = [
         <div class='h-px w-16 bg-teal'></div>
         <div class='h-px w-24 bg-gradient-to-r from-teal/40 to-transparent'></div>
       </div>
-      <p class='mt-5 text-base/7 text-body max-w-lg text-pretty'>
+      <p class='mt-5 text-base/7 text-cream/70 max-w-lg text-pretty'>
         Cada proyecto entra con un objetivo claro de facturación. Sin ese foco,
         el SEO no convierte.
       </p>
@@ -70,13 +67,11 @@ const profiles = [
         profiles.map(({ icon: Icon, watermark, accent, heading, body }) => (
           <div
             data-animate
-            class='group relative flex items-start gap-6 py-10 md:py-12 overflow-hidden transition-colors duration-300 hover:bg-teal/5 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 rounded-xl'>
+            class='group relative flex items-start gap-6 py-10 md:py-12 overflow-hidden transition-colors duration-300 hover:bg-sage/5 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 rounded-xl'>
 
             <!-- Watermark word -->
-            <div
-              class='pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 select-none leading-none transition-all duration-500 opacity-[0.028] group-hover:opacity-[0.06]'
-              aria-hidden='true'
-              style={`font-family: "Titan One", cursive; font-size: clamp(5rem, 13vw, 11rem); line-height: 1; color: rgba(52,101,109,0.06);`}>
+            <div class="font-display pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 select-none leading-none transition-all duration-500 opacity-[0.028] group-hover:opacity-[0.06]"
+              aria-hidden='true'>
               {watermark}
             </div>
 
@@ -94,10 +89,10 @@ const profiles = [
 
             <!-- Text -->
             <div class='relative flex-1 min-w-0'>
-              <h3 class='text-xl font-semibold tracking-tight text-charcoal mb-3 text-pretty'>
+              <h3 class='text-xl font-semibold tracking-tight text-cream mb-3 text-pretty'>
                 {heading}
               </h3>
-              <p class='text-base/7 text-body text-pretty max-w-2xl' set:html={body} />
+              <p class='text-base/7 text-cream/70 text-pretty max-w-2xl' set:html={body} />
             </div>
 
           </div>
@@ -114,7 +109,7 @@ const profiles = [
         class='rounded-md bg-teal px-5 py-3 text-sm font-bold text-white shadow-sm hover:bg-[#3d7880] active:bg-[#2b565d] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal transition-all'>
         Quiero mi análisis gratuito
       </a>
-      <p class='text-sm text-body'>Auditoría gratuita · Sin contratos de permanencia</p>
+      <p class='text-sm text-cream/70'>Auditoría gratuita · Sin contratos de permanencia</p>
     </div>
 
   </div>

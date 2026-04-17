@@ -23,14 +23,11 @@ const { upheading, heading, intro, areas } = Astro.props
   <div
     class='pointer-events-none absolute inset-0'
     aria-hidden='true'
-    style='background-image: radial-gradient(circle, rgba(52,101,109,0.05) 1px, transparent 1px); background-size: 32px 32px;'
   ></div>
 
   <!-- Ghost watermark -->
-  <div
-    class='pointer-events-none absolute -right-8 top-1/2 -translate-y-1/2 select-none leading-none'
+  <div class="font-display pointer-events-none absolute -right-8 top-1/2 -translate-y-1/2 select-none leading-none"
     aria-hidden='true'
-    style='font-family: "Titan One", cursive; font-size: clamp(10rem, 22vw, 18rem); color: rgba(52,101,109,0.04); line-height: 1; white-space: nowrap;'
   >
     CAT
   </div>
@@ -39,7 +36,6 @@ const { upheading, heading, intro, areas } = Astro.props
   <div
     class='pointer-events-none absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full'
     aria-hidden='true'
-    style='background: radial-gradient(circle, rgba(52,101,109,0.04) 0%, transparent 65%);'
   ></div>
 
   <!-- Diagonal tension lines -->
@@ -65,7 +61,7 @@ const { upheading, heading, intro, areas } = Astro.props
       <!-- Eyebrow -->
       <div data-animate class='flex items-center gap-3 mb-8'>
         <span class='block h-px w-10 bg-teal' aria-hidden='true'></span>
-        <h2 class='label-section text-teal'>
+        <h2 class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-teal'>
           {upheading}
         </h2>
       </div>
@@ -73,8 +69,8 @@ const { upheading, heading, intro, areas } = Astro.props
       <!-- Section heading -->
       <p
         data-animate
-        style='font-family: "Titan One", cursive;'
-        class='heading-display leading-[1.05] tracking-tight text-charcoal text-pretty'
+
+        class='font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] leading-[1.05] tracking-tight text-cream text-pretty'
       >
         {heading}<span class='text-teal'>.</span>
       </p>
@@ -88,7 +84,7 @@ const { upheading, heading, intro, areas } = Astro.props
       <!-- Intro HTML -->
       <div
         data-animate
-        class='mt-6 [&_p]:text-base [&_p]:leading-relaxed [&_p]:text-charcoal/70 [&_p]:text-pretty [&_p:not(:first-child)]:mt-4 [&_a]:text-teal [&_a]:underline [&_a]:decoration-teal/30 [&_a:hover]:text-teal/80 [&_a:hover]:decoration-teal/50 [&_strong]:text-charcoal [&_strong]:font-semibold'
+        class='mt-6 [&_p]:text-base [&_p]:leading-relaxed [&_p]:text-cream/70 [&_p]:text-pretty [&_p:not(:first-child)]:mt-4 [&_a]:text-teal [&_a]:underline [&_a]:decoration-teal/30 [&_a:hover]:text-teal/80 [&_a:hover]:decoration-teal/50 [&_strong]:text-cream [&_strong]:font-semibold'
       >
         <Fragment set:html={intro} />
       </div>
@@ -107,14 +103,12 @@ const { upheading, heading, intro, areas } = Astro.props
           <div
             data-animate
             data-animate-delay={idx * 120}
-            class='group relative flex flex-col sm:flex-row gap-6 sm:gap-10 py-10 overflow-hidden cursor-default transition-colors duration-300 hover:bg-teal/5 -mx-6 px-6 lg:-mx-8 lg:px-8'
+            class='group relative flex flex-col sm:flex-row gap-6 sm:gap-10 py-10 overflow-hidden cursor-default transition-colors duration-300 hover:bg-sage/5 -mx-6 px-6 lg:-mx-8 lg:px-8'
           >
 
             <!-- Ghost ordinal watermark -->
-            <div
-              class='pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 select-none leading-none transition-opacity duration-300 opacity-100 group-hover:opacity-[1.5]'
+            <div class="font-display pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 select-none leading-none transition-opacity duration-300 opacity-100 group-hover:opacity-[1.5]"
               aria-hidden='true'
-              style='font-family: "Titan One", cursive; font-size: 7rem; color: rgba(52,101,109,0.06); line-height: 1;'
             >
               {padNum}
             </div>
@@ -129,12 +123,12 @@ const { upheading, heading, intro, areas } = Astro.props
             {area.stat && (
               <div class='shrink-0 flex flex-col justify-center sm:w-36'>
                 <span
-                  class='block text-[2.6rem] leading-none font-bold text-teal tabular-nums transition-colors duration-300 group-hover:text-teal/80'
-                  style='font-family: "Titan One", cursive;'
+                  class='block text-[2.6rem] leading-none font-bold text-teal tabular-nums transition-colors duration-300 group-hover:text-sage/80'
+
                 >
                   {statNum}
                 </span>
-                <span class='mt-1 label-micro text-teal/60 transition-colors duration-300 group-hover:text-teal'>
+                <span class='mt-1 text-[0.6rem] font-bold tracking-[0.14em] uppercase text-teal/60 transition-colors duration-300 group-hover:text-sage'>
                   {statUnit}
                 </span>
               </div>
@@ -145,20 +139,20 @@ const { upheading, heading, intro, areas } = Astro.props
 
               <!-- City row meta -->
               <div class='flex items-center gap-2.5 mb-2'>
-                <span class='label-micro text-teal/40'>
+                <span class='text-[0.6rem] font-bold tracking-[0.14em] uppercase text-teal/40'>
                   {padNum}
                 </span>
                 <MapPin aria-hidden='true' class='size-3 text-teal/40' />
-                <span class='label-micro text-teal/40'>
+                <span class='text-[0.6rem] font-bold tracking-[0.14em] uppercase text-teal/40'>
                   Cataluña
                 </span>
               </div>
 
-              <h3 class='text-lg font-semibold text-charcoal leading-snug mb-2.5'>
+              <h3 class='text-lg font-semibold text-cream leading-snug mb-2.5'>
                 {area.title}
               </h3>
 
-              <p class='text-sm/6 text-teal text-pretty transition-colors duration-300 group-hover:text-teal/80 max-w-[60ch]'>
+              <p class='text-sm/6 text-teal text-pretty transition-colors duration-300 group-hover:text-sage/80 max-w-[60ch]'>
                 {area.description}
               </p>
             </div>

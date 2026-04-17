@@ -63,15 +63,12 @@ const headingSecond = periodIdx !== -1 ? heading.slice(periodIdx + 2)    : ''
   <!-- Dot-grid texture -->
   <div
     class='pointer-events-none absolute inset-0'
-    aria-hidden='true'
-    style='background-image: radial-gradient(circle, rgba(52,101,109,0.06) 1px, transparent 1px); background-size: 28px 28px;'>
+    aria-hidden='true'>
   </div>
 
   <!-- Titan One watermark -->
-  <div
-    class='pointer-events-none absolute -left-8 top-1/2 -translate-y-1/2 select-none leading-none hidden lg:block'
-    aria-hidden='true'
-    style='font-family: "Titan One", cursive; font-size: clamp(12rem, 24vw, 20rem); color: rgba(52,101,109,0.06); line-height: 1; white-space: nowrap;'>
+  <div class="font-display pointer-events-none absolute -left-8 top-1/2 -translate-y-1/2 select-none leading-none hidden lg:block"
+    aria-hidden='true'>
     MAPA
   </div>
 
@@ -91,22 +88,22 @@ const headingSecond = periodIdx !== -1 ? heading.slice(periodIdx + 2)    : ''
     <div class='mb-14 lg:mb-18'>
       <div data-animate class='flex items-center gap-3 mb-8'>
         <span class='block h-px w-10 bg-teal' aria-hidden='true'></span>
-        <h2 class='label-section text-teal'>
+        <h2 class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-teal'>
           {upheading}
         </h2>
       </div>
 
       <p
         data-animate
-        style='font-family: "Titan One", cursive;'
+
         class='leading-[0.95] tracking-tight text-pretty max-w-4xl'>
         {headingSecond ? (
           <>
-            <span class='block text-[clamp(1.2rem,2.4vw,1.8rem)] text-charcoal/55 mb-1'>{headingFirst}</span>
-            <span class='block heading-display text-charcoal'>{headingSecond.replace(/\?$/, '')}<span class='text-teal'>?</span></span>
+            <span class='block text-[clamp(1.2rem,2.4vw,1.8rem)] text-cream/55 mb-1'>{headingFirst}</span>
+            <span class='block font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] text-cream'>{headingSecond.replace(/\?$/, '')}<span class='text-teal'>?</span></span>
           </>
         ) : (
-          <span class='block heading-display text-charcoal'>{heading}</span>
+          <span class='block font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] text-cream'>{heading}</span>
         )}
       </p>
 
@@ -120,7 +117,7 @@ const headingSecond = periodIdx !== -1 ? heading.slice(periodIdx + 2)    : ''
     <div class='max-w-2xl'>
       <div>
 
-        <p class='text-base md:text-lg text-charcoal/70 leading-relaxed mb-10 text-pretty max-w-[46ch]' data-animate>
+        <p class='text-base md:text-lg text-cream/70 leading-relaxed mb-10 text-pretty max-w-[46ch]' data-animate>
           <Fragment set:html={intro} />
         </p>
 
@@ -130,7 +127,7 @@ const headingSecond = periodIdx !== -1 ? heading.slice(periodIdx + 2)    : ''
             const num  = String(idx + 1).padStart(2, '0')
             return (
               <li
-                class='item-card group relative overflow-hidden rounded-2xl border border-charcoal/10 bg-white px-5 py-5 transition-all duration-300 hover:border-teal/30 hover:shadow-md hover:shadow-charcoal/5 cursor-default'
+                class='item-card group relative overflow-hidden rounded-2xl border border-surface/10 bg-white px-5 py-5 transition-all duration-300 hover:border-teal/30 hover:shadow-md hover:shadow-charcoal/5 cursor-default'
                 data-animate
                 data-animate-delay={idx * 110}>
 
@@ -138,26 +135,24 @@ const headingSecond = periodIdx !== -1 ? heading.slice(periodIdx + 2)    : ''
                 <div class='pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-teal scale-y-0 origin-top rounded-r-full transition-transform duration-300 group-hover:scale-y-100' aria-hidden='true'></div>
 
                 <!-- Ghost ordinal -->
-                <div
-                  class='pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 select-none leading-none transition-opacity duration-300'
-                  aria-hidden='true'
-                  style={`font-family: "Titan One", cursive; font-size: 3.8rem; color: rgba(52,101,109,0.05); line-height: 1;`}>
+                <div class="font-display pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 select-none leading-none transition-opacity duration-300"
+                  aria-hidden='true'>
                   {num}
                 </div>
 
                 <div class='relative flex items-start gap-3.5'>
                   <!-- Icon badge -->
-                  <div class='shrink-0 mt-0.5 flex h-8 w-8 items-center justify-center rounded-xl bg-teal/5 ring-1 ring-teal/15 transition-all duration-300 group-hover:bg-teal/10 group-hover:ring-teal/25'>
+                  <div class='shrink-0 mt-0.5 flex h-8 w-8 items-center justify-center rounded-xl bg-teal/5 ring-1 ring-teal/15 transition-all duration-300 group-hover:bg-sage/10 group-hover:ring-teal/25'>
                     <Icon class='size-4 text-teal' aria-hidden='true' />
                   </div>
 
                   <div class='min-w-0'>
                     <!-- Expanding underline -->
                     <div class='h-0.5 w-5 bg-teal rounded-full transition-all duration-300 group-hover:w-10 mb-2'></div>
-                    <dt class='text-[0.9rem] font-bold text-charcoal leading-snug mb-1.5 transition-colors duration-300 group-hover:text-charcoal'>
+                    <dt class='text-[0.9rem] font-bold text-cream leading-snug mb-1.5 transition-colors duration-300 group-hover:text-cream'>
                       {item.title}
                     </dt>
-                    <dd class='text-base text-charcoal/70 leading-relaxed text-pretty'>
+                    <dd class='text-base text-cream/70 leading-relaxed text-pretty'>
                       <Fragment set:html={item.description} />
                     </dd>
                   </div>

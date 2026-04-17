@@ -5,7 +5,7 @@ const { brand, contact, social, navigation, footer } = siteConfig
 const currentYear = new Date().getFullYear()
 ---
 
-<footer class='relative overflow-hidden bg-charcoal'>
+<footer class='relative overflow-hidden bg-surface'>
   <!-- Sand top accent bar -->
   <div class='h-px w-full bg-gradient-to-r from-sand via-sand/60 to-transparent' aria-hidden='true'></div>
 
@@ -14,7 +14,7 @@ const currentYear = new Date().getFullYear()
     class='pointer-events-none absolute bottom-0 left-0 select-none overflow-hidden leading-none'
     aria-hidden='true'>
     <span
-      style='font-family: "Titan One", cursive; font-size: clamp(10rem, 22vw, 19rem); color: rgba(255,255,255,0.025); line-height: 1; white-space: nowrap; display: block; transform: translateY(15%);'>
+ class="font-display">
       SALVASEO
     </span>
   </div>
@@ -26,9 +26,9 @@ const currentYear = new Date().getFullYear()
       <div>
         <div class='flex items-center gap-3 mb-2'>
           <span class='block h-px w-8 shrink-0 bg-sand' aria-hidden='true'></span>
-          <p class='label-section text-sand'>Consultor SEO · Barcelona</p>
+          <p class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-sand'>Consultor SEO · Barcelona</p>
         </div>
-        <p style='font-family: "Titan One", cursive; font-weight: 400;' class='heading-display leading-tight text-white'>
+        <p class='font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] leading-tight text-white font-display'>
           Tu negocio,<br>
           <span class='text-sand'>visible en Google.</span>
         </p>

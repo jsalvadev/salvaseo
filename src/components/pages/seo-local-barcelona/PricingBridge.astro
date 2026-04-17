@@ -37,13 +37,12 @@ const headingRest  = headingParts.slice(1).join(' y ')
 const ordinals = ['01', '02', '03', '04', '05', '06']
 ---
 
-<section class='relative overflow-hidden bg-charcoal py-24 md:py-32'>
+<section class='relative overflow-hidden bg-surface py-24 md:py-32'>
 
   <!-- Dot-grid -->
   <div
     class='pointer-events-none absolute inset-0'
-    aria-hidden='true'
-    style='background-image: radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 30px 30px;'>
+    aria-hidden='true'>
   </div>
 
   <!-- Diagonal tension lines -->
@@ -53,18 +52,15 @@ const ordinals = ['01', '02', '03', '04', '05', '06']
   </svg>
 
   <!-- Watermark -->
-  <div
-    class='pointer-events-none absolute -right-12 top-1/2 -translate-y-1/2 select-none leading-none'
-    aria-hidden='true'
-    style='font-family: "Titan One", cursive; font-size: clamp(14rem, 28vw, 22rem); color: rgba(250,234,177,0.04); line-height: 1; white-space: nowrap;'>
+  <div class="font-display pointer-events-none absolute -right-12 top-1/2 -translate-y-1/2 select-none leading-none"
+    aria-hidden='true'>
     €€
   </div>
 
   <!-- Radial glow bottom-left -->
   <div
     class='pointer-events-none absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full'
-    aria-hidden='true'
-    style='background: radial-gradient(circle, rgba(52,101,109,0.05) 0%, transparent 65%);'>
+    aria-hidden='true'>
   </div>
 
   <!-- Top / bottom hairlines -->
@@ -82,7 +78,7 @@ const ordinals = ['01', '02', '03', '04', '05', '06']
         <!-- Eyebrow -->
         <div data-animate class='flex items-center gap-3 mb-8'>
           <span class='block h-px w-10 bg-sand' aria-hidden='true'></span>
-          <h2 class='label-section text-sand'>
+          <h2 class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-sand'>
             {upheading}
           </h2>
         </div>
@@ -90,8 +86,8 @@ const ordinals = ['01', '02', '03', '04', '05', '06']
         <!-- Heading -->
         <p
           data-animate
-          style='font-family: "Titan One", cursive;'
-          class='heading-display leading-[1.05] tracking-tight text-white text-pretty mb-6'>
+
+          class='font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] leading-[1.05] tracking-tight text-white text-pretty mb-6'>
           {headingRest ? (
             <>{headingFirst} y lo que cuesta <span class='text-sand'>no hacerlo</span>.</>
           ) : (
@@ -109,21 +105,15 @@ const ordinals = ['01', '02', '03', '04', '05', '06']
         {priceHighlight && (
           <div data-animate class='mb-6'>
             <div class='flex items-end gap-3 leading-none mb-3'>
-              <span
-                style='font-family: "Titan One", cursive; font-size: clamp(3.5rem, 8vw, 6rem);'
-                class='text-white leading-none tabular-nums'>
+              <span class="font-display text-white leading-none tabular-nums">
                 Desde
               </span>
             </div>
             <div class='flex items-end gap-3 leading-none mb-1'>
-              <span
-                style='font-family: "Titan One", cursive; font-size: clamp(3.5rem, 10vw, 7.5rem);'
-                class='text-sand leading-none tabular-nums'>
+              <span class="font-display text-sand leading-none tabular-nums">
                 350€
               </span>
-              <span
-                style='font-family: "Titan One", cursive; font-size: clamp(1.1rem, 2.5vw, 1.8rem);'
-                class='text-white/30 leading-none mb-2'>
+              <span class="font-display text-white/30 leading-none mb-2">
                 /mes
               </span>
             </div>
@@ -139,11 +129,11 @@ const ordinals = ['01', '02', '03', '04', '05', '06']
         </p>
 
         <!-- Invisible cost callout -->
-        <div data-animate class='mt-8 rounded-2xl border overflow-hidden' style='background: rgba(250,234,177,0.04); border-color: rgba(250,234,177,0.15);'>
-          <div class='px-5 py-4 border-b' style='border-color: rgba(250,234,177,0.1);'>
-            <p class='label-ui text-sand/70'>El coste invisible</p>
+        <div data-animate class='mt-8 rounded-2xl border overflow-hidden'>
+          <div class='px-5 py-4 border-b'>
+            <p class='text-[0.6rem] font-semibold tracking-[0.12em] uppercase text-sand/70'>El coste invisible</p>
           </div>
-          <ul class='divide-y' style='--tw-divide-opacity: 1; border-color: rgba(250,234,177,0.08);'>
+          <ul class='divide-y'>
             {[
               { label: 'Clientes que no te encontraron', value: 'esta semana' },
               { label: 'Búsquedas que fue a tu competencia', value: 'cada día' },
@@ -172,10 +162,8 @@ const ordinals = ['01', '02', '03', '04', '05', '06']
             <div class='pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-sand scale-y-0 origin-top rounded-r-full transition-transform duration-300 group-hover:scale-y-100' aria-hidden='true'></div>
 
             <!-- Ghost ordinal -->
-            <div
-              class='pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 select-none leading-none'
-              aria-hidden='true'
-              style={`font-family: "Titan One", cursive; font-size: 4.5rem; color: rgba(250,234,177,0.06); line-height: 1;`}>
+            <div class="font-display pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 select-none leading-none"
+              aria-hidden='true'>
               {ordinals[idx]}
             </div>
 

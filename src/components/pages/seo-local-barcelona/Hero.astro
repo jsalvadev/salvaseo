@@ -28,15 +28,13 @@ const headingSecond = splitIdx !== -1 ? heading.slice(splitIdx + 4)    : ''     
   <!-- Ambient radial blobs -->
   <div
     class='pointer-events-none absolute inset-0'
-    aria-hidden='true'
-    style='background: radial-gradient(ellipse at 8% 65%, rgba(250,234,177,0.10) 0%, transparent 52%), radial-gradient(ellipse at 88% 18%, rgba(250,234,177,0.07) 0%, transparent 50%), radial-gradient(ellipse at 50% 105%, rgba(250,234,177,0.05) 0%, transparent 60%);'>
+    aria-hidden='true'>
   </div>
 
   <!-- Dot grid -->
   <div
     class='pointer-events-none absolute inset-0'
-    aria-hidden='true'
-    style='background-image: radial-gradient(circle, rgba(255,255,255,0.028) 1px, transparent 1px); background-size: 28px 28px;'>
+    aria-hidden='true'>
   </div>
 
   <!-- Diagonal tension lines -->
@@ -51,18 +49,15 @@ const headingSecond = splitIdx !== -1 ? heading.slice(splitIdx + 4)    : ''     
   </svg>
 
   <!-- Titan One watermark -->
-  <div
-    class='pointer-events-none absolute -top-6 right-0 select-none leading-none hidden lg:block'
-    aria-hidden='true'
-    style='font-family: "Titan One", cursive; font-size: clamp(14rem, 26vw, 22rem); color: rgba(255,255,255,0.018); line-height: 1;'>
+  <div class="font-display pointer-events-none absolute -top-6 right-0 select-none leading-none hidden lg:block"
+    aria-hidden='true'>
     LOCAL
   </div>
 
   <!-- Radial glow bottom-left -->
   <div
     class='pointer-events-none absolute -bottom-32 -left-32 w-96 h-96 rounded-full'
-    aria-hidden='true'
-    style='background: radial-gradient(circle, rgba(250,234,177,0.06) 0%, transparent 70%);'>
+    aria-hidden='true'>
   </div>
 
   <Breadcrumb
@@ -80,22 +75,22 @@ const headingSecond = splitIdx !== -1 ? heading.slice(splitIdx + 4)    : ''     
           <!-- Eyebrow -->
           <div class='flex items-center gap-3 mb-7'>
             <span class='block h-px w-10 bg-sand shrink-0' aria-hidden='true'></span>
-            <h1 class='label-section text-sand'>Consultor SEO Local en Barcelona</h1>
+            <h1 class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-sand'>Consultor SEO Local en Barcelona</h1>
           </div>
 
           <!-- Visual display heading (not semantic) -->
-          <p class='hero-heading' style='font-family: "Titan One", cursive; leading-none;'>
+          <p class='hero-heading font-display'>
             {headingSecond ? (
               <>
                 <span class='block text-[clamp(1rem,2.2vw,1.8rem)] text-white/40 leading-[1.05] tracking-tight mb-1'>
                   {headingFirst}
                 </span>
-                <span class='block heading-display text-white leading-[0.93] tracking-tight'>
+                <span class='block font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] text-white leading-[0.93] tracking-tight'>
                   {headingSecond}<span class='text-sand'>.</span>
                 </span>
               </>
             ) : (
-              <span class='block heading-display text-white leading-[1.05] tracking-tight'>
+              <span class='block font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] text-white leading-[1.05] tracking-tight'>
                 {heading}
               </span>
             )}
@@ -141,43 +136,3 @@ const headingSecond = splitIdx !== -1 ? heading.slice(splitIdx + 4)    : ''     
 
 
 </section>
-
-<style>
-  /* ── Entrance animations ── */
-  .hero-heading,
-  .hero-rule,
-  .hero-description,
-  .hero-stat,
-  .hero-ctas {
-    opacity: 0;
-    transform: translateY(22px);
-    animation: hero-enter 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  }
-
-  /* .hero-badge removed */
-  .hero-heading     { animation-delay: 0.14s; }
-  .hero-rule        { animation-delay: 0.22s; }
-  .hero-description { animation-delay: 0.30s; }
-  .hero-stat        { animation-delay: 0.38s; }
-  .hero-ctas        { animation-delay: 0.46s; }
-
-  .hero-right {
-    opacity: 0;
-    transform: translateY(30px) scale(0.97);
-    animation: hero-enter 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.35s forwards;
-  }
-
-  @keyframes hero-enter {
-    to { opacity: 1; transform: translateY(0) scale(1); }
-  }
-
-  /* ── Reduced motion ── */
-  @media (prefers-reduced-motion: reduce) {
-    .hero-heading, .hero-rule, .hero-description,
-    .hero-stat, .hero-ctas, .hero-right {
-      opacity: 1; transform: none; animation: none;
-    }
-    .call-notif { animation: none; opacity: 1; transform: none; }
-    .mockup-card { transform: none; }
-  }
-</style>

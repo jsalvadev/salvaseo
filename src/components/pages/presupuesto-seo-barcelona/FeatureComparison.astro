@@ -67,14 +67,14 @@ const categories: ComparisonCategory[] = [
 ]
 
 // Inline-styled SVGs for set:html injection (no Tailwind class scanning needed)
-const checkSvg = `<span style="display:inline-flex;align-items:center;justify-content:center;width:1.5rem;height:1.5rem;border-radius:9999px;background:rgba(52,168,83,0.15);flex-shrink:0;"><svg viewBox="0 0 20 20" fill="#34a853" aria-hidden="true" style="width:0.7rem;height:0.7rem;"><path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd"/></svg></span>`
+const checkSvg = `<span><svg viewBox="0 0 20 20" fill="#34a853" aria-hidden="true"><path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd"/></svg></span>`
 
-const dashSvg = `<span style="display:inline-block;width:1.25rem;height:2px;background:rgba(255,255,255,0.1);border-radius:9999px;vertical-align:middle;" aria-label="No incluido"></span>`
+const dashSvg = `<span aria-label="No incluido"></span>`
 
 function renderCell(value: string): string {
   if (value === '✓') return checkSvg
   if (value === '—') return dashSvg
-  return `<span style="font-size:0.75rem;font-weight:700;color:rgba(255,255,255,0.6);letter-spacing:0.02em;">${value}</span>`
+  return `<span>${value}</span>`
 }
 
 // Teal hex for sticky background
@@ -86,8 +86,7 @@ const BG_TEAL = '#34656D'
   <!-- White-line architectural grid -->
   <div
     class='pointer-events-none absolute inset-0'
-    aria-hidden='true'
-    style='background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 48px 48px;'>
+    aria-hidden='true'>
   </div>
 
   <!-- Top hairline (transition from PricingCards above) -->
@@ -97,10 +96,8 @@ const BG_TEAL = '#34656D'
   </div>
 
   <!-- Large ghosted watermark: package count -->
-  <div
-    class='pointer-events-none absolute -right-8 bottom-8 select-none leading-none'
-    aria-hidden='true'
-    style='font-family: "Titan One", cursive; font-size: clamp(14rem, 28vw, 22rem); color: rgba(250,234,177,0.04); line-height: 1;'>
+  <div class="font-display pointer-events-none absolute -right-8 bottom-8 select-none leading-none"
+    aria-hidden='true'>
     02
   </div>
 
@@ -110,14 +107,14 @@ const BG_TEAL = '#34656D'
     <div class='mb-14 max-w-2xl' data-animate>
       <div class='flex items-center gap-3 mb-6'>
         <span class='block h-px w-10 bg-sand' aria-hidden='true'></span>
-        <h2 class='label-section text-sand'>
+        <h2 class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-sand'>
           Posicionamiento web: precios por servicio
         </h2>
       </div>
 
       <p
-        style='font-family: "Titan One", cursive;'
-        class='heading-display leading-[1.05] tracking-tight text-white text-pretty'>
+
+        class='font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] leading-[1.05] tracking-tight text-white text-pretty'>
         Detalle completo de cada paquete<span class='text-sand'>.</span>
       </p>
 
@@ -135,25 +132,22 @@ const BG_TEAL = '#34656D'
         <caption class='sr-only'>Tarifas de posicionamiento SEO: comparativa de paquetes</caption>
 
         <thead
-          class='sticky z-10'
-          style={`top: var(--navbar-height); background-color: ${BG_TEAL};`}>
-          <tr style='border-bottom: 1px solid rgba(255,255,255,0.08);'>
+          class='sticky z-10'>
+          <tr>
             <!-- Feature name column header -->
-            <th scope='col' class='py-4 pr-6 text-left label-ui text-white/20'>
+            <th scope='col' class='py-4 pr-6 text-left text-[0.6rem] font-semibold tracking-[0.12em] uppercase text-white/20'>
               Características
             </th>
 
             <!-- Plan Visibilidad Local column header -->
-            <th scope='col' class='py-4 px-5 text-center' style='width: 160px;'>
-              <span class='block label-micro text-white/25 mb-0.5'>
+            <th scope='col' class='py-4 px-5 text-center'>
+              <span class='block text-[0.6rem] font-bold tracking-[0.14em] uppercase text-white/25 mb-0.5'>
                 Plan
               </span>
-              <span class='block label-ui text-white/75 mb-1.5'>
+              <span class='block text-[0.6rem] font-semibold tracking-[0.12em] uppercase text-white/75 mb-1.5'>
                 Visibilidad Local
               </span>
-              <span
-                class='block font-bold text-white whitespace-nowrap'
-                style='font-family: "Titan One", cursive; font-size: var(--fs-h5); letter-spacing: -0.01em;'>
+              <span class="font-display block font-bold text-white whitespace-nowrap">
                 350 €/mes
               </span>
             </th>
@@ -161,18 +155,15 @@ const BG_TEAL = '#34656D'
             <!-- Plan Visibilidad Total column header (featured, orange accent) -->
             <th
               scope='col'
-              class='py-4 px-5 text-center relative'
-              style='width: 160px; background: rgba(250,234,177,0.07);'>
+              class='py-4 px-5 text-center relative'>
               <div class='absolute inset-x-0 top-0 h-[3px] bg-sand'></div>
-              <span class='block label-micro text-sand/50 mb-0.5'>
+              <span class='block text-[0.6rem] font-bold tracking-[0.14em] uppercase text-sand/50 mb-0.5'>
                 Plan
               </span>
-              <span class='block label-ui text-sand/70 mb-1.5'>
+              <span class='block text-[0.6rem] font-semibold tracking-[0.12em] uppercase text-sand/70 mb-1.5'>
                 Visibilidad Total
               </span>
-              <span
-                class='block font-bold text-sand whitespace-nowrap'
-                style='font-family: "Titan One", cursive; font-size: var(--fs-h5); letter-spacing: -0.01em;'>
+              <span class="font-display block font-bold text-sand whitespace-nowrap">
                 550 €/mes
               </span>
             </th>
@@ -189,9 +180,8 @@ const BG_TEAL = '#34656D'
                   colspan={3}
                   class='pt-8 pb-0'>
                   <div
-                    class='flex items-center gap-3 py-2 px-3 rounded-lg'
-                    style='background: rgba(255,255,255,0.05); border-left: 3px solid var(--color-sand);'>
-                    <span class='label-section text-sand/80'>
+                    class='flex items-center gap-3 py-2 px-3 rounded-lg'>
+                    <span class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-sand/80'>
                       {category.name}
                     </span>
                   </div>
@@ -201,8 +191,7 @@ const BG_TEAL = '#34656D'
               <!-- Feature rows -->
               {category.features.map((feature, rowIndex) => (
                 <tr
-                  class='transition-colors duration-150 hover:bg-white/[0.03]'
-                  style={rowIndex % 2 === 0 ? 'border-bottom: 1px solid rgba(255,255,255,0.04);' : 'border-bottom: 1px solid rgba(255,255,255,0.04);'}>
+                  class='transition-colors duration-150 hover:bg-white/[0.03]'>
                   <th
                     scope='row'
                     class='py-3 pr-6 text-sm font-normal text-white/65 text-left'>
@@ -212,8 +201,7 @@ const BG_TEAL = '#34656D'
                     <Fragment set:html={renderCell(feature.ficha)} />
                   </td>
                   <td
-                    class='py-3 text-center w-36 px-4'
-                    style='background: rgba(250,234,177,0.04);'>
+                    class='py-3 text-center w-36 px-4'>
                     <Fragment set:html={renderCell(feature.bundle)} />
                   </td>
                 </tr>
@@ -224,7 +212,7 @@ const BG_TEAL = '#34656D'
           <!-- Final spacer row -->
           <tr aria-hidden='true'>
             <td colspan='3' class='pt-4'>
-              <div class='h-px' style='background: linear-gradient(90deg, rgba(255,255,255,0.08), transparent);'></div>
+              <div class='h-px'></div>
             </td>
           </tr>
         </tbody>
@@ -234,38 +222,12 @@ const BG_TEAL = '#34656D'
     <!-- ── MOBILE: Tabbed stacked cards ──────────────────── -->
     <div class='lg:hidden' data-animate>
 
-      <style>
-        .fc-tab-input { display: none; }
-
-        .fc-tab-label {
-          cursor: pointer;
-          padding: 0.625rem 1.25rem;
-          font-size: 0.7rem;
-          font-weight: 700;
-          text-transform: uppercase;
-          letter-spacing: 0.22em;
-          border-radius: 0.5rem;
-          color: rgba(255,255,255,0.45);
-          transition: color 0.15s, background 0.15s;
-        }
-
-        #fc-tab-ficha:checked ~ .fc-tabs .fc-label-ficha,
-        #fc-tab-bundle:checked ~ .fc-tabs .fc-label-bundle {
-          background: rgba(250,234,177,0.15);
-          color: #FAEAB1;
-        }
-
-        #fc-tab-ficha:checked ~ .fc-panels .fc-panel-bundle,
-        #fc-tab-bundle:checked ~ .fc-panels .fc-panel-ficha {
-          display: none;
-        }
-      </style>
-
+      
       <input type='radio' id='fc-tab-ficha' name='fc-tabs' class='fc-tab-input' checked />
       <input type='radio' id='fc-tab-bundle' name='fc-tabs' class='fc-tab-input' />
 
       <!-- Tab labels -->
-      <div class='fc-tabs flex gap-2 p-1 rounded-xl mb-6' style='background: rgba(255,255,255,0.05);'>
+      <div class='fc-tabs flex gap-2 p-1 rounded-xl mb-6'>
         <label for='fc-tab-ficha' class='fc-tab-label fc-label-ficha flex-1 text-center'>
           Plan Visibilidad Local · 350 €
         </label>
@@ -280,13 +242,13 @@ const BG_TEAL = '#34656D'
         <!-- Solo Ficha panel -->
         <div class='fc-panel-ficha space-y-4'>
           {categories.map(category => (
-            <div class='rounded-xl p-5' style='background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);'>
-              <p class='label-ui text-sand/70 mb-3 pl-2' style='border-left: 2px solid rgba(250,234,177,0.4); padding-left: 0.5rem;'>
+            <div class='rounded-xl p-5'>
+              <p class='text-[0.6rem] font-semibold tracking-[0.12em] uppercase text-sand/70 mb-3 pl-2'>
                 {category.name}
               </p>
               <ul class='space-y-0'>
                 {category.features.map(feature => (
-                  <li class='flex items-center justify-between py-2.5 gap-4' style='border-bottom: 1px solid rgba(255,255,255,0.05);'>
+                  <li class='flex items-center justify-between py-2.5 gap-4'>
                     <span class='text-sm text-white/60'>{feature.name}</span>
                     <span class='shrink-0'>
                       <Fragment set:html={renderCell(feature.ficha)} />
@@ -301,13 +263,13 @@ const BG_TEAL = '#34656D'
         <!-- Web + Ficha panel -->
         <div class='fc-panel-bundle space-y-4'>
           {categories.map(category => (
-            <div class='rounded-xl p-5' style='background: rgba(250,234,177,0.06); border: 1px solid rgba(250,234,177,0.18);'>
-              <p class='label-ui text-sand/80 mb-3' style='border-left: 2px solid var(--color-sand); padding-left: 0.5rem;'>
+            <div class='rounded-xl p-5'>
+              <p class='text-[0.6rem] font-semibold tracking-[0.12em] uppercase text-sand/80 mb-3'>
                 {category.name}
               </p>
               <ul class='space-y-0'>
                 {category.features.map(feature => (
-                  <li class='flex items-center justify-between py-2.5 gap-4' style='border-bottom: 1px solid rgba(250,234,177,0.1);'>
+                  <li class='flex items-center justify-between py-2.5 gap-4'>
                     <span class='text-sm text-white/65'>{feature.name}</span>
                     <span class='shrink-0'>
                       <Fragment set:html={renderCell(feature.bundle)} />

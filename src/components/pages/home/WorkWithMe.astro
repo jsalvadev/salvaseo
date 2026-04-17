@@ -49,9 +49,7 @@ const steps = [
           text='Por qué contratar un consultor SEO profesional'
           color='var(--color-sand)'
         />
-        <p
-          class='mt-2 heading-display font-semibold tracking-tight text-pretty text-white'
-          style='font-family: "Titan One", cursive; font-weight: 400;'>
+        <p class="font-display mt-2 font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] font-semibold tracking-tight text-pretty text-white">
           Cómo funciona<br class='hidden sm:block' /> el proceso
         </p>
         <!-- Accent rule -->
@@ -73,20 +71,18 @@ const steps = [
         steps.map((step) => (
           <div
             data-animate
-            class='group relative overflow-hidden bg-charcoal p-8 lg:p-10 flex flex-col gap-6 hover:bg-[#3d5150] transition-colors duration-300'>
+            class='group relative overflow-hidden bg-surface p-8 lg:p-10 flex flex-col gap-6 hover:bg-[#3d5150] transition-colors duration-300'>
 
             <!-- Giant watermark number -->
-            <div
-              class='pointer-events-none absolute -bottom-6 -right-4 select-none leading-none text-white/[0.04] transition-all duration-500 group-hover:text-white/[0.07]'
-              aria-hidden='true'
-              style='font-family: "Titan One", cursive; font-size: clamp(8rem, 16vw, 13rem); line-height: 1;'>
+            <div class="font-display pointer-events-none absolute -bottom-6 -right-4 select-none leading-none text-white/[0.04] transition-all duration-500 group-hover:text-white/[0.07]"
+              aria-hidden='true'>
               {step.n}
             </div>
 
             <!-- Step pill -->
             <div class='flex items-center gap-3'>
               <span
-                class={`inline-flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-xs font-bold text-charcoal ${step.accent === 'orange' ? 'bg-sand' : 'bg-sand/80'}`}>
+                class={`inline-flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-xs font-bold text-cream ${step.accent === 'orange' ? 'bg-sand' : 'bg-sand/80'}`}>
                 {step.n.replace('0', '')}
               </span>
               <span
@@ -125,7 +121,7 @@ const steps = [
       class='mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4'>
       <a
         href='#contacto'
-        class='rounded-md bg-sand px-5 py-3 text-sm font-bold text-charcoal shadow-sm hover:bg-[#f5e09a] active:bg-[#e8d280] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sand transition-all'>
+        class='rounded-md bg-sand px-5 py-3 text-sm font-bold text-cream shadow-sm hover:bg-[#f5e09a] active:bg-[#e8d280] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sand transition-all'>
         Solicitar análisis gratuito
       </a>
       <span class='text-sm text-white/55'>Sin compromiso económico</span>

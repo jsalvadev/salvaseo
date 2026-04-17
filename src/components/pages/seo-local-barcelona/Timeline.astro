@@ -141,20 +141,17 @@ const lastIdx = phases.length - 1;
   <div
     class="pointer-events-none absolute inset-0"
     aria-hidden="true"
-    style="background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 32px 32px;"
   ></div>
 
   <!-- Ambient glow — orange top-right -->
   <div
     class="pointer-events-none absolute -right-48 -top-48 w-[40rem] h-[40rem] rounded-full"
-    style="background: radial-gradient(circle, rgba(250,234,177,0.08) 0%, transparent 60%);"
     aria-hidden="true"
   ></div>
 
   <!-- Ambient glow — sky bottom-left -->
   <div
     class="pointer-events-none absolute -left-48 bottom-0 w-[36rem] h-[36rem] rounded-full"
-    style="background: radial-gradient(circle, rgba(52,101,109,0.09) 0%, transparent 60%);"
     aria-hidden="true"
   ></div>
 
@@ -166,31 +163,28 @@ const lastIdx = phases.length - 1;
       {upheading && (
         <div class="flex items-center gap-3 mb-7">
           <span class="block h-px w-10 bg-sand" aria-hidden="true"></span>
-          <h2 class="label-section text-sand">
+          <h2 class="text-[0.65rem] font-bold tracking-[0.18em] uppercase text-sand">
             {upheading}
           </h2>
         </div>
       )}
 
-      <p
-        class="leading-[0.95] tracking-tight text-pretty"
-        style="font-family: 'Titan One', cursive;"
+      <p class="leading-[0.95] tracking-tight text-pretty font-display"
       >
         {headingBefore && (
           <span class="block text-[clamp(1.2rem,2.4vw,1.8rem)] text-white/45 mb-1">{headingBefore}</span>
         )}
-        <span class="block heading-display text-white">{headingAfterMain}</span>
-        <span class="block heading-display" style="color: var(--color-sand);">{headingAfterAccent}</span>
+        <span class="block font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] text-white">{headingAfterMain}</span>
+        <span class="block font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05]">{headingAfterAccent}</span>
       </p>
 
       <div class="mt-5 flex items-center gap-2">
         <div class="h-[3px] w-14 bg-sand rounded-full"></div>
-        <div class="h-px flex-1 max-w-[6rem]" style="background: linear-gradient(90deg, rgba(250,234,177,0.5), transparent);"></div>
+        <div class="h-px flex-1 max-w-[6rem]"></div>
       </div>
 
       <p
         class="mt-5 text-base lg:text-lg leading-relaxed max-w-[52ch] text-pretty"
-        style="color: rgba(255,255,255,0.75);"
       >
         {subtitle}
       </p>
@@ -316,12 +310,10 @@ const lastIdx = phases.length - 1;
         <!-- Decorative glows -->
         <div
           class="pointer-events-none absolute -right-12 -top-12 size-52 rounded-full"
-          style="background: radial-gradient(circle, rgba(250,234,177,0.15) 0%, transparent 65%);"
           aria-hidden="true"
         ></div>
         <div
           class="pointer-events-none absolute -left-8 -bottom-8 size-44 rounded-full"
-          style="background: radial-gradient(circle, rgba(52,101,109,0.15) 0%, transparent 65%);"
           aria-hidden="true"
         ></div>
 
@@ -330,7 +322,6 @@ const lastIdx = phases.length - 1;
             <p class="text-xl font-bold text-white leading-snug mb-2">{ctaHeading}</p>
             <p
               class="text-[0.9375rem] leading-relaxed max-w-[50ch]"
-              style="color: rgba(255,255,255,0.75);"
             >
               {ctaText}
             </p>
@@ -342,300 +333,3 @@ const lastIdx = phases.length - 1;
 
   </div>
 </section>
-
-<style>
-  /* ═══════════════════════════════════════
-     STEP INDICATOR
-     Hardcoded 4 steps — no dynamic Tailwind
-  ═══════════════════════════════════════ */
-  .step-indicator {
-    display: flex;
-    align-items: center;
-    gap: 0;
-    max-width: 640px;
-  }
-
-  .step-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    flex-shrink: 0;
-  }
-
-  .step-bubble {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: rgba(52, 101, 109, 0.18);
-    border: 2px solid rgba(52, 101, 109, 0.5);
-    color: #34656D;
-    font-family: 'Titan One', cursive;
-    font-size: 1.125rem;
-    line-height: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .step-bubble--arrive {
-    background: rgba(52, 168, 83, 0.18);
-    border-color: rgba(52, 168, 83, 0.6);
-    color: #34a853;
-    animation: bubble-arrive-pulse 2.4s ease-in-out infinite;
-  }
-
-  @keyframes bubble-arrive-pulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(52, 168, 83, 0.3); }
-    50%       { box-shadow: 0 0 0 7px rgba(52, 168, 83, 0); }
-  }
-
-  .step-name {
-    font-size: 0.65rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: rgba(255, 255, 255, 0.38);
-    white-space: nowrap;
-  }
-
-  .step-name--arrive {
-    color: #34a853;
-  }
-
-  .step-connector {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    padding: 0 6px;
-    margin-bottom: 22px; /* offset for the label below bubbles */
-  }
-
-  .step-connector-line {
-    flex: 1;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.12);
-    background-image: repeating-linear-gradient(
-      90deg,
-      rgba(255,255,255,0.18) 0,
-      rgba(255,255,255,0.18) 5px,
-      transparent 5px,
-      transparent 10px
-    );
-  }
-
-  .step-connector-arrow {
-    width: 16px;
-    height: 16px;
-    flex-shrink: 0;
-    color: rgba(255, 255, 255, 0.2);
-  }
-
-  @media (max-width: 639px) {
-    .step-indicator {
-      display: none; /* Cards speak for themselves on mobile */
-    }
-  }
-
-  /* ═══════════════════════════════════════
-     PHASE CARDS
-  ═══════════════════════════════════════ */
-  .phase-card {
-    position: relative;
-    background: rgba(255, 255, 255, 0.055);
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    border-radius: 1rem;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    transition:
-      transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-      border-color 0.3s ease,
-      box-shadow 0.3s ease;
-  }
-
-  .phase-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(52, 101, 109, 0.3);
-    box-shadow: 0 20px 48px -12px rgba(0, 0, 0, 0.45);
-  }
-
-  .phase-card--arrive {
-    border-color: rgba(52, 168, 83, 0.2);
-    background: rgba(52, 168, 83, 0.05);
-  }
-
-  .phase-card--arrive:hover {
-    border-color: rgba(52, 168, 83, 0.4);
-  }
-
-  /* ── Card header ── */
-  .card-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-  }
-
-  .card-paso-label {
-    font-size: 0.65rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: rgba(52, 101, 109, 0.9);
-    margin-top: 0.2rem;
-  }
-
-  .card-paso-label--arrive {
-    color: #34a853;
-  }
-
-  .card-numeral {
-    font-family: 'Titan One', cursive;
-    font-size: 3.5rem;
-    line-height: 1;
-    color: rgba(255, 255, 255, 0.12);
-    letter-spacing: -0.02em;
-    margin-right: -0.25rem;
-    transition: color 0.3s ease;
-  }
-
-  .phase-card:hover .card-numeral {
-    color: rgba(255, 255, 255, 0.2);
-  }
-
-  .card-numeral--arrive {
-    color: rgba(52, 168, 83, 0.2);
-  }
-
-  .phase-card--arrive:hover .card-numeral--arrive {
-    color: rgba(52, 168, 83, 0.35);
-  }
-
-  /* ── Divider ── */
-  .card-divider {
-    height: 2px;
-    border-radius: 100px;
-    background: linear-gradient(90deg, rgba(52,101,109,0.6), rgba(52,101,109,0.1));
-    margin-bottom: 1rem;
-  }
-
-  .card-divider--arrive {
-    background: linear-gradient(90deg, rgba(52,168,83,0.7), rgba(52,168,83,0.1));
-  }
-
-  /* ── Title ── */
-  .card-title {
-    font-size: 1.0625rem;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.92);
-    line-height: 1.4;
-    margin-bottom: 0.625rem;
-  }
-
-  /* ── Intro ── */
-  .card-intro {
-    font-size: 0.9375rem;
-    line-height: 1.72;
-    color: rgba(255, 255, 255, 0.65);
-    margin-bottom: 0.875rem;
-  }
-
-  /* ── Bullets ── */
-  .card-bullets {
-    list-style: none;
-    margin: 0 0 0.875rem;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .card-bullet {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.5rem;
-    font-size: 0.9rem;
-    line-height: 1.65;
-    color: rgba(255, 255, 255, 0.58);
-    padding-left: 0.375rem;
-    border-left: 1.5px solid rgba(52, 101, 109, 0.3);
-  }
-
-  .phase-card--arrive .card-bullet {
-    border-left-color: rgba(52, 168, 83, 0.35);
-  }
-
-  .card-bullet-icon {
-    width: 1rem;
-    height: 1rem;
-    flex-shrink: 0;
-    margin-top: 0.2rem;
-    color: rgba(52, 101, 109, 0.9);
-  }
-
-  .card-bullet-icon--arrive {
-    color: rgba(52, 168, 83, 0.9);
-  }
-
-  .card-bullet-em {
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.85);
-  }
-
-  /* ── Outro ── */
-  .card-outro {
-    margin-top: auto;
-    padding-top: 0.75rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.07);
-    font-size: 0.875rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.38);
-    font-style: italic;
-  }
-
-  /* ═══════════════════════════════════════
-     CTA PANEL
-  ═══════════════════════════════════════ */
-  .cta-panel {
-    position: relative;
-    overflow: hidden;
-    border-radius: 1rem;
-    padding: 2.25rem 2rem;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.11);
-  }
-
-  .cta-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.625rem;
-    background: #25D366;
-    color: white;
-    font-size: 0.875rem;
-    font-weight: 700;
-    padding: 0.8rem 1.5rem;
-    border-radius: 0.5rem;
-    text-decoration: none;
-    white-space: nowrap;
-    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
-    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  .cta-btn:hover {
-    background: #1FAD54;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 28px rgba(37, 211, 102, 0.45);
-  }
-
-  /* ── Reduced motion ── */
-  @media (prefers-reduced-motion: reduce) {
-    .step-bubble--arrive { animation: none; }
-    .phase-card          { transition: none; }
-    .phase-card:hover    { transform: none; }
-    .cta-btn             { transition: none; }
-    .cta-btn:hover       { transform: none; }
-  }
-</style>

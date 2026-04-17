@@ -48,15 +48,15 @@ const {
 ---
 
 <div class='px-6 py-32 lg:px-8'>
-  <div class='mx-auto max-w-3xl text-base/7 text-body'>
+  <div class='mx-auto max-w-3xl text-base/7 text-cream/70'>
     <Upheading as='h2' text={upheading} />
     <p
-      class='mt-2 text-4xl font-semibold tracking-tight text-pretty text-charcoal sm:text-5xl'>
+      class='mt-2 text-4xl font-semibold tracking-tight text-pretty text-cream sm:text-5xl'>
       {heading}
     </p>
     {priceHighlight && (
       <div class='my-8 flex items-center gap-4 rounded-xl border border-teal/10 bg-teal/5 px-6 py-5'>
-        <span class='text-3xl font-bold text-charcoal'>{priceHighlight}</span>
+        <span class='text-3xl font-bold text-cream'>{priceHighlight}</span>
         <span class='text-sm text-teal'>· Definido tras diagnóstico gratuito · Sin contratos</span>
       </div>
     )}
@@ -85,7 +85,7 @@ const {
               />
             </svg>
             <span>
-              <strong class='font-semibold text-charcoal'>{feature.title}</strong>
+              <strong class='font-semibold text-cream'>{feature.title}</strong>
               {' '}{feature.description}
             </span>
           </li>
@@ -93,7 +93,7 @@ const {
       </ul>
 
       <h3
-        class='mt-16 text-3xl font-semibold tracking-tight text-pretty text-charcoal'>
+        class='mt-16 text-3xl font-semibold tracking-tight text-pretty text-cream'>
         {subheading}
       </h3>
       <p class='mt-6'>
@@ -101,7 +101,7 @@ const {
       </p>
 
       <figure class='mt-10'>
-        <blockquote class='border-l-4 border-teal/30 pl-6 text-xl/8 italic text-charcoal text-pretty'>
+        <blockquote class='border-l-4 border-teal/30 pl-6 text-xl/8 italic text-cream text-pretty'>
           <p>{quote}</p>
         </blockquote>
         {quoteAuthor && (
@@ -120,14 +120,14 @@ const {
 
     <div class='mt-16 max-w-2xl text-teal'>
       <h3
-        class='text-3xl font-semibold tracking-tight text-pretty text-charcoal'>
+        class='text-3xl font-semibold tracking-tight text-pretty text-cream'>
         {bottomHeading}
       </h3>
       <ul role='list' class='mt-6 space-y-8'>
         {bottomItems.map((item) => (
           <li class='border-l-2 border-teal/20 pl-4 py-2'>
             <p>
-              <strong class='text-charcoal'>{item.title}</strong> {item.description}
+              <strong class='text-cream'>{item.title}</strong> {item.description}
             </p>
           </li>
         ))}

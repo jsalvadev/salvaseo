@@ -78,21 +78,17 @@ const stats = [
   <div
     class="pointer-events-none absolute inset-0 opacity-40"
     aria-hidden="true"
-    style="background-image: radial-gradient(circle, rgba(52,101,109,0.045) 1px, transparent 1px); background-size: 28px 28px;"
   ></div>
 
   <!-- Ambient warm glow — top right -->
   <div
     class="pointer-events-none absolute -right-32 -top-32 w-96 h-96 rounded-full"
     aria-hidden="true"
-    style="background: radial-gradient(circle, rgba(52,101,109,0.05) 0%, transparent 65%);"
   ></div>
 
   <!-- Watermark -->
-  <div
-    class="pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 select-none leading-none hidden xl:block"
+  <div class="pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 select-none leading-none hidden xl:block font-display"
     aria-hidden="true"
-    style="font-family: 'Titan One', cursive; font-size: clamp(12rem,22vw,18rem); color: rgba(52,101,109,0.05); line-height: 1; white-space: nowrap; letter-spacing: -0.05em;"
   >
     MAPA
   </div>
@@ -105,25 +101,23 @@ const stats = [
       <!-- Upheading -->
       <div class="flex items-center gap-3 mb-7">
         <span class="block h-px w-10 bg-teal" aria-hidden="true"></span>
-        <p class="label-section text-teal">
+        <p class="text-[0.65rem] font-bold tracking-[0.18em] uppercase text-teal">
           {upheading}
         </p>
       </div>
 
       <!-- Heading -->
-      <h2
-        class="heading-display leading-[1.05] tracking-tight text-charcoal text-pretty"
-        style="font-family: 'Titan One', cursive;"
+      <h2 class="font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] leading-[1.05] tracking-tight text-cream text-pretty font-display"
       >
-        {headingMain} frente a&nbsp;<span style="color: var(--color-teal);">{headingRestAccent}</span>{headingRestAfter}
+        {headingMain} frente a&nbsp;<span>{headingRestAccent}</span>{headingRestAfter}
       </h2>
 
       <div class="mt-5 flex items-center gap-2">
         <div class="h-[3px] w-14 bg-teal rounded-full"></div>
-        <div class="h-px w-20" style="background: linear-gradient(90deg, rgba(52,101,109,0.4), transparent);"></div>
+        <div class="h-px w-20"></div>
       </div>
 
-      <p class="mt-5 text-base lg:text-lg text-charcoal/70 leading-relaxed max-w-[52ch] text-pretty">
+      <p class="mt-5 text-base lg:text-lg text-cream/70 leading-relaxed max-w-[52ch] text-pretty">
         {subtitle}
       </p>
     </div>
@@ -149,7 +143,6 @@ const stats = [
             {feedEvents.map((event, idx) => (
               <div
                 class:list={['feed-event', `feed-event--${event.outcome}`]}
-                style={`animation-delay: ${idx * 0.12}s`}
               >
                 <!-- Icon -->
                 <div class:list={['feed-icon', `feed-icon--${event.outcome}`]} aria-hidden="true">
@@ -190,7 +183,7 @@ const stats = [
         </div>
 
         <!-- Caption below card -->
-        <p class="mt-4 text-sm text-charcoal/70 text-center">
+        <p class="mt-4 text-sm text-cream/70 text-center">
           Escenarios reales de búsquedas locales en Barcelona. ¿Tu negocio aparece?
         </p>
       </div>
@@ -255,313 +248,3 @@ const stats = [
     </div>
   </div>
 </section>
-
-<style>
-  /* ═══════════════════════════════════════
-     LIVE FEED CARD
-  ═══════════════════════════════════════ */
-  .feed-card {
-    background: var(--color-charcoal);
-    border-radius: 1rem;
-    overflow: hidden;
-    box-shadow:
-      0 32px 64px -16px rgba(52, 101, 109, 0.28),
-      0 4px 16px -4px rgba(52, 101, 109, 0.14);
-    border: 1px solid rgba(255,255,255,0.06);
-  }
-
-  /* Header bar */
-  .feed-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 0.875rem 1.25rem;
-    background: rgba(255,255,255,0.04);
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-  }
-
-  .feed-live-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #34a853;
-    flex-shrink: 0;
-    animation: live-blink 1.8s ease-in-out infinite;
-  }
-
-  @keyframes live-blink {
-    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(52,168,83,0.5); }
-    50%       { opacity: 0.85; box-shadow: 0 0 0 4px rgba(52,168,83,0); }
-  }
-
-  .feed-live-label {
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: rgba(255,255,255,0.75);
-    letter-spacing: 0.04em;
-    flex: 1;
-  }
-
-  .feed-header-sub {
-    font-size: 0.62rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: rgba(255,255,255,0.25);
-    white-space: nowrap;
-  }
-
-  /* Feed body */
-  .feed-body {
-    padding: 0.5rem 0;
-  }
-
-  .feed-event {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-    padding: 0.875rem 1.25rem;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    transition: background 0.2s ease;
-  }
-
-  .feed-event:last-child { border-bottom: none; }
-
-  .feed-event:hover { background: rgba(255,255,255,0.03); }
-
-  /* Icon circle */
-  .feed-icon {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-
-  .feed-icon--lost {
-    background: rgba(239, 68, 68, 0.15);
-    color: #f87171;
-    border: 1px solid rgba(239, 68, 68, 0.25);
-  }
-
-  .feed-icon--competitor {
-    background: rgba(52, 168, 83, 0.12);
-    color: #34a853;
-    border: 1px solid rgba(52, 168, 83, 0.25);
-  }
-
-  /* Event text */
-  .feed-event-content {
-    flex: 1;
-    min-width: 0;
-  }
-
-  .feed-event-text {
-    font-size: 0.8125rem;
-    line-height: 1.6;
-    color: rgba(255,255,255,0.62);
-  }
-
-  .feed-event-text strong {
-    font-weight: 600;
-    color: rgba(255,255,255,0.88);
-  }
-
-  .feed-event--lost .feed-event-text strong {
-    color: rgba(248, 113, 113, 0.9);
-  }
-
-  .feed-event--competitor .feed-event-text strong {
-    color: rgba(52, 168, 83, 0.9);
-  }
-
-  .feed-event-ago {
-    font-size: 0.68rem;
-    color: rgba(255,255,255,0.25);
-    margin-top: 2px;
-    display: block;
-  }
-
-  /* Ticker footer */
-  .feed-footer {
-    overflow: hidden;
-    border-top: 1px solid rgba(255,255,255,0.06);
-    background: rgba(250,234,177,0.05);
-    padding: 0.5rem 0;
-  }
-
-  .feed-footer-ticker {
-    white-space: nowrap;
-    display: flex;
-    animation: ticker-scroll 18s linear infinite;
-  }
-
-  .feed-ticker-text {
-    font-size: 0.65rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: rgba(250,234,177,0.6);
-    padding: 0 1.25rem;
-    white-space: nowrap;
-    flex-shrink: 0;
-    /* duplicate for seamless loop */
-  }
-
-  @keyframes ticker-scroll {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
-  }
-
-  /* ═══════════════════════════════════════
-     STAT CARDS
-  ═══════════════════════════════════════ */
-  .stat-card {
-    background: white;
-    border: 1px solid var(--color-border-default);
-    border-radius: 0.875rem;
-    overflow: hidden;
-    display: flex;
-    align-items: stretch;
-    box-shadow: 0 2px 8px rgba(52,101,109,0.06);
-    transition: box-shadow 0.25s ease, transform 0.25s ease;
-  }
-
-  .stat-card:hover {
-    box-shadow: 0 8px 24px rgba(52,101,109,0.1);
-    transform: translateY(-2px);
-  }
-
-  .stat-card-line {
-    width: 4px;
-    flex-shrink: 0;
-    border-radius: 4px 0 0 4px;
-  }
-
-  .stat-card-line--orange { background: var(--color-teal); }
-  .stat-card-line--sky    { background: var(--color-teal); }
-  .stat-card-line--petrol { background: var(--color-charcoal); }
-
-  .stat-card-inner {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem 1.25rem;
-    flex: 1;
-  }
-
-  .stat-value {
-    font-family: 'Titan One', cursive;
-    font-size: clamp(2rem, 4vw, 2.75rem);
-    line-height: 1;
-    color: var(--color-charcoal);
-    flex-shrink: 0;
-    letter-spacing: -0.02em;
-  }
-
-  .stat-label {
-    font-size: 0.8125rem;
-    line-height: 1.5;
-    color: color-mix(in srgb, var(--color-charcoal) 70%, transparent);
-  }
-
-  /* ═══════════════════════════════════════
-     CTA BLOCK
-  ═══════════════════════════════════════ */
-  .cta-block {
-    background: var(--color-charcoal);
-    border-radius: 1rem;
-    padding: 1.75rem 1.5rem;
-    border: 1px solid rgba(255,255,255,0.08);
-    position: relative;
-    overflow: hidden;
-  }
-
-  /* Ambient glow inside CTA */
-  .cta-block::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 80% 0%, rgba(250,234,177,0.07) 0%, transparent 60%);
-    pointer-events: none;
-  }
-
-  .cta-block-urgency {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.65rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #34a853;
-    margin-bottom: 0.875rem;
-    position: relative;
-  }
-
-  .cta-urgency-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #34a853;
-    flex-shrink: 0;
-    animation: live-blink 1.8s ease-in-out infinite;
-  }
-
-  .cta-block-heading {
-    font-family: 'Titan One', cursive;
-    font-size: clamp(1.1rem, 2.2vw, 1.4rem);
-    line-height: 1.25;
-    color: rgba(255,255,255,0.92);
-    margin-bottom: 1.25rem;
-    position: relative;
-  }
-
-  .cta-wa-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.625rem;
-    background: #25D366;
-    color: white;
-    font-size: 0.875rem;
-    font-weight: 700;
-    padding: 0.8rem 1.35rem;
-    border-radius: 0.5rem;
-    text-decoration: none;
-    white-space: nowrap;
-    box-shadow: 0 4px 18px rgba(37, 211, 102, 0.35);
-    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    position: relative;
-    width: 100%;
-    justify-content: center;
-  }
-
-  .cta-wa-btn:hover {
-    background: #1FAD54;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 26px rgba(37, 211, 102, 0.45);
-  }
-
-  .cta-block-note {
-    font-size: 0.72rem;
-    color: rgba(255,255,255,0.35);
-    line-height: 1.55;
-    margin-top: 0.875rem;
-    text-align: center;
-    position: relative;
-  }
-
-  /* ── Reduced motion ── */
-  @media (prefers-reduced-motion: reduce) {
-    .feed-live-dot         { animation: none; }
-    .feed-footer-ticker    { animation: none; }
-    .cta-urgency-dot       { animation: none; }
-    .stat-card             { transition: none; }
-    .stat-card:hover       { transform: none; }
-    .cta-wa-btn            { transition: none; }
-    .cta-wa-btn:hover      { transform: none; }
-  }
-</style>
