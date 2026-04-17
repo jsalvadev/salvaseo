@@ -40,10 +40,8 @@ export const siteConfig = {
     schedule: ["Lunes a Viernes: 09:00 - 18:00"],
   },
   social: {
-    linkedin: "https://www.linkedin.com/in/salvadorjesus",
+    linkedin: "https://www.linkedin.com/in/salvaseo/",
     googleBusiness: "https://www.google.com/maps/place/?cid=5370983499387165545",
-    instagram: "https://www.instagram.com/salva_seo/",
-    tiktok: "https://www.tiktok.com/@consultorseobarcelona",
   },
 } as const;
 
