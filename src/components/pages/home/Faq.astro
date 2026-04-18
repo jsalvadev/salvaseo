@@ -1,7 +1,24 @@
 ---
+interface FaqItem {
+  question: string
+  answer: string
+}
+
+interface Props {
+  upheading?: string
+  heading?: string
+  idPrefix?: string
+  items?: FaqItem[]
+}
+
+const {
+  upheading = 'Consultor SEO: preguntas frecuentes',
+  heading = 'Aún tienes',
+  idPrefix = 'faq',
+  items = [],
+} = Astro.props
 ---
-<!-- Include this script tag or install `@tailwindplus/elements` via npm: -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script> -->
+
 <div class="relative overflow-hidden bg-cream">
   <!-- Large ghosted watermark -->
   <div class="font-heading pointer-events-none absolute -left-6 top-1/2 -translate-y-1/2 select-none leading-none text-wm font-bold text-base/[0.04]"
@@ -10,167 +27,37 @@
   </div>
   <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
     <div class="mx-auto max-w-4xl">
-      <h2 class="text-sm italic font-bold text-base">Consultor SEO: preguntas frecuentes</h2>
-      <p class="mt-2 font-heading text-h2 font-semibold tracking-tight text-gray-900">Aún tienes <span class="text-sage">dudas.</span></p>
+      <h2 class="text-sm italic font-bold text-base">{upheading}</h2>
+      <p class="mt-2 font-heading text-h2 font-semibold tracking-tight text-gray-900">{heading} <span class="text-sage">dudas.</span></p>
       <div class="mt-6 flex items-center">
         <div class="h-px w-32 bg-gradient-to-r from-base/5 to-base/25"></div>
         <div class="h-px w-10 bg-base/50"></div>
       </div>
       <dl class="mt-16 divide-y divide-gray-900/10">
-        <div class="py-6 first:pt-0 last:pb-0">
-          <dt>
-            <h3 class="font-heading text-h6 font-semibold">
-              <button type="button" command="--toggle" commandfor="faq-0" class="flex w-full items-start justify-between text-left text-gray-900">
-                ¿Qué es un consultor SEO y qué funciones tiene exactamente?
-                <span class="ml-6 flex h-7 items-center">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
-                    <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
-                    <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </span>
-              </button>
-            </h3>
-          </dt>
-          <el-disclosure id="faq-0" class="contents">
-            <dd class="mt-2 pr-12">
-              <p class="text-base/7 text-gray-600">Cuando alguien busca en Google lo que tú vendes, Google decide quién aparece y quién no. Mi trabajo es que aparezcas tú, y que esa visita se convierta en una llamada o un presupuesto. Para eso: miro por qué tu web es invisible, qué buscan exactamente tus clientes, qué tiene tu competencia que tú no tienes. Optimizo tu ficha de Google Maps para que las personas de tu zona te llamen a ti.</p>
-            </dd>
-          </el-disclosure>
-        </div>
-        <div class="py-6 first:pt-0 last:pb-0">
-          <dt>
-            <h3 class="font-heading text-h6 font-semibold">
-              <button type="button" command="--toggle" commandfor="faq-1" class="flex w-full items-start justify-between text-left text-gray-900">
-                ¿Cuánto cobra un consultor SEO en Barcelona? (Precio y tarifas 2026)
-                <span class="ml-6 flex h-7 items-center">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
-                    <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
-                    <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </span>
-              </button>
-            </h3>
-          </dt>
-          <el-disclosure id="faq-1" hidden class="contents">
-            <dd class="mt-2 pr-12">
-              <p class="text-base/7 text-gray-600">350€/mes si solo necesitas Google Maps optimizado. 550€/mes si incluye tu web. Analizo tu web gratis antes de que decidas. Si después decides no seguir, te quedas con el informe y no me debes nada.</p>
-            </dd>
-          </el-disclosure>
-        </div>
-        <div class="py-6 first:pt-0 last:pb-0">
-          <dt>
-            <h3 class="font-heading text-h6 font-semibold">
-              <button type="button" command="--toggle" commandfor="faq-2" class="flex w-full items-start justify-between text-left text-gray-900">
-                ¿Cómo encontrar un buen consultor SEO en Barcelona?
-                <span class="ml-6 flex h-7 items-center">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
-                    <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
-                    <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </span>
-              </button>
-            </h3>
-          </dt>
-          <el-disclosure id="faq-2" hidden class="contents">
-            <dd class="mt-2 pr-12">
-              <p class="text-base/7 text-gray-600">Pídele que te enseñe resultados que puedas verificar tú mismo. Que te explique qué va a hacer antes de cobrarte. Que conozca tu sector y tu zona. Si en alguno de los tres falla, sigue buscando. Yo analizo tu web gratis antes de que decidas. Así sabes exactamente con qué vas a trabajar.</p>
-            </dd>
-          </el-disclosure>
-        </div>
-        <div class="py-6 first:pt-0 last:pb-0">
-          <dt>
-            <h3 class="font-heading text-h6 font-semibold">
-              <button type="button" command="--toggle" commandfor="faq-3" class="flex w-full items-start justify-between text-left text-gray-900">
-                ¿Cómo sé si necesito un consultor SEO profesional?
-                <span class="ml-6 flex h-7 items-center">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
-                    <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
-                    <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </span>
-              </button>
-            </h3>
-          </dt>
-          <el-disclosure id="faq-3" hidden class="contents">
-            <dd class="mt-2 pr-12">
-              <p class="text-base/7 text-gray-600">Busca tu propio negocio en Google ahora mismo. ¿Apareces? ¿En qué posición? ¿Tu competencia está antes que tú? ¿Tu ficha de Google Maps genera llamadas o está ahí sin que nadie la vea? Si dependes de publicidad de pago para tener visibilidad y en cuanto paras la campaña desapareces, ya sabes la respuesta. La primera consulta es gratis. En menos de 48 horas sabes si tu caso tiene recorrido.</p>
-            </dd>
-          </el-disclosure>
-        </div>
-        <div class="py-6 first:pt-0 last:pb-0">
-          <dt>
-            <h3 class="font-heading text-h6 font-semibold">
-              <button type="button" command="--toggle" commandfor="faq-4" class="flex w-full items-start justify-between text-left text-gray-900">
-                ¿Por qué necesito un especialista SEO para mi negocio en Barcelona?
-                <span class="ml-6 flex h-7 items-center">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
-                    <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
-                    <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </span>
-              </button>
-            </h3>
-          </dt>
-          <el-disclosure id="faq-4" hidden class="contents">
-            <dd class="mt-2 pr-12">
-              <p class="text-base/7 text-gray-600">Porque Google no posiciona webs por ser buenas. Ni por tener buen contenido. Ni porque lleves años en el negocio. Posiciona webs que están técnicamente bien construidas, que tienen la autoridad que Google exige y que responden exactamente lo que la gente busca. Mientras tú llevas el negocio, yo hago que Google te encuentre.</p>
-            </dd>
-          </el-disclosure>
-        </div>
-        <div class="py-6 first:pt-0 last:pb-0">
-          <dt>
-            <h3 class="font-heading text-h6 font-semibold">
-              <button type="button" command="--toggle" commandfor="faq-5" class="flex w-full items-start justify-between text-left text-gray-900">
-                ¿Cómo encontrar un consultor SEO cerca de mi negocio en Barcelona?
-                <span class="ml-6 flex h-7 items-center">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
-                    <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
-                    <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </span>
-              </button>
-            </h3>
-          </dt>
-          <el-disclosure id="faq-5" hidden class="contents">
-            <dd class="mt-2 pr-12">
-              <p class="text-base/7 text-gray-600">Dos cosas importan: que conozca tu zona y que no te cobre sin analizar antes. Trabajo desde el área metropolitana de Barcelona. Puedo visitar tu local, ver qué hace tu competencia y entender por qué unos negocios llenan la agenda y otros no. Analizo tu web gratis antes de que decidas si trabajamos juntos.</p>
-            </dd>
-          </el-disclosure>
-        </div>
-        <div class="py-6 first:pt-0 last:pb-0">
-          <dt>
-            <h3 class="font-heading text-h6 font-semibold">
-              <button type="button" command="--toggle" commandfor="faq-6" class="flex w-full items-start justify-between text-left text-gray-900">
-                ¿Vale la pena contratar un consultor SEO para mi negocio local?
-                <span class="ml-6 flex h-7 items-center">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
-                    <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
-                    <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </span>
-              </button>
-            </h3>
-          </dt>
-          <el-disclosure id="faq-6" hidden class="contents">
-            <dd class="mt-2 pr-12">
-              <p class="text-base/7 text-gray-600">Depende. Si buscas resultados en una semana, no. Los primeros resultados visibles suelen llegar en 3-6 meses. Pero a partir de ahí, tu web trae clientes sin que tengas que pagar publicidad cada mes. La pregunta que importa no es si vale la pena contratar a un SEO. Es: ¿cuánto dinero pierde tu negocio cada mes porque tus clientes te buscan en Google y encuentran a tu competencia?</p>
-            </dd>
-          </el-disclosure>
-        </div>
+        {items.map((item, idx) => (
+          <div class="py-6 first:pt-0 last:pb-0">
+            <dt>
+              <h3 class="font-heading text-h6 font-semibold">
+                <button type="button" command="--toggle" commandfor={`${idPrefix}-${idx}`} class="flex w-full items-start justify-between text-left text-gray-900">
+                  {item.question}
+                  <span class="ml-6 flex h-7 items-center">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
+                      <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
+                      <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </button>
+              </h3>
+            </dt>
+            <el-disclosure id={`${idPrefix}-${idx}`} class="contents">
+              <dd class="mt-2 pr-12">
+                <div class="text-base/7 text-gray-600" set:html={item.answer} />
+              </dd>
+            </el-disclosure>
+          </div>
+        ))}
       </dl>
     </div>
   </div>
