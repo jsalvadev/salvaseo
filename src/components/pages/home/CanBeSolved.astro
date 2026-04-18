@@ -3,10 +3,10 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
 ---
 
 <section class='relative overflow-hidden py-24 md:py-32 bg-gradient-to-br from-surface to-base'>
-  <!-- Subtle dot grid texture -->
-  <div
-    class='pointer-events-none absolute inset-0'
-    aria-hidden='true'>
+  <!-- Ambient light gradients -->
+  <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    <div class="absolute -top-20 -right-10 h-[400px] w-[500px] rounded-full bg-cream/15 blur-3xl"></div>
+    <div class="absolute bottom-0 -left-20 h-[320px] w-[400px] rounded-full bg-sage/20 blur-3xl"></div>
   </div>
 
   <!-- Large faded watermark -->

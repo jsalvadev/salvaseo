@@ -16,10 +16,10 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
     TÚ
   </div>
 
-  <!-- Radial ambient top-right -->
-  <div
-    class='pointer-events-none absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full'
-    aria-hidden='true'>
+  <!-- Ambient light gradients -->
+  <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    <div class="absolute -top-40 -right-40 h-[600px] w-[600px] rounded-full bg-cream/20 blur-3xl"></div>
+    <div class="absolute bottom-10 -left-10 h-[300px] w-[380px] rounded-full bg-cream/10 blur-3xl"></div>
   </div>
 
   <!-- Top / bottom hairline accents -->
