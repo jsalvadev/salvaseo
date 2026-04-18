@@ -1,105 +1,160 @@
 ---
-import type { FaqItem } from '../../../data/faq-home'
-
-interface Props {
-  upheading?: string
-  upheadingColor?: string
-  heading: string
-  intro?: string
-  idPrefix?: string
-  items: FaqItem[]
-  class?: string
-}
-
-const { upheading, heading, intro, idPrefix = 'faq', items, class: className } = Astro.props
-
-function stripHtml(html: string): string {
-  return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim()
-}
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: items.map((item) => ({
-    '@type': 'Question',
-    name: item.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: stripHtml(item.answer),
-    },
-  })),
-}
 ---
-
-<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-
-<section class:list={['relative overflow-hidden py-24 sm:py-32', className]}>
-
-  <!-- Watermark -->
-  <div
-    class='font-display pointer-events-none absolute -right-8 top-1/2 -translate-y-1/2 select-none text-[20rem] leading-none text-cream/[0.03]'
-    aria-hidden='true'>?</div>
-
-  <div class='relative mx-auto max-w-[1280px] px-5'>
-
-    <!-- Header -->
-    <div class='mb-14' data-animate>
-      {upheading && (
-        <div class='flex items-center gap-3 mb-6'>
-          <span class='block h-px w-10 bg-teal' aria-hidden='true'></span>
-          <h2 class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-teal'>{upheading}</h2>
+<!-- Include this script tag or install `@tailwindplus/elements` via npm: -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script> -->
+<div class="bg-cream">
+  <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
+    <div class="mx-auto max-w-4xl">
+      <h2 class="font-heading text-h2 font-semibold tracking-tight text-gray-900">Frequently asked questions</h2>
+      <dl class="mt-16 divide-y divide-gray-900/10">
+        <div class="py-6 first:pt-0 last:pb-0">
+          <dt>
+            <button type="button" command="--toggle" commandfor="faq-0" class="flex w-full items-start justify-between text-left text-gray-900">
+              <span class="font-heading text-h6 font-semibold">¿Qué es un consultor SEO y qué funciones tiene exactamente?</span>
+              <span class="ml-6 flex h-7 items-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
+                  <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
+                  <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </button>
+          </dt>
+          <el-disclosure id="faq-0" class="contents">
+            <dd class="mt-2 pr-12">
+              <p class="text-base/7 text-gray-600">Cuando alguien busca en Google lo que tú vendes, Google decide quién aparece y quién no. Mi trabajo es que aparezcas tú, y que esa visita se convierta en una llamada o un presupuesto.</p>
+              <p class="mt-2 text-base/7 text-gray-600">Para eso: miro por qué tu web es invisible, qué buscan exactamente tus clientes, qué tiene tu competencia que tú no tienes. Optimizo tu ficha de Google Maps para que las personas de tu zona te llamen a ti.</p>
+            </dd>
+          </el-disclosure>
         </div>
-      )}
-      <p class='font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] tracking-tight text-cream text-pretty'>
-        {heading}<span class='text-teal'>.</span>
-      </p>
-      <div class='mt-5 flex items-center'>
-        <div class='h-[3px] w-16 bg-teal rounded-full'></div>
-        <div class='h-px flex-1 bg-gradient-to-r from-teal/30 to-transparent'></div>
-      </div>
-      {intro && (
-        <p class='mt-5 max-w-2xl text-base/7 text-cream/70 text-pretty' set:html={intro} />
-      )}
-    </div>
-
-    <!-- FAQ items -->
-    <div class='divide-y divide-surface/40 max-w-3xl'>
-      {items.map((item, i) => (
-        <div class='py-6' data-animate>
-          <div class='flex items-start gap-5'>
-            <!-- Number -->
-            <span class='shrink-0 pt-0.5 text-[0.6rem] font-bold tracking-[0.14em] uppercase text-teal/50 w-6 text-right'>
-              {String(i + 1).padStart(2, '0')}
-            </span>
-            <div class='flex-1 min-w-0'>
-              <h3 class='text-base font-semibold text-cream leading-snug'>
-                <button
-                  type='button'
-                  command='--toggle'
-                  commandfor={`${idPrefix}-${i}`}
-                  class='text-left w-full hover:text-cream/80 transition-colors cursor-pointer flex items-start justify-between gap-4 group'>
-                  <span>{item.question}</span>
-                  <svg
-                    viewBox='0 0 24 24'
-                    fill='none'
-                    stroke='currentColor'
-                    stroke-width='1.5'
-                    aria-hidden='true'
-                    class='shrink-0 mt-0.5 w-4 h-4 text-teal/50 transition-transform duration-200 group-[[open]]:rotate-180'>
-                    <path d='M19.5 8.25l-7.5 7.5-7.5-7.5' stroke-linecap='round' stroke-linejoin='round' />
-                  </svg>
-                </button>
-              </h3>
-              <el-disclosure id={`${idPrefix}-${i}`} hidden class='contents'>
-                <div class='mt-4 pl-0 text-base/7 text-cream/70 text-pretty'>
-                  <Fragment set:html={item.answer} />
-                </div>
-              </el-disclosure>
-            </div>
-          </div>
+        <div class="py-6 first:pt-0 last:pb-0">
+          <dt>
+            <button type="button" command="--toggle" commandfor="faq-1" class="flex w-full items-start justify-between text-left text-gray-900">
+              <span class="font-heading text-h6 font-semibold">¿Cuánto cobra un consultor SEO en Barcelona? (Precio y tarifas 2026)</span>
+              <span class="ml-6 flex h-7 items-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
+                  <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
+                  <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </button>
+          </dt>
+          <el-disclosure id="faq-1" hidden class="contents">
+            <dd class="mt-2 pr-12">
+              <p class="text-base/7 text-gray-600">350€/mes si solo necesitas Google Maps optimizado. 550€/mes si incluye tu web. Analizo tu web gratis antes de que decidas.</p>
+              <p class="mt-2 text-base/7 text-gray-600">Si después decides no seguir, te quedas con el informe y no me debes nada.</p>
+            </dd>
+          </el-disclosure>
         </div>
-      ))}
+        <div class="py-6 first:pt-0 last:pb-0">
+          <dt>
+            <button type="button" command="--toggle" commandfor="faq-2" class="flex w-full items-start justify-between text-left text-gray-900">
+              <span class="font-heading text-h6 font-semibold">¿Cómo encontrar un buen consultor SEO en Barcelona?</span>
+              <span class="ml-6 flex h-7 items-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
+                  <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
+                  <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </button>
+          </dt>
+          <el-disclosure id="faq-2" hidden class="contents">
+            <dd class="mt-2 pr-12">
+              <p class="text-base/7 text-gray-600">Pídele que te enseñe resultados que puedas verificar tú mismo. Que te explique qué va a hacer antes de cobrarte. Que conozca tu sector y tu zona. Si en alguno de los tres falla, sigue buscando.</p>
+              <p class="mt-2 text-base/7 text-gray-600">Yo analizo tu web gratis antes de que decidas. Así sabes exactamente con qué vas a trabajar.</p>
+            </dd>
+          </el-disclosure>
+        </div>
+        <div class="py-6 first:pt-0 last:pb-0">
+          <dt>
+            <button type="button" command="--toggle" commandfor="faq-3" class="flex w-full items-start justify-between text-left text-gray-900">
+              <span class="font-heading text-h6 font-semibold">¿Cómo sé si necesito un consultor SEO profesional?</span>
+              <span class="ml-6 flex h-7 items-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
+                  <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
+                  <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </button>
+          </dt>
+          <el-disclosure id="faq-3" hidden class="contents">
+            <dd class="mt-2 pr-12">
+              <p class="text-base/7 text-gray-600">Busca tu propio negocio en Google ahora mismo. ¿Apareces? ¿En qué posición? ¿Tu competencia está antes que tú? ¿Tu ficha de Google Maps genera llamadas o está ahí sin que nadie la vea?</p>
+              <p class="mt-2 text-base/7 text-gray-600">Si dependes de publicidad de pago para tener visibilidad y en cuanto paras la campaña desapareces, ya sabes la respuesta. La primera consulta es gratis. En menos de 48 horas sabes si tu caso tiene recorrido.</p>
+            </dd>
+          </el-disclosure>
+        </div>
+        <div class="py-6 first:pt-0 last:pb-0">
+          <dt>
+            <button type="button" command="--toggle" commandfor="faq-4" class="flex w-full items-start justify-between text-left text-gray-900">
+              <span class="font-heading text-h6 font-semibold">¿Por qué necesito un especialista SEO para mi negocio en Barcelona?</span>
+              <span class="ml-6 flex h-7 items-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
+                  <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
+                  <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </button>
+          </dt>
+          <el-disclosure id="faq-4" hidden class="contents">
+            <dd class="mt-2 pr-12">
+              <p class="text-base/7 text-gray-600">Porque Google no posiciona webs por ser buenas. Ni por tener buen contenido. Ni porque lleves años en el negocio. Posiciona webs que están técnicamente bien construidas, que tienen la autoridad que Google exige y que responden exactamente lo que la gente busca.</p>
+              <p class="mt-2 text-base/7 text-gray-600">Mientras tú llevas el negocio, yo hago que Google te encuentre.</p>
+            </dd>
+          </el-disclosure>
+        </div>
+        <div class="py-6 first:pt-0 last:pb-0">
+          <dt>
+            <button type="button" command="--toggle" commandfor="faq-5" class="flex w-full items-start justify-between text-left text-gray-900">
+              <span class="font-heading text-h6 font-semibold">¿Cómo encontrar un consultor SEO cerca de mi negocio en Barcelona?</span>
+              <span class="ml-6 flex h-7 items-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
+                  <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
+                  <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </button>
+          </dt>
+          <el-disclosure id="faq-5" hidden class="contents">
+            <dd class="mt-2 pr-12">
+              <p class="text-base/7 text-gray-600">Dos cosas importan: que conozca tu zona y que no te cobre sin analizar antes. Trabajo desde el área metropolitana de Barcelona. Puedo visitar tu local, ver qué hace tu competencia y entender por qué unos negocios llenan la agenda y otros no.</p>
+              <p class="mt-2 text-base/7 text-gray-600">Analizo tu web gratis antes de que decidas si trabajamos juntos.</p>
+            </dd>
+          </el-disclosure>
+        </div>
+        <div class="py-6 first:pt-0 last:pb-0">
+          <dt>
+            <button type="button" command="--toggle" commandfor="faq-6" class="flex w-full items-start justify-between text-left text-gray-900">
+              <span class="font-heading text-h6 font-semibold">¿Vale la pena contratar un consultor SEO para mi negocio local?</span>
+              <span class="ml-6 flex h-7 items-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
+                  <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
+                  <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </button>
+          </dt>
+          <el-disclosure id="faq-6" hidden class="contents">
+            <dd class="mt-2 pr-12">
+              <p class="text-base/7 text-gray-600">Depende. Si buscas resultados en una semana, no. Los primeros resultados visibles suelen llegar en 3-6 meses. Pero a partir de ahí, tu web trae clientes sin que tengas que pagar publicidad cada mes.</p>
+              <p class="mt-2 text-base/7 text-gray-600">La pregunta que importa no es si vale la pena contratar a un SEO. Es: ¿cuánto dinero pierde tu negocio cada mes porque tus clientes te buscan en Google y encuentran a tu competencia?</p>
+            </dd>
+          </el-disclosure>
+        </div>
+      </dl>
     </div>
-
   </div>
-</section>
+</div>

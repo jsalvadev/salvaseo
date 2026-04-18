@@ -52,7 +52,7 @@ const ordinals = ['01', '02', '03', '04', '05', '06']
   </svg>
 
   <!-- Watermark -->
-  <div class="font-display pointer-events-none absolute -right-12 top-1/2 -translate-y-1/2 select-none leading-none"
+  <div class="font-heading pointer-events-none absolute -right-12 top-1/2 -translate-y-1/2 select-none leading-none"
     aria-hidden='true'>
     €€
   </div>
@@ -87,7 +87,7 @@ const ordinals = ['01', '02', '03', '04', '05', '06']
         <p
           data-animate
 
-          class='font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] leading-[1.05] tracking-tight text-white text-pretty mb-6'>
+          class='font-heading text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] leading-[1.05] tracking-tight text-white text-pretty mb-6'>
           {headingRest ? (
             <>{headingFirst} y lo que cuesta <span class='text-sand'>no hacerlo</span>.</>
           ) : (
@@ -105,15 +105,15 @@ const ordinals = ['01', '02', '03', '04', '05', '06']
         {priceHighlight && (
           <div data-animate class='mb-6'>
             <div class='flex items-end gap-3 leading-none mb-3'>
-              <span class="font-display text-white leading-none tabular-nums">
+              <span class="font-heading text-white leading-none tabular-nums">
                 Desde
               </span>
             </div>
             <div class='flex items-end gap-3 leading-none mb-1'>
-              <span class="font-display text-sand leading-none tabular-nums">
+              <span class="font-heading text-sand leading-none tabular-nums">
                 350€
               </span>
-              <span class="font-display text-white/30 leading-none mb-2">
+              <span class="font-heading text-white/30 leading-none mb-2">
                 /mes
               </span>
             </div>
@@ -162,7 +162,7 @@ const ordinals = ['01', '02', '03', '04', '05', '06']
             <div class='pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-sand scale-y-0 origin-top rounded-r-full transition-transform duration-300 group-hover:scale-y-100' aria-hidden='true'></div>
 
             <!-- Ghost ordinal -->
-            <div class="font-display pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 select-none leading-none"
+            <div class="font-heading pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 select-none leading-none"
               aria-hidden='true'>
               {ordinals[idx]}
             </div>

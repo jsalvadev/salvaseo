@@ -6,7 +6,6 @@ import TicketCalculator from '../components/pages/home/TicketCalculator.astro'
 import CanBeSolved from '../components/pages/home/CanBeSolved.astro'
 import Resenas from '../components/pages/home/Resenas.astro'
 import Faq from '../components/pages/home/Faq.astro'
-import { faqHomeItems } from '../data/faq-home'
 import Hero from '../components/pages/home/Hero.astro'
 import MapSection from '../components/pages/home/MapSection.astro'
 import Layout from '../layouts/Layout.astro'
@@ -20,11 +19,6 @@ import Layout from '../layouts/Layout.astro'
   <AboutMe />
   <TicketCalculator />
   <Resenas />
-  <Faq
-    upheading='Consultor SEO: preguntas frecuentes'
-    heading='Aún tienes dudas'
-    items={faqHomeItems}
-    upheadingColor='var(--color-teal)'
-  />
+  <Faq />
   <MapSection />
 </Layout>

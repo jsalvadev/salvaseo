@@ -50,7 +50,7 @@ const headingSecond = colonIdx !== -1 ? heading.slice(colonIdx + 2) : ''
   </div>
 
   <!-- Titan One watermark -->
-  <div class="font-display pointer-events-none absolute -right-8 top-1/2 -translate-y-1/2 select-none leading-none"
+  <div class="font-heading pointer-events-none absolute -right-8 top-1/2 -translate-y-1/2 select-none leading-none"
     aria-hidden='true'>
     FAQ
   </div>
@@ -83,7 +83,7 @@ const headingSecond = colonIdx !== -1 ? heading.slice(colonIdx + 2) : ''
         <p
           data-animate
 
-          class='font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] leading-[1.05] tracking-tight text-cream text-pretty'>
+          class='font-heading text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] leading-[1.05] tracking-tight text-cream text-pretty'>
           {headingSecond ? (
             <>{headingFirst}{' '}{headingSecond.replace(/\.$/, '')}<span class='text-teal'>.</span></>
           ) : (
@@ -147,7 +147,7 @@ const headingSecond = colonIdx !== -1 ? heading.slice(colonIdx + 2) : ''
             </div>
 
             <!-- Ghost ordinal -->
-            <div class="font-display pointer-events-none absolute right-14 top-1/2 -translate-y-1/2 select-none leading-none transition-opacity duration-200 opacity-100"
+            <div class="font-heading pointer-events-none absolute right-14 top-1/2 -translate-y-1/2 select-none leading-none transition-opacity duration-200 opacity-100"
               aria-hidden='true'>
               {String(i + 1).padStart(2, '0')}
             </div>

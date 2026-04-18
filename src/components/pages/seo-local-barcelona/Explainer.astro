@@ -67,7 +67,7 @@ const headingSecond = periodIdx !== -1 ? heading.slice(periodIdx + 2)    : ''
   </div>
 
   <!-- Titan One watermark -->
-  <div class="font-display pointer-events-none absolute -left-8 top-1/2 -translate-y-1/2 select-none leading-none hidden lg:block"
+  <div class="font-heading pointer-events-none absolute -left-8 top-1/2 -translate-y-1/2 select-none leading-none hidden lg:block"
     aria-hidden='true'>
     MAPA
   </div>
@@ -100,10 +100,10 @@ const headingSecond = periodIdx !== -1 ? heading.slice(periodIdx + 2)    : ''
         {headingSecond ? (
           <>
             <span class='block text-[clamp(1.2rem,2.4vw,1.8rem)] text-cream/55 mb-1'>{headingFirst}</span>
-            <span class='block font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] text-cream'>{headingSecond.replace(/\?$/, '')}<span class='text-teal'>?</span></span>
+            <span class='block font-heading text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] text-cream'>{headingSecond.replace(/\?$/, '')}<span class='text-teal'>?</span></span>
           </>
         ) : (
-          <span class='block font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] text-cream'>{heading}</span>
+          <span class='block font-heading text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] text-cream'>{heading}</span>
         )}
       </p>
 
@@ -135,7 +135,7 @@ const headingSecond = periodIdx !== -1 ? heading.slice(periodIdx + 2)    : ''
                 <div class='pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-teal scale-y-0 origin-top rounded-r-full transition-transform duration-300 group-hover:scale-y-100' aria-hidden='true'></div>
 
                 <!-- Ghost ordinal -->
-                <div class="font-display pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 select-none leading-none transition-opacity duration-300"
+                <div class="font-heading pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 select-none leading-none transition-opacity duration-300"
                   aria-hidden='true'>
                   {num}
                 </div>

@@ -43,7 +43,7 @@ const priceUnit   = priceParts.slice(2).join(' ')
 
   <!-- ── Price number as background watermark ───────────────────────── -->
   {priceNum && (
-    <div class="font-display pointer-events-none absolute -right-4 top-1/2 -translate-y-1/2 select-none leading-none"
+    <div class="font-heading pointer-events-none absolute -right-4 top-1/2 -translate-y-1/2 select-none leading-none"
       aria-hidden='true'
     >
       {priceNum}
@@ -101,7 +101,7 @@ const priceUnit   = priceParts.slice(2).join(' ')
         <p
           data-animate
 
-          class='font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] leading-[1.05] tracking-tight text-white text-pretty mb-6'
+          class='font-heading text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] leading-[1.05] tracking-tight text-white text-pretty mb-6'
         >
           {heading}<span class='text-sand'>.</span>
         </p>
@@ -164,7 +164,7 @@ const priceUnit   = priceParts.slice(2).join(' ')
             </p>
 
             <div class='flex items-end gap-3 leading-none'>
-              <span class="font-display font-bold text-sand tabular-nums"
+              <span class="font-heading font-bold text-sand tabular-nums"
               >
                 {priceNum}
               </span>
@@ -211,7 +211,7 @@ const priceUnit   = priceParts.slice(2).join(' ')
               ></div>
 
               <!-- Ghost ordinal -->
-              <div class="font-display pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 select-none leading-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              <div class="font-heading pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 select-none leading-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 aria-hidden='true'
               >
                 {String(i + 1).padStart(2, '0')}

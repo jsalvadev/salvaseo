@@ -24,7 +24,7 @@ const plans = [
       <!-- ══ LEFT COL — copy ══════════════════════════════════════════ -->
       <div data-animate class='relative mb-12 lg:mb-0 lg:sticky lg:top-[calc(var(--navbar-height,80px)+2rem)]'>
 
-        <div class="font-display pointer-events-none absolute -bottom-8 -left-6 select-none leading-none"
+        <div class="font-heading pointer-events-none absolute -bottom-8 -left-6 select-none leading-none"
           id='wm-ghost'
           aria-hidden='true'>
           2×
@@ -36,7 +36,7 @@ const plans = [
         </div>
 
         <!-- h2 -->
-        <p class='font-display text-h2 font-bold leading-tight tracking-tight text-white'>
+        <p class='font-heading text-h2 font-bold leading-tight tracking-tight text-white'>
           Cuántos clientes necesitas para que <span class='text-cream'>salga a cuenta.</span>
         </p>
 
@@ -67,11 +67,11 @@ const plans = [
               data-active={i === 0 ? 'true' : 'false'}
               aria-pressed={i === 0 ? 'true' : 'false'}
               type='button'>
-              <span class='plan-name block font-display text-sm font-bold mb-3 leading-snug text-white'>
+              <span class='plan-name block font-heading text-sm font-bold mb-3 leading-snug text-white'>
                 {plan.label}
               </span>
               <div class='flex items-baseline gap-2 mb-4'>
-                <span class='plan-price leading-none font-display text-cream'>
+                <span class='plan-price leading-none font-heading text-cream'>
                   {plan.price}€<span class='text-xs font-normal text-white/45'>/mes</span>
                 </span>
                 <span class='plan-iva inline-flex items-center rounded-full border border-cream/30 text-cream px-2 py-0.5 text-xs font-semibold tracking-wide'>
@@ -112,7 +112,7 @@ const plans = [
                   aria-label='Cuánto te paga un cliente tuyo de media, en euros'
                 />
                 <div class='shrink-0 flex items-baseline gap-0.5 min-w-[5.5rem] justify-end'>
-                  <span class="font-display text-h3 tabular-nums text-cream leading-none" id='ticket-display'>250</span>
+                  <span class="font-heading text-h3 tabular-nums text-cream leading-none" id='ticket-display'>250</span>
                   <span class='text-h5 font-bold text-cream/60 ml-0.5'>€</span>
                 </div>
               </div>
@@ -131,23 +131,23 @@ const plans = [
 
               <div class='text-center'>
                 <div class='text-xs font-semibold tracking-[0.12em] uppercase text-white/35 mb-2'>Lo que me pagas</div>
-                <div class="font-display text-h3 tabular-nums text-cream leading-none transition-all duration-200" id='fee-display'>350</div>
+                <div class="font-heading text-h3 tabular-nums text-cream leading-none transition-all duration-200" id='fee-display'>350</div>
                 <div class='text-xs text-white/55 mt-3'>€/mes</div>
               </div>
 
-              <div class="font-display text-white/20 leading-none" aria-hidden='true'>÷</div>
+              <div class="font-heading text-white/20 leading-none" aria-hidden='true'>÷</div>
 
               <div class='text-center'>
                 <div class='text-xs font-semibold tracking-[0.12em] uppercase text-white/35 mb-2'>Tu cliente medio</div>
-                <div class="font-display text-h3 tabular-nums text-cream leading-none" id='ticket-eq'>250</div>
+                <div class="font-heading text-h3 tabular-nums text-cream leading-none" id='ticket-eq'>250</div>
                 <div class='text-xs text-white/55 mt-3'>€/cliente</div>
               </div>
 
-              <div class="font-display text-white/20 leading-none" aria-hidden='true'>=</div>
+              <div class="font-heading text-white/20 leading-none" aria-hidden='true'>=</div>
 
               <div class='text-center'>
                 <div class='text-xs font-semibold tracking-[0.12em] uppercase text-cream/70 mb-2'>Para cubrirme</div>
-                <div class="font-display text-h3 tabular-nums text-cream leading-none" id='clients-result'>2</div>
+                <div class="font-heading text-h3 tabular-nums text-cream leading-none" id='clients-result'>2</div>
                 <div class='text-xs text-cream/70 mt-3'>clientes</div>
               </div>
 
