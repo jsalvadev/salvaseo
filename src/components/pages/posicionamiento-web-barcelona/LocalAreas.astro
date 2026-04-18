@@ -60,8 +60,8 @@ const { upheading, heading, intro, areas } = Astro.props
 
       <!-- Eyebrow -->
       <div data-animate class='flex items-center gap-3 mb-8'>
-        <span class='block h-px w-10 bg-teal' aria-hidden='true'></span>
-        <h2 class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-teal'>
+        <span class='block h-px w-10 bg-sage' aria-hidden='true'></span>
+        <h2 class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-sage'>
           {upheading}
         </h2>
       </div>
@@ -72,26 +72,26 @@ const { upheading, heading, intro, areas } = Astro.props
 
         class='font-heading text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] leading-[1.05] tracking-tight text-cream text-pretty'
       >
-        {heading}<span class='text-teal'>.</span>
+        {heading}<span class='text-sage'>.</span>
       </p>
 
       <!-- Teal accent rule -->
       <div data-animate class='mt-6 flex items-center' aria-hidden='true'>
-        <div class='h-[3px] w-16 bg-teal rounded-full'></div>
+        <div class='h-[3px] w-16 bg-sage rounded-full'></div>
         <div class='h-px w-24 bg-gradient-to-r from-teal/40 to-transparent'></div>
       </div>
 
       <!-- Intro HTML -->
       <div
         data-animate
-        class='mt-6 [&_p]:text-base [&_p]:leading-relaxed [&_p]:text-cream/70 [&_p]:text-pretty [&_p:not(:first-child)]:mt-4 [&_a]:text-teal [&_a]:underline [&_a]:decoration-teal/30 [&_a:hover]:text-teal/80 [&_a:hover]:decoration-teal/50 [&_strong]:text-cream [&_strong]:font-semibold'
+        class='mt-6 [&_p]:text-base [&_p]:leading-relaxed [&_p]:text-cream/70 [&_p]:text-pretty [&_p:not(:first-child)]:mt-4 [&_a]:text-sage [&_a]:underline [&_a]:decoration-teal/30 [&_a:hover]:text-sage/80 [&_a:hover]:decoration-teal/50 [&_strong]:text-cream [&_strong]:font-semibold'
       >
         <Fragment set:html={intro} />
       </div>
     </div>
 
     <!-- ── Area ranking rows ──────────────────────────────────────── -->
-    <div class='flex flex-col divide-y divide-charcoal/10'>
+    <div class='flex flex-col divide-y divide-surface/10'>
 
       {areas.map((area, idx) => {
         const padNum = String(idx + 1).padStart(2, '0')
@@ -115,7 +115,7 @@ const { upheading, heading, intro, areas } = Astro.props
 
             <!-- Left accent bar (hover reveal) -->
             <div
-              class='pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-teal opacity-0 rounded-r-full transition-opacity duration-300 group-hover:opacity-100'
+              class='pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-sage opacity-0 rounded-r-full transition-opacity duration-300 group-hover:opacity-100'
               aria-hidden='true'
             ></div>
 
@@ -123,12 +123,12 @@ const { upheading, heading, intro, areas } = Astro.props
             {area.stat && (
               <div class='shrink-0 flex flex-col justify-center sm:w-36'>
                 <span
-                  class='block text-[2.6rem] leading-none font-bold text-teal tabular-nums transition-colors duration-300 group-hover:text-sage/80'
+                  class='block text-[2.6rem] leading-none font-bold text-sage tabular-nums transition-colors duration-300 group-hover:text-sage/80'
 
                 >
                   {statNum}
                 </span>
-                <span class='mt-1 text-[0.6rem] font-bold tracking-[0.14em] uppercase text-teal/60 transition-colors duration-300 group-hover:text-sage'>
+                <span class='mt-1 text-[0.6rem] font-bold tracking-[0.14em] uppercase text-sage/60 transition-colors duration-300 group-hover:text-sage'>
                   {statUnit}
                 </span>
               </div>
@@ -139,11 +139,11 @@ const { upheading, heading, intro, areas } = Astro.props
 
               <!-- City row meta -->
               <div class='flex items-center gap-2.5 mb-2'>
-                <span class='text-[0.6rem] font-bold tracking-[0.14em] uppercase text-teal/40'>
+                <span class='text-[0.6rem] font-bold tracking-[0.14em] uppercase text-sage/40'>
                   {padNum}
                 </span>
-                <MapPin aria-hidden='true' class='size-3 text-teal/40' />
-                <span class='text-[0.6rem] font-bold tracking-[0.14em] uppercase text-teal/40'>
+                <MapPin aria-hidden='true' class='size-3 text-sage/40' />
+                <span class='text-[0.6rem] font-bold tracking-[0.14em] uppercase text-sage/40'>
                   Cataluña
                 </span>
               </div>
@@ -152,7 +152,7 @@ const { upheading, heading, intro, areas } = Astro.props
                 {area.title}
               </h3>
 
-              <p class='text-sm/6 text-teal text-pretty transition-colors duration-300 group-hover:text-sage/80 max-w-[60ch]'>
+              <p class='text-sm/6 text-sage text-pretty transition-colors duration-300 group-hover:text-sage/80 max-w-[60ch]'>
                 {area.description}
               </p>
             </div>
