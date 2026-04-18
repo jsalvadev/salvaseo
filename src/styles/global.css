@@ -4,10 +4,10 @@
 
 @theme {
   /* ── Palette ────────────────────────────────────────────────── */
-  --color-base:      #181C14;   /* 60% */
-  --color-surface:   #3C3D37;   /* 30% */
-  --color-sage:      #697565;   /* 10% */
-  --color-cream:     #ECDFCC;   /* 10% */
+  --color-base:      #181C14;
+  --color-surface:   #3C3D37;
+  --color-sage:      #697565;
+  --color-cream:     #ECDFCC;
   --color-white:     #ffffff;
 
   /* ── Type Scale  ──────────────────── */

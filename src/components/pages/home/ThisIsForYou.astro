@@ -56,7 +56,7 @@ import CalButton from '../../CalButton.astro'
         ].map((item) => (
           <li
             data-animate
-            class='esto-card group relative rounded-xl border border-cream/20 bg-cream/5 px-6 py-5 transition-all duration-300 hover:border-cream/35 hover:bg-cream/10 overflow-hidden cursor-default'>
+            class='group relative rounded-xl border border-cream/20 bg-cream/5 px-6 py-5 transition-all duration-300 hover:border-cream/35 hover:bg-cream/10 overflow-hidden cursor-default'>
 
             <!-- Card left accent bar (appears on hover) -->
             <div
@@ -86,10 +86,10 @@ import CalButton from '../../CalButton.astro'
 
               <!-- Text -->
               <div class='min-w-0'>
-                <p class='font-heading text-p font-bold text-white mb-1.5 leading-snug'>
+                <p class='font-heading text-base font-bold text-white mb-1.5 leading-snug'>
                   {item.heading}
                 </p>
-                <p class='text-p text-cream/80 leading-relaxed text-pretty'>
+                <p class='text-base text-cream/80 leading-relaxed text-pretty'>
                   {item.body}
                 </p>
               </div>
