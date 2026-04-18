@@ -13,7 +13,7 @@ interface Props {
 const { upheading, heading, primaryCtaText, secondaryCtaText, secondaryCtaHref } = Astro.props
 ---
 
-<div class='relative bg-teal overflow-hidden'>
+<div class='relative bg-sage overflow-hidden'>
   <!-- gradient mesh -->
   <div
     class='pointer-events-none absolute inset-0'
@@ -51,7 +51,7 @@ const { upheading, heading, primaryCtaText, secondaryCtaText, secondaryCtaHref }
       {upheading && (
         <div class='flex items-center justify-center gap-3 mb-4'>
           <span class='block h-px w-10 bg-sand' aria-hidden='true'></span>
-          <p class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-sand'>{upheading}</p>
+          <p class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-cream'>{upheading}</p>
           <span class='block h-px w-10 bg-sand' aria-hidden='true'></span>
         </div>
       )}
@@ -65,7 +65,7 @@ const { upheading, heading, primaryCtaText, secondaryCtaText, secondaryCtaHref }
         {secondaryCtaText && secondaryCtaHref && (
           <a
             href={secondaryCtaHref}
-            class='text-sm/6 font-semibold text-white hover:text-sand transition-colors'>
+            class='text-sm/6 font-semibold text-white hover:text-cream transition-colors'>
             {secondaryCtaText} <span aria-hidden='true'>→</span>
           </a>
         )}

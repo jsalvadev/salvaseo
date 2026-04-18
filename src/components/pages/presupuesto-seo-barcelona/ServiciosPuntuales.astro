@@ -61,14 +61,14 @@ const extras = [
     <!-- Servicios puntuales -->
     <div class='mx-auto mt-16 max-w-4xl'>
       <div class='overflow-hidden rounded-xl border border-surface/10'>
-        <table class='min-w-full divide-y divide-charcoal/10'>
+        <table class='min-w-full divide-y divide-surface/10'>
           <thead>
             <tr class='bg-surface/5'>
               <th scope='col' class='py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-cream sm:pl-6'>Servicio</th>
               <th scope='col' class='px-3 py-3.5 text-left text-sm font-semibold text-cream'>Precio</th>
             </tr>
           </thead>
-          <tbody class='divide-y divide-charcoal/5'>
+          <tbody class='divide-y divide-surface/5'>
             {services.map((service) => (
               <tr class='hover:bg-surface/5 transition-colors'>
                 <td class='py-4 pr-3 pl-4 sm:pl-6'>
@@ -93,7 +93,7 @@ const extras = [
         {extras.map((extra) => (
           <div class='flex items-center justify-between rounded-lg border border-surface/10 px-4 py-3'>
             <span class='text-sm text-cream/70'>{extra.name}</span>
-            <span class='ml-4 shrink-0 text-sm font-semibold text-teal'>{extra.price}</span>
+            <span class='ml-4 shrink-0 text-sm font-semibold text-sage'>{extra.price}</span>
           </div>
         ))}
       </div>

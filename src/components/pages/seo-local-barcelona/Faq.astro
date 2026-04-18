@@ -74,7 +74,7 @@ const headingSecond = colonIdx !== -1 ? heading.slice(colonIdx + 2) : ''
         <div data-animate class='flex items-center gap-3 mb-8'>
           <span class='block h-px w-10 bg-teal' aria-hidden='true'></span>
           {upheading && (
-            <h2 class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-teal'>
+            <h2 class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-sage'>
               {upheading}
             </h2>
           )}
@@ -85,7 +85,7 @@ const headingSecond = colonIdx !== -1 ? heading.slice(colonIdx + 2) : ''
 
           class='font-heading text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] leading-[1.05] tracking-tight text-cream text-pretty'>
           {headingSecond ? (
-            <>{headingFirst}{' '}{headingSecond.replace(/\.$/, '')}<span class='text-teal'>.</span></>
+            <>{headingFirst}{' '}{headingSecond.replace(/\.$/, '')}<span class='text-sage'>.</span></>
           ) : (
             <>{heading}</>
           )}
@@ -106,7 +106,7 @@ const headingSecond = colonIdx !== -1 ? heading.slice(colonIdx + 2) : ''
         <div data-animate class='mt-8 inline-flex items-center gap-2.5 rounded-xl border border-surface/10 bg-white px-4 py-3'>
           <span
 
-            class='text-2xl leading-none text-teal'>
+            class='text-2xl leading-none text-sage'>
             {items.length}
           </span>
           <span class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-cream/70'>
@@ -161,7 +161,7 @@ const headingSecond = colonIdx !== -1 ? heading.slice(colonIdx + 2) : ''
 
                 <!-- Number badge -->
                 <span
-                  class='shrink-0 mt-0.5 flex h-6 w-6 items-center justify-center rounded-full text-[0.62rem] font-bold tabular-nums text-teal transition-colors duration-200'>
+                  class='shrink-0 mt-0.5 flex h-6 w-6 items-center justify-center rounded-full text-[0.62rem] font-bold tabular-nums text-sage transition-colors duration-200'>
                   {i + 1}
                 </span>
 
