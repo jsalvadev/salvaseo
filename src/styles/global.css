@@ -17,8 +17,9 @@
   --text-h4:    1.728rem;  /* 27.65px */
   --text-h5:    1.44rem;   /* 23.04px */
   --text-h6:    1.2rem;    /* 19.20px */
-  --text-p:     1rem;      /* 16.00px */
-  --text-small: 0.833rem;  /* 13.33px */
+  --text-base:  1rem;      /* 16.00px */
+  --text-sm:    0.833rem;  /* 13.33px */
+  --text-xs:    0.695rem;  /* 11.81px */
 
   /* ── Fonts ─────────────────────────────────────────────────── */
   --font-display: 'Brawler', serif;

@@ -4,7 +4,7 @@ import { Globe, MapPin, ArrowRight } from '@lucide/astro'
 
 <section
   id='servicios'
-  class='relative overflow-hidden py-24 md:py-32'>
+  class='relative overflow-hidden py-24 md:py-32 bg-cream'>
 
   <!-- Dot-grid texture -->
   <div
@@ -20,19 +20,15 @@ import { Globe, MapPin, ArrowRight } from '@lucide/astro'
 
     <!-- Section header -->
     <div class='mb-12'>
-      <div data-animate class='flex items-center gap-3 mb-4'>
-        <span class='block h-px w-10 bg-teal' aria-hidden='true'></span>
-        <p class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-teal'>Servicios SEO en Barcelona</p>
+      <div data-animate class='mb-4'>
+        <p class='text-sm italic font-bold text-base'>Servicios SEO en Barcelona</p>
       </div>
-      <p
-        data-animate
-
-        class='font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] leading-[1.05] tracking-tight text-cream text-pretty'>
-        Elige la estrategia que necesita tu negocio<span class='text-teal'>.</span>
+      <p data-animate class='font-display text-h2 font-bold leading-tight tracking-tight text-base text-pretty'>
+        Elige la estrategia que necesita <span class='text-surface'>tu negocio.</span>
       </p>
-      <div data-animate class='mt-5 flex items-center'>
-        <div class='h-[3px] w-12 bg-teal rounded-full'></div>
-        <div class='h-px w-20 bg-gradient-to-r from-teal/40 to-transparent'></div>
+      <div data-animate class='mt-6 flex items-center'>
+        <div class='h-px w-32 bg-gradient-to-r from-base/5 to-base/25'></div>
+        <div class='h-px w-10 bg-base/50'></div>
       </div>
     </div>
 
@@ -43,7 +39,7 @@ import { Globe, MapPin, ArrowRight } from '@lucide/astro'
       <a
         href='/posicionamiento-web-barcelona/'
         data-animate
-        class='group relative flex flex-col sm:flex-row rounded-2xl border border-surface/10 bg-white overflow-hidden
+        class='group relative flex flex-col sm:flex-row rounded-2xl border border-surface/10 bg-base overflow-hidden
                transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-charcoal/8
                hover:border-teal/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal'>
 
@@ -51,7 +47,7 @@ import { Globe, MapPin, ArrowRight } from '@lucide/astro'
         <div class='pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-teal scale-y-0 origin-top rounded-r-full transition-transform duration-300 group-hover:scale-y-100' aria-hidden='true'></div>
 
         <!-- Dark band -->
-        <div class='relative overflow-hidden bg-surface sm:w-[42%] shrink-0 px-6 py-7 flex flex-col justify-between gap-5 min-h-[160px] sm:min-h-0'>
+        <div class='relative overflow-hidden bg-sage sm:w-[42%] shrink-0 px-6 py-7 flex flex-col justify-between gap-5 min-h-[160px] sm:min-h-0'>
 
           <svg class='pointer-events-none absolute inset-0 w-full h-full' aria-hidden='true' preserveAspectRatio='none'>
             <line x1='55%' y1='0%' x2='100%' y2='100%' stroke='rgba(250,234,177,0.08)' stroke-width='1' />
@@ -66,12 +62,12 @@ import { Globe, MapPin, ArrowRight } from '@lucide/astro'
             <div class='flex size-9 shrink-0 items-center justify-center rounded-xl bg-teal/10 ring-1 ring-teal/30'>
               <Globe aria-hidden='true' class='size-4 text-teal' />
             </div>
-            <span class='text-[0.6rem] font-semibold tracking-[0.12em] uppercase text-white/40'>Visibilidad en buscadores</span>
+            <span class='text-xs font-bold uppercase text-cream/50'>Visibilidad en buscadores</span>
           </div>
 
           <div class='relative flex items-baseline gap-2'>
-            <span class='text-[1.3rem] leading-none text-sand/40 tabular-nums shrink-0 font-display'>01</span>
-            <h2 class='text-base font-semibold text-white tracking-tight leading-snug'>Posicionamiento Web en Barcelona</h2>
+            <span class='text-h6 leading-none text-cream/30 tabular-nums shrink-0 font-display'>01</span>
+            <h2 class='font-display text-p font-semibold text-white tracking-tight leading-snug'>Posicionamiento Web en Barcelona</h2>
           </div>
         </div>
 
@@ -82,22 +78,21 @@ import { Globe, MapPin, ArrowRight } from '@lucide/astro'
         </div>
 
         <!-- Body -->
-        <div class='flex flex-col justify-between gap-5 p-6 flex-1'>
-          <p class='text-sm/6 text-cream/70 text-pretty'>
-            Aparece en Google cuando tus clientes buscan tus servicios. Auditoría técnica, contenidos orientados a captación y estrategia off page para que tu web trabaje por ti.
+        <div class='flex flex-col justify-between gap-5 p-6 flex-1 bg-base'>
+          <p class='text-p font-light text-cream text-pretty'>
+            Auditoría técnica, contenidos y estrategia off page para que tus clientes te encuentren antes que a tu competencia.
           </p>
-          <div class='flex items-center gap-2 text-sm font-semibold text-teal transition-all duration-200 group-hover:gap-3'>
-            Ver servicio
-            <ArrowRight class='size-4' aria-hidden='true' />
+          <div class='flex items-center gap-2 text-sm font-semibold text-cream transition-all duration-200 group-hover:gap-3'>
+            Ver servicio →
           </div>
         </div>
       </a>
 
-      <!-- Card 02 — SEO Local (orange) -->
+      <!-- Card 02 — SEO Local -->
       <a
         href='/seo-local-barcelona/'
         data-animate
-        class='group relative flex flex-col sm:flex-row rounded-2xl border border-surface/10 bg-white overflow-hidden
+        class='group relative flex flex-col sm:flex-row rounded-2xl border border-surface/10 bg-base overflow-hidden
                transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-charcoal/8
                hover:border-sand/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sand'>
 
@@ -105,7 +100,7 @@ import { Globe, MapPin, ArrowRight } from '@lucide/astro'
         <div class='pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-sand scale-y-0 origin-top rounded-r-full transition-transform duration-300 group-hover:scale-y-100' aria-hidden='true'></div>
 
         <!-- Dark band -->
-        <div class='relative overflow-hidden bg-surface sm:w-[42%] shrink-0 px-6 py-7 flex flex-col justify-between gap-5 min-h-[160px] sm:min-h-0'>
+        <div class='relative overflow-hidden bg-sage sm:w-[42%] shrink-0 px-6 py-7 flex flex-col justify-between gap-5 min-h-[160px] sm:min-h-0'>
 
           <svg class='pointer-events-none absolute inset-0 w-full h-full' aria-hidden='true' preserveAspectRatio='none'>
             <line x1='55%' y1='0%' x2='100%' y2='100%' stroke='rgba(250,234,177,0.08)' stroke-width='1' />
@@ -120,12 +115,12 @@ import { Globe, MapPin, ArrowRight } from '@lucide/astro'
             <div class='flex size-9 shrink-0 items-center justify-center rounded-xl bg-sand/10 ring-1 ring-sand/30'>
               <MapPin aria-hidden='true' class='size-4 text-sand' />
             </div>
-            <span class='text-[0.6rem] font-semibold tracking-[0.12em] uppercase text-white/40'>Visibilidad en Google Maps</span>
+            <span class='text-xs font-bold uppercase text-cream/50'>Visibilidad en Google Maps</span>
           </div>
 
           <div class='relative flex items-baseline gap-2'>
-            <span class='text-[1.3rem] leading-none text-sand/40 tabular-nums shrink-0 font-display'>02</span>
-            <h2 class='text-base font-semibold text-white tracking-tight leading-snug'>SEO Local en Barcelona</h2>
+            <span class='text-h6 leading-none text-cream/30 tabular-nums shrink-0 font-display'>02</span>
+            <h2 class='font-display text-p font-semibold text-white tracking-tight leading-snug'>SEO Local en Barcelona</h2>
           </div>
         </div>
 
@@ -136,13 +131,12 @@ import { Globe, MapPin, ArrowRight } from '@lucide/astro'
         </div>
 
         <!-- Body -->
-        <div class='flex flex-col justify-between gap-5 p-6 flex-1'>
-          <p class='text-sm/6 text-cream/70 text-pretty'>
-            Domina el Local Pack de Google Maps y atrae clientes de tu zona. Optimización de Google Business Profile y estrategia de reputación para que tu negocio sea la primera opción.
+        <div class='flex flex-col justify-between gap-5 p-6 flex-1 bg-base'>
+          <p class='text-p font-light text-cream text-pretty'>
+            Optimización de Google Business Profile y reputación local para aparecer en el Local Pack y recibir más llamadas.
           </p>
-          <div class='flex items-center gap-2 text-sm font-semibold text-sand transition-all duration-200 group-hover:gap-3'>
-            Ver servicio
-            <ArrowRight class='size-4' aria-hidden='true' />
+          <div class='flex items-center gap-2 text-sm font-semibold text-cream transition-all duration-200 group-hover:gap-3'>
+            Ver servicio →
           </div>
         </div>
       </a>
