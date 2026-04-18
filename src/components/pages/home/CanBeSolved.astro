@@ -2,7 +2,7 @@
 import WhatsAppButton from '../../WhatsAppButton.astro'
 ---
 
-<section class='relative overflow-hidden py-24 md:py-32'>
+<section class='relative overflow-hidden py-24 md:py-32 bg-surface'>
   <!-- Subtle dot grid texture -->
   <div
     class='pointer-events-none absolute inset-0'
@@ -20,23 +20,16 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
 
       <!-- ── LEFT: Headline block ─────────────────────────────────── -->
       <div class='lg:sticky lg:top-28'>
-        <div data-animate class='flex items-center gap-3 mb-8'>
-          <span class='block h-px w-10 bg-teal' aria-hidden='true'></span>
-          <h2 class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-teal'>
+        <div data-animate class='mb-8'>
+          <h2 class='text-small italic font-bold text-cream'>
             Contratar un consultor SEO
           </h2>
         </div>
 
         <p
           data-animate
-
-          class='leading-[0.9] tracking-tight'>
-          <span class='block font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] text-cream/60 mb-1'>
-            Pero se puede
-          </span>
-          <span class='block font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] text-cream'>
-            solucionar<span class='text-teal'>.</span>
-          </span>
+          class='font-display text-h2 font-bold leading-tight text-cream tracking-tight'>
+          <span class='text-white'>Pero se puede</span> solucionar<span class='text-teal'>.</span>
         </p>
 
         <div data-animate class='mt-6 flex items-center gap-0'>
@@ -46,8 +39,8 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
 
         <p
           data-animate
-          class='mt-6 max-w-[40ch] text-base text-cream/70 leading-relaxed text-pretty'>
-          En la llamada revisamos tu presencia en Google, analizamos a tu competencia y te digo exactamente <strong class='text-cream font-semibold'>qué está fallando y qué hay que hacer para que tus clientes te encuentren.</strong>
+          class='mt-6 max-w-[40ch] text-p text-white leading-relaxed text-pretty'>
+          En la llamada revisamos tu presencia en Google, analizamos a tu competencia y te digo exactamente <strong>qué está fallando</strong> y qué hay que hacer para que <strong>tus clientes te encuentren</strong>.
         </p>
       </div>
 
@@ -63,7 +56,7 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
               Paso
             </span>
             <span
-              class='text-[2.2rem] leading-none font-bold text-teal/40 tabular-nums'
+              class='font-display text-[2.2rem] leading-none font-bold text-teal/40 tabular-nums'
 >
               01
             </span>
@@ -72,10 +65,7 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
             <p class='text-base font-bold text-cream mb-3'>
               Reserva tu llamada gratuita
             </p>
-            <WhatsAppButton
-              text='Elige tu horario'
-              class='text-sm font-bold px-5 py-2.5 shadow-sm shadow-sand/20'
-            />
+            <a href="#" class="rounded-md bg-cream px-3.5 py-2.5 text-sm font-bold text-base shadow-xs hover:bg-cream/90">Reserva tu llamada</a>
           </div>
         </div>
 
@@ -88,7 +78,7 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
               Paso
             </span>
             <span
-              class='text-[2.2rem] leading-none font-bold text-teal/40 tabular-nums'
+              class='font-display text-[2.2rem] leading-none font-bold text-teal/40 tabular-nums'
 >
               02
             </span>
@@ -97,7 +87,7 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
             <p class='text-base font-bold text-cream mb-2'>
               Cuéntame tu situación
             </p>
-            <p class='text-base text-cream/70 leading-relaxed'>
+            <p class='text-base text-white leading-relaxed'>
               Al reservar, indícame la URL de tu web y qué te preocupa. Nada más.
             </p>
           </div>
@@ -112,7 +102,7 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
               Paso
             </span>
             <span
-              class='text-[2.2rem] leading-none font-bold text-teal/40 tabular-nums'
+              class='font-display text-[2.2rem] leading-none font-bold text-teal/40 tabular-nums'
 >
               03
             </span>
@@ -128,7 +118,7 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
                 30 min
               </span>
             </div>
-            <p class='text-base text-cream/70 leading-relaxed text-pretty'>
+            <p class='text-base text-white leading-relaxed text-pretty'>
               Reviso tu web en tiempo real, te explico qué está fallando y por qué Google no te muestra.
             </p>
           </div>
