@@ -2,7 +2,12 @@
 import CenteredNav from '../../CenteredNav.astro'
 ---
 
-<div class="bg-gradient-to-b from-base to-surface/60">
+<div class="relative overflow-hidden bg-gradient-to-b from-base to-surface/60">
+  <!-- Large ghosted watermark -->
+  <div class="font-heading pointer-events-none absolute -right-6 top-1/2 -translate-y-1/2 select-none leading-none text-wm font-bold text-white/[0.04]"
+    aria-hidden='true'>
+    #1
+  </div>
   <CenteredNav />
 
   <div class="px-6 pt-14 lg:px-8">
