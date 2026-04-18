@@ -5,18 +5,9 @@ import { Mail, Phone } from '@lucide/astro'
 
 <section
   id='sobre-mi'
-  class='relative overflow-hidden py-24 md:py-32'>
+  class='relative overflow-hidden py-24 md:py-32 bg-base'>
 
-
-  <!-- Titan One watermark -->
-  <div class="font-display pointer-events-none absolute -right-8 top-1/2 -translate-y-1/2 select-none leading-none"
-    aria-hidden='true'>
-    SEO
-  </div>
-
-  <!-- Orange geometric accent -->
-  <div
-    class='absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-40 bg-teal rounded-r-full pointer-events-none'
+  <div class='absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-40 bg-sage rounded-r-full pointer-events-none'
     aria-hidden='true'></div>
 
   <div class='mx-auto max-w-[1280px] px-5'>
@@ -26,14 +17,8 @@ import { Mail, Phone } from '@lucide/astro'
 
       <!-- Photo column -->
       <div class='relative flex justify-center lg:justify-start flex-shrink-0'>
-
-        <!-- Stacked background rects for depth -->
-        <div
-          class='absolute -bottom-4 -right-4 w-full h-full rounded-2xl bg-teal/10 border border-teal/20'
-          aria-hidden='true'></div>
-        <div
-          class='absolute -bottom-2 -right-2 w-full h-full rounded-2xl bg-teal/8 border border-teal/20'
-          aria-hidden='true'></div>
+        <div class='absolute -bottom-4 -right-4 w-full h-full rounded-2xl bg-sage/25 border border-sage/30' aria-hidden='true'></div>
+        <div class='absolute -bottom-2 -right-2 w-full h-full rounded-2xl bg-sage/15 border border-sage/25' aria-hidden='true'></div>
 
         <img
           src={aboutMeImage.src}
@@ -41,81 +26,62 @@ import { Mail, Phone } from '@lucide/astro'
           height={aboutMeImage.height}
           loading='lazy'
           alt='Salvador Jesús, consultor SEO freelance en Barcelona'
-          class='relative aspect-4/5 w-56 sm:w-64 rounded-2xl object-cover shadow-2xl shadow-charcoal/15 ring-1 ring-surface/5'
+          class='relative aspect-4/5 w-56 sm:w-64 rounded-2xl object-cover shadow-2xl ring-1 ring-surface/5'
         />
 
-        <!-- Orange corner dot -->
-        <div
-          class='absolute -top-3 -left-3 w-6 h-6 rounded-full bg-teal shadow-sm shadow-teal/40'
-          aria-hidden='true'></div>
+        <div class='absolute -top-3 -left-3 w-6 h-6 rounded-full bg-sage shadow-sm' aria-hidden='true'></div>
       </div>
 
       <!-- Content column -->
       <div class='space-y-7 max-w-xl'>
 
-        <!-- Eyebrow label -->
-        <div class='flex items-center gap-3'>
-          <span class='h-px w-8 bg-teal flex-shrink-0'></span>
-          <span
-            class='text-xs font-semibold tracking-[0.18em] uppercase text-teal'>
-            Quizás te estés preguntando
-          </span>
+        <!-- Preheader -->
+        <div>
+          <p class='text-sm italic font-bold text-cream'>Consultor SEO freelance en Barcelona</p>
         </div>
 
-        <!-- Name + Role -->
+        <!-- Headline -->
         <div class='space-y-1.5'>
-          <p
-            class='font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] tracking-tight text-cream'
->
+          <p class='font-display text-h2 font-bold leading-tight tracking-tight text-white'>
             ¿Quién demonios soy?
           </p>
-          <h2 class='text-base font-medium text-teal tracking-wide'>
-            Consultor SEO freelance en Barcelona
-          </h2>
         </div>
 
         <!-- Accent rule -->
         <div class='flex items-center'>
-          <div class='h-px w-16 bg-teal'></div>
-          <div class='h-px w-24 bg-gradient-to-r from-teal/40 to-transparent'></div>
+          <div class='h-px w-32 bg-gradient-to-r from-cream/5 to-cream/35'></div>
+          <div class='h-px w-10 bg-cream/60'></div>
         </div>
 
         <!-- Bio -->
-        <p class='text-base/7 text-cream/70 text-pretty'>
+        <p class='text-base text-white/70 leading-relaxed text-pretty'>
           Me llamo Salva y hago que los negocios locales dejen de ser invisibles en Google. Soy muy analítico, así que todo lo que hago se mide: más llamadas, más mensajes, más presupuestos. Si se puede medir, se puede mejorar.
         </p>
-        <p class='text-base/7 text-cream/70 text-pretty'>
-          Si tu negocio depende de clientes cercanos, mi servicio de <a href='/seo-local-barcelona/' class='text-teal font-medium hover:text-sage/80 underline decoration-teal/30 underline-offset-2 transition-colors'>consultor SEO local en Barcelona</a> se enfoca en Google Maps y búsquedas con intención geográfica para que te encuentren primero.
-        </p>
-
         <!-- Tool badges -->
         <div class='flex flex-wrap gap-2'>
-          {
-            [
-              'Google Search Console',
-              'Google Analytics 4',
-              'Keyword Planner',
-              'WordPress',
-              'Elementor Pro',
-              'Yoast SEO',
-              'DinoRank',
-            ].map((tool) => (
-              <span class='inline-flex items-center rounded-full bg-white px-3 py-1 text-xs font-medium text-cream ring-1 ring-inset ring-teal/20'>
-                {tool}
-              </span>
-            ))
-          }
+          {[
+            'Google Search Console',
+            'Google Analytics 4',
+            'Keyword Planner',
+            'WordPress',
+            'Elementor Pro',
+            'Yoast SEO',
+            'DinoRank',
+          ].map((tool) => (
+            <span class='inline-flex items-center rounded-full bg-surface px-3 py-1 text-xs font-medium text-cream ring-1 ring-inset ring-cream/10'>
+              {tool}
+            </span>
+          ))}
         </div>
 
-        <hr class='border-teal/15' />
+        <hr class='border-cream/10' />
 
         <!-- Contact links -->
         <div class='flex flex-wrap gap-4'>
           <a
             href='mailto:salvadorjesus.seo@gmail.com'
-            class='group inline-flex items-center gap-2.5 text-sm text-cream hover:text-sage transition-colors duration-200'>
-            <span
-              class='flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-cream ring-1 ring-teal/15 group-hover:bg-sage/5 group-hover:ring-teal/20 transition-all duration-200'>
+            class='group inline-flex items-center gap-2.5 text-sm text-cream/80 hover:text-cream transition-colors duration-200'>
+            <span class='flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-surface ring-1 ring-cream/15 group-hover:ring-cream/30 transition-all duration-200'>
               <Mail class='h-4 w-4' />
             </span>
             salvadorjesus.seo@gmail.com
@@ -123,9 +89,8 @@ import { Mail, Phone } from '@lucide/astro'
 
           <a
             href='tel:+34692051399'
-            class='group inline-flex items-center gap-2.5 text-sm text-cream hover:text-sage transition-colors duration-200'>
-            <span
-              class='flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-cream ring-1 ring-teal/15 group-hover:bg-sage/5 group-hover:ring-teal/20 transition-all duration-200'>
+            class='group inline-flex items-center gap-2.5 text-sm text-cream/80 hover:text-cream transition-colors duration-200'>
+            <span class='flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-surface ring-1 ring-cream/15 group-hover:ring-cream/30 transition-all duration-200'>
               <Phone class='h-4 w-4' />
             </span>
             +34 692 051 399
