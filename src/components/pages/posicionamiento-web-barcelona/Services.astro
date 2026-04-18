@@ -1,6 +1,5 @@
 ---
 import { Check, Search, FileText, Link } from '@lucide/astro'
-import Upheading from '../../Upheading.astro'
 
 interface Props {
   upheading?: string
@@ -52,7 +51,7 @@ const services = [
     intro:
       'No basta con ser el mejor en Barcelona; los demás tienen que decirlo. Lo que ocurre fuera de tu web confirma a Google que eres una apuesta segura.',
     bullets: [
-      { label: 'Enlaces de autoridad', body: 'Red de enlaces en sitios relevantes que transfieren fuerza real a tu dominio, con prácticas seguras y sostenibles para tu negocio.' },
+      { label: 'Enlaces de autoridad', body: 'Red de enlaces en sitios relevantes que transfieren fuerza real a tu dominio.' },
       { label: 'Auditoría de enlaces entrantes', body: 'Control total de quién enlaza a tu web. Los enlaces tóxicos que pueden estar hundiendo tu posicionamiento se identifican y eliminan.' },
       { label: 'Contenidos que atraen enlaces', body: 'Activos de contenido tan relevantes que otras webs enlazan de forma natural. Autoridad orgánica y sostenible a medio plazo.' },
       { label: 'Reputación y confianza', body: 'Menciones y reseñas que refuerzan tu marca ante Google y dan seguridad a tu cliente antes de comprar.' },
@@ -62,7 +61,7 @@ const services = [
 ]
 ---
 
-<section id='servicios' class='relative overflow-hidden py-24 sm:py-32'>
+<section id='servicios' class='relative overflow-hidden py-24 sm:py-32 bg-(--color-cream)' style='color: var(--color-base)'>
 
   <!-- ── Dot-grid texture ──────────────────────────────────────────── -->
   <div
@@ -70,22 +69,16 @@ const services = [
     aria-hidden='true'
   ></div>
 
-  <!-- ── Faded Titan One watermark ─────────────────────────────────── -->
-  <div class="font-heading pointer-events-none absolute -right-6 top-1/2 -translate-y-1/2 select-none leading-none"
+  <!-- ── Faded Brawler watermark ─────────────────────────────────── -->
+  <div class="font-heading pointer-events-none absolute -right-6 top-1/2 -translate-y-1/2 select-none leading-none text-surface/5"
     aria-hidden='true'
   >
     SEO
   </div>
 
-  <!-- ── Radial ambient glow ───────────────────────────────────────── -->
-  <div
-    class='pointer-events-none absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full'
-    aria-hidden='true'
-  ></div>
-
   <!-- ── Top / bottom hairlines ────────────────────────────────────── -->
-  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-teal/15 to-transparent' aria-hidden='true'></div>
-  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-teal/15 to-transparent' aria-hidden='true'></div>
+  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sage/20 to-transparent' aria-hidden='true'></div>
+  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-sage/20 to-transparent' aria-hidden='true'></div>
 
   <div class='relative container-site'>
 
@@ -93,32 +86,29 @@ const services = [
     <div class='mb-16 md:mb-20 max-w-3xl'>
 
       <!-- Eyebrow -->
-      <div data-animate class='flex items-center gap-3 mb-8'>
-        <span class='block h-px w-10 bg-sage' aria-hidden='true'></span>
-        {upheading && (
-          <h2 class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-sage'>
-            {upheading}
-          </h2>
-        )}
-      </div>
+      {upheading && (
+        <div data-animate class='mb-8'>
+          <h2 class='text-xs font-bold uppercase tracking-widest'>{upheading}</h2>
+        </div>
+      )}
 
       <!-- Section heading -->
       <p
         data-animate
-
-        class='font-heading text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] leading-[1.05] tracking-tight text-cream text-pretty mb-6'
+        class='font-heading text-h2 font-bold leading-[1.05] tracking-tight text-pretty mb-4'
       >
         {heading}<span class='text-sage'>.</span>
       </p>
 
-      <!-- Teal accent rule -->
-      <div data-animate class='flex items-center'>
-        <div class='h-[3px] w-16 bg-sage rounded-full'></div>
-        <div class='h-px w-24 bg-gradient-to-r from-teal/40 to-transparent'></div>
+      <!-- Accent rule -->
+      <div data-animate class='mb-6 flex items-center gap-0' aria-hidden='true'>
+        <div class='h-[3px] w-16 bg-surface rounded-full'></div>
+        <div class='h-px w-24 bg-gradient-to-r from-surface/40 to-transparent'></div>
       </div>
 
+
       <!-- Subtitle -->
-      <p data-animate class='mt-6 text-base md:text-lg text-cream/70 leading-relaxed text-pretty max-w-[52ch]'>
+      <p data-animate class='mt-6 text-base opacity-70 leading-relaxed text-pretty max-w-[52ch]'>
         <Fragment set:html={subtitle} />
       </p>
     </div>
@@ -134,7 +124,7 @@ const services = [
           <li
             data-animate
             data-animate-delay={idx * 130}
-            class='group relative flex flex-col rounded-2xl border border-surface/10 bg-white overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-charcoal/8 hover:border-teal/30'
+            class='group relative flex flex-col rounded-2xl border border-surface/20 bg-white overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-surface/10 hover:border-sage/40'
           >
             <!-- Left accent bar (hover reveal) -->
             <div
@@ -147,11 +137,11 @@ const services = [
 
               <!-- Diagonal tension line -->
               <svg class='pointer-events-none absolute inset-0 w-full h-full' aria-hidden='true' preserveAspectRatio='none'>
-                <line x1='60%' y1='0%' x2='100%' y2='100%' stroke='rgba(250,234,177,0.10)' stroke-width='1' />
+                <line x1='60%' y1='0%' x2='100%' y2='100%' stroke='rgba(236,223,204,0.08)' stroke-width='1' />
               </svg>
 
               <!-- Ghost ordinal watermark -->
-              <div class="font-heading pointer-events-none absolute -right-1 -bottom-3 select-none leading-none transition-opacity duration-300 opacity-100 group-hover:opacity-[1.4]"
+              <div class="font-heading pointer-events-none absolute -right-1 -bottom-3 select-none leading-none transition-opacity duration-300 text-cream/10"
                 aria-hidden='true'
               >
                 {service.num}
@@ -159,10 +149,10 @@ const services = [
 
               <!-- Icon badge + service label -->
               <div class='relative flex items-center gap-3'>
-                <div class='flex size-10 shrink-0 items-center justify-center rounded-xl bg-cream/15 ring-1 ring-sand/30'>
-                  <Icon aria-hidden='true' class='size-5 text-cream' />
+                <div class='flex size-7 shrink-0 items-center justify-center rounded-lg bg-cream/15 ring-1 ring-cream/20'>
+                  <Icon aria-hidden='true' class='size-3.5 text-cream' />
                 </div>
-                <span class='text-[0.6rem] font-semibold tracking-[0.12em] uppercase text-white/40'>
+                <span class='text-xs font-semibold tracking-[0.12em] uppercase text-white/40'>
                   {service.label}
                 </span>
               </div>
@@ -170,13 +160,10 @@ const services = [
               <!-- Service number + title -->
               <div class='relative'>
                 <div class='flex items-baseline gap-2.5'>
-                  <span
-                    class='text-[1.6rem] leading-none font-bold text-cream/50 tabular-nums shrink-0'
-
-                  >
+                  <span class='font-heading text-h4 leading-none font-bold text-cream/50 tabular-nums shrink-0'>
                     {service.num}
                   </span>
-                  <h3 class='text-xl font-semibold text-white tracking-tight leading-snug'>
+                  <h3 class='text-h6 font-bold text-white tracking-tight leading-snug'>
                     {service.title}
                   </h3>
                 </div>
@@ -186,21 +173,13 @@ const services = [
             <!-- ── Card body ──────────────────────────────────── -->
             <div class='flex flex-col gap-5 p-6 flex-1'>
 
-              <!-- Intro -->
-              <p class='text-sm/6 text-cream/70 text-pretty'>
-                {service.intro}
-              </p>
-
-              <!-- Divider -->
-              <div class='h-px bg-gradient-to-r from-teal/20 via-charcoal/10 to-transparent'></div>
-
               <!-- Bullets -->
               <ul role='list' class='space-y-3'>
                 {service.bullets.map((bullet) => (
                   <li class='flex gap-3'>
                     <Check class='mt-0.5 size-4 shrink-0 text-sage' aria-hidden='true' />
                     <span>
-                      <span class='text-sm font-semibold text-cream'>{bullet.label}</span>
+                      <h4 class='inline text-sm font-semibold'>{bullet.label}</h4>
                       <span class='text-sm text-sage'> — {bullet.body}</span>
                     </span>
                   </li>

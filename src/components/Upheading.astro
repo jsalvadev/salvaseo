@@ -17,7 +17,8 @@ const Tag = as
 ---
 
 <Tag
+  style={`color: ${color}`}
   class={`inline-flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-pretty ${className}`}>
-  <span class="block h-px w-8 shrink-0"></span>
+  <span class="block h-px w-8 shrink-0" style={`background-color: ${color}`}></span>
   {text}
 </Tag>
