@@ -23,17 +23,17 @@ const plans = [
     <div class="absolute -bottom-10 right-0 h-[320px] w-[420px] rounded-full bg-cream/12 blur-3xl"></div>
   </div>
 
-  <div class='relative mx-auto max-w-[1280px] px-5'>
+  <div class='relative container-site'>
 
     <div class='lg:grid lg:grid-cols-[1fr_1.15fr] lg:gap-20 lg:items-start'>
 
       <!-- ══ LEFT COL — copy ══════════════════════════════════════════ -->
       <div data-animate class='relative mb-12 lg:mb-0 lg:sticky lg:top-[calc(var(--navbar-height,80px)+2rem)]'>
 
-        <div class="font-heading pointer-events-none absolute -bottom-8 -left-6 select-none leading-none text-wm font-bold text-white/[0.04]"
+        <div class="font-heading pointer-events-none absolute -bottom-60 -left-6 select-none leading-none text-wm font-bold text-white/[0.04]"
           id='wm-ghost'
           aria-hidden='true'>
-          2×
+          €
         </div>
 
         <!-- Preheader -->
@@ -68,7 +68,7 @@ const plans = [
         <div data-animate class='mb-6 flex flex-col sm:flex-row gap-3'>
           {plans.map((plan, i) => (
             <button
-              class='plan-btn relative flex-1 rounded-xl border border-cream/30 bg-cream/5 px-5 py-4 text-left transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/50'
+              class='plan-btn relative flex-1 rounded-xl border border-cream/30 bg-cream/5 px-5 py-4 text-left transition-all duration-200 cursor-pointer hover:border-cream/60 hover:bg-cream/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/50'
               data-price={plan.price}
               data-active={i === 0 ? 'true' : 'false'}
               aria-pressed={i === 0 ? 'true' : 'false'}
@@ -190,8 +190,7 @@ const plans = [
   const feeDisp     = document.getElementById('fee-display') as HTMLElement
   const clientsRes  = document.getElementById('clients-result') as HTMLElement
   const punchlineN  = document.getElementById('punchline-n') as HTMLElement
-  const wmGhost     = document.getElementById('wm-ghost') as HTMLElement
-  const planBtns    = document.querySelectorAll<HTMLButtonElement>('.plan-btn')
+const planBtns    = document.querySelectorAll<HTMLButtonElement>('.plan-btn')
 
   const MIN = 50
   const MAX = 2000
@@ -218,8 +217,6 @@ const plans = [
     feeDisp.textContent     = currentFee.toLocaleString('es-ES')
     clientsRes.textContent  = String(clients)
     punchlineN.textContent  = `${clients} ${word}`
-    wmGhost.textContent     = `${clients}×`
-
     updateTrack(ticket)
     pop(clientsRes)
     pop(feeDisp)
@@ -243,6 +240,12 @@ const plans = [
 </script>
 
 <style>
+  .plan-btn[data-active='true'] {
+    border-color: rgba(236, 223, 204, 0.7);
+    background-color: rgba(236, 223, 204, 0.12);
+    box-shadow: 0 0 0 1px rgba(236, 223, 204, 0.2);
+  }
+
   .ticket-slider {
     background: linear-gradient(to right, #ECDFCC var(--pct, 12.5%), rgba(255,255,255,0.1) var(--pct, 12.5%));
   }

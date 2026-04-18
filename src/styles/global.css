@@ -27,6 +27,12 @@
   --font-text:    'Nunito Sans Variable', ui-sans-serif, system-ui, sans-serif;
 }
 
+@utility container-site {
+  margin-inline: auto;
+  max-width: 1200px;
+  padding-inline: 1.25rem;
+}
+
 html {
   font-size: 17px;
 }
