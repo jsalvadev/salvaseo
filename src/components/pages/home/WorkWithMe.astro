@@ -1,5 +1,6 @@
 ---
 import Upheading from '../../Upheading.astro'
+import CalButton from '../../CalButton.astro'
 
 const steps = [
   {
@@ -119,11 +120,7 @@ const steps = [
     <div
       data-animate
       class='mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4'>
-      <a
-        href='#contacto'
-        class='rounded-md bg-sand px-5 py-3 text-sm font-bold text-cream shadow-sm hover:bg-[#f5e09a] active:bg-[#e8d280] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sand transition-all'>
-        Solicitar análisis gratuito
-      </a>
+      <CalButton variant="sand" text="Solicitar análisis gratuito" class="px-5 py-3 shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sand" />
       <span class='text-sm text-white/55'>Sin compromiso económico</span>
     </div>
 

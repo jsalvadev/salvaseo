@@ -1,0 +1,30 @@
+---
+interface Props {
+  text?: string
+  class?: string
+  variant?: 'sand' | 'cream' | 'teal'
+}
+
+const {
+  text = 'Agenda tu sesión gratuita',
+  class: className = '',
+  variant = 'sand',
+} = Astro.props
+
+const base = 'rounded-md px-3.5 py-2.5 text-sm font-bold shadow-xs transition-all cursor-pointer'
+const variants = {
+  sand: 'bg-sand text-cream hover:bg-[#f5e09a] active:bg-[#e8d280]',
+  cream: 'bg-cream text-base hover:bg-cream/90',
+  teal: 'bg-teal text-white hover:bg-[#3d7880] active:bg-[#2b565d] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal',
+}
+---
+
+<a
+  href="#"
+  data-cal-link="salvaseo/30min"
+  data-cal-namespace="30min"
+  data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+  class={`${base} ${variants[variant]} ${className}`}
+>
+  {text}
+</a>

@@ -1,6 +1,5 @@
 ---
-// Reserva una llamada — Cal.com element-click
-import WhatsAppButton from '../../WhatsAppButton.astro'
+import CalButton from '../../CalButton.astro'
 ---
 
 <section id='contacto' class='relative overflow-hidden bg-white'>
@@ -79,10 +78,7 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
 
       <!-- CTA -->
       <div class='flex flex-col items-center gap-3'>
-        <WhatsAppButton
-          text='Agenda tu sesión gratuita'
-          class='px-7 py-3.5 text-base shadow-lg shadow-sand/30 hover:shadow-sand/50 transition-shadow'
-        />
+        <CalButton variant="sand" class="px-7 py-3.5 text-base shadow-lg shadow-sand/30 hover:shadow-sand/50" />
         <p class='text-xs text-cream/40'>
           Sin spam. Elige el día y la hora que te vaya mejor.
         </p>

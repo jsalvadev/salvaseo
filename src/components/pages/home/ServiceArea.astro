@@ -1,5 +1,6 @@
 ---
 import Upheading from '../../Upheading.astro'
+import CalButton from '../../CalButton.astro'
 import { MapPin, Handshake, Building2 } from '@lucide/astro'
 
 const profiles = [
@@ -104,11 +105,7 @@ const profiles = [
     <div
       data-animate
       class='mt-12 flex flex-col sm:flex-row items-center gap-4'>
-      <a
-        href='#contacto'
-        class='rounded-md bg-teal px-5 py-3 text-sm font-bold text-white shadow-sm hover:bg-[#3d7880] active:bg-[#2b565d] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal transition-all'>
-        Quiero mi análisis gratuito
-      </a>
+      <CalButton variant="teal" text="Quiero mi análisis gratuito" class="px-5 py-3 shadow-sm" />
       <p class='text-sm text-cream/70'>Auditoría gratuita · Sin contratos de permanencia</p>
     </div>
 

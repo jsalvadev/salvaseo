@@ -1,3 +1,7 @@
+---
+import CalButton from '../../CalButton.astro'
+---
+
 <div class="relative overflow-hidden bg-gradient-to-b from-surface to-base py-24 sm:py-32">
   <!-- Ambient light gradients -->
   <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
@@ -82,7 +86,7 @@
       </div>
       <div class="flex items-center gap-3 shrink-0">
         <span class="text-cream/60 text-2xl rotate-[-10deg]">→</span>
-        <a href="#" class="rounded-md bg-cream px-4 py-2.5 text-sm font-bold text-base shadow-xs hover:bg-cream/90 whitespace-nowrap">Agenda tu sesión gratuita</a>
+          <CalButton variant="cream" class="px-4 py-2.5 whitespace-nowrap" />
       </div>
     </div>
   </div>
