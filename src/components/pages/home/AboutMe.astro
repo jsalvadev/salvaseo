@@ -5,7 +5,7 @@ import { Mail, Phone } from '@lucide/astro'
 
 <section
   id='sobre-mi'
-  class='relative overflow-hidden py-24 md:py-32 bg-base'>
+  class='relative overflow-hidden py-24 md:py-32 bg-surface'>
 
   <div class='absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-40 bg-sage rounded-r-full pointer-events-none'
     aria-hidden='true'></div>
@@ -43,7 +43,7 @@ import { Mail, Phone } from '@lucide/astro'
         <!-- Headline -->
         <div class='space-y-1.5'>
           <p class='font-display text-h2 font-bold leading-tight tracking-tight text-white'>
-            ¿Quién demonios soy?
+            Quién demonios <span class='text-cream'>soy.</span>
           </p>
         </div>
 
@@ -68,7 +68,7 @@ import { Mail, Phone } from '@lucide/astro'
             'Yoast SEO',
             'DinoRank',
           ].map((tool) => (
-            <span class='inline-flex items-center rounded-full bg-surface px-3 py-1 text-xs font-medium text-cream ring-1 ring-inset ring-cream/10'>
+            <span class='inline-flex items-center rounded-full bg-base px-3 py-1 text-xs font-medium text-cream ring-1 ring-inset ring-cream/15'>
               {tool}
             </span>
           ))}
@@ -81,7 +81,7 @@ import { Mail, Phone } from '@lucide/astro'
           <a
             href='mailto:salvadorjesus.seo@gmail.com'
             class='group inline-flex items-center gap-2.5 text-sm text-cream/80 hover:text-cream transition-colors duration-200'>
-            <span class='flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-surface ring-1 ring-cream/15 group-hover:ring-cream/30 transition-all duration-200'>
+            <span class='flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-sage ring-1 ring-cream/20 group-hover:ring-cream/40 transition-all duration-200'>
               <Mail class='h-4 w-4' />
             </span>
             salvadorjesus.seo@gmail.com
@@ -90,7 +90,7 @@ import { Mail, Phone } from '@lucide/astro'
           <a
             href='tel:+34692051399'
             class='group inline-flex items-center gap-2.5 text-sm text-cream/80 hover:text-cream transition-colors duration-200'>
-            <span class='flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-surface ring-1 ring-cream/15 group-hover:ring-cream/30 transition-all duration-200'>
+            <span class='flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-sage ring-1 ring-cream/20 group-hover:ring-cream/40 transition-all duration-200'>
               <Phone class='h-4 w-4' />
             </span>
             +34 692 051 399

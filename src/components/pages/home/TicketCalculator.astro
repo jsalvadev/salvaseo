@@ -1,6 +1,4 @@
 ---
-import WhatsAppButton from '../../WhatsAppButton.astro'
-
 const plans = [
   {
     id: 'ficha',
@@ -17,17 +15,7 @@ const plans = [
 ]
 ---
 
-<section id='calculadora' class='relative overflow-hidden bg-surface py-24 md:py-32'>
-
-  <!-- Dot-grid texture -->
-  <div
-    class='pointer-events-none absolute inset-0'
-    aria-hidden='true'>
-  </div>
-
-  <!-- Top/bottom hairlines -->
-  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sand/20 to-transparent' aria-hidden='true'></div>
-  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-sand/20 to-transparent' aria-hidden='true'></div>
+<section id='calculadora' class='relative overflow-hidden bg-base py-24 md:py-32'>
 
   <div class='relative mx-auto max-w-[1280px] px-5'>
 
@@ -36,35 +24,26 @@ const plans = [
       <!-- ══ LEFT COL — copy ══════════════════════════════════════════ -->
       <div data-animate class='relative mb-12 lg:mb-0 lg:sticky lg:top-[calc(var(--navbar-height,80px)+2rem)]'>
 
-        <!-- Ghost watermark inside left col -->
-        <div class="font-display pointer-events-none absolute -bottom-8 -left-6 select-none leading-none transition-all duration-500"
+        <div class="font-display pointer-events-none absolute -bottom-8 -left-6 select-none leading-none"
           id='wm-ghost'
           aria-hidden='true'>
           2×
         </div>
 
-        <div class='flex items-center gap-3 mb-8'>
-          <span class='block h-px w-10 bg-sand' aria-hidden='true'></span>
-          <h2 class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-sand'>
-            Precio del consultor SEO profesional
-          </h2>
+        <!-- Preheader -->
+        <div class='mb-8'>
+          <p class='text-sm italic font-bold text-cream'>Precio del consultor SEO profesional</p>
         </div>
 
-        <p
-
-          class='leading-[0.92] tracking-tight'>
-          <span class='block font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] text-white/50 mb-1'>
-            ¿Cuántos clientes necesitas
-          </span>
-          <span class='block font-display text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] text-white'>
-            para que salga a cuenta<span class='text-sand'>?</span>
-          </span>
+        <!-- h2 -->
+        <p class='font-display text-h2 font-bold leading-tight tracking-tight text-white'>
+          Cuántos clientes necesitas para que <span class='text-cream'>salga a cuenta.</span>
         </p>
 
         <!-- Accent rule -->
-        <div class='mt-5 flex items-center'>
-          <div class='h-px w-16 bg-sand'></div>
-          <div class='h-px w-24 bg-gradient-to-r from-sand/40 to-transparent'></div>
+        <div class='mt-6 flex items-center'>
+          <div class='h-px w-32 bg-gradient-to-r from-cream/5 to-cream/35'></div>
+          <div class='h-px w-10 bg-cream/60'></div>
         </div>
 
         <p class='mt-5 text-base text-white/70 leading-relaxed text-pretty max-w-[42ch]'>
@@ -73,17 +52,6 @@ const plans = [
           Si lo que me pagas no trae más de lo que cuesta, no tiene ningún sentido seguir.
         </p>
 
-        <!-- Bottom statement -->
-        <div class='relative mt-8 rounded-xl bg-white/[0.06] border border-white/10 px-6 py-5 max-w-[42ch]'>
-          <div
-            class='pointer-events-none absolute left-0 top-4 bottom-4 w-[6px] bg-sand rounded-r-full'
-            aria-hidden='true'>
-          </div>
-          <p class='text-base text-white leading-relaxed font-medium text-pretty'>
-            Mi trabajo es traerte esos clientes y más.<br />
-            Si no lo consigo, me lo dices y paramos.
-          </p>
-        </div>
 
       </div>
 
@@ -94,23 +62,24 @@ const plans = [
         <div data-animate class='mb-6 flex flex-col sm:flex-row gap-3'>
           {plans.map((plan, i) => (
             <button
-              class='plan-btn relative flex-1 rounded-xl border px-5 py-4 text-left transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/50'
+              class='plan-btn relative flex-1 rounded-xl border border-cream/30 bg-cream/5 px-5 py-4 text-left transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream/50'
               data-price={plan.price}
               data-active={i === 0 ? 'true' : 'false'}
               aria-pressed={i === 0 ? 'true' : 'false'}
               type='button'>
-              <span class='plan-name block text-sm font-bold mb-1 leading-snug'>
+              <span class='plan-name block font-display text-sm font-bold mb-3 leading-snug text-white'>
                 {plan.label}
               </span>
-              <span class='plan-price block leading-none mb-2 font-display'>
-                {plan.price}€<span class='text-sm font-normal'>/mes</span>
-              </span>
-              <span class='plan-desc block text-[0.7rem] leading-snug mb-2.5'>
+              <div class='flex items-baseline gap-2 mb-4'>
+                <span class='plan-price leading-none font-display text-cream'>
+                  {plan.price}€<span class='text-xs font-normal text-white/45'>/mes</span>
+                </span>
+                <span class='plan-iva inline-flex items-center rounded-full border border-cream/30 text-cream px-2 py-0.5 text-xs font-semibold tracking-wide'>
+                  sin IVA
+                </span>
+              </div>
+              <span class='plan-desc block text-sm leading-snug text-white/60'>
                 {plan.includes}
-              </span>
-              <!-- IVA badge -->
-              <span class='plan-iva inline-flex items-center rounded-full border px-2 py-0.5 text-[0.6rem] font-semibold tracking-wide'>
-                sin IVA
               </span>
             </button>
           ))}
@@ -119,16 +88,15 @@ const plans = [
         <!-- ── Calculator card ──────────────────────────────────────── -->
         <div data-animate class='relative rounded-2xl overflow-hidden border border-white/10 bg-white/[0.06]'>
 
-          <!-- Card top accent -->
-          <div class='absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-sand/30 via-sand to-sand/30'></div>
+          <div class='absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-cream/20 via-cream/60 to-cream/20'></div>
 
           <div class='relative p-8 md:p-10'>
 
             <!-- Slider row -->
             <div class='mb-10'>
               <label for='ticket-slider' class='block mb-3'>
-                <span class='text-sm font-semibold text-white/45 uppercase tracking-[0.14em]'>
-                  ¿Cuánto te paga de media un cliente tuyo?
+                <span class='text-xs font-semibold text-white/45 uppercase tracking-[0.14em]'>
+                  ¿Cuánto te paga de media un cliente?
                 </span>
               </label>
 
@@ -144,16 +112,12 @@ const plans = [
                   aria-label='Cuánto te paga un cliente tuyo de media, en euros'
                 />
                 <div class='shrink-0 flex items-baseline gap-0.5 min-w-[5.5rem] justify-end'>
-                  <span class="font-display tabular-nums text-sand leading-none"
-                    id='ticket-display'>
-                    250
-                  </span>
-                  <span class='text-lg font-bold text-sand/60 ml-0.5'>€</span>
+                  <span class="font-display text-h3 tabular-nums text-cream leading-none" id='ticket-display'>250</span>
+                  <span class='text-h5 font-bold text-cream/60 ml-0.5'>€</span>
                 </div>
               </div>
 
-              <!-- Slider scale hints -->
-              <div class='flex justify-between text-[0.65rem] font-medium text-white/25 tabular-nums px-0.5'>
+              <div class='flex justify-between text-sm font-medium text-white/25 tabular-nums px-0.5'>
                 <span>50€</span>
                 <span>2.000€</span>
               </div>
@@ -165,76 +129,49 @@ const plans = [
             <!-- The equation -->
             <div class='grid grid-cols-[1fr_auto_1fr_auto_1fr] items-center gap-2 md:gap-4 mb-10'>
 
-              <!-- Mi coste -->
               <div class='text-center'>
-                <div class='text-[0.6rem] font-semibold tracking-[0.12em] uppercase text-white/35 mb-2'>Lo que me pagas</div>
-                <div class="font-display tabular-nums text-white/80 leading-none transition-all duration-200"
-                  id='fee-display'>
-                  350
-                </div>
-                <div class='text-xs text-white/30 mt-1'>€/mes</div>
+                <div class='text-xs font-semibold tracking-[0.12em] uppercase text-white/35 mb-2'>Lo que me pagas</div>
+                <div class="font-display text-h3 tabular-nums text-cream leading-none transition-all duration-200" id='fee-display'>350</div>
+                <div class='text-xs text-white/55 mt-3'>€/mes</div>
               </div>
 
-              <!-- ÷ -->
-              <div class="font-display text-white/20 leading-none"
-                aria-hidden='true'>
-                ÷
-              </div>
+              <div class="font-display text-white/20 leading-none" aria-hidden='true'>÷</div>
 
-              <!-- Ticket medio -->
               <div class='text-center'>
-                <div class='text-[0.6rem] font-semibold tracking-[0.12em] uppercase text-white/35 mb-2'>Tu cliente medio</div>
-                <div class="font-display tabular-nums text-sand leading-none"
-                  id='ticket-eq'>
-                  250
-                </div>
-                <div class='text-xs text-white/30 mt-1'>€/cliente</div>
+                <div class='text-xs font-semibold tracking-[0.12em] uppercase text-white/35 mb-2'>Tu cliente medio</div>
+                <div class="font-display text-h3 tabular-nums text-cream leading-none" id='ticket-eq'>250</div>
+                <div class='text-xs text-white/55 mt-3'>€/cliente</div>
               </div>
 
-              <!-- = -->
-              <div class="font-display text-white/20 leading-none"
-                aria-hidden='true'>
-                =
-              </div>
+              <div class="font-display text-white/20 leading-none" aria-hidden='true'>=</div>
 
-              <!-- Result -->
               <div class='text-center'>
-                <div class='text-[0.6rem] font-semibold tracking-[0.12em] uppercase text-sand/70 mb-2'>Clientes para cubrirme</div>
-                <div class="font-display tabular-nums text-sand leading-none"
-                  id='clients-result'>
-                  2
-                </div>
-                <div class='text-xs text-sand/50 mt-1'>clientes</div>
+                <div class='text-xs font-semibold tracking-[0.12em] uppercase text-cream/70 mb-2'>Para cubrirme</div>
+                <div class="font-display text-h3 tabular-nums text-cream leading-none" id='clients-result'>2</div>
+                <div class='text-xs text-cream/70 mt-3'>clientes</div>
               </div>
 
             </div>
 
             <!-- Punchline -->
             <div class='relative rounded-xl bg-white/[0.05] border border-white/10 px-6 py-5'>
-              <div
-                class='pointer-events-none absolute left-0 top-4 bottom-4 w-[3px] bg-sand rounded-r-full'
-                aria-hidden='true'>
-              </div>
+              <div class='pointer-events-none absolute left-0 top-4 bottom-4 w-[3px] bg-cream/50 rounded-r-full' aria-hidden='true'></div>
               <p id='punchline' class='text-base text-white leading-relaxed font-medium text-pretty'>
-                Con solo <strong id='punchline-n' class='text-sand'>2 clientes nuevos</strong> que lleguen por Google,
+                Con solo <strong id='punchline-n' class='text-cream'>2 clientes nuevos</strong> que lleguen por Google,
                 ya has cubierto lo que me pagas ese mes.
-                <span class='block mt-1 text-white/40 text-sm'>Todo lo que venga después es beneficio puro.</span>
+                <span class='block mt-1 text-white/40 text-sm'>Todo lo que venga después es beneficio tuyo.</span>
               </p>
             </div>
 
             <!-- CTA -->
             <div class='mt-6'>
-              <WhatsAppButton
-                text='Reserva tu llamada'
-                class='w-full justify-center px-6 py-3.5 text-[0.9375rem] font-bold shadow-lg shadow-sand/20 hover:shadow-sand/30 transition-shadow'
-              />
+              <a href="#" class="block w-full text-center rounded-md bg-cream px-3.5 py-2.5 text-sm font-bold text-base shadow-xs hover:bg-cream/90">Reserva tu llamada</a>
             </div>
 
           </div>
         </div>
 
       </div>
-      <!-- end right col -->
 
     </div>
   </div>
@@ -298,3 +235,26 @@ const plans = [
   slider.addEventListener('input', recalc)
   updateTrack(parseInt(slider.value, 10))
 </script>
+
+<style>
+  .ticket-slider {
+    background: linear-gradient(to right, #ECDFCC var(--pct, 12.5%), rgba(255,255,255,0.1) var(--pct, 12.5%));
+  }
+  .ticket-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 9999px;
+    background: #ECDFCC;
+    cursor: pointer;
+    box-shadow: 0 0 0 3px rgba(236,223,204,0.2);
+  }
+  .ticket-slider::-moz-range-thumb {
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 9999px;
+    background: #ECDFCC;
+    cursor: pointer;
+    border: none;
+  }
+</style>
