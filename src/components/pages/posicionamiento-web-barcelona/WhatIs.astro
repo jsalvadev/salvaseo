@@ -1,94 +1,85 @@
 ---
-import { Image } from 'astro:assets'
-import fisioterapeutaBarcelona from '../../../assets/fisioterapeuta-barcelona.png'
+import fisioterapeutaBarcelona from '../../../assets/fisioterapia-barcelona.avif'
 import WhatsAppButton from '../../WhatsAppButton.astro'
 ---
 
-<section class='relative overflow-hidden py-24 sm:py-32'>
+<div class="relative isolate pt-14">
+  <svg aria-hidden="true" class="absolute inset-0 -z-10 size-full mask-[radial-gradient(100%_100%_at_top_right,white,transparent)] stroke-cream/5">
+    <defs>
+      <pattern id="grid-posicionamiento" width="200" height="200" x="50%" y="-1" patternUnits="userSpaceOnUse">
+        <path d="M100 200V.5M.5 .5H200" fill="none" />
+      </pattern>
+    </defs>
+    <svg x="50%" y="-1" class="overflow-visible fill-cream/[0.02]">
+      <path d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z" stroke-width="0" />
+    </svg>
+    <rect width="100%" height="100%" fill="url(#grid-posicionamiento)" stroke-width="0" />
+  </svg>
 
-  <!-- Dot-grid texture -->
-  <div
-    class='pointer-events-none absolute inset-0'
-    aria-hidden='true'
-  ></div>
+  <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:flex lg:items-center lg:gap-x-10 lg:px-8 lg:py-40">
+    <div class="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
 
-  <!-- Ghost watermark -->
-  <div class="font-heading pointer-events-none absolute -right-6 top-1/2 -translate-y-1/2 select-none leading-none"
-    aria-hidden='true'
-  >
-    WEB
-  </div>
-
-  <!-- Radial ambient glow -->
-  <div
-    class='pointer-events-none absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full'
-    aria-hidden='true'
-  ></div>
-
-  <!-- Top/bottom hairlines -->
-  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-teal/15 to-transparent' aria-hidden='true'></div>
-  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-teal/15 to-transparent' aria-hidden='true'></div>
-
-  <div class='container-site'>
-    <div class='mx-auto max-w-2xl lg:max-w-none lg:grid lg:grid-cols-[1fr_480px] lg:gap-16 xl:gap-24 items-center'>
-
-      <!-- LEFT: Plain explanation -->
-      <div>
-
-        <!-- Eyebrow -->
-        <div data-animate class='flex items-center gap-3 mb-8'>
-          <span class='block h-px w-10 bg-sage' aria-hidden='true'></span>
-          <h1 class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-sage'>
-            Posicionamiento web en Barcelona
-          </h1>
-        </div>
-
-        <!-- Section heading -->
-        <p
-          data-animate
-
-          class='font-heading text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] leading-[1.05] tracking-tight text-cream text-pretty mb-6'
-        >
-          Que te encuentren a ti antes que a ellos<span class='text-sage'>.</span>
-        </p>
-
-        <!-- Teal accent rule -->
-        <div data-animate class='flex items-center mb-8' aria-hidden='true'>
-          <div class='h-[3px] w-16 bg-sage rounded-full'></div>
-          <div class='h-px w-24 bg-gradient-to-r from-teal/40 to-transparent'></div>
-        </div>
-
-        <p data-animate class='text-base/8 text-cream/70 text-pretty'>
-          Cuando alguien busca un servicio en Barcelona, Google decide quién se lleva el cliente en segundos. Si tu negocio no aparece en la primera página, eres invisible para el <strong class='text-heading font-semibold'>90% del mercado potencial</strong>.
-        </p>
-
-        <p data-animate class='mt-4 text-base/8 text-cream/70 text-pretty'>
-          Estar en la segunda página es ceder tus ventas a la competencia por falta de presencia. El posicionamiento web elimina estos bloqueos para que tu empresa sea la opción elegida.
-        </p>
-
-        <div data-animate class='mt-8'>
-          <WhatsAppButton
-            text='Analiza mi web'
-            class='px-6 py-3 text-[0.9375rem] font-bold'
-          />
+      <!-- Badge -->
+      <div class="flex" data-animate>
+        <div class="relative flex items-center gap-x-4 rounded-full px-4 py-1 text-sm/6 text-sage ring-1 ring-sage/20 hover:ring-sage/40 transition-colors">
+          <span class="font-semibold text-teal">Consultor SEO</span>
+          <span aria-hidden="true" class="h-4 w-px bg-sage/30"></span>
+          <span>Barcelona · Desde 350 €/mes</span>
         </div>
       </div>
 
-      <!-- RIGHT: Google Local Pack screenshot -->
-      <div data-animate class='mt-12 lg:mt-0'>
-        <div class='serp-wrapper'>
-          <Image
-            src={fisioterapeutaBarcelona}
-            alt='Resultados orgánicos de Google para "fisioterapeuta barcelona" mostrando las primeras posiciones'
-            width={708}
-            height={750}
-            class='w-full h-auto block'
-            loading='lazy'
-          />
-        </div>
-        <p class='mt-3 text-center text-xs text-sage/50'>Captura real de Google · Resultados orgánicos para "fisioterapeuta barcelona"</p>
+      <!-- H1 -->
+      <h1
+        data-animate
+        class="mt-10 font-heading text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] tracking-tight text-cream text-pretty"
+      >
+        Que te encuentren a ti antes que a ellos<span class="text-sage">.</span>
+      </h1>
+
+      <!-- Description -->
+      <p data-animate class="mt-8 text-base/8 text-cream/70 text-pretty">
+        Cuando alguien busca un servicio en Barcelona, Google decide quién se lleva el cliente en segundos. Si tu negocio no aparece en la primera página, eres invisible para el <strong class="text-cream font-semibold">90 % del mercado potencial</strong>.
+      </p>
+      <p data-animate class="mt-4 text-base/8 text-cream/70 text-pretty">
+        Estar en la segunda página es ceder tus ventas a la competencia. El posicionamiento web elimina esos bloqueos para que tu empresa sea la opción elegida.
+      </p>
+
+      <!-- CTAs -->
+      <div data-animate class="mt-10 flex items-center gap-x-6">
+        <WhatsAppButton
+          text="Analiza mi web"
+          class="px-6 py-3 text-[0.9375rem] font-bold"
+        />
+        <a href="/presupuesto-seo-barcelona/" class="text-sm/6 font-semibold text-cream hover:text-sage transition-colors">
+          Ver precios <span aria-hidden="true">→</span>
+        </a>
       </div>
 
     </div>
+
+    <!-- Right: SERP screenshot inside phone mockup -->
+    <div data-animate class="mt-16 sm:mt-24 lg:mt-0 lg:shrink-0 lg:grow">
+      <svg role="img" viewBox="0 0 366 729" class="mx-auto w-[22.875rem] max-w-full drop-shadow-xl">
+        <title>Resultados orgánicos de Google para "fisioterapeuta barcelona"</title>
+        <defs>
+          <clipPath id="phone-clip-posicionamiento">
+            <rect width="316" height="684" rx="36" />
+          </clipPath>
+        </defs>
+        <path d="M363.315 64.213C363.315 22.99 341.312 1 300.092 1H66.751C25.53 1 3.528 22.99 3.528 64.213v44.68l-.857.143A2 2 0 0 0 1 111.009v24.611a2 2 0 0 0 1.671 1.973l.95.158a2.26 2.26 0 0 1-.093.236v26.173c.212.1.398.296.541.643l-1.398.233A2 2 0 0 0 1 167.009v47.611a2 2 0 0 0 1.671 1.973l1.368.228c-.139.319-.314.533-.511.653v16.637c.221.104.414.313.56.689l-1.417.236A2 2 0 0 0 1 237.009v47.611a2 2 0 0 0 1.671 1.973l1.347.225c-.135.294-.302.493-.49.607v377.681c0 41.213 22 63.208 63.223 63.208h95.074c.947-.504 2.717-.843 4.745-.843l.141.001h.194l.086-.001 33.704.005c1.849.043 3.442.37 4.323.838h95.074c41.222 0 63.223-21.999 63.223-63.212v-394.63c-.259-.275-.48-.796-.63-1.47l-.011-.133 1.655-.276A2 2 0 0 0 366 266.62v-77.611a2 2 0 0 0-1.671-1.973l-1.712-.285c.148-.839.396-1.491.698-1.811V64.213Z" fill="#4B5563" />
+        <path d="M16 59c0-23.748 19.252-43 43-43h246c23.748 0 43 19.252 43 43v615c0 23.196-18.804 42-42 42H58c-23.196 0-42-18.804-42-42V59Z" fill="#343E4E" />
+        <foreignObject width="316" height="684" clip-path="url(#phone-clip-posicionamiento)" transform="translate(24 24)">
+          <img
+            src={fisioterapeutaBarcelona.src}
+            alt='Resultados orgánicos de Google para "fisioterapeuta barcelona"'
+            width="316"
+            height="684"
+            style="width:100%;height:100%;object-fit:cover;object-position:top;"
+            fetchpriority="high"
+          />
+        </foreignObject>
+      </svg>
+      <p class="mt-3 text-center text-xs text-sage/50">Captura real de Google · "fisioterapeuta barcelona"</p>
+    </div>
   </div>
-</section>
+</div>
