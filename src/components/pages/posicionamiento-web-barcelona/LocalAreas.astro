@@ -1,5 +1,6 @@
 ---
 import { MapPin } from '@lucide/astro'
+import HeadingRule from '../../HeadingRule.astro'
 
 interface AreaItem {
   title: string
@@ -75,11 +76,8 @@ const { upheading, heading, intro, areas } = Astro.props
         {heading}<span class='text-sage'>.</span>
       </p>
 
-      <!-- Teal accent rule -->
-      <div data-animate class='mt-6 flex items-center' aria-hidden='true'>
-        <div class='h-[3px] w-16 bg-sage rounded-full'></div>
-        <div class='h-px w-24 bg-gradient-to-r from-teal/40 to-transparent'></div>
-      </div>
+      <!-- Accent rule -->
+      <HeadingRule thick color='var(--color-sage)' fadeColor='var(--color-teal)' class='mt-6' data-animate />
 
       <!-- Intro HTML -->
       <div

@@ -1,4 +1,5 @@
 ---
+import HeadingRule from '../../HeadingRule.astro'
 ---
 
 <section class='relative overflow-hidden py-24 md:py-32'>
@@ -55,10 +56,7 @@
         </span>
       </p>
 
-      <div data-animate class='flex items-center'>
-        <div class='h-px w-16 bg-sage'></div>
-        <div class='h-px w-24 bg-gradient-to-r from-teal/40 to-transparent'></div>
-      </div>
+      <HeadingRule color='var(--color-sage)' fadeColor='var(--color-teal)' data-animate />
 
       <p data-animate class='mt-6 text-base text-cream/70 leading-relaxed text-pretty max-w-[52ch]'>
         Si me contratas, lo primero que hacemos juntos es calcular

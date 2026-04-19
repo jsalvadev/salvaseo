@@ -1,6 +1,7 @@
 ---
 import WhatsAppButton from '../../WhatsAppButton.astro'
 import Breadcrumb from '../../Breadcrumb.astro'
+import HeadingRule from '../../HeadingRule.astro'
 import { buildWhatsAppHref } from '../../../data/site'
 
 interface BreadcrumbItem {
@@ -94,10 +95,7 @@ const waHref = buildWhatsAppHref()
     </div>
 
     <!-- Accent rule -->
-    <div class='hero-rule animate-fade-in-up [animation-delay:150ms]' aria-hidden='true'>
-      <div class='hero-rule-solid'></div>
-      <div class='hero-rule-fade'></div>
-    </div>
+    <HeadingRule thick color='var(--color-cream)' fadeColor='var(--color-sand)' class='animate-fade-in-up [animation-delay:150ms] mt-5' />
 
     <!-- Body copy -->
     <p class='animate-fade-in-up [animation-delay:220ms] mt-5 max-w-[52ch] text-[1.0625rem] leading-relaxed text-pretty'>

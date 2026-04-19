@@ -1,4 +1,5 @@
 ---
+import HeadingRule from '../../HeadingRule.astro'
 
 interface Guarantee {
   title: string
@@ -105,11 +106,8 @@ const priceUnit   = priceParts.slice(2).join(' ')
           {heading}<span class='text-cream'>.</span>
         </p>
 
-        <!-- Sand accent rule -->
-        <div data-animate class='flex items-center mt-8'>
-          <div class='h-[3px] w-16 bg-cream rounded-full'></div>
-          <div class='h-px w-24 bg-gradient-to-r from-sand/40 to-transparent'></div>
-        </div>
+        <!-- Accent rule -->
+        <HeadingRule thick color='var(--color-cream)' fadeColor='var(--color-sand)' class='mt-8' data-animate />
 
         <!-- Intro HTML (dark bg overrides) -->
         <div

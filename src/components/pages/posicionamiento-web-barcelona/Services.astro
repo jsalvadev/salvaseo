@@ -1,5 +1,6 @@
 ---
 import { Check, Search, FileText, Link } from '@lucide/astro'
+import HeadingRule from '../../HeadingRule.astro'
 
 interface Props {
   upheading?: string
@@ -96,15 +97,11 @@ const services = [
       <p
         data-animate
         class='font-heading text-h2 font-bold leading-[1.05] tracking-tight text-pretty mb-4'
-      >
-        {heading}<span class='text-sage'>.</span>
-      </p>
+        set:html={heading + '<span class="text-sage">.</span>'}
+      />
 
       <!-- Accent rule -->
-      <div data-animate class='mb-6 flex items-center gap-0' aria-hidden='true'>
-        <div class='h-[3px] w-16 bg-surface rounded-full'></div>
-        <div class='h-px w-24 bg-gradient-to-r from-surface/40 to-transparent'></div>
-      </div>
+      <HeadingRule thick color='var(--color-surface)' class='mb-6' data-animate />
 
 
       <!-- Subtitle -->
@@ -163,7 +160,7 @@ const services = [
                   <span class='font-heading text-h4 leading-none font-bold text-cream/50 tabular-nums shrink-0'>
                     {service.num}
                   </span>
-                  <h3 class='text-h6 font-bold text-white tracking-tight leading-snug'>
+                  <h3 class='font-heading text-h6 font-bold text-white tracking-tight leading-snug'>
                     {service.title}
                   </h3>
                 </div>

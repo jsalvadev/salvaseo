@@ -1,6 +1,7 @@
 ---
 import Upheading from '../../Upheading.astro'
 import CalButton from '../../CalButton.astro'
+import HeadingRule from '../../HeadingRule.astro'
 import { MapPin, Handshake, Building2 } from '@lucide/astro'
 
 const profiles = [
@@ -52,10 +53,7 @@ const profiles = [
         Esto es para ti si.
       </p>
       <!-- Accent rule -->
-      <div class='mt-5 flex items-center'>
-        <div class='h-px w-16 bg-sage'></div>
-        <div class='h-px w-24 bg-gradient-to-r from-teal/40 to-transparent'></div>
-      </div>
+      <HeadingRule color='var(--color-sage)' fadeColor='var(--color-teal)' class='mt-5' />
       <p class='mt-5 text-base/7 text-cream/70 max-w-lg text-pretty'>
         Cada proyecto entra con un objetivo claro de facturación. Sin ese foco,
         el SEO no convierte.

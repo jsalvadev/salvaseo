@@ -1,5 +1,6 @@
 ---
 import { MapPinned, MessageCircle, PiggyBank } from '@lucide/astro'
+import HeadingRule from '../../HeadingRule.astro'
 
 const benefits = [
   {
@@ -85,11 +86,8 @@ const benefits = [
           </span>
         </h2>
 
-        <!-- Teal accent rule -->
-        <div data-animate class='flex items-center'>
-          <div class='h-[3px] w-16 bg-sage rounded-full'></div>
-          <div class='h-px w-24 bg-gradient-to-r from-teal/40 to-transparent'></div>
-        </div>
+        <!-- Accent rule -->
+        <HeadingRule thick color='var(--color-sage)' fadeColor='var(--color-teal)' data-animate />
 
         <!-- Subtitle -->
         <p data-animate class='mt-6 max-w-[40ch] text-base md:text-lg text-cream/70 leading-relaxed text-pretty'>

@@ -1,5 +1,6 @@
 ---
 import CalButton from '../../CalButton.astro'
+import HeadingRule from '../../HeadingRule.astro'
 ---
 
 <section id='contacto' class='relative overflow-hidden bg-white'>
@@ -35,10 +36,7 @@ import CalButton from '../../CalButton.astro'
       </h2>
 
       <!-- Accent rule -->
-      <div class='mt-5 flex items-center justify-center'>
-        <div class='h-px w-12 bg-sage'></div>
-        <div class='h-px w-20 bg-gradient-to-r from-teal/40 to-transparent'></div>
-      </div>
+      <HeadingRule color='var(--color-sage)' fadeColor='var(--color-teal)' size='sm' class='mt-5 justify-center' />
 
       <!-- Body -->
       <p class='mt-6 text-base leading-relaxed text-cream/70 text-pretty max-w-[46ch] mx-auto'>

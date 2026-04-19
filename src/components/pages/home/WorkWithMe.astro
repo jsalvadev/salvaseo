@@ -1,6 +1,7 @@
 ---
 import Upheading from '../../Upheading.astro'
 import CalButton from '../../CalButton.astro'
+import HeadingRule from '../../HeadingRule.astro'
 
 const steps = [
   {
@@ -54,10 +55,7 @@ const steps = [
           Cómo funciona<br class='hidden sm:block' /> el proceso
         </p>
         <!-- Accent rule -->
-        <div class='mt-5 flex items-center'>
-          <div class='h-px w-16 bg-sand'></div>
-          <div class='h-px w-24 bg-gradient-to-r from-sand/40 to-transparent'></div>
-        </div>
+        <HeadingRule color='var(--color-sand)' class='mt-5' />
       </div>
       <!-- Decorative rule -->
       <div class='hidden lg:block flex-shrink-0 w-px h-20 bg-white/10 self-end mb-2'></div>
