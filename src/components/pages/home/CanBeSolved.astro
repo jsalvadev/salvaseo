@@ -2,19 +2,33 @@
 import CalButton from '../../CalButton.astro'
 ---
 
-<section class='relative overflow-hidden py-24 md:py-32'>
-  <!-- Subtle dot grid texture -->
+<section
+  class='relative overflow-hidden py-24 md:py-32'
+  style='background:
+    radial-gradient(ellipse 70% 55% at 85% 10%, rgba(105,117,101,0.28) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 40% at 0% 90%, rgba(105,117,101,0.22) 0%, transparent 45%),
+    radial-gradient(ellipse 40% 35% at 50% 50%, rgba(236,223,204,0.35) 0%, transparent 60%),
+    linear-gradient(148deg, #f8f4ec 0%, #ecdec6 35%, #dfd0b4 62%, #ece4d2 100%);'>
+
+  <!-- Dot grid -->
   <div
     class='pointer-events-none absolute inset-0'
     aria-hidden='true'
-    class='dot-grid-28'>
+    style='background-image: radial-gradient(circle, rgba(24,28,20,0.045) 1px, transparent 1px); background-size: 28px 28px;'>
   </div>
 
-  <!-- Large faded watermark -->
+  <!-- Edge vignette -->
+  <div
+    class='pointer-events-none absolute inset-0'
+    aria-hidden='true'
+    style='background: radial-gradient(ellipse 100% 100% at 50% 50%, transparent 60%, rgba(24,28,20,0.04) 100%);'>
+  </div>
+
+  <!-- Watermark -->
   <div
     class='pointer-events-none absolute -right-6 top-1/2 -translate-y-1/2 select-none overflow-hidden'
     aria-hidden='true'
-    style='font-family: var(--font-heading); font-size: clamp(12rem, 26vw, 22rem); color: rgba(52,101,109,0.06); line-height: 1; white-space: nowrap;'>
+    style='font-family: var(--font-heading); font-size: clamp(12rem, 26vw, 22rem); color: rgba(24,28,20,0.035); line-height: 1; white-space: nowrap;'>
     SOLUCIÓN
   </div>
 
@@ -23,46 +37,62 @@ import CalButton from '../../CalButton.astro'
 
       <!-- ── LEFT: Headline block ─────────────────────────────────── -->
       <div class='lg:sticky lg:top-28'>
-        <h2 class='text-xs font-bold tracking-[0.18em] uppercase text-cream mb-8'>
+        <h2
+          class='text-xs font-bold tracking-[0.18em] uppercase mb-8'
+          style='color: var(--color-sage);'>
           Contratar un consultor SEO
         </h2>
 
         <p
           data-animate
-          class='font-heading text-h2 font-bold leading-[0.9] tracking-tight text-cream mb-1'>
-          Pero se puede solucionar.
+          class='font-heading text-h2 font-bold leading-[0.9] tracking-tight mb-1'
+          style='color: var(--color-base);'>
+          Pero se puede <span style='color: var(--color-sage);'>solucionar.</span>
         </p>
 
         <div data-animate class='mt-6 flex items-center'>
-          <div class='h-px w-32 bg-gradient-to-r from-cream/5 to-cream/35'></div>
-          <div class='h-px w-10 bg-cream/60'></div>
+          <div
+            class='h-px w-32'
+            style='background: linear-gradient(to right, rgba(105,117,101,0.08), rgba(105,117,101,0.45));'>
+          </div>
+          <div
+            class='h-px w-10'
+            style='background: rgba(105,117,101,0.65);'>
+          </div>
         </div>
 
         <p
           data-animate
-          class='mt-6 max-w-[40ch] text-base text-cream leading-relaxed text-pretty'>
+          class='mt-6 max-w-[40ch] text-base leading-relaxed text-pretty'
+          style='color: var(--color-surface);'>
           En la llamada revisamos tu presencia en Google, analizamos a tu competencia y te digo exactamente qué está fallando y qué hay que hacer para que tus clientes te encuentren.
         </p>
       </div>
 
-      <!-- ── RIGHT: 4-step process ────────────────────────────────── -->
+      <!-- ── RIGHT: 3-step process ────────────────────────────────── -->
       <div class='flex flex-col'>
 
         <!-- Step 1 -->
         <div
           data-animate
-          class='relative flex gap-6 py-10 border-b border-surface/10'>
+          class='relative flex gap-6 py-10 border-b'
+          style='border-color: rgba(24,28,20,0.1);'>
           <div class='shrink-0 flex flex-col items-center pt-0.5 w-10'>
-            <span class='text-xs font-bold tracking-[0.14em] uppercase text-cream leading-none mb-0.5'>
+            <span
+              class='text-xs font-bold tracking-[0.14em] uppercase leading-none mb-0.5'
+              style='color: var(--color-sage);'>
               Paso
             </span>
             <span
-              class='text-h3 leading-none font-bold text-cream tabular-nums font-heading'>
+              class='text-h3 leading-none font-bold tabular-nums font-heading'
+              style='color: var(--color-base);'>
               01
             </span>
           </div>
           <div>
-            <p class='text-base font-bold text-cream mb-3'>
+            <p
+              class='text-base font-bold mb-3'
+              style='color: var(--color-base);'>
               Reserva tu llamada gratuita
             </p>
             <CalButton
@@ -76,21 +106,29 @@ import CalButton from '../../CalButton.astro'
         <!-- Step 2 -->
         <div
           data-animate
-          class='relative flex gap-6 py-10 border-b border-surface/10'>
+          class='relative flex gap-6 py-10 border-b'
+          style='border-color: rgba(24,28,20,0.1);'>
           <div class='shrink-0 flex flex-col items-center pt-0.5 w-10'>
-            <span class='text-xs font-bold tracking-[0.14em] uppercase text-cream leading-none mb-0.5'>
+            <span
+              class='text-xs font-bold tracking-[0.14em] uppercase leading-none mb-0.5'
+              style='color: var(--color-sage);'>
               Paso
             </span>
             <span
-              class='text-h3 leading-none font-bold text-cream tabular-nums font-heading'>
+              class='text-h3 leading-none font-bold tabular-nums font-heading'
+              style='color: var(--color-base);'>
               02
             </span>
           </div>
           <div>
-            <p class='text-base font-bold text-cream mb-2'>
+            <p
+              class='text-base font-bold mb-2'
+              style='color: var(--color-base);'>
               Cuéntame tu situación
             </p>
-            <p class='text-base text-cream leading-relaxed'>
+            <p
+              class='text-base leading-relaxed'
+              style='color: var(--color-surface);'>
               Al reservar, indícame la URL de tu web y qué te preocupa. Nada más.
             </p>
           </div>
@@ -101,19 +139,26 @@ import CalButton from '../../CalButton.astro'
           data-animate
           class='relative flex gap-6 pt-10'>
           <div class='shrink-0 flex flex-col items-center pt-0.5 w-10'>
-            <span class='text-xs font-bold tracking-[0.14em] uppercase text-cream leading-none mb-0.5'>
+            <span
+              class='text-xs font-bold tracking-[0.14em] uppercase leading-none mb-0.5'
+              style='color: var(--color-sage);'>
               Paso
             </span>
             <span
-              class='text-h3 leading-none font-bold text-cream tabular-nums font-heading'>
+              class='text-h3 leading-none font-bold tabular-nums font-heading'
+              style='color: var(--color-base);'>
               03
             </span>
           </div>
           <div>
-            <p class='text-base font-bold text-cream mb-2'>
+            <p
+              class='text-base font-bold mb-2'
+              style='color: var(--color-base);'>
               Hablamos 30 min
             </p>
-            <p class='text-base text-cream leading-relaxed text-pretty'>
+            <p
+              class='text-base leading-relaxed text-pretty'
+              style='color: var(--color-surface);'>
               Reviso tu web en tiempo real, te explico qué está fallando y por qué Google no te muestra.
             </p>
           </div>
