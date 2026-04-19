@@ -3,7 +3,7 @@ import fisioterapeutaBarcelona from '../../../assets/fisioterapia-barcelona.avif
 import CalButton from '../../CalButton.astro'
 ---
 
-<div class="relative isolate bg-base overflow-hidden">
+<div class="relative isolate bg-gradient-to-b from-base to-surface/80 overflow-hidden">
   <svg aria-hidden="true" class="absolute inset-0 -z-10 size-full mask-[radial-gradient(100%_100%_at_top_right,white,transparent)] stroke-cream/5">
     <defs>
       <pattern id="grid-posicionamiento" width="200" height="200" x="50%" y="-1" patternUnits="userSpaceOnUse">
@@ -15,6 +15,12 @@ import CalButton from '../../CalButton.astro'
     </svg>
     <rect width="100%" height="100%" fill="url(#grid-posicionamiento)" stroke-width="0" />
   </svg>
+
+  <!-- Ambient light gradients -->
+  <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    <div class="absolute -top-20 -right-10 h-[400px] w-[500px] rounded-full bg-cream/10 blur-3xl"></div>
+    <div class="absolute bottom-0 -left-20 h-[300px] w-[380px] rounded-full bg-sage/15 blur-3xl"></div>
+  </div>
 
   <!-- Large ghosted watermark -->
   <div class="font-heading pointer-events-none absolute -left-6 top-1/2 -translate-y-1/2 select-none leading-none text-wm font-bold text-white/[0.04]"
