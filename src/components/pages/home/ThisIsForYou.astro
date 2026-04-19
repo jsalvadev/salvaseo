@@ -1,8 +1,8 @@
 ---
-import WhatsAppButton from '../../WhatsAppButton.astro'
+import CalButton from '../../CalButton.astro'
 ---
 
-<section class='relative overflow-hidden bg-teal py-24 md:py-32'>
+<section class='relative overflow-hidden py-24 md:py-32' style='background-color: var(--color-sage);'>
 
   <!-- Dot-grid texture overlay -->
   <div
@@ -13,9 +13,9 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
 
   <!-- Large ghosted watermark -->
   <div
-    class='pointer-events-none absolute -left-10 top-1/2 -translate-y-1/2 select-none leading-none'
+    class='font-heading pointer-events-none absolute -left-10 top-1/2 -translate-y-1/2 select-none leading-none'
     aria-hidden='true'
-    style='font-family: "Titan One", cursive; font-size: clamp(14rem, 28vw, 24rem); color: rgba(250,234,177,0.08); line-height: 1; white-space: nowrap;'>
+    style='font-size: clamp(14rem, 28vw, 24rem); color: rgba(236,223,204,0.08); line-height: 1; white-space: nowrap;'>
     TÚ
   </div>
 
@@ -27,63 +27,14 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
   </div>
 
   <!-- Top / bottom hairline accents -->
-  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sand/35 to-transparent' aria-hidden='true'></div>
-  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-sand/15 to-transparent' aria-hidden='true'></div>
+  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cream/35 to-transparent' aria-hidden='true'></div>
+  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-cream/15 to-transparent' aria-hidden='true'></div>
 
   <div class='relative mx-auto max-w-[1280px] px-5'>
-    <div class='grid lg:grid-cols-[1fr_1.15fr] gap-12 lg:gap-20 items-start'>
+    <div class='grid lg:grid-cols-[1.15fr_1fr] gap-12 lg:gap-20 items-start'>
 
-      <!-- ── LEFT: sticky headline block ────────────────────────────── -->
-      <div class='lg:sticky lg:top-28'>
-
-        <div data-animate class='flex items-center gap-3 mb-8'>
-          <span class='block h-px w-10 bg-sand' aria-hidden='true'></span>
-          <h2 class='label-section text-sand'>
-            Consultor SEO cerca de ti
-          </h2>
-        </div>
-
-        <p
-          data-animate
-          style='font-family: "Titan One", cursive;'
-          class='leading-[0.9] tracking-tight'>
-          <span class='block heading-display text-white/55 mb-1'>
-            Esto es
-          </span>
-          <span class='block heading-display text-white'>
-            para ti si<span class='text-sand'>.</span>
-          </span>
-        </p>
-
-        <!-- Animated underline rule -->
-        <div data-animate class='mt-6 flex items-center'>
-          <div class='h-px w-16 bg-sand'></div>
-          <div class='h-px w-24 bg-gradient-to-r from-sand/40 to-transparent'></div>
-        </div>
-
-        <p
-          data-animate
-          class='mt-6 max-w-[38ch] text-base text-white/55 leading-relaxed text-pretty'>
-          Te identificas con alguna de estas situaciones
-        </p>
-
-        <!-- CTA -->
-        <div data-animate class='mt-10'>
-          <WhatsAppButton
-            text='Reserva tu llamada'
-            class='px-6 py-3 text-[0.9375rem] font-bold shadow-lg shadow-sand/20 hover:shadow-sand/30 transition-shadow'
-          />
-        </div>
-
-        <!-- Decorative vertical rule (desktop) -->
-        <div
-          class='hidden lg:block mt-12 w-px h-20 bg-gradient-to-b from-sand/30 to-transparent'
-          aria-hidden='true'>
-        </div>
-      </div>
-
-      <!-- ── RIGHT: card list ───────────────────────────────────────── -->
-      <ul class='flex flex-col gap-3 mt-2'>
+      <!-- ── LEFT: card list ───────────────────────────────────────── -->
+      <ul class='flex flex-col gap-3 mt-2 lg:order-1'>
 
         {[
           {
@@ -103,30 +54,25 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
           },
           {
             num: '04',
-            heading: 'Quieres clientes que lleguen solos',
-            body: 'Sin depender de redes sociales ni de anuncios de pago.',
-          },
-          {
-            num: '05',
             heading: 'Tu ficha de Google Business Profile no rinde',
             body: 'Apareces en Maps pero casi no recibes llamadas, tus reseñas están estancadas.',
           },
         ].map((item) => (
           <li
             data-animate
-            class='esto-card group relative rounded-xl border border-white/[0.07] bg-white/[0.03] px-6 py-5 transition-all duration-300 hover:border-sand/30 hover:bg-white/[0.055] overflow-hidden cursor-default'>
+            class='relative rounded-xl border border-cream/20 bg-cream/5 px-6 py-5 transition-all duration-300 hover:border-cream/30 hover:bg-cream/10 overflow-hidden cursor-default'>
 
             <!-- Card left accent bar (appears on hover) -->
             <div
-              class='pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-sand scale-y-0 origin-top rounded-r-full transition-transform duration-300 group-hover:scale-y-100'
+              class='pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-cream scale-y-0 origin-top rounded-r-full transition-transform duration-300 group-hover:scale-y-100'
               aria-hidden='true'>
             </div>
 
             <!-- Ghost ordinal number background -->
             <div
-              class='pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 select-none leading-none transition-opacity duration-300 opacity-60 group-hover:opacity-100'
+              class='pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 select-none leading-none transition-opacity duration-300 opacity-60'
               aria-hidden='true'
-              style={`font-family: "Titan One", cursive; font-size: 5rem; color: rgba(250,234,177,0.10); line-height: 1;`}>
+              style={`font-family: var(--font-heading); font-size: 5rem; color: rgba(236,223,204,0.10); line-height: 1;`}>
               {item.num}
             </div>
 
@@ -134,9 +80,9 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
             <div class='relative flex items-start gap-4'>
 
               <!-- Check badge -->
-              <div class='shrink-0 mt-0.5 flex h-7 w-7 items-center justify-center rounded-full bg-sand/12 ring-1 ring-sand/25 transition-all duration-300 group-hover:bg-sand/22 group-hover:ring-sand/50'>
+              <div class='shrink-0 mt-0.5 flex h-7 w-7 items-center justify-center rounded-full bg-cream/12 ring-1 ring-cream/25 transition-all duration-300 group-hover:bg-cream/22 group-hover:ring-cream/50'>
                 <svg
-                  class='h-3.5 w-3.5 text-sand'
+                  class='h-3.5 w-3.5 text-cream'
                   viewBox='0 0 12 10'
                   fill='none'
                   aria-hidden='true'>
@@ -152,10 +98,10 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
 
               <!-- Text -->
               <div class='min-w-0'>
-                <p class='text-base font-bold text-white/90 mb-1.5 leading-snug transition-colors duration-300 group-hover:text-white'>
+                <p class='text-base font-bold text-cream/90 mb-1.5 leading-snug transition-colors duration-300 group-hover:text-cream'>
                   {item.heading}
                 </p>
-                <p class='text-base text-white/75 leading-relaxed text-pretty transition-colors duration-300 group-hover:text-white/85'>
+                <p class='text-base text-cream/75 leading-relaxed text-pretty transition-colors duration-300 group-hover:text-cream/85'>
                   {item.body}
                 </p>
               </div>
@@ -165,6 +111,47 @@ import WhatsAppButton from '../../WhatsAppButton.astro'
         ))}
 
       </ul>
+
+      <!-- ── RIGHT: sticky headline block ────────────────────────────── -->
+      <div class='lg:sticky lg:top-28 lg:order-2 lg:text-right'>
+
+        <h2 class='text-xs font-bold tracking-[0.18em] uppercase text-cream mb-8'>
+          Consultor SEO cerca de ti
+        </h2>
+
+        <p
+          data-animate
+          class='font-heading text-h2 font-bold leading-[0.9] tracking-tight'>
+          <span class='block text-white mb-1'>
+            Esto es
+          </span>
+          <span class='block text-cream'>
+            para ti si<span class='text-cream'>.</span>
+          </span>
+        </p>
+
+        <!-- Animated underline rule -->
+        <div data-animate class='mt-6 flex items-center lg:justify-end'>
+          <div class='h-px w-16 bg-cream/20'></div>
+          <div class='h-px w-24 bg-gradient-to-r from-cream/10 to-transparent'></div>
+        </div>
+
+        <!-- CTA -->
+        <div data-animate class='mt-10 lg:flex lg:justify-end'>
+          <CalButton
+            text='Reserva tu llamada'
+            variant='cream'
+            class='px-6 py-3 text-sm font-bold'
+          />
+        </div>
+
+        <!-- Decorative vertical rule (desktop) -->
+        <div
+          class='hidden lg:block mt-12 w-px h-20 bg-gradient-to-b from-cream/30 to-transparent ml-auto'
+          aria-hidden='true'>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>

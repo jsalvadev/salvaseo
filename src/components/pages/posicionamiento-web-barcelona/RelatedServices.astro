@@ -25,7 +25,7 @@ const related = [
 ]
 ---
 
-<section class='related-root relative overflow-hidden py-20 md:py-28' style='background: linear-gradient(135deg, #3a4236 0%, #697565 50%, #8a9e88 100%)'>
+<section class='relative overflow-hidden py-20 md:py-28' style='background: linear-gradient(135deg, #3a4236 0%, #697565 50%, #8a9e88 100%)'>
 
   <!-- Diagonal rule top -->
   <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cream/40 to-transparent' aria-hidden='true'></div>
@@ -69,18 +69,20 @@ const related = [
             href={item.href}
             data-animate
             data-animate-delay={idx * 120}
-            class='related-card group'
+            class='group relative flex flex-col justify-between rounded-xl border border-cream/20 bg-white/5 p-8 transition-all duration-300 hover:border-cream/40 hover:bg-white/10 hover:-translate-y-1 hover:shadow-xl'
           >
             <!-- Ghost ordinal -->
-            <span class='related-ordinal' aria-hidden='true'>{item.ordinal}</span>
+            <span class='font-heading pointer-events-none absolute -right-4 top-1/2 -translate-y-1/2 text-[clamp(5rem,12vw,8rem)] font-black leading-none text-white/[0.03] select-none' aria-hidden='true'>
+              {item.ordinal}
+            </span>
 
             <!-- Inner content -->
-            <div class='relative z-10 flex flex-col gap-5 h-full'>
+            <div class='relative z-10 flex flex-col gap-5'>
 
               <!-- Icon + label -->
               <div class='flex items-center gap-3'>
-                <div class='related-icon-wrap'>
-                  <Icon class='size-[15px] text-cream/80 transition-colors duration-300 group-hover:text-cream' aria-hidden='true' />
+                <div class='flex size-9 items-center justify-center rounded-lg bg-cream/10 ring-1 ring-cream/25 transition-all duration-300 group-hover:bg-cream/20 group-hover:ring-cream/45'>
+                  <Icon class='size-[15px] text-cream/80' aria-hidden='true' />
                 </div>
                 <span class='text-xs font-bold uppercase tracking-[0.2em] text-cream/65 group-hover:text-cream/85 transition-colors duration-300'>
                   {item.label}
@@ -88,19 +90,19 @@ const related = [
               </div>
 
               <!-- Title -->
-              <p class='related-title'>
+              <p class='font-heading text-h6 font-bold leading-[1.15] tracking-tight text-cream transition-colors duration-300 group-hover:text-white'>
                 {item.title}
               </p>
 
               <!-- Description -->
-              <p class='text-sm text-cream/70 leading-relaxed text-pretty transition-colors duration-300 group-hover:text-cream/90 flex-1'>
+              <p class='text-sm text-cream/70 leading-relaxed text-pretty transition-colors duration-300 group-hover:text-cream/90'>
                 {item.description}
               </p>
 
               <!-- CTA -->
-              <div class='related-cta'>
+              <div class='mt-4 flex items-center gap-1 text-xs font-bold uppercase tracking-[0.04em] text-cream/75 group-hover:text-cream group-hover:gap-2 transition-all duration-200'>
                 <span>{item.cta}</span>
-                <svg width='14' height='14' viewBox='0 0 14 14' fill='none' class='related-cta-arrow' aria-hidden='true'>
+                <svg width='14' height='14' viewBox='0 0 14 14' fill='none' aria-hidden='true' class='transition-transform duration-200 group-hover:translate-x-0.5'>
                   <path d='M2 7h10M8 3l4 4-4 4' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/>
                 </svg>
               </div>
@@ -113,107 +115,3 @@ const related = [
 
   </div>
 </section>
-
-<style>
-  /* Card base */
-  .related-card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    padding: 2rem 2rem 1.75rem;
-    border-radius: 1rem;
-    border: 1px solid color-mix(in srgb, var(--color-cream) 18%, transparent);
-    background: color-mix(in srgb, black 12%, transparent);
-    overflow: hidden;
-    transition: border-color 0.35s ease, background 0.35s ease, transform 0.3s ease, box-shadow 0.35s ease;
-    text-decoration: none;
-    outline-offset: 3px;
-  }
-  .related-card:hover {
-    border-color: color-mix(in srgb, var(--color-cream) 40%, transparent);
-    background: color-mix(in srgb, black 20%, transparent);
-    transform: translateY(-3px);
-    box-shadow: 0 20px 60px -12px rgba(0,0,0,0.4);
-  }
-  .related-card:focus-visible {
-    outline: 2px solid var(--color-sand);
-  }
-
-
-  /* Ghost ordinal */
-  .related-ordinal {
-    position: absolute;
-    right: -0.5rem;
-    top: 50%;
-    transform: translateY(-50%);
-    font-family: var(--font-heading, 'Titan One', sans-serif);
-    font-size: clamp(5rem, 12vw, 8rem);
-    font-weight: 900;
-    line-height: 1;
-    color: white;
-    opacity: 0.03;
-    user-select: none;
-    pointer-events: none;
-    transition: opacity 0.35s ease;
-    letter-spacing: -0.04em;
-  }
-  .related-card:hover .related-ordinal {
-    opacity: 0.055;
-  }
-
-  /* Icon wrap */
-  .related-icon-wrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.125rem;
-    height: 2.125rem;
-    flex-shrink: 0;
-    border-radius: 0.625rem;
-    background: color-mix(in srgb, var(--color-cream) 12%, transparent);
-    border: 1px solid color-mix(in srgb, var(--color-cream) 25%, transparent);
-    transition: background 0.3s ease, border-color 0.3s ease;
-  }
-  .related-card:hover .related-icon-wrap {
-    background: color-mix(in srgb, var(--color-cream) 22%, transparent);
-    border-color: color-mix(in srgb, var(--color-cream) 45%, transparent);
-  }
-
-  /* Title */
-  .related-title {
-    font-family: var(--font-heading, 'Titan One', sans-serif);
-    font-size: var(--text-h6);
-    font-weight: 700;
-    line-height: 1.15;
-    letter-spacing: -0.01em;
-    color: var(--color-cream);
-    transition: color 0.3s ease;
-  }
-  .related-card:hover .related-title {
-    color: white;
-  }
-
-  /* CTA row */
-  .related-cta {
-    display: flex;
-    align-items: center;
-    gap: 0.375rem;
-    font-size: var(--text-xs);
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: color-mix(in srgb, var(--color-cream) 75%, transparent);
-    transition: color 0.25s ease, gap 0.25s ease;
-    margin-top: 0.5rem;
-  }
-  .related-card:hover .related-cta {
-    color: var(--color-cream);
-    gap: 0.625rem;
-  }
-  .related-cta-arrow {
-    transition: transform 0.25s ease;
-  }
-  .related-card:hover .related-cta-arrow {
-    transform: translateX(3px);
-  }
-</style>
