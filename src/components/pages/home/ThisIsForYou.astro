@@ -2,13 +2,13 @@
 import CalButton from '../../CalButton.astro'
 ---
 
-<section class='relative overflow-hidden py-24 md:py-32' style='background-color: var(--color-sage);'>
+<section class='relative overflow-hidden py-24 md:py-32 bg-sage'>
 
   <!-- Dot-grid texture overlay -->
   <div
     class='pointer-events-none absolute inset-0'
     aria-hidden='true'
-    style='background-image: radial-gradient(circle, rgba(255,255,255,0.028) 1px, transparent 1px); background-size: 32px 32px;'>
+    class='dot-grid-32'>
   </div>
 
   <!-- Large ghosted watermark -->
@@ -70,9 +70,9 @@ import CalButton from '../../CalButton.astro'
 
             <!-- Ghost ordinal number background -->
             <div
-              class='pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 select-none leading-none transition-opacity duration-300 opacity-60'
+              class='pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 font-heading leading-none select-none transition-opacity duration-300 opacity-60'
               aria-hidden='true'
-              style={`font-family: var(--font-heading); font-size: 5rem; color: rgba(236,223,204,0.10); line-height: 1;`}>
+              style={`font-size: 5rem; color: rgba(236,223,204,0.10); line-height: 1;`}>
               {item.num}
             </div>
 
@@ -139,7 +139,7 @@ import CalButton from '../../CalButton.astro'
         <!-- CTA -->
         <div data-animate class='mt-10 lg:flex lg:justify-end'>
           <CalButton
-            text='Reserva tu llamada'
+            text='Agenda tu sesión gratuita'
             variant='cream'
             class='px-6 py-3 text-sm font-bold'
           />

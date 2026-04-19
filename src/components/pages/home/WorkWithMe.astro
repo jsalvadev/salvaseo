@@ -51,21 +51,21 @@ const steps = [
           text='Por qué contratar un consultor SEO profesional'
           color='var(--color-sand)'
         />
-        <p class="font-heading mt-2 font-heading text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] font-semibold tracking-tight text-pretty text-white">
+        <p class="font-heading mt-2 font-heading text-h2 font-bold leading-[1.05] font-semibold tracking-tight text-pretty text-white">
           Cómo funciona<br class='hidden sm:block' /> el proceso
         </p>
         <!-- Accent rule -->
         <HeadingRule color='var(--color-sand)' class='mt-5' />
       </div>
       <!-- Decorative rule -->
-      <div class='hidden lg:block flex-shrink-0 w-px h-20 bg-white/10 self-end mb-2'></div>
+      <div class='hidden lg:block flex-shrink-0 w-px h-20 self-end mb-2 bg-white-10'></div>
       <p class='max-w-xs text-sm/6 text-white/55 lg:text-right'>
         Sin contratos de permanencia.<br />Sin agencias intermediarias.
       </p>
     </div>
 
     <!-- Steps -->
-    <div class='grid grid-cols-1 md:grid-cols-3 gap-px bg-white/5 rounded-2xl overflow-hidden'>
+    <div class='grid grid-cols-1 md:grid-cols-3 gap-px rounded-2xl overflow-hidden bg-white-05'>
       {
         steps.map((step) => (
           <div
@@ -81,7 +81,7 @@ const steps = [
             <!-- Step pill -->
             <div class='flex items-center gap-3'>
               <span
-                class={`inline-flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-xs font-bold text-cream ${step.accent === 'orange' ? 'bg-sand' : 'bg-sand/80'}`}>
+                class={`inline-flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-xs font-bold text-cream ${step.accent === 'orange' ? 'bg-cream' : 'bg-cream-80'}`}>
                 {step.n.replace('0', '')}
               </span>
               <span
@@ -103,7 +103,7 @@ const steps = [
     <!-- Blockquote -->
     <div
       data-animate
-      class='mt-8 flex items-start gap-6 rounded-2xl border border-white/8 bg-white/[0.03] px-8 py-7'>
+      class='mt-8 flex items-start gap-6 rounded-2xl px-8 py-7 bg-white-03 border-white-08'>
       <span
         class='flex-shrink-0 mt-0.5 text-5xl text-cream/30 font-serif leading-none select-none'
         aria-hidden='true'>"</span>
@@ -118,7 +118,7 @@ const steps = [
     <div
       data-animate
       class='mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4'>
-      <CalButton variant="sand" text="Solicitar análisis gratuito" class="px-5 py-3 shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sand" />
+      <CalButton variant="sand" text="Solicitar análisis gratuito" class="px-5 py-3" />
       <span class='text-sm text-white/55'>Sin compromiso económico</span>
     </div>
 

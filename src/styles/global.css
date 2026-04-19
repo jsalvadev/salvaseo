@@ -7,8 +7,8 @@
   --color-base:      #181C14;
   --color-surface:   #3C3D37;
   --color-sage:      #697565;
-  --color-cream:     #ECDFCC;
-  --color-white:     #ffffff;
+  --color-cream:    #ECDFCC;
+  --color-white:    #ffffff;
 
   /* ── Type Scale  ──────────────────── */
   --text-h1:    2.986rem;
@@ -32,6 +32,160 @@
   max-width: 1200px;
   padding-inline: 1.25rem;
 }
+
+@utility dot-grid-28 {
+  background-image: radial-gradient(circle, rgba(52,101,109,0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+@utility dot-grid-32 {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.028) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+@utility bg-gradient-fade-sage {
+  background: linear-gradient(90deg, transparent, rgba(105,117,101,0.2), transparent);
+}
+
+@utility bg-gradient-fade-sage-sm {
+  background: linear-gradient(90deg, transparent, rgba(105,117,101,0.1), transparent);
+}
+
+@utility bg-gradient-fade-end-sage {
+  background: linear-gradient(90deg, rgba(105,117,101,0.4), transparent);
+}
+
+@utility bg-gradient-fade-base {
+  background: linear-gradient(90deg, rgba(24,28,20,0.05), rgba(24,28,20,0.25));
+}
+
+@utility border-surface-10 {
+  border: 1px solid rgba(60,61,55,0.1);
+}
+
+@utility bg-white-03 {
+  background: rgba(255,255,255,0.03);
+}
+
+@utility bg-white-05 {
+  background: rgba(255,255,255,0.05);
+}
+
+@utility bg-white-06 {
+  background: rgba(255,255,255,0.06);
+}
+
+@utility bg-white-10 {
+  background: rgba(255,255,255,0.1);
+}
+
+@utility border-white-08 {
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+@utility border-white-10 {
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+@utility bg-sage-10 {
+  background: rgba(105,117,101,0.1);
+}
+
+@utility bg-sage-15 {
+  background: rgba(105,117,101,0.15);
+}
+
+@utility border-sage-15 {
+  border: 1px solid rgba(105,117,101,0.15);
+}
+
+@utility border-sage-20 {
+  border: 1px solid rgba(105,117,101,0.2);
+}
+
+@utility border-sage-30 {
+  border: 1px solid rgba(105,117,101,0.3);
+}
+
+@utility bg-cream-10 {
+  background: rgba(236,223,204,0.1);
+}
+
+@utility bg-cream-80 {
+  background: rgba(236,223,204,0.8);
+}
+
+@utility border-cream-20 {
+  border: 1px solid rgba(236,223,204,0.2);
+}
+
+@utility text-cream-30 {
+  color: rgba(236,223,204,0.3);
+}
+
+@utility text-cream-40 {
+  color: rgba(236,223,204,0.4);
+}
+
+@utility text-cream-50 {
+  color: rgba(236,223,204,0.5);
+}
+
+@utility text-cream-60 {
+  color: rgba(236,223,204,0.6);
+}
+
+@utility text-cream-70 {
+  color: rgba(236,223,204,0.7);
+}
+
+@utility text-cream-75 {
+  color: rgba(236,223,204,0.75);
+}
+
+@utility text-cream-80 {
+  color: rgba(236,223,204,0.8);
+}
+
+@utility text-white-07 {
+  color: rgba(255,255,255,0.07);
+}
+
+@utility text-white-40 {
+  color: rgba(255,255,255,0.4);
+}
+
+@utility text-white-55 {
+  color: rgba(255,255,255,0.55);
+}
+
+@utility text-white-75 {
+  color: rgba(255,255,255,0.75);
+}
+
+@utility text-white-85 {
+  color: rgba(255,255,255,0.85);
+}
+
+@utility bg-white-overlay {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.05);
+  backdrop-filter: blur(4px);
+}
+
+@utility shadow-card {
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+}
+
+@utility shadow-button {
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.1);
+}
+
+@utility text-wm-xl {
+  font-size: clamp(14rem, 28vw, 24rem);
+}
+
+
 
 html {
   font-size: 17px;
