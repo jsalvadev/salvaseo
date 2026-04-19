@@ -56,9 +56,9 @@ const priceUnit   = priceParts.slice(2).join(' ')
     <!-- ── Section header ─────────────────────────────────────────── -->
     <header class='mb-16 sm:mb-20'>
 
-      <p data-animate class='mb-6 text-xs font-bold uppercase tracking-widest text-cream'>{upheading}</p>
+      <h2 data-animate class='mb-6 text-xs font-bold uppercase tracking-widest text-cream'>{upheading}</h2>
 
-      <h2
+      <p
         data-animate
         class='font-heading text-h2 font-bold leading-[1.05] tracking-tight text-white text-pretty mb-6 [&_span]:text-cream'
         set:html={heading + '<span>.</span>'}
@@ -142,7 +142,7 @@ const priceUnit   = priceParts.slice(2).join(' ')
           </p>
 
           <!-- Title -->
-          <h3 class='font-semibold text-white/90 mb-2 leading-snug'>{item.title}</h3>
+          <p class='font-semibold text-white/90 mb-2 leading-snug'>{item.title}</p>
 
           <!-- Description -->
           <p class='text-sm text-white/50 text-pretty leading-relaxed'>{item.description}</p>
