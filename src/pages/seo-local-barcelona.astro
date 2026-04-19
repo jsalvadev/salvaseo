@@ -1,11 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import yogaBarcelonaImage from '../assets/yoga-barcelona.avif'
-import PageHero from '../components/shared/PageHero.astro'
-import WhatsAppButton from '../components/WhatsAppButton.astro'
-import { Image } from 'astro:assets'
+import Hero from '../components/pages/seo-local-barcelona/Hero.astro'
+import CalButton from '../components/CalButton.astro'
 import localPackImg from '../assets/local-pack-fontanero-barcelona.avif'
-import { buildWhatsAppHref } from '../data/site'
 import LocalSeoExplainer from '../components/pages/seo-local-barcelona/Explainer.astro'
 import LocalSeoServices from '../components/pages/seo-local-barcelona/Services.astro'
 import Timeline from '../components/pages/seo-local-barcelona/Timeline.astro'
@@ -16,7 +13,6 @@ import LocalSeoCta from '../components/pages/seo-local-barcelona/Cta.astro'
 import RelatedServices from '../components/pages/seo-local-barcelona/RelatedServices.astro'
 import GoogleMapEmbed from '../components/shared/GoogleMapEmbed.astro'
 
-const waHref = buildWhatsAppHref()
 
 const MIN_MONTHLY_PRICE_EUR = 350
 const MIN_MONTHLY_PRICE_TEXT = `${MIN_MONTHLY_PRICE_EUR} €/mes`
@@ -265,41 +261,17 @@ const seoLocalBusinessTypes = [
 >
 
   <!-- 1. HERO -->
-  <PageHero
-    theme='sage'
-    watermark='LOCAL'
-    watermarkSide='right'
-    eyebrow='Consultor SEO Local en Barcelona'
-    eyebrowStyle='lined'
+  <Hero
+    preheader='CONSULTOR SEO LOCAL EN BARCELONA'
+    h1='Convierte las búsquedas cercanas en <span class="text-cream">clientes.</span>'
     description='Haz que tu negocio sea la primera opción en Barcelona. Con casi la mitad de las búsquedas (46%) en Google siendo locales, Maps es hoy tu escaparate más rentable. <strong>Tu cliente ya está buscando ahora mismo.</strong>'
-    decorationStyle='lines'
-    breadcrumbItems={[{ label: 'Inicio', href: '/' }, { label: 'Consultor SEO Local Barcelona' }]}
+    image={localPackImg}
+    imageAlt='Resultados del Local Pack de Google para "fontanero urgente barcelona"'
+    imageCaption='Captura real de Google · Local Pack para "fontanero urgente barcelona"'
+    watermark='LOCAL'
   >
-    <p slot='heading' class='mt-5 font-heading'>
-      <span class='block text-[clamp(1rem,2.2vw,1.8rem)] text-white/40 leading-[1.05] tracking-tight mb-1'>
-        Convierte las búsquedas cercanas en
-      </span>
-      <span class='block font-heading text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[0.93] tracking-tight text-white'>
-        clientes que pagan<span class='text-cream'>.</span>
-      </span>
-    </p>
-
-    <WhatsAppButton slot='cta' text='Analiza mi web' href={waHref} class='px-6 py-3 text-[0.9375rem] font-bold shadow-lg shadow-teal/20 hover:shadow-teal/30 transition-shadow' />
-
-    <div slot='visual'>
-      <Image
-        src={localPackImg}
-        alt='Resultados del Local Pack de Google para "fontanero urgente barcelona"'
-        width={762}
-        height={719}
-        class='w-full h-auto block rounded-2xl'
-        loading='eager'
-      />
-      <p class='mt-3 text-center text-xs text-white/40 leading-relaxed'>
-        Captura real de Google · Local Pack para "fontanero urgente barcelona"
-      </p>
-    </div>
-  </PageHero>
+    <CalButton slot='cta' variant='cream' />
+  </Hero>
 
   <!-- 2. QUÉ ES EL SEO LOCAL -->
   <LocalSeoExplainer

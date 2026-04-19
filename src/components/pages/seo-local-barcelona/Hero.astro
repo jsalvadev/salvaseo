@@ -1,138 +1,92 @@
 ---
-import WhatsAppButton from '../../WhatsAppButton.astro'
-import Breadcrumb from '../../Breadcrumb.astro'
-import { buildWhatsAppHref } from '../../../data/site'
-import { Image } from 'astro:assets'
-import localPackImg from '../../../assets/local-pack-fontanero-barcelona.avif'
+import type { ImageMetadata } from 'astro'
 
 interface Props {
-  heading: string
+  preheader: string
+  h1: string
   description: string
-  primaryCtaText: string
-  secondaryCtaText: string
-  secondaryCtaHref: string
+  image: ImageMetadata
+  imageAlt: string
+  imageCaption?: string
+  watermark?: string
 }
 
-const { heading, description, primaryCtaText, secondaryCtaText, secondaryCtaHref } = Astro.props
-
-const waHref = buildWhatsAppHref()
-
-// Split heading at " en " for two-tone Titan One treatment
-const splitIdx = heading.toLowerCase().indexOf(' en ')
-const headingFirst  = splitIdx !== -1 ? heading.slice(0, splitIdx + 4) : heading   // "…cercanas en"
-const headingSecond = splitIdx !== -1 ? heading.slice(splitIdx + 4)    : ''         // "clientes que pagan"
+const { preheader, h1, description, image, imageAlt, imageCaption, watermark } = Astro.props
 ---
 
-<section class='relative bg-sage overflow-hidden'>
-
-  <!-- Ambient radial blobs -->
-  <div
-    class='pointer-events-none absolute inset-0'
-    aria-hidden='true'>
-  </div>
-
-  <!-- Dot grid -->
-  <div
-    class='pointer-events-none absolute inset-0'
-    aria-hidden='true'>
-  </div>
-
-  <!-- Diagonal tension lines -->
-  <svg
-    class='pointer-events-none absolute inset-0 w-full h-full'
-    aria-hidden='true'
-    preserveAspectRatio='none'
-    xmlns='http://www.w3.org/2000/svg'>
-    <line x1='68%' y1='0%' x2='95%'  y2='100%' stroke='rgba(250,234,177,0.06)' stroke-width='1'/>
-    <line x1='74%' y1='0%' x2='104%' y2='100%' stroke='rgba(250,234,177,0.035)' stroke-width='1'/>
-    <line x1='61%' y1='0%' x2='88%'  y2='100%' stroke='rgba(250,234,177,0.04)' stroke-width='1'/>
+<div class="relative isolate bg-gradient-to-b from-base to-surface/80 overflow-hidden">
+  <svg aria-hidden="true" class="absolute inset-0 -z-10 size-full mask-[radial-gradient(100%_100%_at_top_right,white,transparent)] stroke-cream/5">
+    <defs>
+      <pattern id="grid-seo-local" width="200" height="200" x="50%" y="-1" patternUnits="userSpaceOnUse">
+        <path d="M100 200V.5M.5 .5H200" fill="none" />
+      </pattern>
+    </defs>
+    <svg x="50%" y="-1" class="overflow-visible fill-cream/[0.02]">
+      <path d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z" stroke-width="0" />
+    </svg>
+    <rect width="100%" height="100%" fill="url(#grid-seo-local)" stroke-width="0" />
   </svg>
 
-  <!-- Titan One watermark -->
-  <div class="font-heading pointer-events-none absolute -right-6 top-1/2 -translate-y-1/2 select-none leading-none text-wm font-bold text-white/[0.04]"
-    aria-hidden='true'>
-    LOCAL
+  <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    <div class="absolute -top-20 -right-10 h-[400px] w-[500px] rounded-full bg-cream/10 blur-3xl"></div>
+    <div class="absolute bottom-0 -left-20 h-[300px] w-[380px] rounded-full bg-sage/15 blur-3xl"></div>
   </div>
 
-  <!-- Radial glow bottom-left -->
-  <div
-    class='pointer-events-none absolute -bottom-32 -left-32 w-96 h-96 rounded-full'
-    aria-hidden='true'>
-  </div>
+  {watermark && (
+    <div class="font-heading pointer-events-none absolute -right-6 top-1/2 -translate-y-1/2 select-none leading-none text-wm font-bold text-white/[0.04]"
+      aria-hidden="true">
+      {watermark}
+    </div>
+  )}
 
-  <Breadcrumb
-    items={[{ label: 'Inicio', href: '/' }, { label: 'Consultor SEO Local Barcelona' }]}
-    dark
-  />
+  <div class="container-site py-24 sm:py-32 lg:flex lg:items-center lg:gap-x-10 lg:py-24">
+    <div class="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
 
-  <div class='relative z-10 container-site'>
-    <div class='min-h-[80vh] flex items-center pt-10 pb-24 lg:pt-12 lg:pb-28'>
-      <div class='w-full grid lg:grid-cols-12 gap-10 lg:gap-14 items-center'>
+      <p class="text-xs font-bold text-cream" data-animate>{preheader}</p>
 
-        <!-- ── LEFT: text content (7 cols) ─────────────────────────── -->
-        <div class='lg:col-span-7 hero-left'>
+      <h1
+        data-animate
+        class="mt-5 font-heading text-h1 font-bold leading-[1.05] tracking-tight text-white text-pretty"
+        set:html={h1}
+      />
 
-          <!-- Eyebrow -->
-          <div class='flex items-center gap-3'>
-            <span class='block h-px w-10 bg-cream shrink-0' aria-hidden='true'></span>
-            <h1 class='text-xs font-bold tracking-[0.18em] uppercase text-cream'>Consultor SEO Local en Barcelona</h1>
-          </div>
-
-          <!-- Visual display heading (not semantic) -->
-          <p class='mt-5 hero-heading font-heading'>
-            {headingSecond ? (
-              <>
-                <span class='block text-[clamp(1rem,2.2vw,1.8rem)] text-white/40 leading-[1.05] tracking-tight mb-1'>
-                  {headingFirst}
-                </span>
-                <span class='block font-heading text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] text-white leading-[0.93] tracking-tight'>
-                  {headingSecond}<span class='text-cream'>.</span>
-                </span>
-              </>
-            ) : (
-              <span class='block font-heading text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] text-white leading-[1.05] tracking-tight'>
-                {heading}
-              </span>
-            )}
-          </p>
-
-          <!-- Accent rule -->
-          <div class='mt-5 mb-7 flex items-center gap-0 hero-rule' aria-hidden='true'>
-            <div class='h-[3px] w-16 bg-cream rounded-full'></div>
-            <div class='h-px w-24 bg-gradient-to-r from-sand/50 to-transparent'></div>
-          </div>
-
-          <!-- Description -->
-          <p class='text-[1.0625rem] text-white/75 leading-[1.75] max-w-2xl mb-8 hero-description'>
-            <Fragment set:html={description} />
-          </p>
-
-          <!-- CTAs -->
-          <div class='flex flex-col sm:flex-row gap-4 items-start mb-8 hero-ctas'>
-            <WhatsAppButton text={primaryCtaText} href={waHref} class='px-6 py-3 text-[0.9375rem] font-bold shadow-lg shadow-teal/20 hover:shadow-teal/30 transition-shadow' />
-          </div>
-
-
-        </div>
-
-        <!-- ── RIGHT: Local Pack screenshot (5 cols) ─────────────── -->
-        <div class='hidden lg:block lg:col-span-5 hero-right'>
-          <Image
-            src={localPackImg}
-            alt='Resultados del Local Pack de Google para "fontanero urgente barcelona"'
-            width={762}
-            height={719}
-            class='w-full h-auto block rounded-2xl'
-            loading='eager'
-          />
-          <p class='mt-3 text-center text-xs text-white/40 leading-relaxed'>
-            Captura real de Google · Local Pack para "fontanero urgente barcelona"
-          </p>
-        </div>
-
+      <div class="mt-6 flex items-center">
+        <div class="h-px w-32 bg-gradient-to-r from-cream/5 to-cream/35"></div>
+        <div class="h-px w-10 bg-cream/60"></div>
       </div>
+
+      <p data-animate class="mt-8 text-base/8 text-cream/70 text-pretty max-w-[60ch]" set:html={description} />
+
+      <div data-animate class="mt-10 flex items-center gap-x-6">
+        <slot name="cta" />
+      </div>
+
+    </div>
+
+    <div data-animate class="mt-16 sm:mt-24 lg:mt-0 lg:shrink-0 lg:grow">
+      <svg role="img" viewBox="0 0 366 729" class="mx-auto w-[22.875rem] max-w-full drop-shadow-xl">
+        <title>{imageAlt}</title>
+        <defs>
+          <clipPath id="phone-clip-seo-local">
+            <rect width="316" height="684" rx="36" />
+          </clipPath>
+        </defs>
+        <path d="M363.315 64.213C363.315 22.99 341.312 1 300.092 1H66.751C25.53 1 3.528 22.99 3.528 64.213v44.68l-.857.143A2 2 0 0 0 1 111.009v24.611a2 2 0 0 0 1.671 1.973l.95.158a2.26 2.26 0 0 1-.093.236v26.173c.212.1.398.296.541.643l-1.398.233A2 2 0 0 0 1 167.009v47.611a2 2 0 0 0 1.671 1.973l1.368.228c-.139.319-.314.533-.511.653v16.637c.221.104.414.313.56.689l-1.417.236A2 2 0 0 0 1 237.009v47.611a2 2 0 0 0 1.671 1.973l1.347.225c-.135.294-.302.493-.49.607v377.681c0 41.213 22 63.208 63.223 63.208h95.074c.947-.504 2.717-.843 4.745-.843l.141.001h.194l.086-.001 33.704.005c1.849.043 3.442.37 4.323.838h95.074c41.222 0 63.223-21.999 63.223-63.212v-394.63c-.259-.275-.48-.796-.63-1.47l-.011-.133 1.655-.276A2 2 0 0 0 366 266.62v-77.611a2 2 0 0 0-1.671-1.973l-1.712-.285c.148-.839.396-1.491.698-1.811V64.213Z" fill="#4B5563" />
+        <path d="M16 59c0-23.748 19.252-43 43-43h246c23.748 0 43 19.252 43 43v615c0 23.196-18.804 42-42 42H58c-23.196 0-42-18.804-42-42V59Z" fill="#343E4E" />
+        <foreignObject width="316" height="684" clip-path="url(#phone-clip-seo-local)" transform="translate(24 24)">
+          <img
+            src={image.src}
+            alt={imageAlt}
+            width="316"
+            height="684"
+            style="width:100%;height:100%;object-fit:cover;object-position:top;"
+            fetchpriority="high"
+          />
+        </foreignObject>
+      </svg>
+      {imageCaption && (
+        <p class="mt-3 text-center text-xs text-cream/50">{imageCaption}</p>
+      )}
     </div>
   </div>
-
-
-</section>
+</div>
