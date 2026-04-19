@@ -109,18 +109,27 @@ const meta = [
     class='pointer-events-none absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full opacity-15'
     aria-hidden='true'></div>
 
+  <!-- Watermark -->
+  <div class="font-heading pointer-events-none absolute -right-6 top-0 select-none leading-none text-wm font-bold text-white/[0.04]" aria-hidden='true'>
+    MAPS
+  </div>
+
   <div class='relative container-site'>
 
     <!-- ── Header ── -->
     <div class='flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14 lg:mb-16' data-animate>
       <div class='max-w-2xl'>
-        <div class='flex items-center gap-3 mb-4'>
+        <div class='flex items-center gap-3'>
           <span class='block h-px w-10 bg-cream' aria-hidden='true'></span>
-          <h2 class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-cream'>{upheading}</h2>
+          <h2 class='text-xs font-bold tracking-[0.18em] uppercase text-cream'>{upheading}</h2>
         </div>
-        <p class="font-heading mt-3 text-white leading-[1.1]">
+        <p class="font-heading mt-5 text-h2 text-white leading-[1.1]">
           {heading}
         </p>
+        <div class='mt-6 flex items-center'>
+          <div class='h-px w-32 bg-gradient-to-r from-cream/5 to-cream/35'></div>
+          <div class='h-px w-10 bg-cream/60'></div>
+        </div>
       </div>
     </div>
 
@@ -173,7 +182,7 @@ const meta = [
             </h3>
 
             <!-- Description -->
-            <p class='text-[0.875rem] leading-[1.7] text-white/75 flex-1'>
+            <p class='text-sm leading-[1.7] text-white/75 flex-1'>
               <Fragment set:html={service.description} />
             </p>
 

@@ -37,13 +37,25 @@ const related = [
     aria-hidden='true'>
   </div>
 
+  <!-- Watermark -->
+  <div class='font-heading pointer-events-none absolute -right-6 top-0 select-none leading-none text-wm font-bold text-white/[0.04]' aria-hidden='true'>
+    SERVICIOS
+  </div>
+
   <div class='relative container-site'>
 
-    <div data-animate class='flex items-center gap-3 mb-8'>
-      <span class='block h-px w-10 bg-sand' aria-hidden='true'></span>
-      <p class='text-[0.7rem] font-bold uppercase tracking-[0.22em] text-cream/60'>
-        Quizás te puede interesar
+    <!-- Section header -->
+    <div class='mb-14'>
+      <div data-animate>
+        <h2 class='text-xs font-bold uppercase tracking-widest text-cream/60'>MÁS SERVICIOS SEO EN BARCELONA</h2>
+      </div>
+      <p data-animate class='mt-5 font-heading text-h2 font-semibold tracking-tight text-cream'>
+        Completa tu estrategia SEO<span class='text-sage'>.</span>
       </p>
+      <div data-animate class='mt-6 flex items-center'>
+        <div class='h-px w-32 bg-gradient-to-r from-cream/5 to-cream/35'></div>
+        <div class='h-px w-10 bg-cream/60'></div>
+      </div>
     </div>
 
     <div class='grid grid-cols-1 sm:grid-cols-2 gap-4'>
@@ -67,7 +79,7 @@ const related = [
               <div class='flex size-9 shrink-0 items-center justify-center rounded-xl bg-sand/[0.08] ring-1 ring-sand/20 transition-all duration-300 group-hover:bg-sand/[0.15] group-hover:ring-sand/35'>
                 <Icon class='size-4 text-cream/60 group-hover:text-cream transition-colors duration-300' aria-hidden='true' />
               </div>
-              <span class='text-[0.65rem] font-bold uppercase tracking-[0.18em] text-white/30'>
+              <span class='text-xs font-bold uppercase tracking-[0.18em] text-white/30'>
                 {item.label}
               </span>
             </div>

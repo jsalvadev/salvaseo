@@ -1,46 +1,56 @@
 ---
-import CalButton from '../../CalButton.astro'
+import WhatsAppButton from '../../WhatsAppButton.astro'
 ---
 
-<section class='relative overflow-hidden py-24 md:py-32 bg-gradient-to-br from-surface to-base'>
-  <!-- Ambient light gradients -->
-  <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-    <div class="absolute -top-20 -right-10 h-[400px] w-[500px] rounded-full bg-cream/15 blur-3xl"></div>
-    <div class="absolute bottom-0 -left-20 h-[320px] w-[400px] rounded-full bg-sage/20 blur-3xl"></div>
+<section class='relative overflow-hidden py-24 md:py-32'>
+  <!-- Subtle dot grid texture -->
+  <div
+    class='pointer-events-none absolute inset-0'
+    aria-hidden='true'
+    style='background-image: radial-gradient(circle, rgba(52,101,109,0.07) 1px, transparent 1px); background-size: 28px 28px;'>
   </div>
 
   <!-- Large faded watermark -->
-  <div class="font-heading pointer-events-none absolute -right-6 top-1/2 -translate-y-1/2 select-none leading-none text-wm font-bold text-white/[0.04]"
-    aria-hidden='true'>
-    CÓMO
+  <div
+    class='pointer-events-none absolute -right-6 top-1/2 -translate-y-1/2 select-none overflow-hidden'
+    aria-hidden='true'
+    style='font-family: "Titan One", cursive; font-size: clamp(12rem, 26vw, 22rem); color: rgba(52,101,109,0.06); line-height: 1; white-space: nowrap;'>
+    SOLUCIÓN
   </div>
 
-  <div class='relative container-site'>
+  <div class='relative mx-auto max-w-[1280px] px-5'>
     <div class='grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-16 xl:gap-24 items-start'>
 
       <!-- ── LEFT: Headline block ─────────────────────────────────── -->
       <div class='lg:sticky lg:top-28'>
-        <div data-animate class='mb-8'>
-          <h2 class='text-xs font-bold text-cream'>
-            CONTRATAR UN CONSULTOR SEO
+        <div data-animate class='flex items-center gap-3 mb-8'>
+          <span class='block h-px w-10 bg-teal' aria-hidden='true'></span>
+          <h2 class='label-section text-teal'>
+            Contratar un consultor SEO
           </h2>
         </div>
 
         <p
           data-animate
-          class='font-heading text-h2 font-bold leading-tight text-cream tracking-tight'>
-          <span class='text-white'>Pero se puede</span> solucionar<span class='text-sage'>.</span>
+          style='font-family: "Titan One", cursive;'
+          class='leading-[0.9] tracking-tight'>
+          <span class='block heading-display text-charcoal/60 mb-1'>
+            Pero se puede
+          </span>
+          <span class='block heading-display text-charcoal'>
+            solucionar<span class='text-teal'>.</span>
+          </span>
         </p>
 
-        <div data-animate class='mt-6 flex items-center'>
-          <div class='h-px w-32 bg-gradient-to-r from-cream/5 to-cream/35'></div>
-          <div class='h-px w-10 bg-cream/60'></div>
+        <div data-animate class='mt-6 flex items-center gap-0'>
+          <div class='h-px w-16 bg-teal'></div>
+          <div class='h-px w-24 bg-gradient-to-r from-teal/40 to-transparent'></div>
         </div>
 
         <p
           data-animate
-          class='mt-6 max-w-[40ch] text-base text-white leading-relaxed text-pretty'>
-          En la llamada revisamos tu presencia en Google, analizamos a tu competencia y te digo exactamente <strong>qué está fallando</strong> y qué hay que hacer para que <strong>tus clientes te encuentren</strong>.
+          class='mt-6 max-w-[40ch] text-base text-body leading-relaxed text-pretty'>
+          En la llamada revisamos tu presencia en Google, analizamos a tu competencia y te digo exactamente <strong class='text-charcoal font-semibold'>qué está fallando y qué hay que hacer para que tus clientes te encuentren.</strong>
         </p>
       </div>
 
@@ -50,44 +60,47 @@ import CalButton from '../../CalButton.astro'
         <!-- Step 1 -->
         <div
           data-animate
-          class='relative flex gap-6 py-10 border-b border-surface/10'>
+          class='relative flex gap-6 py-10 border-b border-charcoal/10'>
           <div class='shrink-0 flex flex-col items-center pt-0.5 w-10'>
-            <span class='text-[0.6rem] font-bold tracking-[0.14em] uppercase text-cream leading-none mb-0.5'>
+            <span class='label-micro text-teal leading-none mb-0.5'>
               Paso
             </span>
             <span
-              class='font-heading text-[2.2rem] leading-none font-bold text-cream/40 tabular-nums'
->
+              class='text-[2.2rem] leading-none font-bold text-teal/40 tabular-nums'
+              style='font-family: "Titan One", cursive;'>
               01
             </span>
           </div>
           <div>
-            <p class='text-base font-bold text-cream mb-3'>
-              Agenda tu sesión gratuita
+            <p class='text-base font-bold text-charcoal mb-3'>
+              Reserva tu llamada gratuita
             </p>
-            <CalButton variant="cream" />
+            <WhatsAppButton
+              text='Elige tu horario'
+              class='text-sm font-bold px-5 py-2.5 shadow-sm shadow-sand/20'
+            />
           </div>
         </div>
 
         <!-- Step 2 -->
         <div
           data-animate
-          class='relative flex gap-6 py-10 border-b border-surface/10'>
+          class='relative flex gap-6 py-10 border-b border-charcoal/10'>
           <div class='shrink-0 flex flex-col items-center pt-0.5 w-10'>
-            <span class='text-[0.6rem] font-bold tracking-[0.14em] uppercase text-cream leading-none mb-0.5'>
+            <span class='label-micro text-teal leading-none mb-0.5'>
               Paso
             </span>
             <span
-              class='font-heading text-[2.2rem] leading-none font-bold text-cream/40 tabular-nums'
->
+              class='text-[2.2rem] leading-none font-bold text-teal/40 tabular-nums'
+              style='font-family: "Titan One", cursive;'>
               02
             </span>
           </div>
           <div>
-            <p class='text-base font-bold text-cream mb-2'>
+            <p class='text-base font-bold text-charcoal mb-2'>
               Cuéntame tu situación
             </p>
-            <p class='text-base text-white leading-relaxed'>
+            <p class='text-base text-body leading-relaxed'>
               Al reservar, indícame la URL de tu web y qué te preocupa. Nada más.
             </p>
           </div>
@@ -98,20 +111,27 @@ import CalButton from '../../CalButton.astro'
           data-animate
           class='relative flex gap-6 pt-10'>
           <div class='shrink-0 flex flex-col items-center pt-0.5 w-10'>
-            <span class='text-[0.6rem] font-bold tracking-[0.14em] uppercase text-cream leading-none mb-0.5'>
+            <span class='label-micro text-teal leading-none mb-0.5'>
               Paso
             </span>
             <span
-              class='font-heading text-[2.2rem] leading-none font-bold text-cream/40 tabular-nums'
->
+              class='text-[2.2rem] leading-none font-bold text-teal/40 tabular-nums'
+              style='font-family: "Titan One", cursive;'>
               03
             </span>
           </div>
           <div>
-            <p class='text-base font-bold text-cream mb-2'>
-              Hablamos 30 min
-            </p>
-            <p class='text-base text-white leading-relaxed text-pretty'>
+            <div class='flex items-baseline gap-2 mb-2'>
+              <p class='text-base font-bold text-charcoal'>
+                Hablamos
+              </p>
+              <span
+                style='font-family: "Titan One", cursive;'
+                class='text-2xl leading-none text-teal'>
+                30 min
+              </span>
+            </div>
+            <p class='text-base text-body leading-relaxed text-pretty'>
               Reviso tu web en tiempo real, te explico qué está fallando y por qué Google no te muestra.
             </p>
           </div>

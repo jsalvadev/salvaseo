@@ -1,0 +1,158 @@
+---
+import { Globe, MapPin, ArrowRight } from '@lucide/astro'
+---
+
+<section
+  id='servicios'
+  class='relative overflow-hidden py-24 md:py-32'
+  style='scroll-margin-top: var(--navbar-height)'>
+
+  <!-- Dot-grid texture -->
+  <div
+    class='pointer-events-none absolute inset-0'
+    aria-hidden='true'
+    style='background-image: radial-gradient(circle, rgba(52,101,109,0.055) 1px, transparent 1px); background-size: 28px 28px;'>
+  </div>
+
+  <!-- Hairlines -->
+  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-teal/20 to-transparent' aria-hidden='true'></div>
+  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-teal/10 to-transparent' aria-hidden='true'></div>
+
+  <div class='relative mx-auto max-w-[860px] px-5'>
+
+    <!-- Section header -->
+    <div class='mb-12'>
+      <div data-animate class='flex items-center gap-3 mb-4'>
+        <span class='block h-px w-10 bg-teal' aria-hidden='true'></span>
+        <p class='label-section text-teal'>Servicios SEO en Barcelona</p>
+      </div>
+      <p
+        data-animate
+        style='font-family: "Titan One", cursive;'
+        class='heading-display leading-[1.05] tracking-tight text-charcoal text-pretty'>
+        Elige la estrategia que necesita tu negocio<span class='text-teal'>.</span>
+      </p>
+      <div data-animate class='mt-5 flex items-center'>
+        <div class='h-[3px] w-12 bg-teal rounded-full'></div>
+        <div class='h-px w-20 bg-gradient-to-r from-teal/40 to-transparent'></div>
+      </div>
+    </div>
+
+    <!-- Cards — single column, horizontal split on sm+ -->
+    <div class='flex flex-col gap-4'>
+
+      <!-- Card 01 — Posicionamiento Web (teal) -->
+      <a
+        href='/posicionamiento-web-barcelona/'
+        data-animate
+        class='group relative flex flex-col sm:flex-row rounded-2xl border border-charcoal/10 bg-white overflow-hidden
+               transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-charcoal/8
+               hover:border-teal/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal'>
+
+        <!-- Left accent bar -->
+        <div class='pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-teal scale-y-0 origin-top rounded-r-full transition-transform duration-300 group-hover:scale-y-100' aria-hidden='true'></div>
+
+        <!-- Dark band -->
+        <div class='relative overflow-hidden bg-charcoal sm:w-[42%] shrink-0 px-6 py-7 flex flex-col justify-between gap-5 min-h-[160px] sm:min-h-0'>
+
+          <svg class='pointer-events-none absolute inset-0 w-full h-full' aria-hidden='true' preserveAspectRatio='none'>
+            <line x1='55%' y1='0%' x2='100%' y2='100%' stroke='rgba(250,234,177,0.08)' stroke-width='1' />
+          </svg>
+
+          <div
+            class='pointer-events-none absolute -right-1 bottom-0 select-none leading-none'
+            aria-hidden='true'
+            style='font-family: "Titan One", cursive; font-size: 5.5rem; color: rgba(250,234,177,0.10); line-height: 1;'>
+            01
+          </div>
+
+          <div class='relative flex items-center gap-3'>
+            <div class='flex size-9 shrink-0 items-center justify-center rounded-xl bg-teal/10 ring-1 ring-teal/30'>
+              <Globe aria-hidden='true' class='size-4 text-teal' />
+            </div>
+            <span class='label-ui text-white/40'>Visibilidad en buscadores</span>
+          </div>
+
+          <div class='relative flex items-baseline gap-2'>
+            <span class='text-[1.3rem] leading-none text-sand/40 tabular-nums shrink-0' style='font-family: "Titan One", cursive;'>01</span>
+            <h2 class='text-base font-semibold text-white tracking-tight leading-snug'>Posicionamiento Web en Barcelona</h2>
+          </div>
+        </div>
+
+        <!-- Divider dot -->
+        <div class='hidden sm:flex flex-col items-center justify-center w-px relative shrink-0'>
+          <div class='absolute inset-y-0 left-0 w-px bg-charcoal/10'></div>
+          <div class='relative z-10 size-2 rounded-full bg-teal opacity-50 group-hover:opacity-100 transition-opacity duration-300' aria-hidden='true'></div>
+        </div>
+
+        <!-- Body -->
+        <div class='flex flex-col justify-between gap-5 p-6 flex-1'>
+          <p class='text-sm/6 text-body text-pretty'>
+            Aparece en Google cuando tus clientes buscan tus servicios. Auditoría técnica, contenidos orientados a captación y estrategia off page para que tu web trabaje por ti.
+          </p>
+          <div class='flex items-center gap-2 text-sm font-semibold text-teal transition-all duration-200 group-hover:gap-3'>
+            Ver servicio
+            <ArrowRight class='size-4' aria-hidden='true' />
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 02 — SEO Local (orange) -->
+      <a
+        href='/seo-local-barcelona/'
+        data-animate
+        class='group relative flex flex-col sm:flex-row rounded-2xl border border-charcoal/10 bg-white overflow-hidden
+               transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-charcoal/8
+               hover:border-sand/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sand'>
+
+        <!-- Left accent bar -->
+        <div class='pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-sand scale-y-0 origin-top rounded-r-full transition-transform duration-300 group-hover:scale-y-100' aria-hidden='true'></div>
+
+        <!-- Dark band -->
+        <div class='relative overflow-hidden bg-charcoal sm:w-[42%] shrink-0 px-6 py-7 flex flex-col justify-between gap-5 min-h-[160px] sm:min-h-0'>
+
+          <svg class='pointer-events-none absolute inset-0 w-full h-full' aria-hidden='true' preserveAspectRatio='none'>
+            <line x1='55%' y1='0%' x2='100%' y2='100%' stroke='rgba(250,234,177,0.08)' stroke-width='1' />
+          </svg>
+
+          <div
+            class='pointer-events-none absolute -right-1 bottom-0 select-none leading-none'
+            aria-hidden='true'
+            style='font-family: "Titan One", cursive; font-size: 5.5rem; color: rgba(250,234,177,0.10); line-height: 1;'>
+            02
+          </div>
+
+          <div class='relative flex items-center gap-3'>
+            <div class='flex size-9 shrink-0 items-center justify-center rounded-xl bg-sand/10 ring-1 ring-sand/30'>
+              <MapPin aria-hidden='true' class='size-4 text-sand' />
+            </div>
+            <span class='label-ui text-white/40'>Visibilidad en Google Maps</span>
+          </div>
+
+          <div class='relative flex items-baseline gap-2'>
+            <span class='text-[1.3rem] leading-none text-sand/40 tabular-nums shrink-0' style='font-family: "Titan One", cursive;'>02</span>
+            <h2 class='text-base font-semibold text-white tracking-tight leading-snug'>SEO Local en Barcelona</h2>
+          </div>
+        </div>
+
+        <!-- Divider dot -->
+        <div class='hidden sm:flex flex-col items-center justify-center w-px relative shrink-0'>
+          <div class='absolute inset-y-0 left-0 w-px bg-charcoal/10'></div>
+          <div class='relative z-10 size-2 rounded-full bg-sand opacity-50 group-hover:opacity-100 transition-opacity duration-300' aria-hidden='true'></div>
+        </div>
+
+        <!-- Body -->
+        <div class='flex flex-col justify-between gap-5 p-6 flex-1'>
+          <p class='text-sm/6 text-body text-pretty'>
+            Domina el Local Pack de Google Maps y atrae clientes de tu zona. Optimización de Google Business Profile y estrategia de reputación para que tu negocio sea la primera opción.
+          </p>
+          <div class='flex items-center gap-2 text-sm font-semibold text-sand transition-all duration-200 group-hover:gap-3'>
+            Ver servicio
+            <ArrowRight class='size-4' aria-hidden='true' />
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
