@@ -1,6 +1,6 @@
 ---
 import { Check, Search, FileText, Link } from '@lucide/astro'
-import HeadingRule from '../../HeadingRule.astro'
+import AccentRule from '../../AccentRule.astro'
 
 interface Props {
   upheading?: string
@@ -89,7 +89,7 @@ const services = [
       <!-- Eyebrow -->
       {upheading && (
         <div data-animate class='mb-8'>
-          <h2 class='text-xs font-bold uppercase tracking-widest'>{upheading}</h2>
+          <h2 class='text-xs font-bold italic uppercase tracking-widest'>{upheading}</h2>
         </div>
       )}
 
@@ -101,7 +101,7 @@ const services = [
       />
 
       <!-- Accent rule -->
-      <HeadingRule thick color='var(--color-surface)' class='mb-6' data-animate />
+      <AccentRule color='base' data-animate />
 
 
       <!-- Subtitle -->

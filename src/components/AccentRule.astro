@@ -1,0 +1,14 @@
+---
+interface Props {
+  color?: string
+  class?: string
+  [key: string]: unknown
+}
+
+const { color = 'cream', class: className = '', ...rest } = Astro.props
+---
+
+<div class={`mt-6 flex items-center ${className}`} {...rest}>
+  <div class={`h-px w-32 bg-gradient-to-r from-${color}/5 to-${color}/35`}></div>
+  <div class={`h-px w-10 bg-${color}/60`}></div>
+</div>
