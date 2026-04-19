@@ -52,42 +52,27 @@ const {
   mockupCaption = 'Así se ve el Local Pack de Google: <strong>3 negocios, un mapa, el 44 % de los clics.</strong>',
 } = Astro.props
 
-// Two-size Titan One split: break at ". " between statement and question
-const periodIdx = heading.indexOf('. ')
-const headingFirst  = periodIdx !== -1 ? heading.slice(0, periodIdx + 1) : heading
-const headingSecond = periodIdx !== -1 ? heading.slice(periodIdx + 2)    : ''
 ---
 
-<section class='relative overflow-hidden py-24 md:py-32'>
+<section class='relative overflow-hidden py-24 md:py-32 bg-cream'>
 
-  <!-- Dot-grid texture -->
-  <div
-    class='pointer-events-none absolute inset-0'
-    aria-hidden='true'>
-  </div>
-
-  <!-- Titan One watermark -->
-  <div class="font-heading pointer-events-none absolute -left-8 top-1/2 -translate-y-1/2 select-none leading-none text-wm font-bold text-white/[0.04]"
+  <!-- Watermark -->
+  <div class="font-heading pointer-events-none absolute -left-8 top-1/2 -translate-y-1/2 select-none leading-none text-wm font-bold text-base/[0.04]"
     aria-hidden='true'>
     MAPA
   </div>
 
-  <!-- Top / bottom hairlines -->
-  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-charcoal/10 to-transparent' aria-hidden='true'></div>
-  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-charcoal/10 to-transparent' aria-hidden='true'></div>
-
-  <!-- Orange right accent bar -->
+  <!-- Right accent bar -->
   <div
     class='pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-32 bg-sage rounded-l-full'
     aria-hidden='true'>
   </div>
 
-  <div class='relative container-site'>
+  <div class='relative container-site text-center'>
 
     <!-- ── Section header ──────────────────────────────────────────── -->
     <div class='mb-14 lg:mb-18'>
-      <div data-animate class='flex items-center gap-3'>
-        <span class='block h-px w-10 bg-sage' aria-hidden='true'></span>
+      <div data-animate class='flex items-center justify-center gap-3'>
         <h2 class='text-xs font-bold tracking-[0.18em] uppercase text-sage'>
           {upheading}
         </h2>
@@ -95,39 +80,27 @@ const headingSecond = periodIdx !== -1 ? heading.slice(periodIdx + 2)    : ''
 
       <p
         data-animate
-
-        class='mt-5 leading-[0.95] tracking-tight text-pretty max-w-4xl'>
-        {headingSecond ? (
-          <>
-            <span class='block text-[clamp(1.2rem,2.4vw,1.8rem)] text-cream/55 mb-1'>{headingFirst}</span>
-            <span class='block font-heading text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] text-cream'>{headingSecond.replace(/\?$/, '')}<span class='text-sage'>?</span></span>
-          </>
-        ) : (
-          <span class='block font-heading text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] text-cream'>{heading}</span>
-        )}
+        class='mt-5 font-heading text-h2 font-bold leading-tight tracking-tight text-pretty mx-auto max-w-4xl text-base'>
+        {heading}
       </p>
 
-      <div data-animate class='mt-6 flex items-center'>
-        <div class='h-[3px] w-16 bg-sage rounded-full'></div>
-        <div class='h-px w-24 bg-gradient-to-r from-teal/40 to-transparent'></div>
-      </div>
     </div>
 
     <!-- ── Items list ──────────────────────────────────────────── -->
-    <div class='max-w-2xl'>
+    <div class='max-w-2xl mx-auto'>
       <div>
 
-        <p class='text-base md:text-lg text-cream/70 leading-relaxed mb-10 text-pretty max-w-[46ch]' data-animate>
+        <p class='text-base text-surface leading-relaxed mb-10 text-pretty mx-auto max-w-[46ch]' data-animate>
           <Fragment set:html={intro} />
         </p>
 
-        <ol class='flex flex-col gap-4'>
+        <ol class='flex flex-col gap-4 text-left'>
           {items.map((item, idx) => {
             const Icon = iconByKey[item.icon]
             const num  = String(idx + 1).padStart(2, '0')
             return (
               <li
-                class='item-card group relative overflow-hidden rounded-2xl border border-surface/10 bg-white px-5 py-5 transition-all duration-300 hover:border-teal/30 hover:shadow-md hover:shadow-charcoal/5 cursor-default'
+                class='item-card group relative overflow-hidden rounded-2xl border border-sage-20 bg-white/50 px-5 py-5 transition-all duration-300 hover:border-sage-30 hover:shadow-md hover:shadow-base/5 cursor-default'
                 data-animate
                 data-animate-delay={idx * 110}>
 
@@ -135,24 +108,24 @@ const headingSecond = periodIdx !== -1 ? heading.slice(periodIdx + 2)    : ''
                 <div class='pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-sage scale-y-0 origin-top rounded-r-full transition-transform duration-300 group-hover:scale-y-100' aria-hidden='true'></div>
 
                 <!-- Ghost ordinal -->
-                <div class="font-heading pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 select-none leading-none transition-opacity duration-300"
+                <div class="font-heading pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 select-none leading-none text-base/[0.08] text-[3rem] transition-opacity duration-300"
                   aria-hidden='true'>
                   {num}
                 </div>
 
                 <div class='relative flex items-start gap-3.5'>
                   <!-- Icon badge -->
-                  <div class='shrink-0 mt-0.5 flex h-8 w-8 items-center justify-center rounded-xl bg-sage/5 ring-1 ring-sage/15 transition-all duration-300 group-hover:bg-sage/10 group-hover:ring-sage/25'>
+                  <div class='shrink-0 mt-0.5 flex h-8 w-8 items-center justify-center rounded-xl bg-sage/10 ring-1 ring-sage/20 transition-all duration-300 group-hover:bg-sage/20 group-hover:ring-sage/30'>
                     <Icon class='size-4 text-sage' aria-hidden='true' />
                   </div>
 
                   <div class='min-w-0'>
                     <!-- Expanding underline -->
                     <div class='h-0.5 w-5 bg-sage rounded-full transition-all duration-300 group-hover:w-10 mb-2'></div>
-                    <dt class='text-[0.9rem] font-bold text-cream leading-snug mb-1.5 transition-colors duration-300 group-hover:text-cream'>
+                    <dt class='text-[0.9rem] font-bold text-base leading-snug mb-1.5'>
                       {item.title}
                     </dt>
-                    <dd class='text-base text-cream/70 leading-relaxed text-pretty'>
+                    <dd class='text-base text-surface leading-relaxed text-pretty'>
                       <Fragment set:html={item.description} />
                     </dd>
                   </div>
