@@ -1,7 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import seoLocalHeroImage from '../assets/yoga-barcelona.avif'
-import BarcelonaLocalSeoHero from '../components/pages/seo-local-barcelona/Hero.astro'
+import yogaBarcelonaImage from '../assets/yoga-barcelona.avif'
+import PageHero from '../components/shared/PageHero.astro'
+import WhatsAppButton from '../components/WhatsAppButton.astro'
+import { Image } from 'astro:assets'
+import localPackImg from '../assets/local-pack-fontanero-barcelona.avif'
+import { buildWhatsAppHref } from '../data/site'
 import LocalSeoExplainer from '../components/pages/seo-local-barcelona/Explainer.astro'
 import LocalSeoServices from '../components/pages/seo-local-barcelona/Services.astro'
 import Timeline from '../components/pages/seo-local-barcelona/Timeline.astro'
@@ -11,7 +15,8 @@ import Faq from '../components/pages/home/Faq.astro'
 import LocalSeoCta from '../components/pages/seo-local-barcelona/Cta.astro'
 import RelatedServices from '../components/pages/seo-local-barcelona/RelatedServices.astro'
 import GoogleMapEmbed from '../components/shared/GoogleMapEmbed.astro'
-import Breadcrumb from '../components/Breadcrumb.astro'
+
+const waHref = buildWhatsAppHref()
 
 const MIN_MONTHLY_PRICE_EUR = 350
 const MIN_MONTHLY_PRICE_TEXT = `${MIN_MONTHLY_PRICE_EUR} €/mes`
@@ -257,16 +262,44 @@ const seoLocalBusinessTypes = [
   title='SEO Local en Barcelona desde 350 €/mes - SalvaSEO'
   description='¿Tu negocio no aparece en Google Maps? SEO local en Barcelona ☎ 692 051 399 🔵 Desde 350 €/mes ⭐ Sin permanencia. ¡Contacta ya!'
   canonicalUrl='https://salvaseo.com/seo-local-barcelona/'
-  preloadImageHref={seoLocalHeroImage.src}>
+>
 
   <!-- 1. HERO -->
-  <BarcelonaLocalSeoHero
-    heading='Convierte las búsquedas cercanas en clientes que pagan'
+  <PageHero
+    theme='sage'
+    watermark='LOCAL'
+    watermarkSide='right'
+    eyebrow='Consultor SEO Local en Barcelona'
+    eyebrowStyle='lined'
     description='Haz que tu negocio sea la primera opción en Barcelona. Con casi la mitad de las búsquedas (46%) en Google siendo locales, Maps es hoy tu escaparate más rentable. <strong>Tu cliente ya está buscando ahora mismo.</strong>'
-    primaryCtaText='Analiza mi web'
-    secondaryCtaText='Revisa el plan de ejecución'
-    secondaryCtaHref='#proceso'
-  />
+    decorationStyle='lines'
+    breadcrumbItems={[{ label: 'Inicio', href: '/' }, { label: 'Consultor SEO Local Barcelona' }]}
+  >
+    <p slot='heading' class='mt-5 font-heading'>
+      <span class='block text-[clamp(1rem,2.2vw,1.8rem)] text-white/40 leading-[1.05] tracking-tight mb-1'>
+        Convierte las búsquedas cercanas en
+      </span>
+      <span class='block font-heading text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[0.93] tracking-tight text-white'>
+        clientes que pagan<span class='text-cream'>.</span>
+      </span>
+    </p>
+
+    <WhatsAppButton slot='cta' text='Analiza mi web' href={waHref} class='px-6 py-3 text-[0.9375rem] font-bold shadow-lg shadow-teal/20 hover:shadow-teal/30 transition-shadow' />
+
+    <div slot='visual'>
+      <Image
+        src={localPackImg}
+        alt='Resultados del Local Pack de Google para "fontanero urgente barcelona"'
+        width={762}
+        height={719}
+        class='w-full h-auto block rounded-2xl'
+        loading='eager'
+      />
+      <p class='mt-3 text-center text-xs text-white/40 leading-relaxed'>
+        Captura real de Google · Local Pack para "fontanero urgente barcelona"
+      </p>
+    </div>
+  </PageHero>
 
   <!-- 2. QUÉ ES EL SEO LOCAL -->
   <LocalSeoExplainer
