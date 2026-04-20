@@ -164,20 +164,12 @@ const TOTAL_SEGMENTS = 6
 
             <!-- Plan label + badge -->
             <div class='flex items-start justify-between mb-7'>
-              <div>
-                <p class:list={[
-                  'text-xs font-bold tracking-[0.22em] uppercase mb-1',
-                  tier.featured ? 'text-[#697565]/65' : 'text-cream/45',
-                ]}>
-                  Plan
-                </p>
-                <h2 class:list={[
-                  'font-bold tracking-tight text-base',
-                  tier.featured ? 'text-[#1a1e16]' : 'text-cream/85',
-                ]}>
-                  {tier.name}
-                </h2>
-              </div>
+              <h2 class:list={[
+                'font-bold tracking-tight text-base',
+                tier.featured ? 'text-[#1a1e16]' : 'text-cream/85',
+              ]}>
+                <span class='font-normal text-sm'>Plan</span><br class='hidden sm:block' /><span class='font-heading'>{tier.name}</span>
+              </h2>
 
               {tier.featured && (
                 <span class='mt-0.5 inline-flex items-center gap-1 rounded-full bg-[#1a1e16]/[0.07] px-2.5 py-1 text-xs font-bold uppercase tracking-[0.1em] text-[#1a1e16]/60 ring-1 ring-[#1a1e16]/[0.1]'>

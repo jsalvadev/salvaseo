@@ -1,12 +1,6 @@
 ---
 import WhatsAppButton from '../../WhatsAppButton.astro'
 
-const fakeTestimonials = [
-  { name: "María G.", business: "Tienda online", text: "¡Salva es el mejor! En 3 meses mi web está la primera en Google. ¡Os lo juro!" },
-  { name: "Carlos M.", business: "Restaurante", text: "Hace lo que dice y funciona de verdad. Ahora todo el mundo encuentra mi negocio en internet." },
-  { name: "Laura B.", business: "Clínica dental", text: "El mejor de Barcelona. Rápido, claro y con resultados. ¡100% recomendado!" },
-]
-
 
 ---
 
@@ -46,17 +40,8 @@ const fakeTestimonials = [
         </h2>
       </div>
 
-      <p
-        class='tracking-tight leading-[1.1] text-base font-heading'>
-        Aquí no hay<br />
-        <span class='relative inline-block'>
-          testimonios
-          <span
-            class='absolute left-0 right-0'
-            aria-hidden='true'
-            style='top: 50%; height: 7px; background: linear-gradient(90deg, #34656D, #3d7880); transform: rotate(-1.4deg) translateY(-50%); border-radius: 2px;'>
-          </span>
-        </span>
+      <p class='tracking-tight leading-[1.1] text-base font-heading'>
+        Aquí no hay testimonios inventados.
       </p>
 
       <div class='mt-5 flex items-center'>
@@ -71,67 +56,13 @@ const fakeTestimonials = [
     <div class='mt-16 grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-12 lg:gap-20 items-start'>
 
       <div data-animate-direction='left'>
-
-        <p class='text-sm font-semibold mb-1 text-base'>
-          Muchas páginas de SEO tienen esto:
+        <p class='text-base leading-relaxed text-sage mb-6'>
+          Acabo de empezar y no voy a ponerte fotos de personas que no existen. Lo que sí tengo es esto:
         </p>
-        <p class='text-base mb-4 leading-relaxed text-sage/60'>
-          Personas que probablemente no conoces, no vas a conocer nunca,
-          y cuya página web ni siquiera puedes buscar.
-        </p>
-
-        <div class='space-y-3'>
-          {fakeTestimonials.map((t, i) => (
-            <div
-              class='relative rounded-xl p-5 border overflow-hidden'
-              style={`opacity: ${0.55 - i * 0.08}; filter: grayscale(0.7); background: rgba(236,223,204,0.5); border-color: rgba(105,117,101,0.2);`}
-              aria-hidden='true'>
-
-              <div
-                class='absolute top-3 right-3 pointer-events-none'
-                style='z-index: 2; transform: rotate(6deg);'>
-                <div style='
-                  border: 2px solid rgba(239,68,68,0.6);
-                  border-radius: 3px;
-                  padding: 2px 8px;
-                  color: rgba(239,68,68,0.6);
-                  font-family: "Titan One", cursive;
-                  font-size: 0.6rem;
-                  letter-spacing: 0.18em;
-                  text-transform: uppercase;
-                  white-space: nowrap;
-                  background: rgba(255,255,255,0.7);
-                '>
-                  DUDOSO
-                </div>
-              </div>
-
-              <div class='flex gap-0.5 mb-3'>
-                {[1,2,3,4,5].map(() => (
-                  <svg class='h-3.5 w-3.5 text-amber-400' fill='currentColor' viewBox='0 0 20 20'>
-                    <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z' />
-                  </svg>
-                ))}
-              </div>
-
-              <p class='text-sm italic leading-relaxed text-base'>&ldquo;{t.text}&rdquo;</p>
-
-              <div class='mt-3 flex items-center gap-2'>
-                <div class='shrink-0 size-7 rounded-full flex items-center justify-center bg-sage/15'>
-                  <span class='text-xs font-bold text-sage'>{t.name.charAt(0)}</span>
-                </div>
-                <div>
-                  <p class='text-xs font-semibold text-sage'>{t.name}</p>
-                  <p class='text-xs text-sage/60'>{t.business}</p>
-                </div>
-              </div>
-            </div>
-          ))}
+        <!-- TODO: add real ranking screenshot here -->
+        <div class='rounded-xl border border-sage/20 bg-sage/5 p-6 text-sm text-sage/60 italic'>
+          Gráfica real de posicionamiento — próximamente
         </div>
-
-        <p class='mt-4 text-xs text-center italic leading-relaxed text-sage/60'>
-          Estos no son reales. No hay forma de comprobar si son verdad.
-        </p>
       </div>
 
       <div class='space-y-8' data-animate-direction='right'>
