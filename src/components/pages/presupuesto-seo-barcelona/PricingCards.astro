@@ -1,5 +1,6 @@
 ---
 import { Check } from '@lucide/astro'
+import CalButton from '../../CalButton.astro'
 
 interface PricingTier {
   name: string
@@ -8,7 +9,6 @@ interface PricingTier {
   description: string
   features: string[]
   cta: string
-  ctaHref: string
   featured?: boolean
   commitment: string
   commitmentMonths: number
@@ -35,8 +35,7 @@ const tiers: PricingTier[] = [
       'Llamada mensual de seguimiento',
       'Soporte por WhatsApp',
     ],
-    cta: 'Solicita tu diagnóstico',
-    ctaHref: 'https://wa.me/34692051399?text=Hola%20Salva%2C%20me%20interesa%20el%20Plan%20Visibilidad%20Local%20de%20350%E2%82%AC%2Fmes.%20%C2%BFPodemos%20hacer%20el%20diagn%C3%B3stico%20inicial%3F',
+    cta: 'Agenda tu sesión gratuita',
   },
   {
     name: 'Visibilidad Total',
@@ -60,8 +59,7 @@ const tiers: PricingTier[] = [
       'Llamada mensual de seguimiento',
       'Soporte por WhatsApp',
     ],
-    cta: 'Solicita tu diagnóstico',
-    ctaHref: 'https://wa.me/34692051399?text=Hola%20Salva%2C%20me%20interesa%20el%20Plan%20Visibilidad%20Total%20de%20550%E2%82%AC%2Fmes.%20%C2%BFPodemos%20hacer%20el%20diagn%C3%B3stico%20inicial%3F',
+    cta: 'Agenda tu sesión gratuita',
   },
 ]
 
@@ -271,22 +269,12 @@ const TOTAL_SEGMENTS = 6
 
           <!-- CTA -->
           <div class='p-8 xl:p-10 pt-0'>
-            <a
-              href={tier.ctaHref}
-              target='_blank'
-              rel='noopener noreferrer nofollow'
-              class:list={[
-                'block w-full rounded-xl px-6 py-4 text-center text-xs font-bold uppercase tracking-[0.12em] transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98]',
-                tier.featured
-                  ? 'text-cream hover:opacity-90 shadow-md shadow-[#1a1e16]/15 focus-visible:outline-[#1a1e16]'
-                  : 'bg-cream/[0.07] text-cream/80 ring-1 ring-cream/[0.1] hover:bg-cream/[0.12] hover:text-cream focus-visible:outline-cream',
-              ]}
-              style={tier.featured
-                ? 'background: linear-gradient(135deg, #2e3329 0%, #1a1e16 100%);'
-                : undefined
-              }>
-              {tier.cta}
-            </a>
+            <CalButton
+              text={tier.cta}
+              color={tier.featured ? 'base' : 'cream'}
+              uppercase
+              class='block w-full text-center'
+            />
           </div>
         </article>
       ))}

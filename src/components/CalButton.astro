@@ -2,20 +2,24 @@
 interface Props {
   text?: string
   class?: string
-  variant?: 'sand' | 'cream' | 'teal'
+  color?: 'base' | 'surface' | 'sage' | 'cream' | 'white'
+  uppercase?: boolean
 }
 
 const {
   text = 'Agenda tu sesión gratuita',
   class: className = '',
-  variant = 'sand',
+  color = 'cream',
+  uppercase = false,
 } = Astro.props
 
-const base = 'rounded-md px-3.5 py-2.5 text-sm font-bold shadow-xs transition-all cursor-pointer'
-const variants = {
-  sand: 'bg-sand text-cream hover:bg-[#f5e09a] active:bg-[#e8d280]',
-  cream: 'bg-cream text-base hover:bg-cream/90',
-  teal: 'bg-teal text-white hover:bg-[#3d7880] active:bg-[#2b565d] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal',
+const base = `rounded-md px-3.5 py-2.5 ${uppercase ? 'text-sm uppercase tracking-widest font-semibold' : 'text-sm font-bold'} shadow-xs transition-all cursor-pointer`
+const colors = {
+  base:    'bg-base    text-cream  hover:bg-base/80',
+  surface: 'bg-surface text-cream  hover:bg-surface/80',
+  sage:    'bg-sage    text-cream  hover:bg-sage/80',
+  cream:   'bg-cream   text-base   hover:bg-cream/80',
+  white:   'bg-white   text-base   hover:bg-white/80',
 }
 ---
 
@@ -24,7 +28,7 @@ const variants = {
   data-cal-link="salvaseo/30min"
   data-cal-namespace="30min"
   data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
-  class={`${base} ${variants[variant]} ${className}`}
+  class={`${base} ${colors[color]} ${className}`}
 >
   {text}
 </a>
