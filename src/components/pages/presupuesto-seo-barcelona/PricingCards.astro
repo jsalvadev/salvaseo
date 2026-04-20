@@ -76,36 +76,33 @@ const TOTAL_SEGMENTS = 6
   <!-- Dot-grid texture -->
   <div class='pointer-events-none absolute inset-0 dot-grid-28' aria-hidden='true'></div>
 
-  <!-- Top-left corner sage bloom -->
-  <div
-    class='pointer-events-none absolute -left-32 -top-32 h-[600px] w-[600px] rounded-full opacity-[0.07]'
-    style='background: radial-gradient(circle, var(--color-sage) 0%, transparent 60%);'
-    aria-hidden='true'>
+  <!-- Top-left corner lines -->
+  <div class='pointer-events-none absolute top-0 left-0' aria-hidden='true'>
+    <div class='w-px h-56 bg-gradient-to-b from-sage/40 to-transparent'></div>
+    <div class='absolute top-0 left-0 w-56 h-px bg-gradient-to-r from-sage/40 to-transparent'></div>
+  </div>
+
+  <!-- Bottom-right corner lines -->
+  <div class='pointer-events-none absolute bottom-0 right-0' aria-hidden='true'>
+    <div class='absolute bottom-0 right-0 w-px h-36 bg-gradient-to-t from-sage/20 to-transparent'></div>
+    <div class='absolute bottom-0 right-0 w-36 h-px bg-gradient-to-l from-sage/20 to-transparent'></div>
   </div>
 
   <!-- Ghost "€" watermark -->
   <div
     class='font-heading pointer-events-none absolute -right-8 top-0 select-none leading-none text-wm-xl font-bold text-white/[0.025]'
-    aria-hidden='true'
-    >
+    aria-hidden='true'>
     €
   </div>
 
-  <!-- Ambient sage glow behind featured card — boosted -->
+  <!-- Ambient sage glow — centred, subtle -->
   <div
-    class='pointer-events-none absolute right-1/4 top-1/2 h-[800px] w-[800px] -translate-y-1/2 rounded-full opacity-[0.07]'
-    style='background: radial-gradient(circle, var(--color-sage) 0%, color-mix(in srgb, var(--color-sage) 30%, transparent) 40%, transparent 70%);'
+    class='pointer-events-none absolute left-1/2 top-1/2 h-[1000px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.045]'
+    style='background: radial-gradient(ellipse, var(--color-sage) 0%, transparent 65%);'
     aria-hidden='true'>
   </div>
 
-  <!-- Diagonal gradient band across mid-section -->
-  <div
-    class='pointer-events-none absolute inset-0 opacity-[0.03]'
-    style='background: linear-gradient(125deg, transparent 30%, rgba(105,117,101,0.6) 50%, transparent 70%);'
-    aria-hidden='true'>
-  </div>
-
-  <!-- Bottom fade to next section -->
+  <!-- Bottom separator -->
   <div
     class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-sage/15 to-transparent'
     aria-hidden='true'>
@@ -114,22 +111,20 @@ const TOTAL_SEGMENTS = 6
   <div class='relative container-site pb-24 sm:pb-32 pt-[calc(var(--navbar-height,4.5rem)+3rem)] sm:pt-[calc(var(--navbar-height,4.5rem)+4rem)] lg:pt-[calc(var(--navbar-height,4.5rem)+5rem)]'>
 
     <!-- ── Hero header ──────────────────────────────────── -->
-    <header class='mb-14 lg:mb-18 max-w-4xl'>
+    <header class='mb-16 lg:mb-20 max-w-4xl'>
 
-      <!-- Eyebrow -->
-      <div class='animate-fade-in-up [animation-delay:0ms] mb-7'>
-        <p class='text-xs font-bold tracking-[0.2em] uppercase text-cream/70'>
+      <div class='animate-fade-in-up [animation-delay:0ms] mb-6 flex items-center gap-3'>
+        <div class='h-px w-6 bg-sage/60'></div>
+        <p class='text-xs font-bold tracking-[0.2em] uppercase text-cream/60'>
           Precios SEO en Barcelona
         </p>
       </div>
 
-      <!-- H1 -->
-      <h1 class='animate-fade-in-up [animation-delay:60ms] font-heading text-h1 font-bold leading-[0.97] tracking-tight text-cream text-pretty mb-7'>
+      <h1 class='animate-fade-in-up [animation-delay:60ms] font-heading text-h1 font-bold leading-[0.95] tracking-tight text-cream text-pretty mb-7'>
         Invierte solo en lo<br class='hidden sm:block' />
         que necesitas<span class='text-sage'>.</span>
       </h1>
 
-      <!-- Rule -->
       <div class='animate-fade-in-up [animation-delay:120ms] flex items-center'>
         <div class='h-[3px] w-10 bg-sage rounded-full'></div>
         <div class='h-px w-24 bg-gradient-to-r from-sage/20 to-transparent'></div>
@@ -138,35 +133,35 @@ const TOTAL_SEGMENTS = 6
     </header>
 
     <!-- ── Pricing cards ────────────────────────────────── -->
-    <div class='grid grid-cols-1 gap-5 lg:grid-cols-2 lg:gap-7 max-w-5xl'>
+    <div class='grid grid-cols-1 gap-5 lg:grid-cols-2 lg:gap-6 max-w-5xl'>
       {tiers.map((tier) => (
         <article
           data-animate
           class:list={[
-            'group relative flex flex-col rounded-2xl overflow-hidden transition-all duration-300',
+            'group relative flex flex-col rounded-2xl overflow-hidden transition-transform duration-300 hover:-translate-y-1',
             tier.featured
-              ? 'shadow-2xl shadow-black/40 ring-1 ring-sage/[0.2]'
-              : 'ring-1 ring-white/[0.07] hover:ring-sage/[0.15] hover:shadow-xl hover:shadow-black/25',
+              ? 'shadow-[0_28px_80px_-8px_rgba(0,0,0,0.6),0_0_0_1px_rgba(236,223,204,0.18)]'
+              : 'ring-1 ring-white/[0.07] shadow-[0_8px_40px_-4px_rgba(0,0,0,0.4)] hover:ring-sage/[0.18]',
           ]}
           style={tier.featured
-            ? 'background: linear-gradient(145deg, #4a4c45 0%, #3e3f3a 45%, #363730 100%);'
-            : 'background: linear-gradient(145deg, rgba(105,117,101,0.09) 0%, rgba(255,255,255,0.04) 50%, rgba(255,255,255,0.01) 100%);'
+            ? 'background: #ECDFCC;'
+            : 'background: linear-gradient(145deg, rgba(255,255,255,0.045) 0%, rgba(255,255,255,0.02) 60%, rgba(255,255,255,0.01) 100%);'
           }>
 
-          <!-- Featured: inner sage radial glow (top-left) -->
+          <!-- Featured: sage top strip -->
           {tier.featured && (
             <div
-              class='pointer-events-none absolute inset-0 rounded-2xl'
-              style='background: radial-gradient(ellipse at 10% 0%, rgba(105,117,101,0.25) 0%, transparent 55%);'
+              class='h-[3px] w-full shrink-0'
+              style='background: linear-gradient(90deg, var(--color-sage) 0%, color-mix(in srgb, var(--color-sage) 50%, transparent) 60%, transparent 100%);'
               aria-hidden='true'>
             </div>
           )}
 
-          <!-- Featured: sage top accent strip -->
-          {tier.featured && (
+          <!-- Non-featured: subtle sage hairline -->
+          {!tier.featured && (
             <div
-              class='relative h-[3px] w-full shrink-0'
-              style='background: linear-gradient(90deg, var(--color-sage) 0%, color-mix(in srgb, var(--color-sage) 55%, transparent) 50%, transparent 100%);'
+              class='h-px w-full shrink-0'
+              style='background: linear-gradient(90deg, transparent 0%, rgba(105,117,101,0.3) 25%, rgba(105,117,101,0.3) 75%, transparent 100%);'
               aria-hidden='true'>
             </div>
           )}
@@ -174,78 +169,81 @@ const TOTAL_SEGMENTS = 6
           <div class='flex-1 p-8 xl:p-10'>
 
             <!-- Plan label + badge -->
-            <div class='flex items-center justify-between mb-5'>
+            <div class='flex items-start justify-between mb-7'>
               <div>
                 <p class:list={[
-                  'text-xs font-bold tracking-[0.16em] uppercase mb-0.5',
-                  tier.featured ? 'text-sage/80' : 'text-cream/50',
+                  'text-xs font-bold tracking-[0.22em] uppercase mb-1',
+                  tier.featured ? 'text-[#697565]/65' : 'text-cream/45',
                 ]}>
                   Plan
                 </p>
                 <h2 class:list={[
-                  'text-sm font-bold uppercase tracking-[0.1em]',
-                  tier.featured ? 'text-cream/80' : 'text-cream/70',
+                  'font-bold tracking-tight text-base',
+                  tier.featured ? 'text-[#1a1e16]' : 'text-cream/85',
                 ]}>
                   {tier.name}
                 </h2>
               </div>
+
               {tier.featured && (
-                <span class='inline-flex items-center rounded-full bg-cream/[0.1] px-3 py-1 text-xs font-bold uppercase tracking-wide text-cream ring-1 ring-cream/[0.25]'>
+                <span class='mt-0.5 inline-flex items-center gap-1 rounded-full bg-[#1a1e16]/[0.07] px-2.5 py-1 text-xs font-bold uppercase tracking-[0.1em] text-[#1a1e16]/60 ring-1 ring-[#1a1e16]/[0.1]'>
                   ★ Recomendado
                 </span>
               )}
             </div>
 
             <!-- Price — visual centrepiece -->
-            <div class='mb-3 flex items-baseline gap-2'>
-              {tier.featured ? (
-                <span
-                  class='font-heading text-h1 font-bold leading-none tracking-tight'
-                  style='background: linear-gradient(135deg, #ECDFCC 0%, #a5b09e 40%, #697565 65%, #ECDFCC 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;'>
-                  {tier.price}
-                </span>
-              ) : (
-                <span class='font-heading text-h1 font-bold leading-none tracking-tight text-cream'>
-                  {tier.price}
-                </span>
-              )}
-              <span class:list={[
-                'text-sm font-semibold',
-                tier.featured ? 'text-cream/50' : 'text-cream/55',
-              ]}>
+            <div class='mb-5 flex items-baseline gap-2.5'>
+              <span
+                class:list={[
+                  'font-heading text-h1 font-bold leading-[0.9] tracking-tight',
+                  tier.featured ? 'text-[#1a1e16]' : 'text-cream',
+                ]}>
+                {tier.price}
+              </span>
+              <span
+                class:list={[
+                  'text-sm font-semibold self-end mb-1',
+                  tier.featured ? 'text-[#1a1e16]/50' : 'text-cream/50',
+                ]}>
                 {tier.unit}
               </span>
             </div>
 
             <!-- Commitment bar -->
             <div class='mb-7'>
-              <div class='flex gap-1.5 mb-1.5'>
+              <div class='flex gap-1 mb-2'>
                 {Array.from({ length: TOTAL_SEGMENTS }).map((_, i) => (
                   <div
                     class:list={[
-                      'h-1 flex-1 rounded-full',
+                      'h-1.5 flex-1 rounded-full',
                       i < tier.commitmentMonths
-                        ? 'bg-sage'
-                        : tier.featured ? 'bg-white/[0.08]' : 'bg-white/[0.05]',
+                        ? tier.featured ? 'bg-sage' : 'bg-sage/80'
+                        : tier.featured ? 'bg-[#1a1e16]/[0.1]' : 'bg-white/[0.06]',
                     ]}
                   />
                 ))}
               </div>
-              <p class='text-xs font-semibold uppercase tracking-wide text-cream/50'>
+              <p class:list={[
+                'text-xs font-semibold uppercase tracking-[0.13em]',
+                tier.featured ? 'text-[#1a1e16]/45' : 'text-cream/40',
+              ]}>
                 {tier.commitmentMonths} de {TOTAL_SEGMENTS} meses recomendados
               </p>
             </div>
 
             <!-- Description -->
-            <p
-              class:list={[
-                'text-sm leading-relaxed pb-6 mb-6 border-b',
-                tier.featured
-                  ? 'text-cream/80 border-white/[0.1]'
-                  : 'text-cream/72 border-white/[0.07]',
+            <div class:list={[
+              'pt-6 border-t mb-7',
+              tier.featured ? 'border-[#1a1e16]/[0.1]' : 'border-white/[0.07]',
+            ]}>
+              <p class:list={[
+                'text-base leading-relaxed',
+                tier.featured ? 'text-[#1a1e16]/70' : 'text-cream/68',
               ]}>
-              <Fragment set:html={tier.description} />
-            </p>
+                <Fragment set:html={tier.description} />
+              </p>
+            </div>
 
             <!-- Features -->
             <ul class='space-y-2.5'>
@@ -253,14 +251,16 @@ const TOTAL_SEGMENTS = 6
                 <li class='flex items-start gap-3'>
                   <span
                     class:list={[
-                      'mt-0.5 flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full',
-                      tier.featured ? 'bg-sage/[0.2] text-sage' : 'bg-cream/[0.06] text-cream/50',
+                      'mt-[3px] flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full',
+                      tier.featured
+                        ? 'bg-sage/[0.18] text-sage'
+                        : 'bg-sage/[0.12] text-sage/75',
                     ]}>
                     <Check class='h-2.5 w-2.5' aria-hidden='true' />
                   </span>
                   <span class:list={[
                     'text-sm leading-relaxed',
-                    tier.featured ? 'text-cream/85' : 'text-cream/75',
+                    tier.featured ? 'text-[#1a1e16]/78' : 'text-cream/72',
                   ]}>
                     <Fragment set:html={feature} />
                   </span>
@@ -276,13 +276,13 @@ const TOTAL_SEGMENTS = 6
               target='_blank'
               rel='noopener noreferrer nofollow'
               class:list={[
-                'block w-full rounded-xl px-6 py-4 text-center text-xs font-bold uppercase tracking-[0.1em] transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98]',
+                'block w-full rounded-xl px-6 py-4 text-center text-xs font-bold uppercase tracking-[0.12em] transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98]',
                 tier.featured
-                  ? 'text-white shadow-lg shadow-sage/[0.25] hover:opacity-90 focus-visible:outline-sage'
-                  : 'bg-cream/[0.08] text-cream/80 ring-1 ring-cream/[0.1] hover:bg-cream/[0.12] hover:text-cream focus-visible:outline-cream',
+                  ? 'text-cream hover:opacity-90 shadow-md shadow-[#1a1e16]/15 focus-visible:outline-[#1a1e16]'
+                  : 'bg-cream/[0.07] text-cream/80 ring-1 ring-cream/[0.1] hover:bg-cream/[0.12] hover:text-cream focus-visible:outline-cream',
               ]}
               style={tier.featured
-                ? 'background: linear-gradient(135deg, #7a8a74 0%, #697565 40%, #556056 100%);'
+                ? 'background: linear-gradient(135deg, #2e3329 0%, #1a1e16 100%);'
                 : undefined
               }>
               {tier.cta}
@@ -292,11 +292,6 @@ const TOTAL_SEGMENTS = 6
       ))}
     </div>
 
-    <!-- Footer note -->
-    <p
-      class='animate-fade-in-up [animation-delay:400ms] mt-8 max-w-5xl text-sm text-cream/55'>
-      Precios sin IVA. Sin permanencia ni letra pequeña. ¿Quieres saber más antes de decidir? Lee sobre mi metodología como <a href='/' class='text-sage hover:text-sage/70 underline decoration-sage/[0.25] underline-offset-2 transition-colors'>consultor SEO en Barcelona</a>.
-    </p>
 
   </div>
 </section>
