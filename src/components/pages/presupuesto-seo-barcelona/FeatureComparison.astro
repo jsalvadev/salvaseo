@@ -127,16 +127,16 @@ function renderBundle(value: string): string {
 
       <div class='flex items-center gap-4 mb-6'>
         <span class='block h-px w-10 bg-sage' aria-hidden='true'></span>
-        <p class='text-xs font-bold tracking-[0.2em] uppercase text-sage'>
+        <h2 class='text-xs font-bold tracking-[0.2em] uppercase text-sage'>
           Posicionamiento web: precios por servicio
-        </p>
+        </h2>
       </div>
 
-      <h2
+      <p
         class='font-heading text-h2 font-bold leading-[1.05] tracking-tight text-pretty mb-5'
         style='color: var(--color-base);'>
         Detalle completo de cada paquete<span class='text-sage'>.</span>
-      </h2>
+      </p>
 
       <div class='flex items-center'>
         <div class='h-[3px] w-12 bg-sage rounded-full'></div>
@@ -290,11 +290,11 @@ function renderBundle(value: string): string {
                   aria-hidden='true'>
                   {String(catIdx + 1).padStart(2, '0')}
                 </span>
-                <p
+                <span
                   class='text-xs font-bold tracking-[0.14em] uppercase'
                   style='color: color-mix(in srgb, var(--color-base) 60%, transparent);'>
                   {category.name}
-                </p>
+                </span>
               </div>
               <ul class='fc-card-list-local'>
                 {category.features.map(feature => (
@@ -324,11 +324,11 @@ function renderBundle(value: string): string {
                   aria-hidden='true'>
                   {String(catIdx + 1).padStart(2, '0')}
                 </span>
-                <p
+                <span
                   class='text-xs font-bold tracking-[0.14em] uppercase'
                   style='color: color-mix(in srgb, var(--color-base) 75%, transparent);'>
                   {category.name}
-                </p>
+                </span>
               </div>
               <ul class='fc-card-list-bundle'>
                 {category.features.map(feature => (
