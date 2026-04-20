@@ -78,7 +78,7 @@ const ordinals = ['01', '02', '03', '04', '05', '06']
         <!-- Eyebrow -->
         <div data-animate class='flex items-center gap-3 mb-8'>
           <span class='block h-px w-10 bg-cream' aria-hidden='true'></span>
-          <h2 class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-cream'>
+          <h2 class='text-xs font-bold tracking-[0.18em] uppercase text-cream'>
             {upheading}
           </h2>
         </div>
@@ -124,14 +124,14 @@ const ordinals = ['01', '02', '03', '04', '05', '06']
         <div data-animate class='h-px bg-gradient-to-r from-white/10 to-transparent mb-8'></div>
 
         <!-- Intro text -->
-        <p data-animate class='text-base md:text-lg text-white/75 leading-relaxed text-pretty max-w-[42ch]'>
+        <p data-animate class='text-base md:text-h6 text-white/75 leading-relaxed text-pretty max-w-[42ch]'>
           <Fragment set:html={intro} />
         </p>
 
         <!-- Invisible cost callout -->
         <div data-animate class='mt-8 rounded-2xl border overflow-hidden'>
           <div class='px-5 py-4 border-b'>
-            <p class='text-[0.6rem] font-semibold tracking-[0.12em] uppercase text-cream/70'>El coste invisible</p>
+            <p class='text-xs font-semibold tracking-[0.12em] uppercase text-cream/70'>El coste invisible</p>
           </div>
           <ul class='divide-y'>
             {[
@@ -140,8 +140,8 @@ const ordinals = ['01', '02', '03', '04', '05', '06']
               { label: 'Meses sin capitalizar la demanda local', value: 'acumulados' },
             ].map(row => (
               <li class='flex items-center justify-between gap-4 px-5 py-3.5'>
-                <span class='text-[0.78rem] text-white/75 leading-snug'>{row.label}</span>
-                <span class='shrink-0 text-[0.68rem] font-bold text-cream/70 text-right'>{row.value}</span>
+                <span class='text-sm text-white/75 leading-snug'>{row.label}</span>
+                <span class='shrink-0 text-xs font-bold text-cream/70 text-right'>{row.value}</span>
               </li>
             ))}
           </ul>
@@ -175,7 +175,7 @@ const ordinals = ['01', '02', '03', '04', '05', '06']
                 </svg>
               </div>
               <div class='min-w-0'>
-                <p class='text-[0.9375rem] font-bold text-white/90 mb-1.5 leading-snug transition-colors duration-300 group-hover:text-white'>
+                <p class='text-sm font-bold text-white/90 mb-1.5 leading-snug transition-colors duration-300 group-hover:text-white'>
                   {item.title}
                 </p>
                 <p class='text-sm text-white/45 leading-relaxed text-pretty transition-colors duration-300 group-hover:text-white/60'>
