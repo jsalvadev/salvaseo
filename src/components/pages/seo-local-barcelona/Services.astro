@@ -73,144 +73,157 @@ const defaultServices: ServiceItem[] = [
   },
 ]
 
+const stats: (string | null)[] = [
+  'Punto de partida',
+  'Hasta +70 % de contactos',
+  null,
+  null,
+  null,
+  'Señal de confianza clave',
+  '+30 % más llamadas',
+]
+
 const {
   upheading = 'Servicios de SEO local para negocios en Barcelona',
   heading = 'Las palancas que determinan tu visibilidad en Google Maps',
-  intro = 'Cada acción se ejecuta para que <strong>domines Google Maps y el Local Pack</strong>, aumentes contactos cualificados y conviertas búsquedas cercanas en ventas recurrentes.',
+  intro,
   services = defaultServices,
   ctaText,
   ctaHref,
 } = Astro.props
 
-// Visual metadata: signal bars (1–4) + optional callout stat
-const meta = [
-  { bars: 3, accent: 'sky',    stat: 'Punto de partida',         wide: false },
-  { bars: 4, accent: 'orange', stat: 'Hasta +70 % de contactos', wide: true  },
-  { bars: 3, accent: 'sky',    stat: null,                        wide: false },
-  { bars: 3, accent: 'sky',    stat: null,                        wide: false },
-  { bars: 3, accent: 'sky',    stat: null,                        wide: false },
-  { bars: 4, accent: 'sky',    stat: 'Señal de confianza clave',  wide: false },
-  { bars: 4, accent: 'orange', stat: '+30 % más llamadas',        wide: true  },
-]
+const mainServices = services.slice(0, 6)
+const featuredService = services[6]
+const featuredStat = stats[6]
 ---
 
-<section id='servicios-local' class='relative bg-surface py-24 sm:py-32 overflow-hidden'>
+<section id='servicios-local' class='relative bg-base py-24 sm:py-32 overflow-hidden'>
 
-  <!-- Background texture: fine dot grid -->
-  <div
-    class='pointer-events-none absolute inset-0 opacity-[0.06]'
-    aria-hidden='true'></div>
-
-  <!-- Ambient glow blobs -->
-  <div
-    class='pointer-events-none absolute top-0 left-1/3 w-[500px] h-[500px] rounded-full opacity-20'
-    aria-hidden='true'></div>
-  <div
-    class='pointer-events-none absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full opacity-15'
-    aria-hidden='true'></div>
+  <!-- Dot grid texture -->
+  <div class='pointer-events-none absolute inset-0 dot-grid-32' aria-hidden='true'></div>
 
   <!-- Watermark -->
-  <div class="font-heading pointer-events-none absolute -right-6 top-0 select-none leading-none text-wm font-bold text-white/[0.04]" aria-hidden='true'>
+  <div
+    class='font-heading pointer-events-none absolute -right-4 top-0 select-none leading-none text-wm font-bold text-white/[0.03]'
+    aria-hidden='true'>
     MAPS
   </div>
 
   <div class='relative container-site'>
 
     <!-- ── Header ── -->
-    <div class='flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14 lg:mb-16' data-animate>
-      <div class='max-w-2xl'>
-        <div class='flex items-center gap-3'>
-          <span class='block h-px w-10 bg-cream' aria-hidden='true'></span>
-          <h2 class='text-xs font-bold tracking-[0.18em] uppercase text-cream'>{upheading}</h2>
-        </div>
-        <p class="font-heading mt-5 text-h2 text-white leading-[1.1]">
-          {heading}
+    <div class='mb-16' data-animate>
+      <p class='text-xs font-bold tracking-[0.18em] uppercase text-sage'>{upheading}</p>
+      <h2 class='font-heading mt-4 text-h2 text-cream leading-[1.1] max-w-2xl'>{heading}</h2>
+      {intro && (
+        <p class='mt-5 text-base text-cream-70 max-w-xl leading-relaxed'>
+          <Fragment set:html={intro} />
         </p>
-        <div class='mt-6 flex items-center'>
-          <div class='h-px w-32 bg-gradient-to-r from-cream/5 to-cream/35'></div>
-          <div class='h-px w-10 bg-cream/60'></div>
-        </div>
-      </div>
+      )}
     </div>
 
-    <!-- ── Services grid ── -->
-    <div class='services-grid'>
-      {services.map((service, idx) => {
-        const Icon = iconByKey[service.icon]
-        const m = meta[idx] ?? { bars: 3, accent: 'sky', stat: null, wide: false }
-        const isOrange = m.accent === 'orange'
-        const accentColor = isOrange ? 'var(--color-sand)' : 'var(--color-teal)'
-        const barClass = isOrange ? 'svc-bar-orange' : 'svc-bar-sky'
-        const iconBgClass = isOrange ? 'svc-icon-orange' : 'svc-icon-sky'
-
+    <!-- ── Main 2×3 grid with 1px sage separators ── -->
+    <div class='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-sage/10 rounded-2xl overflow-hidden border border-sage-20'>
+      {mainServices.map((service, idx) => {
+        const Icon = iconByKey[service.icon as IconKey]
+        const stat = stats[idx]
+        const num = String(idx + 1).padStart(2, '0')
         return (
           <article
-            class:list={[
-              'svc-card group relative flex flex-col gap-5 rounded-2xl p-6 border transition-all duration-300',
-              m.wide && 'svc-card--wide',
-            ]}
+            class='group relative flex flex-col gap-4 p-7 bg-base transition-colors duration-300 hover:bg-white-03 cursor-default'
             data-animate
-            data-animate-delay={idx * 80}>
+            data-animate-delay={idx * 60}>
 
-            <!-- Card number watermark -->
+            <!-- Ghost ordinal -->
             <span
-              class='svc-num pointer-events-none select-none absolute top-4 right-5'
+              class='font-heading pointer-events-none select-none absolute top-5 right-6 leading-none text-[3.5rem] text-white/[0.04] transition-opacity duration-300 group-hover:text-white/[0.07]'
               aria-hidden='true'>
-              {String(idx + 1).padStart(2, '0')}
+              {num}
             </span>
 
-            <!-- Top row: icon + signal bars -->
-            <div class='flex items-start justify-between'>
-              <!-- Icon -->
-              <div class:list={['svc-icon-wrap', iconBgClass]}>
-                <Icon aria-hidden='true' class='size-5' />
-              </div>
-
-              <!-- Signal bars -->
-              <div class='signal-bars' aria-hidden='true' title={`Impacto: ${m.bars}/4`}>
-                {[1, 2, 3, 4].map(n => (
-                  <div
-                    class:list={['signal-bar', barClass, n <= m.bars ? 'signal-bar--filled' : 'signal-bar--empty']}>
-                  </div>
-                ))}
-              </div>
+            <!-- Icon -->
+            <div class='shrink-0 size-10 flex items-center justify-center rounded-xl bg-sage-10 ring-1 ring-sage/20 transition-all duration-300 group-hover:bg-sage-15 group-hover:ring-sage/30'>
+              <Icon aria-hidden='true' class='size-[1.1rem] text-sage' />
             </div>
 
-            <!-- Title -->
-            <h3 class='svc-title text-white font-semibold leading-snug text-pretty pr-8'>
-              {service.title}
-            </h3>
+            <!-- Content -->
+            <div class='flex flex-col gap-2 flex-1'>
+              <h3 class='font-heading text-h6 text-cream leading-snug pr-10'>{service.title}</h3>
+              <p class='text-sm text-cream-70 leading-relaxed text-pretty flex-1'>
+                <Fragment set:html={service.description} />
+              </p>
+            </div>
 
-            <!-- Description -->
-            <p class='text-sm leading-[1.7] text-white/75 flex-1'>
-              <Fragment set:html={service.description} />
-            </p>
-
-            <!-- Stat badge (if any) -->
-            {m.stat && (
-              <div class='svc-stat'>
-                <span
-                  class='size-1.5 rounded-full shrink-0'
-                  aria-hidden='true'></span>
-                {m.stat}
+            <!-- Stat pill -->
+            {stat && (
+              <div class='inline-flex items-center gap-1.5 self-start px-2.5 py-1 rounded-full bg-sage-10 border-sage-20 text-sage text-xs font-semibold tracking-wide'>
+                <span class='size-1.5 rounded-full bg-sage shrink-0' aria-hidden='true'></span>
+                {stat}
               </div>
             )}
 
-            <!-- Hover accent line -->
+            <!-- Bottom accent bar -->
             <div
-              class='svc-accent-line'
-              aria-hidden='true'></div>
+              class='absolute bottom-0 left-0 h-[2px] w-0 bg-sage rounded-r-full transition-all duration-500 group-hover:w-full'
+              aria-hidden='true'>
+            </div>
           </article>
         )
       })}
     </div>
 
+    <!-- ── Featured 7th card (full width) ── -->
+    {featuredService && (() => {
+      const Icon = iconByKey[featuredService.icon as IconKey]
+      return (
+        <article
+          class='group relative mt-px flex flex-col sm:flex-row gap-6 sm:gap-10 p-7 sm:p-10 bg-white-03 rounded-2xl border border-sage-20 transition-all duration-300 hover:border-sage-30 hover:bg-white-06 cursor-default overflow-hidden'
+          data-animate
+          data-animate-delay={360}>
+
+          <!-- Ghost ordinal -->
+          <span
+            class='font-heading pointer-events-none select-none absolute top-6 right-8 leading-none text-[5rem] text-white/[0.04] group-hover:text-white/[0.07] transition-opacity duration-300'
+            aria-hidden='true'>
+            07
+          </span>
+
+          <!-- Left: icon + label -->
+          <div class='shrink-0 flex flex-row sm:flex-col gap-4 sm:gap-3 items-center sm:items-start sm:w-36'>
+            <div class='size-12 flex items-center justify-center rounded-xl bg-sage-15 ring-1 ring-sage/30 transition-all duration-300 group-hover:bg-sage/25 group-hover:ring-sage/40'>
+              <Icon aria-hidden='true' class='size-5 text-sage' />
+            </div>
+            {featuredStat && (
+              <div class='inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-sage-10 border-sage-20 text-sage text-xs font-semibold tracking-wide'>
+                <span class='size-1.5 rounded-full bg-sage shrink-0' aria-hidden='true'></span>
+                {featuredStat}
+              </div>
+            )}
+          </div>
+
+          <!-- Right: content -->
+          <div class='flex flex-col gap-3 flex-1'>
+            <h3 class='font-heading text-h4 text-cream leading-snug'>{featuredService.title}</h3>
+            <p class='text-base text-cream-70 leading-relaxed text-pretty max-w-2xl'>
+              <Fragment set:html={featuredService.description} />
+            </p>
+          </div>
+
+          <!-- Bottom accent bar -->
+          <div
+            class='absolute bottom-0 left-0 h-[2px] w-0 bg-sage rounded-r-full transition-all duration-500 group-hover:w-full'
+            aria-hidden='true'>
+          </div>
+        </article>
+      )
+    })()}
+
     <!-- ── CTA ── -->
     {ctaText && ctaHref && (
-      <div class='mt-14 text-center' data-animate>
+      <div class='mt-12 text-center' data-animate>
         <a
           href={ctaHref}
-          class='group inline-flex items-center gap-2 text-sm font-semibold text-cream hover:text-cream/80 transition-colors'>
+          class='group inline-flex items-center gap-2 text-sm font-semibold text-sage hover:text-cream transition-colors duration-200'>
           {ctaText}
           <span class='group-hover:translate-x-1 transition-transform duration-200' aria-hidden='true'>→</span>
         </a>

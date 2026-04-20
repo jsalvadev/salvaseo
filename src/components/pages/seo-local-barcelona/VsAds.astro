@@ -16,7 +16,7 @@ interface ComparisonBullet {
 interface ComparisonColumn {
   title: string
   icon: IconKey
-  accentClass: string
+  accentClass?: string
   ringClass?: string
   noteClass?: string
   note: string
@@ -44,23 +44,22 @@ const iconByKey = {
 const defaultLeftColumn: ComparisonColumn = {
   title: 'SEO local',
   icon: 'trendingUp',
-  accentClass: 'bg-sage',
-  note: '<strong>Ideal para:</strong> negocios que buscan estabilidad, rentabilidad a medio plazo y reducir la dependencia de la publicidad de pago.',
+  note: '<strong>Ideal para:</strong> negocios locales que buscan estabilidad, crecimiento a medio plazo y reducir la dependencia de la publicidad de pago.',
   bullets: [
     {
       icon: 'repeat',
       emphasis: 'Activo acumulativo.',
-      text: 'Cada mes que trabajas, tu posición se refuerza. El tráfico llega sin pagar por cada clic.',
+      text: 'Cada mes de ejecución refuerza tu posición. El tráfico cualificado llega sin pagar por cada clic.',
     },
     {
       icon: 'piggyBank',
       emphasis: 'Coste decreciente por lead.',
-      text: 'A medida que subes posiciones, el coste de adquisición baja. La inversión de hoy genera clientes durante meses.',
+      text: 'A medida que las posiciones escalan, el coste de adquisición baja. La inversión de hoy genera clientes durante meses.',
     },
     {
       icon: 'shieldCheck',
       emphasis: 'Confianza del usuario.',
-      text: 'El 70-80 % de los usuarios ignoran los anuncios y hacen clic en resultados orgánicos. Estar en el mapa genera más credibilidad.',
+      text: 'El 70-80 % de los usuarios ignoran los anuncios y hacen clic en resultados orgánicos.',
     },
   ],
 }
@@ -68,152 +67,100 @@ const defaultLeftColumn: ComparisonColumn = {
 const defaultRightColumn: ComparisonColumn = {
   title: 'Google Ads',
   icon: 'zap',
-  accentClass: 'bg-gray-500',
-  note: '<strong>Ideal para:</strong> emergencias de visibilidad, promociones temporales o sectores donde necesitas resultados mientras el SEO local consolida posiciones.',
+  note: '<strong>Ideal para:</strong> emergencias de visibilidad, promociones temporales o sectores donde necesitas resultados mientras el SEO consolida posiciones.',
   bullets: [
     {
       icon: 'clock',
       emphasis: 'Resultados inmediatos.',
-      text: 'Apareces en la primera posición desde el día uno. Útil para campañas puntuales o lanzamientos.',
+      text: 'Apareces en la primera posición desde el día uno.',
     },
     {
       icon: 'piggyBank',
       emphasis: 'Coste constante por clic.',
-      text: 'Cada visita tiene un precio fijo. Cuando cortas el presupuesto, desapareces al instante de los resultados.',
+      text: 'Cuando cortas el presupuesto, desapareces al instante de los resultados.',
     },
     {
       icon: 'shieldCheck',
-      emphasis: 'Percepción de anuncio.',
-      text: 'Los usuarios saben que es publicidad. La tasa de clic en anuncios es significativamente menor que en resultados orgánicos y Maps.',
+      emphasis: 'Visibilidad vinculada al presupuesto.',
+      text: 'Sin inversión, sin impresiones. El canal funciona mientras hay dinero asignado.',
     },
   ],
 }
 
 const {
   upheading = 'Comparativa SEO local y publicidad en Google',
-  heading = 'SEO local vs Google Ads: qué le conviene más a tu negocio',
+  heading = 'SEO local vs Google Ads',
   intro = 'Ambas estrategias captan clientes, pero <strong>funcionan de forma muy distinta</strong>. Entiende qué te aporta cada una antes de decidir dónde poner tu dinero.',
   leftColumn = defaultLeftColumn,
   rightColumn = defaultRightColumn,
-  conclusion = '<strong>La combinación más rentable</strong> para negocios locales en Barcelona: construir SEO local como base y complementar con Ads solo cuando el sector o la urgencia lo requieran. Cada euro invertido en posicionamiento orgánico <strong>sigue generando clientes meses después</strong>.',
+  conclusion = '<strong>La combinación más rentable</strong> para negocios locales en Barcelona: construir SEO local como base y complementar con Ads solo cuando el sector o la urgencia lo requieran.',
 } = Astro.props
 
-const headingParts = heading.split(' o ')
-const headingFirst = headingParts[0] ?? heading
-const headingSecond = headingParts[1] ?? ''
+const LeftIcon  = iconByKey[leftColumn.icon]
+const RightIcon = iconByKey[rightColumn.icon]
+
+const seoBarHeights = [12, 18, 24, 32, 40, 50, 60, 70, 80, 88, 94, 100]
+const adsBarHeights = [52, 50, 53, 51, 52, 50, 52, 51, 53, 50, 52, 51]
 ---
 
-<section class='relative overflow-hidden bg-sage py-24 md:py-32'>
+<section class='relative overflow-hidden bg-cream py-24 md:py-32'>
 
-  <!-- Dot-grid texture -->
+  <!-- Watermark -->
   <div
-    class='pointer-events-none absolute inset-0'
-    aria-hidden='true'>
-  </div>
-
-  <!-- Diagonal tension lines -->
-  <svg
-    class='pointer-events-none absolute inset-0 w-full h-full'
-    aria-hidden='true'
-    preserveAspectRatio='none'
-    xmlns='http://www.w3.org/2000/svg'>
-    <line x1='42%' y1='0%' x2='58%' y2='100%' stroke='rgba(250,234,177,0.05)' stroke-width='1'></line>
-    <line x1='48%' y1='0%' x2='66%' y2='100%' stroke='rgba(250,234,177,0.04)' stroke-width='1'></line>
-  </svg>
-
-  <!-- Large ghosted watermark -->
-  <div class="font-heading pointer-events-none absolute -right-8 top-1/2 -translate-y-1/2 select-none leading-none text-wm font-bold text-white/[0.04]"
+    class='font-heading pointer-events-none absolute -right-4 top-1/2 -translate-y-1/2 select-none leading-none text-wm font-bold text-base/[0.04]'
     aria-hidden='true'>
     CANAL
   </div>
 
-  <!-- Radial ambient top-left -->
-  <div
-    class='pointer-events-none absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full'
-    aria-hidden='true'>
-  </div>
-
-  <!-- Top / bottom hairlines -->
-  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sand/30 to-transparent' aria-hidden='true'></div>
-  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-sand/15 to-transparent' aria-hidden='true'></div>
-
   <div class='relative container-site'>
 
-    <!-- ── Section header ──────────────────────────────────────────────── -->
-    <div class='mb-14 md:mb-18 max-w-3xl'>
-      <div data-animate class='flex items-center gap-3'>
-        <span class='block h-px w-10 bg-cream' aria-hidden='true'></span>
-        <h2 class='text-xs font-bold tracking-[0.18em] uppercase text-cream'>
-          {upheading}
-        </h2>
-      </div>
-
-      <p
-        data-animate
-
-        class='mt-5 font-heading text-h2 font-bold leading-[1.05] tracking-tight text-white text-pretty'>
-        {headingSecond ? (
-          <>{headingFirst} o <span class='text-cream'>{headingSecond}</span></>
-        ) : (
-          <>{heading}</>
-        )}
-      </p>
-
-      <div data-animate class='mt-6 flex items-center'>
-        <div class='h-[3px] w-16 bg-cream rounded-full'></div>
-        <div class='h-px w-24 bg-gradient-to-r from-sand/40 to-transparent'></div>
-      </div>
-
-      <p data-animate class='mt-6 max-w-[52ch] text-base md:text-lg text-white/75 leading-relaxed text-pretty'>
+    <!-- ── Header ── -->
+    <div class='mb-14 max-w-2xl' data-animate>
+      <p class='text-xs font-bold tracking-[0.18em] uppercase text-sage'>{upheading}</p>
+      <h2 class='font-heading mt-4 text-h2 text-base leading-[1.1]'>{heading}</h2>
+      <p class='mt-5 text-base text-surface leading-relaxed max-w-[50ch]'>
         <Fragment set:html={intro} />
       </p>
     </div>
 
-    <!-- ── Comparison cards ─────────────────────────────────────────── -->
-    <div class='grid grid-cols-1 lg:grid-cols-2 gap-5 mb-14'>
+    <!-- ── Comparison: asymmetric 2/3 + 1/3 ── -->
+    <div class='grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-4 mb-10'>
 
-      <!-- LEFT: SEO local — recommended -->
+      <!-- LEFT: SEO local — dominant dark panel -->
       <div
-        data-animate
-        class='relative rounded-2xl border overflow-hidden'>
+        class='relative rounded-2xl bg-base overflow-hidden flex flex-col'
+        data-animate>
 
-        <!-- Recommended badge -->
-        <div class='absolute top-5 right-5 flex items-center gap-1.5 rounded-full px-2.5 py-1'>
-          <span class='block w-1.5 h-1.5 rounded-full bg-cream'></span>
-          <span class='text-[0.58rem] font-bold uppercase tracking-wider text-cream/80'>Recomendado</span>
+        <!-- Recommended strip -->
+        <div class='flex items-center gap-2 px-7 py-3 bg-sage/20 border-b border-sage-20'>
+          <span class='size-1.5 rounded-full bg-sage shrink-0' aria-hidden='true'></span>
+          <span class='text-xs font-bold tracking-widest uppercase text-sage'>Recomendado para negocios locales</span>
         </div>
 
-        <!-- Top accent bar -->
-        <div class='absolute top-0 inset-x-0 h-[3px] bg-gradient-to-r from-sand/60 via-sand/40 to-transparent rounded-t-2xl'></div>
+        <div class='flex flex-col gap-7 p-7 sm:p-8 flex-1'>
 
-        <!-- Ghost watermark -->
-        <div class="font-heading pointer-events-none absolute -bottom-3 -right-3 select-none leading-none"
-          aria-hidden='true'>
-          ↗
-        </div>
-
-        <div class='p-7 sm:p-8'>
           <!-- Card header -->
-          <div class='flex items-center gap-3 mb-7 pr-24'>
-            <div class='flex h-9 w-9 items-center justify-center rounded-xl shrink-0'>
-              {(() => { const Icon = iconByKey[leftColumn.icon]; return <Icon class='size-4.5 text-cream' aria-hidden='true' /> })()}
+          <div class='flex items-center gap-3'>
+            <div class='size-10 flex items-center justify-center rounded-xl bg-sage-15 ring-1 ring-sage/30'>
+              <LeftIcon class='size-5 text-sage' aria-hidden='true' />
             </div>
             <div>
-              <p class='text-[0.6rem] font-semibold tracking-[0.12em] uppercase text-cream/60 leading-none mb-0.5'>Canal propio</p>
-              <p class='text-xl font-bold text-white leading-tight font-heading'>{leftColumn.title}</p>
+              <p class='text-[0.6rem] font-semibold tracking-widest uppercase text-cream-50 mb-0.5'>Canal propio</p>
+              <p class='font-heading text-h4 text-cream leading-none'>{leftColumn.title}</p>
             </div>
           </div>
 
-          <ul class='space-y-4 mb-7'>
+          <!-- Bullets -->
+          <ul class='flex flex-col gap-4'>
             {leftColumn.bullets.map((bullet) => {
               const BulletIcon = iconByKey[bullet.icon]
               return (
-                <li class='flex items-start gap-3.5'>
-                  <span class='shrink-0 mt-0.5 flex h-6 w-6 items-center justify-center rounded-full'>
-                    <BulletIcon class='size-3 text-cream' aria-hidden='true' />
-                  </span>
-                  <p class='text-base text-white/75 leading-relaxed pt-0.5'>
-                    <strong class='text-white/90 font-semibold'>{bullet.emphasis}</strong>{' '}{bullet.text}
+                <li class='flex items-start gap-3'>
+                  <div class='shrink-0 mt-0.5 size-6 flex items-center justify-center rounded-lg bg-sage-10 ring-1 ring-sage/20'>
+                    <BulletIcon class='size-3.5 text-sage' aria-hidden='true' />
+                  </div>
+                  <p class='text-sm text-cream-70 leading-relaxed'>
+                    <strong class='text-cream font-semibold'>{bullet.emphasis}</strong>{' '}{bullet.text}
                   </p>
                 </li>
               )
@@ -221,64 +168,60 @@ const headingSecond = headingParts[1] ?? ''
           </ul>
 
           <!-- Note -->
-          <div class='rounded-xl px-4 py-3.5'>
-            <p class='text-base text-white/75 leading-relaxed'>
+          <div class='rounded-xl bg-white-06 border border-sage-20 px-4 py-3.5'>
+            <p class='text-sm text-cream-70 leading-relaxed'>
               <Fragment set:html={leftColumn.note} />
             </p>
           </div>
 
-          <!-- Growth bars -->
-          <div class='mt-5 rounded-xl px-4 pt-3.5 pb-4'>
-            <p class='text-[0.6rem] font-semibold tracking-[0.12em] uppercase text-cream/50 mb-2.5'>Efecto acumulativo · 12 meses</p>
-            <div class='flex items-end gap-1 h-8'>
-              {[1,2,3,4,5,8,11,15,19,24,29,35].map((h) => (
+          <!-- Growth bar chart -->
+          <div class='rounded-xl bg-white-03 border border-sage/10 px-5 pt-4 pb-5'>
+            <p class='text-[0.6rem] font-bold tracking-widest uppercase text-cream-50 mb-4'>Visibilidad acumulada · 12 meses</p>
+            <div class='flex items-end gap-1 h-12'>
+              {seoBarHeights.map((h, i) => (
                 <div
-                  class='flex-1 rounded-sm'>
+                  class='seo-bar flex-1 rounded-sm bg-sage origin-bottom'
+                  style={`height: ${h}%; animation-delay: ${i * 60}ms`}
+                  aria-hidden='true'>
                 </div>
               ))}
             </div>
-            <p class='text-[0.6rem] text-cream/40 mt-1.5'>Cada mes genera más que el anterior</p>
+            <p class='text-[0.6rem] text-cream-40 mt-2'>Cada mes genera más que el anterior</p>
           </div>
+
         </div>
       </div>
 
-      <!-- RIGHT: Google Ads -->
+      <!-- RIGHT: Google Ads — muted secondary -->
       <div
+        class='relative rounded-2xl border border-sage-20 bg-cream-10 overflow-hidden flex flex-col'
         data-animate
-        class='relative rounded-2xl border overflow-hidden'>
+        data-animate-delay='80'>
 
-        <!-- Top accent bar -->
-        <div class='absolute top-0 inset-x-0 h-[3px] bg-gradient-to-r from-sand/40 via-sand/25 to-transparent rounded-t-2xl'></div>
+        <div class='flex flex-col gap-6 p-7 flex-1'>
 
-        <!-- Ghost watermark -->
-        <div
-          class='pointer-events-none absolute -bottom-3 -right-3 select-none leading-none'
-          aria-hidden='true'>
-          ∞
-        </div>
-
-        <div class='p-7 sm:p-8'>
           <!-- Card header -->
-          <div class='flex items-center gap-3 mb-7'>
-            <div class='flex h-9 w-9 items-center justify-center rounded-xl shrink-0'>
-              {(() => { const Icon = iconByKey[rightColumn.icon]; return <Icon class='size-4.5 text-cream' aria-hidden='true' /> })()}
+          <div class='flex items-center gap-3'>
+            <div class='size-10 flex items-center justify-center rounded-xl bg-white/60 ring-1 ring-surface/10'>
+              <RightIcon class='size-5 text-surface' aria-hidden='true' />
             </div>
             <div>
-              <p class='text-[0.6rem] font-semibold tracking-[0.12em] uppercase text-cream/60 leading-none mb-0.5'>Canal alquilado</p>
-              <p class='text-xl font-bold text-white leading-tight font-heading'>{rightColumn.title}</p>
+              <p class='text-[0.6rem] font-semibold tracking-widest uppercase text-surface/50 mb-0.5'>Canal alquilado</p>
+              <p class='font-heading text-h4 text-base leading-none'>{rightColumn.title}</p>
             </div>
           </div>
 
-          <ul class='space-y-4 mb-7'>
+          <!-- Bullets -->
+          <ul class='flex flex-col gap-4'>
             {rightColumn.bullets.map((bullet) => {
               const BulletIcon = iconByKey[bullet.icon]
               return (
-                <li class='flex items-start gap-3.5'>
-                  <span class='shrink-0 mt-0.5 flex h-6 w-6 items-center justify-center rounded-full'>
-                    <BulletIcon class='size-3 text-cream' aria-hidden='true' />
-                  </span>
-                  <p class='text-base text-white/75 leading-relaxed pt-0.5'>
-                    <strong class='text-white/90 font-semibold'>{bullet.emphasis}</strong>{' '}{bullet.text}
+                <li class='flex items-start gap-3'>
+                  <div class='shrink-0 mt-0.5 size-6 flex items-center justify-center rounded-lg bg-surface/10 ring-1 ring-surface/15'>
+                    <BulletIcon class='size-3.5 text-surface' aria-hidden='true' />
+                  </div>
+                  <p class='text-sm text-surface leading-relaxed'>
+                    <strong class='text-base font-semibold'>{bullet.emphasis}</strong>{' '}{bullet.text}
                   </p>
                 </li>
               )
@@ -286,39 +229,62 @@ const headingSecond = headingParts[1] ?? ''
           </ul>
 
           <!-- Note -->
-          <div class='rounded-xl px-4 py-3.5'>
-            <p class='text-base text-white/75 leading-relaxed'>
+          <div class='rounded-xl bg-white/40 border border-surface/10 px-4 py-3.5'>
+            <p class='text-sm text-surface leading-relaxed'>
               <Fragment set:html={rightColumn.note} />
             </p>
           </div>
 
-          <!-- Flat bars -->
-          <div class='mt-5 rounded-xl px-4 pt-3.5 pb-4'>
-            <p class='text-[0.6rem] font-semibold tracking-[0.12em] uppercase text-cream/50 mb-2.5'>Coste por visibilidad · 12 meses</p>
-            <div class='flex items-end gap-1 h-8'>
-              {[30,30,30,30,30,30,30,30,30,30,30,30].map(() => (
+          <!-- Flat bar chart -->
+          <div class='rounded-xl bg-white/30 border border-surface/10 px-5 pt-4 pb-5'>
+            <p class='text-[0.6rem] font-bold tracking-widest uppercase text-surface/40 mb-4'>Coste por visibilidad · 12 meses</p>
+            <div class='flex items-end gap-1 h-12'>
+              {adsBarHeights.map((h) => (
                 <div
-                  class='flex-1 rounded-sm'>
+                  class='flex-1 rounded-sm bg-surface/20'
+                  style={`height: ${h}%`}
+                  aria-hidden='true'>
                 </div>
               ))}
             </div>
-            <p class='text-[0.6rem] text-cream/40 mt-1.5'>Mismo coste, mes 1 que mes 12</p>
+            <p class='text-[0.6rem] text-surface/40 mt-2'>Mismo coste, mes 1 que mes 12</p>
           </div>
+
         </div>
       </div>
     </div>
 
-    <!-- ── Conclusion + CTA strip ───────────────────────────────────── -->
-    <div data-animate class='flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 rounded-2xl border px-7 py-6'>
-      <p class='text-sm md:text-base text-white/75 leading-relaxed max-w-[52ch]'>
+    <!-- ── Conclusion + CTA ── -->
+    <div
+      class='flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 rounded-2xl bg-base border border-sage-20 px-7 py-6'
+      data-animate>
+      <p class='text-sm text-cream-70 leading-relaxed max-w-[52ch]'>
         <Fragment set:html={conclusion} />
       </p>
       <WhatsAppButton
         text='Analiza mi web'
         href={waHref}
-        class='shrink-0 px-6 py-3 text-[0.9375rem] font-bold shadow-lg shadow-teal/20 hover:shadow-teal/30 transition-shadow'
+        class='shrink-0 px-6 py-3 text-sm font-bold'
       />
     </div>
 
   </div>
 </section>
+
+<style>
+  .seo-bar {
+    animation: grow-bar 0.6s cubic-bezier(0.34, 1.2, 0.64, 1) both;
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .seo-bar {
+      animation-play-state: running;
+    }
+  }
+
+  @keyframes grow-bar {
+    from { transform: scaleY(0); }
+    to   { transform: scaleY(1); }
+  }
+</style>
