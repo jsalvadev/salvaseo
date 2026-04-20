@@ -66,154 +66,168 @@ const categories: ComparisonCategory[] = [
   }
 ]
 
-// Inline-styled SVGs for set:html injection (no Tailwind class scanning needed)
-const checkSvg = `<span><svg viewBox="0 0 20 20" fill="#34a853" aria-hidden="true"><path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd"/></svg></span>`
+const checkFicha  = `<svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-label="Incluido" style="display:inline-block;vertical-align:middle;"><path d="M4 10.5l4 4L16 6" stroke="var(--color-cream)" stroke-opacity="0.55" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+const checkBundle = `<svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-label="Incluido" style="display:inline-block;vertical-align:middle;"><path d="M4 10.5l4 4L16 6" stroke="var(--color-cream)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+const dashSvg     = `<span aria-label="No incluido" style="display:inline-block;width:10px;height:1.5px;background:color-mix(in srgb, var(--color-white) 18%, transparent);border-radius:2px;vertical-align:middle;"></span>`
 
-const dashSvg = `<span aria-label="No incluido"></span>`
-
-function renderCell(value: string): string {
-  if (value === '✓') return checkSvg
+function renderFicha(value: string): string {
+  if (value === '✓') return checkFicha
   if (value === '—') return dashSvg
-  return `<span>${value}</span>`
+  return `<span style="font-size:var(--text-xs);font-weight:700;color:color-mix(in srgb, var(--color-cream) 55%, transparent);letter-spacing:0.04em;">${value}</span>`
 }
 
-// Teal hex for sticky background
-const BG_TEAL = '#34656D'
+function renderBundle(value: string): string {
+  if (value === '✓') return checkBundle
+  if (value === '—') return dashSvg
+  return `<span style="font-size:var(--text-xs);font-weight:700;color:var(--color-cream);letter-spacing:0.04em;">${value}</span>`
+}
 ---
 
 <div class='relative overflow-hidden bg-teal py-24 sm:py-32'>
 
-  <!-- White-line architectural grid -->
-  <div
-    class='pointer-events-none absolute inset-0'
-    aria-hidden='true'>
-  </div>
+  <!-- Diagonal tension lines -->
+  <svg
+    class='pointer-events-none absolute inset-0 w-full h-full'
+    aria-hidden='true'
+    preserveAspectRatio='none'
+    xmlns='http://www.w3.org/2000/svg'>
+    <line x1='70%' y1='0%' x2='100%' y2='100%' stroke='var(--color-cream)' stroke-opacity='0.05' stroke-width='1'></line>
+    <line x1='76%' y1='0%' x2='108%' y2='100%' stroke='var(--color-cream)' stroke-opacity='0.03' stroke-width='1'></line>
+    <line x1='63%' y1='0%' x2='92%'  y2='100%' stroke='var(--color-cream)' stroke-opacity='0.03' stroke-width='1'></line>
+  </svg>
 
-  <!-- Top hairline (transition from PricingCards above) -->
+  <!-- Ghost category count watermark -->
   <div
-    class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sand/20 to-transparent'
-    aria-hidden='true'>
-  </div>
-
-  <!-- Large ghosted watermark: package count -->
-  <div class="font-heading pointer-events-none absolute -right-8 bottom-8 select-none leading-none"
+    class='font-heading pointer-events-none absolute -right-6 bottom-4 select-none leading-none text-wm-xl font-bold text-white/[0.03]'
     aria-hidden='true'>
     02
   </div>
 
+  <!-- Top hairline (transition from hero above) -->
+  <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cream/20 to-transparent' aria-hidden='true'></div>
+
+  <!-- Bottom hairline -->
+  <div class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-cream/10 to-transparent' aria-hidden='true'></div>
+
   <div class='relative container-site'>
 
-    <!-- Headline block: left-aligned, dark-theme editorial -->
-    <div class='mb-14 max-w-2xl' data-animate>
-      <div class='flex items-center gap-3 mb-6'>
-        <span class='block h-px w-10 bg-cream' aria-hidden='true'></span>
-        <h2 class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-cream'>
+    <!-- ── Section header ──────────────────────────────── -->
+    <header class='mb-14 max-w-2xl' data-animate>
+
+      <div class='flex items-center gap-4 mb-6'>
+        <span class='block h-px w-10 bg-cream/60' aria-hidden='true'></span>
+        <p class='text-xs font-bold tracking-[0.2em] uppercase text-cream/60'>
           Posicionamiento web: precios por servicio
-        </h2>
+        </p>
       </div>
 
-      <p
-
-        class='font-heading text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] leading-[1.05] tracking-tight text-white text-pretty'>
+      <h2 class='font-heading text-h2 font-bold leading-[1.05] tracking-tight text-white text-pretty mb-5'>
         Detalle completo de cada paquete<span class='text-cream'>.</span>
-      </p>
+      </h2>
 
-      <!-- Accent rule -->
-      <div class='mt-5 flex items-center'>
-        <div class='h-[3px] w-16 bg-cream rounded-full'></div>
-        <div class='h-px flex-1 bg-gradient-to-r from-sand/30 to-transparent'></div>
+      <div class='flex items-center'>
+        <div class='h-[3px] w-12 bg-cream/70 rounded-full'></div>
+        <div class='h-px flex-1 bg-gradient-to-r from-cream/20 to-transparent'></div>
       </div>
-    </div>
 
+    </header>
 
     <!-- ── DESKTOP TABLE ────────────────────────────────── -->
     <div class='mx-auto max-w-3xl hidden lg:block' data-animate>
       <table class='w-full text-left border-collapse'>
         <caption class='sr-only'>Tarifas de posicionamiento SEO: comparativa de paquetes</caption>
 
-        <thead
-          class='sticky z-10'>
+        <thead>
           <tr>
-            <!-- Feature name column header -->
-            <th scope='col' class='py-4 pr-6 text-left text-[0.6rem] font-semibold tracking-[0.12em] uppercase text-white/20'>
-              Características
+            <!-- Feature column label -->
+            <th scope='col' class='pb-5 pr-8 text-left align-bottom'>
+              <span class='text-xs font-semibold tracking-[0.14em] uppercase text-white/25'>
+                Características
+              </span>
             </th>
 
-            <!-- Plan Visibilidad Local column header -->
-            <th scope='col' class='py-4 px-5 text-center'>
-              <span class='block text-[0.6rem] font-bold tracking-[0.14em] uppercase text-white/25 mb-0.5'>
+            <!-- Local plan header -->
+            <th scope='col' class='pb-5 px-6 text-center align-bottom w-40'>
+              <span class='block text-xs font-bold tracking-[0.14em] uppercase text-white/30 mb-0.5'>
                 Plan
               </span>
-              <span class='block text-[0.6rem] font-semibold tracking-[0.12em] uppercase text-white/75 mb-1.5'>
+              <span class='block text-xs font-semibold tracking-[0.08em] uppercase text-white/60 mb-2'>
                 Visibilidad Local
               </span>
-              <span class="font-heading block font-bold text-white whitespace-nowrap">
+              <span class='font-heading block font-bold text-white/80 text-h5 leading-none'>
                 350 €/mes
               </span>
             </th>
 
-            <!-- Plan Visibilidad Total column header (featured, orange accent) -->
-            <th
-              scope='col'
-              class='py-4 px-5 text-center relative'>
-              <div class='absolute inset-x-0 top-0 h-[3px] bg-cream'></div>
-              <span class='block text-[0.6rem] font-bold tracking-[0.14em] uppercase text-cream/50 mb-0.5'>
-                Plan
-              </span>
-              <span class='block text-[0.6rem] font-semibold tracking-[0.12em] uppercase text-cream/70 mb-1.5'>
-                Visibilidad Total
-              </span>
-              <span class="font-heading block font-bold text-cream whitespace-nowrap">
-                550 €/mes
-              </span>
+            <!-- Featured plan header -->
+            <th scope='col' class='pb-5 px-6 text-center align-bottom w-40 relative'>
+              <!-- Cream top accent -->
+              <div class='absolute inset-x-0 top-0 h-[2px] bg-cream rounded-b-none' style='border-radius: 0 0 2px 2px;'></div>
+              <!-- Featured column bg -->
+              <div class='absolute inset-x-0 inset-y-0 bg-cream/[0.06] rounded-t-xl' aria-hidden='true'></div>
+              <div class='relative'>
+                <span class='block text-xs font-bold tracking-[0.14em] uppercase text-cream/50 mb-0.5'>
+                  Plan
+                </span>
+                <span class='block text-xs font-semibold tracking-[0.08em] uppercase text-cream/80 mb-2'>
+                  Visibilidad Total
+                </span>
+                <span class='font-heading block font-bold text-cream text-h5 leading-none'>
+                  550 €/mes
+                </span>
+              </div>
             </th>
           </tr>
         </thead>
 
         <tbody>
-          {categories.map(category => (
+          {categories.map((category, catIdx) => (
             <>
-              <!-- Category group header -->
+              <!-- Category header row -->
               <tr>
                 <th
                   scope='colgroup'
                   colspan={3}
-                  class='pt-8 pb-0'>
-                  <div
-                    class='flex items-center gap-3 py-2 px-3 rounded-lg'>
-                    <span class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-cream/80'>
+                  class='pt-8 pb-2'>
+                  <div class='flex items-center gap-3'>
+                    <span class='text-xs font-bold tabular-nums text-white/25 font-heading' aria-hidden='true'>
+                      {String(catIdx + 1).padStart(2, '0')}
+                    </span>
+                    <div class='h-px flex-1 bg-white/10'></div>
+                    <span class='text-xs font-bold tracking-[0.16em] uppercase text-cream/70'>
                       {category.name}
                     </span>
+                    <div class='h-px w-4 bg-white/10'></div>
                   </div>
                 </th>
               </tr>
 
               <!-- Feature rows -->
-              {category.features.map((feature, rowIndex) => (
-                <tr
-                  class='transition-colors duration-150 hover:bg-white/[0.03]'>
+              {category.features.map((feature) => (
+                <tr class='group/row border-b border-white/[0.06] transition-colors duration-100 hover:bg-white/[0.03]'>
                   <th
                     scope='row'
-                    class='py-3 pr-6 text-sm font-normal text-white/65 text-left'>
+                    class='py-3 pr-8 text-sm font-normal text-left text-white/55 group-hover/row:text-white/70 transition-colors duration-100'>
                     {feature.name}
                   </th>
-                  <td class='py-3 text-center w-36 px-4'>
-                    <Fragment set:html={renderCell(feature.ficha)} />
+
+                  <!-- Local cell -->
+                  <td class='py-3 px-6 text-center w-40'>
+                    <Fragment set:html={renderFicha(feature.ficha)} />
                   </td>
-                  <td
-                    class='py-3 text-center w-36 px-4'>
-                    <Fragment set:html={renderCell(feature.bundle)} />
+
+                  <!-- Bundle cell (featured column bg) -->
+                  <td class='py-3 px-6 text-center w-40 bg-cream/[0.035] group-hover/row:bg-cream/[0.06] transition-colors duration-100'>
+                    <Fragment set:html={renderBundle(feature.bundle)} />
                   </td>
                 </tr>
               ))}
             </>
           ))}
 
-          <!-- Final spacer row -->
+          <!-- Bottom spacer -->
           <tr aria-hidden='true'>
-            <td colspan='3' class='pt-4'>
-              <div class='h-px'></div>
-            </td>
+            <td colspan='3' class='pb-2'></td>
           </tr>
         </tbody>
       </table>
@@ -222,36 +236,40 @@ const BG_TEAL = '#34656D'
     <!-- ── MOBILE: Tabbed stacked cards ──────────────────── -->
     <div class='lg:hidden' data-animate>
 
-      
-      <input type='radio' id='fc-tab-ficha' name='fc-tabs' class='fc-tab-input' checked />
-      <input type='radio' id='fc-tab-bundle' name='fc-tabs' class='fc-tab-input' />
+      <input type='radio' id='fc-tab-ficha' name='fc-tabs' class='fc-tab-input sr-only' checked />
+      <input type='radio' id='fc-tab-bundle' name='fc-tabs' class='fc-tab-input sr-only' />
 
-      <!-- Tab labels -->
-      <div class='fc-tabs flex gap-2 p-1 rounded-xl mb-6'>
-        <label for='fc-tab-ficha' class='fc-tab-label fc-label-ficha flex-1 text-center'>
-          Plan Visibilidad Local · 350 €
+      <!-- Tab pills -->
+      <div class='fc-tabs flex gap-1.5 p-1 rounded-xl mb-7' style='background: color-mix(in srgb, var(--color-base) 20%, transparent);'>
+        <label for='fc-tab-ficha' class='fc-tab-label fc-label-ficha flex-1 text-center cursor-pointer rounded-lg py-2.5 px-3 text-xs font-bold uppercase tracking-wide transition-all duration-200'>
+          Local · 350 €
         </label>
-        <label for='fc-tab-bundle' class='fc-tab-label fc-label-bundle flex-1 text-center'>
-          Plan Visibilidad Total · 550 €
+        <label for='fc-tab-bundle' class='fc-tab-label fc-label-bundle flex-1 text-center cursor-pointer rounded-lg py-2.5 px-3 text-xs font-bold uppercase tracking-wide transition-all duration-200'>
+          Total · 550 €
         </label>
       </div>
 
       <!-- Tab panels -->
       <div class='fc-panels'>
 
-        <!-- Solo Ficha panel -->
-        <div class='fc-panel-ficha space-y-4'>
-          {categories.map(category => (
-            <div class='rounded-xl p-5'>
-              <p class='text-[0.6rem] font-semibold tracking-[0.12em] uppercase text-cream/70 mb-3 pl-2'>
-                {category.name}
-              </p>
-              <ul class='space-y-0'>
+        <!-- Local panel -->
+        <div class='fc-panel-ficha space-y-3'>
+          {categories.map((category, catIdx) => (
+            <div class='rounded-xl overflow-hidden' style='background: color-mix(in srgb, var(--color-base) 15%, transparent);'>
+              <div class='flex items-center gap-2 px-5 py-3 border-b' style='border-color: color-mix(in srgb, var(--color-white) 8%, transparent);'>
+                <span class='text-xs font-bold text-white/25 font-heading tabular-nums' aria-hidden='true'>
+                  {String(catIdx + 1).padStart(2, '0')}
+                </span>
+                <p class='text-xs font-bold tracking-[0.14em] uppercase text-cream/60'>
+                  {category.name}
+                </p>
+              </div>
+              <ul class='divide-y' style='divide-color: color-mix(in srgb, var(--color-white) 6%, transparent);'>
                 {category.features.map(feature => (
-                  <li class='flex items-center justify-between py-2.5 gap-4'>
-                    <span class='text-sm text-white/60'>{feature.name}</span>
+                  <li class='flex items-center justify-between py-3 px-5 gap-4'>
+                    <span class='text-sm text-white/55'>{feature.name}</span>
                     <span class='shrink-0'>
-                      <Fragment set:html={renderCell(feature.ficha)} />
+                      <Fragment set:html={renderFicha(feature.ficha)} />
                     </span>
                   </li>
                 ))}
@@ -260,19 +278,24 @@ const BG_TEAL = '#34656D'
           ))}
         </div>
 
-        <!-- Web + Ficha panel -->
-        <div class='fc-panel-bundle space-y-4'>
-          {categories.map(category => (
-            <div class='rounded-xl p-5'>
-              <p class='text-[0.6rem] font-semibold tracking-[0.12em] uppercase text-cream/80 mb-3'>
-                {category.name}
-              </p>
-              <ul class='space-y-0'>
+        <!-- Total panel -->
+        <div class='fc-panel-bundle space-y-3'>
+          {categories.map((category, catIdx) => (
+            <div class='rounded-xl overflow-hidden' style='background: color-mix(in srgb, var(--color-cream) 6%, transparent); outline: 1px solid color-mix(in srgb, var(--color-cream) 10%, transparent);'>
+              <div class='flex items-center gap-2 px-5 py-3 border-b' style='border-color: color-mix(in srgb, var(--color-cream) 10%, transparent);'>
+                <span class='text-xs font-bold text-cream/30 font-heading tabular-nums' aria-hidden='true'>
+                  {String(catIdx + 1).padStart(2, '0')}
+                </span>
+                <p class='text-xs font-bold tracking-[0.14em] uppercase text-cream/80'>
+                  {category.name}
+                </p>
+              </div>
+              <ul class='divide-y' style='divide-color: color-mix(in srgb, var(--color-cream) 7%, transparent);'>
                 {category.features.map(feature => (
-                  <li class='flex items-center justify-between py-2.5 gap-4'>
+                  <li class='flex items-center justify-between py-3 px-5 gap-4'>
                     <span class='text-sm text-white/65'>{feature.name}</span>
                     <span class='shrink-0'>
-                      <Fragment set:html={renderCell(feature.bundle)} />
+                      <Fragment set:html={renderBundle(feature.bundle)} />
                     </span>
                   </li>
                 ))}
@@ -284,6 +307,28 @@ const BG_TEAL = '#34656D'
       </div>
     </div>
 
-
   </div>
 </div>
+
+<style>
+  /* Mobile tab radio-switch — CSS only */
+  .fc-tab-input { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+
+  .fc-tab-label {
+    color: color-mix(in srgb, var(--color-white) 45%, transparent);
+  }
+
+  /* Active tab: cream bg, dark text */
+  #fc-tab-ficha:checked  ~ .fc-tabs .fc-label-ficha,
+  #fc-tab-bundle:checked ~ .fc-tabs .fc-label-bundle {
+    background: color-mix(in srgb, var(--color-cream) 15%, transparent);
+    color: var(--color-cream);
+  }
+
+  /* Show / hide panels */
+  .fc-panel-ficha,
+  .fc-panel-bundle { display: none; }
+
+  #fc-tab-ficha:checked  ~ .fc-panels .fc-panel-ficha  { display: block; }
+  #fc-tab-bundle:checked ~ .fc-panels .fc-panel-bundle { display: block; }
+</style>

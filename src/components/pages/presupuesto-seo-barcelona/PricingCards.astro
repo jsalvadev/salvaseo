@@ -68,168 +68,169 @@ const tiers: PricingTier[] = [
 const TOTAL_SEGMENTS = 6
 ---
 
-<div
+<section
   id='paquetes'
-  class='relative overflow-hidden py-24 sm:py-32'>
+  class='relative overflow-hidden bg-base'>
 
-  <!-- Architectural grid (Eixample-inspired) -->
+  <!-- Dot-grid texture -->
+  <div class='pointer-events-none absolute inset-0 dot-grid-28' aria-hidden='true'></div>
+
+  <!-- Ghost "€" watermark -->
   <div
-    class='pointer-events-none absolute inset-0'
+    class='font-heading pointer-events-none absolute -right-8 top-0 select-none leading-none text-wm-xl font-bold text-white/[0.025]'
+    aria-hidden='true'
+    >
+    €
+  </div>
+
+  <!-- Ambient sage glow behind featured card -->
+  <div
+    class='pointer-events-none absolute right-1/4 top-1/2 h-[700px] w-[700px] -translate-y-1/2 rounded-full opacity-[0.04]'
+    style='background: radial-gradient(circle, var(--color-sage) 0%, transparent 65%);'
     aria-hidden='true'>
   </div>
 
-  <div class='relative container-site'>
+  <!-- Bottom fade to next section -->
+  <div
+    class='pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-sage/15 to-transparent'
+    aria-hidden='true'>
+  </div>
 
-    <!-- Headline block: editorial split on desktop -->
-    <div class='mb-12 lg:flex lg:items-end lg:justify-between lg:gap-16'>
+  <div class='relative container-site pb-24 sm:pb-32 pt-[calc(var(--navbar-height,4.5rem)+3rem)] sm:pt-[calc(var(--navbar-height,4.5rem)+4rem)] lg:pt-[calc(var(--navbar-height,4.5rem)+5rem)]'>
 
-      <!-- Left: section heading -->
-      <div class='flex-1' data-animate>
-        <div class='flex items-center gap-3 mb-6'>
-          <span class='block h-px w-10 bg-sage' aria-hidden='true'></span>
-          <h2 class='text-[0.65rem] font-bold tracking-[0.18em] uppercase text-sage'>
-            Precio SEO mensual: tarifas y paquetes
-          </h2>
-        </div>
+    <!-- ── Hero header ──────────────────────────────────── -->
+    <header class='mb-14 lg:mb-18 max-w-4xl'>
 
-        <p
-
-          class='font-heading text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] leading-[1.05] tracking-tight text-cream text-pretty'>
-          Invierte solo en lo que necesitas<span class='text-sage'>.</span>
+      <!-- Eyebrow -->
+      <div class='animate-fade-in-up [animation-delay:0ms] flex items-center gap-4 mb-7'>
+        <span class='block h-px w-10 bg-sage' aria-hidden='true'></span>
+        <p class='text-xs font-bold tracking-[0.2em] uppercase text-sage'>
+          Precio SEO mensual — Tarifas y paquetes
         </p>
       </div>
 
-      <!-- Right: philosophy note (desktop only) -->
-      <div
-        class='hidden lg:block lg:max-w-[240px] xl:max-w-[260px] pb-3 pl-10 border-l-2 border-surface/10'
-        data-animate>
-        <p class='text-base leading-relaxed text-cream/70 text-pretty'>
+      <!-- H1 -->
+      <h1 class='animate-fade-in-up [animation-delay:60ms] font-heading text-h1 font-bold leading-[0.97] tracking-tight text-cream text-pretty mb-7'>
+        Invierte solo en lo<br class='hidden sm:block' />
+        que necesitas<span class='text-sage'>.</span>
+      </h1>
+
+      <!-- Rule + lead text -->
+      <div class='animate-fade-in-up [animation-delay:120ms]'>
+        <div class='flex items-center mb-4'>
+          <div class='h-[3px] w-10 bg-sage rounded-full'></div>
+          <div class='h-px w-24 bg-gradient-to-r from-sage/20 to-transparent'></div>
+        </div>
+        <p class='text-base leading-relaxed text-cream/60 max-w-sm'>
           Dos paquetes. Precio fijo mensual. Sin permanencia ni letra pequeña.
         </p>
-
       </div>
 
-    </div>
+    </header>
 
-    <!-- Accent rule -->
-    <div class='mb-14 flex items-center' data-animate>
-      <div class='h-[3px] w-16 bg-sage rounded-full'></div>
-      <div class='h-px flex-1 bg-gradient-to-r from-teal/30 via-charcoal/10 to-transparent'></div>
-    </div>
-
-    <!-- Pricing cards grid -->
-    <div class='grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8 max-w-5xl'>
-      {tiers.map((tier, index) => (
-        <div
+    <!-- ── Pricing cards ────────────────────────────────── -->
+    <div class='grid grid-cols-1 gap-5 lg:grid-cols-2 lg:gap-7 max-w-5xl'>
+      {tiers.map((tier) => (
+        <article
           data-animate
           class:list={[
-            'relative flex flex-col rounded-2xl overflow-hidden',
+            'group relative flex flex-col rounded-2xl overflow-hidden transition-all duration-300',
             tier.featured
-              ? 'bg-surface'
-              : 'border border-default shadow-sm hover:shadow-lg transition-shadow duration-300',
+              ? 'bg-surface shadow-2xl shadow-black/40 ring-1 ring-sage/[0.15]'
+              : 'bg-white/[0.02] ring-1 ring-white/[0.07] hover:ring-white/[0.13] hover:shadow-xl hover:shadow-black/25',
           ]}>
 
-          <!-- Ghost "€" watermark on featured card -->
+          <!-- Featured: sage top accent strip -->
           {tier.featured && (
-            <div class="font-heading pointer-events-none absolute -right-4 -bottom-2 select-none leading-none"
+            <div
+              class='h-[3px] w-full shrink-0'
+              style='background: linear-gradient(90deg, var(--color-sage) 0%, color-mix(in srgb, var(--color-sage) 40%, transparent) 60%, transparent 100%);'
               aria-hidden='true'>
-              €
             </div>
           )}
 
-          <div class='relative flex-1 p-8 xl:p-10'>
+          <div class='flex-1 p-8 xl:p-10'>
 
-            <!-- Commitment bar -->
-            <div class='mb-7'>
-              <div class='flex gap-1.5 mb-2'>
-                {Array.from({ length: TOTAL_SEGMENTS }).map((_, i) => (
-                  <div
-                    class:list={[
-                      'h-1.5 flex-1 rounded-full',
-                      i < tier.commitmentMonths
-                        ? 'bg-sage'
-                        : tier.featured ? 'bg-white/10' : 'bg-surface/10',
-                    ]}
-                  />
-                ))}
-              </div>
-              <p class:list={[
-                'text-xs font-semibold uppercase tracking-wide',
-                tier.featured ? 'text-white/35' : 'text-cream/50',
-              ]}>
-                {tier.commitmentMonths} de {TOTAL_SEGMENTS} meses recomendados
-              </p>
-            </div>
-
-            <!-- Tier name + badge -->
-            <div class='flex items-start justify-between gap-3 mb-2'>
+            <!-- Plan label + badge -->
+            <div class='flex items-center justify-between mb-5'>
               <div>
                 <p class:list={[
-                  'text-[0.6rem] font-bold tracking-[0.14em] uppercase mb-0.5',
-                  tier.featured ? 'text-cream/50' : 'text-cream/40',
+                  'text-xs font-bold tracking-[0.16em] uppercase mb-0.5',
+                  tier.featured ? 'text-sage/60' : 'text-cream/35',
                 ]}>
                   Plan
                 </p>
-                <h3
-                  class:list={[
-                    'text-base font-bold uppercase tracking-[0.1em]',
-                    tier.featured ? 'text-white/70' : 'text-cream',
-                  ]}>
+                <h2 class:list={[
+                  'text-sm font-bold uppercase tracking-[0.1em]',
+                  tier.featured ? 'text-cream/80' : 'text-cream/70',
+                ]}>
                   {tier.name}
-                </h3>
+                </h2>
               </div>
               {tier.featured && (
-                <span class='mt-0.5 inline-flex items-center rounded-full bg-cream px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wide text-cream shadow-lg shadow-sand/40'>
+                <span class='inline-flex items-center rounded-full bg-sage/[0.12] px-3 py-1 text-xs font-bold uppercase tracking-wide text-sage ring-1 ring-sage/[0.25]'>
                   ★ Recomendado
                 </span>
               )}
             </div>
 
-            <!-- Price -->
-            <div class='mb-5 flex items-baseline gap-2'>
-              <span
-                class:list={[
-                  'font-bold leading-none text-[clamp(2.75rem,5.5vw,4rem)]',
-                  tier.featured ? 'text-cream' : 'text-cream',
-                ]}
->
+            <!-- Price — visual centrepiece -->
+            <div class='mb-3 flex items-baseline gap-2'>
+              <span class='font-heading text-h1 font-bold leading-none tracking-tight text-cream'>
                 {tier.price}
               </span>
               <span class:list={[
                 'text-sm font-semibold',
-                tier.featured ? 'text-white/35' : 'text-cream/55',
+                tier.featured ? 'text-cream/35' : 'text-cream/40',
               ]}>
                 {tier.unit}
               </span>
             </div>
 
+            <!-- Commitment bar -->
+            <div class='mb-7'>
+              <div class='flex gap-1.5 mb-1.5'>
+                {Array.from({ length: TOTAL_SEGMENTS }).map((_, i) => (
+                  <div
+                    class:list={[
+                      'h-1 flex-1 rounded-full',
+                      i < tier.commitmentMonths
+                        ? 'bg-sage'
+                        : tier.featured ? 'bg-white/[0.08]' : 'bg-white/[0.05]',
+                    ]}
+                  />
+                ))}
+              </div>
+              <p class='text-xs font-semibold uppercase tracking-wide text-cream/35'>
+                {tier.commitmentMonths} de {TOTAL_SEGMENTS} meses recomendados
+              </p>
+            </div>
+
             <!-- Description -->
             <p
               class:list={[
-                'text-sm leading-relaxed pb-5 mb-5',
+                'text-sm leading-relaxed pb-6 mb-6 border-b',
                 tier.featured
-                  ? 'text-white/75 border-b border-white/10'
-                  : 'text-cream/70 border-b border-surface/10',
+                  ? 'text-cream/65 border-white/[0.08]'
+                  : 'text-cream/55 border-white/[0.05]',
               ]}>
               <Fragment set:html={tier.description} />
             </p>
 
-            <!-- Features list -->
+            <!-- Features -->
             <ul class='space-y-2.5'>
               {tier.features.map((feature) => (
                 <li class='flex items-start gap-3'>
                   <span
                     class:list={[
-                      'mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full',
-                      tier.featured
-                        ? 'bg-cream/15 text-cream'
-                        : 'bg-sage/10 text-sage',
+                      'mt-0.5 flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full',
+                      tier.featured ? 'bg-sage/[0.2] text-sage' : 'bg-cream/[0.06] text-cream/50',
                     ]}>
-                    <Check class='h-3 w-3' aria-hidden='true' />
+                    <Check class='h-2.5 w-2.5' aria-hidden='true' />
                   </span>
                   <span class:list={[
                     'text-sm leading-relaxed',
-                    tier.featured ? 'text-white/75' : 'text-cream/70',
+                    tier.featured ? 'text-cream/70' : 'text-cream/55',
                   ]}>
                     <Fragment set:html={feature} />
                   </span>
@@ -238,31 +239,30 @@ const TOTAL_SEGMENTS = 6
             </ul>
           </div>
 
-          <!-- CTA button -->
-          <div class='relative p-8 xl:p-10 pt-0'>
+          <!-- CTA -->
+          <div class='p-8 xl:p-10 pt-0'>
             <a
               href={tier.ctaHref}
               target='_blank'
               rel='noopener noreferrer nofollow'
               class:list={[
-                'block w-full rounded-xl px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2',
+                'block w-full rounded-xl px-6 py-4 text-center text-xs font-bold uppercase tracking-[0.1em] transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98]',
                 tier.featured
-                  ? 'bg-sage text-white shadow-lg shadow-teal/30 hover:bg-[#3d7880] active:bg-[#2b565d] hover:-translate-y-0.5 focus-visible:outline-teal'
-                  : 'bg-surface text-white hover:bg-surface/85 hover:-translate-y-0.5 focus-visible:outline-charcoal',
+                  ? 'bg-sage text-white shadow-lg shadow-sage/[0.2] hover:bg-sage/90 focus-visible:outline-sage'
+                  : 'bg-cream/[0.08] text-cream/80 ring-1 ring-cream/[0.1] hover:bg-cream/[0.12] hover:text-cream focus-visible:outline-cream',
               ]}>
               {tier.cta}
             </a>
           </div>
-        </div>
+        </article>
       ))}
     </div>
 
     <!-- Footer note -->
     <p
-      class='mt-8 max-w-5xl text-sm text-cream/50'
-      data-animate>
-      Precios sin IVA. Sin permanencia ni letra pequeña. ¿Quieres saber más antes de decidir? Lee sobre mi metodología como <a href='/' class='text-sage hover:text-sage/80 underline decoration-teal/30 underline-offset-2 transition-colors'>consultor SEO en Barcelona</a>.
+      class='animate-fade-in-up [animation-delay:400ms] mt-8 max-w-5xl text-sm text-cream/40'>
+      Precios sin IVA. Sin permanencia ni letra pequeña. ¿Quieres saber más antes de decidir? Lee sobre mi metodología como <a href='/' class='text-sage hover:text-sage/70 underline decoration-sage/[0.25] underline-offset-2 transition-colors'>consultor SEO en Barcelona</a>.
     </p>
 
   </div>
-</div>
+</section>
