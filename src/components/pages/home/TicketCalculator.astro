@@ -183,6 +183,27 @@ const plans = [
   </div>
 </section>
 
+<style>
+  #ticket-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 1.125rem;
+    height: 1.125rem;
+    border-radius: 9999px;
+    background: var(--color-cream);
+    cursor: pointer;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-cream) 25%, transparent);
+  }
+  #ticket-slider::-moz-range-thumb {
+    width: 1.125rem;
+    height: 1.125rem;
+    border: none;
+    border-radius: 9999px;
+    background: var(--color-cream);
+    cursor: pointer;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-cream) 25%, transparent);
+  }
+</style>
+
 <script>
   const slider      = document.getElementById('ticket-slider') as HTMLInputElement
   const ticketDisp  = document.getElementById('ticket-display') as HTMLElement
