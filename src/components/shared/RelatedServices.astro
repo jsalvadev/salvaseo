@@ -58,9 +58,7 @@ const { upheading, heading, cards } = Astro.props
       <div data-animate>
         <h2 class='text-xs font-bold uppercase tracking-widest text-cream/60'>{upheading}</h2>
       </div>
-      <p data-animate class='mt-5 font-heading text-h2 font-semibold tracking-tight text-cream'>
-        {heading}<span class='text-sage'>.</span>
-      </p>
+      <p data-animate class='mt-5 font-heading text-h2 font-normal tracking-tight text-cream [&_span]:text-white' set:html={heading} />
       <div data-animate class='mt-6 flex items-center'>
         <div class='h-px w-32 bg-gradient-to-r from-cream/5 to-cream/35'></div>
         <div class='h-px w-10 bg-cream/60'></div>
