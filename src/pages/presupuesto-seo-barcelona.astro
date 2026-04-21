@@ -5,7 +5,7 @@ import PricingCards from '../components/pages/presupuesto-seo-barcelona/PricingC
 import FeatureComparison from '../components/pages/presupuesto-seo-barcelona/FeatureComparison.astro'
 import Faq from '../components/shared/Faq.astro'
 
-const DATE_MODIFIED = "2026-03-03"
+const DATE_MODIFIED = new Date().toISOString().split('T')[0]
 
 const faqPresupuestoItems = [
   {
@@ -80,7 +80,7 @@ const faqPresupuestoItems = [
           isPartOf: {
             '@id': 'https://salvaseo.com/#website'
           },
-          datePublished: '2026-02-28',
+          datePublished: '2025-02-28',
           dateModified: DATE_MODIFIED,
           author: {
             '@id': 'https://salvaseo.com/#founder'
@@ -118,11 +118,17 @@ const faqPresupuestoItems = [
           provider: {
             '@id': 'https://salvaseo.com/#business'
           },
-          areaServed: {
-            '@type': 'City',
-            name: 'Barcelona',
-            sameAs: 'https://es.wikipedia.org/wiki/Barcelona'
-          },
+          areaServed: [
+            {
+              '@type': 'City',
+              name: 'Barcelona',
+              sameAs: 'https://es.wikipedia.org/wiki/Barcelona'
+            },
+            {
+              '@type': 'AdministrativeArea',
+              name: 'Area Metropolitana de Barcelona'
+            }
+          ],
           hasOfferCatalog: {
             '@type': 'OfferCatalog',
             name: 'Paquetes SEO Barcelona',
@@ -130,29 +136,27 @@ const faqPresupuestoItems = [
               {
                 '@type': 'Offer',
                 name: 'Visibilidad Local',
+                price: '350',
+                priceCurrency: 'EUR',
                 availability: 'https://schema.org/InStock',
-                url: 'https://salvaseo.com/presupuesto-seo-barcelona/',
-                description:
-                  'Optimización de Google Business Profile: auditoría local, directorios NAP, publicaciones y gestión de reseñas.',
-                priceSpecification: {
-                  '@type': 'UnitPriceSpecification',
-                  priceCurrency: 'EUR',
-                  price: '350',
-                  unitText: 'mes'
+                itemOffered: {
+                  '@type': 'Service',
+                  name: 'SEO Local Google Maps',
+                  description:
+                    'Optimizacion de Google Business Profile, auditoria local, directorios NAP y gestion de reseñas. Desde 350 euros/mes.'
                 }
               },
               {
                 '@type': 'Offer',
                 name: 'Visibilidad Total',
+                price: '550',
+                priceCurrency: 'EUR',
                 availability: 'https://schema.org/InStock',
-                url: 'https://salvaseo.com/presupuesto-seo-barcelona/',
-                description:
-                  'Posicionamiento web completo: auditoría SEO, palabras clave transaccionales, páginas de servicio, Google Business Profile, Core Web Vitals y schema markup.',
-                priceSpecification: {
-                  '@type': 'UnitPriceSpecification',
-                  priceCurrency: 'EUR',
-                  price: '550',
-                  unitText: 'mes'
+                itemOffered: {
+                  '@type': 'Service',
+                  name: 'SEO Local y Posicionamiento Web',
+                  description:
+                    'Posicionamiento web completo: auditoria SEO, palabras clave, paginas de servicio, Google Business Profile y Core Web Vitals. Desde 550 euros/mes.'
                 }
               }
             ]
