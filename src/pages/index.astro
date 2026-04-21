@@ -5,7 +5,7 @@ import ServicesHome from '../components/pages/home/ServicesHome.astro'
 import TicketCalculator from '../components/pages/home/TicketCalculator.astro'
 import CanBeSolved from '../components/pages/home/CanBeSolved.astro'
 import Testimonials from '../components/pages/home/Testimonials.astro'
-import Faq from '../components/pages/home/Faq.astro'
+import Faq from '../components/shared/Faq.astro'
 import Hero from '../components/pages/home/Hero.astro'
 import MapSection from '../components/pages/home/MapSection.astro'
 import Layout from '../layouts/Layout.astro'
@@ -50,6 +50,6 @@ const faqHomeItems = [
   <AboutMe />
   <TicketCalculator />
   <Testimonials />
-  <Faq items={faqHomeItems} />
+  <Faq upheading='ESPECIALISTA SEO Y CONSULTOR SEO FREELANCE EN BARCELONA' heading='Preguntas frecuentes' items={faqHomeItems} />
   <MapSection />
 </Layout>
