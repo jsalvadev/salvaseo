@@ -1,24 +1,14 @@
 ---
-import { TrendingUp, Zap, Clock, Repeat, PiggyBank, ShieldCheck } from '@lucide/astro'
-import WhatsAppButton from '../../WhatsAppButton.astro'
-import { buildWhatsAppHref } from '../../../data/site'
-
-const waHref = buildWhatsAppHref()
-
-type IconKey = 'trendingUp' | 'zap' | 'clock' | 'repeat' | 'piggyBank' | 'shieldCheck'
+import CalButton from '../../CalButton.astro'
 
 interface ComparisonBullet {
-  icon: IconKey
   emphasis: string
   text: string
 }
 
 interface ComparisonColumn {
   title: string
-  icon: IconKey
-  accentClass?: string
-  ringClass?: string
-  noteClass?: string
+  label: string
   note: string
   bullets: ComparisonBullet[]
 }
@@ -32,32 +22,20 @@ interface Props {
   conclusion?: string
 }
 
-const iconByKey = {
-  trendingUp: TrendingUp,
-  zap: Zap,
-  clock: Clock,
-  repeat: Repeat,
-  piggyBank: PiggyBank,
-  shieldCheck: ShieldCheck,
-} as const
-
 const defaultLeftColumn: ComparisonColumn = {
   title: 'SEO local',
-  icon: 'trendingUp',
+  label: 'Canal propio',
   note: '<strong>Ideal para:</strong> negocios locales que buscan estabilidad, crecimiento a medio plazo y reducir la dependencia de la publicidad de pago.',
   bullets: [
     {
-      icon: 'repeat',
       emphasis: 'Activo acumulativo.',
       text: 'Cada mes de ejecución refuerza tu posición. El tráfico cualificado llega sin pagar por cada clic.',
     },
     {
-      icon: 'piggyBank',
       emphasis: 'Coste decreciente por lead.',
       text: 'A medida que las posiciones escalan, el coste de adquisición baja. La inversión de hoy genera clientes durante meses.',
     },
     {
-      icon: 'shieldCheck',
       emphasis: 'Confianza del usuario.',
       text: 'El 70-80 % de los usuarios ignoran los anuncios y hacen clic en resultados orgánicos.',
     },
@@ -66,21 +44,18 @@ const defaultLeftColumn: ComparisonColumn = {
 
 const defaultRightColumn: ComparisonColumn = {
   title: 'Google Ads',
-  icon: 'zap',
+  label: 'Canal alquilado',
   note: '<strong>Ideal para:</strong> emergencias de visibilidad, promociones temporales o sectores donde necesitas resultados mientras el SEO consolida posiciones.',
   bullets: [
     {
-      icon: 'clock',
       emphasis: 'Resultados inmediatos.',
       text: 'Apareces en la primera posición desde el día uno.',
     },
     {
-      icon: 'piggyBank',
       emphasis: 'Coste constante por clic.',
       text: 'Cuando cortas el presupuesto, desapareces al instante de los resultados.',
     },
     {
-      icon: 'shieldCheck',
       emphasis: 'Visibilidad vinculada al presupuesto.',
       text: 'Sin inversión, sin impresiones. El canal funciona mientras hay dinero asignado.',
     },
@@ -95,27 +70,14 @@ const {
   rightColumn = defaultRightColumn,
   conclusion = '<strong>La combinación más rentable</strong> para negocios locales en Barcelona: construir SEO local como base y complementar con Ads solo cuando el sector o la urgencia lo requieran.',
 } = Astro.props
-
-const LeftIcon  = iconByKey[leftColumn.icon]
-const RightIcon = iconByKey[rightColumn.icon]
-
-const seoBarHeights = [12, 18, 24, 32, 40, 50, 60, 70, 80, 88, 94, 100]
-const adsBarHeights = [52, 50, 53, 51, 52, 50, 52, 51, 53, 50, 52, 51]
 ---
 
 <section class='relative overflow-hidden bg-cream py-24 md:py-32'>
 
-  <!-- Watermark -->
-  <div
-    class='font-heading pointer-events-none absolute -right-4 top-1/2 -translate-y-1/2 select-none leading-none text-wm font-bold text-base/[0.04]'
-    aria-hidden='true'>
-    CANAL
-  </div>
-
   <div class='relative container-site'>
 
     <!-- ── Header ── -->
-    <div class='mb-14 max-w-2xl' data-animate>
+    <div class='mb-12 max-w-2xl' data-animate>
       <p class='text-xs font-bold tracking-[0.18em] uppercase text-sage'>{upheading}</p>
       <h2 class='font-heading mt-4 text-h2 text-base leading-[1.1]'>{heading}</h2>
       <p class='mt-5 text-base text-surface leading-relaxed max-w-[50ch]'>
@@ -123,168 +85,66 @@ const adsBarHeights = [52, 50, 53, 51, 52, 50, 52, 51, 53, 50, 52, 51]
       </p>
     </div>
 
-    <!-- ── Comparison: asymmetric 2/3 + 1/3 ── -->
-    <div class='grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-4 mb-10'>
+    <!-- ── Comparison ── -->
+    <div class='grid grid-cols-1 lg:grid-cols-2 gap-px bg-surface/10 rounded-2xl overflow-hidden mb-8' data-animate>
 
-      <!-- LEFT: SEO local — dominant dark panel -->
-      <div
-        class='relative rounded-2xl bg-base overflow-hidden flex flex-col'
-        data-animate>
-
-        <!-- Recommended strip -->
-        <div class='flex items-center gap-2 px-7 py-3 bg-sage/20 border-b border-sage-20'>
-          <span class='size-1.5 rounded-full bg-sage shrink-0' aria-hidden='true'></span>
-          <span class='text-xs font-bold tracking-widest uppercase text-sage'>Recomendado para negocios locales</span>
+      <!-- LEFT: SEO local -->
+      <div class='bg-base flex flex-col gap-6 p-8'>
+        <div>
+          <p class='text-xs font-bold tracking-widest uppercase text-cream-50 mb-1'>{leftColumn.label}</p>
+          <p class='font-heading text-h4 text-cream leading-snug'>{leftColumn.title}</p>
         </div>
 
-        <div class='flex flex-col gap-7 p-7 sm:p-8 flex-1'>
+        <ul class='flex flex-col gap-3'>
+          {leftColumn.bullets.map((bullet) => (
+            <li class='flex items-start gap-2.5'>
+              <span class='mt-2 shrink-0 size-1.5 rounded-full bg-sage/60' aria-hidden='true'></span>
+              <p class='text-sm text-cream-70 leading-relaxed'>
+                <strong class='text-cream font-semibold'>{bullet.emphasis}</strong>{' '}{bullet.text}
+              </p>
+            </li>
+          ))}
+        </ul>
 
-          <!-- Card header -->
-          <div class='flex items-center gap-3'>
-            <div class='size-10 flex items-center justify-center rounded-xl bg-sage-15 ring-1 ring-sage/30'>
-              <LeftIcon class='size-5 text-sage' aria-hidden='true' />
-            </div>
-            <div>
-              <p class='text-xs font-semibold tracking-widest uppercase text-cream-50 mb-0.5'>Canal propio</p>
-              <p class='font-heading text-h4 text-cream leading-none'>{leftColumn.title}</p>
-            </div>
-          </div>
-
-          <!-- Bullets -->
-          <ul class='flex flex-col gap-4'>
-            {leftColumn.bullets.map((bullet) => {
-              const BulletIcon = iconByKey[bullet.icon]
-              return (
-                <li class='flex items-start gap-3'>
-                  <div class='shrink-0 mt-0.5 size-6 flex items-center justify-center rounded-lg bg-sage-10 ring-1 ring-sage/20'>
-                    <BulletIcon class='size-3.5 text-sage' aria-hidden='true' />
-                  </div>
-                  <p class='text-sm text-cream-70 leading-relaxed'>
-                    <strong class='text-cream font-semibold'>{bullet.emphasis}</strong>{' '}{bullet.text}
-                  </p>
-                </li>
-              )
-            })}
-          </ul>
-
-          <!-- Note -->
-          <div class='rounded-xl bg-white-06 border border-sage-20 px-4 py-3.5'>
-            <p class='text-sm text-cream-70 leading-relaxed'>
-              <Fragment set:html={leftColumn.note} />
-            </p>
-          </div>
-
-          <!-- Growth bar chart -->
-          <div class='rounded-xl bg-white-03 border border-sage/10 px-5 pt-4 pb-5'>
-            <p class='text-xs font-bold tracking-widest uppercase text-cream-50 mb-4'>Visibilidad acumulada · 12 meses</p>
-            <div class='flex items-end gap-1 h-12'>
-              {seoBarHeights.map((h, i) => (
-                <div
-                  class='seo-bar flex-1 rounded-sm bg-sage origin-bottom'
-                  style={`height: ${h}%; animation-delay: ${i * 60}ms`}
-                  aria-hidden='true'>
-                </div>
-              ))}
-            </div>
-            <p class='text-xs text-cream-40 mt-2'>Cada mes genera más que el anterior</p>
-          </div>
-
-        </div>
+        <p class='text-sm text-cream-60 leading-relaxed border-l-2 border-sage/40 pl-4 py-0.5'>
+          <Fragment set:html={leftColumn.note} />
+        </p>
       </div>
 
-      <!-- RIGHT: Google Ads — muted secondary -->
-      <div
-        class='relative rounded-2xl border border-sage-20 bg-cream-10 overflow-hidden flex flex-col'
-        data-animate
-        data-animate-delay='80'>
-
-        <div class='flex flex-col gap-6 p-7 flex-1'>
-
-          <!-- Card header -->
-          <div class='flex items-center gap-3'>
-            <div class='size-10 flex items-center justify-center rounded-xl bg-white/60 ring-1 ring-surface/10'>
-              <RightIcon class='size-5 text-surface' aria-hidden='true' />
-            </div>
-            <div>
-              <p class='text-xs font-semibold tracking-widest uppercase text-surface/50 mb-0.5'>Canal alquilado</p>
-              <p class='font-heading text-h4 text-base leading-none'>{rightColumn.title}</p>
-            </div>
-          </div>
-
-          <!-- Bullets -->
-          <ul class='flex flex-col gap-4'>
-            {rightColumn.bullets.map((bullet) => {
-              const BulletIcon = iconByKey[bullet.icon]
-              return (
-                <li class='flex items-start gap-3'>
-                  <div class='shrink-0 mt-0.5 size-6 flex items-center justify-center rounded-lg bg-surface/10 ring-1 ring-surface/15'>
-                    <BulletIcon class='size-3.5 text-surface' aria-hidden='true' />
-                  </div>
-                  <p class='text-sm text-surface leading-relaxed'>
-                    <strong class='text-base font-semibold'>{bullet.emphasis}</strong>{' '}{bullet.text}
-                  </p>
-                </li>
-              )
-            })}
-          </ul>
-
-          <!-- Note -->
-          <div class='rounded-xl bg-white/40 border border-surface/10 px-4 py-3.5'>
-            <p class='text-sm text-surface leading-relaxed'>
-              <Fragment set:html={rightColumn.note} />
-            </p>
-          </div>
-
-          <!-- Flat bar chart -->
-          <div class='rounded-xl bg-white/30 border border-surface/10 px-5 pt-4 pb-5'>
-            <p class='text-xs font-bold tracking-widest uppercase text-surface/40 mb-4'>Coste por visibilidad · 12 meses</p>
-            <div class='flex items-end gap-1 h-12'>
-              {adsBarHeights.map((h) => (
-                <div
-                  class='flex-1 rounded-sm bg-surface/20'
-                  style={`height: ${h}%`}
-                  aria-hidden='true'>
-                </div>
-              ))}
-            </div>
-            <p class='text-xs text-surface/40 mt-2'>Mismo coste, mes 1 que mes 12</p>
-          </div>
-
+      <!-- RIGHT: Google Ads -->
+      <div class='bg-cream/60 flex flex-col gap-6 p-8'>
+        <div>
+          <p class='text-xs font-bold tracking-widest uppercase text-surface/50 mb-1'>{rightColumn.label}</p>
+          <p class='font-heading text-h4 text-base leading-snug'>{rightColumn.title}</p>
         </div>
+
+        <ul class='flex flex-col gap-3'>
+          {rightColumn.bullets.map((bullet) => (
+            <li class='flex items-start gap-2.5'>
+              <span class='mt-2 shrink-0 size-1.5 rounded-full bg-surface/30' aria-hidden='true'></span>
+              <p class='text-sm text-surface leading-relaxed'>
+                <strong class='text-base font-semibold'>{bullet.emphasis}</strong>{' '}{bullet.text}
+              </p>
+            </li>
+          ))}
+        </ul>
+
+        <p class='text-sm text-surface/70 leading-relaxed border-l-2 border-surface/20 pl-4 py-0.5'>
+          <Fragment set:html={rightColumn.note} />
+        </p>
       </div>
+
     </div>
 
     <!-- ── Conclusion + CTA ── -->
     <div
-      class='flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 rounded-2xl bg-base border border-sage-20 px-7 py-6'
+      class='flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6'
       data-animate>
-      <p class='text-sm text-cream-70 leading-relaxed max-w-[52ch]'>
+      <p class='text-sm text-surface leading-relaxed max-w-[52ch]'>
         <Fragment set:html={conclusion} />
       </p>
-      <WhatsAppButton
-        text='Analiza mi web'
-        href={waHref}
-        class='shrink-0 px-6 py-3 text-sm font-bold'
-      />
+      <CalButton color='base' class='shrink-0 px-6 py-3' />
     </div>
 
   </div>
 </section>
-
-<style>
-  .seo-bar {
-    animation: grow-bar 0.6s cubic-bezier(0.34, 1.2, 0.64, 1) both;
-    animation-play-state: paused;
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .seo-bar {
-      animation-play-state: running;
-    }
-  }
-
-  @keyframes grow-bar {
-    from { transform: scaleY(0); }
-    to   { transform: scaleY(1); }
-  }
-</style>
