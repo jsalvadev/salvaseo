@@ -12,34 +12,34 @@ interface ComparisonCategory {
 
 const categories: ComparisonCategory[] = [
   {
-    name: 'Google Business Profile',
+    name: 'Ficha de Google Maps',
     features: [
-      { name: 'Auditoría de competencia y visibilidad local',  ficha: '✓', bundle: '✓' },
-      { name: 'Creación u optimización de GBP',               ficha: '✓', bundle: '✓' },
-      { name: 'Categorías, servicios, fotos y atributos',      ficha: '✓', bundle: '✓' },
-      { name: 'Publicaciones mensuales en GBP',               ficha: '✓', bundle: '✓' },
-      { name: 'Monitorización y respuesta a reseñas',         ficha: '✓', bundle: '✓' },
-      { name: 'Mapa de visibilidad real por barrios y zonas', ficha: '✓', bundle: '✓' },
+      { name: 'Análisis de por qué no apareces y quién aparece antes que tú', ficha: '✓', bundle: '✓' },
+      { name: 'Creación u optimización de tu ficha de Google Maps',            ficha: '✓', bundle: '✓' },
+      { name: 'Categorías, servicios, fotos y atributos',                      ficha: '✓', bundle: '✓' },
+      { name: 'Publicaciones mensuales en tu ficha de Google',                 ficha: '✓', bundle: '✓' },
+      { name: 'Monitorización y respuesta a reseñas',                          ficha: '✓', bundle: '✓' },
+      { name: 'En qué zonas de Barcelona apareces y en cuáles no',             ficha: '✓', bundle: '✓' },
     ]
   },
   {
     name: 'Citaciones y directorios',
     features: [
       { name: 'Alta en directorios locales',                        ficha: '✓', bundle: '✓' },
-      { name: 'Coherencia de nombre, dirección y teléfono (NAP)',   ficha: '✓', bundle: '✓' },
+      { name: 'Tu nombre, dirección y teléfono iguales en todos los sitios donde apareces online', ficha: '✓', bundle: '✓' },
     ]
   },
   {
     name: 'Web y contenido',
     features: [
-      { name: 'Auditoría SEO on-page de la web',                              ficha: '—', bundle: '✓' },
-      { name: 'Estudio de palabras clave transaccionales',                    ficha: '—', bundle: '✓' },
-      { name: 'Optimización de encabezados, titles y descriptions',           ficha: '—', bundle: '✓' },
-      { name: 'Páginas de servicio optimizadas',                              ficha: '—', bundle: '✓' },
-      { name: 'Reestructuración de arquitectura web',                         ficha: '—', bundle: '✓' },
-      { name: 'Optimización técnica de velocidad y experiencia de carga',     ficha: '—', bundle: '✓' },
-      { name: 'Datos estructurados para destacar en resultados de Google',    ficha: '—', bundle: '✓' },
-      { name: 'Optimización de contenidos con análisis semántico competitivo',ficha: '—', bundle: '✓' },
+      { name: 'Revisión y corrección de tu web',                                    ficha: '—', bundle: '✓' },
+      { name: 'Búsquedas que usa tu cliente cuando quiere contratar',              ficha: '—', bundle: '✓' },
+      { name: 'Textos de tu web optimizados para que Google los entienda',         ficha: '—', bundle: '✓' },
+      { name: 'Páginas de servicio optimizadas',                                   ficha: '—', bundle: '✓' },
+      { name: 'Reorganización de tu web para que Google la entienda mejor',        ficha: '—', bundle: '✓' },
+      { name: 'Tu web más rápida para que nadie se vaya antes de llamarte',        ficha: '—', bundle: '✓' },
+      { name: 'Configuración técnica para destacar en Google',                     ficha: '—', bundle: '✓' },
+      { name: 'Textos mejorados para superar a tu competencia en Google',          ficha: '—', bundle: '✓' },
     ]
   },
   {
@@ -56,12 +56,12 @@ const categories: ComparisonCategory[] = [
   {
     name: 'Seguimiento',
     features: [
-      { name: 'Seguimiento de posiciones en Maps',  ficha: '✓', bundle: '✓' },
-      { name: 'Seguimiento de posiciones orgánicas',ficha: '—', bundle: '✓' },
-      { name: 'Informe mensual de resultados',      ficha: '✓', bundle: '✓' },
-      { name: 'Llamada mensual de seguimiento',     ficha: '✓', bundle: '✓' },
-      { name: 'Soporte por WhatsApp',              ficha: '✓', bundle: '✓' },
-      { name: 'Compromiso recomendado',            ficha: '3 meses', bundle: '4 meses' },
+      { name: 'Cómo subes en Google Maps cada mes',  ficha: '✓', bundle: '✓' },
+      { name: 'Cómo sube tu web en Google cada mes', ficha: '—', bundle: '✓' },
+      { name: 'Informe mensual de resultados',        ficha: '✓', bundle: '✓' },
+      { name: 'Llamada mensual de seguimiento',       ficha: '✓', bundle: '✓' },
+      { name: 'Soporte por WhatsApp',                 ficha: '✓', bundle: '✓' },
+      { name: 'Tiempo recomendado',                   ficha: '3 meses', bundle: '4 meses' },
     ]
   }
 ]
@@ -159,14 +159,9 @@ function renderBundle(value: string): string {
 
             <th scope='col' class='pt-4 pb-4 px-6 text-left align-top w-48'>
               <span
-                class='block text-xs font-bold tracking-[0.14em] uppercase mb-0.5'
-                style='color: color-mix(in srgb, var(--color-base) 30%, transparent);'>
-                Plan
-              </span>
-              <span
-                class='block text-xs font-semibold tracking-[0.1em] uppercase whitespace-nowrap mb-2'
+                class='block text-xs font-semibold leading-snug mb-2'
                 style='color: color-mix(in srgb, var(--color-base) 55%, transparent);'>
-                Visibilidad Local
+                Más llamadas desde Google Maps
               </span>
               <span
                 class='font-heading block font-bold text-h5 leading-none whitespace-nowrap'
@@ -184,14 +179,9 @@ function renderBundle(value: string): string {
               </div>
               <div class='relative'>
                 <span
-                  class='block text-xs font-bold tracking-[0.14em] uppercase mb-0.5'
-                  style='color: color-mix(in srgb, var(--color-sage) 70%, transparent);'>
-                  Plan
-                </span>
-                <span
-                  class='block text-xs font-semibold tracking-[0.1em] uppercase whitespace-nowrap mb-2'
+                  class='block text-xs font-semibold leading-snug mb-2'
                   style='color: color-mix(in srgb, var(--color-base) 75%, transparent);'>
-                  Visibilidad Total
+                  Más llamadas desde Google Maps y tu web
                 </span>
                 <span
                   class='font-heading block font-bold text-h5 leading-none whitespace-nowrap'

@@ -17,49 +17,49 @@ interface PricingTier {
 
 const tiers: PricingTier[] = [
   {
-    name: 'Visibilidad Local',
+    name: 'Más llamadas desde Google Maps',
     price: '350 €',
     unit: '/mes + IVA',
-    description: 'Deja de ser invisible en tu zona y empieza a recibir llamadas de clientes que tienes a la vuelta de la esquina.',
+    description: 'Para que te llamen clientes de tu zona que ahora mismo están buscando en Google Maps y encontrando a tu competencia.',
     commitment: 'Compromiso recomendado: 3 meses',
     commitmentMonths: 3,
     features: [
-      'Auditoría de competencia y visibilidad local',
-      'Creación u optimización de Google Business Profile',
+      'Análisis de por qué no apareces y quién aparece antes que tú',
+      'Creación u optimización de tu ficha de Google Maps',
       'Categorías, servicios, fotos y atributos optimizados',
       'Alta en directorios locales y coherencia de nombre, dirección y teléfono',
-      'Publicaciones mensuales en GBP',
+      'Publicaciones mensuales en tu ficha de Google',
       'Monitorización y respuesta a reseñas',
-      'Mapa de visibilidad real por barrios y zonas de Barcelona',
+      'En qué zonas de Barcelona apareces y en cuáles no',
       'Informe mensual con seguimiento de posiciones en Maps',
       'Llamada mensual de seguimiento',
       'Soporte por WhatsApp',
     ],
-    cta: 'Agenda tu sesión gratuita',
+    cta: 'Agenda una llamada gratis',
   },
   {
-    name: 'Visibilidad Total',
+    name: 'Más llamadas desde Google Maps y tu web',
     price: '550 €',
     unit: '/mes + IVA',
-    description: 'Sal de la sombra en toda la ciudad. Una estrategia de asalto para dominar las búsquedas más rentables de Barcelona.',
+    description: 'Para aparecer tanto en Google Maps como cuando buscan directamente en Google. Tu ficha y tu web trabajando juntas.',
     commitment: 'Compromiso recomendado: 4 meses',
     commitmentMonths: 4,
     featured: true,
     features: [
-      'Auditoría SEO on-page de la web',
-      'Estudio de palabras clave transaccionales',
-      'Optimización de encabezados, titles y descriptions',
+      'Revisión y corrección de tu web',
+      'Búsquedas que usa tu cliente cuando quiere contratar',
+      'Textos de tu web optimizados para que Google los entienda',
       'Creación de páginas de servicio optimizadas',
       'Optimización técnica de velocidad y experiencia de carga',
       'Datos estructurados para destacar en resultados de Google',
-      'Creación u optimización de Google Business Profile',
+      'Creación u optimización de tu ficha de Google Maps',
       'Categorías, servicios, fotos y atributos optimizados',
-      'Publicaciones mensuales en GBP enlazadas a páginas de servicio',
-      'Informe mensual unificado con seguimiento en Maps + orgánico',
+      'Publicaciones mensuales en tu ficha de Google',
+      'Informe mensual con lo que ha subido en Maps y en Google',
       'Llamada mensual de seguimiento',
       'Soporte por WhatsApp',
     ],
-    cta: 'Agenda tu sesión gratuita',
+    cta: 'Agenda una llamada gratis',
   },
 ]
 
@@ -116,7 +116,7 @@ const TOTAL_SEGMENTS = 6
       </h1>
 
       <p class='animate-fade-in-up [animation-delay:60ms] font-heading text-h1 font-bold leading-[0.95] tracking-tight text-cream text-pretty mb-7'>
-        Tu plan para ser visible<span class='text-sage'>.</span>
+        Tu plan para recibir más llamadas<span class='text-sage'>.</span>
       </p>
 
       <div class='mt-6 flex items-center'>
@@ -165,10 +165,10 @@ const TOTAL_SEGMENTS = 6
             <!-- Plan label + badge -->
             <div class='flex items-start justify-between mb-7'>
               <h2 class:list={[
-                'font-bold tracking-tight text-base',
+                'font-bold tracking-tight text-base leading-snug',
                 tier.featured ? 'text-[#1a1e16]' : 'text-cream/85',
               ]}>
-                <span class='font-normal text-sm'>Plan</span><br class='hidden sm:block' /><span class='font-heading'>{tier.name}</span>
+                <span class='font-heading'>{tier.name}</span>
               </h2>
 
               {tier.featured && (
