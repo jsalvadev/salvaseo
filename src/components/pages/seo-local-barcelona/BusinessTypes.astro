@@ -25,15 +25,6 @@ const iconByKey = {
   hotel: Hotel,
 } as const
 
-const searchByIcon: Record<IconKey, string[]> = {
-  utensilsCrossed: ['"restaurante italiano eixample"', '"brunch barcelona"'],
-  stethoscope:     ['"dentista barcelona"', '"fisioterapeuta cerca de mí"'],
-  scale:           ['"abogado laboralista barcelona"', '"gestoría autónomos bcn"'],
-  shoppingBag:     ['"floristería barcelona cerca"', '"tienda ropa gràcia"'],
-  wrench:          ['"cerrajero urgente barcelona"', '"electricista barcelona"'],
-  hotel:           ['"hotel boutique barcelona"', '"apartamento turístico eixample"'],
-}
-
 const defaultBusinessTypes: BusinessType[] = [
   {
     icon: 'utensilsCrossed',
@@ -75,7 +66,7 @@ const defaultBusinessTypes: BusinessType[] = [
 
 const {
   upheading = 'SEO local para negocios físicos en Barcelona',
-  heading = 'Puede que tu negocio ya tenga clientes buscándolo.',
+  heading = 'Tu negocio ya tiene clientes buscándolo.',
   intro = 'Si alguien puede buscarte en Google escribiendo <strong>"[tu servicio] + Barcelona"</strong>, el SEO local es tu canal de captación más rentable.',
   businessTypes = defaultBusinessTypes,
 } = Astro.props
@@ -83,99 +74,43 @@ const {
 
 <section class='relative overflow-hidden bg-base py-24 md:py-32'>
 
-  <!-- Dot texture -->
   <div class='pointer-events-none absolute inset-0 dot-grid-32' aria-hidden='true'></div>
-
-  <!-- Watermark -->
-  <div
-    class='font-heading pointer-events-none absolute -left-6 top-1/2 -translate-y-1/2 select-none leading-none text-wm font-bold text-white/[0.03]'
-    aria-hidden='true'>
-    BCN
-  </div>
 
   <div class='relative container-site'>
 
     <!-- ── Header ── -->
-    <div class='mb-14 md:mb-16 max-w-3xl'>
-      <div data-animate class='flex items-center gap-3'>
-        <span class='block h-px w-10 bg-sage' aria-hidden='true'></span>
-        <p class='text-xs font-bold tracking-[0.18em] uppercase text-sage'>{upheading}</p>
-      </div>
+    <div class='mb-12 max-w-2xl'>
+      <p data-animate class='text-xs font-bold tracking-[0.18em] uppercase text-cream-70'>{upheading}</p>
 
       <h2
         data-animate
-        class='mt-5 font-heading text-h2 font-bold leading-[1.05] tracking-tight text-cream text-pretty'>
-        {heading.replace(/\.$/, '')}<span class='text-sage'>.</span>
+        class='mt-4 font-heading text-h2 font-bold leading-[1.05] text-white text-pretty'>
+        {heading}
       </h2>
 
-      <p data-animate class='mt-6 max-w-[52ch] text-base text-cream-70 leading-relaxed text-pretty'>
+      <p data-animate class='mt-5 max-w-[52ch] text-base text-white-55 leading-relaxed text-pretty'>
         <Fragment set:html={intro} />
       </p>
     </div>
 
-    <!-- ── Cards grid ── -->
-    <dl class='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-sage/10 rounded-2xl overflow-hidden border border-sage-20'>
+    <!-- ── Grid ── -->
+    <dl class='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/[0.05] rounded-xl overflow-hidden'>
       {businessTypes.map((item, idx) => {
         const Icon = iconByKey[item.icon]
-        const searches = searchByIcon[item.icon]
-        const num = String(idx + 1).padStart(2, '0')
-
         return (
           <div
             data-animate
-            data-animate-delay={idx * 70}
-            class='group relative flex flex-col gap-5 bg-base px-6 py-7 transition-colors duration-300 hover:bg-white-03 cursor-default overflow-hidden'>
+            data-animate-delay={idx * 60}
+            class='flex flex-col gap-3 bg-base px-6 py-7'>
 
-            <!-- Ghost ordinal -->
-            <span
-              class='font-heading pointer-events-none select-none absolute bottom-4 right-5 leading-none text-h1 text-white/[0.04] transition-opacity duration-300 group-hover:text-white/[0.08]'
-              aria-hidden='true'>
-              {num}
-            </span>
+            <Icon class='size-4 text-sage/70' aria-hidden='true' />
 
-            <!-- Search mockup -->
-            <div class='flex flex-col gap-1.5' aria-label={`Búsquedas típicas: ${searches.join(', ')}`}>
-              {searches.map((q, qi) => (
-                <div class='flex items-center gap-2 rounded-lg bg-white-06 border border-sage/10 px-3 py-2 transition-colors duration-300 group-hover:border-sage/20'>
-                  <!-- Google G -->
-                  <svg class='shrink-0 size-3' viewBox='0 0 40 40' fill='none' aria-hidden='true'>
-                    <circle cx='20' cy='20' r='20' fill='#4285F4'/>
-                    <path d='M28.5 20.2c0-.7-.1-1.4-.2-2H20v3.8h4.8c-.2 1-.8 1.8-1.7 2.4v2h2.7c1.6-1.5 2.7-3.7 2.7-6.2z' fill='#fff'/>
-                    <path d='M20 29c2.4 0 4.5-.8 6-2.2l-2.7-2c-.8.5-1.9.9-3.3.9-2.5 0-4.6-1.7-5.4-4h-2.8v2c1.5 3 4.5 5.3 8.2 5.3z' fill='#fff'/>
-                    <path d='M14.6 21.7c-.2-.5-.3-1.1-.3-1.7s.1-1.2.3-1.7v-2h-2.8C11.3 17.5 11 18.7 11 20s.3 2.5.8 3.7l2.8-2z' fill='#fff'/>
-                    <path d='M20 14.3c1.4 0 2.6.5 3.6 1.4l2.5-2.5C24.5 11.8 22.4 11 20 11c-3.7 0-6.7 2.3-8.2 5.3l2.8 2c.8-2.3 2.9-4 5.4-4z' fill='#fff'/>
-                  </svg>
-                  <span class='text-xs text-cream-60 font-medium leading-none tracking-tight truncate'>
-                    {q}
-                  </span>
-                  {qi === 0 && (
-                    <span class='cursor-blink ml-auto shrink-0 w-px h-3 bg-cream-40' aria-hidden='true'></span>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            <!-- Bottom accent line -->
-            <div
-              class='absolute bottom-0 left-0 h-[2px] w-0 bg-sage rounded-r-full transition-all duration-500 group-hover:w-full'
-              aria-hidden='true'>
-            </div>
-
-            <!-- Icon + content -->
-            <div class='flex items-start gap-3.5 relative'>
-              <div class='shrink-0 mt-0.5 size-9 flex items-center justify-center rounded-xl bg-sage-10 ring-1 ring-sage/20 transition-all duration-300 group-hover:bg-sage-15 group-hover:ring-sage/30'>
-                <Icon class='size-4.5 text-sage' aria-hidden='true' />
-              </div>
-              <div class='min-w-0'>
-                <div class='h-0.5 w-5 bg-sage rounded-full transition-all duration-300 group-hover:w-10 mb-2' aria-hidden='true'></div>
-                <dt class='text-sm font-bold text-cream leading-snug mb-1.5'>
-                  {item.title}
-                </dt>
-                <dd class='text-sm text-cream-70 leading-relaxed text-pretty'>
-                  <Fragment set:html={item.description} />
-                </dd>
-              </div>
-            </div>
+            <dt class='text-sm font-bold text-white-85 leading-snug'>
+              {item.title}
+            </dt>
+            <dd class='text-sm text-white-55 leading-relaxed text-pretty'>
+              <Fragment set:html={item.description} />
+            </dd>
 
           </div>
         )
@@ -184,13 +119,3 @@ const {
 
   </div>
 </section>
-
-<style>
-  .cursor-blink {
-    animation: blink 1.1s step-end infinite;
-  }
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: 0; }
-  }
-</style>
