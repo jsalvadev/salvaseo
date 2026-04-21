@@ -46,12 +46,10 @@ const {
 
 ---
 
-<section
-  class='relative overflow-hidden py-24 md:py-32 bg-cream'
-  style="background-image: radial-gradient(circle, rgba(105,117,101,0.12) 1px, transparent 1px); background-size: 24px 24px;">
+<section class='relative overflow-hidden py-24 md:py-32 bg-surface dot-grid-32'>
 
   <!-- Watermark -->
-  <div class="font-heading pointer-events-none absolute -left-16 top-1/2 -translate-y-1/2 select-none leading-none text-wm font-bold text-base/[0.05]"
+  <div class="font-heading pointer-events-none absolute -left-16 top-1/2 -translate-y-1/2 select-none leading-none text-wm font-bold text-white-07"
     aria-hidden='true'>
     MAPA
   </div>
@@ -61,15 +59,15 @@ const {
     <!-- ── Section header ──────────────────────────────────────────── -->
     <div class='mb-14 lg:mb-18'>
       <div data-animate class='flex items-center justify-center gap-2'>
-        <MapPin class='size-3.5 text-sage' aria-hidden='true' />
-        <p class='text-xs font-bold tracking-[0.18em] uppercase text-sage'>
+        <MapPin class='size-3.5 text-cream-70' aria-hidden='true' />
+        <p class='text-xs font-bold tracking-[0.18em] uppercase text-cream-70'>
           {upheading}
         </p>
       </div>
 
       <h2
         data-animate
-        class='mt-5 font-heading text-h2 font-bold leading-tight tracking-tight text-pretty mx-auto max-w-[30ch] text-base'>
+        class='mt-5 font-heading text-h2 font-bold leading-tight tracking-tight text-pretty mx-auto max-w-[30ch] text-white'>
         {heading}
       </h2>
 
@@ -78,17 +76,17 @@ const {
     <!-- ── Items list ──────────────────────────────────────────── -->
     <div class='max-w-3xl mx-auto text-left'>
 
-      <p class='text-base text-surface leading-relaxed mb-12 text-pretty max-w-[46ch] font-bold' data-animate>
+      <p class='text-base text-white-75 leading-relaxed mb-12 text-pretty max-w-[46ch] font-bold' data-animate>
         <Fragment set:html={intro} />
       </p>
 
       <ul class='space-y-10'>
         {items.map((item, idx) => (
           <li data-animate data-animate-delay={idx * 110}>
-            <p class='font-heading font-bold text-h6 text-base leading-snug mb-1.5'>
+            <p class='font-heading font-bold text-h6 text-white-85 leading-snug mb-1.5'>
               {item.title}
             </p>
-            <p class='text-base text-surface leading-relaxed text-pretty'>
+            <p class='text-base text-white-55 leading-relaxed text-pretty'>
               <Fragment set:html={item.description} />
             </p>
           </li>

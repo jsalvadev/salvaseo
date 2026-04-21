@@ -73,16 +73,6 @@ const defaultServices: ServiceItem[] = [
   },
 ]
 
-const stats: (string | null)[] = [
-  null,
-  null,
-  null,
-  null,
-  null,
-  null,
-  null,
-]
-
 const {
   upheading = 'Servicios de SEO local para negocios en Barcelona',
   heading = 'Las palancas que determinan tu visibilidad en Google Maps',
@@ -92,24 +82,17 @@ const {
   ctaHref,
 } = Astro.props
 
-const mainServices = services.slice(0, 6)
-const featuredService = services[6]
-const featuredStat = stats[6]
+const mainServices = services.slice(0, 7)
 ---
 
-<section id='servicios-local' class='relative bg-base py-24 sm:py-32 overflow-hidden'>
+<section id='servicios-local' class='relative bg-cream py-24 sm:py-32 overflow-hidden'>
 
   <!-- Dot grid texture -->
-  <div class='pointer-events-none absolute inset-0 dot-grid-32' aria-hidden='true'></div>
-
-  <!-- Radial glow behind grid -->
-  <div class='pointer-events-none absolute inset-0 flex items-center justify-center' aria-hidden='true'>
-    <div class='w-3/4 h-1/2 rounded-full bg-sage/[0.04] blur-3xl'></div>
-  </div>
+  <div class='pointer-events-none absolute inset-0 dot-grid-28' aria-hidden='true'></div>
 
   <!-- Watermark -->
   <div
-    class='font-heading pointer-events-none absolute -left-4 -bottom-8 select-none leading-none text-wm font-bold text-white/[0.05]'
+    class='font-heading pointer-events-none absolute -left-4 -bottom-8 select-none leading-none text-wm font-bold text-base/[0.05]'
     aria-hidden='true'>
     MAPS
   </div>
@@ -119,23 +102,21 @@ const featuredStat = stats[6]
     <!-- ── Header ── -->
     <div class='mb-16' data-animate>
       <p class='text-xs font-bold tracking-[0.18em] uppercase text-sage'>{upheading}</p>
-      <h2 class='font-heading mt-4 text-h2 text-cream leading-[1.1] max-w-2xl'>{heading}</h2>
+      <h2 class='font-heading mt-4 text-h2 text-base leading-[1.1] max-w-2xl'>{heading}</h2>
       {intro && (
-        <p class='mt-5 text-base text-cream-70 max-w-xl leading-relaxed'>
+        <p class='mt-5 text-base text-surface max-w-xl leading-relaxed'>
           <Fragment set:html={intro} />
         </p>
       )}
     </div>
 
-    <!-- ── Main 2×3 grid with 1px sage separators ── -->
-    <div class='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-sage/10 rounded-2xl overflow-hidden border border-sage-20'>
+    <!-- ── Grid ── -->
+    <div class='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
       {mainServices.map((service, idx) => {
         const Icon = iconByKey[service.icon as IconKey]
-        const stat = stats[idx]
-        const num = String(idx + 1).padStart(2, '0')
         return (
           <article
-            class='group relative flex flex-col gap-4 p-7 bg-base transition-colors duration-300 hover:bg-sage-10 cursor-default overflow-hidden'
+            class:list={['group relative flex flex-col gap-4 p-7 bg-white/60 rounded-2xl transition-colors duration-300 hover:bg-white/90 cursor-default overflow-hidden', idx === 6 && 'sm:col-span-2 lg:col-span-3']}
             data-animate
             data-animate-delay={idx * 60}>
 
@@ -145,37 +126,22 @@ const featuredStat = stats[6]
               aria-hidden='true'>
             </div>
 
-            <!-- Ghost ordinal -->
-            <span
-              class='font-heading pointer-events-none select-none absolute bottom-4 right-5 leading-none text-[5rem] text-white/[0.07] transition-opacity duration-300 group-hover:text-white/[0.13]'
-              aria-hidden='true'>
-              {num}
-            </span>
-
             <!-- Icon -->
-            <div class='shrink-0 size-10 flex items-center justify-center rounded-xl bg-sage-10 ring-1 ring-sage/20 transition-all duration-300 group-hover:bg-sage-15 group-hover:ring-sage/40 group-hover:shadow-[0_0_16px_rgba(105,117,101,0.28)]'>
-              <Icon aria-hidden='true' class='size-[1.1rem] text-sage' />
+            <div class='shrink-0 size-7 flex items-center justify-center rounded-lg bg-sage/10 ring-1 ring-sage/20 transition-all duration-300 group-hover:bg-sage/20 group-hover:ring-sage/40'>
+              <Icon aria-hidden='true' class='size-3.5 text-sage' />
             </div>
 
             <!-- Content -->
             <div class='flex flex-col gap-2 flex-1'>
-              <h3 class='font-heading text-h6 text-cream leading-snug pr-10'>{service.title}</h3>
-              <p class='text-sm text-cream-70 leading-relaxed text-pretty flex-1'>
+              <h3 class='font-heading text-h6 text-base leading-snug pr-10'>{service.title}</h3>
+              <p class='text-sm text-surface leading-relaxed text-pretty flex-1'>
                 <Fragment set:html={service.description} />
               </p>
             </div>
 
-            <!-- Stat pill -->
-            {stat && (
-              <div class='inline-flex items-center gap-1.5 self-start px-2.5 py-1 rounded-full bg-sage-10 border border-sage/25 text-sage text-xs font-semibold tracking-wide'>
-                <span class='size-1.5 rounded-full bg-sage shrink-0' aria-hidden='true'></span>
-                {stat}
-              </div>
-            )}
-
             <!-- Bottom accent bar -->
             <div
-              class='absolute bottom-0 left-0 h-[1px] w-0 bg-sage/60 transition-all duration-500 group-hover:w-full'
+              class='absolute bottom-0 left-0 h-[1px] w-0 bg-sage/40 transition-all duration-500 group-hover:w-full'
               aria-hidden='true'>
             </div>
           </article>
@@ -183,58 +149,12 @@ const featuredStat = stats[6]
       })}
     </div>
 
-    <!-- ── Featured 7th card (full width) ── -->
-    {featuredService && (() => {
-      const Icon = iconByKey[featuredService.icon as IconKey]
-      return (
-        <article
-          class='group relative mt-px flex flex-col sm:flex-row gap-6 sm:gap-10 p-7 sm:p-10 bg-sage-10 rounded-2xl border border-sage-20 border-l-2 border-l-sage/50 transition-all duration-300 hover:border-sage-30 hover:bg-sage-15 cursor-default overflow-hidden'
-          data-animate
-          data-animate-delay={360}>
-
-          <!-- Ghost ordinal -->
-          <span
-            class='font-heading pointer-events-none select-none absolute bottom-4 right-8 leading-none text-[7rem] text-white/[0.05] group-hover:text-white/[0.09] transition-opacity duration-300'
-            aria-hidden='true'>
-            07
-          </span>
-
-          <!-- Left: icon + label -->
-          <div class='shrink-0 flex flex-row sm:flex-col gap-4 sm:gap-3 items-center sm:items-start sm:w-36'>
-            <div class='size-12 flex items-center justify-center rounded-xl bg-sage-15 ring-1 ring-sage/30 transition-all duration-300 group-hover:bg-sage/25 group-hover:ring-sage/40 group-hover:shadow-[0_0_20px_rgba(105,117,101,0.32)]'>
-              <Icon aria-hidden='true' class='size-5 text-sage' />
-            </div>
-            {featuredStat && (
-              <div class='inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-sage-10 border border-sage/25 text-sage text-xs font-semibold tracking-wide'>
-                <span class='size-1.5 rounded-full bg-sage shrink-0' aria-hidden='true'></span>
-                {featuredStat}
-              </div>
-            )}
-          </div>
-
-          <!-- Right: content -->
-          <div class='flex flex-col gap-3 flex-1'>
-            <h3 class='font-heading text-h4 text-cream leading-snug'>{featuredService.title}</h3>
-            <p class='text-base text-cream-70 leading-relaxed text-pretty max-w-2xl'>
-              <Fragment set:html={featuredService.description} />
-            </p>
-          </div>
-
-          <!-- Bottom accent bar -->
-          <div
-            class='absolute bottom-0 left-0 h-[1px] w-0 bg-sage/60 transition-all duration-500 group-hover:w-full'
-            aria-hidden='true'>
-          </div>
-        </article>
-      )
-    })()}
-
     <!-- ── CTA ── -->
     {ctaText && ctaHref && (
       <div class='mt-12 text-center' data-animate>
         <a
           href={ctaHref}
-          class='group inline-flex items-center gap-2 text-sm font-semibold text-sage hover:text-cream transition-colors duration-200'>
+          class='group inline-flex items-center gap-2 text-sm font-semibold text-base hover:text-sage transition-colors duration-200'>
           {ctaText}
           <span class='group-hover:translate-x-1 transition-transform duration-200' aria-hidden='true'>→</span>
         </a>
