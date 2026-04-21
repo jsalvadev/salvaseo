@@ -1,7 +1,7 @@
 ---
 import { Search, TrendingUp, Users } from '@lucide/astro'
 import Upheading from '../../Upheading.astro'
-import WhatsAppButton from '../../WhatsAppButton.astro'
+import CalButton from '../../CalButton.astro'
 
 interface Props {
   upheading?: string
@@ -59,7 +59,7 @@ const {
       </div>
       <div
         class='mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-x-6 lg:mt-0 lg:shrink-0'>
-        <WhatsAppButton text={primaryCtaText} />
+        <CalButton text={primaryCtaText} variant="sage" />
         {secondaryCtaText && secondaryCtaHref && (
           <a
             href={secondaryCtaHref}
@@ -84,7 +84,7 @@ const {
       </p>
       <div
         class='mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-x-6'>
-        <WhatsAppButton text={primaryCtaText} />
+        <CalButton text={primaryCtaText} variant="sage" />
         {secondaryCtaText && secondaryCtaHref && (
           <a
             href={secondaryCtaHref}

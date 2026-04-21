@@ -1,6 +1,6 @@
 ---
 import Upheading from '../../Upheading.astro'
-import WhatsAppButton from '../../WhatsAppButton.astro'
+import CalButton from '../../CalButton.astro'
 
 interface PricingFeature {
   text: string
@@ -77,7 +77,7 @@ const {
               {ctaText}
             </a>
           ) : (
-            <WhatsAppButton text={ctaText} class='w-full justify-center' />
+            <CalButton text={ctaText} class='w-full justify-center' variant="sage" />
           )}
         </div>
       </div>

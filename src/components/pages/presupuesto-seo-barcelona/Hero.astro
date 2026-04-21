@@ -1,5 +1,5 @@
 ---
-import WhatsAppButton from '../../WhatsAppButton.astro'
+import CalButton from '../../CalButton.astro'
 import { buildWhatsAppHref } from '../../../data/site'
 import { ChevronRight } from '@lucide/astro'
 
@@ -141,9 +141,9 @@ const currentYear = new Date().getFullYear()
 
         <!-- CTA -->
         <div class='animate-fade-in-up [animation-delay:440ms] mt-8'>
-          <WhatsAppButton
+          <CalButton
             text={primaryCtaText}
-            href={waHref}
+            variant="sage"
             class='px-6 py-3 text-[0.9375rem] font-bold shadow-lg shadow-sand/20 hover:shadow-sand/30 transition-shadow'
           />
         </div>

@@ -1,9 +1,6 @@
 ---
 import type { FaqItem } from '../../../data/faq-home'
-import WhatsAppButton from '../../WhatsAppButton.astro'
-import { buildWhatsAppHref } from '../../../data/site'
-
-const waHref = buildWhatsAppHref()
+import CalButton from '../../CalButton.astro'
 
 interface Props {
   upheading?: string
@@ -120,9 +117,9 @@ const headingSecond = colonIdx !== -1 ? heading.slice(colonIdx + 2) : ''
             ¿Tu duda no está aquí?<br />
             <strong class='text-cream font-semibold'>Escríbeme directamente.</strong>
           </p>
-          <WhatsAppButton
+          <CalButton
             text='Analiza mi web'
-            href={waHref}
+            variant="sage"
             class='text-sm font-bold px-5 py-2.5 shadow-sm shadow-teal/20'
           />
         </div>

@@ -1,6 +1,6 @@
 ---
 import { Map, MapPin, Phone } from '@lucide/astro'
-import WhatsAppButton from '../../WhatsAppButton.astro'
+import CalButton from '../../CalButton.astro'
 
 interface Props {
   upheading?: string
@@ -61,7 +61,7 @@ const { upheading, heading, primaryCtaText, secondaryCtaText, secondaryCtaHref }
       <!-- accent bar -->
       <div class='mx-auto mt-4 h-1 w-20 rounded-full bg-gradient-to-r from-sand to-sand/40'></div>
       <div class='mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-x-6'>
-        <WhatsAppButton text={primaryCtaText} />
+        <CalButton text={primaryCtaText} variant="sage" />
         {secondaryCtaText && secondaryCtaHref && (
           <a
             href={secondaryCtaHref}

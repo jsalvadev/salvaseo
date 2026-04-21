@@ -1,5 +1,5 @@
 ---
-import WhatsAppButton from '../../WhatsAppButton.astro'
+import CalButton from '../../CalButton.astro'
 import Breadcrumb from '../../Breadcrumb.astro'
 import HeadingRule from '../../HeadingRule.astro'
 import { buildWhatsAppHref } from '../../../data/site'
@@ -114,9 +114,9 @@ const waHref = buildWhatsAppHref()
 
     <!-- CTA -->
     <div class='animate-fade-in-up [animation-delay:380ms] mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4'>
-      <WhatsAppButton
+      <CalButton
         text={primaryCtaText}
-        href={waHref}
+        variant="sage"
         class='px-6 py-3 text-[0.9375rem] font-bold shadow-lg shadow-teal/20 hover:shadow-teal/30 transition-shadow'
       />
     </div>
