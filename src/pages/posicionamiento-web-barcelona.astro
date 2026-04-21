@@ -10,7 +10,7 @@ import barcelonaImage from '../assets/fisioterapia-barcelona.avif'
 
 const MIN_MONTHLY_PRICE_EUR = 350
 const MIN_MONTHLY_PRICE_TEXT = `${MIN_MONTHLY_PRICE_EUR} €/mes`
-const DATE_MODIFIED = "2026-03-03"
+const DATE_MODIFIED = new Date().toISOString().split('T')[0]
 
 const faqPwItems = [
   {
@@ -38,7 +38,7 @@ const faqPwItems = [
 
 <Layout
   title='Posicionamiento Web en Barcelona desde 350 € - SalvaSEO'
-  description='¿Quieres más visitas desde Google? Posicionamiento web en Barcelona ☎ 692 051 399 🔵 Desde 350 €/mes ⭐ Sin permanencia. ¡Contacta ya!'
+  description='Posicionamiento web en Barcelona. Auditoria SEO, estrategia on page y off page. Desde 350 euros/mes sin permanencia.'
   canonicalUrl='https://salvaseo.com/posicionamiento-web-barcelona/'
   preloadImageHref={barcelonaImage.src}
 >
@@ -139,56 +139,43 @@ const faqPwItems = [
           provider: {
             '@id': 'https://salvaseo.com/#business'
           },
-          areaServed: {
-            '@type': 'City',
-            name: 'Barcelona',
-            sameAs: 'https://es.wikipedia.org/wiki/Barcelona'
-          },
-          offers: {
-            '@type': 'Offer',
-            priceSpecification: {
-              '@type': 'UnitPriceSpecification',
-              priceCurrency: 'EUR',
-              price: String(MIN_MONTHLY_PRICE_EUR),
-              unitText: 'mes',
-              description: `Presupuesto desde ${MIN_MONTHLY_PRICE_TEXT}, definido tras diagnóstico gratuito`
+          areaServed: [
+            {
+              '@type': 'City',
+              name: 'Barcelona',
+              sameAs: 'https://es.wikipedia.org/wiki/Barcelona'
+            },
+            {
+              '@type': 'AdministrativeArea',
+              name: 'Area Metropolitana de Barcelona'
             }
-          },
+          ],
           hasOfferCatalog: {
             '@type': 'OfferCatalog',
             name: 'Servicios de Posicionamiento Web en Barcelona',
             itemListElement: [
               {
                 '@type': 'Offer',
+                price: '550',
+                priceCurrency: 'EUR',
                 availability: 'https://schema.org/InStock',
-                url: 'https://salvaseo.com/posicionamiento-web-barcelona/',
                 itemOffered: {
                   '@type': 'Service',
-                  name: 'Análisis inicial y auditoría SEO',
+                  name: 'Posicionamiento Web Barcelona',
                   description:
-                    'Auditoría técnica completa, keyword research, análisis de competencia y arquitectura web para identificar problemas y oportunidades de mejora.'
+                    'Optimizacion completa de tu web: auditoria SEO, estrategia on page, off page y contenido. Desde 550 euros/mes.'
                 }
               },
               {
                 '@type': 'Offer',
+                price: '350',
+                priceCurrency: 'EUR',
                 availability: 'https://schema.org/InStock',
-                url: 'https://salvaseo.com/posicionamiento-web-barcelona/',
                 itemOffered: {
                   '@type': 'Service',
-                  name: 'SEO On Page',
+                  name: 'SEO Local y Google Maps',
                   description:
-                    'Optimización de intención de búsqueda, contenidos de negocio, interlinking estratégico, control de indexación y Core Web Vitals.'
-                }
-              },
-              {
-                '@type': 'Offer',
-                availability: 'https://schema.org/InStock',
-                url: 'https://salvaseo.com/posicionamiento-web-barcelona/',
-                itemOffered: {
-                  '@type': 'Service',
-                  name: 'SEO Off Page',
-                  description:
-                    'Link building de calidad, auditoría de backlinks, link baiting, reputación online y estrategia de autoridad de dominio.'
+                    'Optimizacion de perfil de Google Maps y SEO local para negocios en Barcelona. Desde 350 euros/mes.'
                 }
               }
             ]
