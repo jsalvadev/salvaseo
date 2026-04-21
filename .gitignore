@@ -26,3 +26,12 @@ pnpm-debug.log*
 # Skilld references (recreated by `skilld install`)
 .skilld
 .unlighthouse
+
+# local audit reports
+seo-audit*.html
+
+# screenshots
+screenshots/
+
+# scripts
+scripts/
