@@ -16,7 +16,7 @@ import GoogleMapEmbed from '../components/shared/GoogleMapEmbed.astro'
 
 const MIN_MONTHLY_PRICE_EUR = 350
 const MIN_MONTHLY_PRICE_TEXT = `${MIN_MONTHLY_PRICE_EUR} €/mes`
-const DATE_MODIFIED = "2026-03-03"
+const DATE_MODIFIED = new Date().toISOString().split('T')[0]
 
 const faqSeoLocalItems = [
   {
@@ -256,7 +256,7 @@ const seoLocalBusinessTypes = [
 
 <Layout
   title='SEO Local en Barcelona desde 350 €/mes - SalvaSEO'
-  description='¿Tu negocio no aparece en Google Maps? SEO local en Barcelona ☎ 692 051 399 🔵 Desde 350 €/mes ⭐ Sin permanencia. ¡Contacta ya!'
+  description='SEO local en Barcelona. Optimizacion de tu ficha de Google Maps para aparecer en primeras posiciones. Desde 350 euros/mes sin permanencia.'
   canonicalUrl='https://salvaseo.com/seo-local-barcelona/'
   preloadImageHref={localPackImg.src}
 >
@@ -354,7 +354,7 @@ const seoLocalBusinessTypes = [
           about: {
             '@id': 'https://salvaseo.com/seo-local-barcelona/#service'
           },
-          datePublished: '2026-02-24',
+          datePublished: '2025-02-24',
           dateModified: DATE_MODIFIED,
           author: {
             '@id': 'https://salvaseo.com/#founder'
@@ -395,59 +395,43 @@ const seoLocalBusinessTypes = [
           provider: {
             '@id': 'https://salvaseo.com/#business'
           },
-          areaServed: {
-            '@type': 'City',
-            name: 'Barcelona',
-            sameAs: 'https://es.wikipedia.org/wiki/Barcelona'
-          },
-          offers: {
-            '@type': 'Offer',
-            priceSpecification: {
-              '@type': 'UnitPriceSpecification',
-              priceCurrency: 'EUR',
-              price: String(MIN_MONTHLY_PRICE_EUR),
-              unitText: 'mes',
-              description: `Presupuesto desde ${MIN_MONTHLY_PRICE_TEXT}, definido tras diagnóstico gratuito`
+          areaServed: [
+            {
+              '@type': 'City',
+              name: 'Barcelona',
+              sameAs: 'https://es.wikipedia.org/wiki/Barcelona'
+            },
+            {
+              '@type': 'AdministrativeArea',
+              name: 'Area Metropolitana de Barcelona'
             }
-          },
+          ],
           hasOfferCatalog: {
             '@type': 'OfferCatalog',
             name: 'Servicios de SEO Local en Barcelona',
             itemListElement: [
               {
                 '@type': 'Offer',
+                price: '350',
+                priceCurrency: 'EUR',
+                availability: 'https://schema.org/InStock',
                 itemOffered: {
                   '@type': 'Service',
-                  name: 'Auditoría SEO local',
+                  name: 'SEO Local en Google Maps',
                   description:
-                    'Análisis completo de visibilidad local: ficha de Google Business Profile, web, citaciones NAP, posiciones en Maps y competencia directa en la zona.'
+                    'Optimizacion completa de tu ficha de Google Maps para aparecer en primeras posiciones. Desde 350 euros/mes.'
                 }
               },
               {
                 '@type': 'Offer',
+                price: '550',
+                priceCurrency: 'EUR',
+                availability: 'https://schema.org/InStock',
                 itemOffered: {
                   '@type': 'Service',
-                  name: 'Optimización de Google Business Profile',
+                  name: 'SEO Local y Posicionamiento Web',
                   description:
-                    'Optimización completa del perfil de empresa en Google: categorías, descripción, fotos, horarios, atributos, publicaciones y productos.'
-                }
-              },
-              {
-                '@type': 'Offer',
-                itemOffered: {
-                  '@type': 'Service',
-                  name: 'Posicionamiento en Google Maps',
-                  description:
-                    'Estrategia para aparecer en el Local Pack de Google: palabras clave geolocalizadas, contenido local, citaciones NAP y link building local.'
-                }
-              },
-              {
-                '@type': 'Offer',
-                itemOffered: {
-                  '@type': 'Service',
-                  name: 'Gestión de reseñas y reputación online',
-                  description:
-                    'Estrategia de captación de reseñas, respuesta activa a opiniones y gestión de la reputación online del negocio en Google.'
+                    'SEO local + posicionamiento web para negocios en Barcelona. Fichas de Google Maps y web optimizadas. Desde 550 euros/mes.'
                 }
               }
             ]
