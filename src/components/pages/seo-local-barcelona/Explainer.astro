@@ -1,10 +1,8 @@
 ---
-import { MapPin, Search, LayoutGrid } from '@lucide/astro'
-
-type IconKey = 'mapPin' | 'search' | 'layoutGrid'
+import { MapPin } from '@lucide/astro'
 
 interface ExplainerItem {
-  icon: IconKey
+  icon?: string
   title: string
   description: string
 }
@@ -16,12 +14,6 @@ interface Props {
   items?: ExplainerItem[]
   mockupCaption?: string
 }
-
-const iconByKey = {
-  mapPin: MapPin,
-  search: Search,
-  layoutGrid: LayoutGrid,
-} as const
 
 const defaultItems: ExplainerItem[] = [
   {
@@ -77,59 +69,31 @@ const {
 
       <h2
         data-animate
-        class='mt-5 font-heading text-h2 font-bold leading-tight tracking-tight text-pretty mx-auto max-w-4xl text-base'>
+        class='mt-5 font-heading text-h2 font-bold leading-tight tracking-tight text-pretty mx-auto max-w-[30ch] text-base'>
         {heading}
       </h2>
 
     </div>
 
     <!-- ── Items list ──────────────────────────────────────────── -->
-    <div class='max-w-3xl mx-auto'>
-      <div>
+    <div class='max-w-3xl mx-auto text-left'>
 
-        <p class='text-base text-surface leading-relaxed mb-10 text-pretty mx-auto md:mx-0 md:text-left max-w-[46ch]' data-animate>
-          <Fragment set:html={intro} />
-        </p>
+      <p class='text-base text-surface leading-relaxed mb-12 text-pretty max-w-[46ch] font-bold' data-animate>
+        <Fragment set:html={intro} />
+      </p>
 
-        <ol class='grid grid-cols-1 md:grid-cols-2 gap-4 text-left'>
-          {items.map((item, idx) => {
-            const Icon = iconByKey[item.icon]
-            const num  = String(idx + 1).padStart(2, '0')
-            const isHero = idx === 0
-            return (
-              <li
-                class={`item-card group relative overflow-hidden rounded-2xl border border-sage-20 border-t-2 border-t-sage/30 bg-white/50 px-5 py-5 transition-all duration-300 hover:border-sage-30 hover:border-t-sage/70 hover:shadow-md hover:shadow-base/5 hover:bg-sage/5 cursor-default${isHero ? ' md:col-span-2' : ''}`}
-                data-animate
-                data-animate-delay={idx * 110}>
-
-                <!-- Ghost ordinal -->
-                <div class="font-heading pointer-events-none absolute bottom-2 right-3 select-none leading-none text-[8rem] text-base/[0.1] transition-opacity duration-300"
-                  aria-hidden='true'>
-                  {num}
-                </div>
-
-                <div class='relative flex items-start gap-3.5'>
-                  <!-- Icon badge -->
-                  <div class={`shrink-0 mt-0.5 flex items-center justify-center rounded-xl bg-sage/10 ring-1 ring-sage/20 transition-all duration-300 group-hover:bg-sage/20 group-hover:ring-sage/30${isHero ? ' h-12 w-12' : ' h-10 w-10'}`}>
-                    <Icon class={`text-sage${isHero ? ' size-6' : ' size-5'}`} aria-hidden='true' />
-                  </div>
-
-                  <div class='min-w-0'>
-                    <!-- Expanding underline -->
-                    <div class='h-0.5 w-5 bg-sage rounded-full transition-all duration-300 group-hover:w-10 mb-2'></div>
-                    <dt class={`font-bold text-base leading-snug mb-1.5${isHero ? ' text-lg' : ' text-sm'}`}>
-                      {item.title}
-                    </dt>
-                    <dd class='text-base text-surface leading-relaxed text-pretty'>
-                      <Fragment set:html={item.description} />
-                    </dd>
-                  </div>
-                </div>
-              </li>
-            )
-          })}
-        </ol>
-      </div>
+      <ul class='space-y-10'>
+        {items.map((item, idx) => (
+          <li data-animate data-animate-delay={idx * 110}>
+            <p class='font-heading font-bold text-h6 text-base leading-snug mb-1.5'>
+              {item.title}
+            </p>
+            <p class='text-base text-surface leading-relaxed text-pretty'>
+              <Fragment set:html={item.description} />
+            </p>
+          </li>
+        ))}
+      </ul>
 
     </div>
   </div>
