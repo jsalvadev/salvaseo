@@ -1,5 +1,5 @@
 ---
-import WhatsAppButton from '../../WhatsAppButton.astro'
+import CalButton from '../../CalButton.astro'
 import {
   BadgeCheck,
   BarChart3,
@@ -47,18 +47,6 @@ interface Props {
   ctaHref?: string;
   ctaLabel?: string;
 }
-
-const iconByKey = {
-  scale: Scale,
-  barChart3: BarChart3,
-  badgeCheck: BadgeCheck,
-  target: Target,
-  trendingUp: TrendingUp,
-  calendarClock: CalendarClock,
-  chartNoAxesColumn: ChartNoAxesColumn,
-  lineChart: LineChart,
-  layers3: Layers3,
-} as const;
 
 const defaultPhases: TimelinePhase[] = [
   {
@@ -120,142 +108,81 @@ const {
 } = Astro.props;
 ---
 
-<section
-  id={sectionId}
-  class="relative bg-surface py-24 sm:py-32 overflow-hidden"
->
+<section id={sectionId} class="relative bg-base py-24 sm:py-32 overflow-hidden">
 
-  <!-- Dot texture -->
   <div class="pointer-events-none absolute inset-0 dot-grid-32" aria-hidden="true"></div>
-
-  <!-- Watermark -->
-  <div
-    class="font-heading pointer-events-none absolute -right-4 top-1/2 -translate-y-1/2 select-none leading-none text-wm font-bold text-white/[0.03]"
-    aria-hidden="true">
-    FASES
-  </div>
 
   <div class="relative container-site">
 
     <!-- ── Header ── -->
-    <div class="max-w-3xl mb-16 lg:mb-20" data-animate>
+    <div class="max-w-2xl mb-16 lg:mb-20" data-animate>
       {upheading && (
-        <p class="text-xs font-bold tracking-[0.18em] uppercase text-sage mb-4">{upheading}</p>
+        <p class="text-xs font-bold tracking-[0.18em] uppercase text-cream-70 mb-4">{upheading}</p>
       )}
-      <h2 class="font-heading text-h2 text-cream leading-[1.1]">{heading}</h2>
+      <h2 class="font-heading text-h2 text-white leading-[1.1]">{heading}</h2>
       {subtitle && (
-        <p class="mt-5 text-base text-cream-70 leading-relaxed max-w-[52ch]">{subtitle}</p>
+        <p class="mt-5 text-base text-white-55 leading-relaxed max-w-[52ch]">{subtitle}</p>
       )}
     </div>
 
-    <!-- ── Vertical timeline ── -->
+    <!-- ── Timeline ── -->
     <div class="relative">
 
-      <!-- Continuous vertical line -->
+      <!-- Vertical rule -->
       <div
-        class="pointer-events-none absolute left-[2.75rem] top-0 bottom-0 w-px bg-sage/20 hidden sm:block"
+        class="pointer-events-none absolute left-5 top-0 bottom-0 w-px bg-white/[0.08] hidden sm:block"
         aria-hidden="true">
       </div>
 
-      <ol class="flex flex-col gap-0" role="list">
+      <ol class="flex flex-col" role="list">
         {phases.map((phase, idx) => {
-          const isLast = idx === phases.length - 1
           const num = String(idx + 1).padStart(2, '0')
-          const Icon0 = iconByKey[phase.bullets[0]?.icon]
-          const Icon1 = iconByKey[phase.bullets[1]?.icon]
-          const Icon2 = iconByKey[phase.bullets[2]?.icon]
-          const icons = [Icon0, Icon1, Icon2]
+          const isLast = idx === phases.length - 1
 
           return (
             <li
               class:list={[
-                'group relative grid sm:grid-cols-[5.5rem_1fr] gap-6 sm:gap-10 py-10 sm:py-12',
-                idx < phases.length - 1 && 'border-b border-sage/10',
+                'relative grid sm:grid-cols-[3.5rem_1fr] gap-6 sm:gap-12 py-10',
+                !isLast && 'border-b border-white/[0.06]',
               ]}
               data-animate
-              data-animate-delay={idx * 100}>
+              data-animate-delay={idx * 80}>
 
-              <!-- Left: step node + number -->
-              <div class="hidden sm:flex flex-col items-center gap-3 pt-1">
-                <!-- Dot node on the line -->
-                <div class:list={[
-                  'relative z-10 size-5 rounded-full ring-4 ring-surface flex items-center justify-center shrink-0 transition-all duration-300',
-                  isLast
-                    ? 'bg-sage ring-sage/30'
-                    : 'bg-surface border-2 border-sage/50 group-hover:border-sage group-hover:bg-sage/20',
-                ]} aria-hidden="true">
-                  {isLast && (
-                    <span class="size-2 rounded-full bg-cream" aria-hidden="true"></span>
-                  )}
-                </div>
-
-                <!-- Big ghost ordinal -->
-                <span
-                  class="font-heading text-h2 leading-none text-cream-30 select-none tabular-nums transition-colors duration-300 group-hover:text-cream-50"
-                  aria-label={`Fase ${idx + 1}`}>
+              <!-- Step number -->
+              <div class="hidden sm:flex justify-center pt-1">
+                <span class="font-heading text-h4 leading-none text-white/20 tabular-nums select-none">
                   {num}
                 </span>
               </div>
 
-              <!-- Right: content -->
-              <div class="flex flex-col gap-5">
+              <!-- Content -->
+              <div class="flex flex-col gap-4">
 
-                <!-- Mobile step badge -->
-                <div class="flex items-center gap-3 sm:hidden">
-                  <span class="inline-flex items-center justify-center size-7 rounded-full bg-sage/20 text-sage text-xs font-bold tabular-nums">
-                    {idx + 1}
-                  </span>
-                  <span class="text-xs font-bold tracking-widest uppercase text-sage">
+                <!-- Mobile number -->
+                <span class="sm:hidden font-heading text-xs font-bold tracking-widest uppercase text-white/30">
+                  {isLast ? 'Resultado' : `Fase ${idx + 1}`}
+                </span>
+
+                <div>
+                  <span class="hidden sm:block text-xs font-bold tracking-widest uppercase text-white/30 mb-2">
                     {isLast ? 'Resultado' : `Fase ${idx + 1}`}
                   </span>
+                  <h3 class="font-heading text-h4 text-white-85 leading-snug">{phase.title}</h3>
                 </div>
 
-                <!-- Title -->
-                <div class="flex flex-col gap-1">
-                  <span class="hidden sm:block text-xs font-bold tracking-widest uppercase text-sage">
-                    {isLast ? 'Resultado' : `Fase ${idx + 1}`}
-                  </span>
-                  <h3 class:list={[
-                    'font-heading leading-snug',
-                    isLast ? 'text-h3 text-cream' : 'text-h4 text-cream',
-                  ]}>
-                    {phase.title}
-                  </h3>
-                </div>
+                <p class="text-base text-white-55 leading-relaxed max-w-[54ch]">{phase.intro}</p>
 
-                <!-- Intro -->
-                <p class="text-base text-cream-70 leading-relaxed max-w-[56ch]">{phase.intro}</p>
-
-                <!-- Bullets -->
-                <ul class="flex flex-col gap-3" role="list">
-                  {phase.bullets.map((bullet, bi) => {
-                    const BulletIcon = icons[bi]
-                    return (
-                      <li class="flex items-start gap-3">
-                        <div class:list={[
-                          'shrink-0 mt-0.5 size-6 flex items-center justify-center rounded-lg transition-colors duration-300',
-                          isLast ? 'bg-sage/20 text-sage' : 'bg-white-06 text-sage group-hover:bg-sage/15',
-                        ]}>
-                          {BulletIcon && <BulletIcon aria-hidden="true" class="size-3.5" />}
-                        </div>
-                        <p class="text-sm text-cream-70 leading-relaxed">
-                          <strong class="text-cream font-semibold">{bullet.emphasis}</strong>
-                          {' '}{bullet.text}
-                        </p>
-                      </li>
-                    )
-                  })}
+                <ul class="flex flex-col gap-2" role="list">
+                  {phase.bullets.map((bullet) => (
+                    <li class="flex items-start gap-2.5">
+                      <span class="mt-2 shrink-0 size-1.5 rounded-full bg-sage/60" aria-hidden="true"></span>
+                      <p class="text-sm text-white-55 leading-relaxed">
+                        <strong class="text-white-75 font-semibold">{bullet.emphasis}</strong>
+                        {' '}{bullet.text}
+                      </p>
+                    </li>
+                  ))}
                 </ul>
-
-                <!-- Outro -->
-                <p class:list={[
-                  'text-sm leading-relaxed italic border-l-2 pl-4 py-1',
-                  isLast
-                    ? 'border-sage text-cream-70'
-                    : 'border-sage/30 text-cream-50 group-hover:border-sage/60 group-hover:text-cream-70 transition-colors duration-300',
-                ]}>
-                  {phase.outro}
-                </p>
 
               </div>
             </li>
@@ -264,27 +191,14 @@ const {
       </ol>
     </div>
 
-    <!-- ── CTA banner ── -->
-    <div class="mt-16" data-animate>
-      <div class="relative rounded-2xl border border-sage-20 bg-white-06 p-8 sm:p-10 overflow-hidden">
-
-        <!-- Subtle sage glow -->
-        <div
-          class="pointer-events-none absolute -right-16 -top-16 size-64 rounded-full bg-sage/5 blur-3xl"
-          aria-hidden="true">
+    <!-- ── CTA ── -->
+    <div class="mt-16 pt-10 border-t border-white/[0.06]" data-animate>
+      <div class="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-16">
+        <div class="flex-1">
+          <p class="font-heading text-h5 text-white-85 leading-snug mb-3">{ctaHeading}</p>
+          <p class="text-base text-white-55 leading-relaxed max-w-[50ch]">{ctaText}</p>
         </div>
-
-        <div class="relative flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-12">
-          <div class="flex-1">
-            <p class="font-heading text-h5 text-cream leading-snug mb-3">{ctaHeading}</p>
-            <p class="text-base text-cream-70 leading-relaxed max-w-[50ch]">{ctaText}</p>
-          </div>
-          <WhatsAppButton
-            text={ctaLabel}
-            href={ctaHref}
-            class='px-6 py-3 text-sm font-bold shrink-0'
-          />
-        </div>
+        <CalButton color='cream' class='px-6 py-3 shrink-0' />
       </div>
     </div>
 
