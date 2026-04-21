@@ -46,7 +46,10 @@ const {
 
 ---
 
-<section class='relative overflow-hidden py-24 md:py-32 bg-surface dot-grid-32'>
+<section class='relative overflow-hidden py-24 md:py-32 dot-grid-32' style="background: linear-gradient(160deg, var(--color-base) 0%, var(--color-surface) 60%, var(--color-base) 100%);">
+
+  <!-- Sage radial glow -->
+  <div class="pointer-events-none absolute inset-0" style="background: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(105,117,101,0.12) 0%, transparent 70%);" aria-hidden="true"></div>
 
   <!-- Watermark -->
   <div class="font-heading pointer-events-none absolute -left-16 top-1/2 -translate-y-1/2 select-none leading-none text-wm font-bold text-white-07"

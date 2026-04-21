@@ -72,7 +72,7 @@ const {
 } = Astro.props
 ---
 
-<section class='relative overflow-hidden bg-base py-24 md:py-32'>
+<section class='relative overflow-hidden py-24 md:py-32' style="background: linear-gradient(160deg, var(--color-base) 0%, var(--color-surface) 50%, var(--color-base) 100%);">
 
   <div class='pointer-events-none absolute inset-0 dot-grid-32' aria-hidden='true'></div>
 
@@ -94,14 +94,14 @@ const {
     </div>
 
     <!-- ── Grid ── -->
-    <dl class='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/[0.05] rounded-xl overflow-hidden'>
+    <dl class='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4'>
       {businessTypes.map((item, idx) => {
         const Icon = iconByKey[item.icon]
         return (
           <div
             data-animate
             data-animate-delay={idx * 60}
-            class='flex flex-col gap-3 bg-base px-6 py-7'>
+            class='flex flex-col gap-3 bg-white/[0.05] rounded-xl px-6 py-7'>
 
             <Icon class='size-4 text-sage/70' aria-hidden='true' />
 
