@@ -102,9 +102,14 @@ const featuredStat = stats[6]
   <!-- Dot grid texture -->
   <div class='pointer-events-none absolute inset-0 dot-grid-32' aria-hidden='true'></div>
 
+  <!-- Radial glow behind grid -->
+  <div class='pointer-events-none absolute inset-0 flex items-center justify-center' aria-hidden='true'>
+    <div class='w-3/4 h-1/2 rounded-full bg-sage/[0.04] blur-3xl'></div>
+  </div>
+
   <!-- Watermark -->
   <div
-    class='font-heading pointer-events-none absolute -right-4 top-0 select-none leading-none text-wm font-bold text-white/[0.03]'
+    class='font-heading pointer-events-none absolute -left-4 -bottom-8 select-none leading-none text-wm font-bold text-white/[0.05]'
     aria-hidden='true'>
     MAPS
   </div>
@@ -130,19 +135,25 @@ const featuredStat = stats[6]
         const num = String(idx + 1).padStart(2, '0')
         return (
           <article
-            class='group relative flex flex-col gap-4 p-7 bg-base transition-colors duration-300 hover:bg-white-03 cursor-default'
+            class='group relative flex flex-col gap-4 p-7 bg-base transition-colors duration-300 hover:bg-sage-10 cursor-default overflow-hidden'
             data-animate
             data-animate-delay={idx * 60}>
 
+            <!-- Left accent bar -->
+            <div
+              class='pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-sage scale-y-0 origin-top rounded-r-full transition-transform duration-300 group-hover:scale-y-100'
+              aria-hidden='true'>
+            </div>
+
             <!-- Ghost ordinal -->
             <span
-              class='font-heading pointer-events-none select-none absolute top-5 right-6 leading-none text-[3.5rem] text-white/[0.04] transition-opacity duration-300 group-hover:text-white/[0.07]'
+              class='font-heading pointer-events-none select-none absolute bottom-4 right-5 leading-none text-[5rem] text-white/[0.07] transition-opacity duration-300 group-hover:text-white/[0.13]'
               aria-hidden='true'>
               {num}
             </span>
 
             <!-- Icon -->
-            <div class='shrink-0 size-10 flex items-center justify-center rounded-xl bg-sage-10 ring-1 ring-sage/20 transition-all duration-300 group-hover:bg-sage-15 group-hover:ring-sage/30'>
+            <div class='shrink-0 size-10 flex items-center justify-center rounded-xl bg-sage-10 ring-1 ring-sage/20 transition-all duration-300 group-hover:bg-sage-15 group-hover:ring-sage/40 group-hover:shadow-[0_0_16px_rgba(105,117,101,0.28)]'>
               <Icon aria-hidden='true' class='size-[1.1rem] text-sage' />
             </div>
 
@@ -156,7 +167,7 @@ const featuredStat = stats[6]
 
             <!-- Stat pill -->
             {stat && (
-              <div class='inline-flex items-center gap-1.5 self-start px-2.5 py-1 rounded-full bg-sage-10 border-sage-20 text-sage text-xs font-semibold tracking-wide'>
+              <div class='inline-flex items-center gap-1.5 self-start px-2.5 py-1 rounded-full bg-sage-10 border border-sage/25 text-sage text-xs font-semibold tracking-wide'>
                 <span class='size-1.5 rounded-full bg-sage shrink-0' aria-hidden='true'></span>
                 {stat}
               </div>
@@ -164,7 +175,7 @@ const featuredStat = stats[6]
 
             <!-- Bottom accent bar -->
             <div
-              class='absolute bottom-0 left-0 h-[2px] w-0 bg-sage rounded-r-full transition-all duration-500 group-hover:w-full'
+              class='absolute bottom-0 left-0 h-[1px] w-0 bg-sage/60 transition-all duration-500 group-hover:w-full'
               aria-hidden='true'>
             </div>
           </article>
@@ -177,24 +188,24 @@ const featuredStat = stats[6]
       const Icon = iconByKey[featuredService.icon as IconKey]
       return (
         <article
-          class='group relative mt-px flex flex-col sm:flex-row gap-6 sm:gap-10 p-7 sm:p-10 bg-white-03 rounded-2xl border border-sage-20 transition-all duration-300 hover:border-sage-30 hover:bg-white-06 cursor-default overflow-hidden'
+          class='group relative mt-px flex flex-col sm:flex-row gap-6 sm:gap-10 p-7 sm:p-10 bg-sage-10 rounded-2xl border border-sage-20 border-l-2 border-l-sage/50 transition-all duration-300 hover:border-sage-30 hover:bg-sage-15 cursor-default overflow-hidden'
           data-animate
           data-animate-delay={360}>
 
           <!-- Ghost ordinal -->
           <span
-            class='font-heading pointer-events-none select-none absolute top-6 right-8 leading-none text-[5rem] text-white/[0.04] group-hover:text-white/[0.07] transition-opacity duration-300'
+            class='font-heading pointer-events-none select-none absolute bottom-4 right-8 leading-none text-[7rem] text-white/[0.05] group-hover:text-white/[0.09] transition-opacity duration-300'
             aria-hidden='true'>
             07
           </span>
 
           <!-- Left: icon + label -->
           <div class='shrink-0 flex flex-row sm:flex-col gap-4 sm:gap-3 items-center sm:items-start sm:w-36'>
-            <div class='size-12 flex items-center justify-center rounded-xl bg-sage-15 ring-1 ring-sage/30 transition-all duration-300 group-hover:bg-sage/25 group-hover:ring-sage/40'>
+            <div class='size-12 flex items-center justify-center rounded-xl bg-sage-15 ring-1 ring-sage/30 transition-all duration-300 group-hover:bg-sage/25 group-hover:ring-sage/40 group-hover:shadow-[0_0_20px_rgba(105,117,101,0.32)]'>
               <Icon aria-hidden='true' class='size-5 text-sage' />
             </div>
             {featuredStat && (
-              <div class='inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-sage-10 border-sage-20 text-sage text-xs font-semibold tracking-wide'>
+              <div class='inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-sage-10 border border-sage/25 text-sage text-xs font-semibold tracking-wide'>
                 <span class='size-1.5 rounded-full bg-sage shrink-0' aria-hidden='true'></span>
                 {featuredStat}
               </div>
@@ -211,7 +222,7 @@ const featuredStat = stats[6]
 
           <!-- Bottom accent bar -->
           <div
-            class='absolute bottom-0 left-0 h-[2px] w-0 bg-sage rounded-r-full transition-all duration-500 group-hover:w-full'
+            class='absolute bottom-0 left-0 h-[1px] w-0 bg-sage/60 transition-all duration-500 group-hover:w-full'
             aria-hidden='true'>
           </div>
         </article>

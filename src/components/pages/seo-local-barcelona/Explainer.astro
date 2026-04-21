@@ -54,75 +54,70 @@ const {
 
 ---
 
-<section class='relative overflow-hidden py-24 md:py-32 bg-cream'>
+<section
+  class='relative overflow-hidden py-24 md:py-32 bg-cream'
+  style="background-image: radial-gradient(circle, rgba(105,117,101,0.12) 1px, transparent 1px); background-size: 24px 24px;">
 
   <!-- Watermark -->
-  <div class="font-heading pointer-events-none absolute -left-8 top-1/2 -translate-y-1/2 select-none leading-none text-wm font-bold text-base/[0.04]"
+  <div class="font-heading pointer-events-none absolute -left-16 top-1/2 -translate-y-1/2 select-none leading-none text-wm font-bold text-base/[0.05]"
     aria-hidden='true'>
     MAPA
-  </div>
-
-  <!-- Right accent bar -->
-  <div
-    class='pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-32 bg-sage rounded-l-full'
-    aria-hidden='true'>
   </div>
 
   <div class='relative container-site text-center'>
 
     <!-- ── Section header ──────────────────────────────────────────── -->
     <div class='mb-14 lg:mb-18'>
-      <div data-animate class='flex items-center justify-center gap-3'>
-        <h2 class='text-xs font-bold tracking-[0.18em] uppercase text-sage'>
+      <div data-animate class='flex items-center justify-center gap-2'>
+        <MapPin class='size-3.5 text-sage' aria-hidden='true' />
+        <p class='text-xs font-bold tracking-[0.18em] uppercase text-sage'>
           {upheading}
-        </h2>
+        </p>
       </div>
 
-      <p
+      <h2
         data-animate
         class='mt-5 font-heading text-h2 font-bold leading-tight tracking-tight text-pretty mx-auto max-w-4xl text-base'>
         {heading}
-      </p>
+      </h2>
 
     </div>
 
     <!-- ── Items list ──────────────────────────────────────────── -->
-    <div class='max-w-2xl mx-auto'>
+    <div class='max-w-3xl mx-auto'>
       <div>
 
-        <p class='text-base text-surface leading-relaxed mb-10 text-pretty mx-auto max-w-[46ch]' data-animate>
+        <p class='text-base text-surface leading-relaxed mb-10 text-pretty mx-auto md:mx-0 md:text-left max-w-[46ch]' data-animate>
           <Fragment set:html={intro} />
         </p>
 
-        <ol class='flex flex-col gap-4 text-left'>
+        <ol class='grid grid-cols-1 md:grid-cols-2 gap-4 text-left'>
           {items.map((item, idx) => {
             const Icon = iconByKey[item.icon]
             const num  = String(idx + 1).padStart(2, '0')
+            const isHero = idx === 0
             return (
               <li
-                class='item-card group relative overflow-hidden rounded-2xl border border-sage-20 bg-white/50 px-5 py-5 transition-all duration-300 hover:border-sage-30 hover:shadow-md hover:shadow-base/5 cursor-default'
+                class={`item-card group relative overflow-hidden rounded-2xl border border-sage-20 border-t-2 border-t-sage/30 bg-white/50 px-5 py-5 transition-all duration-300 hover:border-sage-30 hover:border-t-sage/70 hover:shadow-md hover:shadow-base/5 hover:bg-sage/5 cursor-default${isHero ? ' md:col-span-2' : ''}`}
                 data-animate
                 data-animate-delay={idx * 110}>
 
-                <!-- Left accent bar -->
-                <div class='pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-sage scale-y-0 origin-top rounded-r-full transition-transform duration-300 group-hover:scale-y-100' aria-hidden='true'></div>
-
                 <!-- Ghost ordinal -->
-                <div class="font-heading pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 select-none leading-none text-base/[0.08] text-h1 transition-opacity duration-300"
+                <div class="font-heading pointer-events-none absolute bottom-2 right-3 select-none leading-none text-[8rem] text-base/[0.1] transition-opacity duration-300"
                   aria-hidden='true'>
                   {num}
                 </div>
 
                 <div class='relative flex items-start gap-3.5'>
                   <!-- Icon badge -->
-                  <div class='shrink-0 mt-0.5 flex h-8 w-8 items-center justify-center rounded-xl bg-sage/10 ring-1 ring-sage/20 transition-all duration-300 group-hover:bg-sage/20 group-hover:ring-sage/30'>
-                    <Icon class='size-4 text-sage' aria-hidden='true' />
+                  <div class={`shrink-0 mt-0.5 flex items-center justify-center rounded-xl bg-sage/10 ring-1 ring-sage/20 transition-all duration-300 group-hover:bg-sage/20 group-hover:ring-sage/30${isHero ? ' h-12 w-12' : ' h-10 w-10'}`}>
+                    <Icon class={`text-sage${isHero ? ' size-6' : ' size-5'}`} aria-hidden='true' />
                   </div>
 
                   <div class='min-w-0'>
                     <!-- Expanding underline -->
                     <div class='h-0.5 w-5 bg-sage rounded-full transition-all duration-300 group-hover:w-10 mb-2'></div>
-                    <dt class='text-sm font-bold text-base leading-snug mb-1.5'>
+                    <dt class={`font-bold text-base leading-snug mb-1.5${isHero ? ' text-lg' : ' text-sm'}`}>
                       {item.title}
                     </dt>
                     <dd class='text-base text-surface leading-relaxed text-pretty'>
