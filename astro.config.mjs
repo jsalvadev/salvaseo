@@ -5,10 +5,10 @@ import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 
 const PAGE_LASTMOD = {
-  "https://salvaseo.com/": "2026-03-03",
-  "https://salvaseo.com/posicionamiento-web-barcelona/": "2026-03-03",
-  "https://salvaseo.com/seo-local-barcelona/": "2026-03-03",
-  "https://salvaseo.com/presupuesto-seo-barcelona/": "2026-03-03",
+  "https://salvaseo.com/": "2026-04-21",
+  "https://salvaseo.com/posicionamiento-web-barcelona/": "2026-04-21",
+  "https://salvaseo.com/seo-local-barcelona/": "2026-04-21",
+  "https://salvaseo.com/presupuesto-seo-barcelona/": "2026-04-21",
 };
 
 // https://astro.build/config
@@ -18,6 +18,18 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
+    build: {
+      rollupOptions: {
+        output: {
+          assetFileNames: (assetInfo) => {
+            if (assetInfo.names?.some((n) => n.endsWith(".css"))) {
+              return "_astro/styles.[hash][extname]";
+            }
+            return "_astro/[name].[hash][extname]";
+          },
+        },
+      },
+    },
   },
 
   integrations: [
