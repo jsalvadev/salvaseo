@@ -1,3 +1,8 @@
+#例外: Cloudflare CDN rutas internas - NO拦截
+/cdn-cgi/*
+  X-Frame-Options: ALLOW
+  Cache-Control: public, max-age=7200
+
 # Headers globales de seguridad + cache moderado para HTML
 /*
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
