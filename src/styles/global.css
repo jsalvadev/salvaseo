@@ -189,6 +189,8 @@
 
 html {
   font-size: 17px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
