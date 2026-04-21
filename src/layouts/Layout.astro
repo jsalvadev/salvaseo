@@ -17,7 +17,7 @@ interface Props {
 
 const {
     title = "Consultor SEO en Barcelona · Análisis Gratis - SalvaSEO",
-    description = "¿Buscas un consultor SEO en Barcelona? ☎ 692 051 399 🔵 Diagnóstico gratis ⭐ Más clientes desde Google. Sin permanencia. ¡Contacta ya!",
+    description = "Consultor SEO en Barcelona. Analisis gratis. +34 692 051 399. Mas clientes desde Google sin permanencia.",
     noindex = false,
     ogImage = "https://salvaseo.com/og-image.jpg",
     ogType = "website",
@@ -29,7 +29,7 @@ const {
 const isProd = import.meta.env.PROD;
 const canonicalUrlNormalized = canonicalUrl.endsWith("/") ? canonicalUrl : canonicalUrl + "/";
 const isHomePage = canonicalUrlNormalized === "https://salvaseo.com/" && !noindex;
-const DATE_MODIFIED = "2026-03-03";
+const DATE_MODIFIED = new Date().toISOString().split('T')[0];
 ---
 
 <!doctype html>
@@ -118,13 +118,30 @@ const DATE_MODIFIED = "2026-03-03";
                     "url": "https://salvaseo.com/",
                     "telephone": "+34692051399",
                     "email": "salvadorjesus.seo@gmail.com",
-                    "priceRange": "€€",
+                    "priceRange": "350-550",
                     "image": "https://salvaseo.com/logo.webp",
                     "logo": "https://salvaseo.com/logo.webp",
-                    "areaServed": {
-                        "@type": "City",
-                        "name": "Barcelona",
-                        "sameAs": "https://es.wikipedia.org/wiki/Barcelona"
+                    "areaServed": [
+                        {
+                            "@type": "City",
+                            "name": "Barcelona",
+                            "sameAs": "https://es.wikipedia.org/wiki/Barcelona"
+                        },
+                        {
+                            "@type": "AdministrativeArea",
+                            "name": "Area Metropolitana de Barcelona"
+                        }
+                    ],
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Barcelona",
+                        "addressRegion": "Catalunya",
+                        "addressCountry": "ES"
+                    },
+                    "geo": {
+                        "@type": "GeoCoordinates",
+                        "latitude": 41.392668,
+                        "longitude": 2.140189
                     },
                     "openingHoursSpecification": [{
                         "@type": "OpeningHoursSpecification",
@@ -157,31 +174,42 @@ const DATE_MODIFIED = "2026-03-03";
                     },
                     "hasOfferCatalog": {
                         "@type": "OfferCatalog",
-                        "name": "Servicios de Consultoría SEO",
+                        "name": "Servicios de Consultoria SEO",
                         "itemListElement": [
                             {
                                 "@type": "Offer",
                                 "itemOffered": {
                                     "@type": "Service",
-                                    "name": "Auditoría SEO y estrategia de posicionamiento",
-                                    "description": "Análisis completo de tu web, competencia y oportunidades. Plan de acción personalizado para mejorar tu visibilidad en Google."
-                                }
+                                    "name": "SEO Local en Google Maps",
+                                    "description": "Optimizacion completa de tu perfil de Google Maps para aparecer en primeras posiciones cuando buscan tu servicio en Barcelona.",
+                                    "url": "https://salvaseo.com/seo-local-barcelona/"
+                                },
+                                "price": "350",
+                                "priceCurrency": "EUR",
+                                "availability": "https://schema.org/InStock"
                             },
                             {
                                 "@type": "Offer",
                                 "itemOffered": {
                                     "@type": "Service",
-                                    "name": "SEO On Page y contenido optimizado",
-                                    "description": "Optimización de estructura, contenido y elementos técnicos de tu web para posicionar por las palabras clave de tu negocio."
-                                }
+                                    "name": "Posicionamiento Web en Barcelona",
+                                    "description": "Optimizacion completa de tu web para aparecer en Google cuando buscan tu oficio en Barcelona.",
+                                    "url": "https://salvaseo.com/posicionamiento-web-barcelona/"
+                                },
+                                "price": "550",
+                                "priceCurrency": "EUR",
+                                "availability": "https://schema.org/InStock"
                             },
                             {
                                 "@type": "Offer",
                                 "itemOffered": {
                                     "@type": "Service",
-                                    "name": "SEO Off Page y autoridad de dominio",
-                                    "description": "Estrategia de enlaces de calidad, citaciones y señales de relevancia para aumentar la autoridad de tu web en Google."
-                                }
+                                    "name": "Auditoria SEO y estrategia",
+                                    "description": "Analisis completo de tu web, competencia y oportunidades. Plan de accion personalizado."
+                                },
+                                "price": "0",
+                                "priceCurrency": "EUR",
+                                "availability": "https://schema.org/InStock"
                             }
                         ]
                     },
