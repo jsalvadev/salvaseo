@@ -1,5 +1,6 @@
 ---
 import CalButton from '../../CalButton.astro'
+import Watermark from '../../Watermark.astro'
 
 interface ComparisonBullet {
   emphasis: string
@@ -73,6 +74,7 @@ const {
 ---
 
 <section class='relative overflow-hidden py-24 md:py-32' style="background: linear-gradient(160deg, color-mix(in srgb, var(--color-cream) 85%, white) 0%, var(--color-cream) 50%, color-mix(in srgb, var(--color-cream) 85%, var(--color-surface)) 100%);">
+  <Watermark text="ADS" position="top-right" opacity={8} size="3xl" class="text-surface/30" />
 
   <div class='relative container-site'>
 

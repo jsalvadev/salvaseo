@@ -1,6 +1,7 @@
 ---
 import { Map, MapPin, Phone } from '@lucide/astro'
 import CalButton from '../../CalButton.astro'
+import Watermark from '../../Watermark.astro'
 
 interface Props {
   upheading?: string
@@ -14,6 +15,8 @@ const { upheading, heading, primaryCtaText, secondaryCtaText, secondaryCtaHref }
 ---
 
 <div class='relative bg-sage overflow-hidden'>
+  <Watermark text="INFO" position="top-right" opacity={8} size="3xl" class="text-cream/30" />
+
   <!-- gradient mesh -->
   <div
     class='pointer-events-none absolute inset-0'

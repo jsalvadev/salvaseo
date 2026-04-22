@@ -1,5 +1,6 @@
 ---
 import { SearchCheck, MapPin, Key, Globe, FileText, Link, Star } from '@lucide/astro'
+import Watermark from '../../Watermark.astro'
 
 type IconKey = 'searchCheck' | 'mapPin' | 'key' | 'globe' | 'fileText' | 'link' | 'star'
 
@@ -86,6 +87,7 @@ const mainServices = services.slice(0, 7)
 ---
 
 <section id='servicios-local' class='relative py-24 sm:py-32 overflow-hidden' style="background: linear-gradient(160deg, color-mix(in srgb, var(--color-cream) 85%, white) 0%, var(--color-cream) 50%, color-mix(in srgb, var(--color-cream) 85%, var(--color-surface)) 100%);">
+  <Watermark text="Rank" position="top-left" opacity={8} size="3xl" class="text-surface/30" />
 
   <!-- Dot grid texture -->
   <div class='pointer-events-none absolute inset-0 dot-grid-28' aria-hidden='true'></div>

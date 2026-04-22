@@ -1,12 +1,6 @@
 ---
 import CalButton from '../../CalButton.astro'
 import { buildWhatsAppHref } from '../../../data/site'
-import { ChevronRight } from '@lucide/astro'
-
-interface BreadcrumbItem {
-  label: string
-  href?: string
-}
 
 interface Props {
   upheading?: string
@@ -15,7 +9,6 @@ interface Props {
   primaryCtaText?: string
   secondaryCtaText?: string
   secondaryCtaHref?: string
-  breadcrumbItems?: BreadcrumbItem[]
 }
 
 const {
@@ -24,7 +17,6 @@ const {
   primaryCtaText = 'Analiza mi web',
   secondaryCtaText = 'Ver paquetes y precios',
   secondaryCtaHref = '#paquetes',
-  breadcrumbItems,
 } = Astro.props
 
 const waHref = buildWhatsAppHref()
@@ -73,36 +65,8 @@ const currentYear = new Date().getFullYear()
     aria-hidden='true'>
   </div>
 
-  <!-- Breadcrumb (inside dark section, below fixed navbar) -->
-  {breadcrumbItems && (
-    <nav
-      aria-label='Breadcrumb'
-      class='relative container-site pt-[calc(var(--navbar-height)+1.25rem)]'>
-      <ol class='flex items-center gap-1.5 text-base'>
-        {breadcrumbItems.map((item, idx) => (
-          <li class='flex items-center gap-1.5'>
-            {idx > 0 && (
-              <ChevronRight class='size-3.5 text-white/30 shrink-0' aria-hidden='true' />
-            )}
-            {item.href ? (
-              <a
-                href={item.href}
-                class='text-white/60 hover:text-white transition-colors'>
-                {item.label}
-              </a>
-            ) : (
-              <span class='text-white/90 font-medium' aria-current='page'>
-                {item.label}
-              </span>
-            )}
-          </li>
-        ))}
-      </ol>
-    </nav>
-  )}
-
   <!-- Main grid -->
-  <div class={`relative container-site pb-12 sm:pb-16 lg:pb-20 ${breadcrumbItems ? 'pt-6' : 'pt-20 sm:pt-24 lg:pt-28'}`}>
+  <div class='relative container-site pb-12 sm:pb-16 lg:pb-20 pt-20 sm:pt-24 lg:pt-28'>
     <div class='grid lg:grid-cols-[1fr_360px] xl:grid-cols-[1fr_400px] gap-10 lg:gap-16 items-center'>
 
       <!-- LEFT: Content -->

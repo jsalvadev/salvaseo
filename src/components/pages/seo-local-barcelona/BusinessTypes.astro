@@ -1,5 +1,6 @@
 ---
 import { UtensilsCrossed, Stethoscope, Scale, ShoppingBag, Wrench, Hotel } from '@lucide/astro'
+import Watermark from '../../Watermark.astro'
 
 type IconKey = 'utensilsCrossed' | 'stethoscope' | 'scale' | 'shoppingBag' | 'wrench' | 'hotel'
 
@@ -73,6 +74,7 @@ const {
 ---
 
 <section class='relative overflow-hidden py-24 md:py-32' style="background: linear-gradient(160deg, var(--color-base) 0%, var(--color-surface) 50%, var(--color-base) 100%);">
+  <Watermark text="Negocios" position="top-right" opacity={8} size="3xl" />
 
   <div class='pointer-events-none absolute inset-0 dot-grid-32' aria-hidden='true'></div>
 

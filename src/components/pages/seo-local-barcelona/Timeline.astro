@@ -1,5 +1,6 @@
 ---
 import CalButton from '../../CalButton.astro'
+import Watermark from '../../Watermark.astro'
 import {
   BadgeCheck,
   BarChart3,
@@ -62,6 +63,7 @@ const {
 ---
 
 <section id={sectionId} class="relative py-24 sm:py-32 overflow-hidden" style="background: linear-gradient(160deg, var(--color-base) 0%, var(--color-surface) 50%, var(--color-base) 100%);">
+  <Watermark text="MÉTODO" position="top-right" opacity={8} size="3xl" />
 
   <div class="pointer-events-none absolute inset-0 dot-grid-32" aria-hidden="true"></div>
 

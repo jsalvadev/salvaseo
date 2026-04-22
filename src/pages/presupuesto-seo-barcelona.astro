@@ -3,9 +3,30 @@ import Layout from '../layouts/Layout.astro'
 import PricingCards from '../components/pages/presupuesto-seo-barcelona/PricingCards.astro'
 import FeatureComparison from '../components/pages/presupuesto-seo-barcelona/FeatureComparison.astro'
 import Faq from '../components/shared/Faq.astro'
+import RelatedServices from '../components/shared/RelatedServices.astro'
+import type { RelatedCard } from '../components/shared/RelatedServices.astro'
 import { faqPresupuestoItems } from '../data/faqs'
 
 const DATE_MODIFIED = new Date().toISOString().split('T')[0]
+
+const relatedCards: RelatedCard[] = [
+  {
+    iconKey: 'globe',
+    label: 'Posicionamiento en Google',
+    title: 'Posicionamiento Web Barcelona',
+    description: 'Auditoría técnica, palabras clave, optimización de páginas y contenido estratégico. Para negocios que quieren aparecer cuando alguien busca lo que ofrecen.',
+    href: '/posicionamiento-web-barcelona/',
+    cta: 'Ver posicionamiento web',
+  },
+  {
+    iconKey: 'mapPin',
+    label: 'Visibilidad en Google Maps',
+    title: 'SEO Local Barcelona',
+    description: 'Optimización de Google Business Profile, directorios NAP y gestión de reseñas. Para negocios con dirección física que quieren aparecer en el mapa.',
+    href: '/seo-local-barcelona/',
+    cta: 'Ver SEO local',
+  },
+]
 ---
 
 <Layout
@@ -29,6 +50,13 @@ const DATE_MODIFIED = new Date().toISOString().split('T')[0]
     items={faqPresupuestoItems}
   />
 
+  <!-- 5. RELATED SERVICES -->
+  <RelatedServices
+    upheading='SERVICIOS SEO EN BARCELONA'
+    heading='Conoce qué incluye <span>cada servicio.</span>'
+    cards={relatedCards}
+  />
+
   <!-- JSON-LD Structured Data -->
   <script
     type='application/ld+json'
@@ -50,28 +78,7 @@ const DATE_MODIFIED = new Date().toISOString().split('T')[0]
           author: {
             '@id': 'https://salvaseo.com/#founder'
           },
-          inLanguage: 'es',
-          breadcrumb: {
-            '@id': 'https://salvaseo.com/presupuesto-seo-barcelona/#breadcrumb'
-          }
-        },
-        {
-          '@type': 'BreadcrumbList',
-          '@id': 'https://salvaseo.com/presupuesto-seo-barcelona/#breadcrumb',
-          itemListElement: [
-            {
-              '@type': 'ListItem',
-              position: 1,
-              name: 'Inicio',
-              item: 'https://salvaseo.com/'
-            },
-            {
-              '@type': 'ListItem',
-              position: 2,
-              name: 'Presupuesto SEO Barcelona',
-              item: 'https://salvaseo.com/presupuesto-seo-barcelona/'
-            }
-          ]
+          inLanguage: 'es'
         },
         {
           '@type': 'Service',
