@@ -1,0 +1,47 @@
+---
+interface Props {
+  text: string
+  position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'center'
+  opacity?: number
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  class?: string
+}
+
+const { 
+  text, 
+  position = 'bottom-right', 
+  opacity = 15,
+  size = 'md',
+  class: className = ''
+} = Astro.props
+
+const positionClasses = {
+  'top-left': 'top-4 left-4',
+  'top-right': 'top-4 right-4',
+  'bottom-left': 'bottom-4 left-4',
+  'bottom-right': 'bottom-4 right-4',
+  'center': 'inset-0 m-auto'
+}
+
+const sizeClasses = {
+  'xs': 'text-xs',
+  'sm': 'text-sm', 
+  'md': 'text-base',
+  'lg': 'text-lg',
+  'xl': 'text-xl'
+}
+
+const opacityValue = opacity / 100
+---
+
+<span 
+  class:list={[
+    'absolute pointer-events-none select-none text-neutral-400/60 font-medium tracking-wide z-0',
+    positionClasses[position],
+    sizeClasses[size],
+    className
+  ]}
+  style={`opacity: ${opacityValue}`}
+>
+  {text}
+</span>
