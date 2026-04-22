@@ -7,7 +7,7 @@ import CanBeSolved from '../components/pages/home/CanBeSolved.astro'
 import Testimonials from '../components/pages/home/Testimonials.astro'
 import Faq from '../components/shared/Faq.astro'
 import Hero from '../components/pages/home/Hero.astro'
-import MapSection from '../components/pages/home/MapSection.astro'
+import GoogleMapEmbed from '../components/shared/GoogleMapEmbed.astro'
 import Layout from '../layouts/Layout.astro'
 
 const faqHomeItems = [
@@ -51,5 +51,5 @@ const faqHomeItems = [
   <TicketCalculator />
   <Testimonials />
   <Faq upheading='ESPECIALISTA SEO Y CONSULTOR SEO FREELANCE EN BARCELONA' heading='Todavía te lo estás pensando.' items={faqHomeItems} />
-  <MapSection />
+  <GoogleMapEmbed />
 </Layout>
