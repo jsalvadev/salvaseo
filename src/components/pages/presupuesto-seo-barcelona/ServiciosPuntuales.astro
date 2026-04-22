@@ -64,18 +64,18 @@ const extras = [
         <table class='min-w-full divide-y divide-surface/10'>
           <thead>
             <tr class='bg-surface/5'>
-              <th scope='col' class='py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-cream sm:pl-6'>Servicio</th>
-              <th scope='col' class='px-3 py-3.5 text-left text-sm font-semibold text-cream'>Precio</th>
+              <th scope='col' class='py-3.5 pr-3 pl-4 text-left text-base font-semibold text-cream sm:pl-6'>Servicio</th>
+              <th scope='col' class='px-3 py-3.5 text-left text-base font-semibold text-cream'>Precio</th>
             </tr>
           </thead>
           <tbody class='divide-y divide-surface/5'>
             {services.map((service) => (
               <tr class='hover:bg-surface/5 transition-colors'>
                 <td class='py-4 pr-3 pl-4 sm:pl-6'>
-                  <div class='text-sm font-medium text-cream'>{service.name}</div>
+                  <div class='text-base font-medium text-cream'>{service.name}</div>
                   <div class='mt-1 text-base text-cream/60'>{service.description}</div>
                 </td>
-                <td class='whitespace-nowrap px-3 py-4 text-sm font-semibold text-cream'>{service.price}</td>
+                <td class='whitespace-nowrap px-3 py-4 text-base font-semibold text-cream'>{service.price}</td>
               </tr>
             ))}
           </tbody>
@@ -86,14 +86,14 @@ const extras = [
     <!-- Extras / Add-ons -->
     <div class='mx-auto mt-16 max-w-4xl'>
       <Upheading as='h3' text='Add-ons disponibles' />
-      <p class='mt-4 text-sm text-cream/60'>
+      <p class='mt-4 text-base text-cream/60'>
         Disponibles para clientes de cualquier paquete mensual.
       </p>
       <div class='mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2'>
         {extras.map((extra) => (
           <div class='flex items-center justify-between rounded-lg border border-surface/10 px-4 py-3'>
-            <span class='text-sm text-cream/70'>{extra.name}</span>
-            <span class='ml-4 shrink-0 text-sm font-semibold text-sage'>{extra.price}</span>
+            <span class='text-base text-cream/70'>{extra.name}</span>
+            <span class='ml-4 shrink-0 text-base font-semibold text-sage'>{extra.price}</span>
           </div>
         ))}
       </div>

@@ -19,7 +19,7 @@
             <div>
               <label
                 for='name'
-                class='block text-sm/6 font-semibold text-cream'
+                class='block text-base/6 font-semibold text-cream'
                 >Tu nombre</label
               >
               <div class='mt-1.5'>
@@ -36,7 +36,7 @@
             <div>
               <label
                 for='email'
-                class='block text-sm/6 font-semibold text-cream'
+                class='block text-base/6 font-semibold text-cream'
                 >Email *</label
               >
               <div class='mt-1.5'>
@@ -54,7 +54,7 @@
             <div>
               <label
                 for='message'
-                class='block text-sm/6 font-semibold text-cream'
+                class='block text-base/6 font-semibold text-cream'
                 >Mensaje *</label
               >
               <div class='mt-1.5'>
@@ -69,7 +69,7 @@
               </div>
             </div>
           </div>
-          <div class='flex items-start gap-2 text-sm mt-4'>
+          <div class='flex items-start gap-2 text-base mt-4'>
             <input
               type='checkbox'
               id='contact-privacy-consent'
@@ -92,14 +92,14 @@
             <button
               type='submit'
               id='submit-btn'
-              class='block w-full rounded-lg px-3.5 py-3 text-center text-sm font-bold transition-all bg-sage text-white shadow-button'
+              class='block w-full rounded-lg px-3.5 py-3 text-center text-base font-bold transition-all bg-sage text-white shadow-button'
               >Hablemos de tu negocio</button
             >
           </div>
           <div
             id='form-message'
             class='mt-4 hidden'>
-            <p class='text-sm'></p>
+            <p class='text-base'></p>
           </div>
         </form>
       </div>
@@ -131,7 +131,7 @@
               <h3 class='text-base font-semibold text-cream'>
                 Respuesta en 48h
               </h3>
-              <p class='mt-1 text-sm text-cream max-w-md'>
+              <p class='mt-1 text-base text-cream max-w-md'>
                 Tu mensaje lo recibe y responde directamente quien trabajará tu proyecto.
               </p>
             </div>
@@ -161,7 +161,7 @@
               <h3 class='text-base font-semibold text-cream'>
                 ¿Prefieres llamar o Whatsapp?
               </h3>
-              <p class='mt-1 text-sm text-cream max-w-md'>
+              <p class='mt-1 text-base text-cream max-w-md'>
                 <a
                   href='tel:+34692051399'
                   class='font-semibold text-sage hover:text-sage/80'>
@@ -200,7 +200,7 @@
               <h3 class='text-base font-semibold text-cream'>
                 Área metropolitana de Barcelona
               </h3>
-              <p class='mt-1 text-sm text-cream max-w-md'>
+              <p class='mt-1 text-base text-cream max-w-md'>
                 Posibilidad de visita presencial a tu negocio.
               </p>
             </div>
@@ -269,14 +269,14 @@
 
       messageP.textContent =
         '¡Mensaje enviado correctamente! Te responderé pronto.'
-      messageP.className = 'text-sm text-green-600'
+      messageP.className = 'text-base text-green-600'
       form.reset()
     } catch (error) {
       messageP.textContent =
         error instanceof Error ?
           error.message
         : 'Error al enviar el mensaje. Inténtalo de nuevo.'
-      messageP.className = 'text-sm text-red-600'
+      messageP.className = 'text-base text-red-600'
     }
 
     submitBtn.disabled = false

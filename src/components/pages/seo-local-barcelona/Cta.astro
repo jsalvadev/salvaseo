@@ -34,15 +34,15 @@ const { upheading, heading, primaryCtaText, secondaryCtaText, secondaryCtaHref }
     <div class='mx-auto max-w-2xl text-center'>
       <!-- Benefit pills -->
       <div class='mb-8 flex flex-wrap items-center justify-center gap-3'>
-        <span class='inline-flex items-center gap-2 bg-white/10 rounded-full px-3 py-1 text-sm text-white/75'>
+        <span class='inline-flex items-center gap-2 bg-white/10 rounded-full px-3 py-1 text-base text-white/75'>
           <Map class='size-4' aria-hidden='true' />
           Google Maps
         </span>
-        <span class='inline-flex items-center gap-2 bg-white/10 rounded-full px-3 py-1 text-sm text-white/75'>
+        <span class='inline-flex items-center gap-2 bg-white/10 rounded-full px-3 py-1 text-base text-white/75'>
           <MapPin class='size-4' aria-hidden='true' />
           Local Pack
         </span>
-        <span class='inline-flex items-center gap-2 bg-white/10 rounded-full px-3 py-1 text-sm text-white/75'>
+        <span class='inline-flex items-center gap-2 bg-white/10 rounded-full px-3 py-1 text-base text-white/75'>
           <Phone class='size-4' aria-hidden='true' />
           Más llamadas
         </span>
@@ -65,7 +65,7 @@ const { upheading, heading, primaryCtaText, secondaryCtaText, secondaryCtaHref }
         {secondaryCtaText && secondaryCtaHref && (
           <a
             href={secondaryCtaHref}
-            class='text-sm/6 font-semibold text-white hover:text-cream transition-colors'>
+            class='text-base/6 font-semibold text-white hover:text-cream transition-colors'>
             {secondaryCtaText} <span aria-hidden='true'>→</span>
           </a>
         )}

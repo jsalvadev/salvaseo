@@ -57,7 +57,7 @@ const {
     {priceHighlight && (
       <div class='my-8 flex items-center gap-4 rounded-xl border border-teal/10 bg-sage/5 px-6 py-5'>
         <span class='text-3xl font-bold text-cream'>{priceHighlight}</span>
-        <span class='text-sm text-sage'>· Definido tras diagnóstico gratuito · Sin contratos</span>
+        <span class='text-base text-sage'>· Definido tras diagnóstico gratuito · Sin contratos</span>
       </div>
     )}
     <p class='mt-6 text-xl/8'>
@@ -106,7 +106,7 @@ const {
         </blockquote>
         {quoteAuthor && (
           <figcaption class='mt-4 pl-6'>
-            <div class='text-sm/6'>
+            <div class='text-base/6'>
               <Fragment set:html={quoteAuthor} />
             </div>
           </figcaption>
@@ -138,7 +138,7 @@ const {
           href={ctaHref}
           target='_blank'
           rel='noopener noreferrer nofollow'
-          class='rounded-md bg-sage px-3.5 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-[#3d7880] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal'>
+          class='rounded-md bg-sage px-3.5 py-2.5 text-base font-bold text-white shadow-sm hover:bg-[#3d7880] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal'>
           {ctaText}
         </a>
       </div>

@@ -64,7 +64,7 @@ const {
           <span class='text-h1 font-semibold tracking-tight text-cream'>{priceText}</span>
           <span class='text-base font-semibold text-cream/70'>{priceUnit}</span>
         </p>
-        <p class='mt-2 text-sm text-cream/70'>
+        <p class='mt-2 text-base text-cream/70'>
           {priceNote}
         </p>
         <div class='mt-8'>
@@ -73,7 +73,7 @@ const {
               href={ctaHref}
               target='_blank'
               rel='noopener noreferrer nofollow'
-              class='block rounded-md bg-teal px-3.5 py-2.5 text-center text-sm font-bold text-white shadow-sm hover:bg-[#3d7880] active:bg-[#2b565d] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal'>
+              class='block rounded-md bg-teal px-3.5 py-2.5 text-center text-base font-bold text-white shadow-sm hover:bg-[#3d7880] active:bg-[#2b565d] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal'>
               {ctaText}
             </a>
           ) : (
@@ -93,7 +93,7 @@ const {
                   <th
                     scope='colgroup'
                     colspan='2'
-                    class='pt-6 pb-3 text-sm/6 font-semibold text-cream'>
+                    class='pt-6 pb-3 text-base/6 font-semibold text-cream'>
                     <div class='bg-surface/5 rounded-lg px-4 py-2'>
                       {category.name}
                     </div>
@@ -101,7 +101,7 @@ const {
                 </tr>
                 {category.features.map((feature) => (
                   <tr>
-                    <th scope='row' class='py-3 px-4 text-sm/6 font-normal text-cream/70'>
+                    <th scope='row' class='py-3 px-4 text-base/6 font-normal text-cream/70'>
                       {feature.text}
                       <div class='mt-3 h-px bg-surface/5'></div>
                     </th>
@@ -131,7 +131,7 @@ const {
         <blockquote class='border-l-4 border-sage/30 pl-6 text-h6 italic text-cream text-pretty text-left'>
           <p>"{quote}"</p>
         </blockquote>
-        <figcaption class='mt-4 pl-6 text-sm text-cream/70'>
+        <figcaption class='mt-4 pl-6 text-base text-cream/70'>
           <Fragment set:html={quoteAuthor} />
         </figcaption>
       </figure>

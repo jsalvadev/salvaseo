@@ -55,8 +55,10 @@ const { brand, contact, navigation } = siteConfig
 
     <!-- Desktop nav -->
     <div class='hidden lg:flex lg:gap-x-10 lg:items-center'>
+      <a href='/' class='nav-link text-base font-semibold'>Inicio</a>
+
       {navigation.primary.slice(0, 1).map((link) => (
-        <a href={link.href} class='nav-link text-sm font-semibold'>
+        <a href={link.href} class='nav-link text-base font-semibold'>
           {link.label}
         </a>
       ))}
@@ -65,7 +67,7 @@ const { brand, contact, navigation } = siteConfig
       <div class='relative group'>
         <button
           type='button'
-          class='nav-link flex items-center gap-x-1 text-sm font-semibold'>
+          class='nav-link flex items-center gap-x-1 text-base font-semibold'>
           Servicios
           <svg
             viewBox='0 0 20 20'
@@ -83,7 +85,7 @@ const { brand, contact, navigation } = siteConfig
             {navigation.services.map((service) => (
               <a
                 href={service.href}
-                class='group/item flex items-center gap-3 px-4 py-2.5 text-sm text-cream hover:bg-cream hover:text-sage transition-colors duration-150'>
+                class='group/item flex items-center gap-3 px-4 py-2.5 text-base text-cream hover:bg-cream hover:text-sage transition-colors duration-150'>
                 <span class='h-1.5 w-1.5 flex-shrink-0 rounded-full bg-teal/30 transition-colors duration-150 group-hover/item:bg-teal'></span>
                 {service.label}
               </a>
@@ -93,12 +95,12 @@ const { brand, contact, navigation } = siteConfig
       </div>
 
       {navigation.primary.slice(1).map((link) => (
-        <a href={link.href} class='nav-link text-sm font-semibold'>
+        <a href={link.href} class='nav-link text-base font-semibold'>
           {link.label}
         </a>
       ))}
 
-      <a href='/#calculadora' class='nav-link text-sm font-semibold inline-flex items-center gap-1.5'>
+      <a href='/#calculadora' class='nav-link text-base font-semibold inline-flex items-center gap-1.5'>
         Calculadora
         <span class='calc-badge'>Nuevo</span>
       </a>
@@ -107,7 +109,7 @@ const { brand, contact, navigation } = siteConfig
 
       <a
         href={`tel:${contact.phone.e164}`}
-        class='nav-phone inline-flex items-center gap-1.5 text-sm font-semibold text-teal'>
+        class='nav-phone inline-flex items-center gap-1.5 text-base font-semibold text-teal'>
         <svg class='h-3.5 w-3.5 flex-shrink-0' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
           <path
             stroke-linecap='round'
@@ -167,6 +169,11 @@ const { brand, contact, navigation } = siteConfig
               <p class='px-3 pb-2 text-xs font-semibold uppercase tracking-[0.15em] text-cream/40'>
                 Menú
               </p>
+              <a
+                href='/'
+                class='block rounded-base px-3 py-2.5 text-base font-semibold text-cream transition-colors duration-150 hover:bg-sage/8 hover:text-sage'>
+                Inicio
+              </a>
               {navigation.primary.slice(0, 1).map((link) => (
                 <a
                   href={link.href}
@@ -193,7 +200,7 @@ const { brand, contact, navigation } = siteConfig
                   {navigation.services.map((service) => (
                     <a
                       href={service.href}
-                      class='block rounded-base px-3 py-2 text-sm font-semibold text-cream/70 transition-colors duration-150 hover:bg-sage/8 hover:text-sage'>
+                      class='block rounded-base px-3 py-2 text-base font-semibold text-cream/70 transition-colors duration-150 hover:bg-sage/8 hover:text-sage'>
                       {service.label}
                     </a>
                   ))}

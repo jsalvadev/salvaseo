@@ -15,7 +15,7 @@ const { items, dark = false } = Astro.props
 ---
 
 <nav aria-label='Breadcrumb' class='container-site pt-[calc(var(--navbar-height)+1rem)]'>
-  <ol class={`flex items-center gap-1.5 text-sm ${dark ? 'text-white/60' : 'text-teal'}`}>
+  <ol class={`flex items-center gap-1.5 text-base ${dark ? 'text-white/60' : 'text-teal'}`}>
     {items.map((item, idx) => (
       <li class='flex items-center gap-1.5'>
         {idx > 0 && (
