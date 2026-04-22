@@ -1,5 +1,6 @@
 ---
 import AccentRule from '../../AccentRule.astro'
+import Watermark from '../../Watermark.astro'
 
 interface Guarantee {
   title: string
@@ -34,18 +35,13 @@ const priceUnit   = priceParts.slice(2).join(' ')
 ---
 
 <section class='relative overflow-hidden bg-gradient-to-tl from-base via-surface to-base/60 py-24 sm:py-32'>
+  <Watermark text="INVERSIÓN" position="bottom-left" opacity={8} size="3xl" />
 
   <!-- Diagonal tension lines -->
   <svg class='pointer-events-none absolute inset-0 w-full h-full' aria-hidden='true' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'>
     <line x1='0%'  y1='0%' x2='30%'  y2='100%' stroke='rgba(236,223,204,0.05)' stroke-width='1'/>
     <line x1='70%' y1='0%' x2='100%' y2='100%' stroke='rgba(255,255,255,0.03)' stroke-width='1'/>
   </svg>
-
-  <!-- Large ghosted watermark -->
-  <div class="font-heading pointer-events-none absolute -right-6 top-1/2 -translate-y-1/2 select-none leading-none text-wm font-bold text-white/[0.04]"
-    aria-hidden='true'>
-    350
-  </div>
 
   <!-- Top / bottom hairlines -->
   <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cream/35 to-transparent' aria-hidden='true'></div>

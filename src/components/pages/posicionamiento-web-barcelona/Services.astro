@@ -1,5 +1,6 @@
 ---
 import { Check, Search, FileText, Link } from '@lucide/astro'
+import Watermark from '../../Watermark.astro'
 
 interface Props {
   upheading?: string
@@ -62,19 +63,13 @@ const services = [
 ---
 
 <section id='servicios' class='relative overflow-hidden py-24 sm:py-32 bg-gradient-to-br from-cream via-cream to-sand/25' style='color: var(--color-base)'>
+  <Watermark text="VISITAS" position="top-right" opacity={8} size="3xl" class="text-surface/30" />
 
   <!-- ── Dot-grid texture ──────────────────────────────────────────── -->
   <div
     class='pointer-events-none absolute inset-0'
     aria-hidden='true'
   ></div>
-
-  <!-- ── Faded Brawler watermark ─────────────────────────────────── -->
-  <div class="font-heading pointer-events-none absolute -right-6 top-0 select-none leading-none text-wm font-bold text-base/[0.07]"
-    aria-hidden='true'
-  >
-Web
-  </div>
 
   <!-- ── Top / bottom hairlines ────────────────────────────────────── -->
   <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sage/20 to-transparent' aria-hidden='true'></div>
@@ -138,13 +133,6 @@ Web
               <svg class='pointer-events-none absolute inset-0 w-full h-full' aria-hidden='true' preserveAspectRatio='none'>
                 <line x1='60%' y1='0%' x2='100%' y2='100%' stroke='rgba(236,223,204,0.08)' stroke-width='1' />
               </svg>
-
-              <!-- Ghost ordinal watermark -->
-              <div class="font-heading pointer-events-none absolute -right-1 -bottom-3 select-none leading-none transition-opacity duration-300 text-cream/10 hidden lg:block"
-                aria-hidden='true'
-              >
-                {service.num}
-              </div>
 
               <!-- Icon badge + service label -->
               <div class='relative flex items-center gap-3'>

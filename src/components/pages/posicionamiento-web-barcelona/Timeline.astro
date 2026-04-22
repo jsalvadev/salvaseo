@@ -1,5 +1,6 @@
 ---
 import CalButton from '../../CalButton.astro'
+import Watermark from '../../Watermark.astro'
 import {
   BadgeCheck,
   BarChart3,
@@ -132,19 +133,13 @@ const {
 ---
 
 <section id={sectionId} class="relative overflow-hidden bg-gradient-to-tr from-surface to-base/80 py-24 sm:py-32">
+  <Watermark text="PROCESO" position="bottom-left" opacity={8} size="3xl" />
 
   <!-- ── Dot-grid texture ──────────────────────────────────────────── -->
   <div
     class="pointer-events-none absolute inset-0"
     aria-hidden="true"
   ></div>
-
-  <!-- ── Faded Titan One watermark ─────────────────────────────────── -->
-  <div class="font-heading pointer-events-none absolute -right-8 top-1/2 -translate-y-1/2 select-none leading-none text-wm font-bold text-white/[0.04]"
-    aria-hidden="true"
-  >
-    Cómo
-  </div>
 
   <!-- ── Radial ambient glow ───────────────────────────────────────── -->
   <div
@@ -217,13 +212,6 @@ const {
                 !isLast && "border-b border-white/[0.07]",
               ]}
             >
-              <!-- Ghost ordinal number -->
-              <div class="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 select-none leading-none font-heading"
-                aria-hidden="true"
-              >
-                {padNum}
-              </div>
-
               <!-- Step column: "Fase" label + Titan One number -->
               <div class="shrink-0 flex flex-col items-center pt-0.5 w-11">
                 <span class="text-xs font-bold tracking-[0.14em] uppercase text-cream leading-none mb-0.5">
