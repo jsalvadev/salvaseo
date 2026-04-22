@@ -3,17 +3,15 @@ interface Props {
   text?: string
   class?: string
   color?: 'base' | 'surface' | 'sage' | 'cream' | 'white'
-  uppercase?: boolean
 }
 
 const {
   text = 'Agenda una llamada gratis',
   class: className = '',
   color = 'cream',
-  uppercase = false,
 } = Astro.props
 
-const base = `rounded-md px-3.5 py-2.5 ${uppercase ? 'text-sm uppercase tracking-widest font-semibold' : 'text-sm font-bold'} shadow-xs transition-all cursor-pointer`
+const base = 'rounded-md px-3.5 py-2.5 text-sm font-bold shadow-xs transition-all cursor-pointer'
 const colors = {
   base:    'bg-base    text-cream  hover:bg-base/80',
   surface: 'bg-surface text-cream  hover:bg-surface/80',

@@ -3,43 +3,9 @@ import Layout from '../layouts/Layout.astro'
 import PricingCards from '../components/pages/presupuesto-seo-barcelona/PricingCards.astro'
 import FeatureComparison from '../components/pages/presupuesto-seo-barcelona/FeatureComparison.astro'
 import Faq from '../components/shared/Faq.astro'
+import { faqPresupuestoItems } from '../data/faqs'
 
 const DATE_MODIFIED = new Date().toISOString().split('T')[0]
-
-const faqPresupuestoItems = [
-  {
-    question: '¿Qué incluye el diagnóstico inicial?',
-    answer: `<p class="text-base/7 text-surface">Miro tu ficha de Google Maps, tu web y quién aparece antes que tú en tu zona. Te doy un informe con lo que está fallando y qué plan tiene más sentido para tu negocio.</p>`,
-  },
-  {
-    question: '¿Cuánto cuesta un servicio SEO en Barcelona?',
-    answer: `<p class="text-base/7 text-surface">Hay dos planes con precio fijo, IVA incluido. El plan <strong>Más llamadas desde Google Maps</strong> (<a href="/seo-local-barcelona/" class="text-sage font-medium hover:text-sage/80 underline decoration-sage/30 underline-offset-2 transition-colors">SEO local en Google Maps</a>) son <strong>350 €/mes</strong>. El plan <strong>Más llamadas desde Google Maps y tu web</strong> (<a href="/posicionamiento-web-barcelona/" class="text-sage font-medium hover:text-sage/80 underline decoration-sage/30 underline-offset-2 transition-colors">posicionamiento web</a> + Google Maps) son <strong>550 €/mes</strong>. El diagnóstico inicial gratuito ayuda a identificar qué plan encaja mejor con tu negocio.</p>`,
-  },
-  {
-    question: '¿Hay permanencia o compromiso contractual?',
-    answer: `<p class="text-base/7 text-surface">La contratación es mensual. Cada presupuesto de posicionamiento SEO tiene un <strong>periodo mínimo recomendado</strong> (3 a 6 meses según el servicio) porque el SEO necesita tiempo para dar resultados, pero no es una obligación contractual.</p>`,
-  },
-  {
-    question: '¿Qué pasa si necesito un presupuesto SEO personalizado?',
-    answer: `<p class="text-base/7 text-surface">Si necesitas algo extra — una página nueva, más zonas, ayuda puntual — lo hablamos en la llamada mensual y te presupuesto aparte sin compromiso.</p>`,
-  },
-  {
-    question: '¿Cuándo voy a ver resultados?',
-    answer: `<p class="text-base/7 text-surface">Entre <strong>1 y 3 meses</strong> empiezas a subir en Google Maps y a recibir más visitas. Las llamadas constantes llegan entre los <strong>4 y 6 meses</strong> según la competencia en tu zona. Te lo digo antes de empezar.</p>`,
-  },
-  {
-    question: '¿Se puede cambiar de plan?',
-    answer: `<p class="text-base/7 text-surface">Sí. Es posible empezar con el <strong>Plan Visibilidad Local</strong> (solo Google Maps) y <strong>pasar al Plan Visibilidad Total</strong> cuando tenga sentido. El cambio se hace al inicio del siguiente mes, sin coste adicional ni trámite.</p>`,
-  },
-  {
-    question: '¿Los precios incluyen IVA?',
-    answer: `<p class="text-base/7 text-surface">No. Los <strong>350 €/mes y 550 €/mes son precios sin IVA</strong>. El IVA (21%) se añade en factura. Sin costes ocultos ni conceptos adicionales.</p>`,
-  },
-  {
-    question: '¿Por qué el precio del SEO es mensual y no por acciones sueltas?',
-    answer: `<p class="text-base/7 text-surface">Porque el SEO no es algo que se hace una vez. Cada mes se trabaja sobre lo anterior y los resultados van creciendo. Si paras, la posición aguanta un tiempo, pero acaba bajando. El pago mensual refleja eso — es como tener a alguien trabajando para que Google te muestre, mes a mes.</p>`,
-  },
-]
 ---
 
 <Layout

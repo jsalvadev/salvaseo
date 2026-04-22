@@ -4,34 +4,34 @@ import Services from '../components/pages/posicionamiento-web-barcelona/Services
 import Timeline from '../components/pages/posicionamiento-web-barcelona/Timeline.astro'
 import WhatIs from '../components/pages/posicionamiento-web-barcelona/WhatIs.astro'
 import PricingBridge from '../components/pages/posicionamiento-web-barcelona/PricingBridge.astro'
-import RelatedServices from '../components/pages/posicionamiento-web-barcelona/RelatedServices.astro'
+import RelatedServices from '../components/shared/RelatedServices.astro'
+import type { RelatedCard } from '../components/shared/RelatedServices.astro'
 import Faq from '../components/shared/Faq.astro'
 import barcelonaImage from '../assets/fisioterapia-barcelona.avif'
+import { faqPwItems } from '../data/faqs'
 
 const MIN_MONTHLY_PRICE_EUR = 350
 const MIN_MONTHLY_PRICE_TEXT = `${MIN_MONTHLY_PRICE_EUR} €/mes`
 const DATE_MODIFIED = new Date().toISOString().split('T')[0]
 
-const faqPwItems = [
+const relatedCards: RelatedCard[] = [
   {
-    question: '¿Cuánto tarda en funcionar el posicionamiento web?',
-    answer: `<p class="text-base/7 text-surface">Entre la <strong>4ª y 8ª semana</strong> empiezas a ver movimiento en Google. Los resultados de verdad — más llamadas, más visitas — llegan entre los <strong>3 y 6 meses</strong>. Depende de tu zona y de cuánta competencia tienes. Te lo digo antes de empezar.</p>`,
+    iconKey: 'mapPin',
+    label: 'Visibilidad en Google Maps',
+    title: 'SEO Local en Barcelona',
+    description: 'Si tu negocio tiene dirección física, Google Maps es lo primero que ve tu cliente cuando busca en su zona. Optimizo tu ficha para que aparezcas tú antes que tu competencia.',
+    href: '/seo-local-barcelona/',
+    cta: 'Ver SEO local',
+    ordinal: '01',
   },
   {
-    question: '¿Posicionamiento web o publicidad en Google?',
-    answer: `<p class="text-base/7 text-surface">La publicidad en Google te da clientes rápido, pero en cuanto dejas de pagar, desapareces. El SEO tarda más, pero una vez que subes, sigues recibiendo llamadas sin pagar por cada una.</p>`,
-  },
-  {
-    question: '¿Cómo se mide el resultado del posicionamiento web?',
-    answer: `<p class="text-base/7 text-surface">Con datos de negocio, no solo con gráficos de tráfico. En cada informe mensual verás tres cosas concretas:</p><ul class="mt-2 list-disc pl-6 text-base/7 text-surface"><li><strong>Posiciones reales</strong>: en qué posición apareces en Google cuando buscan tu oficio.</li><li><strong>Visitas desde Google</strong> que llegan a tu web sin coste por clic.</li><li><strong>Conversiones</strong>: llamadas y contactos que llegan desde Google.</li></ul><p class="mt-2 text-base/7 text-surface">El objetivo no es que tu web reciba más visitas. Es que reciba <strong>las visitas que se convierten en clientes</strong>.</p>`,
-  },
-  {
-    question: '¿Necesito rediseñar mi web para mejorar el posicionamiento?',
-    answer: `<p class="text-base/7 text-surface">En la mayoría de los casos, <strong>no</strong>. Lo habitual es optimizar lo que ya tienes: corregir la estructura, mejorar la velocidad de carga y ajustar el contenido para que Google entienda qué ofreces y dónde lo ofreces.</p><p class="mt-2 text-base/7 text-surface">Solo hace falta rediseñar cuando tu web está tan mal construida que Google directamente no la puede leer. Eso es poco habitual y te lo digo gratis antes de empezar.</p>`,
-  },
-  {
-    question: '¿Qué pasa si dejo de invertir en posicionamiento web?',
-    answer: `<p class="text-base/7 text-surface">No desapareces de Google de un día para otro. El posicionamiento web es un <strong>activo acumulado</strong>: las mejoras técnicas, el contenido optimizado y la autoridad que has construido siguen trabajando para ti.</p><p class="mt-2 text-base/7 text-surface">Pero sin mantenimiento, la competencia avanza y Google actualiza sus criterios. Con el tiempo, las posiciones se erosionan. Por eso la continuidad se basa en resultados: <strong>sigues porque el retorno lo justifica</strong>.</p>`,
+    iconKey: 'receipt',
+    label: 'Tarifas y paquetes',
+    title: 'Presupuesto Posicionamiento Web Barcelona',
+    description: 'Dos opciones con precio fijo mensual, sin permanencia. Sin letra pequeña. Elige la que encaja con lo que necesitas.',
+    href: '/presupuesto-seo-barcelona/',
+    cta: 'Ver precios',
+    ordinal: '02',
   },
 ]
 ---
@@ -71,7 +71,11 @@ const faqPwItems = [
     idPrefix='faq-pw'
     items={faqPwItems}
   />
-  <RelatedServices />
+  <RelatedServices
+    upheading='POSICIONAMIENTO WEB PARA PYMES Y EMPRESAS EN BARCELONA'
+    heading='Más formas de <span>aparecer en Google.</span>'
+    cards={relatedCards}
+  />
 
   <!-- JSON-LD Structured Data -->
   <script
