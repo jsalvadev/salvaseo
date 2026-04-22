@@ -187,7 +187,12 @@
   font-size: clamp(14rem, 28vw, 24rem);
 }
 
-
+@media (max-width: 1023px) {
+  .text-wm,
+  .text-wm-xl {
+    display: none;
+  }
+}
 
 html {
   font-size: 17px;

@@ -27,7 +27,7 @@ const { upheading, heading, intro, areas } = Astro.props
   ></div>
 
   <!-- Ghost watermark -->
-  <div class="font-heading pointer-events-none absolute -right-8 top-1/2 -translate-y-1/2 select-none leading-none"
+  <div class="font-heading pointer-events-none absolute -right-8 top-1/2 -translate-y-1/2 select-none leading-none hidden lg:block"
     aria-hidden='true'
   >
     CAT
@@ -105,7 +105,7 @@ const { upheading, heading, intro, areas } = Astro.props
           >
 
             <!-- Ghost ordinal watermark -->
-            <div class="font-heading pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 select-none leading-none transition-opacity duration-300 opacity-100 group-hover:opacity-[1.5]"
+            <div class="font-heading pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 select-none leading-none transition-opacity duration-300 opacity-100 group-hover:opacity-[1.5] hidden lg:block"
               aria-hidden='true'
             >
               {padNum}
