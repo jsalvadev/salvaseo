@@ -194,6 +194,11 @@
   }
 }
 
+.font-heading.text-wm,
+.font-heading.text-wm-xl {
+  text-transform: capitalize !important;
+}
+
 html {
   font-size: 17px;
   scroll-behavior: smooth;

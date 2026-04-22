@@ -1,6 +1,7 @@
 ---
 import CenteredNav from '../../CenteredNav.astro'
 import CalButton from '../../CalButton.astro'
+import { Phone } from '@lucide/astro'
 ---
 
 <div class="relative overflow-hidden bg-gradient-to-b from-base to-surface/60">
@@ -11,9 +12,9 @@ import CalButton from '../../CalButton.astro'
     <div class="absolute top-0 right-0 h-[260px] w-[320px] rounded-full bg-cream/10 blur-2xl"></div>
   </div>
   <!-- Large ghosted watermark -->
-  <div class="font-heading pointer-events-none absolute -right-6 top-1/2 -translate-y-1/2 select-none text-wm leading-none font-bold text-white/[0.04]"
+  <div class="pointer-events-none absolute -right-6 top-1/2 -translate-y-1/2 text-white/[0.04]"
     aria-hidden='true'>
-    TOP
+    <Phone class="w-[clamp(12rem,28vw,20rem)] h-[clamp(12rem,28vw,20rem)]" />
   </div>
   <CenteredNav />
 
