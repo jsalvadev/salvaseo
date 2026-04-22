@@ -1,11 +1,13 @@
 ---
 import aboutMeImage from '../../../assets/about-me.webp'
 import { Mail, Phone } from '@lucide/astro'
+import Watermark from '../../Watermark.astro'
 ---
 
 <section
   id='sobre-mi'
   class='relative overflow-hidden py-24 md:py-32 bg-gradient-to-tl from-base to-surface'>
+  <Watermark text="CONSULTOR" position="top-right" opacity={4} size="4xl" />
 
   <!-- Ambient light gradients -->
   <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">

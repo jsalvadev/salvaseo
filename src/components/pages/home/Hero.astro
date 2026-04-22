@@ -1,10 +1,11 @@
 ---
 import CenteredNav from '../../CenteredNav.astro'
 import CalButton from '../../CalButton.astro'
-import { Phone } from '@lucide/astro'
+import Watermark from '../../Watermark.astro'
 ---
 
 <div class="relative overflow-hidden bg-gradient-to-b from-base to-surface/60">
+  <Watermark text="GOOGLE" position="top-right" opacity={4} size="4xl" />
   <!-- Ambient light gradients -->
   <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
     <div class="absolute -top-32 left-1/2 h-[480px] w-[700px] -translate-x-1/2 rounded-full bg-cream/20 blur-3xl"></div>

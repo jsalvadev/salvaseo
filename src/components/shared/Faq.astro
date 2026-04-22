@@ -1,4 +1,6 @@
 ---
+import Watermark from '../Watermark.astro'
+
 interface FaqItem {
   question: string
   answer: string
@@ -20,11 +22,7 @@ const {
 ---
 
 <div class="relative overflow-hidden bg-cream">
-  <!-- Large ghosted watermark -->
-  <div class="font-heading pointer-events-none absolute -left-6 top-1/2 -translate-y-1/2 select-none leading-none text-wm font-bold text-base/[0.04]"
-    aria-hidden='true'>
-    ?
-  </div>
+  <Watermark text="FAQ" position="top-left" opacity={4} size="4xl" class="text-surface/40" />
   <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
     <div class="mx-auto max-w-4xl">
       <h2 class="text-xs font-bold tracking-[0.2em] uppercase text-base">{upheading}</h2>

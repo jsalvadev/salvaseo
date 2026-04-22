@@ -1,8 +1,10 @@
 ---
 import CalButton from '../../CalButton.astro'
+import Watermark from '../../Watermark.astro'
 ---
 
 <div class="relative overflow-hidden bg-gradient-to-b from-surface to-base py-24 sm:py-32">
+  <Watermark text="CASOS" position="top-right" opacity={4} size="4xl" />
   <!-- Ambient light gradients -->
   <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
     <div class="absolute -top-16 left-1/2 h-[360px] w-[560px] -translate-x-1/2 rounded-full bg-cream/12 blur-3xl"></div>

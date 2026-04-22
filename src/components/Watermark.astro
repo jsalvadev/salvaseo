@@ -3,7 +3,7 @@ interface Props {
   text: string
   position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'center'
   opacity?: number
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl'
   class?: string
 }
 
@@ -20,15 +20,18 @@ const positionClasses = {
   'top-right': 'top-4 right-4',
   'bottom-left': 'bottom-4 left-4',
   'bottom-right': 'bottom-4 right-4',
-  'center': 'inset-0 m-auto'
+  'center': 'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
 }
 
 const sizeClasses = {
-  'xs': 'text-xs',
-  'sm': 'text-sm', 
-  'md': 'text-base',
-  'lg': 'text-lg',
-  'xl': 'text-xl'
+  'xs': 'text-2xl',
+  'sm': 'text-3xl',
+  'md': 'text-4xl',
+  'lg': 'text-5xl',
+  'xl': 'text-6xl',
+  '2xl': 'text-7xl',
+  '3xl': 'text-8xl',
+  '4xl': 'text-9xl'
 }
 
 const opacityValue = opacity / 100
@@ -36,12 +39,12 @@ const opacityValue = opacity / 100
 
 <span 
   class:list={[
-    'absolute pointer-events-none select-none text-neutral-400/60 font-medium tracking-wide z-0',
+    'absolute pointer-events-none select-none font-heading font-bold tracking-tight text-neutral-400/60 z-0',
     positionClasses[position],
     sizeClasses[size],
     className
   ]}
-  style={`opacity: ${opacityValue}`}
+  style={`opacity: ${opacityValue}; line-height: 1; white-space: nowrap;`}
 >
   {text}
 </span>

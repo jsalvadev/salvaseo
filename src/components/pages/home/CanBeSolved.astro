@@ -1,5 +1,6 @@
 ---
 import CalButton from '../../CalButton.astro'
+import Watermark from '../../Watermark.astro'
 ---
 
 <section
@@ -9,6 +10,7 @@ import CalButton from '../../CalButton.astro'
     radial-gradient(ellipse 50% 40% at 0% 90%, rgba(105,117,101,0.22) 0%, transparent 45%),
     radial-gradient(ellipse 40% 35% at 50% 50%, rgba(236,223,204,0.35) 0%, transparent 60%),
     linear-gradient(148deg, #f8f4ec 0%, #ecdec6 35%, #dfd0b4 62%, #ece4d2 100%);'>
+  <Watermark text="PROCESO" position="bottom-right" opacity={4} size="4xl" class="text-sage/40" />
 
   <!-- Dot grid -->
   <div
