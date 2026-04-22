@@ -9,9 +9,9 @@ import type { RelatedCard } from '../components/shared/RelatedServices.astro'
 import Faq from '../components/shared/Faq.astro'
 import barcelonaImage from '../assets/fisioterapia-barcelona.avif'
 import { faqPwItems } from '../data/faqs'
+import { siteConfig } from '../data/site'
 
-const MIN_MONTHLY_PRICE_EUR = 350
-const MIN_MONTHLY_PRICE_TEXT = `${MIN_MONTHLY_PRICE_EUR} €/mes`
+const MIN_MONTHLY_PRICE_TEXT = `${siteConfig.pricing.local} €/mes`
 const DATE_MODIFIED = new Date().toISOString().split('T')[0]
 
 const relatedCards: RelatedCard[] = [

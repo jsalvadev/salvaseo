@@ -42,6 +42,10 @@ export const siteConfig = {
     linkedin: "https://www.linkedin.com/in/salvaseo/",
     googleBusiness: "https://www.google.com/maps/place/?cid=5370983499387165545",
   },
+  pricing: {
+    local: 350,
+    total: 550,
+  },
 } as const;
 
 export const buildWhatsAppHref = (message: string = siteConfig.whatsapp.defaultMessage) =>
