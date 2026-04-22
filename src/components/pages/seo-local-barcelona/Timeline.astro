@@ -41,66 +41,19 @@ interface Props {
   heading: string;
   subtitle?: string;
   sectionId?: string;
-  phases?: TimelinePhase[];
+  phases: TimelinePhase[];
   ctaHeading?: string;
   ctaText?: string;
   ctaHref?: string;
   ctaLabel?: string;
 }
 
-const defaultPhases: TimelinePhase[] = [
-  {
-    title: "Diagnóstico técnico y análisis de mercado",
-    intro:
-      "Identifica los errores que frenan tu visibilidad y conoce las oportunidades de mercado que ahora pierdes.",
-    bullets: [
-      { icon: "scale",     emphasis: "Mide tu autoridad.",    text: "Compara tu situación real frente a tus competidores." },
-      { icon: "barChart3", emphasis: "Cuantifica tu mercado.", text: "Descubre el volumen de búsqueda real en tu zona." },
-      { icon: "badgeCheck",emphasis: "Decide con criterio.",  text: "Verifica la viabilidad del proyecto antes de invertir." },
-    ],
-    outro: "Accede a tu auditoría gratuita y prioriza tus próximas acciones.",
-  },
-  {
-    title: "Estrategia de posicionamiento web SEO",
-    intro:
-      "Sustituye la incertidumbre por una hoja de ruta técnica. Diseccionamos las acciones necesarias para captar clientes en tu zona.",
-    bullets: [
-      { icon: "target",       emphasis: "Prioriza tus objetivos.",  text: "Identifica qué búsquedas atacar primero para acelerar el retorno." },
-      { icon: "trendingUp",   emphasis: "Proyecta tu tráfico.",     text: "Estimación realista del volumen de visitas según tu mercado." },
-      { icon: "calendarClock",emphasis: "Define un cronograma.",    text: "Visualiza qué cambios técnicos se aplican cada mes y el plazo estimado." },
-    ],
-    outro: "Valida la estrategia. Si una acción no alinea con tus objetivos, se descarta.",
-  },
-  {
-    title: "Ejecución y resultados medibles",
-    intro:
-      "Mientras gestionas tu negocio, tu web escala posiciones y consolida su autoridad en Google.",
-    bullets: [
-      { icon: "chartNoAxesColumn", emphasis: "Controla las conversiones.", text: "Mide cuántas visitas se transforman en llamadas reales o formularios." },
-      { icon: "lineChart",         emphasis: "Sigue la evolución.",        text: "Visualiza qué términos has conquistado y cuáles son los siguientes objetivos." },
-      { icon: "layers3",           emphasis: "Crecimiento acumulado.",     text: "A diferencia de la publicidad, tu posicionamiento persiste y se refuerza mes a mes." },
-    ],
-    outro: "Capta el volumen de búsquedas de tu sector en Barcelona y convierte usuarios en clientes.",
-  },
-  {
-    title: "Seguimiento y escalado",
-    intro:
-      "Resultados medibles cada mes: llamadas, contactos y posiciones reales que confirman si la inversión avanza como debe.",
-    bullets: [
-      { icon: "chartNoAxesColumn", emphasis: "Métricas que importan.",   text: "Impresiones, clics, llamadas y formularios por zona, sin gráficos de vanidad." },
-      { icon: "target",            emphasis: "Prioridad por retorno.",   text: "Las acciones con mayor impacto van primero, sin desviar recursos." },
-      { icon: "trendingUp",        emphasis: "Crecimiento progresivo.",  text: "Lo que funciona en un servicio o zona se amplía hacia nuevas oportunidades." },
-    ],
-    outro: "La visibilidad local se convierte en un sistema continuo de captación, no en acciones aisladas.",
-  },
-];
-
 const {
   upheading,
   heading,
   subtitle,
   sectionId = "proceso",
-  phases = defaultPhases,
+  phases,
   ctaHeading = "Tus clientes ya te buscan, descubre si te encuentran.",
   ctaText = "Recibe un diagnóstico inicial de tu ficha de Google Business y tu visibilidad local para decidir con datos el retorno potencial de tu inversión en SEO local.",
   ctaHref = "https://wa.me/34692051399?text=Hola%20Salva%2C%20he%20visto%20tu%20web.%20Tengo%20un%20negocio%20en%20Barcelona%20y%20me%20gustar%C3%ADa%20saber%20si%20el%20SEO%20puede%20ayudarme%20a%20conseguir%20m%C3%A1s%20clientes.",
