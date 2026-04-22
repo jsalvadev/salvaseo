@@ -12,13 +12,14 @@
   --color-white:    #ffffff;
 
   /* ── Type Scale  ──────────────────── */
-  --text-h1:    2.986rem;
-  --text-wm:    20rem;
-  --text-h2:    2.488rem;
-  --text-h3:    2.074rem;
-  --text-h4:    1.728rem;
-  --text-h5:    1.44rem;
+  --text-h1:    clamp(1.8rem, 5vw, 2.986rem);
+  --text-wm:    clamp(12rem, 28vw, 20rem);
+  --text-h2:    clamp(1.5rem, 4vw, 2.488rem);
+  --text-h3:    clamp(1.3rem, 3.5vw, 2.074rem);
+  --text-h4:    clamp(1.2rem, 3vw, 1.728rem);
+  --text-h5:    clamp(1.1rem, 2.5vw, 1.44rem);
   --text-h6:    1.2rem;
+  --text-p:     1rem;
   --text-base:  1rem;
   --text-sm:    0.833rem;
   --text-xs:    0.695rem;
