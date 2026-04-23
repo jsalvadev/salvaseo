@@ -3,6 +3,7 @@ import {
   Globe, MapPin, Receipt, Search, FileText, Link, Star, Key,
   type LucideIcon,
 } from '@lucide/astro'
+import Watermark from '../Watermark.astro'
 
 type IconKey = 'globe' | 'mapPin' | 'receipt' | 'search' | 'fileText' | 'link' | 'star' | 'key'
 
@@ -37,6 +38,7 @@ const { upheading, heading, cards } = Astro.props
 ---
 
 <section class='relative overflow-hidden py-20 md:py-28' style='background: linear-gradient(135deg, #3a4236 0%, #697565 50%, #8a9e88 100%)'>
+  <Watermark text="Servicios" position="bottom-right" opacity={15} size="3xl" class="text-white/30" />
 
   <div class='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cream/40 to-transparent' aria-hidden='true'></div>
 

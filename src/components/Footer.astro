@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from '../data/site'
+import Watermark from './Watermark.astro'
 
 const { brand, contact, social, navigation, footer } = siteConfig
 const currentYear = new Date().getFullYear()
@@ -9,10 +10,7 @@ const currentYear = new Date().getFullYear()
   <!-- Sand top accent bar -->
   <div class='h-px w-full bg-gradient-to-r from-sand via-sand/60 to-transparent' aria-hidden='true'></div>
 
-  <!-- Watermark background -->
-  <div class='font-heading pointer-events-none absolute -bottom-8 -left-6 select-none leading-none text-wm font-bold text-white/[0.04]' aria-hidden='true'>
-    SALVASEO
-  </div>
+  <Watermark text="SALVASEO" position="center" opacity={15} size="5xl" class="text-white/30 font-bold" />
 
   <div class='relative container-site pt-14 pb-0'>
 

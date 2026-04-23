@@ -3,7 +3,7 @@ interface Props {
   text: string
   position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'center'
   opacity?: number
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl'
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl'
   class?: string
 }
 
@@ -31,7 +31,8 @@ const sizeClasses = {
   'xl': 'text-6xl',
   '2xl': 'text-7xl',
   '3xl': 'text-8xl',
-  '4xl': 'text-9xl'
+  '4xl': 'text-9xl',
+  '5xl': 'text-[22rem]'
 }
 
 const opacityValue = opacity / 100
