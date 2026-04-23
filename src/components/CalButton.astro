@@ -19,14 +19,23 @@ const colors = {
   cream:   'bg-cream   text-base   hover:bg-cream/80',
   white:   'bg-white   text-base   hover:bg-white/80',
 }
+
+function openCalendar() {
+  if (typeof Cal !== 'undefined' && Cal.ns["30min"]) {
+    Cal.ns["30min"]("open");
+  } else {
+    window.open("https://cal.com/salvaseo/30min", "_blank");
+  }
+}
 ---
 
-<a
-  href="#"
+<button
+  type="button"
   data-cal-link="salvaseo/30min"
   data-cal-namespace="30min"
   data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
   class={`${base} ${colors[color]} ${className}`}
+  onclick="openCalendar()"
 >
   {text}
-</a>
+</button>

@@ -309,14 +309,6 @@ const DATE_MODIFIED = new Date().toISOString().split('T')[0];
 
           Cal("init", "30min", { origin: "https://app.cal.com" });
           Cal.ns["30min"]("ui", { hideEventTypeDetails: false, layout: "month_view" });
-
-          document.addEventListener('click', function(e) {
-            const target = e.target.closest('[data-cal-link]');
-            if (target) {
-              e.preventDefault();
-              Cal.ns["30min"]("open");
-            }
-          });
         </script>
     </body>
 </html>
