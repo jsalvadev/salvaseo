@@ -2,6 +2,7 @@
 import { ViewTransitions } from "astro:transitions";
 import CenteredNav from "../components/CenteredNav.astro";
 import Footer from "../components/Footer.astro";
+import Spinner from "../components/Spinner.astro";
 import "../styles/global.css";
 
 interface Props {
@@ -267,6 +268,7 @@ const DATE_MODIFIED = new Date().toISOString().split('T')[0];
                 width="0"></iframe></noscript
         >
         <!-- End Google Tag Manager (noscript) -->
+        <Spinner />
         <div class="pointer-events-none absolute top-0 z-[-2] h-screen w-screen bg-base"></div>
         <div class="relative z-0">
             {!hideNavbar && <CenteredNav />}
