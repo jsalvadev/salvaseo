@@ -65,6 +65,29 @@ import Watermark from '../../Watermark.astro'
         <p class='text-base text-white/70 leading-relaxed text-pretty'>
           Me llamo Salva y hago que los negocios locales dejen de ser invisibles en Google. Soy muy de números, así que todo lo que hago se mide: más llamadas, más mensajes, más presupuestos. Si se puede medir, se puede mejorar.
         </p>
+
+        <!-- Tools -->
+        <div>
+          <p class='mb-3 text-xs font-bold uppercase tracking-widest text-cream/45'>Herramientas</p>
+          <div class='flex flex-wrap gap-2'>
+            {[
+              'Google Search Console',
+              'Google Analytics 4',
+              'DinoRank',
+              'WordPress',
+              'Elementor Pro',
+              'Bricks Builder',
+              'Figma',
+              'Google Business Profile',
+              'PageSpeed Insights',
+            ].map((tool) => (
+              <span class='inline-flex items-center rounded-full border border-cream/15 bg-cream/5 px-3 py-1 text-xs font-medium text-cream/70'>
+                {tool}
+              </span>
+            ))}
+          </div>
+        </div>
+
         <hr class='border-cream/10' />
 
         <!-- Contact links -->
