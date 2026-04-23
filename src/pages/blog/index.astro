@@ -10,20 +10,7 @@ const posts = allPosts.sort(
   (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
 );
 
-const category = Astro.url.searchParams.get('categoria') ?? '';
-const filteredPosts = category
-  ? posts.filter(p => p.data.category === category)
-  : posts;
-
-const categoryLabels: Record<string, string> = {
-  'fundamentos-seo': 'fundamentos seo',
-  'seo-local': 'seo local',
-  'tecnico': 'seo técnico',
-  'contenidos': 'contenido y keywords',
-  'herramientas': 'herramientas seo',
-};
-
-const allCategories = [...new Set(posts.map(p => p.data.category))];
+const filteredPosts = posts;
 
 const blogSchema = {
   '@context': 'https://schema.org',
@@ -65,20 +52,6 @@ const blogSchema = {
     </div>
   </div>
 
-  <!-- ── Category filter ─────────────────────────── -->
-  {allCategories.length > 1 && (
-    <div class="sticky top-0 z-10 border-b border-sage/15 bg-cream">
-      <div class="mx-auto max-w-2xl lg:max-w-4xl px-6 lg:px-8 py-3 flex flex-wrap gap-2">
-        <a href="/blog/" class:list={['filter-pill', { active: !category }]}>Todos</a>
-        {allCategories.map(cat => (
-          <a href={`/blog/?categoria=${cat}`} class:list={['filter-pill', { active: category === cat }]}>
-            {categoryLabels[cat] ?? cat}
-          </a>
-        ))}
-      </div>
-    </div>
-  )}
-
   <!-- ── Posts list ───────────────────────────────── -->
   <div class="bg-cream py-16 sm:py-24">
     <div class="mx-auto max-w-2xl lg:max-w-4xl px-6 lg:px-8">
@@ -87,7 +60,6 @@ const blogSchema = {
       ) : (
         <div class="space-y-16 lg:space-y-20">
           {filteredPosts.map(post => {
-            const cat = categoryLabels[post.data.category] ?? post.data.category;
             const dateFormatted = post.data.pubDate.toLocaleDateString('es-ES', {
               day: 'numeric',
               month: 'short',
@@ -113,19 +85,15 @@ const blogSchema = {
                   <div class="absolute inset-0 rounded-2xl inset-ring inset-ring-sage/10"></div>
                 </a>
                 <div>
-                  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs">
+                  <div class="flex flex-wrap items-center gap-x-1.5 gap-y-2 text-xs">
                     <time datetime={post.data.pubDate.toISOString()} class="text-base/45">
                       {dateFormatted}
                     </time>
-                    <a
-                      href={`/blog/?categoria=${post.data.category}`}
-                      class="relative z-10 rounded-full bg-sage/15 px-3 py-1.5 font-semibold text-base/70 hover:bg-sage/25 transition-colors border border-sage/20"
-                    >{cat}</a>
-                    {post.data.tags?.map(tag => (
-                      <span class="rounded-full bg-sage/10 px-2.5 py-1 font-medium text-sage/70 border border-sage/15">{tag}</span>
-                    ))}
                     {post.data.readingTime && (
-                      <span class="text-base/35">{post.data.readingTime} min</span>
+                      <>
+                        <span class="text-base/30" aria-hidden="true">·</span>
+                        <span class="text-base/35">{post.data.readingTime} min</span>
+                      </>
                     )}
                   </div>
                   <div class="group relative max-w-xl">
@@ -169,26 +137,3 @@ const blogSchema = {
 
 </Layout>
 
-<style>
-  .filter-pill {
-    display: inline-block;
-    padding: 0.3rem 0.8rem;
-    border-radius: 99px;
-    border: 1px solid rgba(105, 117, 101, 0.3);
-    color: rgba(41, 37, 36, 0.55);
-    font-size: 0.8rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: background 0.15s, border-color 0.15s, color 0.15s;
-  }
-  .filter-pill:hover {
-    background: rgba(105, 117, 101, 0.15);
-    color: rgba(41, 37, 36, 0.8);
-  }
-  .filter-pill.active {
-    background: rgba(105, 117, 101, 0.25);
-    border-color: rgba(105, 117, 101, 0.5);
-    color: rgba(41, 37, 36, 0.9);
-    font-weight: 600;
-  }
-</style>

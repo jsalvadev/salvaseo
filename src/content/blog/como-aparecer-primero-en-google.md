@@ -2,7 +2,6 @@
 title: "Cómo aparecer primero en Google: 5 pasos para negocios locales"
 description: "Si tienes un negocio en Barcelona y tu web no te trae clientes, esto es para ti. Te explico los 5 pasos reales para aparecer en Google sin complicaciones."
 pubDate: 2026-04-23
-category: "fundamentos-seo"
 tags: ["posicionamiento web", "negocios locales"]
 readingTime: 7
 draft: false
