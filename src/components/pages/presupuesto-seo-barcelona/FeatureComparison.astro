@@ -1,4 +1,6 @@
 ---
+import Watermark from '../../Watermark.astro'
+
 interface ComparisonFeature {
   name: string
   ficha: string
@@ -85,6 +87,7 @@ function renderBundle(value: string): string {
 <div
   class='relative overflow-hidden py-24 sm:py-32'
   style='background: linear-gradient(160deg, color-mix(in srgb, var(--color-cream) 97%, white) 0%, var(--color-cream) 45%, color-mix(in srgb, var(--color-cream) 90%, var(--color-base)) 100%);'>
+  <Watermark text="Plan" position="top-left" opacity={8} size="4xl" class="text-base/20" />
 
   <!-- Diagonal tension lines -->
   <svg
@@ -96,14 +99,6 @@ function renderBundle(value: string): string {
     <line x1='76%' y1='0%' x2='108%' y2='100%' stroke='var(--color-base)' stroke-opacity='0.025' stroke-width='1'></line>
     <line x1='63%' y1='0%' x2='92%'  y2='100%' stroke='var(--color-base)' stroke-opacity='0.025' stroke-width='1'></line>
   </svg>
-
-  <!-- Ghost watermark -->
-  <div
-    class='font-heading pointer-events-none absolute -right-6 bottom-4 select-none leading-none text-wm-xl font-bold'
-    style='color: color-mix(in srgb, var(--color-base) 5%, transparent);'
-    aria-hidden='true'>
-    Plan
-  </div>
 
   <!-- Top hairline -->
   <div
