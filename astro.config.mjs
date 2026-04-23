@@ -34,9 +34,9 @@ export default defineConfig({
 
   integrations: [
     sitemap({
-      filter: (page) => page in PAGE_LASTMOD,
+      filter: (page) => page in PAGE_LASTMOD || page.includes('/blog/'),
       serialize: (item) => {
-        item.lastmod = PAGE_LASTMOD[item.url] ?? item.url;
+        item.lastmod = PAGE_LASTMOD[item.url] ?? new Date().toISOString().split('T')[0];
         return item;
       },
     }),

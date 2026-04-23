@@ -20,6 +20,7 @@ export const siteConfig = {
     primary: [
       { label: "Sobre mí", href: "/#sobre-mi" },
       { label: "Precios", href: "/presupuesto-seo-barcelona/" },
+      { label: "Blog SEO", href: "/blog/" },
     ],
     services: [
       {

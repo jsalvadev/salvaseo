@@ -1,0 +1,538 @@
+---
+import Layout from './Layout.astro';
+import Watermark from '../components/Watermark.astro';
+
+interface RelatedService {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  category: string;
+  tags?: string[];
+  readingTime?: number;
+  image?: { src: string; alt: string };
+  relatedServices?: RelatedService[];
+  slug: string;
+}
+
+const {
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  category,
+  tags = [],
+  readingTime,
+  image,
+  relatedServices = [],
+  slug,
+} = Astro.props;
+
+const canonicalUrl = `https://salvaseo.com/blog/${slug}/`;
+const ogImage = image?.src
+  ? `https://salvaseo.com${image.src}`
+  : 'https://salvaseo.com/og-image.jpg';
+
+const pubDateISO = pubDate.toISOString();
+const modifiedDateISO = (updatedDate ?? pubDate).toISOString();
+
+const categoryLabels: Record<string, string> = {
+  'fundamentos-seo': 'Fundamentos SEO',
+  'seo-local': 'SEO Local',
+  'tecnico': 'SEO Técnico',
+  'contenidos': 'Contenido y Keywords',
+  'herramientas': 'Herramientas SEO',
+};
+
+const categoryLabel = categoryLabels[category] ?? category;
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      '@id': `${canonicalUrl}#article`,
+      'headline': title,
+      'description': description,
+      'datePublished': pubDateISO,
+      'dateModified': modifiedDateISO,
+      'url': canonicalUrl,
+      'inLanguage': 'es',
+      'author': {
+        '@type': 'Person',
+        '@id': 'https://salvaseo.com/#founder',
+        'name': 'Salvador Jesús Galliano Molina',
+      },
+      'publisher': {
+        '@id': 'https://salvaseo.com/#business',
+      },
+      'mainEntityOfPage': {
+        '@type': 'WebPage',
+        '@id': `${canonicalUrl}#webpage`,
+      },
+      ...(image ? { 'image': `https://salvaseo.com${image.src}` } : {}),
+    },
+    {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Inicio', 'item': 'https://salvaseo.com/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Blog SEO', 'item': 'https://salvaseo.com/blog/' },
+        { '@type': 'ListItem', 'position': 3, 'name': title, 'item': canonicalUrl },
+      ],
+    },
+  ],
+};
+
+const pubDateFormatted = pubDate.toLocaleDateString('es-ES', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+---
+
+<Layout
+  title={`${title} | Blog SalvaSEO`}
+  description={description}
+  canonicalUrl={canonicalUrl}
+  ogType="article"
+  ogImage={ogImage}
+>
+  <Fragment slot="head">
+    <meta property="article:published_time" content={pubDateISO} />
+    <meta property="article:modified_time" content={modifiedDateISO} />
+    <meta property="article:author" content="Salvador Jesús Galliano Molina" />
+    <meta property="article:section" content={categoryLabel} />
+    {tags.map(tag => <meta property="article:tag" content={tag} />)}
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  </Fragment>
+
+  <article class="blog-post">
+    <!-- Post header (same hero bg). Nav is position:absolute so header starts at y=0 -->
+    <header class="post-header relative overflow-hidden bg-gradient-to-b from-base to-surface/60">
+      <!-- Dot grid -->
+      <div class="pointer-events-none absolute inset-0 dot-grid-32" aria-hidden="true"></div>
+      <!-- Ambient light blobs -->
+      <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div class="absolute -top-16 left-1/2 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-cream/30 blur-3xl"></div>
+        <div class="absolute top-1/3 -left-24 h-[340px] w-[400px] rounded-full bg-sage/35 blur-3xl"></div>
+        <div class="absolute top-0 right-0 h-[280px] w-[340px] rounded-full bg-cream/15 blur-2xl"></div>
+      </div>
+      <!-- Watermark -->
+      <Watermark text="SEO" position="bottom-right" opacity={9} size="4xl" />
+
+      <div class="post-header-inner relative z-10">
+        <!-- Breadcrumb inside hero (nav is absolute/transparent, breadcrumb here clears it) -->
+        <nav class="post-breadcrumb" aria-label="Ruta de navegación">
+          <ol>
+            <li><a href="/">Inicio</a></li>
+            <li aria-hidden="true">›</li>
+            <li><a href="/blog/">Blog SEO</a></li>
+            <li aria-hidden="true">›</li>
+            <li aria-current="page">{title}</li>
+          </ol>
+        </nav>
+
+        <div class="category-pill">
+          <a href={`/blog/?categoria=${category}`}>{categoryLabel}</a>
+        </div>
+        <h1>{title}</h1>
+        <!-- accent rule -->
+        <div class="mt-5 mb-5 flex items-center">
+          <div class="h-px w-32 bg-gradient-to-r from-cream/5 to-cream/35"></div>
+          <div class="h-px w-10 bg-cream/60"></div>
+        </div>
+        <p class="post-lead">{description}</p>
+        <div class="post-meta">
+          <time datetime={pubDateISO}>{pubDateFormatted}</time>
+          {updatedDate && (
+            <>
+              <span class="separator">·</span>
+              <span>Actualizado: <time datetime={modifiedDateISO}>{updatedDate.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })}</time></span>
+            </>
+          )}
+          {readingTime && (
+            <>
+              <span class="separator">·</span>
+              <span>{readingTime} min de lectura</span>
+            </>
+          )}
+        </div>
+      </div>
+      <!-- Pattern break: fade into content below -->
+      <div class="pointer-events-none absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-b from-transparent to-base/70" aria-hidden="true"></div>
+    </header>
+
+    <!-- Hero image -->
+    {image && (
+      <div class="hero-image-wrap">
+        <img
+          src={image.src}
+          alt={image.alt}
+          width="1200"
+          height="630"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+    )}
+
+    <!-- Article body -->
+    <div class="prose-wrap">
+      <div class="prose">
+        <slot />
+      </div>
+
+      <!-- Tags -->
+      {tags.length > 0 && (
+        <div class="tags-row">
+          {tags.map(tag => (
+            <span class="tag">{tag}</span>
+          ))}
+        </div>
+      )}
+    </div>
+
+    <!-- Related services CTA -->
+    {relatedServices.length > 0 && (
+      <aside class="related-cta">
+        <div class="related-cta-inner">
+          <p class="related-cta-eyebrow">¿Te ha sido útil?</p>
+          <p class="related-cta-heading">Así es como trabajo con negocios en Barcelona</p>
+          <div class="related-cta-links">
+            {relatedServices.map(service => (
+              <a href={service.href} class="cta-link">{service.label} →</a>
+            ))}
+          </div>
+        </div>
+      </aside>
+    )}
+  </article>
+</Layout>
+
+<style>
+  /* ── Post header ────────────────────────────────── */
+  .post-header-inner {
+    max-width: 680px;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+    /* top: clear absolute nav (~60px) + breathing room */
+    padding-block: 6.5rem 5rem;
+  }
+
+  /* Breadcrumb inside hero (sits under transparent absolute nav) */
+  .post-breadcrumb {
+    margin-bottom: 2rem;
+  }
+  .post-breadcrumb ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    list-style: none;
+    font-size: 0.78rem;
+    color: rgba(236, 223, 204, 0.45);
+  }
+  .post-breadcrumb a {
+    color: rgba(236, 223, 204, 0.55);
+    text-decoration: none;
+  }
+  .post-breadcrumb a:hover {
+    color: rgba(236, 223, 204, 0.9);
+  }
+  .post-breadcrumb [aria-current="page"] {
+    color: rgba(236, 223, 204, 0.35);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 22ch;
+  }
+
+  .category-pill {
+    display: inline-block;
+    margin-bottom: 1.25rem;
+  }
+  .category-pill a {
+    display: inline-block;
+    background: rgba(105, 117, 101, 0.2);
+    border: 1px solid rgba(105, 117, 101, 0.3);
+    color: rgba(236, 223, 204, 0.8);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.3rem 0.75rem;
+    border-radius: 99px;
+  }
+  .category-pill a:hover {
+    background: rgba(105, 117, 101, 0.3);
+  }
+
+  h1 {
+    font-family: 'Brawler', serif;
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    line-height: 1.2;
+    color: #ffffff;
+    margin-bottom: 0;
+  }
+
+  .post-lead {
+    font-size: 1.15rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.62);
+    margin-bottom: 1.5rem;
+  }
+
+  .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    align-items: center;
+    font-size: 0.85rem;
+    color: rgba(236, 223, 204, 0.4);
+  }
+  .post-meta .separator {
+    color: rgba(105, 117, 101, 0.5);
+  }
+  .post-meta time {
+    color: rgba(236, 223, 204, 0.45);
+  }
+
+  /* ── Hero image ─────────────────────────────────── */
+  .hero-image-wrap {
+    max-width: 760px;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+    margin-bottom: 3rem;
+  }
+  .hero-image-wrap img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+  }
+
+  /* ── Prose container ────────────────────────────── */
+  .prose-wrap {
+    max-width: 680px;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+    padding-bottom: 4rem;
+  }
+
+  /* ── Prose styles ───────────────────────────────── */
+  .prose {
+    font-size: 1.1rem;
+    line-height: 1.85;
+    color: rgba(236, 223, 204, 0.88);
+  }
+
+  .prose :global(h2) {
+    font-family: 'Brawler', serif;
+    font-size: clamp(1.45rem, 3vw, 1.8rem);
+    line-height: 1.25;
+    color: #ecdfcc;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .prose :global(h3) {
+    font-family: 'Brawler', serif;
+    font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+    line-height: 1.3;
+    color: #ecdfcc;
+    margin-top: 2.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .prose :global(h4) {
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgba(236, 223, 204, 0.9);
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: 0.85rem;
+  }
+
+  .prose :global(p) {
+    margin-bottom: 1.5rem;
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin: 0 0 1.5rem 0;
+    padding-left: 1.6rem;
+  }
+
+  .prose :global(ul) { list-style-type: disc; }
+  .prose :global(ol) { list-style-type: decimal; }
+
+  .prose :global(li) {
+    margin-bottom: 0.45rem;
+    padding-left: 0.25rem;
+  }
+
+  .prose :global(li::marker) {
+    color: rgba(105, 117, 101, 0.7);
+  }
+
+  .prose :global(blockquote) {
+    border-left: 3px solid rgba(105, 117, 101, 0.6);
+    padding-left: 1.25rem;
+    margin: 2rem 0;
+    color: rgba(236, 223, 204, 0.65);
+    font-style: italic;
+  }
+
+  .prose :global(strong) {
+    color: #ecdfcc;
+    font-weight: 700;
+  }
+
+  .prose :global(em) {
+    color: rgba(236, 223, 204, 0.8);
+  }
+
+  .prose :global(a) {
+    color: rgba(105, 117, 101, 1);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+  }
+  .prose :global(a:hover) {
+    color: #ecdfcc;
+  }
+
+  .prose :global(code) {
+    background: rgba(105, 117, 101, 0.15);
+    border-radius: 4px;
+    padding: 0.15em 0.4em;
+    font-size: 0.88em;
+    color: rgba(236, 223, 204, 0.9);
+  }
+
+  .prose :global(pre) {
+    background: rgba(60, 61, 55, 0.5);
+    border: 1px solid rgba(105, 117, 101, 0.2);
+    border-radius: 8px;
+    padding: 1.25rem;
+    overflow-x: auto;
+    margin: 1.75rem 0;
+  }
+  .prose :global(pre code) {
+    background: none;
+    padding: 0;
+    font-size: 0.9em;
+  }
+
+  .prose :global(hr) {
+    border: none;
+    border-top: 1px solid rgba(105, 117, 101, 0.2);
+    margin: 2.5rem 0;
+  }
+
+  .prose :global(img) {
+    border-radius: 8px;
+    margin: 2rem 0;
+    width: 100%;
+    height: auto;
+  }
+
+  /* Markdown tables */
+  .prose :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.75rem 0;
+    font-size: 0.95rem;
+  }
+  .prose :global(th) {
+    background: rgba(105, 117, 101, 0.15);
+    color: rgba(236, 223, 204, 0.9);
+    font-weight: 600;
+    text-align: left;
+    padding: 0.6rem 0.85rem;
+    border-bottom: 1px solid rgba(105, 117, 101, 0.25);
+  }
+  .prose :global(td) {
+    padding: 0.55rem 0.85rem;
+    border-bottom: 1px solid rgba(105, 117, 101, 0.12);
+    color: rgba(236, 223, 204, 0.75);
+  }
+  .prose :global(tr:last-child td) {
+    border-bottom: none;
+  }
+
+  /* ── Tags ───────────────────────────────────────── */
+  .tags-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(105, 117, 101, 0.15);
+  }
+  .tag {
+    display: inline-block;
+    background: rgba(60, 61, 55, 0.5);
+    border: 1px solid rgba(105, 117, 101, 0.2);
+    color: rgba(236, 223, 204, 0.55);
+    font-size: 0.78rem;
+    padding: 0.25rem 0.65rem;
+    border-radius: 4px;
+  }
+
+  /* ── Related CTA ────────────────────────────────── */
+  .related-cta {
+    border-top: 1px solid rgba(105, 117, 101, 0.2);
+    padding-block: 3rem;
+    margin-top: 1rem;
+  }
+  .related-cta-inner {
+    max-width: 680px;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  .related-cta-eyebrow {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(105, 117, 101, 0.8);
+    margin-bottom: 0.5rem;
+  }
+  .related-cta-heading {
+    font-family: 'Brawler', serif;
+    font-size: clamp(1.25rem, 3vw, 1.6rem);
+    color: #ecdfcc;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+  }
+  .related-cta-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .cta-link {
+    display: inline-block;
+    background: rgba(105, 117, 101, 0.15);
+    border: 1px solid rgba(105, 117, 101, 0.3);
+    color: rgba(236, 223, 204, 0.85);
+    text-decoration: none;
+    padding: 0.65rem 1.25rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: background 0.18s, border-color 0.18s, color 0.18s;
+  }
+  .cta-link:hover {
+    background: rgba(105, 117, 101, 0.25);
+    border-color: rgba(105, 117, 101, 0.5);
+    color: #ecdfcc;
+  }
+</style>
