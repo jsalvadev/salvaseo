@@ -14,6 +14,7 @@ interface Props {
     canonicalUrl?: string;
     preloadImageHref?: string;
     hideNavbar?: boolean;
+    darkNav?: boolean;
 }
 
 const {
@@ -25,6 +26,7 @@ const {
     canonicalUrl = "https://salvaseo.com/",
     preloadImageHref,
     hideNavbar = false,
+    darkNav = true,
 } = Astro.props;
 
 const isProd = import.meta.env.PROD;
@@ -271,9 +273,10 @@ const DATE_MODIFIED = new Date().toISOString().split('T')[0];
         >
         <!-- End Google Tag Manager (noscript) -->
         <Spinner />
-        <div class="pointer-events-none absolute top-0 z-[-2] h-screen w-screen bg-base"></div>
+        {!darkNav && <div class="pointer-events-none absolute top-0 z-[-2] h-screen w-screen bg-cream"></div>}
+        {darkNav && <div class="pointer-events-none absolute top-0 z-[-2] h-screen w-screen bg-base"></div>}
         <div class="relative z-0">
-            {!hideNavbar && <CenteredNav />}
+            {!hideNavbar && <CenteredNav darkNav={darkNav} />}
             <main>
                 <slot />
             </main>
