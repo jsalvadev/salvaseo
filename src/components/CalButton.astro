@@ -21,8 +21,12 @@ const colors = {
 }
 
 function openCalendar() {
-  if (typeof Cal !== 'undefined' && Cal.ns["30min"]) {
-    Cal.ns["30min"]("open");
+  if (typeof Cal !== 'undefined') {
+    if (Cal.ns && Cal.ns["30min"]) {
+      Cal.ns["30min"]("open");
+    } else if (Cal.q) {
+      Cal("open");
+    }
   } else {
     window.open("https://cal.com/salvaseo/30min", "_blank");
   }
