@@ -85,8 +85,6 @@ Envía el sitemap para que Google tenga el mapa de tu web. Revisa en el apartado
 
 Con esa información ya puedes empezar a tomar decisiones: qué páginas necesitan mejoras, qué servicios busca la gente que tú ofreces pero no tienes bien explicado en tu web, o qué zonas de la ciudad buscan tu servicio y tú ni lo sabías.
 
-## Próximos pasos
-
 Saber lo que está pasando en tu web es el primer paso. El segundo es saber qué hacer con esa información para conseguir más llamadas y más clientes.
 
 Si quieres que revise cómo está funcionando tu web en Google y te explique qué oportunidades concretas tienes en tu sector, puedo hacerlo sin compromiso. Te digo exactamente qué está pasando y qué habría que cambiar, en lenguaje normal.

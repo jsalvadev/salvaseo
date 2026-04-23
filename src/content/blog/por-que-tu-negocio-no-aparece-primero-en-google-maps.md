@@ -73,6 +73,4 @@ Hay negocios que consiguen posiciones muy altas con relativamente pocas reseñas
 No le puedes decir al cliente exactamente qué escribir porque Google detecta cuando las reseñas parecen coordinadas. Pero sí puedes pedirle que cuente qué trabajo le hiciste y cómo quedó. Eso es suficiente para que la reseña sea útil tanto para tu posicionamiento como para el siguiente cliente que la lea antes de llamarte.
 
 
-## Próximos pasos
-
 Si quieres saber exactamente en qué posición apareces para las búsquedas más importantes de tu sector y qué está haciendo tu competencia para estar por delante, puedo hacer un análisis gratuito de tu ficha. Sin compromiso. Te digo qué está fallando y qué cambios concretos harían subir tu posición.

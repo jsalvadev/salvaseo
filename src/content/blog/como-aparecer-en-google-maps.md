@@ -99,8 +99,6 @@ Crear la ficha sin verificarla es como abrir una tienda y no colgar el cartel. G
 
 Para verificarla, Google te pedirá que demuestres que el negocio existe. Dependiendo de tu tipo de negocio puede ser por teléfono, con un vídeo grabado desde tu local, por carta postal o con documentación. Sigue el proceso que te indique y no lo dejes para después.
 
-## Próximos pasos
-
 Si ya tienes ficha pero no apareces cuando te buscan, el problema casi siempre está en alguno de los puntos de esta guía: la categoría mal elegida, la ficha incompleta, pocas reseñas o una descripción que no menciona lo que realmente haces.
 
 Si quieres que revise tu ficha y te diga exactamente qué está fallando, puedo hacerlo sin compromiso. Te explico qué hay que cambiar y por qué, en lenguaje normal, sin tecnicismos.
