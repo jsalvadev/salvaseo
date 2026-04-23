@@ -3,7 +3,7 @@ title: "¿Qué es el SEO y para qué sirve?"
 description: "Descubre qué es el SEO, cómo funciona Google en 2026 y por qué es la inversión de marketing más rentable para negocios locales en Barcelona."
 pubDate: 2026-04-23
 category: "fundamentos-seo"
-tags: ["seo básico", "posicionamiento web", "google", "marketing digital"]
+tags: ["seo básico", "posicionamiento web"]
 readingTime: 6
 draft: false
 relatedServices:
