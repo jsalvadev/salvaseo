@@ -5,9 +5,6 @@ pubDate: 2026-05-13T08:00:00
 tags: ["google maps", "google business profile", "seo local", "posicionamiento local"]
 readingTime: 7
 draft: false
-image:
-  src: "/blog/mejorar-posicion-google-maps.webp"
-  alt: "Comparativa de dos fichas de Google Maps, una bien optimizada y otra sin optimizar"
 relatedServices:
   - label: "SEO Local Barcelona"
     href: "/seo-local-barcelona/"
@@ -37,8 +34,6 @@ Una ficha con el nombre, el teléfono y poco más le da muy poca información a 
 
 La diferencia entre una ficha básica y una ficha bien trabajada puede ser de diez posiciones en el mapa. No es exageración. Hay casos documentados donde solo añadir los servicios correctamente ha subido una ficha de la posición 12 a la posición 5 en menos de 24 horas.
 
-![Comparativa entre una ficha de GBP incompleta y una bien optimizada con servicios y fotos](/blog/ficha-gbp-completa-vs-incompleta.webp)
-<!-- IMAGEN: ilustración comparando dos fichas de Google Maps lado a lado. La de la izquierda con información básica (solo nombre y teléfono), la de la derecha con categorías, servicios, fotos y descripción completa -->
 
 ### 3. CTR: cuánta gente hace clic en tu ficha cuando la ve
 
@@ -60,8 +55,6 @@ Crear la ficha es el primer paso, no el último. La mayoría de negocios locales
 
 Google da más visibilidad a las fichas que se actualizan, que reciben reseñas de forma continua y que tienen información completa. Una ficha activa siempre va a ganar a una ficha abandonada, aunque la abandonada lleve más tiempo creada.
 
-![Panel de Google Business Profile mostrando estadísticas de visitas y llamadas de los últimos 28 días](/blog/estadisticas-gbp-llamadas.webp)
-<!-- IMAGEN: captura o ilustración del panel de rendimiento de GBP mostrando métricas como búsquedas de la ficha, visitas al perfil y llamadas recibidas en los últimos 28 días -->
 
 ## Qué puedes hacer esta semana para mejorar tu posición
 
@@ -79,8 +72,6 @@ Hay negocios que consiguen posiciones muy altas con relativamente pocas reseñas
 
 No le puedes decir al cliente exactamente qué escribir porque Google detecta cuando las reseñas parecen coordinadas. Pero sí puedes pedirle que cuente qué trabajo le hiciste y cómo quedó. Eso es suficiente para que la reseña sea útil tanto para tu posicionamiento como para el siguiente cliente que la lea antes de llamarte.
 
-![Ejemplo de reseña de calidad en Google Maps con texto detallado y foto del trabajo realizado](/blog/resena-calidad-google-maps.webp)
-<!-- IMAGEN: ilustración o mockup de una reseña de Google Maps con 5 estrellas, texto detallado de 3-4 líneas mencionando el tipo de trabajo y la zona, y una foto adjunta -->
 
 ## Próximos pasos
 

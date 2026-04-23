@@ -5,9 +5,6 @@ pubDate: 2026-05-06T08:00:00
 tags: ["google search console", "posicionamiento web", "seo local", "negocios locales"]
 readingTime: 6
 draft: false
-image:
-  src: "/blog/google-search-console-negocios-locales.webp"
-  alt: "Panel de Google Search Console mostrando datos de visitas y palabras clave de un negocio local"
 relatedServices:
   - label: "Posicionamiento Web Barcelona"
     href: "/posicionamiento-web-barcelona/"
@@ -29,8 +26,6 @@ Con ella puedes saber si Google ha encontrado y leído las páginas de tu web, q
 
 Para un negocio local, esta información es oro. Sin ella estás trabajando a ciegas.
 
-![Panel principal de Google Search Console con gráfica de clics e impresiones](/blog/gsc-panel-principal.webp)
-<!-- IMAGEN: captura o ilustración del panel de rendimiento de GSC mostrando una gráfica de clics e impresiones en los últimos 3 meses. Puede ser genérica sin datos reales -->
 
 ## Cómo registrar tu web en Google Search Console
 
@@ -58,8 +53,6 @@ En Google Search Console hay una barra de búsqueda en la parte de arriba. Pega 
 
 Esto es especialmente útil cuando acabas de publicar una página de servicio nueva o cuando has actualizado un contenido importante.
 
-![Vista de inspección de URL en Google Search Console con botón de solicitar indexación](/blog/gsc-solicitar-indexacion.webp)
-<!-- IMAGEN: ilustración o captura del inspector de URLs de GSC mostrando una URL con el estado "no está en Google" y el botón "solicitar indexación" visible -->
 
 ## La información más valiosa: cómo te está buscando la gente
 
@@ -83,8 +76,6 @@ Hay páginas que es normal que no estén indexadas: las páginas de administraci
 
 Lo más habitual es que esa página tenga algún error técnico, que esté marcada por error como "no indexar" o que Google simplemente no la haya encontrado todavía. En el primer caso necesitas ayuda técnica. En el segundo, puedes usar el botón de solicitar indexación que te expliqué antes.
 
-![Sección de páginas indexadas y no indexadas en Google Search Console](/blog/gsc-paginas-indexadas.webp)
-<!-- IMAGEN: ilustración del apartado "Páginas" de GSC mostrando páginas en verde (indexadas) y en gris (no indexadas), con la lista de motivos por los que no se han indexado -->
 
 ## Por dónde empezar si acabas de registrarte
 

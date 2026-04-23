@@ -10,8 +10,6 @@ const posts = allPosts.sort(
   (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
 );
 
-const filteredPosts = posts;
-
 const blogSchema = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -45,86 +43,60 @@ const blogSchema = {
     <script type="application/ld+json" set:html={JSON.stringify(blogSchema)} />
   </Fragment>
 
-  <!-- ── Hero header ──────────────────────────────── -->
-  <div class="relative bg-cream">
-    <div class="mx-auto max-w-2xl lg:max-w-4xl px-6 lg:px-8 pt-40 pb-20">
-      <h1 class="font-heading text-h4 font-normal tracking-tight text-pretty text-base text-center">SalvaSEO Blog</h1>
-    </div>
-  </div>
+  <div class="py-24 sm:py-32" style="background: linear-gradient(160deg, var(--color-cream) 0%, color-mix(in srgb, var(--color-sage) 8%, var(--color-cream)) 100%)">
+    <div class="mx-auto max-w-2xl px-6 lg:px-8">
+      <h1 class="font-heading text-4xl font-normal tracking-tight text-pretty text-base sm:text-5xl">Blog SEO</h1>
+      <p class="mt-2 text-lg/8 text-base/55">Consejos prácticos de posicionamiento web para negocios locales.</p>
 
-  <!-- ── Posts list ───────────────────────────────── -->
-  <div class="bg-cream py-16 sm:py-24">
-    <div class="mx-auto max-w-2xl lg:max-w-4xl px-6 lg:px-8">
-      {filteredPosts.length === 0 ? (
-        <p class="text-base/40 text-sm">No hay artículos en esta categoría todavía.</p>
+      {posts.length === 0 ? (
+        <p class="mt-10 text-sm text-base/40">No hay artículos todavía.</p>
       ) : (
-        <div class="space-y-16 lg:space-y-20">
-          {filteredPosts.map(post => {
+        <div class="mt-10 space-y-16 border-t border-sage/20 pt-10 sm:mt-16 sm:pt-16">
+          {posts.map(post => {
             const dateFormatted = post.data.pubDate.toLocaleDateString('es-ES', {
               day: 'numeric',
               month: 'short',
               year: 'numeric',
             });
             return (
-              <article class="relative isolate flex flex-col gap-8 lg:flex-row">
-                <a href={`/blog/${post.slug}/`} class="relative aspect-video sm:aspect-2/1 lg:aspect-auto lg:w-64 lg:shrink-0 lg:self-stretch">
-                  {post.data.image ? (
-                    <img
-                      src={post.data.image.src}
-                      alt={post.data.image.alt}
-                      class="absolute inset-0 size-full rounded-2xl bg-surface/40 object-cover"
-                      width="256"
-                      height="256"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-surface to-cream flex items-center justify-center">
-                      <span class="text-base/20 font-heading text-5xl font-normal select-none">SEO</span>
-                    </div>
+              <article class="flex max-w-xl flex-col items-start justify-between">
+                <div class="flex items-center gap-x-4 text-xs">
+                  <time datetime={post.data.pubDate.toISOString()} class="text-base/45">
+                    {dateFormatted}
+                  </time>
+                  {post.data.readingTime && (
+                    <>
+                      <span class="text-base/30" aria-hidden="true">·</span>
+                      <span class="text-base/35">{post.data.readingTime} min</span>
+                    </>
                   )}
-                  <div class="absolute inset-0 rounded-2xl inset-ring inset-ring-sage/10"></div>
-                </a>
-                <div>
-                  <div class="flex flex-wrap items-center gap-x-1.5 gap-y-2 text-xs">
-                    <time datetime={post.data.pubDate.toISOString()} class="text-base/45">
-                      {dateFormatted}
-                    </time>
-                    {post.data.readingTime && (
-                      <>
-                        <span class="text-base/30" aria-hidden="true">·</span>
-                        <span class="text-base/35">{post.data.readingTime} min</span>
-                      </>
-                    )}
-                  </div>
-                  <div class="group relative max-w-xl">
-                    <h2 class="mt-3 font-heading text-xl/7 font-normal text-base group-hover:text-sage transition-colors">
-                      <a href={`/blog/${post.slug}/`}>
+                </div>
+                <div class="group relative">
+                  <h2 class="mt-3 font-heading text-lg/6 font-normal text-base group-hover:text-sage transition-colors">
+                    <a href={`/blog/${post.slug}/`}>
+                      <span class="absolute inset-0"></span>
+                      {post.data.title}
+                    </a>
+                  </h2>
+                  <p class="mt-5 line-clamp-3 text-sm/6 text-base/55">{post.data.description}</p>
+                </div>
+                <div class="relative mt-8 flex items-center gap-x-4">
+                  <img
+                    src="/about-me.png"
+                    alt="Salvador Jesús"
+                    class="size-10 rounded-full bg-surface/40 object-cover"
+                    width="40"
+                    height="40"
+                    loading="lazy"
+                  />
+                  <div class="text-sm/6">
+                    <p class="font-semibold text-base/90">
+                      <a href="/#sobre-mi">
                         <span class="absolute inset-0"></span>
-                        {post.data.title}
+                        Salvador Jesús
                       </a>
-                    </h2>
-                    <p class="mt-4 text-sm/6 text-base/55">{post.data.description}</p>
-                  </div>
-                  <div class="mt-6 flex border-t border-sage/15 pt-6">
-                    <div class="relative flex items-center gap-x-4">
-                      <img
-                        src="/about-me.png"
-                        alt="Salvador Jesús, Consultor SEO"
-                        class="size-10 rounded-full bg-surface/40 object-cover"
-                        width="40"
-                        height="40"
-                        loading="lazy"
-                      />
-                      <div class="text-sm/6">
-                        <p class="font-semibold text-base/90">
-                          <a href="/#sobre-mi">
-                            <span class="absolute inset-0"></span>
-                            Salvador Jesús
-                          </a>
-                        </p>
-                        <p class="text-base/45">Consultor SEO · Barcelona</p>
-                      </div>
-                    </div>
+                    </p>
+                    <p class="text-base/45">Consultor SEO · Barcelona</p>
                   </div>
                 </div>
               </article>
@@ -136,4 +108,3 @@ const blogSchema = {
   </div>
 
 </Layout>
-

@@ -5,9 +5,6 @@ pubDate: 2026-04-29T08:00:00
 tags: ["google business profile", "google maps", "seo local", "negocios locales"]
 readingTime: 7
 draft: false
-image:
-  src: "/blog/google-business-profile-negocios-locales.webp"
-  alt: "Ficha de Google Business Profile de un negocio local en Barcelona"
 relatedServices:
   - label: "SEO Local Barcelona"
     href: "/seo-local-barcelona/"
@@ -21,8 +18,6 @@ Cuando alguien en tu ciudad busca el servicio que tú ofreces, Google le muestra
 
 La buena noticia es que aparecer en Google Maps no es cuestión de suerte ni de pagar publicidad. Es cuestión de tener bien configurada tu ficha de Google Business Profile y de hacer unas cuantas cosas que la mayoría de negocios no hacen. Te lo explico todo aquí.
 
-![Ejemplo del local pack de Google Maps con tres negocios destacados](/blog/local-pack-google-maps.webp)
-<!-- IMAGEN: captura o ilustración del local pack de Google con tres fichas de empresa destacadas, vista de escritorio o móvil -->
 
 ## Qué es Google Business Profile y por qué lo necesitas
 
@@ -60,8 +55,6 @@ En el teléfono, si puedes, usa un número fijo. Genera más confianza que un m�
 
 En el horario, pon el real. No pongas que abres las 24 horas para intentar posicionar mejor. A corto plazo puede ayudar, pero en cuanto un cliente llegue y encuentre el negocio cerrado te dejará una reseña negativa que te hundirá.
 
-![Panel de gestión de Google Business Profile con opciones de edición](/blog/panel-google-business-profile.webp)
-<!-- IMAGEN: captura del panel de administración de GBP mostrando las opciones de editar perfil, reseñas y rendimiento. Sin datos reales, puede ser genérica -->
 
 ## Las optimizaciones que marcan la diferencia
 
@@ -99,8 +92,6 @@ No te cortes en pedirlo. La mayoría de clientes satisfechos no dejan reseñas s
 
 Sobre la calidad de las reseñas: cuanto más extensas mejor, y si incluyen fotos o mencionan el servicio concreto que han contratado, tienen más impacto en tu posicionamiento.
 
-![Código QR para pedir reseñas de Google a clientes](/blog/qr-reseñas-google.webp)
-<!-- IMAGEN: ilustración o mockup de un código QR con el texto "Déjanos tu reseña en Google" en un tarjetón o pegatina, estilo profesional -->
 
 ## Lo que pasa si no verificas la ficha
 
