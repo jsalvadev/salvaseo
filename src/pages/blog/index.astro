@@ -2,8 +2,9 @@
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 
+const now = new Date();
 const allPosts = await getCollection('blog', ({ data }) =>
-  import.meta.env.PROD ? !data.draft : true
+  import.meta.env.PROD ? !data.draft && data.pubDate <= now : true
 );
 
 const posts = allPosts.sort(

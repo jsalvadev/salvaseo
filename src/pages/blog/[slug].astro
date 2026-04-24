@@ -3,8 +3,9 @@ import { getCollection, render } from 'astro:content';
 import LayoutBlog from '../../layouts/LayoutBlog.astro';
 
 export async function getStaticPaths() {
+  const now = new Date();
   const posts = await getCollection('blog', ({ data }) =>
-    import.meta.env.PROD ? !data.draft : true
+    import.meta.env.PROD ? !data.draft && data.pubDate <= now : true
   );
   return posts.map(post => ({
     params: { slug: post.slug },
