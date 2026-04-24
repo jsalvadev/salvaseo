@@ -305,6 +305,13 @@ const blogSchema = {
     color: rgba(105, 117, 101, 0.18);
   }
 
+  @media (max-width: 639px) {
+    .hero-watermark,
+    .post-num {
+      display: none;
+    }
+  }
+
   .post-body {
     position: relative;
     z-index: 1;
