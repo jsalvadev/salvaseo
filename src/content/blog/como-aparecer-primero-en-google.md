@@ -14,7 +14,7 @@ relatedServices:
 
 El 97% de las webs no consiguen una sola visita desde Google. Eso significa que casi todos los negocios que tienen página web están tirando ese dinero a la basura. La web está, pero no la encuentra nadie.
 
-Si eres fontanero, instalador de ventanas, jardinero o tienes cualquier otro negocio de servicios en Barcelona, probablemente estás en ese 97%. Y no es porque tu trabajo sea malo. Es porque nadie te ha explicado cómo funciona esto.
+Si eres fontanero, instalador de ventanas, jardinero o tienes cualquier otro [negocio de servicios en Barcelona](/), probablemente estás en ese 97%. Y no es porque tu trabajo sea malo. Es porque nadie te ha explicado cómo funciona esto.
 
 Aquí van los 5 pasos que separan a los que aparecen en Google de los que no.
 
@@ -80,4 +80,4 @@ Lo primero es saber dónde estás. Antes de cambiar nada, hay que entender qué 
 
 Cada problema tiene una solución distinta, y empezar por el sitio equivocado es perder tiempo y dinero.
 
-Si quieres que eche un vistazo a tu situación concreta, puedo hacer un diagnóstico gratuito de tu web. Sin compromiso. Te digo exactamente qué está pasando y qué habría que hacer, en lenguaje normal, sin tecnicismos.
+Si quieres que eche un vistazo a tu situación concreta, puedo hacer un [diagnóstico gratuito](/posicionamiento-web-barcelona/) de tu web. Sin compromiso. Te digo exactamente qué está pasando y qué habría que hacer, en lenguaje normal, sin tecnicismos.

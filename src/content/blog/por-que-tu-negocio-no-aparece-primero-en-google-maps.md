@@ -43,7 +43,7 @@ Para mejorar el CTR de tu ficha hay dos cosas que funcionan especialmente bien. 
 
 ### 4. Autoridad: cuánto confía Google en tu negocio
 
-La autoridad es la señal más difícil de construir pero la que más impacto tiene a largo plazo. Google confía más en los negocios que llevan tiempo activos, que tienen reseñas consistentes y que son mencionados en otros sitios de internet.
+La autoridad es la señal más difícil de construir pero la que más impacto tiene a largo plazo, y es el eje central del [SEO local](/seo-local-barcelona/). Google confía más en los negocios que llevan tiempo activos, que tienen reseñas consistentes y que son mencionados en otros sitios de internet.
 
 Las reseñas son el componente principal de la autoridad local. No solo la cantidad, sino la calidad. Una reseña larga, con fotos y escrita por alguien que deja reseñas habitualmente en Google vale mucho más que cinco reseñas cortas de cuentas nuevas.
 
@@ -73,4 +73,4 @@ Hay negocios que consiguen posiciones muy altas con relativamente pocas reseñas
 No le puedes decir al cliente exactamente qué escribir porque Google detecta cuando las reseñas parecen coordinadas. Pero sí puedes pedirle que cuente qué trabajo le hiciste y cómo quedó. Eso es suficiente para que la reseña sea útil tanto para tu posicionamiento como para el siguiente cliente que la lea antes de llamarte.
 
 
-Si quieres saber exactamente en qué posición apareces para las búsquedas más importantes de tu sector y qué está haciendo tu competencia para estar por delante, puedo hacer un análisis gratuito de tu ficha. Sin compromiso. Te digo qué está fallando y qué cambios concretos harían subir tu posición.
+Si quieres saber exactamente en qué posición apareces para las búsquedas más importantes de tu sector y qué está haciendo tu competencia para estar por delante, puedo hacer un [análisis gratuito de tu ficha](/). Sin compromiso. Te digo qué está fallando y qué cambios concretos harían subir tu posición.

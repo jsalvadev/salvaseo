@@ -82,7 +82,7 @@ Si eres fontanero, pon fotos de trabajos terminados. Si tienes una clínica, pon
 
 ## Las reseñas: la clave para expandirte más allá de tu zona
 
-Una vez tienes la ficha bien configurada, empezarás a aparecer en las búsquedas de gente que está cerca de tu negocio. Para expandirte y aparecer en más búsquedas de toda la ciudad, necesitas autoridad. Y la autoridad se construye con reseñas.
+Una vez tienes la ficha bien configurada, empezarás a aparecer en las búsquedas de gente que está cerca de tu negocio. Para expandirte y aparecer en más búsquedas de toda la ciudad, necesitas autoridad. Y la autoridad se construye con reseñas. Es la base del [SEO local en Barcelona](/seo-local-barcelona/).
 
 Las reseñas son el factor que más peso tiene para que Google te muestre por encima de tu competencia cuando alguien busca desde una zona que no está justo al lado de tu negocio.
 
@@ -101,4 +101,4 @@ Para verificarla, Google te pedirá que demuestres que el negocio existe. Depend
 
 Si ya tienes ficha pero no apareces cuando te buscan, el problema casi siempre está en alguno de los puntos de esta guía: la categoría mal elegida, la ficha incompleta, pocas reseñas o una descripción que no menciona lo que realmente haces.
 
-Si quieres que revise tu ficha y te diga exactamente qué está fallando, puedo hacerlo sin compromiso. Te explico qué hay que cambiar y por qué, en lenguaje normal, sin tecnicismos.
+Si quieres que revise tu ficha y te diga exactamente qué está fallando, [puedo hacerlo sin compromiso](/). Te explico qué hay que cambiar y por qué, en lenguaje normal, sin tecnicismos.
