@@ -1,6 +1,6 @@
 ---
 title: "Por qué tu negocio no aparece primero en Google Maps (y cómo cambiar eso)"
-description: "Si tienes ficha en Google Maps pero apareces en la posición 10 o directamente no apareces, este artículo es para ti. Te explico los 4 factores que deciden quién sale primero."
+description: "¿Tienes ficha en Google Maps pero no apareces? Te explico los 4 factores que deciden quién sale primero y qué puedes cambiar esta semana para mejorar tu posición."
 pubDate: 2026-05-13T08:00:00
 tags: ["google maps", "google business profile", "seo local", "posicionamiento local"]
 readingTime: 7
