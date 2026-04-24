@@ -1,7 +1,7 @@
 ---
 title: "Cuánto tarda el SEO en dar resultados: expectativas reales mes a mes"
 description: "El SEO no es inmediato, pero tampoco es tan lento como crees. Te explico qué puedes esperar cada mes para que no desistas antes de ver los resultados."
-pubDate: 2026-06-10T08:00:00
+pubDate: 2026-06-02T08:00:00
 tags: ["seo local", "posicionamiento web", "resultados seo", "negocios locales"]
 readingTime: 5
 draft: false

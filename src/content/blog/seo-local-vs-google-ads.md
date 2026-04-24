@@ -1,7 +1,7 @@
 ---
 title: "SEO local o Google Ads: qué le conviene más a tu negocio en Barcelona"
 description: "¿Deberías invertir en SEO o en Google Ads para conseguir más clientes? Te explico las diferencias reales, cuándo usar cada uno y por qué no son lo mismo."
-pubDate: 2026-06-03T08:00:00
+pubDate: 2026-05-26T08:00:00
 tags: ["seo local", "google ads", "posicionamiento web", "negocios locales", "barcelona"]
 readingTime: 6
 draft: false

@@ -1,7 +1,7 @@
 ---
 title: "Cómo saber si tu web aparece en Google (y qué hacer si no aparece)"
 description: "Google Search Console es la herramienta gratuita que te dice si Google encuentra tu web y cómo te está buscando la gente. Te explico cómo usarla en 10 minutos."
-pubDate: 2026-05-06T08:00:00
+pubDate: 2026-05-05T08:00:00
 tags: ["google search console", "posicionamiento web", "seo local", "negocios locales"]
 readingTime: 6
 draft: false

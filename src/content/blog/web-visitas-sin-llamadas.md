@@ -1,7 +1,7 @@
 ---
 title: "Tu web tiene visitas pero nadie te llama: por qué pasa y cómo arreglarlo"
 description: "Tener visitas en tu web no significa tener clientes. Si Google Analytics muestra tráfico pero el teléfono no suena, el problema casi siempre está en uno de estos puntos."
-pubDate: 2026-06-17T08:00:00
+pubDate: 2026-06-09T08:00:00
 tags: ["posicionamiento web", "seo local", "conversión web", "negocios locales"]
 readingTime: 6
 draft: false

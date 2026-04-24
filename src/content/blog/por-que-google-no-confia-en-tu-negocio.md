@@ -1,7 +1,7 @@
 ---
 title: "Por qué Google no confía en tu negocio (y cómo cambiar eso)"
 description: "Tener web y ficha de Google Maps no es suficiente. Google necesita señales de que tu negocio es real y de confianza. Te explico qué son y cómo conseguirlas."
-pubDate: 2026-05-27T08:00:00
+pubDate: 2026-05-19T08:00:00
 tags: ["autoridad web", "seo local", "google maps", "posicionamiento local", "negocios locales"]
 readingTime: 6
 draft: false

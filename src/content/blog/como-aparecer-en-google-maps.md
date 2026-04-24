@@ -1,7 +1,7 @@
 ---
 title: "Cómo aparecer en Google Maps: guía de Google Business Profile para negocios locales"
 description: "Si tu negocio no aparece en Google Maps estás perdiendo llamadas cada día. Aprende a crear y optimizar tu ficha para aparecer antes que tu competencia. Sin tecnicismos."
-pubDate: 2026-04-29T08:00:00
+pubDate: 2026-04-28T08:00:00
 tags: ["google business profile", "google maps", "seo local", "negocios locales"]
 readingTime: 7
 draft: false
