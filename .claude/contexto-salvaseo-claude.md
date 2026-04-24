@@ -76,9 +76,8 @@ El comentario se borra antes de publicar. Sirve como briefing para buscar o gene
 ---
 title: "Título del artículo"
 description: "Meta description (~155 chars)"
-pubDate: 2026-04-23
+pubDate: 2026-04-23T08:00:00
 updatedDate: 2026-04-25        # opcional
-category: "fundamentos-seo"    # ver categorías válidas abajo
 tags: ["tag 1", "tag 2"]
 readingTime: 7                 # número entero, minutos
 draft: false
@@ -91,16 +90,6 @@ relatedServices:
 ---
 ```
 
-**Categorías válidas:**
-
-| slug | label |
-|---|---|
-| `fundamentos-seo` | Fundamentos SEO |
-| `seo-local` | SEO Local |
-| `tecnico` | SEO Técnico |
-| `contenidos` | Contenido y Keywords |
-| `herramientas` | Herramientas SEO |
-
 **Servicios relacionados disponibles:**
 
 | label | href |
@@ -111,19 +100,50 @@ relatedServices:
 
 ---
 
-## Flujo de trabajo acordado
+## Estructura de enlazado interno
+
+Cada artículo tiene que incluir obligatoriamente:
+
+**Dentro del cuerpo del texto:**
+- 1 enlace con texto ancla relacionado con "conseguir más llamadas y más clientes" o similar → `/posicionamiento-web-barcelona/`
+- 1 enlace con texto ancla relacionado con "puedo hacerlo sin compromiso" o similar → `/` (homepage)
+
+Ambos enlaces van en el párrafo de cierre del artículo, de forma natural dentro del texto. Ejemplo real:
+> "Saber lo que está pasando en tu web es el primer paso. El segundo es saber qué hacer con esa información para [conseguir más llamadas y más clientes](/posicionamiento-web-barcelona/). Si quieres que revise cómo está funcionando tu web en Google y te explique qué oportunidades concretas tienes en tu sector, [puedo hacerlo sin compromiso](/). Te digo exactamente qué está pasando y qué habría que cambiar, en lenguaje normal."
+
+**Al final del artículo (campo relatedServices del frontmatter):**
+- Botón 1 → `Posicionamiento Web Barcelona` / `/posicionamiento-web-barcelona/`
+- Botón 2 → `SEO Local Barcelona` / `/seo-local-barcelona/`
+
+---
+
+
+
+1. Salva pasa transcripción + keyword objetivo a Claude
+2. Claude genera el artículo `.md` listo para publicar
+3. Salva sube el `.md` al repositorio de GitHub
+4. Cloudflare Pages despliega automáticamente
+5. Google indexa solo vía sitemap
+
+**Google Search Console** se usa de forma puntual para acelerar la indexación de algún artículo concreto, no es obligatorio hacerlo cada vez.
+
+---
+
+
 
 1. Salva pasa la transcripción de un vídeo de YouTube (principalmente canal de Dani Llamazares)
 2. Claude extrae la idea principal y la estructura, descarta lo que no aplica a Paco
 3. Claude reescribe completamente en tono SalvaSEO (no copia el vídeo)
-4. Se publica **1 artículo por semana**, martes o miércoles entre las 8h y las 10h
-5. Trabajo en lotes de 4 artículos (un mes) para programar con scheduled
+- **1 artículo por semana**, publicación los martes a las 8:00h
+- El `pubDate` siempre con hora: `2026-04-29T08:00:00`
+- Trabajo en lotes de 4 artículos para programar un mes de golpe
 
 **Lo que se descarta siempre de las transcripciones:**
 - Herramientas de pago (Dinorank, Ahrefs, SEMrush, etc.)
 - Flujos técnicos complejos que Paco nunca va a ejecutar
 - Menciones a e-commerce, blogs o proyectos que no sean negocios locales de servicios
 - Autopromoción del autor del vídeo
+- Años concretos (2023, 2024, 2025...). Se sustituyen por "actualmente", "hoy en día" o se elimina la referencia temporal
 
 ---
 
