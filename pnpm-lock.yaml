@@ -44,9 +44,6 @@ importers:
       vanilla-cookieconsent:
         specifier: 3.1.0
         version: 3.1.0
-      wa-chat-widget:
-        specifier: ^1.0.3
-        version: 1.0.3
 
 packages:
 
@@ -1971,9 +1968,6 @@ packages:
     peerDependenciesMeta:
       vite:
         optional: true
-
-  wa-chat-widget@1.0.3:
-    resolution: {integrity: sha512-tKD6K3L01Bqd3zSkNWfkUw0hXpLZ/+5C5NkFD+lLhTG1P1Iuwf4PXOuExLiLJ+mtuVpGagmi0Zq6urCMOQV7Fw==}
 
   web-namespaces@2.0.1:
     resolution: {integrity: sha512-bKr1DkiNa2krS7qxNtdrtHAmzuYGFQLiQ13TsorsdT6ULTkPLKuu5+GsFpDlg6JFjUTwX2DyhMPG2be8uPrqsQ==}
@@ -4016,8 +4010,6 @@ snapshots:
   vitefu@1.1.1(vite@6.4.1(jiti@2.6.1)(lightningcss@1.31.1)):
     optionalDependencies:
       vite: 6.4.1(jiti@2.6.1)(lightningcss@1.31.1)
-
-  wa-chat-widget@1.0.3: {}
 
   web-namespaces@2.0.1: {}
 

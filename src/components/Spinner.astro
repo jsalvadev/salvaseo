@@ -29,6 +29,23 @@
     spinner.style.pointerEvents = "none";
   }
 
-  document.addEventListener("astro:before-preparation", show);
-  document.addEventListener("astro:after-swap", hide);
+  document.addEventListener("click", (e) => {
+    const a = (e.target as Element).closest("a");
+    if (!a) return;
+    const href = a.getAttribute("href");
+    if (!href) return;
+    // Only internal same-origin links, skip anchors and mailto/tel
+    if (href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:")) return;
+    if (a.target === "_blank") return;
+    try {
+      const url = new URL(href, location.href);
+      if (url.origin !== location.origin) return;
+      if (url.pathname === location.pathname) return;
+    } catch {
+      return;
+    }
+    show();
+  });
+
+  window.addEventListener("pageshow", hide);
 </script>
