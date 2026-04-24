@@ -89,11 +89,6 @@ const blogSchema = {
 
                     <div class="post-body">
                       <div class="post-meta">
-                        <div class="post-tags">
-                          {(post.data.tags ?? []).slice(0, 2).map((tag: string) => (
-                            <span class="post-tag">{tag}</span>
-                          ))}
-                        </div>
                         <div class="post-meta-right">
                           <time datetime={post.data.pubDate.toISOString()} class="post-date">
                             {dateFormatted}

@@ -117,12 +117,6 @@ const updatedDateFormatted = updatedDate?.toLocaleDateString('es-ES', {
           <a href="/blog/">Blog SEO</a>
         </nav>
 
-        {tags.length > 0 && (
-          <div class="header-tags">
-            {tags.map(tag => <span class="header-tag">{tag}</span>)}
-          </div>
-        )}
-
         <h1>{title}</h1>
 
         <p class="post-lead">{description}</p>
@@ -176,12 +170,6 @@ const updatedDateFormatted = updatedDate?.toLocaleDateString('es-ES', {
         <slot />
       </div>
 
-      {tags.length > 0 && (
-        <div class="tags-footer">
-          <span class="tags-label">Temas</span>
-          {tags.map(tag => <span class="tag-pill">{tag}</span>)}
-        </div>
-      )}
     </div>
 
     <!-- ── Related services CTA ───────────────────────── -->
